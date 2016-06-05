@@ -1,0 +1,3 @@
+DocInfo/DescLong=Shared Data for Night of the Dead.<n/><n/>www.notdstarcraft.com<n/><n/>Last Update: 24 August 2014
+DocInfo/DescShort=Any
+DocInfo/Name=Night of the Dead Asset Data
