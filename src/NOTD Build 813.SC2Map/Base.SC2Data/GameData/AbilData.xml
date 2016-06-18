@@ -160,6 +160,7 @@
         <BehaviorArray value="BoomHeadshotLevel2"/>
         <LevelButtonOnTooltip value="Behavior/Tooltip/BoomHeadshotLevel2"/>
         <Flags index="BestUnit" value="1"/>
+        <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
     </CAbilBehavior>
     <CAbilBuild id="BuildEngineer">
@@ -4943,8 +4944,8 @@
             <Vital index="Energy" value="20"/>
             <Charge Link="AbilRogueGhostCloak2"/>
         </Cost>
-        <BehaviorArray value="SpectreCloaking"/>
-        <BehaviorArray value="SpectreCloaking2"/>
+        <BehaviorArray value="StealthMatrix"/>
+        <BehaviorArray value="StealthMatrix2"/>
         <LevelButtonOnTooltip value="Level 2 - Cloak"/>
     </CAbilBehavior>
     <CAbilBehavior id="Sadist">
