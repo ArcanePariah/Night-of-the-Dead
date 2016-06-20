@@ -8,8 +8,7 @@
     </Icon>
     <Dependencies>
         <Value>bnet:Liberty (Campaign)/0.0/999,file:Campaigns/Liberty.SC2Campaign</Value>
-        <Value>bnet:Night of the Dead Asset Data/0.0/190127,file:Mods/Night of the Dead Assets.SC2Mod</Value>
-        <Value>bnet:Swarm (Mod)/0.0/999,file:Mods/Swarm.SC2Mod</Value>
+        <Value>bnet:Night of the Dead Asset Data/0.0/190127,file:Mods/Night of the Dead/bin/Night of the Dead Assets.SC2Mod</Value>
         <Value>bnet:Swarm (Campaign)/0.0/999,file:Campaigns/Swarm.SC2Campaign</Value>
         <Value>bnet:Swarm Story (Campaign)/0.0/999,file:Campaigns/SwarmStory.SC2Campaign</Value>
     </Dependencies>
