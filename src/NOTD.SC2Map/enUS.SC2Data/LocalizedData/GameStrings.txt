@@ -1,4 +1,4 @@
-Abil/Name/Adrenaline=Adrenaline
+﻿Abil/Name/Adrenaline=Adrenaline
 Abil/Name/AirStrike=Air Strike
 Abil/Name/AmmoFeedDummy=Ammo Feed (Dummy)
 Abil/Name/AntiVenom=Anti-Venom
@@ -2333,6 +2333,9 @@ DocInfo/PatchNote026=- New lighting sets for every occasion (Kithirxx)
 DocInfo/PatchNote027=- mert (Kithrixx)
 DocInfo/PatchNote028=- NOTD 2 hype added (Kithrixx)
 DocInfo/PatchNote029=-Minor QoL changes  (Blaqk)
+DocInfo/PatchNote030=- Fixed Boom Headshot
+DocInfo/PatchNote031=- Fixed Recon Stealth Matrix
+DocInfo/PatchNote032=- Fixed UI textures
 DocInfo/PatchNote073=- Increased ambient spawns of basic zombies slightly in Alpha Company storyline
 DocInfo/PatchNote074=- Corrosive Acid maximum stack increased from 5 to 10
 DocInfo/Screenshot01=Employ your wit to fight bosses
