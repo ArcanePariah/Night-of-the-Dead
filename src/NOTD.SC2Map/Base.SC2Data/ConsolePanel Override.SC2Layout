@@ -39,7 +39,7 @@
             <Anchor side="Left" relative="$parent" pos="Mid" offset="-662"/>
             <Width val="44"/>
             <Height val="234"/>
-            <Texture val="@@UI/StandardLargeGlueBucketLeft"/>
+            <Texture val="Assets\Textures\ui_battlenet_challenge_frame_bucket_long_left.dds"/>
             <TextureType val="Normal"/>
             <Tiled val="false"/>
             <LayerColor val="205,205,205"/>
@@ -54,7 +54,7 @@
             <Anchor side="Left" relative="$parent" pos="Mid" offset="-618"/>
             <Width val="1236"/>
             <Height val="234"/>
-            <Texture val="@@UI/StandardLargeGlueBucketMiddle"/>
+            <Texture val="Assets\Textures\ui_battlenet_challenge_frame_bucket_long_middle.dds"/>
             <TextureType val="Normal"/>
             <Tiled val="false"/>
             <LayerColor val="205,205,205"/>
@@ -69,7 +69,7 @@
             <Anchor side="Left" relative="$parent" pos="Mid" offset="613"/>
             <Width val="41"/>
             <Height val="234"/>
-            <Texture val="@@UI/StandardLargeGlueBucketRight"/>
+            <Texture val="Assets\Textures\ui_battlenet_challenge_frame_bucket_long_right.dds"/>
             <TextureType val="Normal"/>
             <Tiled val="false"/>
             <LayerColor val="205,205,205"/>
