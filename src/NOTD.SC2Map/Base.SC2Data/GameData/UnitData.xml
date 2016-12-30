@@ -2575,14 +2575,7 @@
             </LayoutButtons>
             <LayoutButtons index="2" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons index="3" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="4">
-                <Face value="Attack"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="attack,Execute"/>
-                <Requirements value="UseReaperU238Rounds"/>
-                <Row value="0"/>
-                <Column value="1"/>
-            </LayoutButtons>
+            <LayoutButtons index="4" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons index="5" Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="Sprint2" Type="AbilCmd" AbilCmd="Sprint2,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
@@ -3052,12 +3045,6 @@
         <Race value="Terr"/>
         <Mover value="UltrasonicPulseWeapon"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
-        <TacticalAI value="UltrasonicPulseWeapon"/>
-        <AIEvaluateAlias value="UltrasonicPulseWeapon"/>
-        <ReviveInfoBase>
-            <Charge Link="UltrasonicPulseWeapon/Revive"/>
-            <Cooldown Link="UltrasonicPulseWeapon/Revive"/>
-        </ReviveInfoBase>
         <Attributes index="Structure" value="1"/>
     </CUnit>
     <CUnit id="KineticCatapultMissile" parent="MISSILE_INVULNERABLE">
