@@ -3064,12 +3064,6 @@
         <Race value="Terr"/>
         <Mover value="KineticCatapult"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
-        <TacticalAI value="UltrasonicPulseWeapon"/>
-        <AIEvaluateAlias value="UltrasonicPulseWeapon"/>
-        <ReviveInfoBase>
-            <Charge Link="UltrasonicPulseWeapon/Revive"/>
-            <Cooldown Link="UltrasonicPulseWeapon/Revive"/>
-        </ReviveInfoBase>
     </CUnit>
     <CUnit id="ThorWreckage">
         <FlagArray index="Unselectable" value="1"/>
@@ -3079,32 +3073,16 @@
     <CUnit id="TrickShotAmmoFourth" parent="MISSILE">
         <Mover value="TrickShotMover"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
-        <TacticalAI value="TrickShotAmmoFirst"/>
-        <AIEvaluateAlias value="TrickShotAmmoFirst"/>
-        <ReviveInfoBase>
-            <Charge Link="TrickShotAmmoFirst/Revive"/>
-            <Cooldown Link="TrickShotAmmoFirst/Revive"/>
-        </ReviveInfoBase>
         <FlagArray index="Invulnerable" value="1"/>
     </CUnit>
     <CUnit id="TrickShotAmmoSecond" parent="MISSILE">
-        <ReviveType value="TrickShotAmmoFirst"/>
         <Mover value="TrickShotMover"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
-        <TacticalAI value="TrickShotAmmoFirst"/>
-        <SelectAlias value="TrickShotAmmoFirst"/>
-        <SubgroupAlias value="TrickShotAmmoFirst"/>
-        <AIEvaluateAlias value="TrickShotAmmoFirst"/>
         <FlagArray index="Invulnerable" value="1"/>
     </CUnit>
     <CUnit id="TrickShotAmmoThird" parent="MISSILE">
-        <ReviveType value="TrickShotAmmoFirst"/>
         <Mover value="TrickShotMover"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
-        <TacticalAI value="TrickShotAmmoFirst"/>
-        <SelectAlias value="TrickShotAmmoFirst"/>
-        <SubgroupAlias value="TrickShotAmmoFirst"/>
-        <AIEvaluateAlias value="TrickShotAmmoFirst"/>
         <FlagArray index="Invulnerable" value="1"/>
     </CUnit>
     <CUnit id="TychusChaingun">
