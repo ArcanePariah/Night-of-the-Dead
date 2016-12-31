@@ -11395,23 +11395,17 @@ bool auto_gf_StatsModDamage_TriggerFunc (bool testConds, bool runActions) {
     lv_dataDamageName[15] = "L3GrenadeExplosionDummy";
     IntLoopBegin(0, 15);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        lv_damage = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, lv_dataDamageName[IntLoopCurrent()], "Amount", 0));
-        lv_damage += gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage);
-        CatalogFieldValueSet(c_gameCatalogEffect, lv_dataDamageName[IntLoopCurrent()], "Amount", lp_modOwner, FixedToString(lv_damage, 2));
+        CatalogFieldValueModify(c_gameCatalogEffect, lv_dataDamageName[IntLoopCurrent()], "Amount", lp_modOwner, FixedToString(gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage), 2), c_upgradeOperationMultiply);
         autoADBAFCF5_ae = 9;
         autoADBAFCF5_ai = 1;
         lv_iLocal = 0;
         for ( ; ( (autoADBAFCF5_ai >= 0 && lv_iLocal <= autoADBAFCF5_ae) || (autoADBAFCF5_ai <= 0 && lv_iLocal >= autoADBAFCF5_ae) ) ; lv_iLocal += autoADBAFCF5_ai ) {
-            lv_attributeString = ("AttributeBonus[" + (IntToString(lv_iLocal) + "]"));
-            lv_damage = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, lv_dataDamageName[IntLoopCurrent()], lv_attributeString, 0));
-            lv_damage += gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage);
-            CatalogFieldValueSet(c_gameCatalogEffect, lv_dataDamageName[IntLoopCurrent()], lv_attributeString, lp_modOwner, FixedToString(lv_damage, 2));
+            CatalogFieldValueModify(c_gameCatalogEffect, lv_dataDamageName[IntLoopCurrent()], "AttributeBonus[" + IntToString(lv_iLocal) + "]", lp_modOwner, FixedToString(gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage), 2), c_upgradeOperationMultiply);
         }
     }
     IntLoopEnd();
     if ((UnitIsAlive(gv_marineHero[lp_modOwner]) == true) && (UnitGetType(gv_marineHero[lp_modOwner]) == "Flamethrower3")) {
         lv_damage = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, "InfernalFlameThrower", "Amount", 0));
-        gf_RadioNOTD(null, null);
         autoDB41F6A6_val = gv_talentLevel[1][lp_modOwner];
         if (autoDB41F6A6_val == 1) {
             lv_damage *= 1.1;
@@ -11428,16 +11422,14 @@ bool auto_gf_StatsModDamage_TriggerFunc (bool testConds, bool runActions) {
     else {
         lv_damage = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, "InfernalFlameThrower", "Amount", 0));
     }
-    lv_damage += gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage);
+    lv_damage *= gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage);
     CatalogFieldValueSet(c_gameCatalogEffect, "InfernalFlameThrower", "Amount", lp_modOwner, FixedToString(lv_damage, 2));
-    if ((UnitIsAlive(gv_marineHero[lp_modOwner]) == true) && (UnitGetType(gv_marineHero[lp_modOwner]) == "Pathfinder")) {
-        lv_damage = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", 0));
+    lv_damage = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", 0));
+    if ((UnitGetType(gv_marineHero[lp_modOwner]) == "Pathfinder")) {
         lv_damage += ((gv_talentLevel[3][lp_modOwner] * 6) + (gv_talentLevel[3][lp_modOwner] * 6));
     }
-    else {
-        lv_damage = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", 0));
-    }
-    lv_damage += gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage);
+
+    lv_damage *= gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage);
     CatalogFieldValueSet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", lp_modOwner, FixedToString(lv_damage, 2));
     return true;
 }
@@ -11451,9 +11443,7 @@ fixed gf_CalculateModBonusDamage (int lp_damageModLevel, fixed lp_damage) {
     lv_damageBonusPercentage = 5.0;
 
     // Implementation
-    lv_damageIncrement = (lp_damage * (lp_damageModLevel * lv_damageBonusPercentage));
-    lv_damageIncrement /= 10.0;
-    lv_damageIncrement /= 10.0;
+    lv_damageIncrement = (1.0 + ((lp_damageModLevel * lv_damageBonusPercentage) / 100.0));
     return lv_damageIncrement;
 }
 
