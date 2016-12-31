@@ -1242,6 +1242,8 @@
     <CActorRange id="PlasmaCutterRange" parent="RangeAbil" abil="">
         <On index="1" Terms="Abil.PlasmaCutterOvercharge.TargetOn" Send="Create"/>
         <On index="2" Terms="Abil.PlasmaCutterOvercharge.TargetOff" Send="Destroy"/>
+        <On index="3" Terms="Abil.ButtonHoverOn" Send="Create"/>
+        <On index="4" Terms="Abil.ButtonHoverOff" Send="Destroy"/>
         <On Terms="Abil.PlasmaCutterOvercharge2.TargetOn" Send="Create"/>
         <On Terms="Abil.PlasmaCutterOvercharge3.TargetOn" Send="Create"/>
         <On Terms="Abil.PlasmaCutterOvercharge2.TargetOff" Send="Destroy"/>
@@ -1313,6 +1315,8 @@
     <CActorRange id="RampageRange" parent="RangeAbil" abil="">
         <On index="1" Terms="Abil.Rampage.TargetOn" Send="Create"/>
         <On index="2" Terms="Abil.Rampage.TargetOff" Send="Destroy"/>
+        <On index="3" Terms="Abil.ButtonHoverOn" Send="Create"/>
+        <On index="4" Terms="Abil.ButtonHoverOff" Send="Destroy"/>
         <Range value="7.000000"/>
         <RangeFlags index="Minimap" value="1"/>
     </CActorRange>
@@ -2229,16 +2233,16 @@
         <On index="27" Terms="FlyerHelperChange; FlyerHelper All; ValidateUnit IsFlying; !ScopeContains FlyerHelperSplat" Send="Create FlyerHelperSplat"/>
         <On index="28" Terms="UnitBirth.*.Normal" Target="" Send="$Birth 0 0.000000"/>
         <On index="29" Terms="UnitFidget" Target="FlyerHelperSplat" Send="AnimPlay Fidget Fidget"/>
-        <On index="30" Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Fidget"/>
+        <On index="30" Terms="UnitMovementUpdate.*.Walk" Target="FlyerHelperSplat" Send="AnimClear Fidget"/>
         <On index="31" Terms="UnitDetectedByViewer.*.On; ValidateUnit IsHallucination" Target="_HallucinationTinter" Send="Signal HallucinationTintOn"/>
         <On index="32" Terms="UnitDetectedByViewer.*.Off; ValidateUnit IsHallucination" Target="_HallucinationTinter" Send="Signal HallucinationTintOff"/>
-        <On index="33" Terms="UnitDeathCustomize; ValidateUnit HasAntiGravProtoss" Send="DeathCustomize AntiGravProtoss"/>
+        <On index="33" Terms="UnitDeathCustomize; ValidateUnit HasAntiGravProtoss" Target="FlyerHelperSplat" Send="DeathCustomize AntiGravProtoss"/>
         <On index="34" Terms="UnitDeathCustomize; ValidateUnit HasAntiGravTerran" Send="DeathCustomize AntiGravTerran"/>
         <On index="35" Terms="UnitDeathCustomize; ValidateUnit HasAntiGravZerg" Send="DeathCustomize AntiGravZerg"/>
         <On index="36" Terms="UnitDeathCustomize; ValidateUnit HasEitherAntiGrav" Target="_HallucinationTinter" Send="DeathCustomize AntiGravGeneric"/>
         <On index="37" Terms="Behavior.PhoenixAntiGrav.On" Target="_HallucinationTinter" Send="ModelSuddenMotionStart"/>
-        <On index="38" Terms="Behavior.PhoenixAntiGrav.Off" Send="ModelSuddenMotionStop"/>
-        <On index="39" Terms="UnitTaunt.*.Start; Taunt" Send="AnimPlay Cheer Stand,Victory"/>
+        <On index="38" Terms="Behavior.PhoenixAntiGrav.Off" Target="_HallucinationTinter" Send="ModelSuddenMotionStop"/>
+        <On index="39" Terms="UnitTaunt.*.Start; Taunt" Target="_HallucinationTinter" Send="AnimPlay Cheer Stand,Victory"/>
         <On index="40" Terms="UnitTaunt.*.Stop; Taunt" Send="AnimClear Cheer"/>
         <On index="41" Terms="UnitTaunt.*.Start; Taunt Dance" Send="AnimPlay Dance Stand,Dance"/>
         <On index="42" Terms="UnitTaunt.*.Stop; Taunt Dance" Send="AnimClear Dance"/>
@@ -3061,7 +3065,6 @@
         <StatusBarGroups index="Allied" value="0"/>
         <StatusBarGroups index="Enemy" value="0"/>
         <StatusBarGroups index="All" value="0"/>
-        <StatusBarGroups index="Replay" value="0"/>
         <StatusBarFlags index="Shields" value="0"/>
         <BarHeight value="6"/>
         <HeroIcon value="Assets\Textures\Wireframe-critter-utilitybot.dds"/>
@@ -3109,7 +3112,7 @@
         <On index="23" Terms="ActorCreation; FlyerHelper All; ValidateUnit IsFlying" Send="Create FlyerHelperSplat"/>
         <On index="24" Terms="ActorDestruction; FlyerHelper All; !HasStatus FlyerHelper" Target="FlyerHelperSplat" Send="Destroy"/>
         <On index="25" Terms="FlyerHelperChange; FlyerHelper None"/>
-        <On index="26" Terms="FlyerHelperChange; FlyerHelper Selected; HasStatus FlyerHelper; !ScopeContains FlyerHelperSplat" Target="" Send="Create FlyerHelperSplat"/>
+        <On index="26" Terms="FlyerHelperChange; FlyerHelper Selected; HasStatus FlyerHelper; !ScopeContains FlyerHelperSplat"/>
         <On index="27" Terms="FlyerHelperChange; FlyerHelper Selected; !HasStatus FlyerHelper" Target="FlyerHelperSplat" Send="Destroy"/>
         <On index="28" Terms="FlyerHelperChange; FlyerHelper All; ValidateUnit IsFlying; !ScopeContains FlyerHelperSplat" Target="" Send="Create FlyerHelperSplat"/>
         <On index="29" Terms="UnitBirth.*.Normal" Send="$Birth 0 0.000000"/>
@@ -3121,8 +3124,8 @@
         <On index="35" Terms="UnitDeathCustomize; ValidateUnit HasAntiGravTerran" Send="DeathCustomize AntiGravTerran"/>
         <On index="36" Terms="UnitDeathCustomize; ValidateUnit HasAntiGravZerg" Target="_HallucinationTinter" Send="DeathCustomize AntiGravZerg"/>
         <On index="37" Terms="UnitDeathCustomize; ValidateUnit HasEitherAntiGrav" Target="_HallucinationTinter" Send="DeathCustomize AntiGravGeneric"/>
-        <On index="38" Terms="Behavior.PhoenixAntiGrav.On" Send="ModelSuddenMotionStart"/>
-        <On index="39" Terms="Behavior.PhoenixAntiGrav.Off" Send="ModelSuddenMotionStop"/>
+        <On index="38" Terms="Behavior.PhoenixAntiGrav.On" Target="_HallucinationTinter" Send="ModelSuddenMotionStart"/>
+        <On index="39" Terms="Behavior.PhoenixAntiGrav.Off" Target="_HallucinationTinter" Send="ModelSuddenMotionStop"/>
         <On index="40" Terms="UnitTaunt.*.Start; Taunt" Send="AnimPlay Cheer Stand,Victory"/>
         <On index="41" Terms="UnitTaunt.*.Stop; Taunt" Send="AnimClear Cheer"/>
         <On index="42" Terms="UnitTaunt.*.Start; Taunt Dance" Send="AnimPlay Dance Stand,Dance"/>
@@ -3969,7 +3972,6 @@
         <StatusBarGroups index="Allied" value="0"/>
         <StatusBarGroups index="Enemy" value="0"/>
         <StatusBarGroups index="All" value="0"/>
-        <StatusBarGroups index="Replay" value="0"/>
         <StatusBarFlags index="Shields" value="0"/>
         <BarHeight value="6"/>
         <HeroIcon value="Assets\Textures\Wireframe-critter-utilitybot.dds"/>
@@ -5621,7 +5623,7 @@
     <CActorModel id="HulkingHorrorHead" parent="ModelAddition" unitName="Leviathan">
         <On index="0" Terms="UnitBirth.Hades" Send="Create"/>
         <On index="1" Terms="UnitDeath.Hades" Send="Destroy"/>
-        <On index="2" Terms="ActorCreation" Send="AnimPlaySequence Attach GLStand"/>
+        <On index="2" Terms="ActorCreation" Send="AnimPlaySequence Attach GLStand PlayForever,NonLooping"/>
         <Host Subject="Hades"/>
         <HostSiteOps Ops="SOpHH_Head SOpHH_HeadOffset SOpHH_HeadTilt"/>
         <Scale value="2.000000"/>
@@ -6258,7 +6260,6 @@
         <AnimBlendTime value="0.400000"/>
         <HostedAttaches Name="TentacleAttackLeft">
             <AttachQuery Methods="AMFilterWeapon"/>
-            <Host Scope="Source" Actor="Find" Effect="ImpalerTentacleL1Missile"/>
         </HostedAttaches>
     </CActorModel>
     <CActorUnit id="HadesTentacle" parent="SpineCrawler" unitName="HadesTentacle">
@@ -6325,6 +6326,9 @@
         <On index="112" removed="1"/>
         <On index="113" removed="1"/>
         <On index="114" removed="1"/>
+        <On index="115" removed="1"/>
+        <On index="116" removed="1"/>
+        <On index="117" removed="1"/>
         <Scale value="2.000000"/>
         <EventDataFootprint index="0" Model="HadesTentacleFootprint"/>
         <DeathArray index="Normal" ModelLink="HadesTentacle" VoiceLink="HadesTentacleDeathVoice"/>
@@ -6395,7 +6399,6 @@
         <AnimBlendTime value="0.400000"/>
         <HostedAttaches Name="TentacleAttackRight">
             <AttachQuery Methods="AMFilterWeapon"/>
-            <Host Scope="Source" Actor="Find" Effect="ImpalerTentacleR1Missile"/>
         </HostedAttaches>
     </CActorModel>
     <CActorMissile id="SpineR1Missile" parent="GenericTentacleMissile" unitName="ImpalerTentacleR1">
@@ -7209,6 +7212,10 @@
         <On index="66" removed="1"/>
         <On index="67" removed="1"/>
         <On index="68" removed="1"/>
+        <On index="69" removed="1"/>
+        <On index="70" removed="1"/>
+        <On index="71" removed="1"/>
+        <On index="72" removed="1"/>
     </CActorUnit>
     <CActorAction id="GuardianBladeAttack" parent="GenericAttack" effectAttack="PsiBlades">
         <On index="0" Terms="Effect.GuardianBladeDamage.Stop; FromEffectTreeDescendant" Send="ActionImpactPhysics"/>
@@ -7422,6 +7429,10 @@
         <On index="58" removed="1"/>
         <On index="59" removed="1"/>
         <On index="60" removed="1"/>
+        <On index="61" removed="1"/>
+        <On index="62" removed="1"/>
+        <On index="63" removed="1"/>
+        <On index="64" removed="1"/>
         <Scale value="0.450000,0.450000,0.400000"/>
         <DeathArray index="Normal" ModelLink="ArchonDeath" SoundLink="Archon_Explode" VoiceLink="ArchonDeathVoice"/>
         <DeathArray index="UnderConstruction" ModelLink="ProtossMediumUnitDeath" SoundLink="Archon_Explode"/>
@@ -7489,6 +7500,10 @@
         <On index="79" removed="1"/>
         <On index="80" removed="1"/>
         <On index="81" removed="1"/>
+        <On index="82" removed="1"/>
+        <On index="83" removed="1"/>
+        <On index="84" removed="1"/>
+        <On index="85" removed="1"/>
         <Macros value="Shrinker"/>
     </CActorUnit>
     <CActorSound id="Sound2" parent="SoundOneShot">
@@ -8956,7 +8971,7 @@
         <On index="23" Terms="AbilMorph.*.Finish; MorphTo InfestedWorm" Send="Create"/>
         <On index="24" Terms="AbilMorph.*.Start; MorphFrom InfestedWorm" Send="Destroy"/>
         <On index="25" Terms="UnitDeathCustomize; ValidateUnit HasZergGenericDeath" Send="DeathCustomize Detached"/>
-        <On index="26" Terms="UnitBirth.InfestedWorm" Target="" Send="$Birth,07"/>
+        <On index="26" Terms="UnitBirth.InfestedWorm" Send="$Birth,07"/>
         <On index="27" Terms="UnitDeath" Send="Create TriggeredExplosion"/>
         <On index="28" Terms="UnitDeath" Target="" Send="Signal ZergLarge"/>
         <On index="29" removed="1"/>
@@ -8993,6 +9008,10 @@
         <On index="60" removed="1"/>
         <On index="61" removed="1"/>
         <On index="62" removed="1"/>
+        <On index="63" removed="1"/>
+        <On index="64" removed="1"/>
+        <On index="65" removed="1"/>
+        <On index="66" removed="1"/>
         <Model value="NydusCanal"/>
         <Scale value="0.500000"/>
         <BuildModel value="NydusRumble"/>
@@ -14439,6 +14458,10 @@
         <On index="64" removed="1"/>
         <On index="65" removed="1"/>
         <On index="66" removed="1"/>
+        <On index="67" removed="1"/>
+        <On index="68" removed="1"/>
+        <On index="69" removed="1"/>
+        <On index="70" removed="1"/>
     </CActorUnit>
     <CActorUnit id="InfestedAbomination2" parent="GenericUnitBase" unitName="Erebos">
         <Macros value="ZergBurrowStandardAnimMacro"/>
@@ -15042,7 +15065,6 @@
         <Scale value="0.800000"/>
     </CActorUnit>
     <CActorModel id="RailgunCursorModel">
-        <On index="3" Terms="ActorOrphan" Send="Destroy"/>
         <On index="4" removed="1"/>
         <On index="5" removed="1"/>
         <On index="6" removed="1"/>
@@ -15305,8 +15327,8 @@
         <On index="77" Terms="Behavior.SpectreCloaking.Off" Target="::PortraitGameSelf" Send="AnimBracketStop Visor"/>
         <On index="78" Terms="Behavior.SpectreCloakingFree.On" Target="::PortraitGameSelf" Send="AnimBracketStart Visor Morph,Start Morph,Stand Morph,End"/>
         <On index="79" Terms="Behavior.SpectreCloakingFree.Off" Target="::PortraitGameSelf" Send="AnimBracketStop Visor"/>
-        <On index="80" Terms="Abil.Refresher.SourceCastStart" Target="" Send="SetTintColor {141,163,245 10.000000}"/>
-        <On index="81" Terms="Abil.Refresher.SourceCastStart" Target="" Send="TimerSet 4.000000 Timer"/>
+        <On index="80" Terms="Abil.Refresher.SourceCastStart" Send="SetTintColor {141,163,245 10.000000}"/>
+        <On index="81" Terms="Abil.Refresher.SourceCastStart" Send="TimerSet 4.000000 Timer"/>
         <On index="82" Terms="TimerExpired; TimerName Timer" Target="" Send="ClearTintColor 3.000000"/>
         <On index="83" Terms="Abil.CounterMeasures.SourceCastStart" Target="" Send="AnimBracketStart Grenade Attack {} {} ContentPlayOnce"/>
         <On Terms="Abil.CounterMeasures.SourceCastStart" Send="AnimSetTimeScale Grenade 2.500000"/>
@@ -15408,11 +15430,11 @@
     <CActorUnit id="Ultralisk">
         <BarWidth value="90"/>
         <On Terms="UnitBirth.Ultralisk" Send="SetTintColor {233,140,135 0.800000}"/>
-        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} 0.400000,0.400000,0.000000 {-0.000000,1.000000,-0.000000 0.250000,0.000000,1.000000}"/>
-        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} 0.300000,-0.100000,-0.100000 {-0.000000,1.000000,-0.000000 0.250000,0.000000,1.000000}"/>
-        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} -0.400000,0.400000,0.000000 {-0.000000,1.000000,-0.000000 -0.250000,0.000000,1.000000}"/>
-        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} -0.300000,-0.100000,-0.100000 {-0.000000,1.000000,-0.000000 -0.250000,0.000000,1.000000}"/>
-        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} 0.000000,0.200000,-0.200000 "/>
+        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} 0.400000,0.400000,0.000000 {-0.000000,1.000000,-0.000000 0.242536,0.000000,0.970142}"/>
+        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} 0.300000,-0.100000,-0.100000 {-0.000000,1.000000,-0.000000 0.242536,0.000000,0.970142}"/>
+        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} -0.400000,0.400000,0.000000 {-0.000000,1.000000,-0.000000 -0.242536,0.000000,0.970142}"/>
+        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} -0.300000,-0.100000,-0.100000 {-0.000000,1.000000,-0.000000 -0.242536,0.000000,0.970142}"/>
+        <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} 0.000000,0.200000,-0.200000"/>
         <Model value="Agron"/>
         <BuildModel value="Agron"/>
         <PlacementModel value="Agron"/>
