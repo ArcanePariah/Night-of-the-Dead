@@ -7444,9 +7444,6 @@
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
         <KillXP value="17"/>
-        <AbilArray Link="stop"/>
-        <AbilArray Link="attack"/>
-        <AbilArray Link="move"/>
         <AbilArray Link="BurrowDevourer"/>
         <WeaponArray index="0" Link="DevourerGround"/>
         <WeaponArray index="1" Link="DevourerClaws"/>

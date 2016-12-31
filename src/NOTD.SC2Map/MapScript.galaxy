@@ -11139,9 +11139,9 @@ bool auto_gf_StatsModSplashRadius_TriggerFunc (bool testConds, bool runActions) 
     lv_player = lp_modOwner;
 
     // Implementation
-    lv_dataDamageName3[0] = "GuassRifle";
-    lv_dataDamageName3[1] = "XM814HeavyMachineGun";
-    lv_dataDamageName3[2] = "Shotgun";
+    lv_dataDamageName3[0] = ("GuassRifle");
+    lv_dataDamageName3[1] = ("XM814HeavyMachineGun");
+    lv_dataDamageName3[2] = ("Shotgun");
     lv_dataDamageName2[0] = "MP9A2SubMachineGun";
     lv_dataDamageName2[1] = "M5PulseRifle";
     lv_dataDamageName2[2] = "UA420AssaultRifle";
