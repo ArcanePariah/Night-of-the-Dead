@@ -13317,9 +13317,7 @@ bool gt_PlayerIntialize_Func (bool testConds, bool runActions) {
     UISetGameMenuItemVisible(PlayerGroupAll(), c_gameMenuDialogSaveButton, false);
     PlayerGroupLoopBegin(GameAttributePlayersForTeam(1));
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        PlayerOptionOverride(PlayerGroupLoopCurrent(), "showmissiontime", "1");
         PlayerOptionOverride(PlayerGroupLoopCurrent(), "selectuncontrolable", "1");
-        PlayerOptionOverride(PlayerGroupLoopCurrent(), "worldobjecttooltips", "1");
         PlayerOptionOverride(PlayerGroupLoopCurrent(), "simplecommandcard", "0");
         PlayerOptionOverride(PlayerGroupLoopCurrent(), "showalerts", "1");
         PlayerGroupAdd(gv_marineSquad, PlayerGroupLoopCurrent());
