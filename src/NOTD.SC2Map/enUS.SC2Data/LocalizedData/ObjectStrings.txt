@@ -1,4 +1,4 @@
-﻿Abil/EditorDescription/NapalmBarrage=
+Abil/EditorDescription/NapalmBarrage=
 Abil/EditorPrefix/Adrenaline=Commando -
 Abil/EditorPrefix/AirStrike=Forward Observer -
 Abil/EditorPrefix/AntiVenom=Medic -
