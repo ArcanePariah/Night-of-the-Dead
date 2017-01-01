@@ -1475,6 +1475,7 @@ void gf_UIDialogCreation (int lp_height, int lp_width, int lp_offsetX, int lp_of
 void gf_NOTDBanlist ();
 bool gf_PlayerBanCheck (string lp_playerHandle);
 bool gf_PlayerAutomaticBanCheck (int lp_player);
+void gf_NOTDFormatTimerWindow (int lp_tw);
 void gf_PlayerAlliances ();
 void gf_LocationIntialization ();
 void gf_MapNightMemoryLoad (int lp_player);
@@ -2254,6 +2255,15 @@ bool gf_PlayerAutomaticBanCheck (int lp_player) {
         return true;
     }
     return false;
+}
+
+void gf_NOTDFormatTimerWindow (int lp_tw) {
+    // Implementation
+    TimerWindowSetFixedHeight(lp_tw, 60);
+    TimerWindowShowBorder(lp_tw, true);
+    TimerWindowSetColor(lp_tw, c_timerWindowColorTime, Color(75.29, 75.29, 0.00), 0.0);
+    TimerWindowSetStyle(lp_tw, c_timerWindowStyleHorizontalTitleTime, false);
+    TimerWindowSetFormat(lp_tw, StringToText("<mintotal/>:<sec2/>"));
 }
 
 trigger auto_gf_PlayerAlliances_Trigger = null;
@@ -18845,6 +18855,7 @@ bool gt_W2EnterMilitaryBase_Func (bool testConds, bool runActions) {
     gv_wave = 3;
     TimerStart(gv_globalTimer, 60.0, false, c_timeReal);
     TimerWindowCreate(gv_globalTimer, StringExternal("Param/Value/F8F51936"), true, false);
+    gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     gv_globalTimerWindow = TimerWindowLastCreated();
     TimerWindowShow(gv_globalTimerWindow, PlayerGroupActive(), true);
     gf_MarineSpeechNOTD(gv_sgtStallans, StringExternal("Param/Value/BFA9E16C"));
@@ -20939,6 +20950,7 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
     }
 
     TimerWindowCreate(gv_globalTimer, StringExternal("Param/Value/D235FC6D"), true, false);
+    gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     TimerStart(gv_globalTimer, lv_cocoonTime, false, c_timeReal);
     gv_globalTimerWindow = TimerWindowLastCreated();
     TimerWindowShow(gv_globalTimerWindow, PlayerGroupActive(), true);
@@ -21706,6 +21718,7 @@ bool gt_Wave7DropshipEVACRecruit_Func (bool testConds, bool runActions) {
     gv_primaryObjective = ObjectiveLastCreated();
     TimerStart(gv_globalTimer, 360.0, false, c_timeReal);
     TimerWindowCreate(gv_globalTimer, StringExternal("Param/Value/98B55E3E"), true, false);
+    gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     gv_globalTimerWindow = TimerWindowLastCreated();
     TimerWindowShow(gv_globalTimerWindow, PlayerGroupActive(), true);
     Wait(3.0, c_timeReal);
@@ -21827,6 +21840,7 @@ bool gt_Wave7DropshipEVACVeteran_Func (bool testConds, bool runActions) {
     gv_primaryObjective = ObjectiveLastCreated();
     TimerStart(gv_globalTimer, 420.0, false, c_timeReal);
     TimerWindowCreate(gv_globalTimer, StringExternal("Param/Value/9A8AA95F"), true, false);
+    gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     gv_globalTimerWindow = TimerWindowLastCreated();
     TimerWindowShow(gv_globalTimerWindow, PlayerGroupActive(), true);
     Wait(5.0, c_timeReal);
@@ -27169,6 +27183,7 @@ bool gt_ACW10ShowdownatEvacPoint_Func (bool testConds, bool runActions) {
     }
     TimerStart(gv_bergmannEVACTimer, lv_eVACTime, false, c_timeReal);
     TimerWindowCreate(gv_bergmannEVACTimer, StringExternal("Param/Value/3A96425B"), true, false);
+    gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     gv_globalTimerWindow = TimerWindowLastCreated();
     TriggerEnable(gt_ACW10TanakaIntercepted, true);
     Wait(lv_eVACTime, c_timeReal);
@@ -31774,6 +31789,7 @@ bool gt_STW11HiddenHandRevealed_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/F403A291"));
     TimerStart(gv_chapterSelectionTimer, 30.0, false, c_timeReal);
     TimerWindowCreate(gv_chapterSelectionTimer, StringExternal("Param/Value/2D25FC8C"), true, false);
+    gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     TimerWindowShow(TimerWindowLastCreated(), PlayerGroupAll(), true);
     gf_AutoSaveLong();
     Wait(30.0, c_timeReal);
@@ -32452,6 +32468,7 @@ bool gt_STW16ReactorSelfDestructBeginsESCAPE_Func (bool testConds, bool runActio
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/6E4D72AD"));
     TimerStart(gv_globalTimer, 240.0, false, c_timeReal);
     TimerWindowCreate(gv_globalTimer, StringExternal("Param/Value/B69E136F"), true, false);
+    gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     gv_globalTimerWindow = TimerWindowLastCreated();
     TimerWindowShow(gv_globalTimerWindow, PlayerGroupActive(), true);
     ObjectiveCreate(StringExternal("Param/Value/66EDD69C"), StringExternal("Param/Value/7CFBC0B6"), c_objectiveStateActive, true);
@@ -33352,6 +33369,7 @@ bool gt_STW16bBossFightHades_Func (bool testConds, bool runActions) {
     gv_primaryObjective = ObjectiveLastCreated();
     TimerStart(lv_hadesPhase1Timer, 180.0, false, c_timeGame);
     TimerWindowCreate(lv_hadesPhase1Timer, StringExternal("Param/Value/BB802F85"), true, false);
+    gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     lv_hadesP1TimerWindow = TimerWindowLastCreated();
     TimerWindowShow(lv_hadesP1TimerWindow, PlayerGroupAll(), true);
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/23E8984F"));
