@@ -2067,6 +2067,7 @@ trigger gt_BuyStandardItem;
 trigger gt_ClassCreation;
 trigger gt_DialogButtonClicks;
 trigger gt_CreateTeamStatusDialog;
+trigger gt_ToggleTeamStatusDialog;
 trigger gt_SaveButtonClick;
 trigger gt_TeamStatusClickedTalentTree;
 trigger gt_PeriodicTeamUIUpdate;
@@ -36299,6 +36300,45 @@ void gt_CreateTeamStatusDialog_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Toggle Team Status Dialog
+//--------------------------------------------------------------------------------------------------
+bool gt_ToggleTeamStatusDialog_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_triggeringPlayer;
+
+    // Variable Initialization
+    lv_triggeringPlayer = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!(((EventDialogControl() == gv_teamStatusButtonOpened) || (EventDialogControl() == gv_teamStatusButtonClosed)))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((DialogIsVisible(gv_raidUITeamStatus, lv_triggeringPlayer) == false)) {
+        DialogSetVisible(gv_raidUITeamStatus, PlayerGroupSingle(lv_triggeringPlayer), true);
+        DialogSetVisible(gv_raidUITeamStatusDummy, PlayerGroupSingle(lv_triggeringPlayer), false);
+    }
+    else {
+        DialogSetVisible(gv_raidUITeamStatus, PlayerGroupSingle(lv_triggeringPlayer), false);
+        DialogSetVisible(gv_raidUITeamStatusDummy, PlayerGroupSingle(lv_triggeringPlayer), true);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ToggleTeamStatusDialog_Init () {
+    gt_ToggleTeamStatusDialog = TriggerCreate("gt_ToggleTeamStatusDialog_Func");
+    TriggerAddEventDialogControl(gt_ToggleTeamStatusDialog, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Save Button Click
 //--------------------------------------------------------------------------------------------------
 bool gt_SaveButtonClick_Func (bool testConds, bool runActions) {
@@ -39666,6 +39706,7 @@ void InitTriggers () {
     gt_ClassCreation_Init();
     gt_DialogButtonClicks_Init();
     gt_CreateTeamStatusDialog_Init();
+    gt_ToggleTeamStatusDialog_Init();
     gt_SaveButtonClick_Init();
     gt_TeamStatusClickedTalentTree_Init();
     gt_PeriodicTeamUIUpdate_Init();
