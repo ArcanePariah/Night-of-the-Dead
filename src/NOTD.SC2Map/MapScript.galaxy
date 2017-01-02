@@ -13252,7 +13252,7 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
     TimerStart(gv_gameTime, 10800.0, false, c_timeReal);
     TriggerExecute(gt_PlayerIntialize, true, true);
     TriggerEnable(gt_NightmareMode, true);
-    DialogCreate(66, 66, c_anchorBottom, -500, 230, true);
+    DialogCreate(66, 66, c_anchorBottom, -450, 230, true);
     gv_equipment = DialogLastCreated();
     DialogSetImageVisible(DialogLastCreated(), false);
     DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), true);
