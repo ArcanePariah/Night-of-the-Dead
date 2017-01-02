@@ -2260,7 +2260,6 @@ bool gf_PlayerAutomaticBanCheck (int lp_player) {
 void gf_NOTDFormatTimerWindow (int lp_tw) {
     // Implementation
     TimerWindowSetFixedHeight(lp_tw, 60);
-    TimerWindowShowBorder(lp_tw, true);
     TimerWindowSetColor(lp_tw, c_timerWindowColorTime, Color(75.29, 75.29, 0.00), 0.0);
     TimerWindowSetStyle(lp_tw, c_timerWindowStyleHorizontalTitleTime, false);
     TimerWindowSetFormat(lp_tw, StringToText("<mintotal/>:<sec2/>"));
