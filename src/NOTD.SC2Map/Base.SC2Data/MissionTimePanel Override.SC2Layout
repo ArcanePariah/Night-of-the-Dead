@@ -10,9 +10,9 @@
     </Frame>
 
     <Frame type="Label" name="GameUI/UIContainer/ConsoleUIContainer/MissionTimePanel/TimeLabel" file="GameUI">
-        <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+        <Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
         <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
-        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
         <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
         <Style val="ModCenterSize24Bold"/>
     </Frame>
