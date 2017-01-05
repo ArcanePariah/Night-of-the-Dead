@@ -11155,8 +11155,8 @@ bool auto_gf_StatsModSplashRadius_TriggerFunc (bool testConds, bool runActions) 
     lv_dataDamageName3[2] = ("Shotgun");
     lv_dataDamageName2[0] = "MP9A2SubMachineGun";
     lv_dataDamageName2[1] = "M5PulseRifle";
-    lv_dataDamageName2[2] = "UA420AssaultRifle";
     lv_dataDamageName1[0] = "LaserRifleDamage";
+    lv_dataDamageName1[1] = "UA420AssaultRifle";
     lv_dataDamageNameSearch[0] = "InfernalFlameThrowerE";
     lv_dataDamageNameSearch[1] = "InfernalFlameThrowerLevel22";
     lv_dataDamageNameSearch[2] = "InfernalFlameThrowerLevel32";
@@ -11175,7 +11175,7 @@ bool auto_gf_StatsModSplashRadius_TriggerFunc (bool testConds, bool runActions) 
         }
     }
     IntLoopEnd();
-    IntLoopBegin(0, 2);
+    IntLoopBegin(0, 1);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         autoF3FBB897_ae = 1;
         autoF3FBB897_ai = 1;
@@ -11188,10 +11188,14 @@ bool auto_gf_StatsModSplashRadius_TriggerFunc (bool testConds, bool runActions) 
         }
     }
     IntLoopEnd();
-    lv_dataString = ("AreaArray[" + (IntToString(0) + "].Radius[0]"));
-    lv_splashRadius = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, lv_dataDamageName1[0], lv_dataString, 0));
-    lv_splashRadius *= (1.0 + ((IntToFixed(lp_modLevel) - 5.0) * lv_splashPercentagePerLevel));
-    CatalogFieldValueSet(c_gameCatalogEffect, lv_dataDamageName1[0], lv_dataString, lv_player, FixedToString(lv_splashRadius, c_fixedPrecisionAny));
+    IntLoopBegin(0, 1);
+    for ( ; !IntLoopDone() ; IntLoopStep() ) {
+        lv_dataString = "AreaArray[0].Radius[0]";
+        lv_splashRadius = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, lv_dataDamageName1[IntLoopCurrent()], lv_dataString, 0));
+        lv_splashRadius *= (1.0 + ((IntToFixed(lp_modLevel) - 5.0) * lv_splashPercentagePerLevel));
+        CatalogFieldValueSet(c_gameCatalogEffect, lv_dataDamageName1[IntLoopCurrent()], lv_dataString, lv_player, FixedToString(lv_splashRadius, c_fixedPrecisionAny));
+    }
+    IntLoopEnd();
     IntLoopBegin(0, 4);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         lv_splashRadius = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, lv_dataDamageNameSearch[IntLoopCurrent()], "AreaArray[0].Radius[0]", 0));
