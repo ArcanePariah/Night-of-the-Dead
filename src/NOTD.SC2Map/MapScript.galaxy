@@ -5313,19 +5313,22 @@ bool auto_gf_MarineSpeechNOTD_TriggerFunc (bool testConds, bool runActions) {
     lv_localTextTag = c_textTagNone;
 
     // Implementation
-    SoundPlayAtPoint(SoundLink("Transmission", -1), PlayerGroupAll(), UnitGetPosition(lp_speechUnit), 1.5, 31.0, 0.0);
-    if ((UnitGroupHasUnit(gv_marines, lp_speechUnit) == true)) {
-        TextTagCreate((UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[UnitGetOwner(lp_speechUnit)]), "Title Brief", 1) + PlayerName(UnitGetOwner(lp_speechUnit)) + StringExternal("Param/Value/96EC434E") + lp_speech), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
+    if ((UnitIsAlive(lp_speechUnit) == true)) {
+        SoundPlayAtPoint(SoundLink("Transmission", -1), PlayerGroupAll(), UnitGetPosition(lp_speechUnit), 1.5, 31.0, 0.0);
+        if ((UnitGroupHasUnit(gv_marines, lp_speechUnit) == true)) {
+            TextTagCreate((UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[UnitGetOwner(lp_speechUnit)]), "Title Brief", 1) + PlayerName(UnitGetOwner(lp_speechUnit)) + StringExternal("Param/Value/96EC434E") + lp_speech), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
+        }
+        else {
+            TextTagCreate((UnitTypeGetName(UnitGetType(lp_speechUnit)) + (StringExternal("Param/Value/C5735DA3") + lp_speech)), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
+        }
+        lv_localTextTag = TextTagLastCreated();
+        TextTagSetColor(lv_localTextTag, c_textTagColorText, Color(95.69, 84.31, 16.86));
+        TextTagAttachToUnit(lv_localTextTag, lp_speechUnit, 1.5);
+        TextTagSetTime(lv_localTextTag, c_textTagTimeDuration, 5.0);
+        TextTagSetTime(lv_localTextTag, c_textTagTimeFadeDuration, 0.0);
+        TextTagSetTime(lv_localTextTag, c_textTagTimeFadeOut, 0.0);
     }
-    else {
-        TextTagCreate((UnitTypeGetName(UnitGetType(lp_speechUnit)) + (StringExternal("Param/Value/C5735DA3") + lp_speech)), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
-    }
-    lv_localTextTag = TextTagLastCreated();
-    TextTagSetColor(lv_localTextTag, c_textTagColorText, Color(95.69, 84.31, 16.86));
-    TextTagAttachToUnit(lv_localTextTag, lp_speechUnit, 1.5);
-    TextTagSetTime(lv_localTextTag, c_textTagTimeDuration, 5.0);
-    TextTagSetTime(lv_localTextTag, c_textTagTimeFadeDuration, 0.0);
-    TextTagSetTime(lv_localTextTag, c_textTagTimeFadeOut, 0.0);
+
     return true;
 }
 

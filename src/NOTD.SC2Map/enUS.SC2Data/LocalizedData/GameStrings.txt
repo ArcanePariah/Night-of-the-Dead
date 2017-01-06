@@ -1,4 +1,4 @@
-Abil/Name/Adrenaline=Adrenaline
+﻿Abil/Name/Adrenaline=Adrenaline
 Abil/Name/AirStrike=Air Strike
 Abil/Name/AmmoFeedDummy=Ammo Feed (Dummy)
 Abil/Name/AntiVenom=Anti-Venom
