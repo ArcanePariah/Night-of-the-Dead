@@ -5304,6 +5304,7 @@
             <Cooldown TimeUse="8"/>
         </Cost>
         <BehaviorArray value="Turbo"/>
+        <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
     </CAbilBehavior>
     <CAbilEffectTarget id="VolatileInjection">
