@@ -242,6 +242,7 @@
         <EffectArray index="4" removed="1"/>
         <EffectArray index="5" removed="1"/>
         <EffectArray index="6" removed="1"/>
+        <EffectArray index="7" removed="1"/>
     </CUpgrade>
     <CUpgrade id="Helium3IgniterLevel1" parent="HighCapacityBarrels">
         <Name value="Upgrade/Name/Helium3IgniterLevel1"/>
@@ -252,6 +253,7 @@
         <EffectArray index="4" removed="1"/>
         <EffectArray index="5" removed="1"/>
         <EffectArray index="6" removed="1"/>
+        <EffectArray index="7" removed="1"/>
     </CUpgrade>
     <CUpgrade id="LookLevel2">
         <EffectArray Operation="Set" Reference="Effect,LookPersistentOrder,PeriodicPeriodArray[2]" Value="1.000000"/>

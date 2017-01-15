@@ -1383,15 +1383,12 @@
         <Flags index="Transient" value="1"/>
         <BehaviorArray value="IVAXCloak"/>
     </CAbilBehavior>
-    <CAbilBehavior id="StealthMatrix">
+    <CAbilEffectInstant id="StealthMatrix">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <CmdButtonArray index="On" DefaultButtonFace="StealthMatrixActivate"/>
-        <CmdButtonArray index="Off" DefaultButtonFace="StealthMatrixDeactivate" Requirements="StealthMatrixDeactiveButton"/>
-        <Flags index="Toggle" value="1"/>
-        <Flags index="Transient" value="1"/>
-        <BehaviorArray value="StealthMatrix"/>
-        <BehaviorArray value="StealthMatrix2"/>
-    </CAbilBehavior>
+        <Effect index="0" value="RemoveStealthMatrixSelfCloakLevel1"/>
+        <Effect value="RemoveStealthMatrixSelfCloakLevel2"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="StealthMatrixDeactivate"/>
+    </CAbilEffectInstant>
     <CAbilEffectTarget id="SurgicalLaser">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Effect index="0" value="SurgicalLaserLevel1Set"/>

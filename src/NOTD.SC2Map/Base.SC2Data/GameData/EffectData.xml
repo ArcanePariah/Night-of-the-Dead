@@ -334,8 +334,8 @@
     </CEffectApplyBehavior>
     <CEffectSwitch id="ApplyStealthMatrix">
         <EditorCategories value=""/>
-        <CaseArray Validator="CasterStealthMatrixLevel1" Effect="ApplyStealthMatrixLevel1"/>
-        <CaseArray Validator="CasterStealthMatrixLevel12" Effect="ApplyStealthMatrixLevel2"/>
+        <CaseArray Validator="StealthMatrixLevel1" Effect="ApplyStealthMatrixLevel1"/>
+        <CaseArray Validator="StealthMatrixLevel2" Effect="ApplyStealthMatrixLevel2"/>
     </CEffectSwitch>
     <CEffectApplyBehavior id="ApplyStealthMatrixLevel1">
         <EditorCategories value=""/>
@@ -1104,15 +1104,15 @@
     </CEffectLaunchMissile>
     <CEffectSet id="RemoveStealthMatrixCloak">
         <EditorCategories value=""/>
-        <EffectArray value="RemoveStealthMatrixLevel1"/>
-        <EffectArray value="RemoveStealthMatrixLevel2"/>
+        <EffectArray value="RemoveStealthMatrixSelfCloakLevel1"/>
+        <EffectArray value="RemoveStealthMatrixSelfCloakLevel2"/>
     </CEffectSet>
-    <CEffectRemoveBehavior id="RemoveStealthMatrixLevel1">
+    <CEffectRemoveBehavior id="RemoveStealthMatrixSelfCloakLevel1">
         <EditorCategories value=""/>
         <WhichUnit Value="Caster"/>
         <BehaviorLink value="StealthMatrixSelfCloakLevel1"/>
     </CEffectRemoveBehavior>
-    <CEffectRemoveBehavior id="RemoveStealthMatrixLevel2">
+    <CEffectRemoveBehavior id="RemoveStealthMatrixSelfCloakLevel2">
         <EditorCategories value=""/>
         <WhichUnit Value="Caster"/>
         <BehaviorLink value="StealthMatrixSelfCloakLevel2"/>
@@ -2321,13 +2321,6 @@
         <EffectArray value="SpawnSeeker"/>
         <EffectArray value="KillEgg"/>
     </CEffectSet>
-    <CEffectIssueOrder id="StealthMatrixToggle">
-        <EditorCategories value=""/>
-        <WhichUnit Value="Caster"/>
-        <Abil value="StealthMatrix"/>
-        <CmdFlags index="Preempt" value="1"/>
-        <Player Value="Caster"/>
-    </CEffectIssueOrder>
     <CEffectDamage id="SuicideOther" parent="Suicide">
         <ImpactLocation Value="TargetUnit"/>
     </CEffectDamage>
@@ -11324,7 +11317,6 @@
     <CEffectDamage id="GlaiveWurmU1">
         <ResponseFlags index="Flee" value="0"/>
         <Amount value="15"/>
-        <Death value="Disintegrate"/>
         <SearchFilters value="-;Item,Dead,Invulnerable"/>
     </CEffectDamage>
     <CEffectEnumArea id="MoreDoTsSearch">

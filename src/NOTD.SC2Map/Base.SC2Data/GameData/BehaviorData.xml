@@ -913,7 +913,6 @@
             <StateFlags index="Cloak" value="1"/>
         </Modification>
         <ExpireEffect value="ApplyStealthMatrix"/>
-        <InitialEffect value="StealthMatrixToggle"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="EscapeSelfCloakLevel2">
         <Alignment value="Positive"/>
@@ -924,7 +923,6 @@
             <StateFlags index="Cloak" value="1"/>
         </Modification>
         <ExpireEffect value="ApplyStealthMatrix"/>
-        <InitialEffect value="StealthMatrixToggle"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="EscapeSelfCloakLevel3">
         <Alignment value="Positive"/>
@@ -935,7 +933,6 @@
             <StateFlags index="Cloak" value="1"/>
         </Modification>
         <ExpireEffect value="ApplyStealthMatrix"/>
-        <InitialEffect value="StealthMatrixToggle"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="EscapeCloakLevel2">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1729,20 +1726,16 @@
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="StealthMatrix">
-        <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-nyxcloakingclassmodule.dds"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="StealthMatrix2">
-        <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-nyxcloakingclassmodule.dds"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="StealthMatrixSelfCloakLevel2">
-        <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-nyxcloakingclassmodule.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <RemoveValidatorArray value="CasterStealthMatrixLevel12"/>
         <RemoveValidatorArray value="CasterHasEnergy"/>
         <RemoveValidatorArray value="CasterisnotFiringL3"/>
         <Modification MoveSpeedMultiplier="1.2">
@@ -1759,11 +1752,10 @@
             <ExcludeEffectArray value="CombatKnifeApplySlow"/>
             <ExcludeEffectArray value="Backstab"/>
         </DamageResponse>
+        <FinalEffect value="RemoveStealthMatrix"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="StealthMatrixSelfCloakLevel1">
-        <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <RemoveValidatorArray value="CasterStealthMatrixLevel1"/>
         <RemoveValidatorArray value="CasterHasEnergy"/>
         <RemoveValidatorArray value="CasterisnotFiringL3"/>
         <Modification MoveSpeedMultiplier="1.2">
@@ -1781,6 +1773,7 @@
             <ExcludeEffectArray value="Backstab"/>
         </DamageResponse>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-nyxcloakingclassmodule.dds"/>
+        <FinalEffect value="RemoveStealthMatrix"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InsufficientAmmo">
         <InfoFlags index="Hidden" value="1"/>
@@ -2560,10 +2553,6 @@
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
             <AbilClassDisableArray index="CAbilInventory" value="1"/>
             <DeathResponse>
-                <Cost>
-                    <Charge Link="" Location="Abil"/>
-                    <Cooldown Link="" Location="Abil"/>
-                </Cost>
                 <Type index="Remove" value="1"/>
             </DeathResponse>
         </Modification>
@@ -2917,10 +2906,6 @@
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
             <DeathResponse>
-                <Cost>
-                    <Charge Link="" Location="Abil"/>
-                    <Cooldown Link="" Location="Abil"/>
-                </Cost>
                 <Type index="Remove" value="1"/>
             </DeathResponse>
         </Modification>
@@ -3669,10 +3654,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3684,10 +3665,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3699,10 +3676,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3714,10 +3687,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3729,10 +3698,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3744,10 +3709,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3759,10 +3720,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3774,10 +3731,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3789,10 +3742,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3804,10 +3753,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -3819,10 +3764,6 @@
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
                 <DeathResponse>
-                    <Cost>
-                        <Charge Link="" Location="Abil"/>
-                        <Cooldown Link="" Location="Abil"/>
-                    </Cost>
                     <Type index="Remove" value="1"/>
                 </DeathResponse>
             </Modification>
@@ -4451,10 +4392,6 @@
         <PeriodCount value="0"/>
         <Modification LifeArmorBonus="1" DetectArc="0" RadarArc="0">
             <DeathResponse>
-                <Cost>
-                    <Charge Link="" Location="Abil"/>
-                    <Cooldown Link="" Location="Abil"/>
-                </Cost>
                 <Type index="Remove" value="1"/>
             </DeathResponse>
         </Modification>
@@ -4525,10 +4462,6 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Modification LifeArmorBonus="1" DetectArc="0" RadarArc="0">
             <DeathResponse>
-                <Cost>
-                    <Charge Link="" Location="Abil"/>
-                    <Cooldown Link="" Location="Abil"/>
-                </Cost>
                 <Type index="Remove" value="1"/>
             </DeathResponse>
         </Modification>
@@ -4554,10 +4487,6 @@
         <PeriodCount value="0"/>
         <Modification LifeArmorBonus="6" DetectArc="0" RadarArc="0">
             <DeathResponse>
-                <Cost>
-                    <Charge Link="" Location="Abil"/>
-                    <Cooldown Link="" Location="Abil"/>
-                </Cost>
                 <Type index="Remove" value="1"/>
             </DeathResponse>
         </Modification>
@@ -4816,10 +4745,6 @@
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
             <DeathResponse>
-                <Cost>
-                    <Charge Link="" Location="Abil"/>
-                    <Cooldown Link="" Location="Abil"/>
-                </Cost>
                 <Type index="Remove" value="1"/>
             </DeathResponse>
         </Modification>
@@ -5215,7 +5140,7 @@
             <Charge Link="Behavior/DroneVeterancy"/>
             <Cooldown Link="Behavior/DroneVeterancy"/>
         </Cost>
-        <VeterancyLevelArray index="0" MinVeterancyXP="75">
+        <VeterancyLevelArray index="0">
             <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
@@ -5228,14 +5153,11 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="1" MinVeterancyXP="225">
-            <Modification SightBonus="3">
+        <VeterancyLevelArray index="1">
+            <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.05"/>
-                <VitalMaxFractionArray index="Shields" value="0.3"/>
-                <VitalMaxFractionArray index="Energy" value="0.1"/>
                 <DeathResponse>
                     <Cost>
                         <Charge Link="Behavior/DroneVeterancy"/>
@@ -5244,14 +5166,11 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="2" MinVeterancyXP="300">
+        <VeterancyLevelArray index="2">
             <Modification Detect="0" DetectBonus="5">
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.0524"/>
-                <VitalMaxFractionArray index="Shields" value="0.39"/>
-                <VitalMaxFractionArray index="Energy" value="0.11"/>
                 <DeathResponse>
                     <Cost>
                         <Charge Link="Behavior/DroneVeterancy"/>
@@ -5260,14 +5179,11 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="3" MinVeterancyXP="425">
-            <Modification LifeArmorBonus="2">
+        <VeterancyLevelArray index="3">
+            <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.0551"/>
-                <VitalMaxFractionArray index="Shields" value="0.507"/>
-                <VitalMaxFractionArray index="Energy" value="0.121"/>
                 <DeathResponse>
                     <Cost>
                         <Charge Link="Behavior/DroneVeterancy"/>
@@ -5276,14 +5192,11 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="4" MinVeterancyXP="550" LevelGainEffect="AddBackstab">
+        <VeterancyLevelArray index="4">
             <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.0578"/>
-                <VitalMaxFractionArray index="Shields" value="0.6591"/>
-                <VitalMaxFractionArray index="Energy" value="0.133"/>
                 <DeathResponse>
                     <Cost>
                         <Charge Link="Behavior/DroneVeterancy"/>
@@ -5292,14 +5205,11 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="5" MinVeterancyXP="650">
-            <Modification LifeArmorBonus="2">
+        <VeterancyLevelArray index="5">
+            <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.0607"/>
-                <VitalMaxFractionArray index="Shields" value="0.857"/>
-                <VitalMaxFractionArray index="Energy" value="0.1464"/>
                 <DeathResponse>
                     <Cost>
                         <Charge Link="Behavior/DroneVeterancy"/>
@@ -5308,14 +5218,11 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="6" MinVeterancyXP="800" LevelGainEffect="">
+        <VeterancyLevelArray index="6" LevelGainEffect="">
             <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.0637"/>
-                <VitalMaxFractionArray index="Shields" value="1.1137"/>
-                <VitalMaxFractionArray index="Energy" value="0.1611"/>
                 <DeathResponse>
                     <Cost>
                         <Charge Link="Behavior/DroneVeterancy"/>
@@ -5324,14 +5231,11 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="7" MinVeterancyXP="1050" LevelGainEffect="Level8Armor">
+        <VeterancyLevelArray index="7">
             <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.067"/>
-                <VitalMaxFractionArray index="Shields" value="1.448"/>
-                <VitalMaxFractionArray index="Energy" value="0.1772"/>
                 <DeathResponse>
                     <Cost>
                         <Charge Link="Behavior/DroneVeterancy"/>
@@ -5340,14 +5244,11 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="8" MinVeterancyXP="1200" LevelGainEffect="Level9Radar">
+        <VeterancyLevelArray index="8">
             <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.0703"/>
-                <VitalMaxFractionArray index="Shields" value="1.8825"/>
-                <VitalMaxFractionArray index="Energy" value="0.1948"/>
                 <DeathResponse>
                     <Cost>
                         <Charge Link="Behavior/DroneVeterancy"/>
@@ -5356,34 +5257,25 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="9" MinVeterancyXP="1500">
+        <VeterancyLevelArray index="9">
             <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.074"/>
-                <VitalMaxFractionArray index="Shields" value="2.4472"/>
-                <VitalMaxFractionArray index="Energy" value="0.2143"/>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="10" MinVeterancyXP="2000" LevelGainEffect="">
+        <VeterancyLevelArray index="10" LevelGainEffect="">
             <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.0776"/>
-                <VitalMaxFractionArray index="Shields" value="3.1813"/>
-                <VitalMaxFractionArray index="Energy" value="0.2358"/>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="11" MinVeterancyXP="3000">
+        <VeterancyLevelArray index="11">
             <Modification>
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>
-                <VitalMaxFractionArray index="Life" value="0.0815"/>
-                <VitalMaxFractionArray index="Shields" value="4.1357"/>
-                <VitalMaxFractionArray index="Energy" value="0.2592"/>
             </Modification>
         </VeterancyLevelArray>
         <SharedXPMaxCount index="Kills" value="4294967295"/>
@@ -5866,10 +5758,6 @@
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
             <AbilClassDisableArray index="CAbilInventory" value="1"/>
             <DeathResponse>
-                <Cost>
-                    <Charge Link="" Location="Abil"/>
-                    <Cooldown Link="" Location="Abil"/>
-                </Cost>
                 <Type index="Remove" value="1"/>
             </DeathResponse>
         </Modification>
@@ -6221,6 +6109,9 @@
             <AbilClassDisableArray index="CAbilTransport" value="0"/>
             <AbilLinkDisableArray index="0" removed="1"/>
             <AbilLinkDisableArray index="1" removed="1"/>
+            <AbilLinkDisableArray index="2" removed="1"/>
+            <AbilLinkDisableArray index="3" removed="1"/>
+            <AbilLinkDisableArray index="4" removed="1"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Hugged" parent="NeuralParasite">
@@ -7245,10 +7136,6 @@
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
             <DeathResponse>
-                <Cost>
-                    <Charge Link="" Location="Abil"/>
-                    <Cooldown Link="" Location="Abil"/>
-                </Cost>
                 <Type index="Remove" value="1"/>
             </DeathResponse>
         </Modification>

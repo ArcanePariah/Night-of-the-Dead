@@ -3,16 +3,6 @@
     <CValidatorLocationPathable id="BuildPathing">
         <Types index="Building" value="0"/>
     </CValidatorLocationPathable>
-    <CValidatorUnitCompareBehaviorCount id="CasterStealthMatrixLevel1">
-        <WhichUnit Value="Caster"/>
-        <Value value="1"/>
-        <Behavior value="StealthMatrix"/>
-    </CValidatorUnitCompareBehaviorCount>
-    <CValidatorUnitCompareBehaviorCount id="CasterStealthMatrixLevel12">
-        <WhichUnit Value="Caster"/>
-        <Value value="1"/>
-        <Behavior value="StealthMatrix2"/>
-    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterhasRavagingPhantomLevel1">
         <Value value="1"/>
         <Behavior value="RavagingPhantomLevel1"/>
@@ -494,6 +484,16 @@
         <Compare value="GE"/>
         <Value value="1800"/>
     </CValidatorPlayerCompareResource>
+    <CValidatorPlayerRequirement id="StealthMatrixLevel1">
+        <Find value="1"/>
+        <UnitSelectionNotRequired value="1"/>
+        <Value value="StealthMatrixLevel1"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="StealthMatrixLevel2">
+        <Find value="1"/>
+        <UnitSelectionNotRequired value="1"/>
+        <Value value="StealthMatrixLevel12"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitCompareVital id="SuicideHPThreshold">
         <Compare value="GT"/>
         <Value value="3"/>

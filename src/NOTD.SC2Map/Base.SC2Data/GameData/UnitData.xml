@@ -2138,7 +2138,7 @@
                 <Column value="4"/>
             </LayoutButtons>
             <LayoutButtons index="7" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="8" Face="StealthMatrixDeactivate" Type="AbilCmd" AbilCmd="StealthMatrix,Off" Row="1" Column="2"/>
+            <LayoutButtons index="8" Face="StealthMatrixDeactivate" Type="AbilCmd" AbilCmd="StealthMatrix,Execute" Row="1" Column="1"/>
             <LayoutButtons index="9" Face="Refresher" Type="AbilCmd" AbilCmd="Refresher,Execute" Row="1" Column="1"/>
             <LayoutButtons index="10">
                 <Face value="ReaperMK13"/>
