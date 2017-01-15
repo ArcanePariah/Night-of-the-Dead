@@ -100,8 +100,8 @@
         <NodeArray index="Use" Link="EqCountAbilMasterofSubtletyCompleteOnlyAtUnit1"/>
     </CRequirement>
     <CRequirement id="StealthMatrixDeactiveButton2">
-        <NodeArray index="Use" Link="EqSumCountBehaviorStealthMatrixCompleteOnlyAtUnitCountBehaviorStealthMatrix2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel3CompleteOnlyAtUnit0"/>
-        <NodeArray index="Show" Link="EqSumCountBehaviorStealthMatrixCompleteOnlyAtUnitCountBehaviorStealthMatrix2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel3CompleteOnlyAtUnit0"/>
+        <NodeArray index="Use" Link="EqSumCountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCl4219168499"/>
+        <NodeArray index="Show" Link="EqSumCountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCl4219168499"/>
     </CRequirement>
     <CRequirement id="StealthMatrixLevel12">
         <NodeArray index="Use" Link="EqCountAbilStealthMatrixCompleteOnlyAtUnit2"/>

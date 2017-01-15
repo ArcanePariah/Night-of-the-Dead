@@ -2138,7 +2138,7 @@
                 <Column value="4"/>
             </LayoutButtons>
             <LayoutButtons index="7" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="8" Face="StealthMatrixDeactivate" Type="AbilCmd" AbilCmd="StealthMatrix,Execute" Row="1" Column="1"/>
+            <LayoutButtons index="8" Face="Escape" Type="AbilCmd" AbilCmd="Escape,Execute" Row="1" Column="2"/>
             <LayoutButtons index="9" Face="Refresher" Type="AbilCmd" AbilCmd="Refresher,Execute" Row="1" Column="1"/>
             <LayoutButtons index="10">
                 <Face value="ReaperMK13"/>
@@ -2151,7 +2151,7 @@
             <LayoutButtons index="11" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons index="12" Face="SupplyStation" Type="AbilCmd" AbilCmd="SupplyStation,Execute" Row="2" Column="1"/>
             <LayoutButtons index="13" Face="MassDesignate" Type="AbilCmd" AbilCmd="MassDesignate,Execute" Row="1" Column="3"/>
-            <LayoutButtons Face="Escape" Type="AbilCmd" AbilCmd="Escape,Execute" Row="1" Column="2"/>
+            <LayoutButtons Face="StealthMatrixDeactivate" Type="AbilCmd" AbilCmd="StealthMatrix,Execute" Row="1" Column="2"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="Execute" Type="AbilCmd" AbilCmd="Execute,Execute" Row="2" Column="2"/>
         </CardLayouts>

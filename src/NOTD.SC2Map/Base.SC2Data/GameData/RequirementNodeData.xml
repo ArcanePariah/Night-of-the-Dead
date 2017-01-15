@@ -168,7 +168,6 @@
     </CRequirementCountAbil>
     <CRequirementCountAbil id="CountAbilStealthMatrixCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="StealthMatrix" State="CompleteOnlyAtUnit"/>
     </CRequirementCountAbil>
     <CRequirementCountAbil id="CountAbilSynergyCompleteOnlyAtUnitTechTreeCheat">
@@ -279,15 +278,15 @@
         <Tooltip value=""/>
         <Count Link="StealthLevel2" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorStealthMatrix2CompleteOnlyAtUnit">
+    <CRequirementCountBehavior id="CountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value=""/>
-        <Count Link="StealthMatrix2" State="CompleteOnlyAtUnit"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="StealthMatrixSelfCloakLevel1" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorStealthMatrixCompleteOnlyAtUnit">
+    <CRequirementCountBehavior id="CountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value=""/>
-        <Count Link="StealthMatrix" State="CompleteOnlyAtUnit"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="StealthMatrixSelfCloakLevel2" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorWeaponSwitchCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -407,12 +406,10 @@
         <OperandArray index="1" value="2"/>
     </CRequirementEq>
     <CRequirementEq id="EqCountAbilStealthMatrixCompleteOnlyAtUnit1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountAbilStealthMatrixCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="1"/>
     </CRequirementEq>
     <CRequirementEq id="EqCountAbilStealthMatrixCompleteOnlyAtUnit2">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountAbilStealthMatrixCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementEq>
@@ -480,9 +477,9 @@
         <OperandArray index="0" value="CountUpgradeFireUpCompleteOnly"/>
         <OperandArray index="1" value="3"/>
     </CRequirementEq>
-    <CRequirementEq id="EqSumCountBehaviorStealthMatrixCompleteOnlyAtUnitCountBehaviorStealthMatrix2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel3CompleteOnlyAtUnit0">
-        <Tooltip value=""/>
-        <OperandArray index="0" value="SumCountBehaviorStealthMatrixCompleteOnlyAtUnitCountBehaviorStealthMatrix2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel3CompleteOnlyAtUnit"/>
+    <CRequirementEq id="EqSumCountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCl4219168499">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="SumCountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloa1319847820"/>
         <OperandArray index="1" value="0"/>
     </CRequirementEq>
     <CRequirementGTE id="GTE840649728CountBehaviorBandageCarriedCompleteOnly1">
@@ -842,10 +839,10 @@
         <OperandArray value="CountBehaviorCloakFieldCompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorShadowstepCloakCompleteOnlyAtUnit"/>
     </CRequirementSum>
-    <CRequirementSum id="SumCountBehaviorStealthMatrixCompleteOnlyAtUnitCountBehaviorStealthMatrix2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel3CompleteOnlyAtUnit">
-        <Tooltip value=""/>
-        <OperandArray value="CountBehaviorStealthMatrixCompleteOnlyAtUnit"/>
-        <OperandArray value="CountBehaviorStealthMatrix2CompleteOnlyAtUnit"/>
+    <CRequirementSum id="SumCountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloa1319847820">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnit"/>
+        <OperandArray value="CountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorEscapeSelfCloakLevel2CompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorEscapeSelfCloakLevel3CompleteOnlyAtUnit"/>

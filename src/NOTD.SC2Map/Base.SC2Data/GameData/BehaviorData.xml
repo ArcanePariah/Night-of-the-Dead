@@ -1725,14 +1725,6 @@
             </Cost>
         </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="StealthMatrix">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <InfoIcon value="Assets\Textures\btn-techupgrade-terran-nyxcloakingclassmodule.dds"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="StealthMatrix2">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <InfoIcon value="Assets\Textures\btn-techupgrade-terran-nyxcloakingclassmodule.dds"/>
-    </CBehaviorBuff>
     <CBehaviorBuff id="StealthMatrixSelfCloakLevel2">
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-nyxcloakingclassmodule.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1752,7 +1744,6 @@
             <ExcludeEffectArray value="CombatKnifeApplySlow"/>
             <ExcludeEffectArray value="Backstab"/>
         </DamageResponse>
-        <FinalEffect value="RemoveStealthMatrix"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="StealthMatrixSelfCloakLevel1">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1773,7 +1764,6 @@
             <ExcludeEffectArray value="Backstab"/>
         </DamageResponse>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-nyxcloakingclassmodule.dds"/>
-        <FinalEffect value="RemoveStealthMatrix"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InsufficientAmmo">
         <InfoFlags index="Hidden" value="1"/>
