@@ -10012,7 +10012,7 @@
         <EditorCategories value=""/>
         <ResponseFlags index="Acquire" value="1"/>
         <ImpactLocation Value="TargetUnit"/>
-        <SearchFilters value="Heroic;Player,Ally,Neutral"/>
+        <SearchFilters value="Heroic;Player,Ally,Neutral,Cloaked"/>
         <AreaArray Radius="30" Effect="NeuralParasiteIssueOrder"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>

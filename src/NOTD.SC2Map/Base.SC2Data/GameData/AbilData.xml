@@ -838,7 +838,7 @@
         <Cost index="0">
             <Vital index="Energy" value="0"/>
         </Cost>
-        <TargetFilters index="0" value="Ground,Biological,Heroic,Visible;Self,Player,Ally,Air,Structure,RawResource,HarvestableResource,Missile,Destructible,Item,Stasis,UnderConstruction,Dead,Hidden"/>
+        <TargetFilters index="0" value="Ground,Biological,Heroic;Self,Player,Ally,Air,Structure,RawResource,HarvestableResource,Missile,Destructible,Item,Stasis,UnderConstruction,Dead,Hidden"/>
         <CmdButtonArray index="Execute" Requirements=""/>
         <TargetSorts RequestCount="1">
             <SortArray value="TSRandom"/>
