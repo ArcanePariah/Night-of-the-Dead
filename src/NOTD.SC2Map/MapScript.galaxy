@@ -23394,9 +23394,6 @@ bool gt_Wave14Betrayal_Func (bool testConds, bool runActions) {
     SoundPlay(SoundLink("TScene12Horner018", -1), PlayerGroupActive(), 100.0, 0.0);
     libNtve_gf_UnitCreateFacingPoint(1, "Eos", 0, 14, RegionRandomPoint(gv_reinforcementSpawn[RandomInt(1, 6)]), RegionGetCenter(RegionFromId(1)));
     gv_finalBoss = UnitLastCreated();
-    AIAttackWaveUseUnit(14, gv_finalBoss);
-    AIAttackWaveSetTargetUnitGroup(14, gv_marines);
-    AIAttackWaveSend(14, 0, false);
     if ((gv_noNewbie == false)) {
         libNtve_gf_AttachModelToUnit(gv_finalBoss, "BriefingUnitSelectLargeRed", "Ref_Center");
         UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropNormal) * 0.8));
@@ -23414,6 +23411,7 @@ bool gt_Wave14Betrayal_Func (bool testConds, bool runActions) {
     else if ((gv_alivePlayers == 7)) {
         UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropNormal) * 0.95));
     }
+    UnitGroupAdd(gv_zombieWave, gv_finalBoss);
     UnitSetPropertyFixed(gv_finalBoss, c_unitPropMovementSpeed, 0.3);
     libNtve_gf_MakeUnitInvulnerable(gv_finalBoss, true);
     if ((gv_noNewbie == false)) {
