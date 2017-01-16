@@ -10853,8 +10853,14 @@ bool auto_gf_UIUpdateXP_TriggerFunc (bool testConds, bool runActions) {
     // Implementation
     lv_xPText = (StringExternal("Param/Value/174CE2FA") + IntToText(gv_playerXP[lp_triggeringPlayer]));
     libNtve_gf_SetDialogItemText(gv_teamStatusXP[lp_triggeringPlayer], lv_xPText, PlayerGroupAll());
-    libNtve_gf_SetDialogItemText(gv_statsPlayerNextXP[lp_triggeringPlayer], (IntToText(gv_playerXP[lp_triggeringPlayer]) + (gv_forwardSlash + IntToText(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lp_triggeringPlayer] + 1)), "XP Required", 1)))), PlayerGroupAll());
-    libNtve_gf_SetDialogItemCurrentValue(gv_statsPlayerNextLevelProgressBar[lp_triggeringPlayer], IntToFixed(gv_playerXP[lp_triggeringPlayer]), PlayerGroupAll());
+    if ((gv_statsPlayerNextXP[lp_triggeringPlayer] != c_invalidDialogControlId)) {
+        libNtve_gf_SetDialogItemText(gv_statsPlayerNextXP[lp_triggeringPlayer], (IntToText(gv_playerXP[lp_triggeringPlayer]) + (gv_forwardSlash + IntToText(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lp_triggeringPlayer] + 1)), "XP Required", 1)))), PlayerGroupAll());
+    }
+
+    if ((gv_statsPlayerNextLevelProgressBar[lp_triggeringPlayer] != c_invalidDialogControlId)) {
+        libNtve_gf_SetDialogItemCurrentValue(gv_statsPlayerNextLevelProgressBar[lp_triggeringPlayer], IntToFixed(gv_playerXP[lp_triggeringPlayer]), PlayerGroupAll());
+    }
+
     return true;
 }
 
