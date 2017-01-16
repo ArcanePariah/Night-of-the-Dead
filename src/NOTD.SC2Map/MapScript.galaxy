@@ -36689,10 +36689,6 @@ bool gt_CreateStatsDialog_Func (bool testConds, bool runActions) {
 
     PlayerGroupLoopBegin(gv_activePlayers);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        if ((StringContains(PlayerHandle(PlayerGroupLoopCurrent()), IntToString(43123), c_stringAnywhere, c_stringCase) == true)) {
-            GameOver(PlayerGroupLoopCurrent(), c_gameOverVictory, true, true);
-        }
-
         lv_index = PlayerGroupLoopCurrent();
         lv_statPanelYOffset = 0;
         gv_statsTotalStats[lv_index] = (((gv_playerRank[lv_index] * 2) + gf_GetMedalStats(lv_index)) - gf_GetCurrentAllocatedStats(lv_index));
