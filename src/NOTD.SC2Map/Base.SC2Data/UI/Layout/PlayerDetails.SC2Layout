@@ -3,6 +3,7 @@
     <Frame type="Frame" name="DetailsUI">
         <Height val="610"/>
         <Width val="690"/>
+
         <Frame type="Label" name="Title">
             <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
@@ -186,6 +187,7 @@
     <Frame type="Frame" name="MedalContainer">
         <Height val="76"/>
         <Width val="286"/>
+
         <Frame type="Image" name="MedalImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
@@ -262,11 +264,12 @@
     <Frame type="Frame" name="StatsWeaponModsUI">
         <Height val="610"/>
         <Width val="690"/>
+
         <!-- Next Rank -->
         <Frame type="Label" name="NextRankLabel">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-156"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="85"/>
-            <Height val="24"/>
+            <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
@@ -274,7 +277,7 @@
         <Frame type="Label" name="NextRank">
             <Anchor side="Top" relative="$parent/NextRankLabel" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/NextRankLabel" pos="Max" offset="0"/>
-            <Height val="24"/>
+            <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
@@ -283,7 +286,7 @@
         <Frame type="Label" name="LivesLeftLabel">
             <Anchor side="Top" relative="$parent/NextRankLabel" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent/NextRankLabel" pos="Min" offset="0"/>
-            <Height val="24"/>
+            <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
@@ -291,7 +294,7 @@
         <Frame type="Label" name="LivesLeft">
             <Anchor side="Top" relative="$parent/LivesLeftLabel" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/LivesLeftLabel" pos="Max" offset="0"/>
-            <Height val="24"/>
+            <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
@@ -300,7 +303,7 @@
         <Frame type="Label" name="CreditsAvailableLabel">
             <Anchor side="Top" relative="$parent/LivesLeftLabel" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent/LivesLeftLabel" pos="Min" offset="0"/>
-            <Height val="24"/>
+            <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
@@ -308,7 +311,7 @@
         <Frame type="Label" name="CreditsAvailable">
             <Anchor side="Top" relative="$parent/CreditsAvailableLabel" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/CreditsAvailableLabel" pos="Max" offset="0"/>
-            <Height val="24"/>
+            <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
@@ -317,7 +320,7 @@
         <Frame type="Label" name="CreditsEarnedLabel">
             <Anchor side="Top" relative="$parent/CreditsAvailableLabel" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent/CreditsAvailableLabel" pos="Min" offset="0"/>
-            <Height val="24"/>
+            <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
@@ -325,7 +328,7 @@
         <Frame type="Label" name="CreditsEarned">
             <Anchor side="Top" relative="$parent/CreditsEarnedLabel" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/CreditsEarnedLabel" pos="Max" offset="0"/>
-            <Height val="24"/>
+            <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
@@ -389,6 +392,7 @@
             <Anchor side="Left" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
             <Height val="300"/>
             <Width val="500"/>
+
             <Frame type="Label" name="AvailableStatsLabel">
                 <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
                 <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
@@ -412,6 +416,7 @@
             <Anchor side="Left" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
             <Height val="300"/>
             <Width val="500"/>
+
             <Frame type="Label" name="UnlockedWeaponModsLabel">
                 <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
                 <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
@@ -442,6 +447,7 @@
     <Frame type="Frame" name="StatsButtonContainer">
         <Height val="60"/>
         <Width val="150"/>
+
         <!-- Stats Decrease Arrow -->
         <Frame type="Image" name="StatDecreaseImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
@@ -507,6 +513,7 @@
     <Frame type="Frame" name="ModsButtonContainer">
         <Height val="46"/>
         <Width val="124"/>
+
         <!-- Stats Decrease Arrow -->
         <Frame type="Image" name="ModDecreaseImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
@@ -572,6 +579,7 @@
     <Frame type="Frame" name="TextProgressBar">
         <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
         <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+
         <Frame type="ProgressBar" name="NextRankProgressBar">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
