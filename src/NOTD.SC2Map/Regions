@@ -809,7 +809,7 @@
         <name value="Armory"/>
         <shape type="circle">
             <center value="236.1906,230.9755"/>
-            <radius value="14.6652"/>
+            <radius value="12.5"/>
         </shape>
     </region>
     <region id="123">
