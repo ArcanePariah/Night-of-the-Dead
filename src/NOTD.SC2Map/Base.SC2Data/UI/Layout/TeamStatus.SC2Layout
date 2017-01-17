@@ -200,9 +200,9 @@
         </Frame>
 
         <Frame type="Label" name="PlayerXP">
+            <Height val="26"/>
             <Anchor side="Top" relative="$parent/RankIcon" pos="Min" offset="6"/>
             <Anchor side="Left" relative="$parent/RankIcon" pos="Max" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/RankIcon" pos="Max" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Style val="PlayerXP"/>
         </Frame>
