@@ -6,6 +6,7 @@
             <TextureType val="Border"/>
             <Tiled val="true"/>
             <Alpha val="85"/>
+            <Visible val="true"/>
             <Anchor side="Top" relative="$parent" pos="Min" offset="4"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="-4"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="4"/>

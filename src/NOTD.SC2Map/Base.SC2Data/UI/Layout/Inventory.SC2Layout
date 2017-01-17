@@ -5,7 +5,7 @@
     <Frame type="InventoryPanel" name="GameUI/UIContainer/ConsoleUIContainer/InventoryPanel" file="GameUI">
         <Anchor side="Bottom" relative="$parent" pos="Max" offset="-168"/>
         <Anchor side="Right" relative="$parent" pos="Mid" offset="576"/>
-        <Anchor side="Left" relative="$parent" pos="Mid" offset="-500"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="-450"/>
         <!-- top/left required @ min & 0 for correct icon cursor positioning -->
         <!-- end -->
         <!-- Use bottom and right for positioning. -->
