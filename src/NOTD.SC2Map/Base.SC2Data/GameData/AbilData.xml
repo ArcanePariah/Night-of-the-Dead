@@ -1385,8 +1385,8 @@
     </CAbilBehavior>
     <CAbilEffectInstant id="StealthMatrix">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="RemoveStealthMatrixSelfCloakLevel1"/>
-        <Effect value="RemoveStealthMatrixSelfCloakLevel2"/>
+        <Effect index="0" value="RemoveStealthMatrixCloak"/>
+        <Effect value="RemoveStealthMatrixCloak"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="StealthMatrixDeactivate"/>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="SurgicalLaser">
