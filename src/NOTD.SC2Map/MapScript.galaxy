@@ -5239,6 +5239,7 @@ bool auto_gf_RandomNydusPop_TriggerFunc (bool testConds, bool runActions) {
     Wait(1.2, c_timeReal);
     libNtve_gf_KillModel(lv_localActorRumble);
     UnitCreate(1, "InfestedWorm", 0, 14, lv_localPointA, libNtve_gf_RandomAngle());
+    UnitBehaviorAdd(UnitLastCreated(), "NydusWormTimedLife", UnitLastCreated(), 1);
     lv_localUnitInfestedWorm = UnitLastCreated();
     Wait(1.2, c_timeReal);
     if ((gv_nightmare == false)) {
@@ -5252,9 +5253,7 @@ bool auto_gf_RandomNydusPop_TriggerFunc (bool testConds, bool runActions) {
     auto13CC017A_n = 20;
     for (auto13CC017A_i = 1; auto13CC017A_i <= auto13CC017A_n; auto13CC017A_i += 1) {
         UnitCreate(1, "Parasite2", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(lv_localUnitInfestedWorm), 1.35)), libNtve_gf_RandomAngle());
-        AIAttackWaveSetTargetUnit(14, UnitGroupRandomUnit(gv_marines, c_unitCountAlive));
-        AIAttackWaveUseUnit(14, UnitLastCreated());
-        AIAttackWaveSend(14, 0, false);
+        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         Wait(0.12, c_timeGame);
     }
     return true;
