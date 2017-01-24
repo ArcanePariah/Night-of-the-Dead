@@ -6888,6 +6888,7 @@
         <MaxStackCount value="9"/>
         <MaxStackCountPerCaster value="9"/>
         <Modification>
+            <VitalMaxIncreaseAffectsCurrentArray index="Life" value="0"/>
             <VitalMaxArray index="Life" value="12"/>
         </Modification>
     </CBehaviorBuff>
@@ -6962,6 +6963,7 @@
         <MaxStackCount value="9"/>
         <MaxStackCountPerCaster value="9"/>
         <Modification DetectArc="0" RadarArc="0">
+            <VitalMaxIncreaseAffectsCurrentArray index="Energy" value="0"/>
             <VitalMaxArray index="Energy" value="5"/>
             <VitalRegenArray index="Energy" value="0.0156"/>
         </Modification>
