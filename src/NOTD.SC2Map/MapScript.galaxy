@@ -26125,6 +26125,7 @@ void gt_ACEnterLabNorthGate_Init () {
     gt_ACEnterLabNorthGate = TriggerCreate("gt_ACEnterLabNorthGate_Func");
     TriggerEnable(gt_ACEnterLabNorthGate, false);
     TriggerAddEventUnitRegion(gt_ACEnterLabNorthGate, null, RegionFromId(91), true);
+    TriggerAddEventUnitRegion(gt_ACEnterLabNorthGate, null, RegionFromId(91), false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -31129,7 +31130,7 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
 
     UnitIssueOrder(gv_john, OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())), c_orderQueueReplace);
     TriggerEnable(gt_ACEnterScrapyardGate, true);
-    TriggerEnable(gt_ACEnterLabNorthGate, true);
+    TriggerExecute(gt_ACEnterLabNorthGate, false, false);
     TriggerEnable(gt_ACEnterApolloDockGate, true);
     TriggerEnable(gt_ACEnterApolloReactorGate, true);
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/C96DA3DC"));
