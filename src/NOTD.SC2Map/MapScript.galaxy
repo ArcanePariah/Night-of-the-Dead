@@ -11856,6 +11856,7 @@ void gf_StatsSetBehaviors (int lp_triggeringPlayer) {
     UnitBehaviorAddPlayer(gv_marineHero[lp_triggeringPlayer], "AgilityStat", lp_triggeringPlayer, gv_statsAgility3[lp_triggeringPlayer]);
     UnitBehaviorAddPlayer(gv_marineHero[lp_triggeringPlayer], "PerceptionStat", lp_triggeringPlayer, gv_statsPerception4[lp_triggeringPlayer]);
     UnitBehaviorAddPlayer(gv_marineHero[lp_triggeringPlayer], "IntelligenceStat", lp_triggeringPlayer, gv_statsIntelligence5[lp_triggeringPlayer]);
+    UnitSetPropertyFixed(gv_marineHero[lp_triggeringPlayer], c_unitPropLifePercent, 100.0);
 }
 
 bool gf_StatsStatsChecking (int lp_playerNo) {
