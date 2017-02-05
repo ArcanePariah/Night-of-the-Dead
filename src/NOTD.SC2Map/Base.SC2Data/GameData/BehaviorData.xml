@@ -294,6 +294,10 @@
             <StateFlags index="Cloak" value="1"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="NydusWormTimedLife" parent="TimedLife">
+        <Duration value="180"/>
+        <ExpireEffect value="Suicide"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="Reinforce">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
