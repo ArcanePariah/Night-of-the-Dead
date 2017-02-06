@@ -8,6 +8,7 @@
         <Value>bnet:Night of the Dead Asset Data/0.0/190127,file:Mods/Night of the Dead/bin/Night of the Dead Assets.SC2Mod</Value>
         <Value>bnet:Swarm (Campaign)/0.0/999,file:Campaigns/Swarm.SC2Campaign</Value>
         <Value>bnet:Swarm Story (Campaign)/0.0/999,file:Campaigns/SwarmStory.SC2Campaign</Value>
+        <Value>bnet:Utility Library/0.0/31208</Value>
     </Dependencies>
     <Screenshot>
         <File>
@@ -63,6 +64,7 @@
             <Value>2.150</Value>
             <Value>2.153</Value>
             <Value>2.154</Value>
+            <Value>2.155</Value>
         </Version>
         <Date>
             <Value>2/12/2015</Value>
@@ -71,6 +73,7 @@
             <Value>5/6/2015</Value>
             <Value>12/24/2016</Value>
             <Value>1/15/2017</Value>
+            <Value>2/5/2017</Value>
         </Date>
         <Notes>
             <Value>1,2,3,4,5,6,7</Value>
@@ -79,6 +82,7 @@
             <Value>16,17,18,19,20,22,23,24,29</Value>
             <Value>30,31,32,33,34,35,36,37,38,39,40,41</Value>
             <Value>42,43,44,45</Value>
+            <Value>46,47,48,49</Value>
         </Notes>
     </PatchNote>
     <Preload>
