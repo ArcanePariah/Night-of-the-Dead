@@ -3818,6 +3818,7 @@ void gf_CreatePredator (int lp_player, point lp_creationLocation) {
     PlayerGroupLoopEnd();
     gf_TipLocalNOTD(2000, lp_player, StringExternal("Param/Value/B864C5C3"));
     gf_CreatePet(lp_player, lp_creationLocation);
+    TriggerAddEventUnitDied(gt_PredatorDies, UnitRefFromVariable("gv_playerPet[lp_player]"));
     UnitGroupSelect(UnitLastCreatedGroup(), lp_player, true);
     UnitControlGroupAddUnit(lp_player, 1, UnitLastCreated());
     libNtve_gf_MakeUnitInvulnerable(gv_playerPet[lp_player], true);
@@ -14990,14 +14991,6 @@ bool gt_PredatorDies_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_PredatorDies_Init () {
     gt_PredatorDies = TriggerCreate("gt_PredatorDies_Func");
-    TriggerAddEventUnitDied(gt_PredatorDies, UnitRefFromVariable("gv_playerPet[1]"));
-    TriggerAddEventUnitDied(gt_PredatorDies, UnitRefFromVariable("gv_playerPet[2]"));
-    TriggerAddEventUnitDied(gt_PredatorDies, UnitRefFromVariable("gv_playerPet[3]"));
-    TriggerAddEventUnitDied(gt_PredatorDies, UnitRefFromVariable("gv_playerPet[4]"));
-    TriggerAddEventUnitDied(gt_PredatorDies, UnitRefFromVariable("gv_playerPet[5]"));
-    TriggerAddEventUnitDied(gt_PredatorDies, UnitRefFromVariable("gv_playerPet[6]"));
-    TriggerAddEventUnitDied(gt_PredatorDies, UnitRefFromVariable("gv_playerPet[7]"));
-    TriggerAddEventUnitDied(gt_PredatorDies, UnitRefFromVariable("gv_playerPet[8]"));
 }
 
 //--------------------------------------------------------------------------------------------------
