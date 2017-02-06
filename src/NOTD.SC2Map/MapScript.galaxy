@@ -10198,6 +10198,7 @@ void gf_RegisterMarineWithEvents (unit lp_marine) {
     TriggerAddEventUnitDied(gt_TeamKill, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)));
     TriggerAddEventUnitDied(gt_DeadMarine, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)));
     TriggerAddEventUnitDied(gt_PsiOpsDeath, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)));
+    TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
 }
 
 trigger auto_gf_AmmoUICreation_Trigger = null;
@@ -14644,10 +14645,6 @@ bool gt_ReceivesDamage_Func (bool testConds, bool runActions) {
         if (!((lv_damageReceived > 1.0))) {
             return false;
         }
-
-        if (!((UnitGroupHasUnit(gv_marines, lv_marine) == true))) {
-            return false;
-        }
     }
 
     // Actions
@@ -14715,14 +14712,6 @@ bool gt_ReceivesDamage_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_ReceivesDamage_Init () {
     gt_ReceivesDamage = TriggerCreate("gt_ReceivesDamage_Func");
-    TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromVariable("gv_marineHero[1]"), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
-    TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromVariable("gv_marineHero[2]"), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
-    TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromVariable("gv_marineHero[3]"), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
-    TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromVariable("gv_marineHero[4]"), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
-    TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromVariable("gv_marineHero[5]"), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
-    TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromVariable("gv_marineHero[6]"), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
-    TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromVariable("gv_marineHero[7]"), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
-    TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromVariable("gv_marineHero[8]"), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -14763,10 +14752,6 @@ bool gt_TeamKill_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!((PlayerGroupHasPlayer(gv_marineSquad, lv_pNumber) == true))) {
-            return false;
-        }
-
         if (!((PlayerGroupHasPlayer(gv_marineSquad, libNtve_gf_KillingPlayer()) == true))) {
             return false;
         }
