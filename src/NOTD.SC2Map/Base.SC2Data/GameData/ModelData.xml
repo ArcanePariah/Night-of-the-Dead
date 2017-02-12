@@ -438,6 +438,7 @@
     </CModel>
     <CModel id="DevilDog">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.500000"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
     </CModel>
     <CModel id="DominionKillTeam">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.500000"/>
@@ -453,6 +454,7 @@
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.500000"/>
         <EditorCategories value="Race:Terran"/>
         <Occlusion value="Show"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
     </CModel>
     <CModel id="ExplodingBarrelDeath">
         <Model value="Assets\Effects\Terran\TerranBuildingDeathSmall\TerranBuildingDeathSmall_Low.m3"/>
@@ -587,6 +589,7 @@
             <Adaptions TriggerOnSubstring="_Emissive" Slot="main.emissive"/>
         </TextureDeclares>
         <Model value="Marine Classic.m3"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
     </CModel>
     <CModel id="SCV">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.500000"/>
@@ -644,6 +647,7 @@
     <CModel id="Assault">
         <Model value="NOTD Models\Marine_Gunner.m3"/>
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.700000"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
     </CModel>
     <CModel id="UnknownModel"/>
     <CModel id="UtilityBot">
@@ -762,6 +766,7 @@
     <CModel id="MutaliskAttackSegment4Impact" parent="MutaliskAttackSegment1Impact"/>
     <CModel id="Nova">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.350000"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
     </CModel>
     <CModel id="Odin">
         <SelectionRadius value="1.100000"/>
@@ -1393,6 +1398,7 @@
             <Adaptions TriggerOnSubstring="_Diffuse" Slot="main.diffuse"/>
             <Adaptions TriggerOnSubstring="_Emissive" Slot="main.emissive"/>
         </TextureDeclares>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
     </CModel>
     <CModel id="SwannMarauderPortrait">
         <Lighting value="GhostPortrait2"/>
@@ -2617,6 +2623,7 @@
         <ScaleMin value="0.680000,0.680000,0.720000"/>
         <SelectionRadius value="0.760000"/>
         <ShadowRadius value="0.760000"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
     </CModel>
     <CModel id="TechnicianCrane">
         <Model value="Assets\Doodads\CastanarDissectionArm\CastanarDissectionArm.m3"/>
@@ -2972,6 +2979,7 @@
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.350000"/>
         <Model value="Assets\Units\Terran\MarineRaynorEx1\MarineRaynorEx1.m3"/>
         <Flags index="AutoUnload" value="1"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
     </CModel>
     <CModel id="WreckingCrewAssaultAttackImpact2" parent="ImpactFX">
         <Model value="Assets\Effects\Terran\VikingAssaultWeaponImpact\VikingAssaultWeaponImpact.m3"/>
