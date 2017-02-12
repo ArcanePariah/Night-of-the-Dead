@@ -8,7 +8,7 @@
         <Value>bnet:Night of the Dead Asset Data/0.0/190127,file:Mods/Night of the Dead/bin/Night of the Dead Assets.SC2Mod</Value>
         <Value>bnet:Swarm (Campaign)/0.0/999,file:Campaigns/Swarm.SC2Campaign</Value>
         <Value>bnet:Swarm Story (Campaign)/0.0/999,file:Campaigns/SwarmStory.SC2Campaign</Value>
-        <Value>bnet:Utility Library/0.0/31208</Value>
+        <Value>bnet:Utility Library/0.0/31208,file:Mods\Night of the Dead\bin\Utility Library.SC2Mod</Value>
     </Dependencies>
     <Screenshot>
         <File>
