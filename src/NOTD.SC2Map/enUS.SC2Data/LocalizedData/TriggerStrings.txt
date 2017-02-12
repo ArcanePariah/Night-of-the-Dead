@@ -2292,6 +2292,7 @@ Variable/Name/AD7EB217=AttackingUnit
 Variable/Name/AD81E2B7=BlackHole Harass
 Variable/Name/AD900EDC=Player Medals - Medal Level
 Variable/Name/ADC6AFFC=Reload Time
+Variable/Name/ADE64A59=Team UI
 Variable/Name/AE4B09F3=FinalBoss
 Variable/Name/AEC09391=Barrage Time Interval
 Variable/Name/AEC47453=Player Medals - Medal Name

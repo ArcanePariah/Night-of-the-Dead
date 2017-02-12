@@ -905,6 +905,7 @@ text gv_labelTalentsButton;
 int gv_raidUISaveDialog;
 int gv_raidUITeamStatus;
 int gv_raidUITeamStatusDummy;
+int gv_teamUI;
 int gv_teamStatusButtonClosed;
 int gv_teamStatusButtonOpened;
 int[9] gv_teamStatusPlayerPanel;
@@ -1236,6 +1237,7 @@ void InitGlobals () {
     gv_raidUISaveDialog = c_invalidDialogId;
     gv_raidUITeamStatus = c_invalidDialogId;
     gv_raidUITeamStatusDummy = c_invalidDialogId;
+    gv_teamUI = c_invalidDialogControlId;
     gv_teamStatusButtonClosed = c_invalidDialogControlId;
     gv_teamStatusButtonOpened = c_invalidDialogControlId;
     for (init_i = 0; init_i <= 8; init_i += 1) {
@@ -2072,7 +2074,6 @@ trigger gt_BuyStandardItem;
 trigger gt_ClassCreation;
 trigger gt_DialogButtonClicks;
 trigger gt_CreateTeamStatusDialog;
-trigger gt_ToggleTeamStatusDialog;
 trigger gt_SaveButtonClick;
 trigger gt_TeamStatusClickedTalentTree;
 trigger gt_PeriodicTeamUIUpdate;
@@ -36206,33 +36207,15 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_UIDialogCreation(800, 300, -250, 85, c_anchorTopRight);
-    gv_raidUITeamStatusDummy = DialogLastCreated();
-    DialogControlCreateFromTemplate(gv_raidUITeamStatusDummy, c_triggerControlTypePanel, "TeamStatus/TeamUI");
-    lv_tempDialogFrame = DialogControlLastCreated();
-    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "ShowHideButtonArrow");
-    libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), "Assets\\Textures\\ui_research_frame_available_arrow_left.dds", PlayerGroupAll());
-    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "ShowHideButton");
-    gv_teamStatusButtonClosed = DialogControlLastCreated();
     gf_UIDialogCreation(790, 300, 0, 85, c_anchorTopRight);
     gv_raidUITeamStatus = DialogLastCreated();
     DialogControlCreateFromTemplate(gv_raidUITeamStatus, c_triggerControlTypePanel, "TeamStatus/TeamUI");
-    lv_tempDialogFrame = DialogControlLastCreated();
-    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "ShowHideButton");
+    gv_teamUI = DialogControlLastCreated();
+    DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "ShowHideButton");
     gv_teamStatusButtonOpened = DialogControlLastCreated();
-    DialogControlCreateFromTemplate(gv_raidUITeamStatus, c_triggerControlTypePanel, "TeamStatus/ButtonTemplate");
-    DialogControlSetPosition(DialogControlLastCreated(), PlayerGroupAll(), c_anchorBottomRight, 132, lv_customButtonOffsetY);
-    lv_tempDialogFrame = DialogControlLastCreated();
-    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "ButtonLabel");
-    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), gv_labelMedalsButton, PlayerGroupAll());
-    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "ButtonControl");
+    DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "MedalsButton");
     gv_medalsDialogButton = DialogControlLastCreated();
-    DialogControlCreateFromTemplate(gv_raidUITeamStatus, c_triggerControlTypePanel, "TeamStatus/ButtonTemplate");
-    DialogControlSetPosition(DialogControlLastCreated(), PlayerGroupAll(), c_anchorBottomRight, 7, lv_customButtonOffsetY);
-    lv_tempDialogFrame = DialogControlLastCreated();
-    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "ButtonLabel");
-    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), gv_labelStatsButton, PlayerGroupAll());
-    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "ButtonControl");
+    DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "StatsButton");
     gv_statsDialogButton = DialogControlLastCreated();
     autoA2103939_g = gv_activePlayers; 
     autoA2103939_p = 1;
@@ -36299,45 +36282,6 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
 void gt_CreateTeamStatusDialog_Init () {
     gt_CreateTeamStatusDialog = TriggerCreate("gt_CreateTeamStatusDialog_Func");
     TriggerAddEventGeneric(gt_CreateTeamStatusDialog, gv_dialogIntialization);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Toggle Team Status Dialog
-//--------------------------------------------------------------------------------------------------
-bool gt_ToggleTeamStatusDialog_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_triggeringPlayer;
-
-    // Variable Initialization
-    lv_triggeringPlayer = EventPlayer();
-
-    // Conditions
-    if (testConds) {
-        if (!(((EventDialogControl() == gv_teamStatusButtonOpened) || (EventDialogControl() == gv_teamStatusButtonClosed)))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((DialogIsVisible(gv_raidUITeamStatus, lv_triggeringPlayer) == false)) {
-        DialogSetVisible(gv_raidUITeamStatus, PlayerGroupSingle(lv_triggeringPlayer), true);
-        DialogSetVisible(gv_raidUITeamStatusDummy, PlayerGroupSingle(lv_triggeringPlayer), false);
-    }
-    else {
-        DialogSetVisible(gv_raidUITeamStatus, PlayerGroupSingle(lv_triggeringPlayer), false);
-        DialogSetVisible(gv_raidUITeamStatusDummy, PlayerGroupSingle(lv_triggeringPlayer), true);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ToggleTeamStatusDialog_Init () {
-    gt_ToggleTeamStatusDialog = TriggerCreate("gt_ToggleTeamStatusDialog_Func");
-    TriggerAddEventDialogControl(gt_ToggleTeamStatusDialog, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -39705,7 +39649,6 @@ void InitTriggers () {
     gt_ClassCreation_Init();
     gt_DialogButtonClicks_Init();
     gt_CreateTeamStatusDialog_Init();
-    gt_ToggleTeamStatusDialog_Init();
     gt_SaveButtonClick_Init();
     gt_TeamStatusClickedTalentTree_Init();
     gt_PeriodicTeamUIUpdate_Init();
