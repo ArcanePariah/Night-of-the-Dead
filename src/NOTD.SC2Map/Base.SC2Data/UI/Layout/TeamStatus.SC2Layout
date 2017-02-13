@@ -78,7 +78,7 @@
             <Width val="40"/>
 			<Animation name="ToggleTeamStatus">
                 <Event event="OnClick" action="ToggleDirection,Play"/>
-                <Controller type="Anchor" end="Pause" side="Left" relative="false" frame = "$parent">
+                <Controller type="Anchor" end="Pause" side="Right" relative="false" frame = "$parent">
                     <Key type="Curve" time="0" value="0" />
                     <Key type="Curve" time="0.3" value="255"/>
                 </Controller>

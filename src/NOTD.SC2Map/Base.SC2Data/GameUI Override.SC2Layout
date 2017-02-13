@@ -92,5 +92,11 @@
             <Anchor side="Left" relative="$parent" pos="Mid" offset="100"/>
             <Anchor side="Top" relative="$parent" pos="Max" offset="20"/>
         </Frame>
+		
+		<Frame type="Frame" name="TeamUI" template="TeamStatus/TeamUI">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="85"/>
+		</Frame>
+		
     </Frame>
 </Desc>

@@ -36179,7 +36179,7 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
 
     gf_UIDialogCreation(790, 300, 0, 85, c_anchorTopRight);
     gv_raidUITeamStatus = DialogLastCreated();
-    DialogControlCreateFromTemplate(gv_raidUITeamStatus, c_triggerControlTypePanel, "TeamStatus/TeamUI");
+    DialogControlHookupStandard(c_triggerControlTypePanel, "UIContainer/FullscreenUpperContainer/TeamUI");
     gv_teamUI = DialogControlLastCreated();
     DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "ShowHideButton");
     gv_teamStatusButtonOpened = DialogControlLastCreated();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
+    <Include path="UI/Layout/TeamStatus.SC2Layout"/>
     <Include path="CommandPanel Override.SC2Layout"/>
     <Include path="ConsolePanel Override.SC2Layout"/>
     <Include path="MinimapPanel Override.SC2Layout"/>
@@ -17,7 +18,6 @@
     <Include path="UI/Layout/ClassSelection.SC2Layout"/>
     <Include path="UI/Layout/TalentTree.SC2Layout"/>
     <Include path="UI/Layout/StatDialogTemplate.SC2Layout"/>
-    <Include path="UI/Layout/TeamStatus.SC2Layout"/>
     <Include path="UI/Layout/PlayerDetails.SC2Layout"/>
     <Include path="UI/Layout/AmmoUI.SC2Layout"/>
     <Include path="UI/Layout/StorylineSelection.SC2Layout"/>

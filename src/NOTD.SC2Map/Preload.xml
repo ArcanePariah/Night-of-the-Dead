@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Preload>
+<Asset path="ui\layout\teamstatus.sc2layout" Type="Layout"/>
 <Asset path="notd models\ghoulred.m3" Type="Model"/>
 <Actor id="SYSTEM_ActorConfig"/>
 <Actor id="LightOmniBlueLarge"/>

@@ -87,6 +87,7 @@
     </PatchNote>
     <Preload>
         <Value>AssetFile;NOTD Models\ghoulred.m3</Value>
+        <Value>AssetFile;UI\Layout\TeamStatus.SC2Layout</Value>
         <Value>Bank;notdbank5</Value>
         <Value>Bank;NOTDBackup</Value>
     </Preload>
