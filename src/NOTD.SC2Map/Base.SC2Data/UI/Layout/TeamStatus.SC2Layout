@@ -146,12 +146,20 @@
             <AllyColor val="0,180,0" index="0"/>
             <ReductionShown val="false" index="0"/>
         </Frame>
-
-        <Frame type="Label" name="UnitHealthPercentage">
-            <Anchor side="Top" relative="$parent/UnitStatusHealth" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/UnitStatusHealth" pos="Min" offset="5"/>
-            <Height val="26"/>
-            <Width val="172"/>
+		
+		<Frame type="UnitStatusHealthLabel" name="HealthLabel">
+			<ShowPercent val="true"/>
+			
+			<Frame type="Label" name="StatusLabel">
+				<Visible val= "True"/>
+				<Anchor relative="$parent"/>
+				<Style val="ModCenterSize16"/>
+			</Frame>
+			<Anchor  relative="$parent/UnitStatusHealth" offset="0"/>
+		</Frame>
+		
+		<Frame type="Label" name="LeaverLabel">
+			<Anchor  relative="$parent/UnitStatusHealth" offset="0"/>
             <Style val="ModCenterSize16"/>
         </Frame>
 
@@ -194,14 +202,23 @@
             <AllyColor val="200,200,0" index="0"/>
             <ReductionShown val="false" index="0"/>
         </Frame>
-
-        <Frame type="Label" name="UnitHealthPercentage">
-            <Anchor side="Top" relative="$parent/PetStatusHealth" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/PetStatusHealth" pos="Min" offset="5"/>
-            <Height val="26"/>
-            <Width val="172"/>
+		
+		<Frame type="UnitStatusHealthLabel" name="HealthLabel">
+			<ShowPercent val="true"/>
+			
+			<Frame type="Label" name="StatusLabel">
+				<Anchor relative="$parent"/>
+				<Style val="ModCenterSize16"/>
+				<Visible val= "True"/>
+			</Frame>
+			<Anchor  relative="$parent/PetStatusHealth" offset="0"/>
+		</Frame>
+		
+		<Frame type="Label" name="LeaverLabel">
+			<Anchor  relative="$parent/PetStatusHealth" offset="0"/>
             <Style val="ModCenterSize16"/>
         </Frame>
+
     </Frame>
 
     <Frame type="Frame" name="MarineStatusFrame">

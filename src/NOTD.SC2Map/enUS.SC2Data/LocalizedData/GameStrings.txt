@@ -4224,7 +4224,6 @@ Param/Value/0F14107D=(Erebos begins to form a <c val="00FF00">regenerative shell
 Param/Value/0F55C9CA=<s val="InfoPaneHeroRank">Supplies delivered into battlefield..</s>
 Param/Value/0F90DB7F=Sec Team A: Link Up with Sec Team B
 Param/Value/0FAEAC02=Athena...you are released.
-Param/Value/0FFAE925=KIA
 Param/Value/1063A4AB=(You notice a Compliance Implant at Tanaka's neck...)
 Param/Value/10880E5C=Phantom 6, Phantom 1 is in sector.
 Param/Value/10CB3A8D= lives remaining.
@@ -4282,7 +4281,6 @@ Param/Value/1ADA3260=You've done well. We'll be back to re-take Apollo soon.
 Param/Value/1B4F39CB=Cohesion
 Param/Value/1BE7E05D=God have mercy on our souls.
 Param/Value/1BF44CE6=<s val="GlueButton"><c val="F4D72B">There's something alive in those cocoons.</c>
-Param/Value/1C07B9CC=Leaver
 Param/Value/1C18972C=
 Param/Value/1C72DC4A=Find a way into Apollo
 Param/Value/1C988643=Chapter 3
@@ -4720,7 +4718,6 @@ Param/Value/66F7C730=<s val="InfoPaneHeroRank">Colonists Rescued:
 Param/Value/670FA8CE=(Zeus summons the rebirth of Leto..!)
 Param/Value/672C2DC4=<n/><n/>Kills: <c val="F4D72B">
 Param/Value/6734436C=<n/>   Karma: 
-Param/Value/6767B545=%
 Param/Value/67897E79=<n/></c>Magazines: <c val="F4D72B">
 Param/Value/67AE4653=We can't kill that thing. Stay away from it.
 Param/Value/67D0624B= selected 
@@ -5290,7 +5287,6 @@ Param/Value/CC0DFB19=<s val="GlueButtonSmall">Marksman:
 Param/Value/CC1A343B=(You notice Dr Tanaka acting suspiciously...) 
 Param/Value/CC209D9A=)
 Param/Value/CC5FA379=Survive the attack on Apollo Starport
-Param/Value/CC6D049A=%
 Param/Value/CC834827=I'm Assistant Science Officer Tanaka.
 Param/Value/CC852C44=Dr. Omar
 Param/Value/CCAD1762=Stay away from the bodies.
@@ -5558,6 +5554,7 @@ Param/Value/FBAB4279=Chapter 3
 Param/Value/FBBC0ECA=<c val="FF0000">-1 Rating</c> for mission delay
 Param/Value/FBD0B825=<s val="HeaderExtendedTemplate">Stats</s>
 Param/Value/FC238DA8=<s val="GlueButton"><c val="F4D72B">More of my men are still in the city. I must find them.</c></s>
+Param/Value/FC586131=Leaver
 Param/Value/FC9DE0D9=Be prepared. Unknown dangers lurk in the Mine Shaft.
 Param/Value/FD3063C2=Kill Deimos
 Param/Value/FD389ACD=<s val="InfoPaneHeroRank">(Dr. Tanaka activates his console...)</s>
