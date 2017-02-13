@@ -72,17 +72,15 @@
         </Frame>
 
         <Frame type="Button" name="ShowHideButton">
-		
             <Anchor side="Top" relative="$parent/ShowHideButtonBorder" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/ShowHideButtonBorder" pos="Min" offset="0"/>
             <Height val="80"/>
             <Width val="40"/>
 			<Animation name="ToggleTeamStatus">
                 <Event event="OnClick" action="ToggleDirection,Play"/>
-                
                 <Controller type="Anchor" end="Pause" side="Left" relative="false" frame = "$parent">
                     <Key type="Curve" time="0" value="0" />
-                    <Key type="Curve" time="0.3" value="254"/>
+                    <Key type="Curve" time="0.3" value="255"/>
                 </Controller>
             </Animation>
         </Frame>
@@ -272,8 +270,6 @@
             <Style val="PlayerXP"/>
         </Frame>
     </Frame>
-
-
 
     <Frame type="Frame" name="IconButtonTemplate">
         <Width val="44"/>
