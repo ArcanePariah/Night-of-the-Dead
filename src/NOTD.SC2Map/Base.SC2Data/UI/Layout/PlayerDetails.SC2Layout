@@ -42,6 +42,7 @@
             <Height val="48"/>
             <Width val="96"/>
             <Style val="ModCenterSize16"/>
+			<Text val = "Medals"/>
         </Frame>
 
         <Frame type="Button" name="MedalsButton">
@@ -69,6 +70,7 @@
             <Height val="48"/>
             <Width val="96"/>
             <Style val="ModCenterSize16"/>
+			<Text val = "Stats"/>
         </Frame>
 
         <Frame type="Button" name="StatsButton">
@@ -96,6 +98,7 @@
             <Height val="48"/>
             <Width val="96"/>
             <Style val="ModCenterSize16"/>
+			<Text val = "Talents"/>
         </Frame>
 
         <Frame type="Button" name="TalentsButton">

@@ -198,6 +198,7 @@
     <Frame type="Frame" name="TeamUI">
         <Height val="800"/>
         <Width val="300"/>
+		<Visible val = "false"/>
 
         <Frame type="Image" name="BorderPart1">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>

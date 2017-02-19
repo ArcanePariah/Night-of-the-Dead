@@ -902,9 +902,6 @@ bool[gv_numberofPlayers + 1] gv_saveButtonEnabled;
 text gv_labelMedalsButton;
 text gv_labelStatsButton;
 text gv_labelTalentsButton;
-int gv_raidUISaveDialog;
-int gv_raidUITeamStatus;
-int gv_raidUITeamStatusDummy;
 int gv_teamUI;
 int gv_teamStatusButtonClosed;
 int gv_teamStatusButtonOpened;
@@ -1235,9 +1232,6 @@ void InitGlobals () {
     gv_labelMedalsButton = StringExternal("Param/Value/6E811AED");
     gv_labelStatsButton = StringExternal("Param/Value/8B3790A4");
     gv_labelTalentsButton = StringExternal("Param/Value/ABC09330");
-    gv_raidUISaveDialog = c_invalidDialogId;
-    gv_raidUITeamStatus = c_invalidDialogId;
-    gv_raidUITeamStatusDummy = c_invalidDialogId;
     gv_teamUI = c_invalidDialogControlId;
     gv_teamStatusButtonClosed = c_invalidDialogControlId;
     gv_teamStatusButtonOpened = c_invalidDialogControlId;
@@ -5929,12 +5923,6 @@ bool gf_PreCinematicProcessing () {
     }
     IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        if ((DialogIsVisible(gv_raidUITeamStatus, IntLoopCurrent()) == true)) {
-            gv_iLikeItOpen[IntLoopCurrent()] = true;
-        }
-        else {
-            gv_iLikeItOpen[IntLoopCurrent()] = false;
-        }
         gv_talentTreeOpen[IntLoopCurrent()] = false;
     }
     IntLoopEnd();
@@ -5944,9 +5932,6 @@ bool gf_PreCinematicProcessing () {
         libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), true);
     }
     UnitGroupLoopEnd();
-    DialogSetVisible(gv_raidUITeamStatus, PlayerGroupAll(), false);
-    DialogSetVisible(gv_raidUITeamStatusDummy, PlayerGroupAll(), false);
-    DialogSetVisible(gv_raidUISaveDialog, PlayerGroupAll(), false);
     IntLoopBegin(1, 8);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         DialogSetVisible(gv_equipment, PlayerGroupAll(), false);
@@ -6056,13 +6041,6 @@ bool gf_PostCinematicProcessing () {
             libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), false);
         }
         UnitGroupLoopEnd();
-        if ((gv_iLikeItOpen[PlayerGroupLoopCurrent()] == true)) {
-            DialogSetVisible(gv_raidUITeamStatus, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
-        }
-        else {
-            DialogSetVisible(gv_raidUITeamStatusDummy, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
-        }
-        DialogSetVisible(gv_raidUISaveDialog, PlayerGroupAll(), true);
         DialogSetVisible(gv_shellDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         DialogSetVisible(gv_ammoCounterDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         DialogSetVisible(gv_equipment, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
@@ -7885,7 +7863,7 @@ bool auto_gf_ECEndCinematic_TriggerFunc (bool testConds, bool runActions) {
         DialogSetVisible(gv_shellDialog[PlayerGroupLoopCurrent()], PlayerGroupAll(), false);
     }
     PlayerGroupLoopEnd();
-    DialogSetVisible(gv_raidUISaveDialog, PlayerGroupAll(), false);
+    DialogControlSetVisible(gv_saveButton, PlayerGroupAll(), false);
     if ((gf_PreCinematicProcessing() == true)) {
     }
 
@@ -9920,7 +9898,7 @@ bool auto_gf_ClassSelectionUI_TriggerFunc (bool testConds, bool runActions) {
         DialogSetVisible(gv_classSelectionDialog[lv_index], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
     }
     PlayerGroupLoopEnd();
-    DialogSetVisible(gv_raidUITeamStatus, PlayerGroupAll(), true);
+    DialogControlSetVisible(gv_teamUI, PlayerGroupAll(), true);
     return true;
 }
 
@@ -10036,7 +10014,7 @@ void gf_SurvivalClassSelectionUI () {
         DialogSetVisible(gv_classSelectionDialog[lv_player], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
     }
     PlayerGroupLoopEnd();
-    DialogSetVisible(gv_raidUITeamStatus, PlayerGroupAll(), true);
+    DialogControlSetVisible(gv_teamUI, PlayerGroupAll(), true);
 }
 
 void gf_SetupClassSelection (int lp_player, int lp_classSlot, int lp_classLabel) {
@@ -10572,17 +10550,11 @@ void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, te
     // Implementation
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeLabel, "Title");
     libNtve_gf_SetDialogItemText(DialogControlLastCreated(), lp_dialogTitle, PlayerGroupAll());
-    DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeLabel, "MedalsLabel");
-    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), gv_labelMedalsButton, PlayerGroupAll());
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "MedalsButton");
     gv_dialogButtons[lp_dialogControlCategory][1][lp_player] = DialogControlLastCreated();
-    DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeLabel, "StatsLabel");
-    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), gv_labelStatsButton, PlayerGroupAll());
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "StatsButton");
     gv_dialogButtons[lp_dialogControlCategory][2][lp_player] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ObjectiveDisplay", PlayerGroupAll());
-    DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeLabel, "TalentsLabel");
-    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), gv_labelTalentsButton, PlayerGroupAll());
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "TalentsButton");
     gv_dialogButtons[lp_dialogControlCategory][3][lp_player] = DialogControlLastCreated();
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "NavLeftArrowButton");
@@ -36171,8 +36143,6 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_UIDialogCreation(790, 300, 0, 85, c_anchorTopRight);
-    gv_raidUITeamStatus = DialogLastCreated();
     DialogControlHookupStandard(c_triggerControlTypePanel, "UIContainer/FullscreenUpperContainer/TeamUI");
     gv_teamUI = DialogControlLastCreated();
     DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "ShowHideButton");
@@ -38872,9 +38842,6 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
         gf_ShowHideMarineDialog(false, lv_forwardObserverOwner, PlayerGroupLoopCurrent());
     }
     PlayerGroupLoopEnd();
-    DialogSetVisible(gv_raidUITeamStatus, PlayerGroupSingle(lv_forwardObserverOwner), false);
-    DialogSetVisible(gv_raidUITeamStatusDummy, PlayerGroupSingle(lv_forwardObserverOwner), false);
-    DialogSetVisible(gv_raidUISaveDialog, PlayerGroupSingle(lv_forwardObserverOwner), false);
     libNtve_gf_HideGameUI(false, PlayerGroupSingle(lv_forwardObserverOwner));
     gv_gunshipCinematicActive[lv_forwardObserverOwner] = true;
     gv_gameUIHidden[lv_forwardObserverOwner] = true;
@@ -39028,8 +38995,6 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     }
 
     libNtve_gf_HideGameUI(true, PlayerGroupSingle(lv_forwardObserverOwner));
-    DialogSetVisible(gv_raidUITeamStatus, PlayerGroupSingle(lv_forwardObserverOwner), true);
-    DialogSetVisible(gv_raidUISaveDialog, PlayerGroupSingle(lv_forwardObserverOwner), true);
     UnitGroupLoopBegin(gv_mobileInfantryGroup[lv_forwardObserverOwner]);
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         libNtve_gf_MakeUnitUncommandable(UnitGroupLoopCurrent(), false);
