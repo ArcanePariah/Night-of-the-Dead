@@ -171,30 +171,6 @@
             <Style val="PlayerXP"/>
         </Frame>
     </Frame>
-
-    <Frame type="Frame" name="IconButtonTemplate">
-        <Width val="44"/>
-        <Height val="44"/>
-
-        <Frame type="Image" name="ButtonImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Texture val="Assets\Textures\ui-editoricon-general_save.dds"/>
-            <TextureType val="Normal"/>
-            <BlendMode val="Normal"/>
-            <Color val="255,255,255"/>
-            <Width val="44"/>
-            <Height val="44"/>
-        </Frame>
-
-        <Frame type="Button" name="ButtonControl">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Width val="44"/>
-            <Height val="44"/>
-            <Tooltip val="Click to save your progress"/>
-        </Frame>
-    </Frame>
 	
 	<Frame type="Button" name="ButtonTemplate">
         <Width val="128"/>

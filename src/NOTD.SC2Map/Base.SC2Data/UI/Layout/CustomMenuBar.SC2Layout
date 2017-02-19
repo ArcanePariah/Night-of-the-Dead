@@ -9,7 +9,25 @@
             <Frame type="Button" name="HelpButton">
                 <Visible val="false"/>
             </Frame>
+			<Frame type = "Frame" name = "SaveButton">
+				<Anchor side="Left" relative="$parent/SocialButton" pos="Max" offset="3"/>
+                <Anchor side="Bottom" relative="$parent/SocialButton" pos="Max" offset="5"/>
+				<Width val="44"/>
+				<Height val="44"/>
 
+				<Frame type="Image" name="ButtonImage">
+					<Anchor relative="$parent" offset="0"/>
+					<Texture val="Assets\Textures\ui-editoricon-general_save.dds"/>
+					<TextureType val="Normal"/>
+					<BlendMode val="Normal"/>
+					<Color val="255,255,255"/>
+				</Frame>
+
+				<Frame type="Button" name="ButtonControl">
+					<Anchor relative="$parent" offset="0"/>
+					<Tooltip val="Click to save your progress"/>
+				</Frame>
+			</Frame>
             <Frame type="SocialButton" name="SocialButton">
                 <Anchor side="Left" relative="$parent/MenuBarBackgroundImage" pos="Min" offset="58"/>
                 <Anchor side="Top" relative="$parent/MenuBarBackgroundImage" pos="Min" offset="-5"/>

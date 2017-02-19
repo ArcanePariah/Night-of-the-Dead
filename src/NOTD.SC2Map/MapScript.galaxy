@@ -36057,7 +36057,6 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_DialogButtonClicks, true);
     gf_ClassCreationMaster(lv_selectingPlayer, lv_selectingPlayer);
     gf_TalentTreeCreation(lv_selectingPlayer);
-    DialogSetVisible(gv_raidUISaveDialog, PlayerGroupSingle(lv_selectingPlayer), true);
     return true;
 }
 
@@ -36161,13 +36160,10 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
     int auto8EE08402_ai;
 
     // Variable Declarations
-    int lv_customButtonOffsetY;
     int lv_currentPlayer;
     int lv_i;
-    int lv_yOffsetIndex;
 
     // Variable Initialization
-    lv_customButtonOffsetY = 30;
     lv_currentPlayer = 1;
 
     // Actions
@@ -36238,9 +36234,7 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
         gf_UISetPlayerRankNameIconXP(lv_currentPlayer);
         DialogControlSetVisible(gv_teamStatusPlayerPanel[lv_currentPlayer], PlayerGroupAll(), true);
     }
-    gf_UIDialogCreation(44, 44, 138, 884, c_anchorTopRight);
-    gv_raidUISaveDialog = DialogLastCreated();
-    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypePanel, "TeamStatus/IconButtonTemplate");
+    DialogControlHookupStandard(c_triggerControlTypePanel, "UIContainer/FullscreenUpperContainer/MenuBar/SaveButton");
     DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeButton, "ButtonControl");
     gv_saveButton = DialogControlLastCreated();
     return true;
