@@ -5017,7 +5017,7 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
             libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
         }
 
-        if ((RandomInt(1, 500) == 1) && (gv_cinematicMode == false)) {
+        if ((RandomInt(1, 500) == 1) && (gv_wave > 1) && (gv_cinematicMode == false)) {
             lv_localRegionA = gf_GetRegionNotNearMarines(5.0);
             autoB5287105_n = (gv_spawnFactor * 5);
             for (autoB5287105_i = 1; autoB5287105_i <= autoB5287105_n; autoB5287105_i += 1) {
