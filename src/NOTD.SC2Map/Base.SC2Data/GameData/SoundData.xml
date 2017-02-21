@@ -64,7 +64,7 @@
         <AssetArray File="Assets\Sounds\Protoss\Archon\Archon_AttackImpact0.wav"/>
         <AssetArray File="Assets\Sounds\Protoss\Archon\Archon_AttackImpact1.wav"/>
         <AssetArray File="Assets\Sounds\Protoss\Archon\Archon_AttackImpact2.wav"/>
-        <Volume value="-12.350000,-12.350000"/>
+        <Volume value="-12.349999,-12.349999"/>
     </CSound>
     <CSound id="ArmoryFidgetsAnnabelleAnnabelle00001" parent="Interactive" Portrait="SMAnnabelle" Subtitle="ArmoryFidgetsAnnabelle" Speaker="CharAnnabelle" Line="00001"/>
     <CSound id="ArmoryFidgetsAnnabelleAnnabelle00002" parent="Interactive" Portrait="SMAnnabelle" Subtitle="ArmoryFidgetsAnnabelle" Speaker="CharAnnabelle" Line="00002"/>
@@ -2052,69 +2052,27 @@
     <CSound id="Mission_MusicCue001">
         <Volume value="0.000000,0.000000"/>
     </CSound>
-    <CSound id="Music_EndCreditsA1">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsA2">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsB1">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsB2">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsC">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsD">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsE">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsF">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsG">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsH">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsI">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsJ">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsK">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsL">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsM">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsN">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsO">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsP">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsQ">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsR">
-        <Category value="Music"/>
-    </CSound>
-    <CSound id="Music_EndCreditsS">
-        <Category value="Music"/>
-    </CSound>
+    <CSound id="Music_EndCreditsA1"/>
+    <CSound id="Music_EndCreditsA2"/>
+    <CSound id="Music_EndCreditsB1"/>
+    <CSound id="Music_EndCreditsB2"/>
+    <CSound id="Music_EndCreditsC"/>
+    <CSound id="Music_EndCreditsD"/>
+    <CSound id="Music_EndCreditsE"/>
+    <CSound id="Music_EndCreditsF"/>
+    <CSound id="Music_EndCreditsG"/>
+    <CSound id="Music_EndCreditsH"/>
+    <CSound id="Music_EndCreditsI"/>
+    <CSound id="Music_EndCreditsJ"/>
+    <CSound id="Music_EndCreditsK"/>
+    <CSound id="Music_EndCreditsL"/>
+    <CSound id="Music_EndCreditsM"/>
+    <CSound id="Music_EndCreditsN"/>
+    <CSound id="Music_EndCreditsO"/>
+    <CSound id="Music_EndCreditsP"/>
+    <CSound id="Music_EndCreditsQ"/>
+    <CSound id="Music_EndCreditsR"/>
+    <CSound id="Music_EndCreditsS"/>
     <CSound id="Overdrive">
         <AssetArray File="Assets\Sounds\Terran\Raynor\Raynor_PenetratorRoundChargeUp0.wav" Pitch="-2.060000,-2.060000" FacialGroup=""/>
         <Mode value="3DWorld"/>
@@ -2271,8 +2229,8 @@
         <Volume value="0.000000,0.000000"/>
     </CSound>
     <CSound id="CrowbarImpact">
-        <AssetArray File="Assets\Sounds\Zerg\Roach\Roach_AttackImpactMelee0.wav" Volume="-10.970000,-10.970000" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Zerg\Roach\Roach_AttackImpactMelee1.wav" Volume="-10.970000,-10.970000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\Roach\Roach_AttackImpactMelee0.wav" Volume="-10.969999,-10.969999" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\Roach\Roach_AttackImpactMelee1.wav" Volume="-10.969999,-10.969999" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Zerg\Roach\Roach_AttackImpactMelee2.wav" Volume="-10.290000,-10.290000" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Zerg\Roach\Roach_AttackImpactMelee3.wav" Volume="-10.290000,-10.290000" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Zerg\Roach\Roach_AttackImpactMelee4.wav" Volume="-10.290000,-10.290000" FacialGroup=""/>
@@ -2317,7 +2275,7 @@
         <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch7.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch8.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch9.wav" FacialGroup=""/>
-        <Volume value="-15.090000,-15.090000"/>
+        <Volume value="-15.089999,-15.089999"/>
     </CSound>
     <CSound id="ForwardObserverShellFlight">
         <AssetArray File="Assets\Sounds\Terran\DropPod\DropPod_Drop0.wav" FacialGroup=""/>
@@ -2347,7 +2305,7 @@
     </CSound>
     <CSound id="BarrettM112Launch" parent="Spell">
         <EditorCategories value="Race:Terran"/>
-        <AssetArray File="NOTD Sounds\OSOK OPTIMIZED.mp3" Volume="-9.600000,-9.600000" FacialGroup=""/>
+        <AssetArray File="NOTD Sounds\OSOK OPTIMIZED.mp3" Volume="-9.599999,-9.599999" FacialGroup=""/>
         <DupeMaximumMethod value="Replace"/>
         <Volume value="-4.110000,-4.110000"/>
     </CSound>
@@ -6022,8 +5980,8 @@
         <AssetArray index="3" removed="1"/>
     </CSound>
     <CSound id="CockpitOpenLoop" parent="Phoenix_GravitonBeamLoop">
-        <AssetArray index="0" File="Assets/Sounds/Uni/Emitters/Emitter_IhanCrystal_Loop.wav" Volume="-10.970000,-10.970000" FacialGroup=""/>
-        <Volume value="-21.940001,-21.940001"/>
+        <AssetArray index="0" File="Assets/Sounds/Uni/Emitters/Emitter_IhanCrystal_Loop.wav" Volume="-10.969999,-10.969999" FacialGroup=""/>
+        <Volume value="-21.939999,-21.939999"/>
     </CSound>
     <CSound id="ChemExpert_Attack" parent="ProtossAck">
         <AssetArray File="LocalizedData\Sounds\ProtossVO\CampaignUnits\Urun\Urun_Attack00.ogg"/>
@@ -6266,7 +6224,7 @@
         <DupeDestroyCount value="3"/>
         <DupeMaximumMethod value="Replace"/>
         <Pitch value="0.000000,4.000000"/>
-        <Volume value="-3.500000,-3.500000"/>
+        <Volume value="-15.000000,-15.000000"/>
     </CSound>
     <CSound id="AirlockGatesUnlocked" parent="Build">
         <EditorCategories value="Race:Neutral"/>
@@ -6321,7 +6279,7 @@
         <AssetArray File="Assets\Sounds\Terran\Ghost\Ghost_SnipeImpact4.wav"/>
         <DupeMaximumMethod value="Replace"/>
         <Pitch value="-1.000000,3.000000"/>
-        <Volume value="-9.600000,-9.600000"/>
+        <Volume value="-9.599999,-9.599999"/>
     </CSound>
     <CSound id="Ghost_SnipeLaunch">
         <AssetArray index="0" File="NOTD Sounds\OSOK OPTIMIZED.mp3" FacialGroup=""/>
@@ -6641,7 +6599,6 @@
         <AssetArray File="Assets\Sounds\Protoss\Colossus\Colossus_AttackImpact3.wav"/>
         <AssetArray File="Assets\Sounds\Protoss\Colossus\Colossus_AttackImpact4.wav"/>
         <AssetArray File="Assets\Sounds\Protoss\Colossus\Colossus_AttackImpact5.wav"/>
-        <Mode value="3DWorld"/>
     </CSound>
     <CSound id="PowerGeneratorPowerUp" parent="Build">
         <EditorCategories value="Race:Neutral"/>
