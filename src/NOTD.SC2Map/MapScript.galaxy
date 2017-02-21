@@ -3824,12 +3824,15 @@ void gf_CreatePredator (int lp_player, point lp_creationLocation) {
     UnitGroupAdd(gv_pets, gv_playerPet[lp_player]);
     libNtve_gf_SetDialogItemImage(gv_teamStatusPortraitButton[lp_player], UserDataGetImagePath("CustomPetImages", "Pet Images", "Pet Image", (ModI(gv_playerPetCode[lp_player], 100) + 1)), PlayerGroupAll());
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lp_player], c_triggerBlendModeNormal, PlayerGroupAll());
-    DialogControlCreateInPanelFromTemplate(gv_teamStatusPlayerPanel[lp_player], c_triggerControlTypeUnitStatus, "TeamStatus/PetStats");
-    DialogControlSetPosition(DialogControlLastCreated(), PlayerGroupAll(), c_anchorLeft, 86, 0);
+    DialogControlHookup(gv_teamStatusPlayerPanel[lp_player], c_triggerControlTypeUnitStatus, "PetHealth");
     gv_teamStatusLifeBar[lp_player] = DialogControlLastCreated();
-    libNtve_gf_SetDialogItemUnit(gv_teamStatusLifeBar[lp_player], gv_playerPet[lp_player], PlayerGroupAll());
-    DialogControlHookup(gv_teamStatusLifeBar[lp_player], c_triggerControlTypeLabel, "UnitHealthPercentage");
+    DialogControlHookup(gv_teamStatusLifeBar[lp_player], c_triggerControlTypeLabel, "LeaverLabel");
     gv_teamStatusLifeBarLabel[lp_player] = DialogControlLastCreated();
+    DialogControlHookup(gv_teamStatusLifeBar[lp_player], c_triggerControlTypeUnitStatusLabel, "HealthLabel");
+    DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeLabel, "StatusLabel");
+    gv_teamStatusLifeBarHealthLabel[lp_player] = DialogControlLastCreated();
+    libNtve_gf_SetDialogItemUnit(gv_teamStatusLifeBar[lp_player], gv_playerPet[lp_player], PlayerGroupAll());
+    DialogControlSetVisible(gv_teamStatusLifeBar[lp_player], PlayerGroupAll(), true);
     UnitFlashSelection(gv_playerPet[lp_player], 4.0);
     TriggerEnable(gt_PetLevelUp, true);
     TriggerEnable(gt_Backstab, true);
@@ -5976,6 +5979,7 @@ bool gf_PreCinematicProcessing () {
 
     }
     IntLoopEnd();
+    DialogControlSetVisible(gv_teamUI, PlayerGroupAll(), false);
     SoundChannelMute(PlayerGroupAll(), c_soundCategoryVoice, false);
     SoundChannelSetVolume(PlayerGroupAll(), c_soundCategoryVoice, 100.0, 0.0);
     Wait(0.5, c_timeGame);
@@ -6056,6 +6060,7 @@ bool gf_PostCinematicProcessing () {
         }
     }
     PlayerGroupLoopEnd();
+    DialogControlSetVisible(gv_teamUI, PlayerGroupAll(), true);
     return true;
 }
 
@@ -38843,6 +38848,7 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     }
     PlayerGroupLoopEnd();
     libNtve_gf_HideGameUI(false, PlayerGroupSingle(lv_forwardObserverOwner));
+    DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), false);
     gv_gunshipCinematicActive[lv_forwardObserverOwner] = true;
     gv_gameUIHidden[lv_forwardObserverOwner] = true;
     UIDisplayMessage(PlayerGroupSingle(lv_forwardObserverOwner), c_messageAreaDebug, StringExternal("Param/Value/EDD297E3"));
@@ -39013,6 +39019,7 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     gv_gameUIHidden[lv_forwardObserverOwner] = false;
     UnitRemove(gv_gunshipUnit[lv_forwardObserverOwner]);
     gf_ShowHideMarineDialog(true, lv_forwardObserverOwner, lv_forwardObserverOwner);
+    DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), true);
     CameraLockInput(lv_forwardObserverOwner, false);
     return true;
 }
