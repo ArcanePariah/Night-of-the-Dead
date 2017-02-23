@@ -2062,7 +2062,7 @@ Button/Tooltip/MassDesignate=The Recon casts the current level of Laser Designat
 Button/Tooltip/MasterMarksman=Non-Boss units are stunned for 2 secs when attacked from more than 10 distance away. Requires Sniper Rifle.
 Button/Tooltip/MasterofSubtlety=Attacks made while stealthed deal 50% more damage.
 Button/Tooltip/Medic=The Medic provides vital protection in combat. Every team should have one.
-Button/Tooltip/MedicHeal=Heals a friendly biological target for 3 HP per second. Can also be used to Heal self.
+Button/Tooltip/MedicHeal=Heals a friendly biological target for 3 HP per second. 1 point of life costs 0.5 points of energy. Can also be used to Heal self.
 Button/Tooltip/Medkit=<c val="FFFF00">Medkit</c><n/>Heals 125 HP over 15 seconds. Can be used on self only.<n/>Maximum Effect Stack: <c val="FFFFFF">3</c><n/>Credits: <c val="FFFFFF">15</c> (Requires <c val="FFFF00">500 XP</c> to purchase)<n/><n/>"Best cure out there for a hard night out." - Lt. Sheng
 Button/Tooltip/Menoetes=
 Button/Tooltip/MentalProjection=Creates 1 Hallucination of Psi Ops. Lasts 15 seconds.
@@ -3969,8 +3969,8 @@ Focused Fire Level 4=Increases attack damage by 25% and sight range by 3. Reduce
 Full Throttle Level 2=The Pathfinder engages the afterburner and surges forward with a great burst of speed, knocking back lighter enemies in passing.<n/><n/>Level 2 -- 300% movespeed, range of 9
 Full Throttle Level 3=The Pathfinder engages the afterburner and surges forward with a great burst of speed, knocking back lighter enemies in passing.<n/><n/>Level 3 -- 400% movespeed, range of 12
 Grenade Level 2XM35GrenadeLauncher Level 2=Launches a grenade. Deals <d ref="Effect,GrenadeLevel2Damage,Amount[0]"/> damage. +33% damage to Light units. Gains larger AoE while Focus Fire is active.
-Heal Level 2=Heals a friendly biological target for 5 HP per second. Can also be used to Heal self.
-Heal Level 3=Heals a friendly biological target for 7 HP per second. Can also be used to Heal self.
+Heal Level 2=Heals a friendly biological target for 5 HP per second. 1 point of life costs 0.475 points of energy. Can also be used to Heal self.
+Heal Level 3=Heals a friendly biological target for 7 HP per second. 1 point of life costs 0.45 points of energy. Can also be used to Heal self.
 Hotkey/Heros=Marine Classes
 Hotkey/Minis=Minions
 Info/Bandage=Instantly heals 50 HP. Also heals Open Wounds
