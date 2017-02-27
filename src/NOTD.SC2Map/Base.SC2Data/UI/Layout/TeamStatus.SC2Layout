@@ -259,8 +259,8 @@
 			<Animation name="ToggleTeamStatus">
                 <Event event="OnClick" action="ToggleDirection,Play"/>
                 <Controller type="Anchor" end="Pause" side="Right" relative="false" frame = "$parent">
-                    <Key type="Curve" time="0" value="0" />
-                    <Key type="Curve" time="0.3" value="255"/>
+                    <Key type="Curve" time="0" value="0" out="Fast"	/>
+                    <Key type="Curve" time="0.2" in = "Slow" value="255"/>
                 </Controller>
             </Animation>
         </Frame>

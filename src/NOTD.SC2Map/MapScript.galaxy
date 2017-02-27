@@ -14898,13 +14898,6 @@ bool gt_PredatorDies_Func (bool testConds, bool runActions) {
     // Variable Initialization
     lv_pNumber = EventPlayer();
 
-    // Conditions
-    if (testConds) {
-        if (!((UnitHasBehavior(EventUnit(), "MarkofthePredator") == true))) {
-            return false;
-        }
-    }
-
     // Actions
     if (!runActions) {
         return true;
@@ -14914,6 +14907,7 @@ bool gt_PredatorDies_Func (bool testConds, bool runActions) {
     libNtve_gf_SetDialogItemImage(gv_teamStatusPortraitButton[lv_pNumber], "Assets\\Textures\\terranportraittransition_static.dds", PlayerGroupAll());
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lv_pNumber], c_triggerBlendModeAdd, PlayerGroupAll());
     libNtve_gf_SetDialogItemText(gv_teamStatusLifeBarLabel[lv_pNumber], StringExternal("Param/Value/5F80530A"), PlayerGroupAll());
+    DialogControlSetVisible(gv_teamStatusLifeBarHealthLabel[lv_pNumber], PlayerGroupAll(), false);
     gv_playerMarinePetDead[lv_pNumber] = true;
     return true;
 }
