@@ -903,15 +903,11 @@ text gv_labelMedalsButton;
 text gv_labelStatsButton;
 text gv_labelTalentsButton;
 int gv_teamUI;
-int gv_teamStatusButtonClosed;
-int gv_teamStatusButtonOpened;
 int[9] gv_teamStatusPlayerPanel;
 int[9] gv_teamStatusLifeBar;
-int[9] gv_teamStatusPlayerName;
 int[4][9] gv_teamStatusDebuffs;
 int[4][9] gv_teamStatusDebuffsBackground;
 int[9] gv_teamStatusLifeBarLabel;
-int[9] gv_teamStatusLifeBarHealthLabel;
 int[9] gv_teamStatusRankIcon;
 int[9] gv_teamStatusXP;
 int[9] gv_teamStatusPortraitButton;
@@ -1233,16 +1229,11 @@ void InitGlobals () {
     gv_labelStatsButton = StringExternal("Param/Value/8B3790A4");
     gv_labelTalentsButton = StringExternal("Param/Value/ABC09330");
     gv_teamUI = c_invalidDialogControlId;
-    gv_teamStatusButtonClosed = c_invalidDialogControlId;
-    gv_teamStatusButtonOpened = c_invalidDialogControlId;
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_teamStatusPlayerPanel[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_teamStatusLifeBar[init_i] = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_teamStatusPlayerName[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 3; init_i += 1) {
         for (init_j = 0; init_j <= 8; init_j += 1) {
@@ -1256,9 +1247,6 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_teamStatusLifeBarLabel[init_i] = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_teamStatusLifeBarHealthLabel[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_teamStatusRankIcon[init_i] = c_invalidDialogControlId;
@@ -3826,13 +3814,12 @@ void gf_CreatePredator (int lp_player, point lp_creationLocation) {
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lp_player], c_triggerBlendModeNormal, PlayerGroupAll());
     DialogControlHookup(gv_teamStatusPlayerPanel[lp_player], c_triggerControlTypeUnitStatus, "PetHealth");
     gv_teamStatusLifeBar[lp_player] = DialogControlLastCreated();
-    DialogControlHookup(gv_teamStatusLifeBar[lp_player], c_triggerControlTypeLabel, "LeaverLabel");
-    gv_teamStatusLifeBarLabel[lp_player] = DialogControlLastCreated();
-    DialogControlHookup(gv_teamStatusLifeBar[lp_player], c_triggerControlTypeUnitStatusLabel, "HealthLabel");
-    DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeLabel, "StatusLabel");
-    gv_teamStatusLifeBarHealthLabel[lp_player] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemUnit(gv_teamStatusLifeBar[lp_player], gv_playerPet[lp_player], PlayerGroupAll());
-    DialogControlSetVisible(gv_teamStatusLifeBar[lp_player], PlayerGroupAll(), true);
+    DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lp_player], PlayerGroupAll(), "MarineDeath", "PetBorn");
+    if ((PlayerStatus(lp_player) == c_playerStatusLeft)) {
+        DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lp_player], PlayerGroupAll(), "MarineDeath", "Leaver");
+    }
+
     UnitFlashSelection(gv_playerPet[lp_player], 4.0);
     TriggerEnable(gt_PetLevelUp, true);
     TriggerEnable(gt_Backstab, true);
@@ -10784,7 +10771,7 @@ bool auto_gf_UIUpdateLifeTooltip_TriggerFunc (bool testConds, bool runActions) {
     gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + FixedToText(gv_playerDamageTaken[lp_triggeringPlayer], 0));
     gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/77C36B7E"));
     gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + IntToText(gv_marineMags[lp_triggeringPlayer]));
-    libNtve_gf_SetDialogItemTooltip(gv_teamStatusLifeBar[lp_triggeringPlayer], gv_teamStatusLifeTooltip[lp_triggeringPlayer], PlayerGroupAll());
+    libNtve_gf_SetDialogItemTooltip(gv_teamStatusLifeBarLabel[lp_triggeringPlayer], gv_teamStatusLifeTooltip[lp_triggeringPlayer], PlayerGroupAll());
     return true;
 }
 
@@ -10907,7 +10894,7 @@ bool auto_gf_UISetDoctorTitle_TriggerFunc (bool testConds, bool runActions) {
     int lp_triggeringPlayer = auto_gf_UISetDoctorTitle_lp_triggeringPlayer;
 
     // Implementation
-    libNtve_gf_SetDialogItemText(gv_teamStatusPlayerName[lp_triggeringPlayer], (StringExternal("Param/Value/31B81D09") + PlayerName(lp_triggeringPlayer)), PlayerGroupAll());
+    DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lp_triggeringPlayer], PlayerGroupAll(), "Rank", "Doctor");
     if ((gf_BOInsigniaBought(lp_triggeringPlayer) == true)) {
         gf_UpgradeBOInsigniaRank(lp_triggeringPlayer);
     }
@@ -14590,6 +14577,10 @@ bool gt_ReceivesDamage_Func (bool testConds, bool runActions) {
         if (!((lv_damageReceived > 1.0))) {
             return false;
         }
+
+        if (!((PlayerGroupHasPlayer(gv_activePlayers, lv_player) == true))) {
+            return false;
+        }
     }
 
     // Actions
@@ -14906,9 +14897,12 @@ bool gt_PredatorDies_Func (bool testConds, bool runActions) {
     UnitGroupRemove(gv_pets, EventUnit());
     libNtve_gf_SetDialogItemImage(gv_teamStatusPortraitButton[lv_pNumber], "Assets\\Textures\\terranportraittransition_static.dds", PlayerGroupAll());
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lv_pNumber], c_triggerBlendModeAdd, PlayerGroupAll());
-    libNtve_gf_SetDialogItemText(gv_teamStatusLifeBarLabel[lv_pNumber], StringExternal("Param/Value/5F80530A"), PlayerGroupAll());
-    DialogControlSetVisible(gv_teamStatusLifeBarHealthLabel[lv_pNumber], PlayerGroupAll(), false);
+    DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lv_pNumber], PlayerGroupAll(), "MarineDeath", "PetDied");
     gv_playerMarinePetDead[lv_pNumber] = true;
+    if ((PlayerStatus(lv_pNumber) == c_playerStatusLeft)) {
+        DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lv_pNumber], PlayerGroupAll(), "MarineDeath", "Leaver");
+    }
+
     return true;
 }
 
@@ -15006,8 +15000,7 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     UnitGroupLoopEnd();
     libNtve_gf_SetDialogItemImage(gv_teamStatusPortraitButton[lv_pNumber], "Assets\\Textures\\terranportraittransition_static.dds", PlayerGroupAll());
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lv_pNumber], c_triggerBlendModeAdd, PlayerGroupAll());
-    libNtve_gf_SetDialogItemText(gv_teamStatusLifeBarLabel[lv_pNumber], StringExternal("Param/Value/B7EB80D3"), PlayerGroupAll());
-    DialogControlSetVisible(gv_teamStatusLifeBarHealthLabel[lv_pNumber], PlayerGroupAll(), false);
+    DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lv_pNumber], PlayerGroupAll(), "MarineDeath", "MarineDied");
     IntLoopBegin(0, 3);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         libNtve_gf_SetDialogItemImage(gv_teamStatusDebuffsBackground[IntLoopCurrent()][lv_pNumber], "Assets\\Textures\\black.dds", PlayerGroupAll());
@@ -16274,14 +16267,13 @@ bool gt_PlayerLeavesGame_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    DialogControlSetAnimationState(gv_teamStatusPlayerPanel[EventPlayer()], PlayerGroupAll(), "MarineDeath", "Leaver");
     if ((UnitIsAlive(gv_marineHero[EventPlayer()]) == true)) {
         gf_RemoveBoughtItems(EventPlayer());
     }
 
     PlayerGroupRemove(gv_activePlayers, EventPlayer());
     PlayerGroupAdd(gv_leavers, EventPlayer());
-    libNtve_gf_SetDialogItemText(gv_teamStatusLifeBarLabel[EventPlayer()], StringExternal("Param/Value/FC586131"), PlayerGroupAll());
-    DialogControlSetVisible(gv_teamStatusLifeBarHealthLabel[EventPlayer()], PlayerGroupAll(), false);
     IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         if ((PlayerStatus(IntLoopCurrent()) != c_playerStatusUnused)) {
@@ -36144,8 +36136,6 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
 
     DialogControlHookupStandard(c_triggerControlTypePanel, "UIContainer/FullscreenUpperContainer/TeamUI");
     gv_teamUI = DialogControlLastCreated();
-    DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "ShowHideButton");
-    gv_teamStatusButtonOpened = DialogControlLastCreated();
     DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "MedalsButton");
     gv_medalsDialogButton = DialogControlLastCreated();
     DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "StatsButton");
@@ -36171,16 +36161,10 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
             }
         }
 
-        DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypeLabel, "PlayerName");
-        gv_teamStatusPlayerName[lv_currentPlayer] = DialogControlLastCreated();
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), PlayerName(lv_currentPlayer), gv_marineSquad);
         DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypeUnitStatus, "UnitHealth");
         gv_teamStatusLifeBar[lv_currentPlayer] = DialogControlLastCreated();
-        DialogControlHookup(gv_teamStatusLifeBar[lv_currentPlayer], c_triggerControlTypeLabel, "LeaverLabel");
+        DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypeLabel, "LeaverLabel");
         gv_teamStatusLifeBarLabel[lv_currentPlayer] = DialogControlLastCreated();
-        DialogControlHookup(gv_teamStatusLifeBar[lv_currentPlayer], c_triggerControlTypeUnitStatusLabel, "HealthLabel");
-        DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeLabel, "StatusLabel");
-        gv_teamStatusLifeBarHealthLabel[lv_currentPlayer] = DialogControlLastCreated();
         DialogControlHookup(gv_teamStatusLifeBar[lv_currentPlayer], c_triggerControlTypeImage, "Ailement01");
         gv_teamStatusDebuffsBackground[0][lv_currentPlayer] = DialogControlLastCreated();
         DialogControlHookup(gv_teamStatusLifeBar[lv_currentPlayer], c_triggerControlTypeImage, "Ailement02");

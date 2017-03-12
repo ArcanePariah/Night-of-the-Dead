@@ -4414,7 +4414,6 @@ Param/Value/30A09D44=Infestation detected in Apollo perimeter! Lethal force enga
 Param/Value/30F0E2B0=What's happening!?
 Param/Value/31763C9E=
 Param/Value/3196E350=<s val="GlueButton"><c val="F4D72B">Our safe zones have been compromised. Regroup with remaining forces!</c></s>
-Param/Value/31B81D09=Dr.
 Param/Value/31C1EC9E=Don't spread ourselves too thin.
 Param/Value/3205EB83=Lab Rats
 Param/Value/3258859A=HAL, shut down those orbital lasers. We're on the same side.
@@ -4671,7 +4670,6 @@ Param/Value/5E6F0326=This, my friends, is not possible.
 Param/Value/5E7C397E=(Sensing her mortality, the Queen begins to withdraw..)
 Param/Value/5EDDC08C=We lost the starport too. Couldn't EVAC out of here.
 Param/Value/5F4DD8DA=ETA 2 Mikes. I see enemy movement. They're moving in on you.
-Param/Value/5F80530A=KIA
 Param/Value/5FA0B4DE=(The Queen begins to lay eggs..)
 Param/Value/5FAE1461= randomed 
 Param/Value/5FFE221C=
@@ -5166,7 +5164,6 @@ Param/Value/B7286B3D=Erebos is resilient against Gauss Rifle attacks. Try other 
 Param/Value/B74F32C6=!
 Param/Value/B7E5D8DF=Re-active 5 power generators
 Param/Value/B7EB263B=Survive as many waves as you can
-Param/Value/B7EB80D3=KIA
 Param/Value/B85CDB8C=%
 Param/Value/B864C5C3=Use your Predator to aid the team. It gains new abilities as it levels.
 Param/Value/B88C671E=Keep firing!
@@ -5556,7 +5553,6 @@ Param/Value/FBAB4279=Chapter 3
 Param/Value/FBBC0ECA=<c val="FF0000">-1 Rating</c> for mission delay
 Param/Value/FBD0B825=<s val="HeaderExtendedTemplate">Stats</s>
 Param/Value/FC238DA8=<s val="GlueButton"><c val="F4D72B">More of my men are still in the city. I must find them.</c></s>
-Param/Value/FC586131=Leaver
 Param/Value/FC9DE0D9=Be prepared. Unknown dangers lurk in the Mine Shaft.
 Param/Value/FD3063C2=Kill Deimos
 Param/Value/FD389ACD=<s val="InfoPaneHeroRank">(Dr. Tanaka activates his console...)</s>

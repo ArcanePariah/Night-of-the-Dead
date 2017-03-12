@@ -94,10 +94,7 @@
 			<Anchor  relative="$parent/UnitStatusHealth" offset="0"/>
 		</Frame>
 		
-		<Frame type="Label" name="LeaverLabel">
-			<Anchor  relative="$parent/UnitStatusHealth" offset="0"/>
-            <Style val="ModCenterSize16"/>
-        </Frame>
+		
 
         <Frame type="Image" name="Ailement01" template="TeamStatus/AilementBackgroundTemplate">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -145,6 +142,7 @@
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Left" relative="$parent/StatusButton" pos="Max" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+			<Visible val = "true" />
         </Frame>
 		
 		<Frame type="UnitStatusFrame" name="PetHealth" template="TeamStatus/PetStats">
@@ -177,7 +175,85 @@
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Style val="PlayerXP"/>
         </Frame>
+		
+		<Frame type="Label" name="LeaverLabel">
+			<Anchor  relative="$parent/UnitHealth" offset="0"/>
+            <Style val="ModCenterSize16"/>
+        </Frame>
+		<Frame type = "PlayerFrame" name = "PlayerData">
+
+			<Anchor side="Top" relative="$parent" pos="Min" offset="12"/>
+            <Anchor side="Left" relative="$parent/DoctorLabel" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/UnitHealth" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			
+			<Frame type="PlayerNameFrame" name="PlayerName">
+				<Anchor relative="$parent"/>
+				<Frame type="Label" name="PlayerNameLabel">
+					<Style val="HeaderExtendedTemplate"/>
+					<Color val = "255,255,255" />
+					<Anchor relative="$parent"/>
+				</Frame>
+			</Frame>
+			<!--<Frame type="PlayerScoreValueFrame" name="PlayerScoreValueFrame">
+				<Anchor relative="$parent"/>
+				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame0">
+					<Anchor relative="$parent"/>
+					<ScoreValue val="Hits"/>
+				</Frame>
+			</Frame> -->
+		</Frame>
+		
+		<Frame type = "Label" name = "DoctorLabel">
+			<CollapseLayout val = "true" />
+			<Anchor side="Top" relative="$parent" pos="Min" offset="12"/>
+            <Anchor side="Left" relative="$parent/StatusButton" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/UnitHealth" pos="Min" offset="0"/>
+            <Width val = "42" />
+			<Style val="HeaderExtendedTemplate"/>
+			<Text val = "Dr. "/>
+			<Visible val = "false"/>
+		</Frame>
+		
+		<StateGroup name = "MarineStates">
+			<State name = "MarineDead">
+				<When type="AnimationState" MarineDeath="MarineDied" />
+				<Action type="SetProperty" frame="UnitHealth/HealthLabel/StatusLabel" visible="false" />
+				<Action type="SetProperty" frame="LeaverLabel" text="KIA" />
+			</State>
+			<State name = "PredatorBirth">
+				<When type="AnimationState" MarineDeath="PetBorn" />
+				<Action type="SetProperty" frame="PetHealth" visible="true" />
+				<Action type="SetProperty" frame="UnitHealth" visible="false" />
+				<Action type="SetProperty" frame="LeaverLabel" text="" />
+			</State>
+			<State name = "PredatorDead">
+				<When type="AnimationState" MarineDeath="PetDied" />
+				<Action type="SetProperty" frame="PetHealth/HealthLabel/StatusLabel" visible="false" />
+				<Action type="SetProperty" frame="UnitHealth" visible="false" />
+				<Action type="SetProperty" frame="LeaverLabel" text="KIA" />
+			</State>
+			<State name = "Leaver">
+				<When type="AnimationState" MarineDeath="Leaver" />
+				<Action type="SetProperty" frame="UnitHealth/HealthLabel/StatusLabel" visible="false" />
+				<Action type="SetProperty" frame="PetHealth/HealthLabel/StatusLabel" visible="false" />
+				<Action type="SetProperty" frame="UnitHealth" visible="false" />
+				<Action type="SetProperty" frame="LeaverLabel" text="Leaver" />
+			</State>
+		</StateGroup>
+		
+		<StateGroup name = "DoctorRank">
+			<State name = "Normal">
+				<When type="AnimationState" Rank="Normal" />
+				<Action type="SetProperty" frame="DoctorLabel" visible="false" />
+			</State>
+			<State name = "Doctor">
+				<When type="AnimationState" Rank="Doctor" />
+				<Action type="SetProperty" frame="DoctorLabel" visible="true" />
+			</State>
+		</StateGroup>
     </Frame>
+			
 	
 	<Frame type="Button" name="ButtonTemplate">
         <Width val="128"/>
@@ -285,41 +361,81 @@
 		<Frame type = "Frame" name = "Marine1" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent" pos = "Min" offset = "35"/>
 			<Anchor side = "Left" relative = "$parent" pos = "Min" offset = "42"/>
+			<Frame type = "PlayerFrame" name = "PlayerData">
+				<Frame type="PlayerNameFrame" name="PlayerName">
+					<PlayerId val = "1" />
+				</Frame>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine2" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine1" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "PlayerFrame" name = "PlayerData">
+				<Frame type="PlayerNameFrame" name="PlayerName">
+					<PlayerId val = "2" />
+				</Frame>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine3" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine2" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "PlayerFrame" name = "PlayerData">
+				<Frame type="PlayerNameFrame" name="PlayerName">
+					<PlayerId val = "3" />
+				</Frame>
+			</Frame>			
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine4" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine3" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "PlayerFrame" name = "PlayerData">
+				<Frame type="PlayerNameFrame" name="PlayerName">
+					<PlayerId val = "4" />
+				</Frame>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine5" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine4" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "PlayerFrame" name = "PlayerData">
+				<Frame type="PlayerNameFrame" name="PlayerName">
+					<PlayerId val = "5" />
+				</Frame>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine6" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine5" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "PlayerFrame" name = "PlayerData">
+				<Frame type="PlayerNameFrame" name="PlayerName">
+					<PlayerId val = "6" />
+				</Frame>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine7" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine6" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "PlayerFrame" name = "PlayerData">
+				<Frame type="PlayerNameFrame" name="PlayerName">
+					<PlayerId val = "7" />
+				</Frame>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine8" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine7" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "PlayerFrame" name = "PlayerData">
+				<Frame type="PlayerNameFrame" name="PlayerName">
+					<PlayerId val = "8" />
+				</Frame>
+			</Frame>
 		</Frame>
     </Frame>
 
