@@ -2030,8 +2030,8 @@
     </CModel>
     <CModel id="PylonSplat">
         <Model value="Assets\UI\Feedback\PylonRadius\PylonRadius.m3"/>
-        <ScaleMax value="0.400000,0.400000,0.400000"/>
-        <ScaleMin value="0.400000,0.400000,0.400000"/>
+        <ScaleMax value="0.350000,0.350000,0.350000"/>
+        <ScaleMin value="0.350000,0.350000,0.350000"/>
     </CModel>
     <CModel id="ForcePushEffect" parent="ImpactFX">
         <Model value="Assets\Effects\Protoss\HybridSpellChannel\HybridSpellChannel.m3"/>
