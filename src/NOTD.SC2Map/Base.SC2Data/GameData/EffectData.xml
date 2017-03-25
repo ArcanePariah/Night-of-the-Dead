@@ -11911,5 +11911,6 @@
         <ValidatorArray index="2" value="HiddenCompareBA"/>
         <ValidatorArray index="3" value="NotVortexd"/>
         <ValidatorArray index="4" removed="1"/>
+        <RechargeVitalRate value="3"/>
     </CEffectCreateHealer>
 </Catalog>
