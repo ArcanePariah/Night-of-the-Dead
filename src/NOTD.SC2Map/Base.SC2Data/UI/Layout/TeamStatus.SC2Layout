@@ -195,13 +195,6 @@
 					<Anchor relative="$parent"/>
 				</Frame>
 			</Frame>
-			<!--<Frame type="PlayerScoreValueFrame" name="PlayerScoreValueFrame">
-				<Anchor relative="$parent"/>
-				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame0">
-					<Anchor relative="$parent"/>
-					<ScoreValue val="Hits"/>
-				</Frame>
-			</Frame> -->
 		</Frame>
 		
 		<Frame type = "Label" name = "DoctorLabel">
@@ -216,6 +209,12 @@
 		</Frame>
 		
 		<StateGroup name = "MarineStates">
+			<State name = "Leaver">
+				<When type="AnimationState" Player="Leaver" />
+				<Action type="SetProperty" frame="UnitHealth/HealthLabel/StatusLabel" visible="false" />
+				<Action type="SetProperty" frame="PetHealth/HealthLabel/StatusLabel" visible="false" />
+				<Action type="SetProperty" frame="LeaverLabel" text="Leaver" />
+			</State>
 			<State name = "MarineDead">
 				<When type="AnimationState" MarineDeath="MarineDied" />
 				<Action type="SetProperty" frame="UnitHealth/HealthLabel/StatusLabel" visible="false" />
@@ -232,13 +231,6 @@
 				<Action type="SetProperty" frame="PetHealth/HealthLabel/StatusLabel" visible="false" />
 				<Action type="SetProperty" frame="UnitHealth" visible="false" />
 				<Action type="SetProperty" frame="LeaverLabel" text="KIA" />
-			</State>
-			<State name = "Leaver">
-				<When type="AnimationState" MarineDeath="Leaver" />
-				<Action type="SetProperty" frame="UnitHealth/HealthLabel/StatusLabel" visible="false" />
-				<Action type="SetProperty" frame="PetHealth/HealthLabel/StatusLabel" visible="false" />
-				<Action type="SetProperty" frame="UnitHealth" visible="false" />
-				<Action type="SetProperty" frame="LeaverLabel" text="Leaver" />
 			</State>
 		</StateGroup>
 		

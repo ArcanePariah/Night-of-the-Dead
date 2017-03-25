@@ -1461,6 +1461,7 @@ void InitGlobals () {
 //--------------------------------------------------------------------------------------------------
 // Global Function Declarations
 //--------------------------------------------------------------------------------------------------
+bool gf_ValidPlayer (int lp_player);
 void gf_UIDialogCreation (int lp_height, int lp_width, int lp_offsetX, int lp_offsetY, int lp_anchor);
 void gf_NOTDBanlist ();
 bool gf_PlayerBanCheck (string lp_playerHandle);
@@ -2139,6 +2140,11 @@ void InitCustomScript () {
 //--------------------------------------------------------------------------------------------------
 // Global Functions
 //--------------------------------------------------------------------------------------------------
+bool gf_ValidPlayer (int lp_player) {
+    // Implementation
+    return ((lp_player >= gv_indexBaseValue) && (lp_player <= gv_numberofPlayers));
+}
+
 void gf_UIDialogCreation (int lp_height, int lp_width, int lp_offsetX, int lp_offsetY, int lp_anchor) {
     // Implementation
     DialogCreate(lp_width, lp_height, lp_anchor, lp_offsetX, lp_offsetY, true);
@@ -16267,7 +16273,7 @@ bool gt_PlayerLeavesGame_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    DialogControlSetAnimationState(gv_teamStatusPlayerPanel[EventPlayer()], PlayerGroupAll(), "MarineDeath", "Leaver");
+    DialogControlSetAnimationState(gv_teamStatusPlayerPanel[EventPlayer()], PlayerGroupAll(), "Player", "Leaver");
     if ((UnitIsAlive(gv_marineHero[EventPlayer()]) == true)) {
         gf_RemoveBoughtItems(EventPlayer());
     }

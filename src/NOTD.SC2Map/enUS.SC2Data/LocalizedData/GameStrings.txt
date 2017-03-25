@@ -2349,6 +2349,7 @@ DocInfo/PatchNote048= - Automaticaly opened mid gate in sec to fix lag
 DocInfo/PatchNote049= - Stat heal bug removed permanently
 DocInfo/PatchNote050= - Reworked Team UI code, added animation for opening and closing
 DocInfo/PatchNote051= - Fixed missing save button
+DocInfo/PatchNote052= - Revised Team UI (may still have issues) 
 DocInfo/PatchNote073=- Increased ambient spawns of basic zombies slightly in Alpha Company storyline
 DocInfo/PatchNote074=- Corrosive Acid maximum stack increased from 5 to 10
 DocInfo/Screenshot01=Employ your wit to fight bosses
