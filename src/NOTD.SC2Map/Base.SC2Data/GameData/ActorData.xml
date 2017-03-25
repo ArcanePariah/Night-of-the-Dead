@@ -8375,7 +8375,7 @@
         <ImpactMap index="None" Model="SatchelAnimationExplosion"/>
     </CActorAction>
     <CActorMissile id="StingerMK3MoverMissile" parent="GenericAttackMissile" unitName="StingerMk3Missile">
-        <Model value="VikingFighterWeapon"/>
+        <Model value="ThorAAWeapon"/>
         <BarHeight value="1"/>
         <BarWidth value="1"/>
     </CActorMissile>
