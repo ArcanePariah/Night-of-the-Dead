@@ -22361,7 +22361,7 @@ bool gt_OptionalPowerGeneratorRestart_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!((libNtve_gf_UnitInRegion(EventUnit(), RegionFromId(139)) == false))) {
+        if (!((DistanceBetweenPoints(RegionGetCenter(EventUnitRegion()), PointFromId(14)) > 10.0))) {
             return false;
         }
     }
@@ -22374,7 +22374,7 @@ bool gt_OptionalPowerGeneratorRestart_Func (bool testConds, bool runActions) {
     SoundPlay(SoundLink("PowerGeneratorPowerUp", -1), PlayerGroupActive(), 100.0, 0.0);
     PingCreate(PlayerGroupActive(), "PingObjective", UnitGetPosition(EventUnit()), ColorWithAlpha(0.00, 100.00, 0.00, 0.00), 10.0);
     UnitFlashSelection(EventUnit(), 1.0);
-    RegionSetCenter(EventUnitRegion(), libNtve_gf_PointWithZOffset(PointFromId(14), 30.0));
+    RegionSetCenter(EventUnitRegion(), PointFromId(14));
     gv_powerGenerators += 1;
     if ((gv_powerGenerators >= 4)) {
         TriggerEnable(TriggerGetCurrent(), false);
@@ -32770,7 +32770,7 @@ bool gt_STC3bPowerGeneratorRestart_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!((libNtve_gf_UnitInRegion(EventUnit(), RegionFromId(139)) == false))) {
+        if (!((DistanceBetweenPoints(RegionGetCenter(EventUnitRegion()), PointFromId(14)) > 10.0))) {
             return false;
         }
     }
@@ -32782,7 +32782,7 @@ bool gt_STC3bPowerGeneratorRestart_Func (bool testConds, bool runActions) {
 
     SoundPlay(SoundLink("PowerGeneratorPowerUp", -1), PlayerGroupActive(), 100.0, 0.0);
     PingCreate(PlayerGroupActive(), "PingObjective", UnitGetPosition(EventUnit()), ColorWithAlpha(0.00, 100.00, 0.00, 0.00), 10.0);
-    RegionSetCenter(EventUnitRegion(), libNtve_gf_PointWithZOffset(PointFromId(14), 30.0));
+    RegionSetCenter(EventUnitRegion(), PointFromId(14));
     gv_powerGenerators += 1;
     if ((gv_powerGenerators >= 5)) {
         TriggerEnable(TriggerGetCurrent(), false);
