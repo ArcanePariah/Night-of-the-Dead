@@ -1887,7 +1887,6 @@ trigger gt_ECOPTIONALTruckEscortBegins;
 trigger gt_ECOPTIONALTruckDestroyed;
 trigger gt_ECOPTIONALTruckEvacSuccessful;
 trigger gt_Chapter3QueenEngaged;
-trigger gt_TEST;
 trigger gt_Chapter3MiniMarineEvasionAI;
 trigger gt_Wave15RandomMobs;
 trigger gt_Wave16RandomMobs;
@@ -23910,18 +23909,6 @@ void gt_Chapter3QueenEngaged_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: TEST
-//--------------------------------------------------------------------------------------------------
-bool gt_TEST_Func (bool testConds, bool runActions) {
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_TEST_Init () {
-    gt_TEST = TriggerCreate("gt_TEST_Func");
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Chapter 3 - Mini Marine Evasion AI
 //--------------------------------------------------------------------------------------------------
 bool gt_Chapter3MiniMarineEvasionAI_Func (bool testConds, bool runActions) {
@@ -39419,7 +39406,6 @@ void InitTriggers () {
     gt_ECOPTIONALTruckDestroyed_Init();
     gt_ECOPTIONALTruckEvacSuccessful_Init();
     gt_Chapter3QueenEngaged_Init();
-    gt_TEST_Init();
     gt_Chapter3MiniMarineEvasionAI_Init();
     gt_Wave15RandomMobs_Init();
     gt_Wave16RandomMobs_Init();
