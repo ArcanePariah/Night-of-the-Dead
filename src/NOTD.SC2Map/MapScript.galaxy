@@ -3823,7 +3823,7 @@ void gf_CreatePredator (int lp_player, point lp_creationLocation) {
     libNtve_gf_SetDialogItemUnit(gv_teamStatusLifeBar[lp_player], gv_playerPet[lp_player], PlayerGroupAll());
     DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lp_player], PlayerGroupAll(), "MarineDeath", "PetBorn");
     if ((PlayerStatus(lp_player) == c_playerStatusLeft)) {
-        DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lp_player], PlayerGroupAll(), "MarineDeath", "Leaver");
+        DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lp_player], PlayerGroupAll(), "Player", "Leaver");
     }
 
     UnitFlashSelection(gv_playerPet[lp_player], 4.0);
