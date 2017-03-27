@@ -21934,7 +21934,7 @@ bool gt_OptionalEnterLabChapter1DrBergmann_Func (bool testConds, bool runActions
     Wait(5.0, c_timeReal);
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/AE4C8D7E"));
     SoundPlay(SoundLink("Reload", -1), PlayerGroupAll(), 100.0, 0.0);
-    UnitWeaponAdd(gv_drBergmann, "HyperionAir", null);
+    UnitWeaponAdd(gv_drBergmann, "LaserRifle", null);
     UnitBehaviorAddPlayer(gv_drBergmann, "Run", 13, 1);
     libNtve_gf_MakeUnitInvulnerable(gv_drBergmann, true);
     UnitSetOwner(gv_drBergmann, 13, false);
@@ -21946,7 +21946,7 @@ bool gt_OptionalEnterLabChapter1DrBergmann_Func (bool testConds, bool runActions
     }
     UnitGroupRemove(gv_zombieWave, gv_drBergmann);
     UnitSetPosition(gv_drBergmann, PointFromId(2392), false);
-    UnitWeaponRemove(gv_drBergmann, "HyperionAir");
+    UnitWeaponRemove(gv_drBergmann, "LaserRifle");
     return true;
 }
 
