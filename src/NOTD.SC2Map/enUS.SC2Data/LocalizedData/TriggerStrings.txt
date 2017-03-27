@@ -1153,6 +1153,7 @@ Trigger/Name/9B497FB1=ACW12a - Ventilation Shaft
 Trigger/Name/9B66A979=STW14 - Boss Killed
 Trigger/Name/9B721A1E=Boss 3 - AI
 Trigger/Name/9B8E2077=STW3 - North West Cocoon Surprise
+Trigger/Name/9D096266=TEST
 Trigger/Name/9D0A22F8=OM2a - Ogilvy Found
 Trigger/Name/9D9E62D0=Tanaka Injured
 Trigger/Name/9EEB95CC=EC - Zombie Time
