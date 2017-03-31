@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="us-ascii"?>
-<Catalog>
-    <CGameUI id="Dflt">
-        <DisplayTimeInSeconds value="1"/>
-        <DefaultUIRace value="Prot"/>
-    </CGameUI>
-</Catalog>

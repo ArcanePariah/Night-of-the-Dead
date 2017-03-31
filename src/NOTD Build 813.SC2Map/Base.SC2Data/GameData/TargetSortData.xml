@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="us-ascii"?>
-<Catalog>
-    <CTargetSortDistance id="TSDistanceToTarget">
-        <Descending value="1"/>
-    </CTargetSortDistance>
-    <CTargetSortDistance id="TSDistanceToTargetFartoClose"/>
-</Catalog>

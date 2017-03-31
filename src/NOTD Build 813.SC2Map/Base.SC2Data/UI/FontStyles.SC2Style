@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<StyleFile>
-    <Style name="HelpPanelListBoxItemTitleCentered" template="HelpPanelListBoxItemTitle" font="UI\Fonts\EurostileExt-Med.otf" height="20" vjustify="Top" hjustify="Center" styleflags="Shadow" textcolor="255,255,255,255" highlightcolor="255,0,0,0" disabledcolor="255,255,255,255" hotkeycolor="255,0,0,0" hyperlinkcolor="255,255,255,255" glowcolor="255,255,255,255" shadowoffset="2"/>
-    <Style name="PlayerXP" template="HeaderExtendedTemplate" font="UI\Fonts\EurostileExt-Med.otf" height="16" vjustify="Middle" hjustify="Left" fontflags="HintingNative" styleflags="Shadow" textcolor="255,255,255,255" highlightcolor="255,0,0,0" disabledcolor="255,0,0,0" hotkeycolor="255,0,0,0" hyperlinkcolor="255,0,0,0" glowcolor="255,0,0,0" shadowoffset="1"/>
-    <Style name="HeaderCentered" template="HeaderExtendedTemplate" font="UI\Fonts\EurostileExt-Med.otf" height="8" hjustify="Center" styleflags="Shadow" textcolor="255,0,0,0" highlightcolor="255,0,0,0" disabledcolor="255,0,0,0" hotkeycolor="255,0,0,0" hyperlinkcolor="255,0,0,0" glowcolor="255,0,0,0" shadowoffset="2"/>
-    <Style name="LevelUpText" font="UI\Fonts\EurostileExt-Reg.otf" height="24" vjustify="Top" hjustify="Center" fontflags="Bold | HintingOff" styleflags="Shadow | Glow" textcolor="255,0,185,185" highlightcolor="255,0,0,0" disabledcolor="255,0,0,0" hotkeycolor="255,0,0,0" hyperlinkcolor="255,0,0,0" glowcolor="255,0,0,0" shadowoffset="2"/>
-</StyleFile>

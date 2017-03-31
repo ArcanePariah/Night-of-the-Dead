@@ -1,2 +1,0 @@
-Conversation/CConversation/Choice00001=User Response
-Conversation/CConversation/Group00001=User Choices
