@@ -182,6 +182,12 @@
 			<Text val = "Leaver" />
 			<Visible val = "false"/>
         </Frame>
+		
+		<Frame type ="Frame" name = "StatusToolTipFrame">
+			<Anchor relative="$parent/UnitHealth" offset="0"/>
+			<AcceptsMouse val = "true" />
+		</Frame>
+		
 		<Frame type = "Frame" name = "DeathLabelContainer">
 			<Anchor  relative="$parent/UnitHealth" offset="0"/>
 			<Frame type="Label" name="DeathLabel">

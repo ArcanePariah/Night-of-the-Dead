@@ -36185,7 +36185,7 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
 
         DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypeUnitStatus, "UnitHealth");
         gv_teamStatusLifeBar[lv_currentPlayer] = DialogControlLastCreated();
-        DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypeLabel, "LeaverLabel");
+        DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypePanel, "StatusToolTipFrame");
         gv_teamStatusLifeBarLabel[lv_currentPlayer] = DialogControlLastCreated();
         DialogControlHookup(gv_teamStatusLifeBar[lv_currentPlayer], c_triggerControlTypeImage, "Ailement01");
         gv_teamStatusDebuffsBackground[0][lv_currentPlayer] = DialogControlLastCreated();
