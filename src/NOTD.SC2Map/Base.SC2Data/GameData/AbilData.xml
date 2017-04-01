@@ -1534,6 +1534,7 @@
     <CAbilEffectInstant id="VeteransFocus">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Flags index="AllowMovement" value="1"/>
+        <Flags index="AutoCast" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <Flags index="Transient" value="1"/>
         <Cost>
@@ -1545,9 +1546,10 @@
         <TargetFilters value="Biological;Enemy,Air,Missile,Destructible,Dead"/>
         <Range value="1"/>
         <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="Visible;Enemy"/>
+        <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
         <CastIntroTime value="0"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="VeteransFocus"/>
+        <AutoCastValidatorArray value="CasterNotVeteransFocus"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="Sprint2">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -2219,6 +2221,7 @@
         <CmdButtonArray index="On" DefaultButtonFace="IronHand">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
+        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
         <Cost>
@@ -2227,6 +2230,7 @@
             <Cooldown Link="Abil/Turbo" TimeUse="12"/>
         </Cost>
         <BehaviorArray value="IronHand"/>
+        <AutoCastValidatorArray value="CasterNotIronHand"/>
     </CAbilBehavior>
     <CAbilEffectTarget id="TheHorror">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
@@ -2273,6 +2277,7 @@
         <CmdButtonArray index="On" DefaultButtonFace="TargetingComputer">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
+        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
         <Cost>
@@ -2281,6 +2286,7 @@
             <Cooldown Link="Abil/Turbo" TimeUse="10"/>
         </Cost>
         <BehaviorArray value="TargetingComputer"/>
+        <AutoCastValidatorArray value="CasterNotTargetingComputer"/>
     </CAbilBehavior>
     <CAbilMorph id="UnburrowBroodmother">
         <AbilSetId value="BrwU"/>
@@ -5315,8 +5321,10 @@
             <Cooldown TimeUse="8"/>
         </Cost>
         <BehaviorArray value="Turbo"/>
+        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
+        <AutoCastValidatorArray value="CasterNotTurbo"/>
     </CAbilBehavior>
     <CAbilEffectTarget id="VolatileInjection">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>

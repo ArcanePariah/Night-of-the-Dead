@@ -7,6 +7,22 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="Bloodlust"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotTurbo">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="Turbo"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotTargetingComputer">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TargetingComputer"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotIronHand">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="IronHand"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotVeteransFocus">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="VeteransFocus"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterNotIYF1">
         <WhichUnit Value="Caster"/>
         <Behavior value="ImYourFatherLevel1"/>
