@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="us-ascii"?>
-<Catalog>
-    <CCursor id="Arrow_Prot">
-        <Texture value="Assets\Textures\cursor-bnet.dds"/>
-    </CCursor>
-    <CCursor id="Arrow_Terr">
-        <Texture value="Assets\Textures\cursor-bnet.dds"/>
-    </CCursor>
-</Catalog>

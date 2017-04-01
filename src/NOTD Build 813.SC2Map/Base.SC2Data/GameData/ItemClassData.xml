@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="us-ascii"?>
-<Catalog>
-    <CItemClass id="Ammobox"/>
-    <CItemClass id="Armor"/>
-    <CItemClass id="Enhancements"/>
-    <CItemClass id="Magazines"/>
-    <CItemClass id="Supplies"/>
-    <CItemClass id="Weapons"/>
-</Catalog>
