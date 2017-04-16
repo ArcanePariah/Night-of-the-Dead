@@ -1031,6 +1031,8 @@
         <MinScanRange value="7"/>
         <TargetFilters value="Ground,Visible;Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="1.2"/>
+        <DisplayEffect value="KaiserBladesDamage"/>
+        <Effect value="KaiserBladesDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="BlindlingBurst">
         <EditorCategories value="Race:Zerg"/>
@@ -1052,6 +1054,7 @@
         <Effect value="KaiserBladesDamageSet"/>
         <Period value="0.7"/>
         <TargetFilters value="Visible;Air,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <DisplayEffect value="HotSUltraliskKaiserBladesDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ThermalLances">
         <Options index="OnlyFireWhileInAttackOrder" value="0"/>

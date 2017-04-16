@@ -31475,7 +31475,7 @@ Effect=##id##,##id##U1
 id=KaiserBlades
 asset=Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds
 Actor=TerrainMgr
-Effect=HotSUltralisk##id##,HotSUltralisk##id##Damage
+Effect=##id##Damage
 id=InfestedGuassRifle
 asset=Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds
 Actor=TerrainMgr
@@ -31801,5 +31801,5 @@ Actor=TerrainMgr
 Effect=NeedleSpinesMeleeDamage,RoachUMelee
 parent=KaiserBlades
 id=KaiserBlades2
-Effect=KaiserBladesDamageSet
+Effect=HotSUltraliskKaiserBladesDamage,KaiserBladesDamageSet
 
