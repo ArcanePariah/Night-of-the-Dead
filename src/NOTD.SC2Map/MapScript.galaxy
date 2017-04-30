@@ -28365,7 +28365,7 @@ bool gt_ACIVAXStunImmunity_Func (bool testConds, bool runActions) {
 
     IntLoopBegin(1, UnitBehaviorCountAll(lv_iVAX));
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        if ((CatalogFieldValueGetAsInt(c_gameCatalogBehavior, UnitBehaviorGet(lv_iVAX, IntLoopCurrent()), "Modification.StateFlags[" + IntToString(9) + "]", c_playerAny) == 1)) {
+        if ((CatalogFieldValueGetAsInt(c_gameCatalogBehavior, UnitBehaviorGet(lv_iVAX, IntLoopCurrent()), "Modification.StateFlags[" + IntToString(10) + "]", c_playerAny) == 1)) {
             UnitBehaviorRemove(lv_iVAX, UnitBehaviorGet(lv_iVAX, IntLoopCurrent()), 1);
         }
 
