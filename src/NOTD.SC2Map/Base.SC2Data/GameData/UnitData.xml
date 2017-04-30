@@ -7746,7 +7746,8 @@
         <InnerRadius value="0.1875"/>
         <StationaryTurningRate value="299.8828"/>
         <TurningRate value="299.8828"/>
-        <SubgroupAlias value="CivilianFemale"/>
+        <SubgroupAlias value="Colonist2"/>
+        <SelectAlias value="Colonist2"/>
     </CUnit>
     <CUnit id="ApolloBioDome" parent="Biodome">
         <Name value="Unit/Name/ApolloBioDome"/>
@@ -7785,6 +7786,10 @@
         <InnerRadius value="0.1875"/>
         <StationaryTurningRate value="299.8828"/>
         <TurningRate value="299.8828"/>
+        <LifeStart value="32"/>
+        <LifeMax value="32"/>
+        <SelectAlias value="Colonist2"/>
+        <SubgroupAlias value="Colonist2"/>
     </CUnit>
     <CUnit id="CombatMobilityAugment" parent="ITEM">
         <Race value="Terr"/>

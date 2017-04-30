@@ -17665,6 +17665,7 @@ bool gt_OM11Delta2_Func (bool testConds, bool runActions) {
 
     if ((UnitGroupCount(UnitGroupFilterRegion(gv_marines, RegionFromId(230), 0), c_unitCountAlive) >= 1)) {
         lv_localUnitB = UnitGroupRandomUnit(UnitGroupFilterRegion(gv_marines, RegionFromId(230), 0), c_unitCountAlive);
+        lv_localPlayerB = UnitGetOwner(lv_localUnitB);
         UnitFlashSelection(lv_localUnitB, 1.0);
         lv_terminal2Present = true;
     }
@@ -17686,7 +17687,7 @@ bool gt_OM11Delta2_Func (bool testConds, bool runActions) {
             Wait(0.2, c_timeReal);
         }
         Wait(5.0, c_timeReal);
-        autoEE7024A0_n = 3;
+        autoEE7024A0_n = 6;
         for (autoEE7024A0_i = 1; autoEE7024A0_i <= autoEE7024A0_n; autoEE7024A0_i += 1) {
             UnitCreate(1, gv_civPool[RandomInt(0, 1)], c_unitCreateIgnorePlacement, lv_localPlayerA, RegionRandomPoint(RegionFromId(229)), libNtve_gf_RandomAngle());
             UnitGroupLoopBegin(UnitLastCreatedGroup());
@@ -17698,7 +17699,7 @@ bool gt_OM11Delta2_Func (bool testConds, bool runActions) {
             UnitGroupLoopEnd();
         }
         Wait(0.1, c_timeReal);
-        autoAF182A90_n = 3;
+        autoAF182A90_n = 6;
         for (autoAF182A90_i = 1; autoAF182A90_i <= autoAF182A90_n; autoAF182A90_i += 1) {
             UnitCreate(1, gv_civPool[RandomInt(0, 1)], c_unitCreateIgnorePlacement, lv_localPlayerB, RegionRandomPoint(RegionFromId(230)), libNtve_gf_RandomAngle());
             UnitGroupLoopBegin(UnitLastCreatedGroup());
