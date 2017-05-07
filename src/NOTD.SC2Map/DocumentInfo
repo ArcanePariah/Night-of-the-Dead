@@ -70,6 +70,7 @@
             <Value>2.158</Value>
             <Value>2.159</Value>
             <Value>2.160</Value>
+            <Value>2.161</Value>
         </Version>
         <Date>
             <Value>2/12/2015</Value>
@@ -84,6 +85,7 @@
             <Value>3/25/2017</Value>
             <Value>3/26/2017</Value>
             <Value>4/1/2017</Value>
+            <Value>5/6/2017</Value>
         </Date>
         <Notes>
             <Value>1,2,3,4,5,6,7</Value>
@@ -98,6 +100,7 @@
             <Value>53,54,55,56,57,58</Value>
             <Value>59,60,61</Value>
             <Value>62,63</Value>
+            <Value>64,65,66,67,68</Value>
         </Notes>
     </PatchNote>
     <Preload>
