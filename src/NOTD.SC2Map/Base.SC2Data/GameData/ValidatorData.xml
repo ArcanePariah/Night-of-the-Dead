@@ -3,6 +3,81 @@
     <CValidatorLocationPathable id="BuildPathing">
         <Types index="Building" value="0"/>
     </CValidatorLocationPathable>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotBloodlust">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="Bloodlust"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotIYF1">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ImYourFatherLevel1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotIYF2">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ImYourFatherLevel2"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotIYF3">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ImYourFatherLevel3"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="CasterNotCloakedCombine">
+        <Type value="And"/>
+        <CombineArray value="CasterNotStealth1"/>
+        <CombineArray value="CasterNotStealth2"/>
+        <CombineArray value="CasterNotShadowstepCloak"/>
+        <CombineArray value="CasterNotEscape1"/>
+        <CombineArray value="CasterNotEscape2"/>
+        <CombineArray value="CasterNotEscape3"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="CasterNotTauntCombine">
+        <Type value="And"/>
+        <CombineArray value="CasterNotTaunt1"/>
+        <CombineArray value="CasterNotTaunt2"/>
+        <CombineArray value="CasterNotTaunt3"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotTaunt1">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TauntLevel1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotFocusedFire">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="FocusedFire"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotHarvesterofSorrow">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="HarvesterofSorrow"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotStealth1">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="StealthLevel1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotShadowstepCloak">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ShadowstepCloak"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotStealth2">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="StealthLevel1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotEscape1">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="EscapeSelfCloakLevel1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotEscape2">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="EscapeSelfCloakLevel2"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotEscape3">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="EscapeSelfCloakLevel3"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotTaunt2">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TauntLevel2"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotTaunt3">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="TauntLevel3"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterhasRavagingPhantomLevel1">
         <Value value="1"/>
         <Behavior value="RavagingPhantomLevel1"/>
@@ -48,6 +123,17 @@
         <CombineArray value="TargetisMassive"/>
         <CombineArray value="TargetisHeroic"/>
         <CombineArray value="TargetisArmored"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HarvesterofSorrowConcentratedFireCheck">
+        <CombineArray value="HarvesterofSorrowConcentratedFireLevel1Check"/>
+        <CombineArray value="HarvesterofSorrowConcentratedFireLevel2Check"/>
+        <CombineArray value="HarvesterofSorrowConcentratedFireLevel3Check"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="CasterNotIYFCombine">
+        <Type value="And"/>
+        <CombineArray value="CasterNotIYF1"/>
+        <CombineArray value="CasterNotIYF2"/>
+        <CombineArray value="CasterNotIYF3"/>
     </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HasDetector11NotD">
         <Compare value="GT"/>
@@ -225,11 +311,6 @@
         <Weapon value="Shotgun"/>
         <Find value="0"/>
     </CValidatorUnitWeaponFiring>
-    <CValidatorCombine id="HarvesterofSorrowConcentratedFireCheck">
-        <CombineArray value="HarvesterofSorrowConcentratedFireLevel1Check"/>
-        <CombineArray value="HarvesterofSorrowConcentratedFireLevel2Check"/>
-        <CombineArray value="HarvesterofSorrowConcentratedFireLevel3Check"/>
-    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HarvesterofSorrowConcentratedFireLevel1Check">
         <WhichUnit Value="Caster"/>
         <Value value="1"/>
