@@ -233,6 +233,12 @@
         <On Terms="ActorCreation; ValidateUnit HasBallisticsLevel2" Send="SetScale 1.500000"/>
     </CActorModel>
     <CActorSound id="GenericAttackLaunchSound2" parent="GenericAttackSound"/>
+    <CActorModel id="GhostOverlaySelection" parent="ModelAddition">
+        <EditorCategories value=""/>
+        <On Terms="ActorCreation.GhostOverlaySelection" Send="Create"/>
+        <On Terms="ActorCreation.GhostOverlaySelection" Send="SetOpacity"/>
+        <Model value="Ghost"/>
+    </CActorModel>
     <CActorModel id="LevelUp2" parent="ModelAddition">
         <Terms value="ValidateUnit AboveLevel1"/>
         <Inherits index="BaseModelScale" value="0"/>
@@ -12136,6 +12142,8 @@
         <On Terms="Abil.L3LaunchGrenade.SourcePrepStart" Send="AnimBracketStart {Attack Superior} {} {} {} ContentPlayOnce"/>
         <On Terms="Abil.L3LaunchGrenade.SourceFinishStop" Send="AnimBracketStop {Attack Superior}"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Reload"/>
+        <On Terms="ActorCreation.PsiOps" Send="Create GhostOverlaySelection"/>
+        <On Terms="ActorCreation.PsiOps" Send="ModelAllowHitTest"/>
         <Model value="Nova"/>
         <BuildModel value="Nova"/>
         <DeathArray index="Normal" ModelLink="NovaDeath" SoundLink="Nova_Death"/>
