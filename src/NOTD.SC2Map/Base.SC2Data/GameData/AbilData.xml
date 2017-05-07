@@ -58,6 +58,7 @@
         <LevelButtonTooltip value="Level 2 Adrenaline"/>
         <LevelButtonTooltip value="Level 3 Adrenaline"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Adrenaline"/>
+        <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
     <CAbilBehavior id="AmmoFeedDummy">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -3507,6 +3508,7 @@
         </Cost>
         <LevelButtonTooltip value="Level 2 Borrowed Time"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="BorrowedTime"/>
+        <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="BuildMines">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
@@ -3914,6 +3916,7 @@
         <Effect index="0" value="HeightenedSensesLevel1Search"/>
         <Effect value="HeightenedSensesLevel2Search"/>
         <Effect value="HeightenedSensesLevel3Search"/>
+        <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
     <CAbilBehavior id="ItsMeAgain">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
@@ -4123,6 +4126,7 @@
         <LevelButtonTooltip value="Level 2 Surgical Strike"/>
         <LevelButtonTooltip value="Level 3 Surgical Strike"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SurgicalStrike"/>
+        <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
     <CAbilBehavior id="Synergy">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
@@ -4241,6 +4245,7 @@
         <LevelButtonOnTooltip value="Level 2 I&apos;m Your Father"/>
         <LevelButtonOnTooltip value="Level 3 I&apos;m Your Father"/>
         <Flags index="Toggle" value="1"/>
+        <Flags index="Transient" value="1"/>
     </CAbilBehavior>
     <CAbilBehavior id="MasterMarksman">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -5277,6 +5282,7 @@
         <LevelButtonOnTooltip value="Level 2 Taunt"/>
         <LevelButtonOnTooltip value="Level 3 Taunt"/>
         <Flags index="Toggle" value="1"/>
+        <Flags index="Transient" value="1"/>
     </CAbilBehavior>
     <CAbilEffectInstant id="TeamLocation">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
