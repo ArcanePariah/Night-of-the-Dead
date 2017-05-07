@@ -10194,7 +10194,6 @@
         <AreaArray Radius="2" Fraction="1"/>
         <AreaArray Radius="3.5" Fraction="0.5"/>
         <SearchFilters value="-;Player,Ally,Item,Dead,Invulnerable"/>
-        <ArmorReduction value="70"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="GrenadeLaunchMissileLevel1">
         <EditorCategories value="Race:Terran"/>
