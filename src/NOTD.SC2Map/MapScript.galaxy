@@ -5040,7 +5040,7 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
             UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowBanelingUp", 0)), c_orderQueueReplace);
             UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         }
-        else if (((RandomInt(1, 225) == 1) || (gv_wave == 5)) && (gv_oMCommTower == false) && (gv_survivalMode == false) && (gv_storyline != 3) && (gv_wave > 1)) {
+        else if (((RandomInt(1, 200) == 1) || (gv_wave == 4)) && (gv_oMCommTower == false) && (gv_survivalMode == false) && (gv_storyline != 3) && (gv_wave > 1)) {
             gv_oMCommTower = true;
             ObjectiveCreate(StringExternal("Param/Value/2E1900EB"), StringExternal("Param/Value/49791ACC"), c_objectiveStateActive, false);
             gv_commTowerObjective = ObjectiveLastCreated();
@@ -5049,7 +5049,7 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
             TriggerEnable(gt_OM6CommTowerTransmission, false);
             TriggerEnable(gt_OM1EnterCommTower, true);
         }
-        else if ((gv_noNewbie == true) && (gv_survivalMode == false) && (RandomInt(1, 400) == 1) && (gv_oMScrapyard == false) && (gv_alivePlayers > 1) && (gv_wave > 1) && (gv_storyline != 3)) {
+        else if ((gv_noNewbie == true) && (gv_survivalMode == false) && ((RandomInt(1, 300) == 1) || (gv_wave == 5)) && (gv_oMScrapyard == false) && (gv_alivePlayers > 1) && (gv_wave > 1) && (gv_storyline != 3)) {
             gv_oMScrapyard = true;
             TriggerExecute(gt_OM4ScrapyardSalvageInit, true, false);
         }
