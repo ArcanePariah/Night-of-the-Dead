@@ -1144,7 +1144,7 @@
         <TimeEventArray index="Dusk" Time="00" Name=""/>
     </CLight>
     <CLight id="NOTDDarkness" parent="default">
-        <ToDInfoArray index="0" AmbientColor="0.101961,0.101961,0.098039" Colorize="1">
+        <ToDInfoArray index="0" AmbientColor="0.203922,0.203922,0.203922" Colorize="1">
             <Param index="HDRExposure" value="1.200000"/>
             <Param index="HDRBloomThreshold" value="1.850000"/>
             <Param index="HDRAmbientMultiplier" value="1.200000"/>
