@@ -8121,6 +8121,7 @@
         <FlagArray index="Movable" value="0"/>
         <FlagArray index="PreventDestroy" value="0"/>
         <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
         <FlagArray index="TurnBeforeMove" value="0"/>
         <AttackTargetPriority value="18"/>
         <AbilArray index="0" Link="ThorReborn2"/>
