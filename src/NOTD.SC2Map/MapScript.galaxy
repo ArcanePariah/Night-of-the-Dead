@@ -17494,7 +17494,8 @@ bool gt_OM7CharlieSecTeam_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    libNtve_gf_ChangeUnitDamage(gv_charlie, libNtve_ge_UnitDamageTakenDealt_Damage_Take, libNtve_ge_UnitDamageChangeOption_No);
+    libNtve_gf_MakeUnitInvulnerable(gv_charlie, true);
+    UnitSetPropertyFixed(gv_charlie, c_unitPropLifePercent, 100.0);
     gf_MarineSpeechNOTD(gv_charlie, StringExternal("Param/Value/85A69CBB"));
     Wait(2.0, c_timeReal);
     TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_charlie, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/2EAD96BB"), StringExternal("Param/Value/B4CE42F1"), 3.5, c_transmissionDurationAdd, false);
@@ -17519,9 +17520,7 @@ bool gt_OM7CharlieSecTeam_Func (bool testConds, bool runActions) {
 void gt_OM7CharlieSecTeam_Init () {
     gt_OM7CharlieSecTeam = TriggerCreate("gt_OM7CharlieSecTeam_Func");
     TriggerEnable(gt_OM7CharlieSecTeam, false);
-    TriggerAddEventUnitAttacked2(gt_OM7CharlieSecTeam, UnitRefFromVariable("gv_charlie"), null);
-    TriggerAddEventUnitDamaged(gt_OM7CharlieSecTeam, UnitRefFromVariable("gv_charlie"), c_unitDamageTypeAny, c_unitDamageNonFatal, "CombatKnifeDamage");
-    TriggerAddEventUnitDamaged(gt_OM7CharlieSecTeam, UnitRefFromVariable("gv_charlie"), c_unitDamageTypeAny, c_unitDamageEither, "L3GrenadeExplosion");
+    TriggerAddEventUnitDamaged(gt_OM7CharlieSecTeam, UnitRefFromVariable("gv_charlie"), c_unitDamageTypeAny, c_unitDamageEither, null);
 }
 
 //--------------------------------------------------------------------------------------------------
