@@ -3479,22 +3479,25 @@ void gf_AmmoUsage (int lp_player, unit lp_attackingUnit, int lp_reload, string l
     // Implementation
     gf_UpdateAmmoDialog(lp_player);
     gf_ActivateDeactiveReload(lp_player, lp_attackingUnit);
-    Wait(1.0, c_timeGame);
     if ((gv_marineRounds[lp_player] <= 0) && (gv_reloading[lp_player] == false)) {
-        if ((gv_marineMags[lp_player] <= 0)) {
-            UnitBehaviorAddPlayer(lp_attackingUnit, "InsufficientAmmo", lp_player, 1);
-            gf_OutofAmmoMessage(lp_attackingUnit);
-        }
-        else {
-            UnitIssueOrder(lp_attackingUnit, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-            gf_ReloadMagazine(lp_player, lp_attackingUnit, lp_reload, lp_weapon);
+        UnitIssueOrder(lp_attackingUnit, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
+        UnitAbilityEnable(lp_attackingUnit, "attack", false);
+        Wait(1.0, c_timeGame);
+        if ((gv_marineRounds[lp_player] <= 0) && (gv_reloading[lp_player] == false)) {
+            if ((gv_marineMags[lp_player] <= 0)) {
+                UnitBehaviorAddPlayer(lp_attackingUnit, "InsufficientAmmo", lp_player, 1);
+                gf_OutofAmmoMessage(lp_attackingUnit);
+            }
+            else {
+                UnitIssueOrder(lp_attackingUnit, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
+                gf_ReloadMagazine(lp_player, lp_attackingUnit, lp_reload, lp_weapon);
+            }
         }
     }
     else {
         if (((gv_marineMags[lp_player] >= 1) && (gv_marineMags[lp_player] <= 3)) && (UnitIsAlive(lp_attackingUnit) == true)) {
             gf_LowAmmoMessage(lp_attackingUnit);
         }
-
     }
 }
 
