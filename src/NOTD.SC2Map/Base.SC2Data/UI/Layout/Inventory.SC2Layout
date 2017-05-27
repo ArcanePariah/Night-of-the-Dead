@@ -2,17 +2,17 @@
 <Desc>
     <Constant name="ContainerButtonGap" val="8"/>
     <Constant name="EquipmentButtonGap" val="8"/>
+
     <Frame type="InventoryPanel" name="GameUI/UIContainer/ConsoleUIContainer/InventoryPanel" file="GameUI">
         <Anchor side="Bottom" relative="$parent" pos="Max" offset="-168"/>
         <Anchor side="Right" relative="$parent" pos="Mid" offset="576"/>
         <Anchor side="Left" relative="$parent" pos="Mid" offset="-450"/>
+
         <!-- top/left required @ min & 0 for correct icon cursor positioning -->
         <!-- end -->
         <!-- Use bottom and right for positioning. -->
         <!-- Use Right mid to center, and positive offset = 1/2 width of bar -->
         <Frame type="CommandTooltip" name="InventoryTooltip">
-            <Anchor side="Bottom" relative="$this" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$this" pos="Min" offset="0"/>
         </Frame>
 
         <Frame type="InventoryContainer" name="ContainerPanel01">
@@ -55,6 +55,7 @@
                 <Height val="48"/>
                 <Anchor side="Left" relative="$parent/Slot33" pos="Max" offset="#EquipmentButtonGap"/>
                 <Anchor side="Bottom" relative="$parent/Slot33" pos="Max" offset="0"/>
+
                 <Frame type="Image" name="GameButtonBorderImage">
                     <Alpha val="150"/>
                 </Frame>
@@ -63,6 +64,7 @@
             <Frame type="CommandButton" name="Slot35">
                 <Anchor side="Left" relative="$parent/Slot34" pos="Max" offset="#EquipmentButtonGap"/>
                 <Anchor side="Bottom" relative="$parent/Slot34" pos="Max" offset="0"/>
+
                 <Frame type="Image" name="GameButtonBorderImage">
                     <Alpha val="150"/>
                 </Frame>
@@ -98,6 +100,7 @@
                 <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
                 <Width val="62"/>
                 <Height val="62"/>
+
                 <Frame type="Image" name="GameButtonBorderImage">
                     <Alpha val="150"/>
                 </Frame>
@@ -109,6 +112,7 @@
                 <Anchor side="Left" relative="$parent/Slot01" pos="Max" offset="#ContainerButtonGap"/>
                 <Width val="62"/>
                 <Height val="62"/>
+
                 <Frame type="Image" name="GameButtonBorderImage">
                     <Alpha val="150"/>
                 </Frame>
@@ -120,6 +124,7 @@
                 <Anchor side="Left" relative="$parent/Slot02" pos="Max" offset="#ContainerButtonGap"/>
                 <Width val="62"/>
                 <Height val="62"/>
+
                 <Frame type="Image" name="GameButtonBorderImage">
                     <Alpha val="150"/>
                 </Frame>
@@ -131,6 +136,7 @@
                 <Anchor side="Left" relative="$parent/Slot03" pos="Max" offset="#ContainerButtonGap"/>
                 <Width val="62"/>
                 <Height val="62"/>
+
                 <Frame type="Image" name="GameButtonBorderImage">
                     <Alpha val="150"/>
                 </Frame>
@@ -142,6 +148,7 @@
                 <Anchor side="Left" relative="$parent/Slot04" pos="Max" offset="#ContainerButtonGap"/>
                 <Width val="62"/>
                 <Height val="62"/>
+
                 <Frame type="Image" name="GameButtonBorderImage">
                     <Alpha val="150"/>
                 </Frame>
@@ -153,6 +160,7 @@
                 <Anchor side="Left" relative="$parent/Slot05" pos="Max" offset="#ContainerButtonGap"/>
                 <Width val="62"/>
                 <Height val="62"/>
+
                 <Frame type="Image" name="GameButtonBorderImage">
                     <Alpha val="150"/>
                 </Frame>
@@ -164,6 +172,7 @@
                 <Anchor side="Left" relative="$parent/Slot06" pos="Max" offset="#ContainerButtonGap"/>
                 <Width val="62"/>
                 <Height val="62"/>
+
                 <Frame type="Image" name="GameButtonBorderImage">
                     <Alpha val="150"/>
                 </Frame>
@@ -173,6 +182,7 @@
         <Frame type="InventoryContainer" name="InventoryButtons">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="1000"/>
+
             <Frame type="CommandButton" name="Button01">
                 <Width val="62"/>
                 <Height val="62"/>
