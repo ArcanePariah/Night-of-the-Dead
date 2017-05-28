@@ -10218,7 +10218,7 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     lv_tempDialogFrame = c_invalidDialogControlId;
 
     // Implementation
-    gf_UIDialogCreation(35, 170, -300, 295, c_anchorBottom);
+    gf_UIDialogCreation(35, 190, -300, 295, c_anchorBottom);
     gv_ammoCounterDialog[lp_player] = DialogLastCreated();
     DialogControlCreateFromTemplate(gv_ammoCounterDialog[lp_player], c_triggerControlTypePanel, "AmmoUI/AmmoCounter");
     lv_tempDialogFrame = DialogControlLastCreated();

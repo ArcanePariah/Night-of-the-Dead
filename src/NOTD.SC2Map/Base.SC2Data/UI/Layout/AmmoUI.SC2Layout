@@ -2,7 +2,8 @@
 <Desc>
     <Frame type="Frame" name="AmmoCounter">
         <Height val="35"/>
-        <Width val="170"/>
+        <Width val="190"/>
+
         <Frame type="Image" name="AmmoCountImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
