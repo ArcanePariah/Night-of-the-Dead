@@ -29723,6 +29723,7 @@ bool gt_STW2EnterArmoryDeimos_Func (bool testConds, bool runActions) {
             gv_devastatorsDestroyed = true;
             UnitGroupLoopBegin(UnitGroup("InactiveDevastator", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
             for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                libNtve_gf_MakeUnitInvulnerable(UnitGroupLoopCurrent(), false);
                 UnitKill(UnitGroupLoopCurrent());
                 Wait(2.0, c_timeGame);
             }
