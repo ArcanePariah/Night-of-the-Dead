@@ -7079,9 +7079,6 @@
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="Sprint"/>
-        <AbilArray Link="TeamLocation"/>
-        <AbilArray Link="FibrinBandage"/>
-        <AbilArray Link="DropMagazine"/>
         <AbilArray Link="CombatKnife"/>
         <AbilArray Link="SpectreHoldFire"/>
         <AbilArray Link="SpectreWeaponsFree"/>

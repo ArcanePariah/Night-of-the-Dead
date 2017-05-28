@@ -9796,6 +9796,8 @@
         <On Terms="Abil.NovaSnipe.SourceCastStop" Send="AnimBracketStop Spell"/>
         <On Terms="Abil.Domination.SourceCastStart" Send="AnimPlay Spell Work"/>
         <On Terms="UnitMovementUpdate.PsiOps.Walk" Send="AnimClear SnipeSpell"/>
+        <On Terms="ActorCreation.PsiOpsMentalProjection" Send="Create GhostOverlaySelection"/>
+        <On Terms="ActorCreation.PsiOpsMentalProjection" Send="ModelAllowHitTest"/>
         <Model value="Nova"/>
         <Scale value="1.050000"/>
         <BuildModel value="Nova"/>
