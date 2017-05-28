@@ -8730,8 +8730,6 @@ bool auto_gf_BergmannFound_TriggerFunc (bool testConds, bool runActions) {
     libNtve_gf_UnitCreateFacingPoint(1, "BlackOps", 0, 13, RegionRandomPoint(RegionCircle(UnitGetPosition(gv_drBergmann), 7.0)), UnitGetPosition(gv_drBergmann));
     gv_blackOpsOperator = UnitLastCreated();
     UnitIssueOrder(gv_blackOpsOperator, Order(AbilityCommand("GhostCloak", 0)), c_orderQueueReplace);
-    SoundPlay(SoundLink("Ghost_SnipeImpact", -1), PlayerGroupActive(), 100.0, 0.0);
-    UnitDamage(gv_blackOpsOperator, "PrecisionShotLevel2Damage", gv_drBergmann, 0.0);
     Wait(7.0, c_timeReal);
     if ((UnitIsAlive(gv_drBergmann) == true)) {
         gv_drBergmannSaved = true;
