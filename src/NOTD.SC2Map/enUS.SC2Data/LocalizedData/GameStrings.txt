@@ -5244,6 +5244,7 @@ Param/Value/C21BD67D=<c val="0080FF">Saving Biometric ID for </c>
 Param/Value/C226EB8D=Retrieve Weapons & Ammo from Armory
 Param/Value/C22C6D9F=Bring the civilians to the Containment Facility east of here.
 Param/Value/C24E98F7=Seal the Bio-Domes. You'll need 2 men on each Dome to initiate lockdown. This will trap the zombies in the underground quarters...for a while.
+Param/Value/C2781048=<s val="GlueButton"><c val="F4D72B">Motion sensors lit up like a Christmas tree, brace for a fast attack!</c></s>
 Param/Value/C2BC1258=+2 XP for Mission Bonus
 Param/Value/C2DF0BE8=Repeat this is Alpha Company requesting evac!
 Param/Value/C2F1C418=You heard the Lieutenant. Move.
