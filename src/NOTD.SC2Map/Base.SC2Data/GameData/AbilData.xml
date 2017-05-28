@@ -1392,6 +1392,7 @@
         <Effect index="0" value="RemoveStealthMatrixCloak"/>
         <Effect value="RemoveStealthMatrixCloak"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="StealthMatrixDeactivate"/>
+        <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="SurgicalLaser">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
@@ -4182,6 +4183,7 @@
             <Cooldown TimeUse="20"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="Escape" Requirements="StealthMatrixDeactiveButton2"/>
+        <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="BlindlingExplode">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
