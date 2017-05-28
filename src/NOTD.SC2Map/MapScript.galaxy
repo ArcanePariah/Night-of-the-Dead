@@ -30252,7 +30252,7 @@ bool gt_STW4TotheScienceLab_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_STW4EnterLab, true);
     gv_wave = 4;
     if ((RandomInt(0, 10) == 1)) {
-        TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/C2781048"), 5.0, c_transmissionDurationAdd, false);
+        TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnitType("LtSheng", false), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/C2781048"), 10.0, c_transmissionDurationAdd, false);
         SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
         lv_waveMobType = "SeekerBurrowed";
     }
