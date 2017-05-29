@@ -8,7 +8,7 @@
         <Height val="199"/>
         <Frame type="CommandTooltip" name="CommandTooltip">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-220"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="290"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="250"/>
         </Frame>
 
         <Frame type="CommandButton" name="CommandButton00">

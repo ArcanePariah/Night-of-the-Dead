@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
+
+	<Frame type="Image" name="ButtonBorderTemplate">
+		<Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
+		<TextureType val="HorizontalBorder"/>
+		<BlendMode val="Normal"/>
+		<Color val="127,127,127"/>
+		<Height val="48"/>
+		<Width val="96"/>
+	</Frame>
+	
+	<Frame type="Label" name="ButtonLabelTemplate">
+		<Height val="48"/>
+		<Width val="96"/>
+		<Style val="ModCenterSize16"/>
+	</Frame>
+	
+	
     <Frame type="Frame" name="DetailsUI">
         <Height val="610"/>
         <Width val="690"/>
@@ -14,34 +31,22 @@
         </Frame>
 
         <Frame type="Image" name="Border">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor relative="$parent" offset="0"/>
             <Texture val="Assets\Textures\ui_battlenet_glue_frame_bucket_long.dds"/>
             <TextureType val="Normal"/>
             <BlendMode val="Add"/>
             <Color val="255,255,255"/>
-            <Height val="610"/>
-            <Width val="690"/>
         </Frame>
 
         <!-- Medal Related -->
-        <Frame type="Image" name="MedalsBorder">
+        <Frame type="Image" name="MedalsBorder" template="PlayerDetails/ButtonBorderTemplate">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
-            <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
-            <TextureType val="HorizontalBorder"/>
-            <BlendMode val="Normal"/>
-            <Color val="127,127,127"/>
-            <Height val="48"/>
-            <Width val="96"/>
         </Frame>
 
-        <Frame type="Label" name="MedalsLabel">
+        <Frame type="Label" name="MedalsLabel" template="PlayerDetails/ButtonLabelTemplate">
             <Anchor side="Top" relative="$parent/MedalsBorder" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/MedalsBorder" pos="Min" offset="2"/>
-            <Height val="48"/>
-            <Width val="96"/>
-            <Style val="ModCenterSize16"/>
 			<Text val = "Medals"/>
         </Frame>
 
@@ -53,23 +58,14 @@
         </Frame>
 
         <!-- Stats Related -->
-        <Frame type="Image" name="StatsBorder">
+        <Frame type="Image" name="StatsBorder" template="PlayerDetails/ButtonBorderTemplate">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
             <Anchor side="Left" relative="$parent/MedalsBorder" pos="Max" offset="-10"/>
-            <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
-            <TextureType val="HorizontalBorder"/>
-            <BlendMode val="Normal"/>
-            <Color val="127,127,127"/>
-            <Height val="48"/>
-            <Width val="96"/>
         </Frame>
 
-        <Frame type="Label" name="StatsLabel">
+        <Frame type="Label" name="StatsLabel" template="PlayerDetails/ButtonLabelTemplate">
             <Anchor side="Top" relative="$parent/StatsBorder" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/StatsBorder" pos="Min" offset="2"/>
-            <Height val="48"/>
-            <Width val="96"/>
-            <Style val="ModCenterSize16"/>
 			<Text val = "Stats"/>
         </Frame>
 
@@ -81,23 +77,14 @@
         </Frame>
 
         <!-- Talents Related -->
-        <Frame type="Image" name="TalentsBorder">
+        <Frame type="Image" name="TalentsBorder" template="PlayerDetails/ButtonBorderTemplate">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
             <Anchor side="Left" relative="$parent/StatsBorder" pos="Max" offset="-10"/>
-            <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
-            <TextureType val="HorizontalBorder"/>
-            <BlendMode val="Normal"/>
-            <Color val="127,127,127"/>
-            <Height val="48"/>
-            <Width val="96"/>
         </Frame>
 
-        <Frame type="Label" name="TalentsLabel">
+        <Frame type="Label" name="TalentsLabel" template="PlayerDetails/ButtonLabelTemplate">
             <Anchor side="Top" relative="$parent/TalentsBorder" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/TalentsBorder" pos="Min" offset="2"/>
-            <Height val="48"/>
-            <Width val="96"/>
-            <Style val="ModCenterSize16"/>
 			<Text val = "Talents"/>
         </Frame>
 

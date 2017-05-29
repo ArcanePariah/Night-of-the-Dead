@@ -1733,7 +1733,6 @@ trigger gt_ShowPathtoMilitaryBase;
 trigger gt_NOTDInitialize;
 trigger gt_PlayerIntialize;
 trigger gt_Environment;
-trigger gt_RegisterMarineEvents;
 trigger gt_StorylineDialogCreation;
 trigger gt_StorylineSelection;
 trigger gt_ModeSelection;
@@ -13429,36 +13428,6 @@ bool gt_Environment_Func (bool testConds, bool runActions) {
 void gt_Environment_Init () {
     gt_Environment = TriggerCreate("gt_Environment_Func");
     TriggerEnable(gt_Environment, false);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Register Marine Events
-//--------------------------------------------------------------------------------------------------
-bool gt_RegisterMarineEvents_Func (bool testConds, bool runActions) {
-    unitgroup auto8A030D0C_g;
-    int auto8A030D0C_u;
-
-    // Variable Declarations
-    unit lv_marine;
-
-    // Variable Initialization
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    auto8A030D0C_g = gv_marines;
-    auto8A030D0C_u = 1;
-    for ( ; auto8A030D0C_u <= UnitGroupCount(auto8A030D0C_g, c_unitCountAll) ; auto8A030D0C_u += BoolToInt(lv_marine == UnitGroupUnit(auto8A030D0C_g, auto8A030D0C_u)) ) {
-        lv_marine = UnitGroupUnit(auto8A030D0C_g, auto8A030D0C_u);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_RegisterMarineEvents_Init () {
-    gt_RegisterMarineEvents = TriggerCreate("gt_RegisterMarineEvents_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -39253,7 +39222,6 @@ void InitTriggers () {
     gt_NOTDInitialize_Init();
     gt_PlayerIntialize_Init();
     gt_Environment_Init();
-    gt_RegisterMarineEvents_Init();
     gt_StorylineDialogCreation_Init();
     gt_StorylineSelection_Init();
     gt_ModeSelection_Init();

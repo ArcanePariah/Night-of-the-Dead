@@ -20,7 +20,7 @@
         </Frame>
 
         <Frame type="Label" name="ArmorLabel">
-            <Anchor side="Top" relative="$parent/ArmorIcon" pos="Min" offset="8"/>
+            <Anchor side="Top" relative="$parent/ArmorIcon" pos="Min" offset="6"/>
         </Frame>
     </Frame>
 </Desc>
