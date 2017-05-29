@@ -950,7 +950,7 @@
         <LifeMax value="200"/>
         <LifeArmor value="1"/>
         <LifeRegenRate value="0.1992"/>
-        <EnergyStart value="80"/>
+        <EnergyStart value="145"/>
         <EnergyMax value="145"/>
         <EnergyRegenRate value="0.6015"/>
         <ShieldsStart value="50"/>
@@ -1206,7 +1206,7 @@
         <LifeMax value="200"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="0.3515"/>
-        <EnergyStart value="75"/>
+        <EnergyStart value="150"/>
         <EnergyMax value="150"/>
         <EnergyRegenRate value="0.8007"/>
         <ShieldsStart value="100"/>
@@ -1666,7 +1666,7 @@
         <LifeMax value="150"/>
         <LifeRegenDelay value="0.5"/>
         <LifeRegenRate value="0.1992"/>
-        <EnergyStart value="100"/>
+        <EnergyStart value="200"/>
         <EnergyMax value="200"/>
         <EnergyRegenRate value="0.7187"/>
         <ShieldsStart value="35"/>
@@ -1778,7 +1778,7 @@
         <LifeMax value="185"/>
         <LifeArmor value="1"/>
         <LifeRegenRate value="0.1718"/>
-        <EnergyStart value="100"/>
+        <EnergyStart value="200"/>
         <EnergyMax value="200"/>
         <EnergyRegenRate value="1.1992"/>
         <ShieldsStart value="30"/>
@@ -1952,7 +1952,7 @@
         <LifeArmor value="1"/>
         <LifeRegenRate value="0.1718"/>
         <LifeArmorLevel value="1"/>
-        <EnergyStart value="25"/>
+        <EnergyStart value="100"/>
         <EnergyMax value="100"/>
         <EnergyRegenRate value="1.3593"/>
         <ShieldsStart value="35"/>
@@ -2072,7 +2072,7 @@
         <LifeStart value="140"/>
         <LifeMax value="140"/>
         <LifeRegenRate value="0.1484"/>
-        <EnergyStart value="100"/>
+        <EnergyStart value="225"/>
         <EnergyMax value="225"/>
         <EnergyRegenRate value="0.6484"/>
         <ShieldsStart value="40"/>
@@ -2509,7 +2509,7 @@
         <LifeMax value="80"/>
         <LifeRegenDelay value="0.5"/>
         <LifeRegenRate value="0.1015"/>
-        <EnergyStart value="50"/>
+        <EnergyStart value="85"/>
         <EnergyMax value="85"/>
         <EnergyRegenRate value="1.1992"/>
         <ShieldsStart value="100"/>
@@ -2728,7 +2728,7 @@
         <LifeArmor value="5"/>
         <LifeRegenRate value="0.2304"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
-        <EnergyStart value="70"/>
+        <EnergyStart value="160"/>
         <EnergyMax value="160"/>
         <EnergyRegenRate value="0.5312"/>
         <ShieldsStart value="1"/>
@@ -3084,7 +3084,7 @@
         <LifeStart value="265"/>
         <LifeMax value="265"/>
         <LifeRegenRate value="0.5"/>
-        <EnergyStart value="25"/>
+        <EnergyStart value="75"/>
         <EnergyMax value="75"/>
         <EnergyRegenRate value="1"/>
         <ShieldsStart value="50"/>
@@ -3204,7 +3204,7 @@
         <LifeMax value="265"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="0.3515"/>
-        <EnergyStart value="25"/>
+        <EnergyStart value="75"/>
         <EnergyMax value="75"/>
         <EnergyRegenRate value="1"/>
         <ShieldsStart value="50"/>
@@ -6463,7 +6463,7 @@
         <LifeArmor value="3"/>
         <LifeRegenRate value="0.75"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
-        <EnergyStart value="120"/>
+        <EnergyStart value="135"/>
         <EnergyMax value="135"/>
         <EnergyRegenRate value="0.8007"/>
         <ShieldsStart value="75"/>
@@ -8340,7 +8340,7 @@
         <LifeMax value="160"/>
         <LifeArmor value="1"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
-        <EnergyStart value="200"/>
+        <EnergyStart value="235"/>
         <EnergyMax value="235"/>
         <EnergyRegenRate value="0.6992"/>
         <Speed value="2.4765"/>
@@ -10460,7 +10460,7 @@
         <LifeStart value="160"/>
         <LifeMax value="160"/>
         <LifeRegenRate value="0.1718"/>
-        <EnergyStart value="75"/>
+        <EnergyStart value="160"/>
         <EnergyMax value="160"/>
         <EnergyRegenRate value="0.6992"/>
         <ShieldsStart value="20"/>
@@ -10747,7 +10747,7 @@
         <LifeArmor value="1"/>
         <LifeRegenRate value="0.121"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
-        <EnergyStart value="100"/>
+        <EnergyStart value="175"/>
         <EnergyMax value="175"/>
         <EnergyRegenRate value="0.4492"/>
         <ShieldsStart value="35"/>
@@ -11524,7 +11524,7 @@
         <LifeMax value="150"/>
         <LifeRegenRate value="0.121"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
-        <EnergyStart value="75"/>
+        <EnergyStart value="150"/>
         <EnergyMax value="150"/>
         <EnergyRegenRate value="0.5312"/>
         <ShieldsStart value="30"/>
