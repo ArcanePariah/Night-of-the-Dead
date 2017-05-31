@@ -120,12 +120,14 @@
             </LightRegions>
             <LightRegions index="3">
                 <UseDefault value="0"/>
-                <AmbientColor value="0.788235,0.690196,1.000000"/>
-                <SpecularColor value="0.635294,0.635294,0.894118"/>
+                <AmbientColor value="0.392157,0.294118,0.568627"/>
+                <AmbientEnvironmentMultiplier value="0.000000"/>
+                <SpecularColor value="0.631373,0.631373,0.894118"/>
                 <SpecularMultiplier value="0.129000"/>
-                <DiffuseColor index="Key" value="0.600000,0.717647,0.941176"/>
-                <DiffuseColor index="Fill" value="1.000000,1.000000,1.000000"/>
-                <DiffuseColor index="Back" value="0.580392,0.592157,0.839216"/>
+                <FogColor value="0.003922,0.003922,0.003922"/>
+                <DiffuseColor index="Key" value="0.600000,0.713726,0.937255"/>
+                <DiffuseColor index="Fill" value="0.509804,0.509804,0.509804"/>
+                <DiffuseColor index="Back" value="0.576471,0.592157,0.839216"/>
                 <DiffuseMultiplier index="Key" value="1.084000"/>
                 <DiffuseMultiplier index="Fill" value="0.891000"/>
                 <DiffuseMultiplier index="Back" value="1.496000"/>
@@ -194,12 +196,14 @@
             </LightRegions>
             <LightRegions index="3">
                 <UseDefault value="0"/>
-                <AmbientColor value="0.788235,0.690196,1.000000"/>
-                <SpecularColor value="0.635294,0.635294,0.894118"/>
+                <AmbientColor value="0.392157,0.294118,0.568627"/>
+                <AmbientEnvironmentMultiplier value="0.000000"/>
+                <SpecularColor value="0.631373,0.631373,0.894118"/>
                 <SpecularMultiplier value="0.129000"/>
-                <DiffuseColor index="Key" value="0.600000,0.717647,0.941176"/>
-                <DiffuseColor index="Fill" value="1.000000,1.000000,1.000000"/>
-                <DiffuseColor index="Back" value="0.580392,0.592157,0.839216"/>
+                <FogColor value="0.003922,0.003922,0.003922"/>
+                <DiffuseColor index="Key" value="0.600000,0.713726,0.937255"/>
+                <DiffuseColor index="Fill" value="0.509804,0.509804,0.509804"/>
+                <DiffuseColor index="Back" value="0.576471,0.592157,0.839216"/>
                 <DiffuseMultiplier index="Key" value="1.084000"/>
                 <DiffuseMultiplier index="Fill" value="0.891000"/>
                 <DiffuseMultiplier index="Back" value="1.496000"/>
@@ -1880,12 +1884,14 @@
             </LightRegions>
             <LightRegions index="3">
                 <UseDefault value="0"/>
-                <AmbientColor value="0.788235,0.690196,1.000000"/>
-                <SpecularColor value="0.635294,0.635294,0.894118"/>
+                <AmbientColor value="0.392157,0.294118,0.568627"/>
+                <AmbientEnvironmentMultiplier value="0.000000"/>
+                <SpecularColor value="0.631373,0.631373,0.894118"/>
                 <SpecularMultiplier value="0.129000"/>
-                <DiffuseColor index="Key" value="0.600000,0.717647,0.941176"/>
-                <DiffuseColor index="Fill" value="1.000000,1.000000,1.000000"/>
-                <DiffuseColor index="Back" value="0.580392,0.592157,0.839216"/>
+                <FogColor value="0.003922,0.003922,0.003922"/>
+                <DiffuseColor index="Key" value="0.600000,0.713726,0.937255"/>
+                <DiffuseColor index="Fill" value="0.509804,0.509804,0.509804"/>
+                <DiffuseColor index="Back" value="0.576471,0.592157,0.839216"/>
                 <DiffuseMultiplier index="Key" value="1.084000"/>
                 <DiffuseMultiplier index="Fill" value="0.891000"/>
                 <DiffuseMultiplier index="Back" value="1.496000"/>
