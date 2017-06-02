@@ -130,7 +130,6 @@
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <CmdButtonArray index="On" DefaultButtonFace="Bloodlust"/>
         <CmdButtonArray index="Off" DefaultButtonFace="Bloodlust"/>
-        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
         <Cost>
@@ -2223,7 +2222,6 @@
         <CmdButtonArray index="On" DefaultButtonFace="IronHand">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
-        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
         <Cost>
@@ -2279,7 +2277,6 @@
         <CmdButtonArray index="On" DefaultButtonFace="TargetingComputer">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
-        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
         <Cost>
@@ -4258,7 +4255,6 @@
         <BehaviorArray value="ImYourFatherLevel3"/>
         <LevelButtonOnTooltip value="Level 2 I&apos;m Your Father"/>
         <LevelButtonOnTooltip value="Level 3 I&apos;m Your Father"/>
-        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
         <AutoCastValidatorArray value="CasterNotIYFCombine"/>
@@ -5097,7 +5093,6 @@
         <BehaviorArray value="StealthLevel1"/>
         <BehaviorArray value="StealthLevel2"/>
         <LevelButtonOnTooltip value="Level 2 Stealth"/>
-        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
         <CmdButtonArray index="On" DefaultButtonFace="Stealth"/>
@@ -5299,7 +5294,6 @@
         <BehaviorArray value="TauntLevel3"/>
         <LevelButtonOnTooltip value="Level 2 Taunt"/>
         <LevelButtonOnTooltip value="Level 3 Taunt"/>
-        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
         <AutoCastValidatorArray value="CasterNotTauntCombine"/>
@@ -5327,7 +5321,6 @@
             <Cooldown TimeUse="8"/>
         </Cost>
         <BehaviorArray value="Turbo"/>
-        <Flags index="AutoCast" value="1"/>
         <Flags index="Toggle" value="1"/>
         <Flags index="Transient" value="1"/>
         <AutoCastValidatorArray value="CasterNotTurbo"/>
