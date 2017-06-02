@@ -1936,12 +1936,15 @@
         <FlagArray index="Unselectable" value="1"/>
         <FlagArray index="Untargetable" value="1"/>
         <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="KillCredit" value="0"/>
         <FlagArray index="Invulnerable" value="1"/>
         <Fidget DelayMax="4" DelayMin="1" DistanceMax="2400" DistanceMin="1200">
             <ChanceArray index="Anim" value="10"/>
             <ChanceArray index="Idle" value="20"/>
             <ChanceArray index="Move" value="70"/>
         </Fidget>
+        <Collide index="Flying" value="0"/>
+        <MinimapRadius value="0"/>
     </CUnit>
     <CUnit id="PunisherGrenadesLMWeapon">
         <FlagArray index="Invulnerable" value="1"/>
