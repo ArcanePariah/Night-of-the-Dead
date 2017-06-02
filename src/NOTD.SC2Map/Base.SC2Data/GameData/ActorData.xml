@@ -5073,7 +5073,6 @@
         <On Terms="UnitBirth.Slasher2" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
         <On Terms="UnitDeathCustomize; ValidateUnit IsKillerPhantasm" Send="DeathCustomize Hallucination"/>
         <On Terms="ActorCreation" Send="SetTintColor 200,100,100"/>
-        <On Terms="ActorCreation" Send="AnimSetTimeScale Burrow 0.333000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset SlasherHead SlasherHead {Head 0} -0.025000,0.000000,-0.200000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset SlasherThorn SlasherThorn2 {Head 0} 0.000000,0.400000,0.200000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset SlasherThorn SlasherThorn2 {Head 0} 0.000000,0.600000,0.500000"/>
@@ -11464,7 +11463,6 @@
         <On Terms="UnitBirth.Devourer2" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant 0.333000 AsTimeScale"/>
         <On Terms="AbilMorph.*.Cancel; MorphFrom Devourer; MorphTo Devourer2" Send="AnimClear Burrow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo Devourer; MorphFrom Devourer2" Send="AnimBracketStop Burrow"/>
-        <On Terms="ActorCreation" Send="AnimSetTimeScale Burrow 0.333000"/>
         <On Terms="ActorCreation" Send="SetTintColor 150,210,83"/>
         <On Terms="UnitBirth.Devourer" Send="SetTintColor 150,210,83"/>
         <On Terms="UnitBirth.Devourer2" Send="SetTintColor 150,210,83"/>
