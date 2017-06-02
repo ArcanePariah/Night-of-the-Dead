@@ -1967,14 +1967,22 @@
         <On index="0" Send="Create SoundEmitter Immortal2_Ambience"/>
         <On index="49" Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <On index="50" Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
-        <On index="51" Terms="UnitBirth.TitanBurrowed" Send="Create"/>
-        <On index="52" Terms="UnitBirth.TitanBurrowed" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
-        <On index="53" Terms="AbilMorph.*.Finish; MorphTo InfestorTerran; MorphFrom InfestedTerransEgg" Send="Create"/>
-        <On index="54" Terms="AbilMorph.*.Finish; MorphTo InfestorTerran; MorphFrom InfestedTerransEgg" Send="Create InfestedTerranEggDeath"/>
-        <On index="61" Terms="AbilMorph.*.Finish; MorphTo InfestorTerran; MorphFrom InfestedTerransEgg" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
-        <On index="62" Terms="AbilMorph.*.Cancel; MorphFrom Titan; MorphTo TitanBurrowed" Send="AnimClear Burrow"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo Titan; MorphFrom TitanBurrowed" Send="AnimBracketStop Burrow"/>
-        <On Terms="UnitCreation.Titan" Send="SetTintColor 64,96,4"/>
+        <On index="51" Terms="AbilMorph.*.Finish; MorphTo InfestorTerran; MorphFrom InfestedTerransEgg" Send="Create"/>
+        <On index="52" Terms="AbilMorph.*.Finish; MorphTo InfestorTerran; MorphFrom InfestedTerransEgg" Send="Create InfestedTerranEggDeath"/>
+        <On index="53" Terms="UnitTaunt.*.Start; Taunt Tease" Send="AnimPlay Taunt Taunt"/>
+        <On index="54" Terms="UnitTaunt.*.Stop; Taunt Tease" Send="AnimClear Taunt"/>
+        <On index="55" Terms="ActorCreation" Send="StatusSet InAir 0"/>
+        <On index="56" Terms="UnitHeightUpdate.*.Lift" Send="StatusSet InAir 1"/>
+        <On index="57" Terms="UnitHeightUpdate.*.Land"/>
+        <On index="58" Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On index="59" Terms="AbilMorph.*.Finish; MorphTo InfestorTerran; MorphFrom InfestedTerransEgg" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
+        <On index="60" Terms="AbilMorph.*.Cancel; MorphFrom Titan; MorphTo TitanBurrowed" Send="AnimClear Burrow"/>
+        <On index="61" Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On index="62" Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On index="63" Terms="UnitBirth.TitanBurrowed" Send="Create"/>
+        <On index="64" Terms="UnitBirth.TitanBurrowed" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant,DontResetOnUnhide"/>
+        <On index="65" Terms="AbilMorph.*.Finish; MorphTo Titan; MorphFrom TitanBurrowed" Send="AnimBracketStop Burrow"/>
+        <On index="66" Terms="UnitCreation.Titan" Send="SetTintColor 64,96,4"/>
         <On Terms="UnitBirth.Titan" Send="SetTintColor 64,96,4"/>
         <On Terms="UnitCreation.TitanBurrowed" Send="SetTintColor 64,96,4"/>
         <On Terms="UnitBirth.TitanBurrowed" Send="SetTintColor 64,96,4"/>
