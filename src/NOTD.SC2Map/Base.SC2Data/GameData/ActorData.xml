@@ -5485,6 +5485,7 @@
     <CActorModel id="FungalGrowth">
         <On Terms="Behavior.VenomousExplosion.On" Send="Create"/>
         <On Terms="Behavior.VenomousExplosion.Off" Send="AnimBracketStop BSD"/>
+        <AutoScaleFactor value="2.000000"/>
     </CActorModel>
     <CActorUnit id="Hades" parent="GenericUnitBase" unitName="Hades">
         <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
