@@ -2215,40 +2215,49 @@ bool gf_PlayerAutomaticBanCheck (int lp_player) {
     if ((gf_StatsGetMaxModPoints(lp_player) < 0)) {
         return true;
     }
-    if ((gf_StatsGetMaxModPoints(lp_player) > 0) && (gv_playerLifeTimeCreditsAcquired[lp_player] < 10000)) {
+    else if (((gf_StatsGetMaxModPoints(lp_player) * 10000) > gv_playerLifeTimeCreditsAcquired[lp_player])) {
         return true;
     }
-    if ((gv_playerXP[lp_player] < 135000) && (gv_playerGamesPlayed[lp_player] > 4500)) {
+    else if ((((gv_playerRank[lp_player] * 2) + gf_GetMedalStats(lp_player)) < gf_GetCurrentAllocatedStats(0))) {
         return true;
     }
-    else if ((gv_playerXP[lp_player] >= 260000) && (gv_playerKarma[lp_player] < 1500)) {
+    else if ((gv_playerXP[0] > ((gv_eCSpeed[lp_player] * 150) + (gv_eCWinNormal[lp_player] * 120) + (gv_eCNMSpeed[lp_player] * 250) + (gv_eCWinNM[lp_player] * 210) + (gv_aCSpeed[lp_player] * 200) + (gv_aCWinNormal[lp_player] * 170) + (gv_aCNMSpeed[lp_player] * 300) + (gv_aCWinNM[lp_player] * 260) + (gv_sTSpeed[lp_player] * 350) + (gv_sTWinNormal[lp_player] * 320) + (gv_sTNMSpeed[lp_player] * 450) + (gv_sTWinNM[lp_player] * 410) + (gv_survivalWin[lp_player] * 250) + (gv_survivalWinNM[lp_player] * 350) + ((gv_playerGamesPlayed[lp_player] - (gv_eCSpeed[lp_player] + gv_eCWinNormal[lp_player] + gv_eCNMSpeed[lp_player] + gv_eCWinNM[lp_player] + gv_aCSpeed[lp_player] + gv_aCWinNormal[lp_player] + gv_aCNMSpeed[lp_player] + gv_aCWinNM[lp_player] + gv_sTSpeed[lp_player] + gv_sTWinNormal[lp_player] + gv_sTNMSpeed[lp_player] + gv_sTWinNM[lp_player] + gv_survivalWin[lp_player] + gv_survivalWinNM[lp_player])) * 280)))) {
         return true;
     }
-    else if (((gv_playerXP[lp_player] / gv_playerGamesPlayed[lp_player]) >= 300)) {
-        return true;
-    }
-    else if (((gv_playerXP[lp_player] / gv_playerGamesPlayed[lp_player]) < 30) && (gv_playerXP[lp_player] >= 40000)) {
+    else if ((gv_playerXP[0] < ((gv_eCSpeed[lp_player] * 55) + (gv_eCWinNormal[lp_player] * 45) + (gv_eCNMSpeed[lp_player] * 100) + (gv_eCWinNM[lp_player] * 70) + (gv_aCSpeed[lp_player] * 80) + (gv_aCWinNormal[lp_player] * 50) + (gv_aCNMSpeed[lp_player] * 100) + (gv_aCWinNM[lp_player] * 60) + (gv_sTSpeed[lp_player] * 80) + (gv_sTWinNormal[lp_player] * 50) + (gv_sTNMSpeed[lp_player] * 100) + (gv_sTWinNM[lp_player] * 60) + (gv_survivalWin[lp_player] * 200) + (gv_survivalWinNM[lp_player] * 300) + ((gv_playerGamesPlayed[lp_player] - (gv_eCSpeed[lp_player] + gv_eCWinNormal[lp_player] + gv_eCNMSpeed[lp_player] + gv_eCWinNM[lp_player] + gv_aCSpeed[lp_player] + gv_aCWinNormal[lp_player] + gv_aCNMSpeed[lp_player] + gv_aCWinNM[lp_player] + gv_sTSpeed[lp_player] + gv_sTWinNormal[lp_player] + gv_sTNMSpeed[lp_player] + gv_sTWinNM[lp_player] + gv_survivalWin[lp_player] + gv_survivalWinNM[lp_player])) * 1)))) {
         return true;
     }
     else if ((gf_BOInsigniaBought(lp_player) == true) && (gv_playerLifeTimeCreditsAcquired[lp_player] < 10000)) {
         return true;
     }
-    else if (((gv_playerXP[lp_player] >= 160000) && (gv_playerXP[lp_player] <= 170000)) && (gv_playerGamesPlayed[lp_player] > 4500)) {
-        return true;
-    }
     else if ((gv_playerXP[lp_player] >= 600000)) {
         return true;
     }
-    else if ((gv_playerXP[lp_player] < 3500) && (gv_combatActionRibbon[lp_player] > 50)) {
+    else if ((gv_combatActionRibbon[lp_player] > gv_playerGamesPlayed[lp_player])) {
         return true;
     }
-    else if ((gv_lifeSavingMedal[lp_player] > gv_combatActionRibbon[lp_player])) {
+    else if (((gv_lifeSavingMedal[lp_player] + gv_silverStar[lp_player]) > gv_combatActionRibbon[lp_player])) {
         return true;
     }
-    else if ((gv_silverStar[lp_player] > gv_combatActionRibbon[lp_player])) {
+    else if ((gv_combatActionRibbon[lp_player] < (gv_eCSpeed[lp_player] + gv_eCWinNormal[lp_player] + gv_eCNMSpeed[lp_player] + gv_eCWinNM[lp_player] + gv_aCSpeed[lp_player] + gv_aCWinNormal[lp_player] + gv_aCNMSpeed[lp_player] + gv_aCWinNM[lp_player] + gv_sTSpeed[lp_player] + gv_sTWinNormal[lp_player] + gv_sTNMSpeed[lp_player] + gv_sTWinNM[lp_player] + gv_survivalWin[lp_player] + gv_survivalWinNM[lp_player]))) {
         return true;
     }
     else if ((gf_StatsGetMaxModPoints(lp_player) > 20)) {
+        return true;
+    }
+    else if ((gv_medalOfHonor[lp_player] > (gv_eCNMSpeed[lp_player] + gv_eCWinNM[lp_player] + gv_aCNMSpeed[lp_player] + gv_aCWinNM[lp_player] + gv_sTNMSpeed[lp_player] + gv_sTWinNM[lp_player] + gv_survivalWinNM[lp_player]))) {
+        return true;
+    }
+    else if (((MaxI((gv_silverStar[lp_player] - 20), 0) + MaxI((gv_lifeSavingMedal[lp_player] - 20), 0)) > (gv_eCNMSpeed[lp_player] + gv_eCWinNM[lp_player] + gv_aCNMSpeed[lp_player] + gv_aCWinNM[lp_player] + gv_sTNMSpeed[lp_player] + gv_sTWinNM[lp_player] + gv_survivalWinNM[lp_player]))) {
+        return true;
+    }
+    else if ((gv_superiorServiceMedal[lp_player] > (MinI(gv_survivalWin[lp_player], 20) + gv_survivalWinNM[lp_player]))) {
+        return true;
+    }
+    else if (((gv_statsModProperties[1][lp_player] + gv_statsModProperties[2][lp_player] + gv_statsModProperties[3][lp_player] + gv_statsModProperties[4][lp_player] + gv_statsModProperties[5][lp_player] + gv_statsModProperties[6][lp_player] + gv_statsModProperties[7][lp_player]) > 35)) {
+        return true;
+    }
+    else if ((gf_StatsGetMaxModPoints(lp_player) < gv_modTotalPointsNegative[lp_player])) {
         return true;
     }
     return false;
