@@ -7,6 +7,24 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="Bloodlust"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotConcentratedFire3">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ConcentratedFireLevel3"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotConcentratedFire2">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ConcentratedFireLevel2"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="CasterNotConcentratedFireCombine">
+        <Type value="And"/>
+        <CombineArray value="CasterNotConcentratedFire1"/>
+        <CombineArray value="CasterNotConcentratedFire2"/>
+        <CombineArray value="CasterNotConcentratedFire3"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotConcentratedFire1">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ConcentratedFireLevel1"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterNotTurbo">
         <WhichUnit Value="Caster"/>
         <Behavior value="Turbo"/>
@@ -93,6 +111,10 @@
     <CValidatorUnitCompareBehaviorCount id="CasterNotTaunt3">
         <WhichUnit Value="Caster"/>
         <Behavior value="TauntLevel3"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotSlowRoast">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="SlowRoast"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterhasRavagingPhantomLevel1">
         <Value value="1"/>
