@@ -6028,6 +6028,9 @@ Sound=UnknownSound
 id=VolatileInjection
 Actor=TerrainMgr
 Model=IrradiateEffect
+id=Infection
+Actor=TerrainMgr
+Model
 parent=Marine
 id=MobileInfantry
 Actor=##id##Flamethrower,##id##Marksman
@@ -7025,7 +7028,7 @@ asset=Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds
 Actor=TerrainMgr
 id=Infection
 asset=Assets\Textures\btn-upgrade-zerg-airattacks-level3.dds
-Actor=TerrainMgr
+Actor=##id##,TerrainMgr
 Effect=InfectedSet
 id=ItsMeAgainDamageLevel1
 asset=Assets\Textures\btn-missing-kaeo.dds
@@ -16083,6 +16086,9 @@ Actor=TerrainMgr
 Model=ZergSmallUnitDeathLow
 id=SurveillanceFlaresCursor
 asset=Assets\UI\Cursors\DropPodCursor\DropPodCursor.m3
+Actor=TerrainMgr
+id=Infection
+asset=Assets\Effects\Zerg\DiseaseCloud\DiseaseCloud.m3
 Actor=TerrainMgr
 
 [Race]

@@ -239,6 +239,10 @@
         <On Terms="ActorCreation.GhostOverlaySelection" Send="SetOpacity"/>
         <Model value="Ghost"/>
     </CActorModel>
+    <CActorModel id="Infection" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.Infection.On" Send="Create"/>
+        <On Terms="Behavior.Infection.Off" Send="Destroy"/>
+    </CActorModel>
     <CActorModel id="LevelUp2" parent="ModelAddition">
         <Terms value="ValidateUnit AboveLevel1"/>
         <Inherits index="BaseModelScale" value="0"/>
