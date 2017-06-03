@@ -482,6 +482,7 @@ ParamDef/Name/07E6CA28=TipThreshold
 ParamDef/Name/092BD534=Class Points
 ParamDef/Name/0A7A44A9=TriggUnit
 ParamDef/Name/0AB353D9=Owner
+ParamDef/Name/0AF21A69=Dome Hexagon Container
 ParamDef/Name/0B99B72A=Grid
 ParamDef/Name/0DDF5EC8=Weapon
 ParamDef/Name/0E885ABC=PlayerNo
