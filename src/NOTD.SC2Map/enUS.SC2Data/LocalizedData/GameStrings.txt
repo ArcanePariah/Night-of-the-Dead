@@ -4560,6 +4560,7 @@ Param/Value/460272C9=Negative. We sweeped the whole colony. There are no survivo
 Param/Value/4666C8A0=Chapter 3
 Param/Value/46979E56=<s val="InfoPaneHeroRank">Colonists Rescued:  
 Param/Value/46D423B5=Tier 2
+Param/Value/46F19DE3=Difficulty HP Scaling: 
 Param/Value/4713242D=Click to open Marine Equipment
 Param/Value/472EBABF=</c>
 Param/Value/477A5ACF=Put your guns down and we'll talk.
@@ -4841,6 +4842,7 @@ Param/Value/77C447C6=<s val="BriefingHanText">(Airlock gates unlocked..)</s>
 Param/Value/77CE5292=Code 66 unlocked. Activating all auxilliary defenses...
 Param/Value/781216FF=Doctor, have you seen a man called Bergmann? He landed here a few days ago.
 Param/Value/78336162=We're safe. There are more people still hiding in Nakagawa Bay east of the main city compound. Can you help bring them to our ship?
+Param/Value/7887C155= 
 Param/Value/789187AF=Hoo-ah!
 Param/Value/78BDA520=<s val="BriefingHanText">   Artwork & Models<n/>   Nicolas Chaussois<n/>   Justin Phang (DinLouz)<n/>   Holly Calilung (Quassy)<n/>   Peerawat Nonthaphodej (Peerawatz)</s>
 Param/Value/78E290D7=<s val="InfoPaneHeroRank">Not eligible for Navy Cross</s>
@@ -5012,6 +5014,7 @@ Param/Value/95F734B9=Boss Approaching
 Param/Value/95FA0B91=<s val="CinematicLabel">  Ivan Plushenko: <c val="F4D72B">This is for everyone you've killed, Bergmann...</c></s>
 Param/Value/9636C697=</c>)
 Param/Value/96BE079C=Your squad has been sent to the Apollo Mining Colony to respond to a distress signal. Follow mission orders and stay alive. Teamwork is key to survival. Once you die, you cannot revive.<n/><n/>Game Basics<n/>Inventory: You will pick up items along the way. These aid your survival.<n/>Ammunition: Your ammo counter is displayed near your Marine portrait. When you run out of ammo, you cannot fire.<n/>Talents: Press B to open your Talent tree. You gain 1 talent point every time your Marine levels up.<n/><n/>Chat Commands<n/>-ammo: Shows everyone's magazine count<n/>-nightmare: Increases game difficulty for good players<n/>-em: Activates Easy Mode. Players also gain shared vision. XP gain rate is reduced<n/><n/>Discuss at www.notdstarcraft.com
+Param/Value/96EBA0B6=Spawn Factor: 
 Param/Value/96EC434E=: 
 Param/Value/970215F7=Mod Points Unassigned: 
 Param/Value/970BB720=<s val="GlueButton"><c val="F4D72B">Deimos has released a swarm of Titans from containment!</c></s>
@@ -6285,6 +6288,10 @@ UserData/Ranks/Sergeant_Title Brief=Sgt.
 UserData/Ranks/Sergeant_Title Full=Sergeant
 UserData/Ranks/Staff Sergeant_Title Brief=SSgt. 
 UserData/Ranks/Staff Sergeant_Title Full=Staff Sergeant
+UserData/SquadInformation/Difficulty HP Scaling_Information=Difficulty HP Scaling: 
+UserData/SquadInformation/Spawn Factor_Information=Spawn Factor: 
+UserData/SquadInformation/Squad Rating_Information=Squad Rating: 
+UserData/SquadInformation/Squad XP_Information=Squad XP: 
 UserData/StatData/Agility_Name=Agility
 UserData/StatData/Agility_Tooltip=<c val="FFFF00">Agility</c><n/>Adds movespeed, improved reload time
 UserData/StatData/Endurance_Name=Endurance

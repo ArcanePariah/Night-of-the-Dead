@@ -728,7 +728,7 @@ int[9][3] gv_itemBarRatingImages;
 int[9][3] gv_itemBarRatingButtons;
 int[5][9] gv_medalsItemButtons;
 int[5][9] gv_medalsItemImages;
-int[4][3] gv_finalTextLabel;
+int[6][3] gv_finalTextLabel;
 int gv_itemX;
 int gv_playerNameTextY;
 int[3] gv_scrollEndGameUIButtons;
@@ -1144,7 +1144,7 @@ void InitGlobals () {
             gv_medalsItemImages[init_i][init_j] = c_invalidDialogControlId;
         }
     }
-    for (init_i = 0; init_i <= 3; init_i += 1) {
+    for (init_i = 0; init_i <= 5; init_i += 1) {
         for (init_j = 0; init_j <= 2; init_j += 1) {
             gv_finalTextLabel[init_i][init_j] = c_invalidDialogControlId;
         }
@@ -3387,6 +3387,9 @@ bool auto_gf_FlareAreaRecruit_TriggerFunc (bool testConds, bool runActions) {
 void gf_DisplaySquadInformation () {
     // Implementation
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((gv_infoPanelHeroRank + (UserDataGetText("SquadInformation", "Squad Rating", "Information", 1) + IntToText(gv_squadRating))) + gv_endStyling));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((gv_infoPanelHeroRank + (UserDataGetText("SquadInformation", "Spawn Factor", "Information", 1) + IntToText(gv_spawnFactor))) + gv_endStyling));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((gv_infoPanelHeroRank + (UserDataGetText("SquadInformation", "Difficulty HP Scaling", "Information", 1) + FixedToTextAdvanced((1.0 + gv_difficultyHPScaling), c_formatNumberStylePercent, true, 2, 0))) + gv_endStyling));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/7887C155"));
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((gv_infoPanelHeroRank + (UserDataGetText("SquadInformation", "Squad XP", "Information", 1) + IntToText(gv_squadXP))) + gv_endStyling));
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((gv_infoPanelHeroRank + gv_difficulty) + gv_endStyling));
 }
@@ -4644,7 +4647,7 @@ bool auto_gf_EndGameUINOTD_TriggerFunc (bool testConds, bool runActions) {
     lv_victoryButtonY = 60;
     lv_victoryTextX = 450;
     lv_victoryTextY = lv_victoryButtonY;
-    lv_victoryButtonPositionY = (((lv_finalTextY + lv_itemSpacingY) * 3) + ((lv_itemSpacingY * 0) + lv_finalTextYPosition));
+    lv_victoryButtonPositionY = (((lv_finalTextY + lv_itemSpacingY) * 5) + ((lv_itemSpacingY * 0) + lv_finalTextYPosition));
     lv_victoryTextPositionX = (lv_victoryButtonPositionX + 50);
     lv_victoryTextPositionY = (lv_victoryButtonPositionY + 15);
     lv_redTint = Color(100.00, 19.61, 19.61);
@@ -4657,7 +4660,7 @@ bool auto_gf_EndGameUINOTD_TriggerFunc (bool testConds, bool runActions) {
 
     // Implementation
     lv_dialogX = ((lv_itemSpacingX * 14) + ((lv_playerNameTextX + (4 * lv_itemX)) + 230));
-    lv_dialogY = ((lv_itemSpacingY * 19) + ((lv_itemIconXY + (lv_itemBarY * 11)) + 100));
+    lv_dialogY = ((lv_itemSpacingY * 19) + ((lv_itemIconXY + (lv_itemBarY * 11)) + 150));
     lv_victoryButtonPositionX = ((lv_dialogX / 2) - (lv_victoryButtonX / 2));
     lv_finalTextXPosition = (lv_victoryButtonPositionX + 70);
     lv_victoryTextPositionX = (lv_victoryButtonPositionX + 27);
@@ -4778,7 +4781,7 @@ bool auto_gf_EndGameUINOTD_TriggerFunc (bool testConds, bool runActions) {
         lv_itemIconPositionX += ((lv_itemSpacingX * 3) + lv_itemBarX);
         lv_ratingPositiveItemBarPositionX += ((lv_itemSpacingX * 3) + lv_itemBarX);
     }
-    IntLoopBegin(1, 3);
+    IntLoopBegin(1, 5);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         libNtve_gf_CreateDialogItemLabel(gv_endGameDialog1, lv_finalTextX, lv_finalTextY, c_anchorTopLeft, lv_finalTextXPosition, (lv_finalTextYPosition + ((lv_finalTextY + lv_itemSpacingY) * (IntLoopCurrent() - 1))), StringToText(""), Color(100,100,100), false, 0.0);
         libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HeaderExtendedTemplate", PlayerGroupAll());
@@ -4849,8 +4852,10 @@ bool auto_gf_EndGameUISetNOTD_TriggerFunc (bool testConds, bool runActions) {
     IntLoopBegin(0, 1);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         libNtve_gf_SetDialogItemText(gv_finalTextLabel[1][IntLoopCurrent()], (StringExternal("Param/Value/8D1DE837") + IntToText(gv_squadRating)), PlayerGroupAll());
-        libNtve_gf_SetDialogItemText(gv_finalTextLabel[2][IntLoopCurrent()], (StringExternal("Param/Value/184B235F") + IntToText(gv_squadXP)), PlayerGroupAll());
-        libNtve_gf_SetDialogItemText(gv_finalTextLabel[3][IntLoopCurrent()], (StringExternal("Param/Value/BC194400") + gv_difficulty), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(gv_finalTextLabel[2][IntLoopCurrent()], (StringExternal("Param/Value/96EBA0B6") + IntToText(gv_spawnFactor)), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(gv_finalTextLabel[3][IntLoopCurrent()], (StringExternal("Param/Value/46F19DE3") + FixedToTextAdvanced((gv_difficultyHPScaling + 1.0), c_formatNumberStylePercent, true, 2, 0)), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(gv_finalTextLabel[4][IntLoopCurrent()], (StringExternal("Param/Value/184B235F") + IntToText(gv_squadXP)), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(gv_finalTextLabel[5][IntLoopCurrent()], (StringExternal("Param/Value/BC194400") + gv_difficulty), PlayerGroupAll());
     }
     IntLoopEnd();
     Wait(0.5, c_timeGame);

@@ -6447,12 +6447,22 @@
         <Fields Id="Information" Type="Text"/>
         <Instances Id="[Default]"/>
         <Instances Id="Squad Rating">
-            <Text Text="UserData/Information/SquadRating">
+            <Text Text="UserData/SquadInformation/Squad Rating_Information">
                 <Field Id="Information"/>
             </Text>
         </Instances>
         <Instances Id="Squad XP">
-            <Text Text="UserData/Information/SquadXP">
+            <Text Text="UserData/SquadInformation/Squad XP_Information">
+                <Field Id="Information"/>
+            </Text>
+        </Instances>
+        <Instances Id="Spawn Factor">
+            <Text Text="UserData/SquadInformation/Spawn Factor_Information">
+                <Field Id="Information"/>
+            </Text>
+        </Instances>
+        <Instances Id="Difficulty HP Scaling">
+            <Text Text="UserData/SquadInformation/Difficulty HP Scaling_Information">
                 <Field Id="Information"/>
             </Text>
         </Instances>
