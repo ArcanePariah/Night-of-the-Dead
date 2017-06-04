@@ -20761,12 +20761,11 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
     lv_localIntA = 1;
     lv_cocoonTime = 120.0;
     lv_localPointA = UnitGetPosition(UnitFromId(630));
-    lv_localUnitA = EventUnit();
     lv_localTextTag = c_textTagNone;
 
     // Conditions
     if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
+        if (!((UnitGroupCount(UnitGroupFilterRegion(gv_marines, RegionFromId(28), 1), c_unitCountAlive) > 0))) {
             return false;
         }
 
@@ -20789,8 +20788,9 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
     gv_wave = 6;
     gv_hitPar = 40;
     Wait(2.0, c_timeReal);
-    gf_MarineSpeechNOTD(lv_localUnitA, StringExternal("Param/Value/00AD8F43"));
+    gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/00AD8F43"));
     Wait(5.0, c_timeReal);
+    lv_localUnitA = UnitGroupRandomUnit(gv_marines, c_unitCountAlive);
     TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(lv_localUnitA, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, (StringExternal("Param/Value/74C8B185") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/1BF44CE6"), 3.7, c_transmissionDurationAdd, false);
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
     Wait(4.0, c_timeReal);
@@ -20799,6 +20799,7 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
     Wait(0.01, c_timeReal);
     if ((RandomInt(0, 20) != 1)) {
         libNtve_gf_UnitCreateFacingPoint(1, "Hulk", c_unitCreateIgnorePlacement, 14, lv_localPointA, RegionGetCenter(RegionFromId(9)));
+        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
     }
     else {
         if ((gv_noNewbie == true)) {
@@ -20840,6 +20841,7 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
     }
 
     Wait(5.0, c_timeReal);
+    lv_localUnitA = UnitGroupRandomUnit(gv_marines, c_unitCountAlive);
     TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(lv_localUnitA, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, (StringExternal("Param/Value/6A4ED2AC") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/CEB6030A"), 3.7, c_transmissionDurationAdd, false);
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
     if ((gv_alivePlayers > 7)) {
@@ -20899,8 +20901,7 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
 void gt_Wave6Cocoons_Init () {
     gt_Wave6Cocoons = TriggerCreate("gt_Wave6Cocoons_Func");
     TriggerEnable(gt_Wave6Cocoons, false);
-    TriggerAddEventUnitRegion(gt_Wave6Cocoons, null, RegionFromId(28), true);
-    TriggerAddEventUnitRegion(gt_Wave6Cocoons, null, RegionFromId(28), false);
+    TriggerAddEventTimePeriodic(gt_Wave6Cocoons, 1.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
