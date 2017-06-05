@@ -117,6 +117,9 @@
         <EditorCategories value="Race:Terran"/>
         <Radius value="1.000000"/>
     </CModel>
+    <CModel id="SiegeBreaker">
+        <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="1.700000"/>
+    </CModel>
     <CModel id="TerranSmallUnitDeathLow2" parent="UnitDeath" Race="Terran">
         <Model value="Assets\Effects\Terran\TerranSmallUnitDeath\TerranSmallUnitDeath_Low.m3"/>
         <Flags index="TeenSafe" value="1"/>
