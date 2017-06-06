@@ -60,6 +60,9 @@
         <ScaleMax value="0.700000,0.700000,0.700000"/>
         <ScaleMin value="0.700000,0.700000,0.700000"/>
     </CModel>
+    <CModel id="MinerMale">
+        <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.500000"/>
+    </CModel>
     <CModel id="MutaliskDeath">
         <VariationCount value="1"/>
         <Variations index="0" removed="1"/>
