@@ -2942,7 +2942,7 @@ bool auto_gf_AutoSaveLong_TriggerFunc (bool testConds, bool runActions) {
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         Wait(0.8, c_timeReal);
-        if ((PlayerStatus(PlayerGroupLoopCurrent()) == c_playerStatusActive) && ((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 350) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
+        if ((PlayerStatus(PlayerGroupLoopCurrent()) == c_playerStatusActive) && ((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 450) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
             gf_Save(PlayerGroupLoopCurrent(), gv_bankSize);
         }
 
@@ -13716,7 +13716,7 @@ bool gt_ManualSave_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((gv_playerXP[lv_playerNo] - gv_startingXP[lv_playerNo]) <= 350) && (gv_playerBanned[lv_playerNo] == false)) {
+    if (((gv_playerXP[lv_playerNo] - gv_startingXP[lv_playerNo]) <= 450) && (gv_playerBanned[lv_playerNo] == false)) {
         UIDisplayMessage(PlayerGroupSingle(lv_playerNo), c_messageAreaDebug, (StringExternal("Param/Value/3CA19E89") + (PlayerName(lv_playerNo) + StringExternal("Param/Value/556EE5F6"))));
         SoundPlay(SoundLink("UI_ScoreScreenMissionSummary", -1), PlayerGroupSingle(lv_playerNo), 225.0, 0.0);
         gf_Save(lv_playerNo, gv_bankSize);
@@ -13744,7 +13744,7 @@ bool gt_AutoSave_Func (bool testConds, bool runActions) {
 
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        if (((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 350) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
+        if (((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 450) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
             gf_Save(PlayerGroupLoopCurrent(), gv_bankSize);
             Wait(0.5, c_timeReal);
         }
