@@ -9686,7 +9686,6 @@ bool auto_gf_ShowCreditsLeft_TriggerFunc (bool testConds, bool runActions) {
     int lp_player = auto_gf_ShowCreditsLeft_lp_player;
 
     // Implementation
-    TriggerExecute(gt_AutoSave, true, false);
     libNtve_gf_SetDialogItemText(gv_statsPlayerCashLabel[lp_player], IntToText(gv_playerCredits[lp_player]), PlayerGroupAll());
     TextTagCreate((gv_creditsLeft + IntToText(gv_playerCredits[lp_player])), 20, UnitGetPosition(gv_marineHero[lp_player]), 1.5, true, true, PlayerGroupActive());
     TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(79.22, 58.43, 100.00));
