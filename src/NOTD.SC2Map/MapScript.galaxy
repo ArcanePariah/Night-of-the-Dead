@@ -30117,7 +30117,7 @@ bool gt_STW3NorthWestCocoonSurprise_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     Wait(RandomFixed(2.0, 10.0), c_timeReal);
-    UnitGroupLoopBegin(UnitGroup("InfestedCocoon", c_playerAny, RegionFromId(127), UnitFilter(0, 0, (1 << c_targetFilterMassive) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupLoopBegin(UnitGroup("InfestedCocoon", c_playerAny, RegionFromId(127), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         libNtve_gf_UnitCreateFacingPoint(1, "ZombieLevel2", 0, 14, UnitGetPosition(UnitGroupLoopCurrent()), RegionRandomPoint(RegionPlayableMap()));
         UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
