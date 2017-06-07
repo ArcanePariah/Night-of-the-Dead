@@ -13744,7 +13744,7 @@ bool gt_AutoSave_Func (bool testConds, bool runActions) {
 
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        if (((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 450) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
+        if ((PlayerStatus(PlayerGroupLoopCurrent()) == c_playerStatusActive) && ((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 450) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
             gf_Save(PlayerGroupLoopCurrent(), gv_bankSize);
             Wait(0.5, c_timeReal);
         }
