@@ -2006,7 +2006,7 @@
         <AbilArray index="1" Link="stop"/>
         <AbilArray Link="move"/>
         <BehaviorArray index="0" Link="DifficultyScalingHP"/>
-        <BehaviorArray index="1" removed="1"/>
+        <BehaviorArray index="1" Link="SharedExperience"/>
         <WeaponArray Link="VenomousFangs"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="Move" AbilCmd="move,Move"/>
@@ -2290,7 +2290,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="30"/>
+        <KillXP value="100"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -3669,6 +3669,7 @@
         <AbilArray index="4" removed="1"/>
         <BehaviorArray index="0" Link="BrainBugPeriodicRampageCast"/>
         <BehaviorArray index="1" Link="DetectorRange3"/>
+        <BehaviorArray Link="SharedExperience"/>
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
@@ -6410,6 +6411,7 @@
         <AbilArray Link="Charge"/>
         <BehaviorArray index="0" Link="BrainBugPeriodicRampageCast"/>
         <BehaviorArray index="1" Link="DetectorRange3"/>
+        <BehaviorArray Link="SharedExperience"/>
         <WeaponArray index="0" Link="HulkClaws"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="Rampage" Type="Undefined" AbilCmd="Rampage,Execute" Row="0" Column="0"/>
@@ -7673,6 +7675,7 @@
         <GlossaryWeakArray value="VoidRay"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <BehaviorArray Link="Detector5"/>
+        <BehaviorArray Link="SharedExperience"/>
         <StationaryTurningRate value="99.8437"/>
         <TurningRate value="99.8437"/>
     </CUnit>
@@ -8484,7 +8487,7 @@
         <AbilArray Link="move"/>
         <AbilArray Link="Charge"/>
         <BehaviorArray index="0" Link="DifficultyScalingHP"/>
-        <BehaviorArray index="1" removed="1"/>
+        <BehaviorArray index="1" Link="SharedExperience"/>
         <WeaponArray Link="NeedleClaws2"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="Move" AbilCmd="move,Move"/>
@@ -10887,6 +10890,7 @@
             <LayoutButtons index="3" removed="1"/>
         </CardLayouts>
         <BehaviorArray index="1" Link="DifficultyScalingHP"/>
+        <BehaviorArray Link="SharedExperience"/>
     </CUnit>
     <CUnit id="OccularImplants" parent="ITEM">
         <Race value="Terr"/>
@@ -11129,7 +11133,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="50"/>
+        <KillXP value="200"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -11177,6 +11181,7 @@
         <BehaviorArray Link="HardenCaraspace"/>
         <BehaviorArray Link="AccelerationNightmare"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
+        <BehaviorArray Link="SharedExperience"/>
         <PushPriority value="12"/>
     </CUnit>
     <CUnit id="Stalker2">
