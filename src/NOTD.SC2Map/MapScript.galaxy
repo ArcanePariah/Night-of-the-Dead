@@ -6521,7 +6521,9 @@ bool auto_gf_ECC1AmbientSpawns_TriggerFunc (bool testConds, bool runActions) {
             }
 
         }
-
+        else {
+            Wait(2.0, c_timeGame);
+        }
     }
     return true;
 }
