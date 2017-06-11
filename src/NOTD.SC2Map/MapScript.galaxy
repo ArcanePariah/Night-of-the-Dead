@@ -5929,11 +5929,17 @@ bool gf_PreCinematicProcessing () {
         libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), true);
     }
     UnitGroupLoopEnd();
+    DialogSetVisible(gv_equipment, PlayerGroupAll(), false);
     IntLoopBegin(1, 8);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        DialogSetVisible(gv_equipment, PlayerGroupAll(), false);
-        DialogSetVisible(gv_ammoCounterDialog[IntLoopCurrent()], PlayerGroupAll(), false);
-        DialogSetVisible(gv_shellDialog[IntLoopCurrent()], PlayerGroupAll(), false);
+        if ((gv_ammoCounterDialog[IntLoopCurrent()] != c_invalidDialogId)) {
+            DialogSetVisible(gv_ammoCounterDialog[IntLoopCurrent()], PlayerGroupAll(), false);
+        }
+
+        if ((gv_shellDialog[IntLoopCurrent()] != c_invalidDialogId)) {
+            DialogSetVisible(gv_shellDialog[IntLoopCurrent()], PlayerGroupAll(), false);
+        }
+
     }
     IntLoopEnd();
     UIClearBattleNetButtonOffset(PlayerGroupAll());
@@ -5950,7 +5956,7 @@ bool gf_PreCinematicProcessing () {
     IntLoopBegin(gv_indexBaseValue, 5);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         if ((UnitIsAlive(gv_infestor[IntLoopCurrent()]) == true)) {
-            libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), true);
+            libNtve_gf_PauseUnit(gv_infestor[IntLoopCurrent()], true);
         }
 
     }
@@ -6000,7 +6006,7 @@ bool gf_PostCinematicProcessing () {
     IntLoopBegin(gv_indexBaseValue, 5);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         if ((UnitIsAlive(gv_infestor[IntLoopCurrent()]) == true)) {
-            libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), false);
+            libNtve_gf_PauseUnit(gv_infestor[IntLoopCurrent()], false);
         }
 
     }
@@ -6039,7 +6045,10 @@ bool gf_PostCinematicProcessing () {
             libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), false);
         }
         UnitGroupLoopEnd();
-        DialogSetVisible(gv_shellDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
+        if ((gv_shellDialog[PlayerGroupLoopCurrent()] != c_invalidDialogId)) {
+            DialogSetVisible(gv_shellDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
+        }
+
         DialogSetVisible(gv_ammoCounterDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         DialogSetVisible(gv_equipment, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         CameraApplyInfo(PlayerGroupLoopCurrent(), CameraInfoDefault(), 0.0, -1, 10, true);
