@@ -1878,6 +1878,7 @@ Variable/Name/668458BF=DistinguishedServiceMedalFailed
 Variable/Name/66E29572=Talent Text
 Variable/Name/66EEE1A9=LocalInt
 Variable/Name/6731B2D0=Storyline Dialog
+Variable/Name/67B99AEA=Attempts
 Variable/Name/681D4D81=LegionOfMeritCivsRescued
 Variable/Name/682942CC=Character - General Koller
 Variable/Name/6844D2E9=Drop Pod

@@ -4033,6 +4033,7 @@ bool auto_gf_SmartSpawnNOTD_TriggerFunc (bool testConds, bool runActions) {
     int auto7948FB3E_i;
 
     // Variable Declarations
+    int lv_attempts;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -4056,8 +4057,9 @@ bool auto_gf_SmartSpawnNOTD_TriggerFunc (bool testConds, bool runActions) {
         }
 
     }
-    while ((PointPathingIsConnected(lv_unitSpawnPoint, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == false)) {
+    while ((PointPathingIsConnected(lv_unitSpawnPoint, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == false) && (lv_attempts <= 4)) {
         lv_unitSpawnPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
+        lv_attempts += 1;
     }
     UnitCreate(1, lp_spawningUnit, 0, 14, lv_unitSpawnPoint, libNtve_gf_RandomAngle());
     lv_spawnUnit = UnitLastCreated();
@@ -4086,6 +4088,7 @@ void gf_WaveSpawnAroundMarines (string lp_spawningUnit, fixed lp_spawnRange, int
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         while (((DistanceBetweenPoints(UnitGetPosition(UnitGroupLoopCurrent()), lv_unitSpawnPoint) < 5.0) || (PointPathingPassable(lv_unitSpawnPoint) == false) || (PointPathingIsConnected(lv_unitSpawnPoint, UnitGetPosition(UnitGroupLoopCurrent())) == false) || (!((((PointGetX(lv_unitSpawnPoint) >= 2) && (PointGetX(lv_unitSpawnPoint) <= 254)) && ((PointGetY(lv_unitSpawnPoint) >= 2) && (PointGetY(lv_unitSpawnPoint) <= 254)))))) && (lv_attempts <= 4)) {
             lv_unitSpawnPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
+            lv_attempts += 1;
         }
     }
     UnitGroupLoopEnd();
@@ -4140,6 +4143,7 @@ bool auto_gf_WaveSpawnAtRegion_TriggerFunc (bool testConds, bool runActions) {
 
     while (((PointPathingPassable(lv_unitSpawnPoint) == false) || (PointPathingIsConnected(lv_unitSpawnPoint, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == false) || (!((((PointGetX(lv_unitSpawnPoint) >= 2) && (PointGetX(lv_unitSpawnPoint) <= 254)) && ((PointGetY(lv_unitSpawnPoint) >= 2) && (PointGetY(lv_unitSpawnPoint) <= 254)))))) && (lv_attempts <= 4)) {
         lv_unitSpawnPoint = RegionRandomPoint(lp_spawnRegion);
+        lv_attempts += 1;
     }
     UnitCreate(lp_spawnAmount, lp_spawningUnit, 0, 14, lv_unitSpawnPoint, libNtve_gf_RandomAngle());
     Wait(0.1, c_timeGame);
