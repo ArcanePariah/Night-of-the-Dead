@@ -5920,6 +5920,7 @@
         <SeparationRadius value="0.1"/>
         <InnerRadius value="0.125"/>
         <TacticalAI value="GaussRifle"/>
+        <WeaponArray Link="GravityGun"/>
     </CUnit>
     <CUnit id="HerculesLander">
         <LifeStart value="3000"/>

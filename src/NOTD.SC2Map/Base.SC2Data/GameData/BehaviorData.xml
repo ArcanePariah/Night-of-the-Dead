@@ -100,16 +100,16 @@
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Modification>
+            <AbilLinkDisableArray value="Reload"/>
+            <AbilLinkDisableArray value="attack"/>
+        </Modification>
         <DamageResponse>
             <Cost>
                 <Charge Link="Behavior/HPAmmo"/>
                 <Cooldown Link="Behavior/HPAmmo"/>
             </Cost>
         </DamageResponse>
-        <Modification>
-            <AbilLinkDisableArray value="Reload"/>
-            <AbilLinkDisableArray value="attack"/>
-        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="GravityGunDamage">
         <InfoIcon value="NOTD Generic Art\NOTD Gravity Gun.dds"/>

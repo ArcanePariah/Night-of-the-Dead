@@ -1185,6 +1185,7 @@ Behavior/Tooltip/FullThrottleTemplate=Pathfinder engages in full throttle at 200
 Behavior/Tooltip/GhostHoldFire=Hold Fire activated. +10% movespeed.
 Behavior/Tooltip/GhostHoldFireB=Hold Fire activated. +10% movespeed.
 Behavior/Tooltip/GravityGrenade=Units caught within the Gravity Grenade are pulled inwards until the effect ends.
+Behavior/Tooltip/GravityGunDamage=Unit is slowed by 65%.
 Behavior/Tooltip/HEAmmo=<c val="80FF80">High Explosive Ammo</c><n/><n/>Damage Modifier: +3% (stacks 3x)<n/>Attack Modifier: Target burns for 5% damage over 2 seconds and takes 50% bonus damage from Fire effects for 5 seconds.
 Behavior/Tooltip/HEFRounds=The Black Dog is using HE-F (High Explosive - Fragmentation) Rounds. Deals damage in a 3 radius and causes the Open Wound effect on enemies. <n/><n/><c val="FF0000">WARNING: Can cause Open Wound on any direct target (including friendlies).
 Behavior/Tooltip/HPAmmo=<c val="80FF80">Hollow Point Ammo</c><n/><n/>Damage Modifier: +12% damage.

@@ -421,6 +421,29 @@
         <DamageSound value="GenericAttackDamageSound2"/>
         <ShieldFlashType value="Header"/>
     </CActorAction>
+    <CActorSound id="PunchGroundImpactSound" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.PunchSearchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.GravityGunThrowSearchApplyTarget.Start" Send="Create"/>
+        <Sound value="PunchGroundImpact"/>
+    </CActorSound>
+    <CActorModel id="PunchImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Behavior.PunchTargetLevel1.On" Send="Create"/>
+        <On Terms="Behavior.PunchTargetLevel2.On" Send="Create"/>
+        <On Terms="Behavior.PunchTargetLevel3.On" Send="Create"/>
+        <On Terms="Effect.PunchSearchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.SUPERBOBSearchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.GravityGunThrowSearchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.CircularLanceSearchSmoke.Start" Send="Create"/>
+        <Scale value="2.000000"/>
+        <AutoScaleFactor value="1.000000"/>
+    </CActorModel>
+    <CActorSound id="PunchImpactSound" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.PunchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.GravityGunThrowApplyTarget.Start" Send="Create"/>
+        <Sound value="PunchImpact"/>
+    </CActorSound>
     <CActorSound id="ReinforceSound">
         <EditorCategories value=""/>
         <On Terms="SoundDone" Send="Destroy"/>
@@ -5181,10 +5204,6 @@
         <StatusBarFlags index="Life" value="0"/>
         <StatusBarFlags index="Energy" value="0"/>
         <UnitIcon value="NOTD Generic Art\NOTD Gravity Gun.dds"/>
-        <Macros value=""/>
-        <Macros value=""/>
-        <Macros value=""/>
-        <Macros value="Shrinker"/>
     </CActorUnit>
     <CActorModel id="ShivaCollateralFire">
         <On Terms="Effect.ShivaSearchDamage.Start; At Effect" Send="Create"/>
