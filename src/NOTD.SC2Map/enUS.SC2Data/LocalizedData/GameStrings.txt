@@ -54,6 +54,7 @@ Abil/Name/BurrowZombieLevel1=Burrow (Zombie Level 1)
 Abil/Name/BurrowZombieLevel2=Burrow (Zombie Level 2)
 Abil/Name/BurstFire=Burst Fire
 Abil/Name/CAbilAttack2=Test Friendly Attack
+Abil/Name/CancelGravityGun=Cancel (Gravity Gun)
 Abil/Name/Charge2=Charge
 Abil/Name/ChemicalExtraction=Chemical Extraction
 Abil/Name/ChemicalPlating=Chemical Plating
@@ -201,6 +202,7 @@ Abil/Name/PredatorCloak2=Predator Cloak Copy
 Abil/Name/Protect=Protect
 Abil/Name/ProtectReal=Protect (Real)
 Abil/Name/PsionicTempest=Psionic Tempest
+Abil/Name/PullGravityGun=Pull (Gravity Gun)
 Abil/Name/QuickAim=Quick Aim
 Abil/Name/Rampage=Rampage
 Abil/Name/RavagingPhantom=Ravaging Phantom
@@ -234,6 +236,7 @@ Abil/Name/ShellMode=Shell Mode
 Abil/Name/Shiva=Shiva
 Abil/Name/Shock=Shock
 Abil/Name/ShockwaveBarrage=Shockwave Barrage
+Abil/Name/ShootGravityGun=Shoot (Gravity Gun)
 Abil/Name/ShoottoMaim=Shoot to Maim
 Abil/Name/ShopBuy1=One Game Items
 Abil/Name/ShopBuy2=Permanent Items
@@ -276,6 +279,7 @@ Abil/Name/TeamLocation2=Team Location Copy
 Abil/Name/TestFriendlyAttack=Test Friendly Attack
 Abil/Name/TheHorror=The Horror
 Abil/Name/ThorReborn2=Thor Reborn
+Abil/Name/ThrowGravityGun=Throw (Gravity Gun)
 Abil/Name/TimetoDie=Time to Die
 Abil/Name/Transfusion2=Transfusion
 Abil/Name/TrickShot=Trick Shot
@@ -604,6 +608,8 @@ Behavior/Name/GeneratorPowerSource=Generator Power Source
 Behavior/Name/GravityGrenade=Gravity Grenade
 Behavior/Name/GravityGrenadeEventHorizon=Gravity Grenade Event Horizon
 Behavior/Name/GravityGrenadeExit=Gravity Grenade Exit
+Behavior/Name/GravityGunDamage=Gravity Gun Damage
+Behavior/Name/GravityGunTarget=Gravity Gun (Target)
 Behavior/Name/GrenadeCollision=Grenade Collision
 Behavior/Name/GunshipMode=Gunship Mode
 Behavior/Name/GunshipSupportSpeed=Gunship Support Speed
@@ -1481,6 +1487,7 @@ Button/Name/C6Armor=<c val="00FFFF">C6 Armor</c>
 Button/Name/Cancel2=Cancel
 Button/Name/CancelMarchoftheMachine=Cancel March of the Machine
 Button/Name/CancelMindLink=Cancel (Mind-Link)
+Button/Name/CancelPullGravityGun=Cancel Pull (Gravity Gun)
 Button/Name/Chaingun=<c val="972FFF">XM814 Heavy Machine Gun</c>
 Button/Name/Charge2=Charge
 Button/Name/ChemicalExtraction=Chemical Extraction
@@ -1566,6 +1573,7 @@ Button/Name/FullThrottle=Full Throttle
 Button/Name/GaussRifle=UA GPR-12
 Button/Name/GiveKarma=Give Karma
 Button/Name/GravityGrenade=Gravity Grenade
+Button/Name/GravityGun=Gravity Gun
 Button/Name/Green=Green
 Button/Name/HEAmmo=<c val="80FF80">HE Ammo</c>
 Button/Name/HPAmmo=<c val="80FF80">HP Ammo</c>
@@ -1672,6 +1680,7 @@ Button/Name/PrecisionShot=Precision Shot
 Button/Name/Predator2=Predator
 Button/Name/Protect=Protect
 Button/Name/PsionicTempest=Psionic Tempest
+Button/Name/PullGravityGun=Pull (Gravity Gun)
 Button/Name/Purple=Purple
 Button/Name/QuickAim=Quick Aim
 Button/Name/Rampage=Rampage
@@ -1848,6 +1857,7 @@ Button/Tooltip/C6Armor=<c val="00FFFF">C6 Armor</c><n/>A heavy armor that consis
 Button/Tooltip/Cancel2=Return to previous menu
 Button/Tooltip/CancelMarchoftheMachine=Cancels overdrive mode and returns to regular state.
 Button/Tooltip/CancelMindLink=Cancel Mind-Link.
+Button/Tooltip/CancelPullGravityGun=Cancel Gravity Gun pull.
 Button/Tooltip/CellularStructure=
 Button/Tooltip/Chaingun=<c val="972FFF">XM814 Heavy Machine Gun</c><n/>This .50 caliber gun is great at mowing down masses. It's high impact rounds will penetrate armor completely.<n/>Base Range: <c val="FFFFFF">15</c></n>Splash: <c val="FFFFFF">2</c><n/>Reload: <c val="FFFFFF">5 seconds</c><n/>Equip: <c val="FFFFFF">2.2 seconds</c><n/>Weight: <c val="FFFFFF">20</c><n/>Credits: <c val="FFFFFF">250</c> (Requires <c val="FFFF00">5,000 XP</c> to purchase)<n/><n/>"The old man wanted me to be a rice farmer. Found that lead farming was more of my thing." - Private Ramirez
 Button/Tooltip/Charge=Intercepts nearby enemies. Also increases movement speed. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
@@ -1970,6 +1980,7 @@ Button/Tooltip/FullThrottle=The Pathfinder engages the afterburner and surges fo
 Button/Tooltip/GaussRifle=<c val="FFFF00">UA GPR-12</c><n/>The UGC Arms General Purpose Rifle was commissioned in 2083. Designed and field tested to work in all known operational environments.<n/>Base Range: <c val="FFFFFF">13</c><n/>Splash: <c val="FFFFFF">1.5</c><n/>Reload: <c val="FFFFFF">2.5 seconds</c><n/>Equip: <c val="FFFFFF">2.2 seconds</c><n/>Weight: <c val="FFFFFF">10</c><n/><n/>"If it moves, we can kill it." - Private Zoe
 Button/Tooltip/GiveKarma=Increases target player's Karma by 1.
 Button/Tooltip/GravityGrenade=Gravity Grenade<n/>Drags all units within an area to it for a short duration, clustering them together. Massive units are not dragged, but slowed by 50%.<n/><n/>Level 1 -- Affects units within a radius of 3 for 4 seconds<n/><n/><c val="FF0000">Warning: Gravity suction affects allies</c><n/><n/>"Hope you sons of bitches love each other, 'cause it's huggin' time!"
+Button/Tooltip/GravityGun=<c val="FFFF00">Gravity Gun</c><n/>Product of White Mesa Research Facility. Not authorized for civilian use.<n/>Equip: <c val="FFFFFF">0.7 secs</c><n/>Weight: <c val="FFFFFF">12</c><n/><n/>"Limited terraforming has increased atmospheric levels in the vincinity of Apollo" - New York Times, 4 July 2099
 Button/Tooltip/Green=Changes Marine color to <c val="008040">Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c><n/>Requirement: <c val="FFFF00">5000XP</c>
 Button/Tooltip/GuardianoftheBeta=The Engineer.
 Button/Tooltip/HEAmmo=<c val="80FF80">High Explosive Ammo</c><n/>Produced by UGC Engineering Corps. This ammunition makes use of a high yield head which burns targets on impact.<n/>Damage Modifier: <c val="FFFFFF">+3% damage (Stacks 3x)</c><n/>Attack Modifier: <c val="FFFFFF">Target burns for 5% of your damage over 2 seconds<n/>Target takes 50% bonus damage from Fire for 5 seconds</c></n>Weight: <c val="FFFFFF">3</c></n>Credits: <c val="FFFFFF">50</c> (Requires <c val="FFFF00">500 XP</c> to purchase)<n/><n/>"You ain't seen gruesome until you've seen an enemy burn alive from the inside out."
@@ -2123,6 +2134,7 @@ Button/Tooltip/Protect=Drone moves at incredible speed (7 ms) to target location
 Button/Tooltip/PsiOps=The Psi Ops is a trained agent of the UGC's Special Warfare Academy.
 Button/Tooltip/PsiOpsMentalProjection=
 Button/Tooltip/PsionicTempest=Channeled. Radiates psionic storms to target location (5 radius) until energy is depleted. Deals 85 damage/sec and consumes 5 energy per second.
+Button/Tooltip/PullGravityGun=Pull target towards Marine. 
 Button/Tooltip/Purple=Changes Marine color to <c val="800080">Purple</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c><n/>Requirement: <c val="FFFF00">5000XP</c>
 Button/Tooltip/QuickAim=+200% attack speed for 3 secs
 Button/Tooltip/Ramirez=His only purpose is to die.
@@ -2994,6 +3006,35 @@ Effect/Name/GravityGrenadeLaunchMissile=Gravity Grenade Launch Missile
 Effect/Name/GravityGrenadeLevel1Persistent=Gravity Grenade Level 1 Persistent
 Effect/Name/GravityGrenadeSearchArea=Gravity Grenade Search Area
 Effect/Name/GravityGrenadeUnburrow=Gravity Grenade Unburrow
+Effect/Name/GravityGunApply=Gravity Gun Apply
+Effect/Name/GravityGunApplyDamage=Gravity Gun Apply Damage
+Effect/Name/GravityGunDamage=Gravity Gun Damage
+Effect/Name/GravityGunDamageAllies=Gravity Gun Damage Allies
+Effect/Name/GravityGunDamageSet=Gravity Gun Damage Set
+Effect/Name/GravityGunDrop=Gravity Gun Drop
+Effect/Name/GravityGunLift=Gravity Gun Lift
+Effect/Name/GravityGunPersistentSearch=Gravity Gun Persistent Search
+Effect/Name/GravityGunPullSet=Gravity Gun Pull Set
+Effect/Name/GravityGunRemoveThrowActive=Gravity Gun Remove Throw Active
+Effect/Name/GravityGunRemoveThrowSet=Gravity Gun Remove Throw Set
+Effect/Name/GravityGunSearchApplyTarget=Gravity Gun Search Apply Target
+Effect/Name/GravityGunThrowActiveApply=Gravity Gun Throw Active Apply
+Effect/Name/GravityGunThrowApplyTarget=Gravity Gun Throw Apply Target
+Effect/Name/GravityGunThrowDamage=Gravity Gun Throw Damage
+Effect/Name/GravityGunThrowDamageAllies=Gravity Gun Throw Damage Allies
+Effect/Name/GravityGunThrowDamageSet=Gravity Gun Throw Damage Set
+Effect/Name/GravityGunThrowDamageSetInitial=Gravity Gun Throw Damage Set Initial
+Effect/Name/GravityGunThrowDrop=Gravity Gun Throw Drop
+Effect/Name/GravityGunThrowInitialSet=Gravity Gun Throw Initial Set
+Effect/Name/GravityGunThrowLift=Gravity Gun Throw Lift
+Effect/Name/GravityGunThrowPersistentDamage=Gravity Gun Throw Persistent Damage
+Effect/Name/GravityGunThrowPersistentPush=Gravity Gun Throw Persistent Push
+Effect/Name/GravityGunThrowPersistentSearch=Gravity Gun Throw Persistent Search
+Effect/Name/GravityGunThrowPush=Gravity Gun Throw Push
+Effect/Name/GravityGunThrowSearchApplyTarget=Gravity Gun Throw Search Apply Target
+Effect/Name/GravityGunThrowSearchDamage=Gravity Gun Throw Search Damage
+Effect/Name/GravityGunThrowSearchPush=Gravity Gun Throw Search Push
+Effect/Name/GravityGunThrowSetTarget=Gravity Gun Throw Set - Target
 Effect/Name/GrenadeLaunchMissileLevel1=Grenade Launch Missile Level 1
 Effect/Name/GrenadeLaunchMissileLevel2=Grenade Launch Missile Level 2
 Effect/Name/GrenadeLevel1Damage=Grenade Level 1 (Damage)
@@ -5788,6 +5829,7 @@ Unit/Name/ForwardObserver=Forward Observer
 Unit/Name/GaussRifle=UA GPR-12
 Unit/Name/GaussRifleHighlightTooltip=UA General Purpose Rifle-12
 Unit/Name/GravityGun=Gravity Gun
+Unit/Name/GravityGunHighlightTooltip=<c val="F2D737">Gravity Gun</c>
 Unit/Name/GrenadeLauncherProjectile=Grenade Launcher Projectile
 Unit/Name/GuardianoftheBeta=Guardian of the Beta
 Unit/Name/Gunship=Gunship

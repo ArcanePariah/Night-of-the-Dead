@@ -45,6 +45,13 @@
         <Universal value="1"/>
         <SimpleDisplayText value="SimpleDisplay/Attack2"/>
     </CButton>
+    <CButton id="CancelPullGravityGun">
+        <Icon value="Assets\Textures\btn-command-cancel.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-fireonthemove.dds"/>
+    </CButton>
+    <CButton id="GravityGun">
+        <Icon value="NOTD Generic Art\NOTD Gravity Gun.dds"/>
+    </CButton>
     <CButton id="L3GrenadeLauncher2">
         <TooltipFlags index="ShowResources" value="0"/>
         <Icon value="NOTD Generic Art\NOTD L3 Grenade Launcher.dds"/>
@@ -65,6 +72,10 @@
         <EditorCategories value="Race:Neutral"/>
         <TintRacially value="1"/>
         <Universal value="1"/>
+    </CButton>
+    <CButton id="PullGravityGun">
+        <Icon value="NOTD Generic Art\NOTD Gravity Gun.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-fireonthemove.dds"/>
     </CButton>
     <CButton id="Reinforce">
         <Icon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
@@ -903,8 +914,6 @@
     <CButton id="ShootGravityGun">
         <Icon value="NOTD Generic Art\NOTD Gravity Gun.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-fireonthemove.dds"/>
-        <HidesForSimpleText value="0"/>
-        <HotkeyAlias value=""/>
     </CButton>
     <CButton id="CombatKnife">
         <Icon value="Combat Knife 3 NOTD.dds"/>
@@ -1479,8 +1488,6 @@
     <CButton id="ThrowGravityGun">
         <Icon value="NOTD Generic Art\NOTD Gravity Gun.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-fireonthemove.dds"/>
-        <HidesForSimpleText value="0"/>
-        <HotkeyAlias value=""/>
     </CButton>
     <CButton id="SurveillanceFlare">
         <Icon value="Assets\Textures\btn-tips-starmap.dds"/>

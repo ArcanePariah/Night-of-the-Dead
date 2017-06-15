@@ -103,6 +103,21 @@
     <CUnit default="1" id="BaseHeroLight" parent="BaseHero">
         <EditorCategories value=""/>
         <StationaryTurningRate value="524.8828"/>
+        <AbilArray index="4" Link=""/>
+        <AbilArray index="5" Link=""/>
+        <AbilArray Link="PullGravityGun"/>
+        <AbilArray Link="CancelGravityGun"/>
+        <AbilArray Link="ThrowGravityGun"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="3" Face="ThrowGravityGun" Type="AbilCmd" AbilCmd="ThrowGravityGun,Execute" Row="0" Column="1"/>
+            <LayoutButtons index="7" Face="CancelPullGravityGun" Type="AbilCmd" AbilCmd="CancelGravityGun,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="PullGravityGun" Type="AbilCmd" AbilCmd="PullGravityGun,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
+        </CardLayouts>
+        <CardLayouts index="1" CardId="2">
+            <LayoutButtons index="4" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,255" Row="0" Column="1"/>
+        </CardLayouts>
     </CUnit>
     <CUnit default="1" id="PetTemplate">
         <Name value="Unit/Name/PetTemplate"/>
@@ -1786,9 +1801,11 @@
         <ShieldRegenRate value="1.75"/>
         <Speed value="2.586"/>
         <Sight value="9.5"/>
-        <AbilArray Link="SurgicalLaser"/>
-        <AbilArray Link="NanoShield"/>
-        <AbilArray Link="NanoWeave"/>
+        <AbilArray index="4" Link="InventoryMedic"/>
+        <AbilArray index="5" Link="LearnMedic"/>
+        <AbilArray index="17" Link="SurgicalLaser"/>
+        <AbilArray index="18" Link="NanoShield"/>
+        <AbilArray index="19" Link="NanoWeave"/>
         <AbilArray Link="Restoration"/>
         <AbilArray Link="NanoStrength"/>
         <AbilArray Link="VolatileInjection"/>
@@ -1797,6 +1814,9 @@
         <AbilArray Link="EnergyCapacitors"/>
         <AbilArray Link="heal"/>
         <AbilArray Link="MindBlast"/>
+        <AbilArray Link="CancelGravityGun"/>
+        <AbilArray Link="PullGravityGun"/>
+        <AbilArray Link="ThrowGravityGun"/>
         <CardLayouts index="0">
             <LayoutButtons Face="VolatileInjection" Type="AbilCmd" AbilCmd="VolatileInjection,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="NanoStrength" Type="AbilCmd" AbilCmd="NanoStrength,Execute" Row="1" Column="2"/>

@@ -92,6 +92,81 @@
         <MaxStackCount value="3"/>
         <DamageResponse Chance="1" Handled="APAmmoApplyArmorDebuff" Location="Attacker"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="GravityGunActive">
+        <Cost>
+            <Charge Link="Behavior/HPAmmo"/>
+            <Cooldown Link="Behavior/HPAmmo"/>
+        </Cost>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DamageResponse>
+            <Cost>
+                <Charge Link="Behavior/HPAmmo"/>
+                <Cooldown Link="Behavior/HPAmmo"/>
+            </Cost>
+        </DamageResponse>
+        <Modification>
+            <AbilLinkDisableArray value="Reload"/>
+            <AbilLinkDisableArray value="attack"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GravityGunDamage">
+        <InfoIcon value="NOTD Generic Art\NOTD Gravity Gun.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1.5"/>
+        <InitialEffect value="GravityGunDamageSet"/>
+        <Modification MoveSpeedMultiplier="0.35"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GravityGunTarget">
+        <InfoIcon value="NOTD Generic Art\NOTD Gravity Gun.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="TargetisNotEnemyBoss"/>
+        <InitialEffect value="GravityGunLift"/>
+        <FinalEffect value="GravityGunDrop"/>
+        <Modification TimeScale="0.8">
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <ModifyFlags index="EnableMove" value="1"/>
+            <ModifyFlags index="Reveal" value="1"/>
+            <AbilClassEnableArray index="CAbilInventory" value="1"/>
+            <AbilClassEnableArray index="CAbilLearn" value="1"/>
+            <DeathResponse>
+                <Cost>
+                    <Charge Link="Behavior/MindBlastStun"/>
+                    <Cooldown Link="Behavior/MindBlastStun"/>
+                </Cost>
+            </DeathResponse>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GravityGunThrowActive">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GravityGunThrowTarget">
+        <Cost>
+            <Charge Link="Behavior/PunchTargetLevel3"/>
+            <Cooldown Link="Behavior/PunchTargetLevel3"/>
+        </Cost>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="2.8"/>
+        <Period value="1.1"/>
+        <PeriodCount value="1"/>
+        <InitialEffect value="GravityGunThrowLift"/>
+        <PeriodicEffect value="GravityGunThrowDamageSetInitial"/>
+        <Modification>
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <AbilClassEnableArray index="CAbilInventory" value="1"/>
+            <AbilClassEnableArray index="CAbilLearn" value="1"/>
+            <DeathResponse>
+                <Cost>
+                    <Charge Link="Behavior/PunchTargetLevel1"/>
+                    <Cooldown Link="Behavior/PunchTargetLevel3"/>
+                </Cost>
+            </DeathResponse>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="KittenBeacon2">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
