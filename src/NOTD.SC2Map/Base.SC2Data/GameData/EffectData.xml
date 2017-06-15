@@ -2491,19 +2491,6 @@
     <CEffectApplyBehavior id="ShadowstepCloak">
         <EditorCategories value=""/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="ShivaCost">
-        <EditorCategories value=""/>
-        <ImpactLocation Value="SourceUnit"/>
-        <Flags index="Kill" value="1"/>
-        <AreaArray MaxCount="1" Radius="0.5"/>
-        <SearchFilters value="Item;-"/>
-    </CEffectDamage>
-    <CEffectCreatePersistent id="ShivaCostPersistant">
-        <EditorCategories value=""/>
-        <WhichLocation Value="CasterUnit"/>
-        <ExpireDelay value="4"/>
-        <ExpireEffect value="ShivaCost"/>
-    </CEffectCreatePersistent>
     <CEffectCreatePersistent id="ShockwaveBarrageLevel1CreatePersistent2">
         <EditorCategories value=""/>
         <Marker Link="Effect/FireMissionLevel1CreatePersistent"/>
@@ -6022,7 +6009,6 @@
         <ImpactEffect value="ShivaSet"/>
         <AmmoUnit value="ShivaMissile"/>
         <Movers Link="StingerMK3"/>
-        <LaunchEffect value="ShivaCostPersistant"/>
     </CEffectLaunchMissile>
     <CEffectEnumArea id="ShivaSearchDamage">
         <EditorCategories value=""/>

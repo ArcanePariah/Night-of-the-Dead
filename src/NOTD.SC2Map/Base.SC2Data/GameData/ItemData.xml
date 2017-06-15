@@ -330,7 +330,8 @@
     </CItemEffectInstant>
     <CItemAbil id="Shiva">
         <Flags index="DropOnDeath" value="1"/>
-        <Class value="Weapons"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Supplies"/>
         <EquipWeaponArray Link="Shiva"/>
     </CItemAbil>
     <CItemEffectInstant id="Shotgun" parent="CONTAINER">

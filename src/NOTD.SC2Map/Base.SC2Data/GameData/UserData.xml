@@ -2740,6 +2740,17 @@
                 <Field Id="Item"/>
             </Unit>
         </Instances>
+        <Instances Id="Shiva">
+            <Fixed Fixed="20">
+                <Field Id="Weight"/>
+            </Fixed>
+            <Int Int="1">
+                <Field Id="Weight Reducible"/>
+            </Int>
+            <Unit Unit="Shiva">
+                <Field Id="Item"/>
+            </Unit>
+        </Instances>
     </CUser>
     <CUser id="MedalLevels">
         <Fields Id="Medal Image" Type="Image"/>

@@ -6449,6 +6449,7 @@
             <RequireEffectArray value="LaserRifleDamage"/>
             <RequireEffectArray value="ExplodingBarrelLargeExplosion"/>
             <RequireEffectArray value="StingerMK3Damage"/>
+            <RequireEffectArray value="ShivaChemicalDamage"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="HeightenedSensesDebuff">
@@ -6715,6 +6716,7 @@
             <RequireEffectArray value="LaserRifleDamage"/>
             <RequireEffectArray value="ExplodingBarrelLargeExplosion"/>
             <RequireEffectArray value="StingerMK3Damage"/>
+            <RequireEffectArray value="ShivaChemicalDamage"/>
         </DamageResponse>
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-antistructureweapon.dds"/>
@@ -6746,6 +6748,7 @@
             <RequireEffectArray value="LaserRifleDamage"/>
             <RequireEffectArray value="ExplodingBarrelLargeExplosion"/>
             <RequireEffectArray value="StingerMK3Damage"/>
+            <RequireEffectArray value="ShivaChemicalDamage"/>
         </DamageResponse>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-antistructureweapon.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
