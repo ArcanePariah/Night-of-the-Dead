@@ -91,6 +91,258 @@
     <CEffectEnumArea id="330mmBarrageCannonsSearch">
         <SearchFilters value="Ground;Self,Player,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="GravityGunApply">
+        <ValidatorArray index="0" value="TargetisNotEnemyBoss"/>
+        <EditorCategories value=""/>
+        <Behavior value="GravityGunTarget"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="GravityGunApplyDamage">
+        <EditorCategories value=""/>
+        <Behavior value="GravityGunDamage"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="GravityGunDamage">
+        <ValidatorArray value="TargetIsEnemy"/>
+        <EditorCategories value=""/>
+        <AttributeBonus index="Massive" value="50"/>
+        <Amount value="50"/>
+        <SearchFilters value="-;Item,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="GravityGunDamageAllies">
+        <ValidatorArray value="TargetIsNotEnemy"/>
+        <EditorCategories value=""/>
+        <Marker Link="Effect/GravityGunDamage"/>
+        <Amount value="10"/>
+        <SearchFilters value="-;Item,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectSet id="GravityGunDamageSet">
+        <EditorCategories value=""/>
+        <EffectArray value="GravityGunDamage"/>
+        <EffectArray value="GravityGunDamageAllies"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="GravityGunDrop">
+        <EditorCategories value=""/>
+        <Height value="-0.5"/>
+        <HeightTime value="0.05"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="GravityGunLift">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SonicTrapDrop"/>
+        <Height value="0.5"/>
+        <HeightTime value="0.3"/>
+    </CEffectModifyUnit>
+    <CEffectCreatePersistent id="GravityGunPersistentSearch">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/BurstFirePersistentLevel1"/>
+        <WhichLocation Value="CasterPoint"/>
+        <PeriodCount value="15"/>
+        <PeriodicEffectArray value="GravityGunSearchApplyTarget"/>
+        <PeriodicOffsetArray value="0,-1,0"/>
+        <PeriodicOffsetArray value="-0.259,-0.96,0"/>
+        <PeriodicOffsetArray value="0.26,-0.96,0"/>
+        <PeriodicOffsetArray value="0,-2,0"/>
+        <PeriodicOffsetArray value="-0.518,-1.93,0"/>
+        <PeriodicOffsetArray value="0.52,-1.93,0"/>
+        <PeriodicOffsetArray value="0,-3,0"/>
+        <PeriodicOffsetArray value="1,-1.73,0"/>
+        <PeriodicOffsetArray value="-1,-1.73,0"/>
+        <PeriodicOffsetArray value="0,-4,0"/>
+        <PeriodicOffsetArray value="-1.035,-3.86,0"/>
+        <PeriodicOffsetArray value="1.03,-3.86,0"/>
+        <PeriodicOffsetArray value="0,-5,0"/>
+        <PeriodicOffsetArray value="-1.294,-4.83,0"/>
+        <PeriodicOffsetArray value="1.29,-4.83,0"/>
+        <PeriodicPeriodArray value="0.4"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.1"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.1"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="GravityGunPullSet">
+        <EditorCategories value=""/>
+        <EffectArray value="GravityGunApply"/>
+        <EffectArray value="GravityGunThrowActiveApply"/>
+    </CEffectSet>
+    <CEffectRemoveBehavior id="GravityGunRemoveThrowActive">
+        <EditorCategories value=""/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="GravityGunThrowActive"/>
+        <Count value="1"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="GravityGunRemoveThrowSet">
+        <EditorCategories value=""/>
+        <EffectArray value="GravityGunRemoveThrowActive"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSet>
+    <CEffectEnumArea id="GravityGunSearchApplyTarget">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/PunchSearchApplyTarget"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Self,Air,RawResource,HarvestableResource,Missile,Item,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" Effect="GravityGunApplyDamage"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="GravityGunThrowActiveApply">
+        <EditorCategories value=""/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="GravityGunThrowActive"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="GravityGunThrowApplyTarget">
+        <ValidatorArray index="0" value="HasGravityGunThrowTarget"/>
+        <ValidatorArray value="TargetisNotEnemyBoss"/>
+        <EditorCategories value=""/>
+        <Behavior value="GravityGunThrowTarget"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="GravityGunThrowDamage">
+        <ValidatorArray value="TargetIsNotAlly"/>
+        <EditorCategories value=""/>
+        <Kind value="Splash"/>
+        <Amount value="50"/>
+        <SearchFilters value="-;Self,Player,Ally,Structure,RawResource,HarvestableResource,Missile,Item,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="GravityGunThrowDamageAllies">
+        <ValidatorArray value="TargetIsAlly"/>
+        <EditorCategories value=""/>
+        <Kind value="Splash"/>
+        <Amount value="15"/>
+        <SearchFilters value="-;Self,Neutral,Enemy,Structure,RawResource,HarvestableResource,Missile,Item,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectSet id="GravityGunThrowDamageSet">
+        <EditorCategories value=""/>
+        <EffectArray value="GravityGunThrowDamageAllies"/>
+        <EffectArray value="GravityGunThrowDamage"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSet>
+    <CEffectSet id="GravityGunThrowDamageSetInitial">
+        <EditorCategories value=""/>
+        <EffectArray value="GravityGunThrowPersistentDamage"/>
+        <EffectArray value="GravityGunThrowDrop"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="GravityGunThrowDrop">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/GravityGunDrop"/>
+        <Height value="-0.5"/>
+        <HeightTime value="0.9"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="GravityGunThrowInitialSet">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/PunchInitialSet"/>
+        <EffectArray value="GravityGunThrowPersistentSearch"/>
+        <EffectArray value="GravityGunThrowPersistentPush"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="GravityGunThrowLift">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SonicTrapDrop"/>
+        <Height value="0.5"/>
+        <HeightTime value="0.9"/>
+    </CEffectModifyUnit>
+    <CEffectCreatePersistent id="GravityGunThrowPersistentDamage">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/PunchPersistentDamage"/>
+        <WhichLocation Value="TargetUnit"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="GravityGunThrowDamageSet"/>
+        <PeriodicPeriodArray value="0.9"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="GravityGunThrowPersistentPush">
+        <EditorCategories value=""/>
+        <PeriodCount value="44"/>
+        <PeriodicEffectArray value="GravityGunThrowSearchPush"/>
+        <PeriodicOffsetArray value="0,1,0"/>
+        <PeriodicPeriodArray value="0.05"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="GravityGunThrowPersistentSearch">
+        <EditorCategories value=""/>
+        <PeriodCount value="26"/>
+        <PeriodicEffectArray value="GravityGunThrowSearchApplyTarget"/>
+        <PeriodicOffsetArray value="0,0,0"/>
+        <PeriodicOffsetArray value="0,-1,0"/>
+        <PeriodicOffsetArray value="-0.259,-0.96,0"/>
+        <PeriodicOffsetArray value="0.26,-0.96,0"/>
+        <PeriodicOffsetArray value="0.5,-0.87,0"/>
+        <PeriodicOffsetArray value="-0.5,-0.87,0"/>
+        <PeriodicOffsetArray value="0,-2,0"/>
+        <PeriodicOffsetArray value="-0.518,-1.93,0"/>
+        <PeriodicOffsetArray value="0.52,-1.93,0"/>
+        <PeriodicOffsetArray value="0.78,-2.9,0"/>
+        <PeriodicOffsetArray value="-0.776,-2.9,0"/>
+        <PeriodicOffsetArray value="0,-3,0"/>
+        <PeriodicOffsetArray value="1.5,-2.6,0"/>
+        <PeriodicOffsetArray value="-1.5,-2.6,0"/>
+        <PeriodicOffsetArray value="1,-1.73,0"/>
+        <PeriodicOffsetArray value="-1.035,-3.86,0"/>
+        <PeriodicOffsetArray value="1.03,-3.86,0"/>
+        <PeriodicOffsetArray value="-1,-1.73,0"/>
+        <PeriodicOffsetArray value="0,-4,0"/>
+        <PeriodicOffsetArray value="2,-3.46,0"/>
+        <PeriodicOffsetArray value="-2,-3.46,0"/>
+        <PeriodicOffsetArray value="0,-5,0"/>
+        <PeriodicOffsetArray value="-1.294,-4.83,0"/>
+        <PeriodicOffsetArray value="1.29,-4.83,0"/>
+        <PeriodicOffsetArray value="2.5,-4.33,0"/>
+        <PeriodicOffsetArray value="-2.5,-4.33,0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.2"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.2"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.2"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.2"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyForce id="GravityGunThrowPush">
+        <ValidatorArray value="UnitisGravityGunThrowTarget"/>
+        <EditorCategories value=""/>
+        <Amount value="1"/>
+    </CEffectApplyForce>
+    <CEffectEnumArea id="GravityGunThrowSearchApplyTarget">
+        <EditorCategories value=""/>
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Self,Air,RawResource,HarvestableResource,Missile,Item,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" Effect="GravityGunThrowApplyTarget"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="GravityGunThrowSearchDamage">
+        <EditorCategories value=""/>
+        <SearchFilters value="-;Air,Structure,RawResource,HarvestableResource,Missile,Item,UnderConstruction,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="3" Effect="GravityGunThrowDamageSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="GravityGunThrowSearchPush">
+        <EditorCategories value=""/>
+        <LaunchLocation Value="TargetPoint"/>
+        <AreaArray Radius="15" Effect="GravityGunThrowPush"/>
+    </CEffectEnumArea>
+    <CEffectSet id="GravityGunThrowSetTarget">
+        <EditorCategories value=""/>
+        <EffectArray value="GravityGunThrowDamage"/>
+        <EffectArray value="GravityGunThrowDamageAllies"/>
+    </CEffectSet>
     <CEffectDamage id="HotSBanelingExplodeLargeSearchDamage">
         <Amount value="60"/>
     </CEffectDamage>
@@ -2239,19 +2491,6 @@
     <CEffectApplyBehavior id="ShadowstepCloak">
         <EditorCategories value=""/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="ShivaCost">
-        <EditorCategories value=""/>
-        <ImpactLocation Value="SourceUnit"/>
-        <Flags index="Kill" value="1"/>
-        <AreaArray MaxCount="1" Radius="0.5"/>
-        <SearchFilters value="Item;-"/>
-    </CEffectDamage>
-    <CEffectCreatePersistent id="ShivaCostPersistant">
-        <EditorCategories value=""/>
-        <WhichLocation Value="CasterUnit"/>
-        <ExpireDelay value="4"/>
-        <ExpireEffect value="ShivaCost"/>
-    </CEffectCreatePersistent>
     <CEffectCreatePersistent id="ShockwaveBarrageLevel1CreatePersistent2">
         <EditorCategories value=""/>
         <Marker Link="Effect/FireMissionLevel1CreatePersistent"/>
@@ -5770,7 +6009,6 @@
         <ImpactEffect value="ShivaSet"/>
         <AmmoUnit value="ShivaMissile"/>
         <Movers Link="StingerMK3"/>
-        <LaunchEffect value="ShivaCostPersistant"/>
     </CEffectLaunchMissile>
     <CEffectEnumArea id="ShivaSearchDamage">
         <EditorCategories value=""/>

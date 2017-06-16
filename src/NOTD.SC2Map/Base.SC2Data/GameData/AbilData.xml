@@ -83,6 +83,13 @@
         <MoveFilters value="-;Player,Ally,Neutral,Enemy"/>
         <MoveSmartPriority value="0"/>
     </CAbilMove>
+    <CAbilEffectInstant id="CancelGravityGun">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="GravityGunRemoveThrowSet"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CancelPullGravityGun" Requirements="GravityGunEquipped">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="LightningField2">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="RetributionFieldSearch2"/>
@@ -107,6 +114,18 @@
         <BehaviorArray value="PredatorCloak2"/>
         <LevelButtonOnTooltip value=""/>
     </CAbilBehavior>
+    <CAbilEffectTarget id="PullGravityGun">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="GravityGunPullSet"/>
+        <Cost>
+            <Vital index="Energy" value="5"/>
+        </Cost>
+        <TargetFilters value="-;Self,Structure,RawResource,HarvestableResource,Missile,UnderConstruction,Dead"/>
+        <Range value="15"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="PullGravityGun" Requirements="GravityGunEquipped">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="Reinforce">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Cost>
@@ -958,6 +977,21 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="Shiva"/>
         <FollowRange value="100"/>
     </CAbilEffectTarget>
+    <CAbilEffectTarget id="ShootGravityGun">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="GravityGunPersistentSearch"/>
+        <Cost>
+            <Cooldown TimeUse="2"/>
+        </Cost>
+        <Range value="6"/>
+        <PrepTime value="0.2"/>
+        <CastIntroTime value="0"/>
+        <CastOutroTime value="0"/>
+        <FinishTime value="0.2"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ShootGravityGun" Requirements="GravityGunEquipped">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
     <CAbilEffectInstant id="SlowRoast">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Flags index="AllowMovement" value="1"/>
@@ -1476,6 +1510,17 @@
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
     </CAbilEffectInstant>
+    <CAbilEffectTarget id="ThrowGravityGun">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="GravityGunRemoveThrowSet"/>
+        <Cost>
+            <Cooldown TimeUse="3"/>
+        </Cost>
+        <Range value="15"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ThrowGravityGun" Requirements="GravityGunEquipped">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
     <CAbilBehavior id="TimetoDie">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <CmdButtonArray index="On" DefaultButtonFace="TimetoDie"/>
