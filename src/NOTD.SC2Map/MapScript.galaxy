@@ -37231,9 +37231,6 @@ void gt_GravityGunThrow_Init () {
 // Trigger: Shiva Use Charge
 //--------------------------------------------------------------------------------------------------
 bool gt_ShivaUseCharge_Func (bool testConds, bool runActions) {
-    int autoCC2F209B_n;
-    int autoCC2F209B_i;
-
     // Variable Declarations
     int lv_ownerofMarine;
 
@@ -37246,12 +37243,11 @@ bool gt_ShivaUseCharge_Func (bool testConds, bool runActions) {
     }
 
     gf_AwardRatingNOTD(-3);
-    autoCC2F209B_n = 8;
-    for (autoCC2F209B_i = 1; autoCC2F209B_i <= autoCC2F209B_n; autoCC2F209B_i += 1) {
-        VisRevealArea(IntLoopCurrent(), RegionCircle(EventUnitTargetPoint(), 30.0), 35.0, false);
+    PlayerGroupLoopBegin(gv_marineSquad);
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        VisRevealArea(PlayerGroupLoopCurrent(), RegionCircle(EventUnitTargetPoint(), 30.0), 35.0, false);
     }
-    Wait(0.5, c_timeGame);
-    gf_EquipmentUpdateMarineWeight(lv_ownerofMarine);
+    PlayerGroupLoopEnd();
     return true;
 }
 
