@@ -37243,7 +37243,7 @@ bool gt_GravityGunThrow_Func (bool testConds, bool runActions) {
         UnitSetPosition(gv_gravityGunTarget[lv_gravGunOwner], lv_gravGunTargetPoint, true);
         Wait(0.2, c_timeGame);
         if (((UnitGetType(gv_gravityGunTarget[lv_gravGunOwner]) == "ExplodingBarrelLarge") || (UnitGetType(gv_gravityGunTarget[lv_gravGunOwner]) == "Baneling") || (UnitGetType(gv_gravityGunTarget[lv_gravGunOwner]) == "Beastling"))) {
-            UnitKill(gv_gravityGunTarget[lv_gravGunOwner]);
+            UnitDamage(lv_gravGunUser, "GravityGunThrowDamage", gv_gravityGunTarget[lv_gravGunOwner], UnitGetPropertyFixed(gv_gravityGunTarget[lv_gravGunOwner], c_unitPropLife, c_unitPropCurrent));
         }
 
         UnitBehaviorRemove(gv_gravityGunTarget[lv_gravGunOwner], "GravityGunTarget", 1);
