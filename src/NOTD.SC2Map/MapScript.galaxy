@@ -6488,6 +6488,10 @@ bool auto_gf_ECC1ItemSpawn_TriggerFunc (bool testConds, bool runActions) {
         gf_CreateItemNOTD("UA420AssaultRifle", 3);
         gf_CreateItemNOTD("SniperRifle", 2);
     }
+    if ((gv_enableGravityGun == true) && (gv_noNewbie == true)) {
+        gf_CreateItemNOTD("GravityGun", 1);
+    }
+
     gf_CreateItemNOTD("SniperRifle", 2);
     gf_CreateItemNOTD("HEAmmo", 2);
     gf_CreateItemNOTD("HPAmmo", 2);
@@ -7464,6 +7468,10 @@ bool auto_gf_ECChapter3AirDrop_TriggerFunc (bool testConds, bool runActions) {
     gf_CreateItemNOTD("Chaingun", 1);
     if ((gv_enableShiva == true) && (RandomInt(0, 10) == 1) && (gv_noNewbie == true)) {
         gf_CreateItemNOTD("Shiva", 1);
+    }
+
+    if ((gv_enableGravityGun == true) && (gv_noNewbie == false)) {
+        gf_CreateItemNOTD("GravityGun", 1);
     }
 
     gf_CreateItemNOTD("Helium3Canister", 1);
@@ -24851,6 +24859,10 @@ bool gt_ACC1ItemSpawn_Func (bool testConds, bool runActions) {
         gf_CreateItemNOTD("UA420AssaultRifle", 4);
         gf_CreateItemNOTD("M5PulseRifle", 2);
     }
+    if ((gv_enableGravityGun == true) && (gv_noNewbie == true)) {
+        gf_CreateItemNOTD("GravityGun", 1);
+    }
+
     gf_CreateItemNOTD("AntiVenom", 3);
     gf_CreateItemNOTD("OccularImplants", 4);
     gf_CreateItemNOTD("HighCapacityClip", 2);
@@ -29116,6 +29128,10 @@ bool gt_STC1ItemSpawn_Func (bool testConds, bool runActions) {
     gf_CreateItemNOTD("RoadFlare", 10);
     if ((gv_survivalMode == false)) {
         gf_CreateItemNOTD("GaussRifle", 2);
+    }
+
+    if ((gv_enableGravityGun == true) && (gv_noNewbie == true) && (gv_survivalMode == false)) {
+        gf_CreateItemNOTD("GravityGun", 1);
     }
 
     if ((gv_noNewbie == true)) {
