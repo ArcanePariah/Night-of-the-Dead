@@ -686,6 +686,8 @@ text gv_forwardSlash;
 text gv_infoPanelHeroRank;
 text gv_endStyling;
 text gv_space;
+bool gv_enableGravityGun;
+bool gv_enableShiva;
 fixed gv_difficultyHPScaling;
 timer gv_gameTime;
 region[8] gv_reinforcementSpawn;
@@ -7460,6 +7462,10 @@ bool auto_gf_ECChapter3AirDrop_TriggerFunc (bool testConds, bool runActions) {
     gf_CreateItemNOTD("LaserRifle", 2);
     gf_CreateItemNOTD("BarrettM112", 1);
     gf_CreateItemNOTD("Chaingun", 1);
+    if ((gv_enableShiva == true) && (RandomInt(0, 10) == 1) && (gv_noNewbie == true)) {
+        gf_CreateItemNOTD("Shiva", 1);
+    }
+
     gf_CreateItemNOTD("Helium3Canister", 1);
     return true;
 }
@@ -17406,6 +17412,10 @@ bool gt_OM5RamirezKilled_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
+    if ((gv_enableShiva == true) && (RandomInt(0, 250) == 1)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "Shiva", 0, 0, UnitGetPosition(EventUnit()));
+    }
+
     gv_playerKarma[libNtve_gf_KillingPlayer()] -= 1;
     return true;
 }
@@ -27346,6 +27356,10 @@ bool gt_ACC3Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_NightmareBonus, true, false);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/B89887A7"), StringExternal("Param/Value/360E1356"), 15.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     gf_AutoSaveLong();
+    if ((gv_enableShiva == true)) {
+        gf_CreateItemNOTD("Shiva", 1);
+    }
+
     gv_ventSpawnArea[1] = RegionFromId(93);
     gv_ventSpawnArea[2] = RegionFromId(94);
     gv_ventSpawnArea[3] = RegionFromId(24);
@@ -31831,6 +31845,10 @@ bool gt_STC3aInitialize_Func (bool testConds, bool runActions) {
     gv_undergroundQuarters[2] = RegionFromId(143);
     gv_undergroundQuarters[3] = RegionFromId(144);
     gv_undergroundQuarters[4] = RegionFromId(145);
+    if ((gv_enableShiva == true)) {
+        gf_CreateItemNOTD("Shiva", 1);
+    }
+
     gf_RadioNOTD(gv_characterFieldMarshalLee, StringExternal("Param/Value/7BCC56D3"));
     libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingAlert", RegionGetCenter(RegionFromId(146)), ColorWithAlpha(0.00, 0.00, 0.00, 0.00), 15.0, 270.0);
     Wait(5.0, c_timeReal);
@@ -32617,6 +32635,10 @@ bool gt_STC3bInitialize_Func (bool testConds, bool runActions) {
     gv_bioDomeArea[2] = RegionFromId(78);
     gv_bioDomeArea[3] = RegionFromId(80);
     gv_bioDomeArea[4] = RegionFromId(81);
+    if ((gv_enableShiva == true)) {
+        gf_CreateItemNOTD("Shiva", 1);
+    }
+
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/694F4581"));
     ObjectiveCreate(StringExternal("Param/Value/B7E5D8DF"), StringToText(""), c_objectiveStateActive, false);
     gv_secondaryObjective = ObjectiveLastCreated();
