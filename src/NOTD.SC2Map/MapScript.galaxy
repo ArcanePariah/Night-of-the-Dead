@@ -9310,9 +9310,11 @@ bool auto_gf_DisableAttackEquippingWeapons_TriggerFunc (bool testConds, bool run
     }
 
     if ((lp_equipment == "GravityGun")) {
+        TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("ShootGravityGun", 0), true);
         TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("PullGravityGun", 0), true);
     }
     else {
+        TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("ShootGravityGun", 0), false);
         TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("PullGravityGun", 0), false);
         TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("CancelGravityGun", 0), false);
         TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("ThrowGravityGun", 0), false);

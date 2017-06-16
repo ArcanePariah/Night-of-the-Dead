@@ -1027,6 +1027,7 @@
         <AbilArray Link="CancelGravityGun"/>
         <AbilArray Link="PullGravityGun"/>
         <AbilArray Link="ThrowGravityGun"/>
+        <AbilArray Link="ShootGravityGun"/>
         <BehaviorArray Link="Basic_Hero"/>
         <BehaviorArray Link="ChemicalPlatingAuraLevel1"/>
         <BehaviorArray Link="ChemicalPlatingAuraLevel2"/>
@@ -1041,6 +1042,7 @@
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="ThrowGravityGun" Type="AbilCmd" AbilCmd="ThrowGravityGun,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="CancelPullGravityGun" Type="AbilCmd" AbilCmd="CancelGravityGun,Execute" Row="0" Column="3"/>
@@ -1751,6 +1753,7 @@
         <AbilArray Link="CancelGravityGun"/>
         <AbilArray Link="PullGravityGun"/>
         <AbilArray Link="ThrowGravityGun"/>
+        <AbilArray Link="ShootGravityGun"/>
         <BehaviorArray Link="Basic_Hero"/>
         <BehaviorArray Link="MasterMarksman"/>
         <BehaviorArray Link="Scope"/>
@@ -1771,6 +1774,7 @@
             <LayoutButtons Face="Stealth" Type="AbilCmd" AbilCmd="Stealth,On" Row="1" Column="2"/>
             <LayoutButtons Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="ThrowGravityGun" Type="AbilCmd" AbilCmd="ThrowGravityGun,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="QuickAim" Type="AbilCmd" AbilCmd="QuickAim,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
@@ -1849,7 +1853,10 @@
         <AbilArray Link="CancelGravityGun"/>
         <AbilArray Link="PullGravityGun"/>
         <AbilArray Link="ThrowGravityGun"/>
+        <AbilArray Link="ShootGravityGun"/>
         <CardLayouts index="0">
+            <LayoutButtons index="8" Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="VolatileInjection" Type="AbilCmd" AbilCmd="VolatileInjection,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="NanoStrength" Type="AbilCmd" AbilCmd="NanoStrength,Execute" Row="1" Column="2"/>
             <LayoutButtons Face="MedicHeal" Type="AbilCmd" AbilCmd="heal,Execute" Row="2" Column="2"/>
@@ -2028,6 +2035,7 @@
         <AbilArray Link="CancelGravityGun"/>
         <AbilArray Link="PullGravityGun"/>
         <AbilArray Link="ThrowGravityGun"/>
+        <AbilArray Link="ShootGravityGun"/>
         <CardLayouts index="0">
             <LayoutButtons index="4" Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons index="5">
@@ -2050,6 +2058,7 @@
             <LayoutButtons index="8" Face="XM35GrenadeLauncher" Type="AbilCmd" AbilCmd="XM35GrenadeLauncher,Execute" Row="2" Column="2"/>
             <LayoutButtons index="9" Face="SalineIV" Type="AbilCmd" AbilCmd="SalineIV,Execute" Row="2" Column="0"/>
             <LayoutButtons index="10" Face="PrecisionShot" Type="AbilCmd" AbilCmd="PrecisionShot,Execute" Row="2" Column="3"/>
+            <LayoutButtons Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="PullGravityGun" Type="AbilCmd" AbilCmd="PullGravityGun,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
@@ -2193,6 +2202,7 @@
         <AbilArray Link="CancelGravityGun"/>
         <AbilArray Link="PullGravityGun"/>
         <AbilArray Link="ThrowGravityGun"/>
+        <AbilArray Link="ShootGravityGun"/>
         <BehaviorArray Link="Basic_Hero"/>
         <BehaviorArray Link="MotionSensorLevel1"/>
         <BehaviorArray Link="MotionSensorLevel2"/>
@@ -2232,6 +2242,7 @@
             <LayoutButtons index="11" Face="ThrowGravityGun" Type="AbilCmd" AbilCmd="ThrowGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons index="12" Face="SupplyStation" Type="AbilCmd" AbilCmd="SupplyStation,Execute" Row="2" Column="1"/>
             <LayoutButtons index="13" Face="MassDesignate" Type="AbilCmd" AbilCmd="MassDesignate,Execute" Row="1" Column="3"/>
+            <LayoutButtons Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="StealthMatrixDeactivate" Type="AbilCmd" AbilCmd="StealthMatrix,Execute" Row="1" Column="2"/>
             <LayoutButtons Face="CancelPullGravityGun" Type="AbilCmd" AbilCmd="CancelGravityGun,Execute" Row="0" Column="3"/>
@@ -2630,6 +2641,7 @@
         <AbilArray Link="CancelGravityGun"/>
         <AbilArray Link="PullGravityGun"/>
         <AbilArray Link="ThrowGravityGun"/>
+        <AbilArray Link="ShootGravityGun"/>
         <BehaviorArray index="0" Link="Basic_Hero"/>
         <BehaviorArray Link="KittenBeacon"/>
         <BehaviorArray Link="PersonalPropulsionSystem"/>
@@ -2662,9 +2674,10 @@
             </LayoutButtons>
             <LayoutButtons index="2" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons index="3" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="4" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
+            <LayoutButtons index="4" Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons index="5" Face="CancelPullGravityGun" Type="AbilCmd" AbilCmd="CancelGravityGun,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="ThrowGravityGun" Type="AbilCmd" AbilCmd="ThrowGravityGun,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="PullGravityGun" Type="AbilCmd" AbilCmd="PullGravityGun,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="Sprint2" Type="AbilCmd" AbilCmd="Sprint2,Execute" Row="0" Column="4"/>
@@ -6612,6 +6625,7 @@
         <AbilArray Link="CancelGravityGun"/>
         <AbilArray Link="PullGravityGun"/>
         <AbilArray Link="ThrowGravityGun"/>
+        <AbilArray Link="ShootGravityGun"/>
         <BehaviorArray Link="Basic_Hero"/>
         <BehaviorArray Link="Helium3IgniterLevel1"/>
         <BehaviorArray Link="Helium3IgniterLevel2"/>
@@ -6633,6 +6647,7 @@
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="ThrowGravityGun" Type="AbilCmd" AbilCmd="ThrowGravityGun,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
@@ -8484,6 +8499,7 @@
         <AbilArray Link="CancelGravityGun"/>
         <AbilArray Link="PullGravityGun"/>
         <AbilArray Link="ThrowGravityGun"/>
+        <AbilArray Link="ShootGravityGun"/>
         <BehaviorArray Link="Basic_Hero"/>
         <BehaviorArray Link="GhostEnergyUserRadar"/>
         <BehaviorArray Link="ForesightLevel1"/>
@@ -8498,6 +8514,7 @@
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="ThrowGravityGun" Type="AbilCmd" AbilCmd="ThrowGravityGun,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
@@ -10907,6 +10924,7 @@
         <AbilArray Link="CurrentAmmo"/>
         <AbilArray Link="CurrentMagazine"/>
         <AbilArray Link="BlockInventoryTransfer"/>
+        <AbilArray Link="ShootGravityGun"/>
         <BehaviorArray Link="Basic_Hero"/>
         <BehaviorArray Link="CriticalStrikeAttacker"/>
         <BehaviorArray Link="EnergyBatteryLevel1"/>
@@ -10923,6 +10941,7 @@
         <CardLayouts>
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
@@ -11682,6 +11701,7 @@
         <AbilArray Link="CancelGravityGun"/>
         <AbilArray Link="PullGravityGun"/>
         <AbilArray Link="ThrowGravityGun"/>
+        <AbilArray Link="ShootGravityGun"/>
         <BehaviorArray Link="Basic_Hero"/>
         <BehaviorArray Link="KittenBeacon"/>
         <BehaviorArray Link="WeaponExpertiseLevel1"/>
@@ -11694,6 +11714,7 @@
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="ThrowGravityGun" Type="AbilCmd" AbilCmd="ThrowGravityGun,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="ShootGravityGun" Type="AbilCmd" AbilCmd="ShootGravityGun,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
