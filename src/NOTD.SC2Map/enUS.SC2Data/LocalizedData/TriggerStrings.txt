@@ -2550,7 +2550,6 @@ Variable/Name/D85D29E6=Talents Available Dialog
 Variable/Name/D8978A08=Killed Field Nexus
 Variable/Name/D8CF189A=Dr Bergmann Escape Zones
 Variable/Name/D9560097=Stats - Endurance (2)
-Variable/Name/D9B19849=ownerofMarine
 Variable/Name/D9C461FA=Player
 Variable/Name/D9C9992C=End Styling
 Variable/Name/DA21E6D8=Team Status - XP

@@ -5699,6 +5699,9 @@ bool auto_gf_AwardRatingNOTD_TriggerFunc (bool testConds, bool runActions) {
                 else if ((lp_ratingAwarded == 1) && (RandomInt(0, 3) != 1)) {
                     gv_playerRating[IntLoopCurrent()] += lp_ratingAwarded;
                 }
+                else if ((lp_ratingAwarded < 0)) {
+                    gv_playerRating[IntLoopCurrent()] += lp_ratingAwarded;
+                }
             }
             else {
                 gv_playerRating[IntLoopCurrent()] += lp_ratingAwarded;
@@ -37271,12 +37274,6 @@ void gt_GravityGunThrow_Init () {
 // Trigger: Shiva Use Charge
 //--------------------------------------------------------------------------------------------------
 bool gt_ShivaUseCharge_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_ownerofMarine;
-
-    // Variable Initialization
-    lv_ownerofMarine = UnitGetOwner(EventUnit());
-
     // Actions
     if (!runActions) {
         return true;
@@ -37285,7 +37282,7 @@ bool gt_ShivaUseCharge_Func (bool testConds, bool runActions) {
     gf_AwardRatingNOTD(-3);
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        VisRevealArea(PlayerGroupLoopCurrent(), RegionCircle(EventUnitTargetPoint(), 30.0), 35.0, false);
+        VisRevealArea(PlayerGroupLoopCurrent(), RegionCircle(EventPlayerEffectUsedPoint(c_effectLocationTargetPoint), 30.0), 35.0, false);
     }
     PlayerGroupLoopEnd();
     return true;
@@ -37294,7 +37291,7 @@ bool gt_ShivaUseCharge_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_ShivaUseCharge_Init () {
     gt_ShivaUseCharge = TriggerCreate("gt_ShivaUseCharge_Func");
-    TriggerAddEventUnitAbility(gt_ShivaUseCharge, null, AbilityCommand("Shiva", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventPlayerEffectUsed(gt_ShivaUseCharge, c_playerAny, "ShivaSet");
 }
 
 //--------------------------------------------------------------------------------------------------
