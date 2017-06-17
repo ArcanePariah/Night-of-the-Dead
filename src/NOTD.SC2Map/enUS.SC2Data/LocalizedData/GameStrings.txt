@@ -2391,6 +2391,7 @@ DocInfo/PatchNote090= - Fixed titan attack animation (stanK)
 DocInfo/PatchNote091= - Fixed sec dome hexagons, so appropriate ones disappear after activation (stanK)
 DocInfo/PatchNote092= - Shops no longer cause lag (stanK)
 DocInfo/PatchNote093= - Sec NM auto-save not working fixed (stanK)
+DocInfo/PatchNote094= - Lab lighting slightly dimmed (stanK)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
