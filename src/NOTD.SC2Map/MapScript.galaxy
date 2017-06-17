@@ -1598,7 +1598,7 @@ void gf_BergmannAI (unit lp_rescueMarine);
 void gf_ReactorMeltdownAmbience ();
 void gf_DomeAuthorization (unit lp_hexUnit);
 void gf_DomeFlash (unit lp_firstMarine, unit lp_secondMarine, region lp_region);
-void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit);
+void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit, region lp_domeHexagonContainer);
 void gf_HadesSporeDrops ();
 void gf_SecTeamBEnding ();
 void gf_SurvivalEnvironmentalChanges ();
@@ -8842,11 +8842,11 @@ void gf_DomeFlash (unit lp_firstMarine, unit lp_secondMarine, region lp_region) 
     libNtve_gf_RemoveDoodadsinRegion(lp_region, "DecalProtoss");
 }
 
-void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit) {
+void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit, region lp_domeHexagonContainer) {
     // Implementation
     if ((UnitGroupCount(UnitGroupFilterRegion(gv_marines, lp_region1, 0), c_unitCountAlive) >= 1) && (UnitGroupCount(UnitGroupFilterRegion(gv_marines, lp_region2, 0), c_unitCountAlive) >= 1)) {
         TriggerEnable(lp_domeCompleted, false);
-        gf_DomeFlash(UnitGroupRandomUnit(UnitGroupFilterRegion(gv_marines, lp_region1, 0), c_unitCountAlive), UnitGroupRandomUnit(UnitGroupFilterRegion(gv_marines, lp_region2, 0), c_unitCountAlive), RegionFromId(81));
+        gf_DomeFlash(UnitGroupRandomUnit(UnitGroupFilterRegion(gv_marines, lp_region1, 0), c_unitCountAlive), UnitGroupRandomUnit(UnitGroupFilterRegion(gv_marines, lp_region2, 0), c_unitCountAlive), lp_domeHexagonContainer);
         TriggerExecute(gt_DomesSealedandHadesLocated, true, false);
     }
     else {
@@ -33021,7 +33021,7 @@ bool gt_SealDomeA_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_DomeTrigger(RegionFromId(226), RegionFromId(227), TriggerGetCurrent(), EventUnit());
+    gf_DomeTrigger(RegionFromId(226), RegionFromId(227), TriggerGetCurrent(), EventUnit(), RegionFromId(79));
     return true;
 }
 
@@ -33049,7 +33049,7 @@ bool gt_SealDomeB_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_DomeTrigger(RegionFromId(243), RegionFromId(244), TriggerGetCurrent(), EventUnit());
+    gf_DomeTrigger(RegionFromId(243), RegionFromId(244), TriggerGetCurrent(), EventUnit(), RegionFromId(78));
     return true;
 }
 
@@ -33077,7 +33077,7 @@ bool gt_SealDomeC_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_DomeTrigger(RegionFromId(240), RegionFromId(239), TriggerGetCurrent(), EventUnit());
+    gf_DomeTrigger(RegionFromId(240), RegionFromId(239), TriggerGetCurrent(), EventUnit(), RegionFromId(80));
     return true;
 }
 
@@ -33105,7 +33105,7 @@ bool gt_SealDomeD_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_DomeTrigger(RegionFromId(241), RegionFromId(242), TriggerGetCurrent(), EventUnit());
+    gf_DomeTrigger(RegionFromId(241), RegionFromId(242), TriggerGetCurrent(), EventUnit(), RegionFromId(81));
     return true;
 }
 
