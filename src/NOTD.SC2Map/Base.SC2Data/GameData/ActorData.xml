@@ -239,6 +239,158 @@
         <On Terms="ActorCreation.GhostOverlaySelection" Send="SetOpacity"/>
         <Model value="Ghost"/>
     </CActorModel>
+    <CActorModel id="GravityGunActive" parent="ModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="Behavior.GravityGunActive.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="Behavior.GravityGunActive.Off" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+        <Model value="IvaxsBane"/>
+        <AutoScaleFactor value="1.000000"/>
+    </CActorModel>
+    <CActorModel id="GravityGunShoot" parent="ModelAnimationStyleOneShot">
+        <Flags index="SuppressCreationErrors" value="1"/>
+        <On Terms="Effect.GravityGunSearchApplyTarget.Start" Send="Create"/>
+        <On Terms="ActorCreation; ValidateUnit HasBallisticsLevel1" Send="SetScale 1.250000"/>
+        <On Terms="ActorCreation; ValidateUnit HasBallisticsLevel2" Send="SetScale 1.500000"/>
+        <Model value="GravityGunBeam"/>
+    </CActorModel>
+    <CActorRange id="GravityGunShootRange">
+        <Inherits index="Visibility" value="0"/>
+        <FogVisibility value="Visible"/>
+        <On Terms="Abil.ShootGravityGun.TargetOn" Send="Create"/>
+        <On Terms="Abil.ShootGravityGun.TargetOff" Send="Destroy"/>
+        <Range value="6.000000"/>
+        <RangeFlags index="Minimap" value="1"/>
+    </CActorRange>
+    <CActorSiteRocker id="GravityGunSpinEffect2">
+        <On Terms="ActorCreation" Target="::Main" Send="RefSetFromMsg ::Host ::Sender"/>
+        <On Terms="Behavior.GravityGunTarget.On" Send="Create"/>
+        <On Terms="Behavior.GravityGunTarget.Off" Send="Transition Out"/>
+        <Elevation value="0.050000"/>
+        <ElevationPeriod value="2.000000,0.500000"/>
+        <Pitch value="-360,4.9987"/>
+        <PitchPeriod value="48.000000,2.000000"/>
+        <Roll value="215.9912,4.9987"/>
+        <RollPeriod value="33.599998,2.000000"/>
+    </CActorSiteRocker>
+    <CActorModel id="GravityGunThrowActiveAnimation" parent="ModelAnimationStyleContinuous">
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="Behavior.GravityGunThrowActive.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="Behavior.GravityGunThrowActive.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.GravityGunThrowActive.Off" Send="Destroy Immediate"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Model value="GravitonBeam"/>
+        <Scale value="2.000000,0.400000,2.000000"/>
+    </CActorModel>
+    <CActorModel id="GravityGunThrowGlobe">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="Behavior.GravityGunTarget.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="Behavior.GravityGunTarget.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <Model value="GravitonBeamImpact"/>
+        <AutoScaleFactor value="0.800000"/>
+    </CActorModel>
+    <CActorModel id="GravityGunThrowImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.GravityGunThrowSearchDamage.Start" Send="Create"/>
+        <Model value="PunchImpact"/>
+        <Scale value="3.000000"/>
+        <AutoScaleFactor value="1.000000"/>
+    </CActorModel>
+    <CActorRange id="GravityGunThrowPullRange">
+        <Inherits index="Visibility" value="0"/>
+        <FogVisibility value="Visible"/>
+        <On Terms="Abil.ThrowGravityGun.TargetOn" Send="Create"/>
+        <On Terms="Abil.ThrowGravityGun.TargetOff" Send="Destroy"/>
+        <On Terms="Abil.PullGravityGun.TargetOn" Send="Create"/>
+        <On Terms="Abil.PullGravityGun.TargetOff" Send="Destroy"/>
+        <Range value="15.000000"/>
+        <RangeFlags index="Minimap" value="1"/>
+    </CActorRange>
+    <CActorModel id="GravityGunThrowSticky1">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="Behavior.GravityGunTarget.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="Behavior.GravityGunTarget.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="IvaxsBane"/>
+        <AutoScaleFactor value="0.800000"/>
+    </CActorModel>
+    <CActorModel id="GravityGunThrowSticky2">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="Behavior.GravityGunTarget.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="Behavior.GravityGunTarget.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="IvaxsBane"/>
+        <AutoScaleFactor value="0.800000"/>
+    </CActorModel>
+    <CActorModel id="GravityGunThrowSticky3">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="Behavior.GravityGunTarget.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="Behavior.GravityGunTarget.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachHead"/>
+        <Model value="IvaxsBane"/>
+        <AutoScaleFactor value="0.800000"/>
+    </CActorModel>
+    <CActorModel id="GravityGunThrowSticky4">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="Behavior.GravityGunTarget.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="Behavior.GravityGunTarget.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachWeaponLeft"/>
+        <Model value="IvaxsBane"/>
+        <AutoScaleFactor value="0.800000"/>
+    </CActorModel>
+    <CActorModel id="GravityGunThrowSticky5">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="Behavior.GravityGunTarget.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="Behavior.GravityGunTarget.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachWeaponRight"/>
+        <Model value="IvaxsBane"/>
+        <AutoScaleFactor value="0.800000"/>
+    </CActorModel>
     <CActorModel id="LevelUp2" parent="ModelAddition">
         <Terms value="ValidateUnit AboveLevel1"/>
         <Inherits index="BaseModelScale" value="0"/>
@@ -269,6 +421,29 @@
         <DamageSound value="GenericAttackDamageSound2"/>
         <ShieldFlashType value="Header"/>
     </CActorAction>
+    <CActorSound id="PunchGroundImpactSound" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.PunchSearchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.GravityGunThrowSearchApplyTarget.Start" Send="Create"/>
+        <Sound value="PunchGroundImpact"/>
+    </CActorSound>
+    <CActorModel id="PunchImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Behavior.PunchTargetLevel1.On" Send="Create"/>
+        <On Terms="Behavior.PunchTargetLevel2.On" Send="Create"/>
+        <On Terms="Behavior.PunchTargetLevel3.On" Send="Create"/>
+        <On Terms="Effect.PunchSearchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.SUPERBOBSearchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.GravityGunThrowSearchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.CircularLanceSearchSmoke.Start" Send="Create"/>
+        <Scale value="2.000000"/>
+        <AutoScaleFactor value="1.000000"/>
+    </CActorModel>
+    <CActorSound id="PunchImpactSound" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.PunchApplyTarget.Start" Send="Create"/>
+        <On Terms="Effect.GravityGunThrowApplyTarget.Start" Send="Create"/>
+        <Sound value="PunchImpact"/>
+    </CActorSound>
     <CActorSound id="ReinforceSound">
         <EditorCategories value=""/>
         <On Terms="SoundDone" Send="Destroy"/>
@@ -5029,10 +5204,6 @@
         <StatusBarFlags index="Life" value="0"/>
         <StatusBarFlags index="Energy" value="0"/>
         <UnitIcon value="NOTD Generic Art\NOTD Gravity Gun.dds"/>
-        <Macros value=""/>
-        <Macros value=""/>
-        <Macros value=""/>
-        <Macros value="Shrinker"/>
     </CActorUnit>
     <CActorModel id="ShivaCollateralFire">
         <On Terms="Effect.ShivaSearchDamage.Start; At Effect" Send="Create"/>

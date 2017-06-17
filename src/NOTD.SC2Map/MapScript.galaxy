@@ -625,6 +625,9 @@ int[9] gv_playerLives;
 playergroup gv_marineSquad;
 playergroup gv_leavers;
 playergroup gv_activePlayers;
+unit[9] gv_gravityGunTarget;
+bool[9] gv_gravityGunPull;
+int[9] gv_gravityGunTargetOriginalOwner;
 int[9] gv_marineWeightPoints;
 unitgroup gv_marines;
 trigger[4] gv_domeSpawn;
@@ -683,6 +686,8 @@ text gv_forwardSlash;
 text gv_infoPanelHeroRank;
 text gv_endStyling;
 text gv_space;
+bool gv_enableGravityGun;
+bool gv_enableShiva;
 fixed gv_difficultyHPScaling;
 timer gv_gameTime;
 region[8] gv_reinforcementSpawn;
@@ -2073,6 +2078,10 @@ trigger gt_ModifyHeroStats;
 trigger gt_DisableStatAndModsModification;
 trigger gt_Backstab;
 trigger gt_CriticalStrike;
+trigger gt_GravityGunPull;
+trigger gt_GravityGunDrop;
+trigger gt_GravityGunThrow;
+trigger gt_ShivaUseCharge;
 trigger gt_ConcentratedFireCriticalStrike;
 trigger gt_HarvesterofSorrowCriticalStrike;
 trigger gt_GrenadeLauncherFireUpEnd;
@@ -5690,6 +5699,9 @@ bool auto_gf_AwardRatingNOTD_TriggerFunc (bool testConds, bool runActions) {
                 else if ((lp_ratingAwarded == 1) && (RandomInt(0, 3) != 1)) {
                     gv_playerRating[IntLoopCurrent()] += lp_ratingAwarded;
                 }
+                else if ((lp_ratingAwarded < 0)) {
+                    gv_playerRating[IntLoopCurrent()] += lp_ratingAwarded;
+                }
             }
             else {
                 gv_playerRating[IntLoopCurrent()] += lp_ratingAwarded;
@@ -6479,6 +6491,10 @@ bool auto_gf_ECC1ItemSpawn_TriggerFunc (bool testConds, bool runActions) {
         gf_CreateItemNOTD("UA420AssaultRifle", 3);
         gf_CreateItemNOTD("SniperRifle", 2);
     }
+    if ((gv_enableGravityGun == true) && (gv_noNewbie == true)) {
+        gf_CreateItemNOTD("GravityGun", 1);
+    }
+
     gf_CreateItemNOTD("SniperRifle", 2);
     gf_CreateItemNOTD("HEAmmo", 2);
     gf_CreateItemNOTD("HPAmmo", 2);
@@ -7453,6 +7469,14 @@ bool auto_gf_ECChapter3AirDrop_TriggerFunc (bool testConds, bool runActions) {
     gf_CreateItemNOTD("LaserRifle", 2);
     gf_CreateItemNOTD("BarrettM112", 1);
     gf_CreateItemNOTD("Chaingun", 1);
+    if ((gv_enableShiva == true) && (RandomInt(0, 10) == 1) && (gv_noNewbie == true)) {
+        gf_CreateItemNOTD("Shiva", 1);
+    }
+
+    if ((gv_enableGravityGun == true) && (gv_noNewbie == false)) {
+        gf_CreateItemNOTD("GravityGun", 1);
+    }
+
     gf_CreateItemNOTD("Helium3Canister", 1);
     return true;
 }
@@ -9247,6 +9271,9 @@ bool auto_gf_DisableAttackEquippingWeapons_TriggerFunc (bool testConds, bool run
     else if ((lp_equipment == "MP9A2SubMachineGun")) {
         lv_boltPullWait = 0.7;
     }
+    else if ((lp_equipment == "GravityGun")) {
+        lv_boltPullWait = 0.7;
+    }
     else if (((UnitGetType(lv_inventoryHero) == "Rifleman") || (UnitGetType(lv_inventoryHero) == "Commando") || (UnitGetType(lv_inventoryHero) == "Spectre"))) {
         lv_boltPullWait = 1.2;
     }
@@ -9285,6 +9312,18 @@ bool auto_gf_DisableAttackEquippingWeapons_TriggerFunc (bool testConds, bool run
         }
     }
 
+    if ((lp_equipment == "GravityGun")) {
+        TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("ShootGravityGun", 0), true);
+        TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("PullGravityGun", 0), true);
+    }
+    else {
+        TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("ShootGravityGun", 0), false);
+        TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("PullGravityGun", 0), false);
+        TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("CancelGravityGun", 0), false);
+        TechTreeAbilityAllow(lp_inventoryOwner, AbilityCommand("ThrowGravityGun", 0), false);
+        gv_gravityGunPull[lp_inventoryOwner] = false;
+        UnitBehaviorRemove(gv_gravityGunTarget[lp_inventoryOwner], "GravityGunTarget", 1);
+    }
     if ((UnitWeaponGet(lv_inventoryHero, 1) == "Shotgun")) {
         SoundPlayOnUnit(SoundLink("ShotgunPump", -1), PlayerGroupAll(), lv_inventoryHero, 15.0, 75.0, 0.0);
     }
@@ -11096,7 +11135,7 @@ bool auto_gf_StatsModSplashRadius_TriggerFunc (bool testConds, bool runActions) 
     string[4] lv_dataDamageName3;
     string[4] lv_dataDamageName2;
     string[3] lv_dataDamageName1;
-    string[7] lv_dataDamageNameSearch;
+    string[8] lv_dataDamageNameSearch;
     fixed lv_splashPercentagePerLevel;
     string lv_dataString;
     int lv_iLocal;
@@ -11113,7 +11152,7 @@ bool auto_gf_StatsModSplashRadius_TriggerFunc (bool testConds, bool runActions) 
     for (init_i = 0; init_i <= 2; init_i += 1) {
         lv_dataDamageName1[init_i] = "";
     }
-    for (init_i = 0; init_i <= 6; init_i += 1) {
+    for (init_i = 0; init_i <= 7; init_i += 1) {
         lv_dataDamageNameSearch[init_i] = "";
     }
     lv_splashPercentagePerLevel = 0.05;
@@ -11133,6 +11172,9 @@ bool auto_gf_StatsModSplashRadius_TriggerFunc (bool testConds, bool runActions) 
     lv_dataDamageNameSearch[2] = "InfernalFlameThrowerLevel32";
     lv_dataDamageNameSearch[3] = "CrowbarSearchDamage";
     lv_dataDamageNameSearch[4] = "P45GaussPistolDamageSearch";
+    lv_dataDamageNameSearch[5] = "GravityGunThrowSearchApplyTarget";
+    lv_dataDamageNameSearch[6] = "GravityGunThrowSearchDamage";
+    lv_dataDamageNameSearch[7] = "GravityGunSearchApplyTarget";
     IntLoopBegin(0, 2);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         autoE081CE6C_ae = 2;
@@ -11233,7 +11275,7 @@ bool auto_gf_StatsModAttackSpeed_TriggerFunc (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_player;
     fixed lv_period;
-    string[13] lv_dataWeaponName;
+    string[14] lv_dataWeaponName;
     const fixed lv_speedPercentagePerLevel = 0.05;
 
     // Variable Initialization
@@ -11253,6 +11295,7 @@ bool auto_gf_StatsModAttackSpeed_TriggerFunc (bool testConds, bool runActions) {
     lv_dataWeaponName[10] = "StingerMK3";
     lv_dataWeaponName[11] = "Flamethrower";
     lv_dataWeaponName[12] = "Crowbar";
+    lv_dataWeaponName[13] = "GravityGun";
     IntLoopBegin(0, 12);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         lv_period = StringToFixed(CatalogFieldValueGet(c_gameCatalogWeapon, lv_dataWeaponName[IntLoopCurrent()], "Period", 0));
@@ -11348,14 +11391,14 @@ bool auto_gf_StatsModDamage_TriggerFunc (bool testConds, bool runActions) {
     int autoADBAFCF5_ai;
 
     // Variable Declarations
-    string[16] lv_dataDamageName;
+    string[18] lv_dataDamageName;
     int lv_effectiveModLevel;
     fixed lv_damage;
     int lv_iLocal;
     string lv_attributeString;
 
     // Variable Initialization
-    for (init_i = 0; init_i <= 15; init_i += 1) {
+    for (init_i = 0; init_i <= 17; init_i += 1) {
         lv_dataDamageName[init_i] = "";
     }
     lv_effectiveModLevel = (lp_modLevel - 5);
@@ -11378,7 +11421,9 @@ bool auto_gf_StatsModDamage_TriggerFunc (bool testConds, bool runActions) {
     lv_dataDamageName[13] = "InfernalFlameThrower";
     lv_dataDamageName[14] = "L3GrenadeExplosion";
     lv_dataDamageName[15] = "L3GrenadeExplosionDummy";
-    IntLoopBegin(0, 15);
+    lv_dataDamageName[16] = "GravityGunThrowDamageAllies";
+    lv_dataDamageName[17] = "GravityGunThrowDamage";
+    IntLoopBegin(0, 17);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         CatalogFieldValueModify(c_gameCatalogEffect, lv_dataDamageName[IntLoopCurrent()], "Amount", lp_modOwner, CatalogFieldValueGet(c_gameCatalogEffect, lv_dataDamageName[IntLoopCurrent()], "Amount", 0), c_upgradeOperationSet);
         CatalogFieldValueModify(c_gameCatalogEffect, lv_dataDamageName[IntLoopCurrent()], "Amount", lp_modOwner, FixedToString(gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage), 2), c_upgradeOperationMultiply);
@@ -11472,6 +11517,12 @@ bool auto_gf_StatsModRange_TriggerFunc (bool testConds, bool runActions) {
         CatalogFieldValueSet(c_gameCatalogWeapon, lv_dataWeaponName[IntLoopCurrent()], "Range", lv_player, FixedToString(lv_range, c_fixedPrecisionAny));
     }
     IntLoopEnd();
+    lv_range = StringToFixed(CatalogFieldValueGet(c_gameCatalogAbil, "PullGravityGun", "Range[0]", 0));
+    lv_range *= (1.0 + ((IntToFixed(lp_modLevel) - 5.0) * lv_rangePercentagePerLevel));
+    CatalogFieldValueSet(c_gameCatalogAbil, "PullGravityGun", "Range[0]", lp_modOwner, FixedToString(lv_range, c_fixedPrecisionAny));
+    lv_range = StringToFixed(CatalogFieldValueGet(c_gameCatalogAbil, "ThrowGravityGun", "Range[0]", 0));
+    lv_range *= (1.0 + ((IntToFixed(lp_modLevel) - 5.0) * lv_rangePercentagePerLevel));
+    CatalogFieldValueSet(c_gameCatalogAbil, "ThrowGravityGun", "Range[0]", lp_modOwner, FixedToString(lv_range, c_fixedPrecisionAny));
     if ((UnitIsAlive(gv_marineHero[lp_modOwner]) == true) && (UnitGetType(gv_marineHero[lp_modOwner]) == "Flamethrower3")) {
         auto4030AA11_val = gv_talentLevel[1][lp_modOwner];
         if (auto4030AA11_val == 1) {
@@ -14474,6 +14525,10 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
         if (!((lv_attackingWeapon != "Crowbar"))) {
             return false;
         }
+
+        if (!((lv_attackingWeapon != "GravityGun"))) {
+            return false;
+        }
     }
 
     // Actions
@@ -14694,6 +14749,10 @@ bool gt_TeamKill_Func (bool testConds, bool runActions) {
         }
 
         if (!((EventUnitDamageEffect() != "NapalmBarrageDamage"))) {
+            return false;
+        }
+
+        if (!((EventUnitDamageEffect() != "ShivaChemicalDamage"))) {
             return false;
         }
     }
@@ -15018,6 +15077,8 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     gf_Save(lv_pNumber, gv_bankSize);
     gf_UIUpdatePortraitTooltip(lv_pNumber);
     gf_DeathDialogDestruction(lv_pNumber);
+    UnitBehaviorRemove(gv_gravityGunTarget[lv_pNumber], "GravityGunTarget", 1);
+    gv_gravityGunPull[lv_pNumber] = false;
     UIDisplayMessage(PlayerGroupSingle(lv_pNumber), c_messageAreaDebug, (StringExternal("Param/Value/C21BD67D") + (PlayerName(lv_pNumber) + StringExternal("Param/Value/DFDC255E"))));
     if ((gv_playerXP[lv_pNumber] < 500)) {
         UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(EventUnit())), c_messageAreaSubtitle, UserDataGetText("NewbieDeathTips", "Standard Death Tips", "Tips", RandomInt(1, 5)));
@@ -15189,6 +15250,10 @@ bool gt_ImmortalRevive_Func (bool testConds, bool runActions) {
         }
 
         if (!((EventUnitDamageEffect() != "NapalmBarrageDamage"))) {
+            return false;
+        }
+
+        if (!((EventUnitDamageEffect() != "ShivaDamage"))) {
             return false;
         }
     }
@@ -17360,6 +17425,10 @@ bool gt_OM5RamirezKilled_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
+    if ((gv_enableShiva == true) && (RandomInt(0, 250) == 1)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "Shiva", 0, 0, UnitGetPosition(EventUnit()));
+    }
+
     gv_playerKarma[libNtve_gf_KillingPlayer()] -= 1;
     return true;
 }
@@ -24795,6 +24864,10 @@ bool gt_ACC1ItemSpawn_Func (bool testConds, bool runActions) {
         gf_CreateItemNOTD("UA420AssaultRifle", 4);
         gf_CreateItemNOTD("M5PulseRifle", 2);
     }
+    if ((gv_enableGravityGun == true) && (gv_noNewbie == true)) {
+        gf_CreateItemNOTD("GravityGun", 1);
+    }
+
     gf_CreateItemNOTD("AntiVenom", 3);
     gf_CreateItemNOTD("OccularImplants", 4);
     gf_CreateItemNOTD("HighCapacityClip", 2);
@@ -27300,6 +27373,10 @@ bool gt_ACC3Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_NightmareBonus, true, false);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/B89887A7"), StringExternal("Param/Value/360E1356"), 15.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     gf_AutoSaveLong();
+    if ((gv_enableShiva == true)) {
+        gf_CreateItemNOTD("Shiva", 1);
+    }
+
     gv_ventSpawnArea[1] = RegionFromId(93);
     gv_ventSpawnArea[2] = RegionFromId(94);
     gv_ventSpawnArea[3] = RegionFromId(24);
@@ -29056,6 +29133,10 @@ bool gt_STC1ItemSpawn_Func (bool testConds, bool runActions) {
     gf_CreateItemNOTD("RoadFlare", 10);
     if ((gv_survivalMode == false)) {
         gf_CreateItemNOTD("GaussRifle", 2);
+    }
+
+    if ((gv_enableGravityGun == true) && (gv_noNewbie == true) && (gv_survivalMode == false)) {
+        gf_CreateItemNOTD("GravityGun", 1);
     }
 
     if ((gv_noNewbie == true)) {
@@ -31785,6 +31866,10 @@ bool gt_STC3aInitialize_Func (bool testConds, bool runActions) {
     gv_undergroundQuarters[2] = RegionFromId(143);
     gv_undergroundQuarters[3] = RegionFromId(144);
     gv_undergroundQuarters[4] = RegionFromId(145);
+    if ((gv_enableShiva == true)) {
+        gf_CreateItemNOTD("Shiva", 1);
+    }
+
     gf_RadioNOTD(gv_characterFieldMarshalLee, StringExternal("Param/Value/7BCC56D3"));
     libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingAlert", RegionGetCenter(RegionFromId(146)), ColorWithAlpha(0.00, 0.00, 0.00, 0.00), 15.0, 270.0);
     Wait(5.0, c_timeReal);
@@ -32571,6 +32656,10 @@ bool gt_STC3bInitialize_Func (bool testConds, bool runActions) {
     gv_bioDomeArea[2] = RegionFromId(78);
     gv_bioDomeArea[3] = RegionFromId(80);
     gv_bioDomeArea[4] = RegionFromId(81);
+    if ((gv_enableShiva == true)) {
+        gf_CreateItemNOTD("Shiva", 1);
+    }
+
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/694F4581"));
     ObjectiveCreate(StringExternal("Param/Value/B7E5D8DF"), StringToText(""), c_objectiveStateActive, false);
     gv_secondaryObjective = ObjectiveLastCreated();
@@ -35271,7 +35360,7 @@ bool gt_MagazineUse_Func (bool testConds, bool runActions) {
     }
 
     gv_marineMags[lv_selectingPlayer] += 3;
-    if ((lv_originAmmo <= 0) && (gv_marineRounds[lv_selectingPlayer] <= 0) && (UnitWeaponGet(gv_marineHero[lv_selectingPlayer], 1) != "Crowbar")) {
+    if ((lv_originAmmo <= 0) && (gv_marineRounds[lv_selectingPlayer] <= 0) && (UnitWeaponGet(gv_marineHero[lv_selectingPlayer], 1) != "Crowbar") && (UnitWeaponGet(gv_marineHero[lv_selectingPlayer], 1) != "GravityGun")) {
         gf_ReloadMagazine(lv_selectingPlayer, EventUnit(), ge_ReloadType_Perfect, UnitWeaponGet(gv_marineHero[lv_selectingPlayer], 1));
     }
     else {
@@ -36997,6 +37086,212 @@ void gt_CriticalStrike_Init () {
     TriggerAddEventUnitDamaged(gt_CriticalStrike, null, c_unitDamageTypeMelee, c_unitDamageNonFatal, null);
     TriggerAddEventUnitDamaged(gt_CriticalStrike, null, c_unitDamageTypeRanged, c_unitDamageNonFatal, null);
     TriggerAddEventUnitDamaged(gt_CriticalStrike, null, c_unitDamageTypeSplash, c_unitDamageNonFatal, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Gravity Gun Pull
+//--------------------------------------------------------------------------------------------------
+bool gt_GravityGunPull_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_gravityCenterPoint;
+    unit lv_gravTarget;
+    int lv_gravGunOwner;
+    unit lv_gravGunUser;
+
+    // Variable Initialization
+    lv_gravTarget = EventUnitTargetUnit();
+    lv_gravGunOwner = UnitGetOwner(EventUnit());
+    lv_gravGunUser = EventUnit();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((gv_gravityGunPull[lv_gravGunOwner] == false) && (UnitGetType(lv_gravTarget) != "DrBergmann") && (UnitGetType(lv_gravTarget) != "DrTanaka") && (UnitGetType(lv_gravTarget) != "DrGunjan") && (UnitGetType(lv_gravTarget) != "Egg") && (UnitGetType(lv_gravTarget) != "LargeZombieCocoon") && (UnitGetType(lv_gravTarget) != "InfestedCocoon") && (UnitGetType(lv_gravTarget) != "Ultralisk") && (UnitGetType(lv_gravTarget) != "UltraliskBurrowed") && (UnitGetType(lv_gravTarget) != "TruckSemiUnit") && (UnitGetType(lv_gravTarget) != "UGCDropship") && (UnitGetType(lv_gravTarget) != "Medivac") && (UnitGetType(lv_gravTarget) != "Devastator") && (UnitGetType(lv_gravTarget) != "InactiveDevastator") && (UnitGetType(lv_gravTarget) != "Ivax") && (UnitGetType(lv_gravTarget) != "IncompleteIvax") && (UnitGetType(lv_gravTarget) != "HerculesLander") && (UnitGetType(lv_gravTarget) != "HerculesLanderFlying") && (UnitGroupHasUnit(UnitGroup(null, 14, RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lv_gravTarget) == false) && (UnitGroupHasUnit(UnitGroup(null, 13, RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lv_gravTarget) == false)) {
+        TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("CancelGravityGun", 0), true);
+        TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("ThrowGravityGun", 0), true);
+        TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("ShootGravityGun", 0), false);
+        gv_gravityGunPull[lv_gravGunOwner] = true;
+        gv_gravityGunTarget[lv_gravGunOwner] = lv_gravTarget;
+        Wait(0.01, c_timeGame);
+        if ((UnitHasBehavior2(lv_gravTarget, "GravityGunTarget") == true)) {
+            gv_gravityGunTargetOriginalOwner[lv_gravGunOwner] = UnitGetOwner(lv_gravTarget);
+            if (((UnitGetOwner(lv_gravTarget) == 13) || (UnitGetOwner(lv_gravTarget) == 14))) {
+                UnitSetOwner(lv_gravTarget, 12, false);
+            }
+
+            while (true) {
+                if ((gv_gravityGunPull[lv_gravGunOwner] == true)) {
+                    lv_gravityCenterPoint = libNtve_gf_PointFromXYZ((PointGetX(UnitGetPosition(lv_gravGunUser)) + (2.0 * Cos(UnitGetFacing(lv_gravGunUser)))), (PointGetY(UnitGetPosition(lv_gravGunUser)) + (Sin(UnitGetFacing(lv_gravGunUser)) * 2.0)), (UnitGetHeight(lv_gravGunUser) + 1.6));
+                    if ((UnitIsAlive(lv_gravGunUser) == true)) {
+                        UnitSetPosition(lv_gravTarget, lv_gravityCenterPoint, true);
+                    }
+
+                    Wait(0.05, c_timeGame);
+                }
+                else {
+                    break;
+                }
+                if ((UnitIsAlive(lv_gravTarget) == false)) {
+                    gv_gravityGunPull[lv_gravGunOwner] = false;
+                    TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("CancelGravityGun", 0), false);
+                    TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("ThrowGravityGun", 0), false);
+                    TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("ShootGravityGun", 0), true);
+                    UnitBehaviorRemove(lv_gravGunUser, "GravityGunThrowActive", 1);
+                }
+
+            }
+        }
+
+    }
+    else {
+        UnitBehaviorRemove(lv_gravTarget, "GravityGunTarget", 1);
+        UnitBehaviorRemove(lv_gravGunUser, "GravityGunThrowActive", 1);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_GravityGunPull_Init () {
+    gt_GravityGunPull = TriggerCreate("gt_GravityGunPull_Func");
+    TriggerAddEventUnitAbility(gt_GravityGunPull, null, AbilityCommand("PullGravityGun", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Gravity Gun Drop
+//--------------------------------------------------------------------------------------------------
+bool gt_GravityGunDrop_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_gravGunUser;
+    int lv_gravGunOwner;
+
+    // Variable Initialization
+    lv_gravGunUser = EventUnit();
+    lv_gravGunOwner = UnitGetOwner(EventUnit());
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_gravityGunPull[lv_gravGunOwner] = false;
+    TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("CancelGravityGun", 0), false);
+    TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("ThrowGravityGun", 0), false);
+    TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("ShootGravityGun", 0), true);
+    UnitBehaviorRemove(gv_gravityGunTarget[lv_gravGunOwner], "GravityGunTarget", 1);
+    if (((UnitGetOwner(gv_gravityGunTarget[lv_gravGunOwner]) == 0) || (UnitGetOwner(gv_gravityGunTarget[lv_gravGunOwner]) >= 9))) {
+        UnitSetOwner(gv_gravityGunTarget[lv_gravGunOwner], gv_gravityGunTargetOriginalOwner[lv_gravGunOwner], false);
+    }
+    else if ((UnitGroupHasUnit(gv_marines, gv_gravityGunTarget[lv_gravGunOwner]) == true)) {
+        UnitSetPosition(gv_gravityGunTarget[lv_gravGunOwner], UnitGetPosition(lv_gravGunUser), true);
+    }
+    if ((UnitTypeTestFlag(UnitGetType(gv_gravityGunTarget[lv_gravGunOwner]), c_unitFlagDestructible) == true)) {
+        UnitSetOwner(gv_gravityGunTarget[lv_gravGunOwner], 9, false);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_GravityGunDrop_Init () {
+    gt_GravityGunDrop = TriggerCreate("gt_GravityGunDrop_Func");
+    TriggerAddEventUnitAbility(gt_GravityGunDrop, null, AbilityCommand("CancelGravityGun", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Gravity Gun Throw
+//--------------------------------------------------------------------------------------------------
+bool gt_GravityGunThrow_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_gravGunUser;
+    int lv_gravGunOwner;
+    point lv_gravGunTargetPoint;
+
+    // Variable Initialization
+    lv_gravGunUser = EventUnit();
+    lv_gravGunOwner = UnitGetOwner(EventUnit());
+    lv_gravGunTargetPoint = EventUnitTargetPoint();
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_gravityGunPull[lv_gravGunOwner] == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_gravityGunPull[lv_gravGunOwner] = false;
+    TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("CancelGravityGun", 0), false);
+    TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("ThrowGravityGun", 0), false);
+    TechTreeAbilityAllow(lv_gravGunOwner, AbilityCommand("ShootGravityGun", 0), true);
+    if ((DistanceBetweenPoints(UnitGetPosition(lv_gravGunUser), lv_gravGunTargetPoint) <= 5.0)) {
+        CatalogFieldValueSet(c_gameCatalogEffect, "GravityGunThrowDamage", "Amount", lv_gravGunOwner, "50");
+    }
+    else if ((DistanceBetweenPoints(UnitGetPosition(lv_gravGunUser), lv_gravGunTargetPoint) <= 9.0)) {
+        CatalogFieldValueSet(c_gameCatalogEffect, "GravityGunThrowDamage", "Amount", lv_gravGunOwner, "100");
+    }
+    else if (true) {
+        CatalogFieldValueSet(c_gameCatalogEffect, "GravityGunThrowDamage", "Amount", lv_gravGunOwner, "200");
+    }
+    if ((UnitGroupHasUnit(gv_marines, gv_gravityGunTarget[lv_gravGunOwner]) == true)) {
+        UnitBehaviorRemove(gv_gravityGunTarget[lv_gravGunOwner], "GravityGunTarget", 1);
+        UnitSetPosition(gv_gravityGunTarget[lv_gravGunOwner], UnitGetPosition(lv_gravGunUser), true);
+    }
+    else if (true) {
+        UnitSetPosition(gv_gravityGunTarget[lv_gravGunOwner], lv_gravGunTargetPoint, true);
+        Wait(0.2, c_timeGame);
+        if (((UnitGetType(gv_gravityGunTarget[lv_gravGunOwner]) == "ExplodingBarrelLarge") || (UnitGetType(gv_gravityGunTarget[lv_gravGunOwner]) == "Baneling") || (UnitGetType(gv_gravityGunTarget[lv_gravGunOwner]) == "Beastling"))) {
+            UnitDamage(lv_gravGunUser, "GravityGunThrowDamage", gv_gravityGunTarget[lv_gravGunOwner], UnitGetPropertyFixed(gv_gravityGunTarget[lv_gravGunOwner], c_unitPropLife, c_unitPropCurrent));
+        }
+
+        UnitBehaviorRemove(gv_gravityGunTarget[lv_gravGunOwner], "GravityGunTarget", 1);
+        UnitCreateEffectPoint(lv_gravGunUser, "GravityGunThrowInitialSet", lv_gravGunTargetPoint);
+        Wait(0.2, c_timeGame);
+        if ((UnitGetOwner(gv_gravityGunTarget[lv_gravGunOwner]) != gv_gravityGunTargetOriginalOwner[lv_gravGunOwner])) {
+            UnitSetOwner(gv_gravityGunTarget[lv_gravGunOwner], gv_gravityGunTargetOriginalOwner[lv_gravGunOwner], false);
+        }
+
+    }
+    if ((UnitTypeTestFlag(UnitGetType(gv_gravityGunTarget[lv_gravGunOwner]), c_unitFlagDestructible) == true)) {
+        UnitSetOwner(gv_gravityGunTarget[lv_gravGunOwner], 9, false);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_GravityGunThrow_Init () {
+    gt_GravityGunThrow = TriggerCreate("gt_GravityGunThrow_Func");
+    TriggerAddEventUnitAbility(gt_GravityGunThrow, null, AbilityCommand("ThrowGravityGun", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Shiva Use Charge
+//--------------------------------------------------------------------------------------------------
+bool gt_ShivaUseCharge_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_AwardRatingNOTD(-3);
+    PlayerGroupLoopBegin(gv_marineSquad);
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        VisRevealArea(PlayerGroupLoopCurrent(), RegionCircle(EventPlayerEffectUsedPoint(c_effectLocationTargetPoint), 30.0), 35.0, false);
+    }
+    PlayerGroupLoopEnd();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ShivaUseCharge_Init () {
+    gt_ShivaUseCharge = TriggerCreate("gt_ShivaUseCharge_Func");
+    TriggerAddEventPlayerEffectUsed(gt_ShivaUseCharge, c_playerAny, "ShivaSet");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -39562,6 +39857,10 @@ void InitTriggers () {
     gt_DisableStatAndModsModification_Init();
     gt_Backstab_Init();
     gt_CriticalStrike_Init();
+    gt_GravityGunPull_Init();
+    gt_GravityGunDrop_Init();
+    gt_GravityGunThrow_Init();
+    gt_ShivaUseCharge_Init();
     gt_ConcentratedFireCriticalStrike_Init();
     gt_HarvesterofSorrowCriticalStrike_Init();
     gt_GrenadeLauncherFireUpEnd_Init();

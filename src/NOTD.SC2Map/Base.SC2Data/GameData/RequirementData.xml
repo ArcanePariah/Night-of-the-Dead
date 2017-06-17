@@ -40,6 +40,10 @@
         <CanBeSuppressed index="Use" value="0"/>
         <NodeArray index="Use" Link="GTE840649728CountBehaviorBandageCarriedCompleteOnly1"/>
     </CRequirement>
+    <CRequirement id="GravityGunEquipped">
+        <NodeArray index="Use" Link="AndCountBehaviorGravityGunActiveCompleteOnlyNotCountBehaviorWeaponSwitchTotal"/>
+        <NodeArray index="Show" Link="CountBehaviorGravityGunActiveCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="HERounds">
         <NodeArray index="Use" Link="EqCountBehaviorHEFRoundsCompleteOnlyAtUnit1"/>
     </CRequirement>
