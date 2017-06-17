@@ -377,7 +377,6 @@ FunctionDef/Name/AD2A32A1=Stats - Mod Splash Radius
 FunctionDef/Name/AED8508F=NOTD Banlist
 FunctionDef/Name/B198741E=Weapons Mod Point Max
 FunctionDef/Name/B20183AC=Player Medals - Set Medal Items
-FunctionDef/Name/B49D06E6=Auto Save (Long)
 FunctionDef/Name/B51CC050=UI - Update XP
 FunctionDef/Name/B56CE036=Talent Selection Left Tree
 FunctionDef/Name/B6B4640E=EC End Cinematic

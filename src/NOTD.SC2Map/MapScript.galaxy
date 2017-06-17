@@ -1476,7 +1476,6 @@ void gf_SetPlayerLives ();
 void gf_PlayerCountAdjustments ();
 void gf_SQDifficultyAdjustments ();
 void gf_SaveInitBoundaryCheck (int lp_playerNo);
-void gf_AutoSaveLong ();
 void gf_Save (int lp_playerNo, int lp_bankSize);
 void gf_ResetPlayerData (int lp_playerNo, int lp_bankSize);
 void gf_LoadAcknowledge (int lp_playerNo);
@@ -2924,30 +2923,6 @@ bool auto_gf_SaveInitBoundaryCheck_TriggerFunc (bool testConds, bool runActions)
         gv_playerBankData[2][lv_index] = 3000;
     }
 
-    return true;
-}
-
-trigger auto_gf_AutoSaveLong_Trigger = null;
-
-void gf_AutoSaveLong () {
-    if (auto_gf_AutoSaveLong_Trigger == null) {
-        auto_gf_AutoSaveLong_Trigger = TriggerCreate("auto_gf_AutoSaveLong_TriggerFunc");
-    }
-
-    TriggerExecute(auto_gf_AutoSaveLong_Trigger, false, false);
-}
-
-bool auto_gf_AutoSaveLong_TriggerFunc (bool testConds, bool runActions) {
-    // Implementation
-    PlayerGroupLoopBegin(gv_marineSquad);
-    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        Wait(0.8, c_timeReal);
-        if ((PlayerStatus(PlayerGroupLoopCurrent()) == c_playerStatusActive) && ((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 350) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
-            gf_Save(PlayerGroupLoopCurrent(), gv_bankSize);
-        }
-
-    }
-    PlayerGroupLoopEnd();
     return true;
 }
 
@@ -4514,7 +4489,7 @@ bool auto_gf_GameOverInit_TriggerFunc (bool testConds, bool runActions) {
         }
         GameSetLighting("NOTDGameOverLight", 5.0);
     }
-    gf_AutoSaveLong();
+    TriggerExecute(gt_AutoSave, true, false);
     Wait(5.5, c_timeReal);
     UIClearMessages(PlayerGroupAll(), c_messageAreaDirective);
     IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
@@ -9686,7 +9661,6 @@ bool auto_gf_ShowCreditsLeft_TriggerFunc (bool testConds, bool runActions) {
     int lp_player = auto_gf_ShowCreditsLeft_lp_player;
 
     // Implementation
-    TriggerExecute(gt_AutoSave, true, false);
     libNtve_gf_SetDialogItemText(gv_statsPlayerCashLabel[lp_player], IntToText(gv_playerCredits[lp_player]), PlayerGroupAll());
     TextTagCreate((gv_creditsLeft + IntToText(gv_playerCredits[lp_player])), 20, UnitGetPosition(gv_marineHero[lp_player]), 1.5, true, true, PlayerGroupActive());
     TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(79.22, 58.43, 100.00));
@@ -13717,7 +13691,7 @@ bool gt_ManualSave_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((gv_playerXP[lv_playerNo] - gv_startingXP[lv_playerNo]) <= 350) && (gv_playerBanned[lv_playerNo] == false)) {
+    if (((gv_playerXP[lv_playerNo] - gv_startingXP[lv_playerNo]) <= 450) && (gv_playerBanned[lv_playerNo] == false)) {
         UIDisplayMessage(PlayerGroupSingle(lv_playerNo), c_messageAreaDebug, (StringExternal("Param/Value/3CA19E89") + (PlayerName(lv_playerNo) + StringExternal("Param/Value/556EE5F6"))));
         SoundPlay(SoundLink("UI_ScoreScreenMissionSummary", -1), PlayerGroupSingle(lv_playerNo), 225.0, 0.0);
         gf_Save(lv_playerNo, gv_bankSize);
@@ -13745,7 +13719,7 @@ bool gt_AutoSave_Func (bool testConds, bool runActions) {
 
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        if (((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 350) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
+        if ((PlayerStatus(PlayerGroupLoopCurrent()) == c_playerStatusActive) && ((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 450) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
             gf_Save(PlayerGroupLoopCurrent(), gv_bankSize);
             Wait(0.5, c_timeReal);
         }
@@ -23666,7 +23640,7 @@ bool gt_Chapter3Initialize_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_QueenChaseSequence, true);
     TriggerEnable(gt_QueenKilled, true);
     TriggerExecute(gt_ChapterEndMedicRatingBonus, true, false);
-    gf_AutoSaveLong();
+    TriggerExecute(gt_AutoSave, true, false);
     UnitGroupLoopBegin(UnitGroup("BlackOps", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         UnitAbilityEnable(UnitGroupLoopCurrent(), "ZeratulStun", false);
@@ -27299,7 +27273,7 @@ bool gt_ACC3Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_ChapterEndMedicRatingBonus, true, false);
     TriggerExecute(gt_NightmareBonus, true, false);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/B89887A7"), StringExternal("Param/Value/360E1356"), 15.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
-    gf_AutoSaveLong();
+    TriggerExecute(gt_AutoSave, true, false);
     gv_ventSpawnArea[1] = RegionFromId(93);
     gv_ventSpawnArea[2] = RegionFromId(94);
     gv_ventSpawnArea[3] = RegionFromId(24);
@@ -31700,7 +31674,7 @@ bool gt_STW11HiddenHandRevealed_Func (bool testConds, bool runActions) {
     TimerWindowCreate(gv_chapterSelectionTimer, StringExternal("Param/Value/2D25FC8C"), true, false);
     gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     TimerWindowShow(TimerWindowLastCreated(), PlayerGroupAll(), true);
-    gf_AutoSaveLong();
+    TriggerExecute(gt_AutoSave, true, false);
     Wait(30.0, c_timeReal);
     TimerWindowShow(TimerWindowLastCreated(), PlayerGroupAll(), false);
     if ((gv_wave == 11)) {
