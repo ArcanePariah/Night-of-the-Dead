@@ -2387,6 +2387,7 @@ DocInfo/PatchNote086= - Charlie correctly gives XP when shot with a powerful att
 DocInfo/PatchNote087= - Marines start with full energy (rockz)
 DocInfo/PatchNote088= - Fixed chat display for patch 3.14 (stanK)
 DocInfo/PatchNote089= - Minor tweaks (ArcanePariah)
+DocInfo/PatchNote090= - Fixed titan attack animation (stanK)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
