@@ -1527,7 +1527,6 @@ void gf_EndGameUISetNOTD ();
 void gf_ZombieAIWorldEvents ();
 region gf_GetRegionNotNearMarines (fixed lp_radius);
 point gf_RandomPointinRegiononMap (region lp_enclosingRegion);
-bool gf_PointNearUnitGroup (point lp_point, fixed lp_distance, unitgroup lp_group);
 void gf_GameState ();
 void gf_BlackMaskApplication ();
 void gf_RandomBanetrain ();
@@ -5026,7 +5025,7 @@ region gf_GetRegionNotNearMarines (fixed lp_radius) {
 
     // Implementation
     lv_point = RegionRandomPoint(RegionPlayableMap());
-    while (gf_PointNearUnitGroup(lv_point, 15.0, gv_marines)) {
+    while ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) <= 15.0)) {
         lv_point = RegionRandomPoint(RegionPlayableMap());
     }
     return RegionCircle(lv_point, lp_radius);
@@ -5044,11 +5043,6 @@ point gf_RandomPointinRegiononMap (region lp_enclosingRegion) {
         lv_localpoint = RegionRandomPoint(lp_enclosingRegion);
     }
     return lv_localpoint;
-}
-
-bool gf_PointNearUnitGroup (point lp_point, fixed lp_distance, unitgroup lp_group) {
-    // Implementation
-    return (DistanceBetweenPoints(lp_point, UnitGetPosition(UnitGroupClosestToPoint(lp_group, lp_point))) <= lp_distance);
 }
 
 trigger auto_gf_GameState_Trigger = null;
