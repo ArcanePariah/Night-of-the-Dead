@@ -1525,7 +1525,6 @@ void gf_GameOverInit ();
 void gf_EndGameUINOTD ();
 void gf_EndGameUISetNOTD ();
 void gf_ZombieAIWorldEvents ();
-region gf_GetRegionNotNearMarines (fixed lp_radius);
 point gf_RandomPointinRegiononMap (region lp_enclosingRegion);
 void gf_GameState ();
 void gf_BlackMaskApplication ();
@@ -5017,20 +5016,6 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
     return true;
 }
 
-region gf_GetRegionNotNearMarines (fixed lp_radius) {
-    // Variable Declarations
-    point lv_point;
-
-    // Variable Initialization
-
-    // Implementation
-    lv_point = RegionRandomPoint(RegionPlayableMap());
-    while ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) <= 15.0)) {
-        lv_point = RegionRandomPoint(RegionPlayableMap());
-    }
-    return RegionCircle(lv_point, lp_radius);
-}
-
 point gf_RandomPointinRegiononMap (region lp_enclosingRegion) {
     // Variable Declarations
     point lv_localpoint;
@@ -5107,12 +5092,17 @@ bool auto_gf_RandomBanetrain_TriggerFunc (bool testConds, bool runActions) {
     int autoB5287105_i;
 
     // Variable Declarations
+    point lv_point;
     region lv_localRegionA;
 
     // Variable Initialization
 
     // Implementation
-    lv_localRegionA = gf_GetRegionNotNearMarines(5.0);
+    lv_point = RegionRandomPoint(RegionPlayableMap());
+    while ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) <= 15.0)) {
+        lv_point = RegionRandomPoint(RegionPlayableMap());
+    }
+    lv_localRegionA = RegionCircle(lv_point, 5.0);
     autoB5287105_n = (gv_spawnFactor * 5);
     for (autoB5287105_i = 1; autoB5287105_i <= autoB5287105_n; autoB5287105_i += 1) {
         if ((gv_nightmare == true) && (RandomInt(1, 10) == 1)) {
