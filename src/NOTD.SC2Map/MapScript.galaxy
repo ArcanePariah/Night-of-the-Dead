@@ -5020,16 +5020,16 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
 
 region gf_GetRegionNotNearMarines (fixed lp_radius) {
     // Variable Declarations
-    region lv_region;
+    point lv_point;
 
     // Variable Initialization
 
     // Implementation
-    lv_region = RegionCircle(RegionRandomPoint(RegionEntireMap()), lp_radius);
-    while (gf_PointNearUnitGroup(RegionGetCenter(lv_region), 15.0, gv_marines)) {
-        lv_region = RegionCircle(RegionRandomPoint(RegionEntireMap()), lp_radius);
+    lv_point = RegionRandomPoint(RegionPlayableMap());
+    while (gf_PointNearUnitGroup(lv_point, 15.0, gv_marines)) {
+        lv_point = RegionRandomPoint(RegionPlayableMap());
     }
-    return lv_region;
+    return RegionCircle(lv_point, lp_radius);
 }
 
 point gf_RandomPointinRegiononMap (region lp_enclosingRegion) {
