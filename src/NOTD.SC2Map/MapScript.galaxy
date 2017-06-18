@@ -1476,7 +1476,6 @@ void gf_SetPlayerLives ();
 void gf_PlayerCountAdjustments ();
 void gf_SQDifficultyAdjustments ();
 void gf_SaveInitBoundaryCheck (int lp_playerNo);
-void gf_AutoSaveLong ();
 void gf_Save (int lp_playerNo, int lp_bankSize);
 void gf_ResetPlayerData (int lp_playerNo, int lp_bankSize);
 void gf_LoadAcknowledge (int lp_playerNo);
@@ -1596,7 +1595,7 @@ void gf_BergmannAI (unit lp_rescueMarine);
 void gf_ReactorMeltdownAmbience ();
 void gf_DomeAuthorization (unit lp_hexUnit);
 void gf_DomeFlash (unit lp_firstMarine, unit lp_secondMarine, region lp_region);
-void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit);
+void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit, region lp_domeHexagonContainer);
 void gf_HadesSporeDrops ();
 void gf_SecTeamBEnding ();
 void gf_SurvivalEnvironmentalChanges ();
@@ -2928,30 +2927,6 @@ bool auto_gf_SaveInitBoundaryCheck_TriggerFunc (bool testConds, bool runActions)
     return true;
 }
 
-trigger auto_gf_AutoSaveLong_Trigger = null;
-
-void gf_AutoSaveLong () {
-    if (auto_gf_AutoSaveLong_Trigger == null) {
-        auto_gf_AutoSaveLong_Trigger = TriggerCreate("auto_gf_AutoSaveLong_TriggerFunc");
-    }
-
-    TriggerExecute(auto_gf_AutoSaveLong_Trigger, false, false);
-}
-
-bool auto_gf_AutoSaveLong_TriggerFunc (bool testConds, bool runActions) {
-    // Implementation
-    PlayerGroupLoopBegin(gv_marineSquad);
-    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        Wait(0.8, c_timeReal);
-        if ((PlayerStatus(PlayerGroupLoopCurrent()) == c_playerStatusActive) && ((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 350) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
-            gf_Save(PlayerGroupLoopCurrent(), gv_bankSize);
-        }
-
-    }
-    PlayerGroupLoopEnd();
-    return true;
-}
-
 trigger auto_gf_Save_Trigger = null;
 int auto_gf_Save_lp_playerNo;
 int auto_gf_Save_lp_bankSize;
@@ -4034,6 +4009,7 @@ bool auto_gf_SmartSpawnNOTD_TriggerFunc (bool testConds, bool runActions) {
     int auto7948FB3E_i;
 
     // Variable Declarations
+    int lv_attempts;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -4057,8 +4033,9 @@ bool auto_gf_SmartSpawnNOTD_TriggerFunc (bool testConds, bool runActions) {
         }
 
     }
-    while ((PointPathingIsConnected(lv_unitSpawnPoint, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == false)) {
+    while ((PointPathingIsConnected(lv_unitSpawnPoint, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == false) && (lv_attempts <= 4)) {
         lv_unitSpawnPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
+        lv_attempts += 1;
     }
     UnitCreate(1, lp_spawningUnit, 0, 14, lv_unitSpawnPoint, libNtve_gf_RandomAngle());
     lv_spawnUnit = UnitLastCreated();
@@ -4087,6 +4064,7 @@ void gf_WaveSpawnAroundMarines (string lp_spawningUnit, fixed lp_spawnRange, int
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         while (((DistanceBetweenPoints(UnitGetPosition(UnitGroupLoopCurrent()), lv_unitSpawnPoint) < 5.0) || (PointPathingPassable(lv_unitSpawnPoint) == false) || (PointPathingIsConnected(lv_unitSpawnPoint, UnitGetPosition(UnitGroupLoopCurrent())) == false) || (!((((PointGetX(lv_unitSpawnPoint) >= 2) && (PointGetX(lv_unitSpawnPoint) <= 254)) && ((PointGetY(lv_unitSpawnPoint) >= 2) && (PointGetY(lv_unitSpawnPoint) <= 254)))))) && (lv_attempts <= 4)) {
             lv_unitSpawnPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
+            lv_attempts += 1;
         }
     }
     UnitGroupLoopEnd();
@@ -4141,6 +4119,7 @@ bool auto_gf_WaveSpawnAtRegion_TriggerFunc (bool testConds, bool runActions) {
 
     while (((PointPathingPassable(lv_unitSpawnPoint) == false) || (PointPathingIsConnected(lv_unitSpawnPoint, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == false) || (!((((PointGetX(lv_unitSpawnPoint) >= 2) && (PointGetX(lv_unitSpawnPoint) <= 254)) && ((PointGetY(lv_unitSpawnPoint) >= 2) && (PointGetY(lv_unitSpawnPoint) <= 254)))))) && (lv_attempts <= 4)) {
         lv_unitSpawnPoint = RegionRandomPoint(lp_spawnRegion);
+        lv_attempts += 1;
     }
     UnitCreate(lp_spawnAmount, lp_spawningUnit, 0, 14, lv_unitSpawnPoint, libNtve_gf_RandomAngle());
     Wait(0.1, c_timeGame);
@@ -4515,7 +4494,7 @@ bool auto_gf_GameOverInit_TriggerFunc (bool testConds, bool runActions) {
         }
         GameSetLighting("NOTDGameOverLight", 5.0);
     }
-    gf_AutoSaveLong();
+    TriggerExecute(gt_AutoSave, true, false);
     Wait(5.5, c_timeReal);
     UIClearMessages(PlayerGroupAll(), c_messageAreaDirective);
     IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
@@ -5930,11 +5909,17 @@ bool gf_PreCinematicProcessing () {
         libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), true);
     }
     UnitGroupLoopEnd();
+    DialogSetVisible(gv_equipment, PlayerGroupAll(), false);
     IntLoopBegin(1, 8);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        DialogSetVisible(gv_equipment, PlayerGroupAll(), false);
-        DialogSetVisible(gv_ammoCounterDialog[IntLoopCurrent()], PlayerGroupAll(), false);
-        DialogSetVisible(gv_shellDialog[IntLoopCurrent()], PlayerGroupAll(), false);
+        if ((gv_ammoCounterDialog[IntLoopCurrent()] != c_invalidDialogId)) {
+            DialogSetVisible(gv_ammoCounterDialog[IntLoopCurrent()], PlayerGroupAll(), false);
+        }
+
+        if ((gv_shellDialog[IntLoopCurrent()] != c_invalidDialogId)) {
+            DialogSetVisible(gv_shellDialog[IntLoopCurrent()], PlayerGroupAll(), false);
+        }
+
     }
     IntLoopEnd();
     UIClearBattleNetButtonOffset(PlayerGroupAll());
@@ -5951,7 +5936,7 @@ bool gf_PreCinematicProcessing () {
     IntLoopBegin(gv_indexBaseValue, 5);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         if ((UnitIsAlive(gv_infestor[IntLoopCurrent()]) == true)) {
-            libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), true);
+            libNtve_gf_PauseUnit(gv_infestor[IntLoopCurrent()], true);
         }
 
     }
@@ -6001,7 +5986,7 @@ bool gf_PostCinematicProcessing () {
     IntLoopBegin(gv_indexBaseValue, 5);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         if ((UnitIsAlive(gv_infestor[IntLoopCurrent()]) == true)) {
-            libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), false);
+            libNtve_gf_PauseUnit(gv_infestor[IntLoopCurrent()], false);
         }
 
     }
@@ -6040,7 +6025,10 @@ bool gf_PostCinematicProcessing () {
             libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), false);
         }
         UnitGroupLoopEnd();
-        DialogSetVisible(gv_shellDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
+        if ((gv_shellDialog[PlayerGroupLoopCurrent()] != c_invalidDialogId)) {
+            DialogSetVisible(gv_shellDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
+        }
+
         DialogSetVisible(gv_ammoCounterDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         DialogSetVisible(gv_equipment, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         CameraApplyInfo(PlayerGroupLoopCurrent(), CameraInfoDefault(), 0.0, -1, 10, true);
@@ -6522,7 +6510,9 @@ bool auto_gf_ECC1AmbientSpawns_TriggerFunc (bool testConds, bool runActions) {
             }
 
         }
-
+        else {
+            Wait(2.0, c_timeGame);
+        }
     }
     return true;
 }
@@ -8777,11 +8767,11 @@ void gf_DomeFlash (unit lp_firstMarine, unit lp_secondMarine, region lp_region) 
     libNtve_gf_RemoveDoodadsinRegion(lp_region, "DecalProtoss");
 }
 
-void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit) {
+void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit, region lp_domeHexagonContainer) {
     // Implementation
     if ((UnitGroupCount(UnitGroupFilterRegion(gv_marines, lp_region1, 0), c_unitCountAlive) >= 1) && (UnitGroupCount(UnitGroupFilterRegion(gv_marines, lp_region2, 0), c_unitCountAlive) >= 1)) {
         TriggerEnable(lp_domeCompleted, false);
-        gf_DomeFlash(UnitGroupRandomUnit(UnitGroupFilterRegion(gv_marines, lp_region1, 0), c_unitCountAlive), UnitGroupRandomUnit(UnitGroupFilterRegion(gv_marines, lp_region2, 0), c_unitCountAlive), RegionFromId(81));
+        gf_DomeFlash(UnitGroupRandomUnit(UnitGroupFilterRegion(gv_marines, lp_region1, 0), c_unitCountAlive), UnitGroupRandomUnit(UnitGroupFilterRegion(gv_marines, lp_region2, 0), c_unitCountAlive), lp_domeHexagonContainer);
         TriggerExecute(gt_DomesSealedandHadesLocated, true, false);
     }
     else {
@@ -9621,7 +9611,6 @@ bool auto_gf_ShowCreditsLeft_TriggerFunc (bool testConds, bool runActions) {
     int lp_player = auto_gf_ShowCreditsLeft_lp_player;
 
     // Implementation
-    TriggerExecute(gt_AutoSave, true, false);
     libNtve_gf_SetDialogItemText(gv_statsPlayerCashLabel[lp_player], IntToText(gv_playerCredits[lp_player]), PlayerGroupAll());
     TextTagCreate((gv_creditsLeft + IntToText(gv_playerCredits[lp_player])), 20, UnitGetPosition(gv_marineHero[lp_player]), 1.5, true, true, PlayerGroupActive());
     TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(79.22, 58.43, 100.00));
@@ -13652,7 +13641,7 @@ bool gt_ManualSave_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((gv_playerXP[lv_playerNo] - gv_startingXP[lv_playerNo]) <= 350) && (gv_playerBanned[lv_playerNo] == false)) {
+    if (((gv_playerXP[lv_playerNo] - gv_startingXP[lv_playerNo]) <= 450) && (gv_playerBanned[lv_playerNo] == false)) {
         UIDisplayMessage(PlayerGroupSingle(lv_playerNo), c_messageAreaDebug, (StringExternal("Param/Value/3CA19E89") + (PlayerName(lv_playerNo) + StringExternal("Param/Value/556EE5F6"))));
         SoundPlay(SoundLink("UI_ScoreScreenMissionSummary", -1), PlayerGroupSingle(lv_playerNo), 225.0, 0.0);
         gf_Save(lv_playerNo, gv_bankSize);
@@ -13680,7 +13669,7 @@ bool gt_AutoSave_Func (bool testConds, bool runActions) {
 
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        if (((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 350) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
+        if ((PlayerStatus(PlayerGroupLoopCurrent()) == c_playerStatusActive) && ((gv_playerXP[PlayerGroupLoopCurrent()] - gv_startingXP[PlayerGroupLoopCurrent()]) <= 450) && (gv_playerBanned[PlayerGroupLoopCurrent()] == false)) {
             gf_Save(PlayerGroupLoopCurrent(), gv_bankSize);
             Wait(0.5, c_timeReal);
         }
@@ -23601,7 +23590,7 @@ bool gt_Chapter3Initialize_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_QueenChaseSequence, true);
     TriggerEnable(gt_QueenKilled, true);
     TriggerExecute(gt_ChapterEndMedicRatingBonus, true, false);
-    gf_AutoSaveLong();
+    TriggerExecute(gt_AutoSave, true, false);
     UnitGroupLoopBegin(UnitGroup("BlackOps", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         UnitAbilityEnable(UnitGroupLoopCurrent(), "ZeratulStun", false);
@@ -27475,7 +27464,7 @@ bool gt_ACC3Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_ChapterEndMedicRatingBonus, true, false);
     TriggerExecute(gt_NightmareBonus, true, false);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/B89887A7"), StringExternal("Param/Value/360E1356"), 15.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
-    gf_AutoSaveLong();
+    TriggerExecute(gt_AutoSave, true, false);
     gv_ventSpawnArea[1] = RegionFromId(93);
     gv_ventSpawnArea[2] = RegionFromId(94);
     gv_ventSpawnArea[3] = RegionFromId(24);
@@ -31876,7 +31865,7 @@ bool gt_STW11HiddenHandRevealed_Func (bool testConds, bool runActions) {
     TimerWindowCreate(gv_chapterSelectionTimer, StringExternal("Param/Value/2D25FC8C"), true, false);
     gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
     TimerWindowShow(TimerWindowLastCreated(), PlayerGroupAll(), true);
-    gf_AutoSaveLong();
+    TriggerExecute(gt_AutoSave, true, false);
     Wait(30.0, c_timeReal);
     TimerWindowShow(TimerWindowLastCreated(), PlayerGroupAll(), false);
     if ((gv_wave == 11)) {
@@ -33197,7 +33186,7 @@ bool gt_SealDomeA_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_DomeTrigger(RegionFromId(226), RegionFromId(227), TriggerGetCurrent(), EventUnit());
+    gf_DomeTrigger(RegionFromId(226), RegionFromId(227), TriggerGetCurrent(), EventUnit(), RegionFromId(79));
     return true;
 }
 
@@ -33225,7 +33214,7 @@ bool gt_SealDomeB_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_DomeTrigger(RegionFromId(243), RegionFromId(244), TriggerGetCurrent(), EventUnit());
+    gf_DomeTrigger(RegionFromId(243), RegionFromId(244), TriggerGetCurrent(), EventUnit(), RegionFromId(78));
     return true;
 }
 
@@ -33253,7 +33242,7 @@ bool gt_SealDomeC_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_DomeTrigger(RegionFromId(240), RegionFromId(239), TriggerGetCurrent(), EventUnit());
+    gf_DomeTrigger(RegionFromId(240), RegionFromId(239), TriggerGetCurrent(), EventUnit(), RegionFromId(80));
     return true;
 }
 
@@ -33281,7 +33270,7 @@ bool gt_SealDomeD_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_DomeTrigger(RegionFromId(241), RegionFromId(242), TriggerGetCurrent(), EventUnit());
+    gf_DomeTrigger(RegionFromId(241), RegionFromId(242), TriggerGetCurrent(), EventUnit(), RegionFromId(81));
     return true;
 }
 

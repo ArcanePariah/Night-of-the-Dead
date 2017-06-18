@@ -60,6 +60,9 @@
         <ScaleMax value="0.700000,0.700000,0.700000"/>
         <ScaleMin value="0.700000,0.700000,0.700000"/>
     </CModel>
+    <CModel id="MinerMale">
+        <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.500000"/>
+    </CModel>
     <CModel id="MutaliskDeath">
         <VariationCount value="1"/>
         <Variations index="0" removed="1"/>
@@ -116,6 +119,9 @@
         <Model value="Assets\Effects\Terran\PredatorImpactShockwave\PredatorImpactShockwave.m3"/>
         <EditorCategories value="Race:Terran"/>
         <Radius value="1.000000"/>
+    </CModel>
+    <CModel id="SiegeBreaker">
+        <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="1.700000"/>
     </CModel>
     <CModel id="TerranSmallUnitDeathLow2" parent="UnitDeath" Race="Terran">
         <Model value="Assets\Effects\Terran\TerranSmallUnitDeath\TerranSmallUnitDeath_Low.m3"/>
