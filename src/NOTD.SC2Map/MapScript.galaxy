@@ -4998,23 +4998,23 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
             autoB5287105_n = (gv_spawnFactor * 5);
             for (autoB5287105_i = 1; autoB5287105_i <= autoB5287105_n; autoB5287105_i += 1) {
                 if ((gv_nightmare == true) && (RandomInt(1, 10) == 1)) {
-                    UnitCreate(1, "BanelingBurrowed", 0, 13, gf_RandomPointinRegiononMap(lv_localRegionA), libNtve_gf_RandomAngle());
+                    UnitCreate(1, "BanelingBurrowed", 0, 14, gf_RandomPointinRegiononMap(lv_localRegionA), libNtve_gf_RandomAngle());
                     UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowBanelingUp", 0)), c_orderQueueReplace);
                 }
                 else {
-                    UnitCreate(1, "Blindling2", 0, 13, gf_RandomPointinRegiononMap(lv_localRegionA), libNtve_gf_RandomAngle());
+                    UnitCreate(1, "Blindling2", 0, 14, gf_RandomPointinRegiononMap(lv_localRegionA), libNtve_gf_RandomAngle());
                     UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBlindling", 0)), c_orderQueueReplace);
                 }
                 UnitGroupAdd(gv_zombieWave, UnitLastCreated());
                 if ((gv_nightmare == true) && (RandomInt(1, 7) == 1)) {
-                    UnitCreate(1, "ZerglingBurrowed", 0, 13, RegionRandomPoint(lv_localRegionA), libNtve_gf_RandomAngle());
+                    UnitCreate(1, "ZerglingBurrowed", 0, 14, RegionRandomPoint(lv_localRegionA), libNtve_gf_RandomAngle());
                     UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowZerglingUp", 0)), c_orderQueueReplace);
                     UnitGroupAdd(gv_zombieWave, UnitLastCreated());
                 }
 
                 Wait(0.05, c_timeGame);
             }
-            UnitCreate(1, "BanelingBurrowed", 0, 13, RegionRandomPoint(lv_localRegionA), libNtve_gf_RandomAngle());
+            UnitCreate(1, "BanelingBurrowed", 0, 14, RegionRandomPoint(lv_localRegionA), libNtve_gf_RandomAngle());
             UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowBanelingUp", 0)), c_orderQueueReplace);
             UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         }
