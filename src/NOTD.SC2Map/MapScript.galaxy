@@ -22740,6 +22740,7 @@ bool gt_Wave10OptionalCivilianEntersContainment_Func (bool testConds, bool runAc
     gv_rescuedApolloCivs += 1;
     gv_legionOfMeritCivsRescued += 1;
     SoundPlay(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupActive(), 100.0, 0.0);
+    ObjectiveSetName(gv_civRescueObjective, (StringExternal("Param/Value/2FED1591") + IntToText(gv_rescuedApolloCivs) + StringExternal("Param/Value/5AA04D5B")));
     if ((gv_rescuedApolloCivs == 60)) {
         gf_AwardPlayerXPNOTD(3);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/F318EF99"));
