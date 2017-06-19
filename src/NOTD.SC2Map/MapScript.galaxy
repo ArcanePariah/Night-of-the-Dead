@@ -21358,6 +21358,15 @@ bool gt_Boss2Killed_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     TriggerEnable(gt_Boss2AI, false);
+    if ((UnitIsAlive(gv_erebos1) == false)) {
+        libNtve_gf_ShowHideUnit(gv_erebos1, false);
+        UnitCreate(1, "Erebos", c_unitCreateIgnorePlacement, 14, UnitGetPosition(gv_erebos1), UnitGetFacing(gv_erebos1));
+        UnitSetPropertyFixed(UnitLastCreated(), c_unitPropLifeMax, UnitGetPropertyFixed(gv_erebos1, c_unitPropLifeMax, c_unitPropCurrent));
+        UnitSetTeamColorIndex(UnitLastCreated(), 1);
+        UnitRemove(gv_erebos1);
+        gv_erebos1 = UnitLastCreated();
+        UnitSetPropertyFixed(gv_erebos1, c_unitPropLife, 0.1);
+    }
     libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Large, libNtve_ge_ExplosionType_Zerg, UnitGetPosition(gv_erebos1));
     gf_UnifiedAwards(3, libNtve_gf_DifficultyValueInt(375, 250, 250, 0), libNtve_gf_DifficultyValueInt(15, 15, 30, 0), 0, 0);
     gf_BossAfterAction();
@@ -21450,7 +21459,7 @@ bool gt_Boss2Killed_Func (bool testConds, bool runActions) {
 void gt_Boss2Killed_Init () {
     gt_Boss2Killed = TriggerCreate("gt_Boss2Killed_Func");
     TriggerEnable(gt_Boss2Killed, false);
-    TriggerAddEventUnitDamaged(gt_Boss2Killed, UnitRefFromVariable("gv_erebos1"), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
+    TriggerAddEventUnitDamaged(gt_Boss2Killed, UnitRefFromVariable("gv_erebos1"), c_unitDamageTypeAny, c_unitDamageEither, null);
 }
 
 //--------------------------------------------------------------------------------------------------
