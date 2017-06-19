@@ -5088,20 +5088,33 @@ void gf_RandomBanetrain () {
 }
 
 bool auto_gf_RandomBanetrain_TriggerFunc (bool testConds, bool runActions) {
+    int auto1CEF7DBF_n;
+    int auto1CEF7DBF_i;
     int autoB5287105_n;
     int autoB5287105_i;
 
     // Variable Declarations
+    bool lv_pointfound;
     point lv_point;
     region lv_localRegionA;
 
     // Variable Initialization
 
     // Implementation
-    lv_point = RegionRandomPoint(RegionPlayableMap());
-    while ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) <= 15.0) && (PointPathingIsConnected(lv_point, PointFromId(833123111)) == false)) {
+    auto1CEF7DBF_n = 20;
+    for (auto1CEF7DBF_i = 1; auto1CEF7DBF_i <= auto1CEF7DBF_n; auto1CEF7DBF_i += 1) {
         lv_point = RegionRandomPoint(RegionPlayableMap());
+        if ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) > 15.0) && (PointPathingIsConnected(lv_point, PointFromId(833123111)) == true)) {
+            lv_pointfound = true;
+            break;
+        }
+
     }
+    if ((lv_pointfound == false)) {
+        SoundPlay(SoundLink("Baneling_Pissed", -1), PlayerGroupAll(), 100.0, 0.0);
+        return true;
+    }
+
     lv_localRegionA = RegionCircle(lv_point, 5.0);
     autoB5287105_n = (gv_spawnFactor * 5);
     for (autoB5287105_i = 1; autoB5287105_i <= autoB5287105_n; autoB5287105_i += 1) {

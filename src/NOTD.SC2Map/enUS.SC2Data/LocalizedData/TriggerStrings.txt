@@ -2690,6 +2690,7 @@ Variable/Name/F202496A=WMod - Player Decre Button
 Variable/Name/F218F77F=VoteKickDanger
 Variable/Name/F29DD926=AttackedUnit
 Variable/Name/F31979F5=Weight
+Variable/Name/F3548DDA=point found
 Variable/Name/F3604252=Incomplete IVAX
 Variable/Name/F40C02B5=Total Wins
 Variable/Name/F452A28E=Refund
