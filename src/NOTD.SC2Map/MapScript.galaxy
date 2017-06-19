@@ -30394,7 +30394,6 @@ bool gt_STBoss2SpawnNazara_Func (bool testConds, bool runActions) {
     gv_bossFight = true;
     if ((gv_alivePlayers <= 3)) {
         UnitSetPropertyFixed(gv_nazara, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_nazara, c_unitPropLifeMax, c_unitPropCurrent) * 0.6));
-        UnitSetPropertyFixed(gv_nazara, c_unitPropLife, (UnitGetPropertyFixed(gv_nazara, c_unitPropLife, c_unitPropCurrent) * 0.6));
     }
 
     PingCreate(PlayerGroupActive(), "PingBoss", UnitGetPosition(gv_nazara), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 120.0);
