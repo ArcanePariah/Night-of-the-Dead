@@ -5099,7 +5099,7 @@ bool auto_gf_RandomBanetrain_TriggerFunc (bool testConds, bool runActions) {
 
     // Implementation
     lv_point = RegionRandomPoint(RegionPlayableMap());
-    while ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) <= 15.0)) {
+    while ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) <= 15.0) && (PointPathingIsConnected(lv_point, PointFromId(833123111)) == false)) {
         lv_point = RegionRandomPoint(RegionPlayableMap());
     }
     lv_localRegionA = RegionCircle(lv_point, 5.0);
