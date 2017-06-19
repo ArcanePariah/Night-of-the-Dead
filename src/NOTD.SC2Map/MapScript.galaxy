@@ -5246,21 +5246,37 @@ void gf_RandomNydusPop () {
 }
 
 bool auto_gf_RandomNydusPop_TriggerFunc (bool testConds, bool runActions) {
+    int auto07D34EC4_n;
+    int auto07D34EC4_i;
     int auto13CC017A_n;
     int auto13CC017A_i;
 
     // Variable Declarations
     unit lv_affectedMarine;
     point lv_localPointA;
+    bool lv_pointfound;
     region lv_localRegionA;
     unit lv_localUnitInfestedWorm;
     actor lv_localActorRumble;
 
     // Variable Initialization
     lv_affectedMarine = UnitGroupRandomUnit(gv_marines, c_unitCountAlive);
-    lv_localPointA = RegionRandomPoint(RegionCircle(UnitGetPosition(lv_affectedMarine), 3.0));
 
     // Implementation
+    auto07D34EC4_n = 20;
+    for (auto07D34EC4_i = 1; auto07D34EC4_i <= auto07D34EC4_n; auto07D34EC4_i += 1) {
+        lv_localPointA = RegionRandomPoint(RegionCircle(UnitGetPosition(lv_affectedMarine), 3.0));
+        if ((PointPathingIsConnected(lv_localPointA, UnitGetPosition(lv_affectedMarine)) == true) && (PointPathingCost(lv_localPointA, UnitGetPosition(lv_affectedMarine)) <= 3)) {
+            lv_pointfound = true;
+            break;
+        }
+
+    }
+    if ((lv_pointfound == false)) {
+        SoundPlay(SoundLink("NydusWorm_What", -1), PlayerGroupAll(), 100.0, 0.0);
+        return true;
+    }
+
     libNtve_gf_CreateModelAtPoint("NydusRumble", lv_localPointA);
     lv_localActorRumble = libNtve_gf_ActorLastCreated();
     gf_MarineSpeechNOTD(lv_affectedMarine, StringExternal("Param/Value/367C586B"));
