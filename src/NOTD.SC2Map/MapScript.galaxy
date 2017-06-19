@@ -1525,7 +1525,6 @@ void gf_GameOverInit ();
 void gf_EndGameUINOTD ();
 void gf_EndGameUISetNOTD ();
 void gf_ZombieAIWorldEvents ();
-point gf_RandomPointinRegiononMap (region lp_enclosingRegion);
 void gf_GameState ();
 void gf_BlackMaskApplication ();
 void gf_RandomBanetrain ();
@@ -5016,20 +5015,6 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
     return true;
 }
 
-point gf_RandomPointinRegiononMap (region lp_enclosingRegion) {
-    // Variable Declarations
-    point lv_localpoint;
-
-    // Variable Initialization
-    lv_localpoint = RegionRandomPoint(lp_enclosingRegion);
-
-    // Implementation
-    while ((RegionContainsPoint(RegionPlayableMap(), lv_localpoint) == false)) {
-        lv_localpoint = RegionRandomPoint(lp_enclosingRegion);
-    }
-    return lv_localpoint;
-}
-
 trigger auto_gf_GameState_Trigger = null;
 
 void gf_GameState () {
@@ -5090,6 +5075,8 @@ void gf_RandomBanetrain () {
 bool auto_gf_RandomBanetrain_TriggerFunc (bool testConds, bool runActions) {
     int auto1CEF7DBF_n;
     int auto1CEF7DBF_i;
+    int autoD9CCEBD4_n;
+    int autoD9CCEBD4_i;
     int autoB5287105_n;
     int autoB5287105_i;
 
@@ -5097,6 +5084,10 @@ bool auto_gf_RandomBanetrain_TriggerFunc (bool testConds, bool runActions) {
     bool lv_pointfound;
     point lv_point;
     region lv_localRegionA;
+    point[21] lv_spawnpoints;
+    int lv_totalpoints;
+    point lv_testpoint;
+    int lv_index;
 
     // Variable Initialization
 
@@ -5104,7 +5095,7 @@ bool auto_gf_RandomBanetrain_TriggerFunc (bool testConds, bool runActions) {
     auto1CEF7DBF_n = 20;
     for (auto1CEF7DBF_i = 1; auto1CEF7DBF_i <= auto1CEF7DBF_n; auto1CEF7DBF_i += 1) {
         lv_point = RegionRandomPoint(RegionPlayableMap());
-        if ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) > 15.0) && (PointPathingIsConnected(lv_point, PointFromId(833123111)) == true)) {
+        if ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) > 15.0) && (PointPathingIsConnected(lv_point, PointFromId(833123111)) == true) && (PointPathingCost(lv_point, PointFromId(833123111)) <= 400)) {
             lv_pointfound = true;
             break;
         }
@@ -5116,26 +5107,65 @@ bool auto_gf_RandomBanetrain_TriggerFunc (bool testConds, bool runActions) {
     }
 
     lv_localRegionA = RegionCircle(lv_point, 5.0);
+    lv_spawnpoints[0] = lv_point;
+    lv_totalpoints = 1;
+    autoD9CCEBD4_n = 40;
+    for (autoD9CCEBD4_i = 1; autoD9CCEBD4_i <= autoD9CCEBD4_n; autoD9CCEBD4_i += 1) {
+        lv_testpoint = RegionRandomPoint(lv_localRegionA);
+        if ((PointPathingIsConnected(lv_point, lv_testpoint) == true) && (PointPathingCost(lv_point, lv_testpoint) < 5)) {
+            lv_spawnpoints[lv_totalpoints] = lv_testpoint;
+            lv_totalpoints += 1;
+        }
+
+        if ((lv_totalpoints >= 20)) {
+            break;
+        }
+
+    }
     autoB5287105_n = (gv_spawnFactor * 5);
     for (autoB5287105_i = 1; autoB5287105_i <= autoB5287105_n; autoB5287105_i += 1) {
         if ((gv_nightmare == true) && (RandomInt(1, 10) == 1)) {
-            UnitCreate(1, "BanelingBurrowed", 0, 14, gf_RandomPointinRegiononMap(lv_localRegionA), libNtve_gf_RandomAngle());
+            UnitCreate(1, "BanelingBurrowed", 0, 14, lv_spawnpoints[lv_index], libNtve_gf_RandomAngle());
+            if (lv_index >= (lv_totalpoints - 1)) {
+                lv_index = 0;
+            }
+            else {
+                lv_index = lv_index + 1;
+            }
             UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowBanelingUp", 0)), c_orderQueueReplace);
         }
         else {
-            UnitCreate(1, "Blindling2", 0, 14, gf_RandomPointinRegiononMap(lv_localRegionA), libNtve_gf_RandomAngle());
+            UnitCreate(1, "Blindling2", 0, 14, lv_spawnpoints[lv_index], libNtve_gf_RandomAngle());
+            if (lv_index >= (lv_totalpoints - 1)) {
+                lv_index = 0;
+            }
+            else {
+                lv_index = lv_index + 1;
+            }
             UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBlindling", 0)), c_orderQueueReplace);
         }
         UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         if ((gv_nightmare == true) && (RandomInt(1, 7) == 1)) {
-            UnitCreate(1, "ZerglingBurrowed", 0, 14, RegionRandomPoint(lv_localRegionA), libNtve_gf_RandomAngle());
+            UnitCreate(1, "ZerglingBurrowed", 0, 14, lv_spawnpoints[lv_index], libNtve_gf_RandomAngle());
+            if (lv_index >= (lv_totalpoints - 1)) {
+                lv_index = 0;
+            }
+            else {
+                lv_index = lv_index + 1;
+            }
             UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowZerglingUp", 0)), c_orderQueueReplace);
             UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         }
 
         Wait(0.05, c_timeGame);
     }
-    UnitCreate(1, "BanelingBurrowed", 0, 14, RegionRandomPoint(lv_localRegionA), libNtve_gf_RandomAngle());
+    UnitCreate(1, "BanelingBurrowed", 0, 14, lv_spawnpoints[lv_index], libNtve_gf_RandomAngle());
+    if (lv_index >= (lv_totalpoints - 1)) {
+        lv_index = 0;
+    }
+    else {
+        lv_index = lv_index + 1;
+    }
     UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowBanelingUp", 0)), c_orderQueueReplace);
     UnitGroupAdd(gv_zombieWave, UnitLastCreated());
     return true;
