@@ -31239,7 +31239,7 @@ bool gt_STW8ChaseBergmann_Func (bool testConds, bool runActions) {
         gf_AwardRatingNOTD(-1);
         gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/2D013564"));
         Wait(1.5, c_timeReal);
-        libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingAlert", UnitGetPosition(gv_drBergmann), ColorWithAlpha(20.00, 60.00, 100.00, 0.00), 10.0, 270.0);
+        libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingAlert", UnitGetPosition(gv_drBergmann), ColorWithAlpha(20.00, 60.00, 100.00, 0.00), 30.0, 270.0);
     }
 
     return true;
