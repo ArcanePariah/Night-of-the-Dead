@@ -5288,7 +5288,7 @@ bool auto_gf_RandomNydusPop_TriggerFunc (bool testConds, bool runActions) {
     Wait(libNtve_gf_DifficultyValueFixed(3.2, 3.2, 1.2, 0.0), c_timeReal);
     auto13CC017A_n = 20;
     for (auto13CC017A_i = 1; auto13CC017A_i <= auto13CC017A_n; auto13CC017A_i += 1) {
-        UnitCreate(1, "Parasite2", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(lv_localUnitInfestedWorm), 1.35)), libNtve_gf_RandomAngle());
+        UnitCreate(1, "Parasite2", 0, 14, lv_localPointA, libNtve_gf_RandomAngle());
         UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         Wait(0.12, c_timeGame);
     }
