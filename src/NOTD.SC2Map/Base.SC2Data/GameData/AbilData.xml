@@ -2734,6 +2734,7 @@
         <AutoCastFilters value="Heroic;Ally,Enemy,Massive"/>
         <AutoCastRange value="1"/>
         <Range value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="IonCannonBeam">
         <EditorCategories value="AbilityorEffectType:Units"/>

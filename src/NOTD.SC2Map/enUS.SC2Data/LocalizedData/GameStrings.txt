@@ -5041,6 +5041,7 @@ Param/Value/99B5F70D=Those Cellular Structures are immune to small arms fire. Pu
 Param/Value/99C9601E=What we saw in the underground quarters will scar my men.
 Param/Value/99D46EAC=(Erebos loses his regenerative shell...)
 Param/Value/99F117F0=Destroy Hades
+Param/Value/9A5C7980=)</s>
 Param/Value/9A8995D6=<s val="InfoPaneHeroRank">SELECTION<n/>A - Destroy Apollo and cleanse the infestation<n/>B - Reactivate Mining controls to restore Helium-3 processing</s>
 Param/Value/9A8AA95F=Dropship ETA
 Param/Value/9AAF1748=Base sensors are still operational. Re-arming.
@@ -5161,6 +5162,7 @@ Param/Value/B0A61D95=)
 Param/Value/B0B303DB=Easy day, Phantom 6.
 Param/Value/B0BFE06F=We're on it, sir.
 Param/Value/B0C550E8=</c> -- (
+Param/Value/B0D8EA27=+10 Credits
 Param/Value/B0E31603=Roast 'em.
 Param/Value/B0F6BFF3=He's got 3 possible escape routes: Starport, Apollo Dock or Site Alpha.
 Param/Value/B1020279=We're detecting something..
@@ -5614,6 +5616,7 @@ Param/Value/FE8803E4=Incoming.
 Param/Value/FEF9177A=Doctor
 Param/Value/FF4D0407=I hope it won't come to that. Keep your distance from the creatures.
 Param/Value/FF63624E=Roger.
+Param/Value/FF7D5EAC=<s val="BriefingHanText">(<c val="8A8AFF">Helium-3 Canister</c> recovered by 
 Pistol Equipped=P-45 Gausss Pistol Equipped
 Precision Shot Level 2=Deals 70 damage to target unit.
 Protoss Armor=Armor
