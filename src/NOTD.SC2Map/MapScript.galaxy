@@ -1543,6 +1543,7 @@ void gf_CreateItemNOTD (string lp_itemToBeCreated, int lp_quantity);
 void gf_CreateItemLocalNOTD (string lp_itemToBeCreated, int lp_quantity, region lp_deploymentArea);
 void gf_UnifiedAwards (int lp_playerXP, fixed lp_marineXP, int lp_credits, int lp_karma, int lp_rating);
 void gf_AwardPlayerXPNOTD (int lp_xPAwarded);
+void gf_AwardRatingPenaltyNOTD ();
 void gf_AwardRatingNOTD (int lp_ratingAwarded);
 void gf_AwardKarmaNOTD (int lp_karmaAwarded);
 void gf_AwardMarineXPNOTD (fixed lp_marineXPAwarded);
@@ -5585,7 +5586,6 @@ bool auto_gf_AwardPlayerXPNOTD_TriggerFunc (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_xPAwarded;
     int lv_index;
-    int lv_localHitPar;
 
     // Variable Initialization
     lv_xPAwarded = FixedToInt((IntToFixed(lp_xPAwarded) * gv_classLimitMultiplier));
@@ -5597,6 +5597,48 @@ bool auto_gf_AwardPlayerXPNOTD_TriggerFunc (bool testConds, bool runActions) {
         lv_index = PlayerGroupPlayer(autoBD1DEB66_g, autoBD1DEB66_p);
         if (((UnitIsAlive(gv_marineHero[lv_index]) == true) || (gv_cPAwardException[lv_index] == true))) {
             gv_playerXP[lv_index] += lv_xPAwarded;
+        }
+        else if ((UnitIsAlive(gv_playerPet[lv_index]) == true)) {
+            gv_playerXP[lv_index] += (lv_xPAwarded / 2);
+        }
+        gf_UIUpdateXP(lv_index);
+        if ((gv_playerXP[lv_index] >= UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)) && (gv_playerHasRankedUp[lv_index] == false)) {
+            gv_playerHasRankedUp[lv_index] = true;
+            gv_playerRank[lv_index] = (gv_playerRank[lv_index] + 1);
+            gf_RankUp(lv_index);
+        }
+
+    }
+    gf_AwardRatingPenaltyNOTD();
+    return true;
+}
+
+trigger auto_gf_AwardRatingPenaltyNOTD_Trigger = null;
+
+void gf_AwardRatingPenaltyNOTD () {
+    if (auto_gf_AwardRatingPenaltyNOTD_Trigger == null) {
+        auto_gf_AwardRatingPenaltyNOTD_Trigger = TriggerCreate("auto_gf_AwardRatingPenaltyNOTD_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_AwardRatingPenaltyNOTD_Trigger, false, false);
+}
+
+bool auto_gf_AwardRatingPenaltyNOTD_TriggerFunc (bool testConds, bool runActions) {
+    playergroup auto9DFBE614_g;
+    int auto9DFBE614_p;
+
+    // Variable Declarations
+    int lv_index;
+    int lv_localHitPar;
+
+    // Variable Initialization
+
+    // Implementation
+    auto9DFBE614_g = gv_marineSquad; 
+    auto9DFBE614_p = 1;
+    for ( ; auto9DFBE614_p <= PlayerGroupCount(auto9DFBE614_g) ; auto9DFBE614_p += BoolToInt(lv_index == PlayerGroupPlayer(auto9DFBE614_g, auto9DFBE614_p)) ) {
+        lv_index = PlayerGroupPlayer(auto9DFBE614_g, auto9DFBE614_p);
+        if (((UnitIsAlive(gv_marineHero[lv_index]) == true) || (gv_cPAwardException[lv_index] == true))) {
             lv_localHitPar = gv_hitPar;
             lv_localHitPar = FixedToInt((IntToFixed(gv_hitPar) * UserDataGetFixed("Classes", gv_playerClass[lv_index], "Hit Tolerance", 1)));
             if ((gv_playerRating[lv_index] >= 1800)) {
@@ -5627,15 +5669,6 @@ bool auto_gf_AwardPlayerXPNOTD_TriggerFunc (bool testConds, bool runActions) {
             else if ((gv_playerRating[lv_index] >= 1600) && (gv_hitsTaken[lv_index] >= lv_localHitPar)) {
                 gv_playerRating[lv_index] -= 1;
             }
-        }
-        else if ((UnitIsAlive(gv_playerPet[lv_index]) == true)) {
-            gv_playerXP[lv_index] += (lv_xPAwarded / 2);
-        }
-        gf_UIUpdateXP(lv_index);
-        if ((gv_playerXP[lv_index] >= UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)) && (gv_playerHasRankedUp[lv_index] == false)) {
-            gv_playerHasRankedUp[lv_index] = true;
-            gv_playerRank[lv_index] = (gv_playerRank[lv_index] + 1);
-            gf_RankUp(lv_index);
         }
 
     }
