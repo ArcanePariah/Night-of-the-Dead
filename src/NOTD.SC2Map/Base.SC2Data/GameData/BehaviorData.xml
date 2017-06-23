@@ -7545,8 +7545,7 @@
         <Modification SightBonus="3" SightMinimum="1"/>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-ocularimplants.dds"/>
         <BuffFlags index="Countdown" value="0"/>
-        <MaxStackCount value="10"/>
-        <MaxStackCountPerCaster value="10"/>
+        <MaxStackCount value="2"/>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Reload">
