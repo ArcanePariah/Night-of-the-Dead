@@ -131,6 +131,12 @@
         <SelectionRadius value="0.454300"/>
         <ShadowRadius value="0.454300"/>
     </CModel>
+    <CModel id="WarhoundPortrait">
+        <Model value="Assets\Portraits\Terran\ThorPortrait\ThorPortrait.m3"/>
+        <FacialController value="LocalizedData\Facial\ThorPortrait.fxa"/>
+        <Image value="Assets\Textures\thorportrait_static.dds"/>
+        <Lighting value="ThorPortrait"/>
+    </CModel>
     <CModel id="WraithDeathNOTD" parent="UnitDeath" Race="Zerg">
         <Model value="Assets\Units\Zerg\MutaliskEx1BDeath\MutaliskEx1BDeath.m3"/>
         <LowQualityModel value="ZergMediumUnitDeathLow"/>
@@ -530,7 +536,7 @@
         <EditorCategories value="Race:Terran"/>
     </CModel>
     <CModel id="MedicNOTD" parent="Unit" Race="Terran">
-        <Model value="Umojan Marine.m3"/>
+        <Model value="Assets\Units\Terran\Marine\Marine.m3"/>
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.350000"/>
         <Occlusion value="Show"/>
         <Radius value="0.375000"/>
@@ -586,7 +592,6 @@
         </TextureDeclares>
         <TextureDeclares/>
         <TextureInfos/>
-        <Model value="MarineDefault.m3"/>
     </CModel>
     <CModel id="RaynorCommando">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.350000"/>
@@ -594,7 +599,6 @@
             <Adaptions TriggerOnSubstring="_Diffuse" Slot="main.diffuse"/>
             <Adaptions TriggerOnSubstring="_Emissive" Slot="main.emissive"/>
         </TextureDeclares>
-        <Model value="Marine Classic.m3"/>
         <TechPurchaseCamera value="TechPurchaseInfantry"/>
     </CModel>
     <CModel id="SCV">
@@ -686,7 +690,7 @@
     </CModel>
     <CModel id="Ghost">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.300000"/>
-        <Model value="Umojan Shadow Guard Hero.m3"/>
+        <Model value="Assets\Units\Terran\Ghost\Ghost.m3"/>
         <TextureDeclares Prefix="Hpoly_Ghost_">
             <Adaptions TriggerOnSubstring="_Diffuse" Slot="main.diffuse"/>
             <Adaptions TriggerOnSubstring="_Emissive" Slot="main.emissive"/>
@@ -2590,7 +2594,7 @@
         <AnimSpeed value="0.700000"/>
     </CModel>
     <CModel id="Technician" parent="Unit" Race="Terran">
-        <Model value="Assets\Units\Terran\MercCommander\MercCommander.m3"/>
+        <Model value="Assets\Units\Terran\VikingMercenaryAssault\VikingMercenaryAssault.m3"/>
         <AttachProps Id="Ref_Weapon Left">
             <Keys index="SetA" value="0"/>
         </AttachProps>
@@ -2983,9 +2987,10 @@
     </CModel>
     <CModel id="WarPig">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.350000"/>
-        <Model value="Assets\Units\Terran\MarineRaynorEx1\MarineRaynorEx1.m3"/>
         <Flags index="AutoUnload" value="1"/>
         <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
     </CModel>
     <CModel id="WreckingCrewAssaultAttackImpact2" parent="ImpactFX">
         <Model value="Assets\Effects\Terran\VikingAssaultWeaponImpact\VikingAssaultWeaponImpact.m3"/>
@@ -3004,7 +3009,6 @@
     <CModel id="WreckingCrewAssaultDeath">
         <ScaleMax value="0.800000,0.800000,0.800000"/>
         <ScaleMin value="0.800000,0.800000,0.800000"/>
-        <Model value="Assets\Units\Terran\MercCommanderDeath\MercCommanderDeath_00.m3"/>
     </CModel>
     <CModel id="X1" parent="Unit" Race="Terran">
         <Model value="Assets\Units\Terran\ARES\ARES.m3"/>
