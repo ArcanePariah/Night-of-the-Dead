@@ -7128,14 +7128,14 @@ bool auto_gf_ECNydusSpawn_TriggerFunc (bool testConds, bool runActions) {
         Wait(0.1, c_timeGame);
         libNtve_gf_UnitCreateFacingPoint(1, "Ultralisk", 0, 14, RegionRandomPoint(gv_nydusNetwork[lv_nydusSpawnAreas[lv_localIntA]]), RegionRandomPoint(RegionPlayableMap()));
         UnitGroupAdd(gv_nydusWormAgronGroup, UnitLastCreated());
-        AIAttackWaveAddEscortUnit(14, UnitLastCreated(), lv_lastcreatedworm, 5.0, 90.0);
+        AIAttackWaveAddEscortUnit(14, UnitLastCreated(), lv_lastcreatedworm, 3.0, 270.0);
         PingCreate(PlayerGroupActive(), "PingObjective", RegionGetCenter(gv_nydusNetwork[lv_nydusSpawnAreas[lv_localIntA]]), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 300.0);
         Wait(0.1, c_timeGame);
         lv_localIntA += 1;
     }
     lv_localIntA = 1;
     while ((lv_localIntA < 9)) {
-        IntLoopBegin(0, (lv_nydusSpawnQuantity - 1));
+        IntLoopBegin(1, lv_nydusSpawnQuantity);
         for ( ; !IntLoopDone() ; IntLoopStep() ) {
             VisExploreArea(lv_localIntA, gv_nydusNetwork[lv_nydusSpawnAreas[IntLoopCurrent()]], true, false);
         }
@@ -7207,6 +7207,17 @@ bool auto_gf_ECNydusMobs_TriggerFunc (bool testConds, bool runActions) {
         }
         UnitGroupLoopEnd();
     }
+    UnitGroupLoopBegin(gv_nydusWormAgronGroup);
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        AIAttackWaveUseUnit(14, UnitGroupLoopCurrent());
+    }
+    UnitGroupLoopEnd();
+    AIAttackWaveSend(14, 0, false);
+    UnitGroupLoopBegin(gv_nydusWormSpineGroup);
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitBehaviorAdd(UnitGroupLoopCurrent(), "NydusWormTimedLife", UnitGroupLoopCurrent(), 1);
+    }
+    UnitGroupLoopEnd();
     return true;
 }
 
