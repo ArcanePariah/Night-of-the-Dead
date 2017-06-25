@@ -7211,7 +7211,7 @@ bool auto_gf_ECNydusMobs_TriggerFunc (bool testConds, bool runActions) {
     UnitGroupAddUnitGroup(gv_zombieWave, gv_nydusWormAgronGroup);
     UnitGroupLoopBegin(gv_nydusWormSpineGroup);
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        UnitBehaviorAdd(UnitGroupLoopCurrent(), "NydusWormTimedLife", UnitGroupLoopCurrent(), 1);
+        UnitKill(UnitGroupLoopCurrent());
     }
     UnitGroupLoopEnd();
     return true;
