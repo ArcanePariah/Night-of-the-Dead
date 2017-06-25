@@ -7207,12 +7207,8 @@ bool auto_gf_ECNydusMobs_TriggerFunc (bool testConds, bool runActions) {
         }
         UnitGroupLoopEnd();
     }
-    UnitGroupLoopBegin(gv_nydusWormAgronGroup);
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        AIAttackWaveUseUnit(14, UnitGroupLoopCurrent());
-    }
-    UnitGroupLoopEnd();
-    AIAttackWaveSend(14, 0, false);
+    AISetGroupScriptControlled(gv_nydusWormAgronGroup, false);
+    UnitGroupAddUnitGroup(gv_zombieWave, gv_nydusWormAgronGroup);
     UnitGroupLoopBegin(gv_nydusWormSpineGroup);
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         UnitBehaviorAdd(UnitGroupLoopCurrent(), "NydusWormTimedLife", UnitGroupLoopCurrent(), 1);
