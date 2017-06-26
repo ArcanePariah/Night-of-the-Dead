@@ -31039,15 +31039,7 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_VetPugGameBonus, true, false);
     TriggerExecute(gt_NightmareBonus, true, false);
     TriggerExecute(gt_STC2ItemSpawn, true, false);
-    UnitIssueOrder(UnitFromId(29), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
-    UnitGroupLoopBegin(UnitGroup(null, 0, RegionFromId(45), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "PathingBlocker1x1")) {
-            UnitRemove(UnitGroupLoopCurrent());
-        }
-
-    }
-    UnitGroupLoopEnd();
+    TriggerExecute(gt_ACEnterSiteAlphaGate, false, false);
     TriggerExecute(gt_STW8ChaseBergmann, true, false);
     autoDDB5831C_n = gv_spawnFactor;
     for (autoDDB5831C_i = 1; autoDDB5831C_i <= autoDDB5831C_n; autoDDB5831C_i += 1) {
