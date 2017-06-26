@@ -31017,11 +31017,6 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
     int autoDDB5831C_n;
     int autoDDB5831C_i;
 
-    // Variable Declarations
-    int lv_randominteger;
-
-    // Variable Initialization
-
     // Actions
     if (!runActions) {
         return true;
@@ -31044,24 +31039,6 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_VetPugGameBonus, true, false);
     TriggerExecute(gt_NightmareBonus, true, false);
     TriggerExecute(gt_STC2ItemSpawn, true, false);
-    gv_drBergmannEscapeZones[1] = RegionFromId(122);
-    gv_drBergmannEscapeZones[2] = RegionFromId(136);
-    gv_drBergmannEscapeZones[3] = RegionFromId(1);
-    gv_drBergmannEscapeZones[4] = RegionFromId(3);
-    gv_drBergmannEscapeZones[5] = RegionFromId(135);
-    gv_drBergmannEscapeZones[6] = RegionFromId(103);
-    gv_drBergmannEscapeZones[7] = RegionFromId(14);
-    gv_drBergmannEscapeZonesHeight[1] = 20.0;
-    gv_drBergmannEscapeZonesHeight[2] = 24.0;
-    gv_drBergmannEscapeZonesHeight[3] = 20.0;
-    gv_drBergmannEscapeZonesHeight[4] = 20.5;
-    gv_drBergmannEscapeZonesHeight[5] = 20.5;
-    gv_drBergmannEscapeZonesHeight[6] = 20.5;
-    gv_drBergmannEscapeZonesHeight[7] = 21.0;
-    libNtve_gf_UnitCreateFacingPoint(1, "DrBergmann", 0, 13, RegionRandomPoint(RegionFromId(168)), RegionRandomPoint(RegionPlayableMap()));
-    gv_drBergmann = UnitLastCreated();
-    libNtve_gf_MakeUnitInvulnerable(gv_drBergmann, true);
-    Wait(1.0, c_timeReal);
     UnitIssueOrder(UnitFromId(29), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
     UnitGroupLoopBegin(UnitGroup(null, 0, RegionFromId(45), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
@@ -31071,21 +31048,6 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
 
     }
     UnitGroupLoopEnd();
-    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/6346A37F"));
-    Wait(5.0, c_timeReal);
-    gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/E820F84B"));
-    Wait(5.0, c_timeReal);
-    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/5E6F0326"));
-    UnitSetPropertyFixed(gv_drBergmann, c_unitPropMovementSpeed, 3.5);
-    UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(55))), c_orderQueueReplace);
-    Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/0997B617"));
-    Wait(5.0, c_timeReal);
-    gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/1655273D"));
-    Wait(5.0, c_timeReal);
-    lv_randominteger = RandomInt(1, 7);
-    gv_drBergmannHidePoint = gf_RandomPointatGroundHeight(gv_drBergmannEscapeZones[lv_randominteger], gv_drBergmannEscapeZonesHeight[lv_randominteger]);
-    UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), gv_drBergmannHidePoint), c_orderQueueReplace);
     TriggerExecute(gt_STW8ChaseBergmann, true, false);
     autoDDB5831C_n = gv_spawnFactor;
     for (autoDDB5831C_i = 1; autoDDB5831C_i <= autoDDB5831C_n; autoDDB5831C_i += 1) {
@@ -31171,6 +31133,39 @@ bool gt_STW8ChaseBergmann_Func (bool testConds, bool runActions) {
     }
 
     gv_wave = 8;
+    gv_drBergmannEscapeZones[1] = RegionFromId(122);
+    gv_drBergmannEscapeZones[2] = RegionFromId(136);
+    gv_drBergmannEscapeZones[3] = RegionFromId(1);
+    gv_drBergmannEscapeZones[4] = RegionFromId(3);
+    gv_drBergmannEscapeZones[5] = RegionFromId(135);
+    gv_drBergmannEscapeZones[6] = RegionFromId(103);
+    gv_drBergmannEscapeZones[7] = RegionFromId(14);
+    gv_drBergmannEscapeZonesHeight[1] = 20.0;
+    gv_drBergmannEscapeZonesHeight[2] = 24.0;
+    gv_drBergmannEscapeZonesHeight[3] = 20.0;
+    gv_drBergmannEscapeZonesHeight[4] = 20.5;
+    gv_drBergmannEscapeZonesHeight[5] = 20.5;
+    gv_drBergmannEscapeZonesHeight[6] = 20.5;
+    gv_drBergmannEscapeZonesHeight[7] = 21.0;
+    libNtve_gf_UnitCreateFacingPoint(1, "DrBergmann", 0, 13, RegionRandomPoint(RegionFromId(168)), RegionRandomPoint(RegionPlayableMap()));
+    gv_drBergmann = UnitLastCreated();
+    libNtve_gf_MakeUnitInvulnerable(gv_drBergmann, true);
+    Wait(1.0, c_timeReal);
+    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/6346A37F"));
+    Wait(5.0, c_timeReal);
+    gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/E820F84B"));
+    Wait(5.0, c_timeReal);
+    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/5E6F0326"));
+    UnitSetPropertyFixed(gv_drBergmann, c_unitPropMovementSpeed, 3.5);
+    UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(55))), c_orderQueueReplace);
+    Wait(5.0, c_timeReal);
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/0997B617"));
+    Wait(5.0, c_timeReal);
+    gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/1655273D"));
+    Wait(5.0, c_timeReal);
+    lv_randominteger = RandomInt(1, 7);
+    gv_drBergmannHidePoint = gf_RandomPointatGroundHeight(gv_drBergmannEscapeZones[lv_randominteger], gv_drBergmannEscapeZonesHeight[lv_randominteger]);
+    UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), gv_drBergmannHidePoint), c_orderQueueReplace);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/88B3D376"));
     Wait(3.0, c_timeReal);
     ObjectiveDestroy(gv_primaryObjective);

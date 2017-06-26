@@ -2055,7 +2055,6 @@ Variable/Name/826EA404=LocalIntA
 Variable/Name/8282408F=Destination Slot
 Variable/Name/82C18C71=Sadist Level
 Variable/Name/830B8CA8=Rescue Player
-Variable/Name/8366D2A0=random integer
 Variable/Name/83A6319E=Random Point
 Variable/Name/83D24B9D=ret
 Variable/Name/841929C1=Forward Observer Owner
