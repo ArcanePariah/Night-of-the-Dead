@@ -31073,14 +31073,6 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
     UnitGroupLoopEnd();
     gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/6346A37F"));
     Wait(5.0, c_timeReal);
-    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionFromId(137), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if (((UnitGetType(UnitGroupLoopCurrent()) == "DisruptionTowerLevel1") || (UnitGetType(UnitGroupLoopCurrent()) == "DisruptionTowerLevel2"))) {
-            UnitKill(UnitGroupLoopCurrent());
-        }
-
-    }
-    UnitGroupLoopEnd();
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/E820F84B"));
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/5E6F0326"));
