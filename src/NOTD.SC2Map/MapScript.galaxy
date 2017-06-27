@@ -1593,7 +1593,6 @@ void gf_ACClosingCinematic ();
 void gf_STEnvironmentalChanges ();
 void gf_DeimosMinionAI ();
 void gf_STC2AmbientSpawns ();
-void gf_STW9DrBergmannFound ();
 void gf_BergmannAI (unit lp_rescueMarine);
 void gf_ReactorMeltdownAmbience ();
 void gf_DomeAuthorization (unit lp_hexUnit);
@@ -1993,6 +1992,7 @@ trigger gt_STC2ItemSpawn;
 trigger gt_STW8ChaseBergmann;
 trigger gt_STW8DrBergmannSearchPeriodic;
 trigger gt_STW8DrBergmannSearchAmbientSpawns;
+trigger gt_STW9DrBergmannFound;
 trigger gt_STW10BossSpawnApoptosis;
 trigger gt_STW10ApotosisBloodWave;
 trigger gt_STW10ApoptosisAttacked;
@@ -8661,88 +8661,6 @@ bool auto_gf_STC2AmbientSpawns_TriggerFunc (bool testConds, bool runActions) {
             gf_SmartSpawnNOTD("RoachBurrowed", 30.0);
         }
     }
-    return true;
-}
-
-trigger auto_gf_STW9DrBergmannFound_Trigger = null;
-
-void gf_STW9DrBergmannFound () {
-    if (auto_gf_STW9DrBergmannFound_Trigger == null) {
-        auto_gf_STW9DrBergmannFound_Trigger = TriggerCreate("auto_gf_STW9DrBergmannFound_TriggerFunc");
-    }
-
-    TriggerExecute(auto_gf_STW9DrBergmannFound_Trigger, false, false);
-}
-
-bool auto_gf_STW9DrBergmannFound_TriggerFunc (bool testConds, bool runActions) {
-    int auto5D533209_n;
-    int auto5D533209_i;
-
-    // Variable Declarations
-    region lv_drBergmannCaptureZone;
-    unit lv_rescueMarine;
-
-    // Variable Initialization
-    lv_rescueMarine = gv_drBergmannRescueMarine;
-
-    // Implementation
-    gv_wave = 9;
-    gv_hitPar = 55;
-    gf_AwardPlayerXPNOTD(3);
-    ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-    UnitBehaviorRemove(gv_drBergmann, "SpeedDebuff", 2);
-    gf_AwardRatingNOTD(1);
-    UnitIssueOrder(gv_drBergmann, Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
-    gf_RadioNOTD(PlayerName(UnitGetOwner(lv_rescueMarine)), StringExternal("Param/Value/97707086"));
-    Wait(5.0, c_timeReal);
-    UnitIssueOrder(gv_drBergmann, Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
-    PingCreate(gv_marineSquad, "PingObjective", UnitGetPosition(gv_drBergmann), ColorWithAlpha(100.00, 100.00, 0.00, 0.00), 30.0);
-    Wait(15.0, c_timeReal);
-    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/8D39612A"));
-    Wait(15.0, c_timeReal);
-    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/3B8FE58E"));
-    Wait(5.0, c_timeReal);
-    ObjectiveDestroy(gv_primaryObjective);
-    lv_drBergmannCaptureZone = RegionCircle(UnitGetPosition(gv_drBergmann), 9.0);
-    UnitSetOwner(gv_drBergmann, 9, false);
-    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/713DE317"));
-    Wait(2.5, c_timeReal);
-    libNtve_gf_MakeUnitInvulnerable(gv_drBergmann, false);
-    SoundPlay(SoundLink("Ghost_SnipeImpact", -1), PlayerGroupActive(), 100.0, 0.0);
-    UnitDamage(UnitGroupRandomUnit(gv_zombieWave, c_unitCountAlive), "PrecisionShotLevel2Damage", gv_drBergmann, 0.0);
-    Wait(2.5, c_timeReal);
-    SoundPlay(SoundLink("CharAmbientMarine400004", -1), PlayerGroupActive(), 100.0, 0.0);
-    Wait(2.5, c_timeReal);
-    libNtve_gf_UnitCreateFacingPoint(1, "BlackOps", 0, 13, RegionRandomPoint(RegionCircle(UnitGetPosition(gv_drBergmann), 7.0)), UnitGetPosition(gv_drBergmann));
-    gv_blackOpsOperator = UnitLastCreated();
-    UnitIssueOrder(gv_blackOpsOperator, Order(AbilityCommand("GhostCloak", 0)), c_orderQueueReplace);
-    Wait(7.0, c_timeReal);
-    if ((UnitIsAlive(gv_drBergmann) == true)) {
-        gv_drBergmannSaved = true;
-        gf_AwardPlayerXPNOTD(3);
-        gf_AwardRatingNOTD(1);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/12F45668"));
-        UnitSetPropertyFixed(gv_drBergmann, c_unitPropLifeRegen, 8.0);
-        gf_BergmannAI(lv_rescueMarine);
-        gf_RadioNOTD(PlayerName(UnitGetOwner(lv_rescueMarine)), StringExternal("Param/Value/64FA8B5C"));
-        Wait(3.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/4F006F2A"));
-        UnitWeaponAdd(gv_drBergmann, "Crowbar", null);
-    }
-    else {
-        gf_RadioNOTD(PlayerName(UnitGetOwner(lv_rescueMarine)), StringExternal("Param/Value/ED77EF38"));
-        gf_AwardKarmaNOTD(-1);
-    }
-    Wait(7.0, c_timeReal);
-    UIClearMessages(PlayerGroupAll(), c_messageAreaDirective);
-    auto5D533209_n = (gv_spawnFactor * 3);
-    for (auto5D533209_i = 1; auto5D533209_i <= auto5D533209_n; auto5D533209_i += 1) {
-        libNtve_gf_UnitCreateFacingPoint(1, "ZerglingBurrowed", 0, 14, RegionRandomPoint(lv_drBergmannCaptureZone), UnitGetPosition(gv_drBergmann));
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowZerglingUp", 0)), c_orderQueueReplace);
-        UnitGroupAddUnitGroup(gv_zombieWave, UnitLastCreatedGroup());
-        Wait(RandomFixed(0.1, 1.2), c_timeGame);
-    }
-    TriggerExecute(gt_STW10BossSpawnApoptosis, true, false);
     return true;
 }
 
@@ -31253,7 +31171,7 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
         IntLoopEnd();
     }
     TriggerStop(gt_STW8DrBergmannSearchAmbientSpawns);
-    gf_STW9DrBergmannFound();
+    TriggerExecute(gt_STW9DrBergmannFound, true, false);
     return true;
 }
 
@@ -31320,6 +31238,91 @@ bool gt_STW8DrBergmannSearchAmbientSpawns_Func (bool testConds, bool runActions)
 void gt_STW8DrBergmannSearchAmbientSpawns_Init () {
     gt_STW8DrBergmannSearchAmbientSpawns = TriggerCreate("gt_STW8DrBergmannSearchAmbientSpawns_Func");
     TriggerEnable(gt_STW8DrBergmannSearchAmbientSpawns, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: STW9 - Dr Bergmann Found
+//--------------------------------------------------------------------------------------------------
+bool gt_STW9DrBergmannFound_Func (bool testConds, bool runActions) {
+    int auto5D533209_n;
+    int auto5D533209_i;
+
+    // Variable Declarations
+    region lv_drBergmannCaptureZone;
+    unit lv_rescueMarine;
+
+    // Variable Initialization
+    lv_rescueMarine = gv_drBergmannRescueMarine;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_wave = 9;
+    gv_hitPar = 55;
+    gf_AwardPlayerXPNOTD(3);
+    ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
+    UnitBehaviorRemove(gv_drBergmann, "SpeedDebuff", 2);
+    gf_AwardRatingNOTD(1);
+    UnitIssueOrder(gv_drBergmann, Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
+    gf_RadioNOTD(PlayerName(UnitGetOwner(lv_rescueMarine)), StringExternal("Param/Value/97707086"));
+    Wait(5.0, c_timeReal);
+    UnitIssueOrder(gv_drBergmann, Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
+    PingCreate(gv_marineSquad, "PingObjective", UnitGetPosition(gv_drBergmann), ColorWithAlpha(100.00, 100.00, 0.00, 0.00), 30.0);
+    Wait(15.0, c_timeReal);
+    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/8D39612A"));
+    Wait(15.0, c_timeReal);
+    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/3B8FE58E"));
+    Wait(5.0, c_timeReal);
+    ObjectiveDestroy(gv_primaryObjective);
+    lv_drBergmannCaptureZone = RegionCircle(UnitGetPosition(gv_drBergmann), 9.0);
+    UnitSetOwner(gv_drBergmann, 9, false);
+    gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/713DE317"));
+    Wait(2.5, c_timeReal);
+    libNtve_gf_MakeUnitInvulnerable(gv_drBergmann, false);
+    SoundPlay(SoundLink("Ghost_SnipeImpact", -1), PlayerGroupActive(), 100.0, 0.0);
+    UnitDamage(UnitGroupRandomUnit(gv_zombieWave, c_unitCountAlive), "PrecisionShotLevel2Damage", gv_drBergmann, 0.0);
+    Wait(2.5, c_timeReal);
+    SoundPlay(SoundLink("CharAmbientMarine400004", -1), PlayerGroupActive(), 100.0, 0.0);
+    Wait(2.5, c_timeReal);
+    libNtve_gf_UnitCreateFacingPoint(1, "BlackOps", 0, 13, RegionRandomPoint(RegionCircle(UnitGetPosition(gv_drBergmann), 7.0)), UnitGetPosition(gv_drBergmann));
+    gv_blackOpsOperator = UnitLastCreated();
+    UnitIssueOrder(gv_blackOpsOperator, Order(AbilityCommand("GhostCloak", 0)), c_orderQueueReplace);
+    Wait(7.0, c_timeReal);
+    if ((UnitIsAlive(gv_drBergmann) == true)) {
+        gv_drBergmannSaved = true;
+        gf_AwardPlayerXPNOTD(3);
+        gf_AwardRatingNOTD(1);
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/12F45668"));
+        UnitSetPropertyFixed(gv_drBergmann, c_unitPropLifeRegen, 8.0);
+        gf_BergmannAI(lv_rescueMarine);
+        gf_RadioNOTD(PlayerName(UnitGetOwner(lv_rescueMarine)), StringExternal("Param/Value/64FA8B5C"));
+        Wait(3.0, c_timeReal);
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/4F006F2A"));
+        UnitWeaponAdd(gv_drBergmann, "Crowbar", null);
+    }
+    else {
+        gf_RadioNOTD(PlayerName(UnitGetOwner(lv_rescueMarine)), StringExternal("Param/Value/ED77EF38"));
+        gf_AwardKarmaNOTD(-1);
+    }
+    Wait(7.0, c_timeReal);
+    UIClearMessages(PlayerGroupAll(), c_messageAreaDirective);
+    auto5D533209_n = (gv_spawnFactor * 3);
+    for (auto5D533209_i = 1; auto5D533209_i <= auto5D533209_n; auto5D533209_i += 1) {
+        libNtve_gf_UnitCreateFacingPoint(1, "ZerglingBurrowed", 0, 14, RegionRandomPoint(lv_drBergmannCaptureZone), UnitGetPosition(gv_drBergmann));
+        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowZerglingUp", 0)), c_orderQueueReplace);
+        UnitGroupAddUnitGroup(gv_zombieWave, UnitLastCreatedGroup());
+        Wait(RandomFixed(0.1, 1.2), c_timeGame);
+    }
+    TriggerExecute(gt_STW10BossSpawnApoptosis, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_STW9DrBergmannFound_Init () {
+    gt_STW9DrBergmannFound = TriggerCreate("gt_STW9DrBergmannFound_Func");
+    TriggerEnable(gt_STW9DrBergmannFound, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -39469,6 +39472,7 @@ void InitTriggers () {
     gt_STW8ChaseBergmann_Init();
     gt_STW8DrBergmannSearchPeriodic_Init();
     gt_STW8DrBergmannSearchAmbientSpawns_Init();
+    gt_STW9DrBergmannFound_Init();
     gt_STW10BossSpawnApoptosis_Init();
     gt_STW10ApotosisBloodWave_Init();
     gt_STW10ApoptosisAttacked_Init();
