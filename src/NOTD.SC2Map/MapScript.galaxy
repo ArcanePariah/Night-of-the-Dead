@@ -5245,15 +5245,16 @@ point gf_RandomPointatGroundHeight (region lp_region, fixed lp_groundHeight) {
     point lv_randomPoint;
 
     // Variable Initialization
-    lv_randomPoint = RegionRandomPoint(lp_region);
 
     // Implementation
-    if ((WorldHeight(c_heightMapGround, lv_randomPoint) < lp_groundHeight)) {
-        return lv_randomPoint;
+    while (true) {
+        lv_randomPoint = RegionRandomPoint(lp_region);
+        if ((WorldHeight(c_heightMapGround, lv_randomPoint) < lp_groundHeight) && (PointPathingPassable(lv_randomPoint) == true)) {
+            return lv_randomPoint;
+        }
+
     }
-    else {
-        return gf_RandomPointatGroundHeight(lp_region, lp_groundHeight);
-    }
+    return lv_randomPoint;
 }
 
 bool gf_CPDecayFactor () {
