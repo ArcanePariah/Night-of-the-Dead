@@ -31278,10 +31278,10 @@ bool gt_STW9DrBergmannFound_Func (bool testConds, bool runActions) {
     Wait(5.0, c_timeReal);
     ObjectiveDestroy(gv_primaryObjective);
     lv_drBergmannCaptureZone = RegionCircle(UnitGetPosition(gv_drBergmann), 9.0);
-    UnitSetOwner(gv_drBergmann, 9, false);
+    UnitSetOwner(gv_drBergmann, 9, true);
     gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/713DE317"));
-    Wait(2.5, c_timeReal);
     libNtve_gf_MakeUnitInvulnerable(gv_drBergmann, false);
+    Wait(2.5, c_timeReal);
     SoundPlay(SoundLink("Ghost_SnipeImpact", -1), PlayerGroupActive(), 100.0, 0.0);
     UnitDamage(UnitGroupRandomUnit(gv_zombieWave, c_unitCountAlive), "PrecisionShotLevel2Damage", gv_drBergmann, 0.0);
     Wait(2.5, c_timeReal);
