@@ -31282,7 +31282,6 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
                 else {
                     gf_SmartSpawnNOTD("UltraliskBurrowed", 80.0);
                 }
-                libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
                 Wait(RandomFixed(0.1, 1.2), c_timeGame);
             }
         }
