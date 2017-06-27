@@ -28849,10 +28849,10 @@ bool gt_STInitialize_Func (bool testConds, bool runActions) {
         }
 
         if ((RandomInt(0, 1) == 1)) {
-            UnitBehaviorAdd(UnitGroupLoopCurrent(), "Wounded", UnitGroupLoopCurrent(), 1);
+            UnitBehaviorAdd(UnitLastCreated(), "Wounded", UnitLastCreated(), 1);
         }
         else {
-            UnitBehaviorAdd(UnitGroupLoopCurrent(), "Scared", UnitGroupLoopCurrent(), 1);
+            UnitBehaviorAdd(UnitLastCreated(), "Scared", UnitLastCreated(), 1);
         }
         Wait(0.1, c_timeGame);
     }
