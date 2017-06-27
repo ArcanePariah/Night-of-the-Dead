@@ -31237,8 +31237,6 @@ void gt_STW8ChaseBergmann_Init () {
 // Trigger: STW8 - Dr Bergmann Search Periodic
 //--------------------------------------------------------------------------------------------------
 bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
-    int auto2CA307CC_n;
-    int auto2CA307CC_i;
     int auto89A61452_n;
     int auto89A61452_i;
     int auto2D8C5165_n;
@@ -31251,15 +31249,13 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    auto2CA307CC_n = 500;
-    for (auto2CA307CC_i = 1; auto2CA307CC_i <= auto2CA307CC_n; auto2CA307CC_i += 1) {
+    while ((gv_drBergmannFound == false)) {
         Wait(5.0, c_timeReal);
         IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
         for ( ; !IntLoopDone() ; IntLoopStep() ) {
-            if ((UnitIsAlive(gv_marineHero[IntLoopCurrent()]) == true) && (DistanceBetweenPoints(UnitGetPosition(gv_drBergmann), UnitGetPosition(gv_marineHero[IntLoopCurrent()])) <= 5.0) && (gv_drBergmannFound == false)) {
+            if ((UnitIsAlive(gv_marineHero[IntLoopCurrent()]) == true) && (DistanceBetweenPoints(UnitGetPosition(gv_drBergmann), UnitGetPosition(gv_marineHero[IntLoopCurrent()])) <= 5.0)) {
                 gv_drBergmannFound = true;
                 gf_BergmannFound(gv_marineHero[IntLoopCurrent()]);
-                break;
             }
 
         }
