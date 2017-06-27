@@ -1991,6 +1991,7 @@ trigger gt_STC2Initialize;
 trigger gt_STC2ItemSpawn;
 trigger gt_STW8ChaseBergmann;
 trigger gt_STW8DrBergmannSearchPeriodic;
+trigger gt_STW8DrBergmannSearchAmbientSpawns;
 trigger gt_STW10BossSpawnApoptosis;
 trigger gt_STW10ApotosisBloodWave;
 trigger gt_STW10ApoptosisAttacked;
@@ -31164,6 +31165,7 @@ bool gt_STW8ChaseBergmann_Func (bool testConds, bool runActions) {
     ObjectiveCreate(StringExternal("Param/Value/A1177322"), StringExternal("Param/Value/CE2E2FF6"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
     TriggerExecute(gt_STW8DrBergmannSearchPeriodic, true, false);
+    TriggerExecute(gt_STW8DrBergmannSearchAmbientSpawns, true, false);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/823C2E42"), StringExternal("Param/Value/D1282F00"), 12.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     Wait(12.0, c_timeReal);
     UIHideTextCrawl(PlayerGroupAll());
@@ -31237,13 +31239,6 @@ void gt_STW8ChaseBergmann_Init () {
 // Trigger: STW8 - Dr Bergmann Search Periodic
 //--------------------------------------------------------------------------------------------------
 bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
-    int auto89A61452_n;
-    int auto89A61452_i;
-    int auto2D8C5165_n;
-    int auto2D8C5165_i;
-    int auto5FE00698_n;
-    int auto5FE00698_i;
-
     // Actions
     if (!runActions) {
         return true;
@@ -31260,9 +31255,37 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
 
         }
         IntLoopEnd();
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_STW8DrBergmannSearchPeriodic_Init () {
+    gt_STW8DrBergmannSearchPeriodic = TriggerCreate("gt_STW8DrBergmannSearchPeriodic_Func");
+    TriggerEnable(gt_STW8DrBergmannSearchPeriodic, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: STW8 - Dr Bergmann Search Ambient Spawns
+//--------------------------------------------------------------------------------------------------
+bool gt_STW8DrBergmannSearchAmbientSpawns_Func (bool testConds, bool runActions) {
+    int auto164DE13B_n;
+    int auto164DE13B_i;
+    int auto82E99525_n;
+    int auto82E99525_i;
+    int autoA94021A1_n;
+    int autoA94021A1_i;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while ((gv_drBergmannFound == false)) {
+        Wait(5.0, c_timeReal);
         if ((RandomInt(0, 7) == 1) && (PlayerGetPropertyInt(14, c_playerPropSuppliesUsed) < 100)) {
-            auto89A61452_n = (gv_spawnFactor * 1);
-            for (auto89A61452_i = 1; auto89A61452_i <= auto89A61452_n; auto89A61452_i += 1) {
+            auto164DE13B_n = (gv_spawnFactor * 1);
+            for (auto164DE13B_i = 1; auto164DE13B_i <= auto164DE13B_n; auto164DE13B_i += 1) {
                 if ((RandomInt(0, 5) == 1) && (gv_alivePlayers >= 4)) {
                     gf_SmartSpawnNOTD("Wraith2", 80.0);
                 }
@@ -31273,8 +31296,8 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
             }
         }
         else if ((RandomInt(0, 5) == 1) && (PlayerGetPropertyInt(14, c_playerPropSuppliesUsed) < 100)) {
-            auto2D8C5165_n = (gv_spawnFactor * 1);
-            for (auto2D8C5165_i = 1; auto2D8C5165_i <= auto2D8C5165_n; auto2D8C5165_i += 1) {
+            auto82E99525_n = (gv_spawnFactor * 1);
+            for (auto82E99525_i = 1; auto82E99525_i <= auto82E99525_n; auto82E99525_i += 1) {
                 if ((RandomInt(0, 2) == 1)) {
                     gf_SmartSpawnNOTD("Devourer2", 80.0);
                 }
@@ -31285,8 +31308,8 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
             }
         }
         else if ((RandomInt(0, 2) == 1) && (PlayerGetPropertyInt(14, c_playerPropSuppliesUsed) < 100)) {
-            auto5FE00698_n = (gv_spawnFactor * 2);
-            for (auto5FE00698_i = 1; auto5FE00698_i <= auto5FE00698_n; auto5FE00698_i += 1) {
+            autoA94021A1_n = (gv_spawnFactor * 2);
+            for (autoA94021A1_i = 1; autoA94021A1_i <= autoA94021A1_n; autoA94021A1_i += 1) {
                 gf_SmartSpawnNOTD("ZombieLevel22", 60.0);
                 Wait(RandomFixed(0.1, 1.2), c_timeGame);
             }
@@ -31296,9 +31319,9 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_STW8DrBergmannSearchPeriodic_Init () {
-    gt_STW8DrBergmannSearchPeriodic = TriggerCreate("gt_STW8DrBergmannSearchPeriodic_Func");
-    TriggerEnable(gt_STW8DrBergmannSearchPeriodic, false);
+void gt_STW8DrBergmannSearchAmbientSpawns_Init () {
+    gt_STW8DrBergmannSearchAmbientSpawns = TriggerCreate("gt_STW8DrBergmannSearchAmbientSpawns_Func");
+    TriggerEnable(gt_STW8DrBergmannSearchAmbientSpawns, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -39447,6 +39470,7 @@ void InitTriggers () {
     gt_STC2ItemSpawn_Init();
     gt_STW8ChaseBergmann_Init();
     gt_STW8DrBergmannSearchPeriodic_Init();
+    gt_STW8DrBergmannSearchAmbientSpawns_Init();
     gt_STW10BossSpawnApoptosis_Init();
     gt_STW10ApotosisBloodWave_Init();
     gt_STW10ApoptosisAttacked_Init();

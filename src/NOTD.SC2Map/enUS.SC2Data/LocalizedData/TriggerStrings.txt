@@ -1193,6 +1193,7 @@ Trigger/Name/BA543BE1=Gunship Buddy
 Trigger/Name/BD0EC006=Inception
 Trigger/Name/BD9A422C=Navy Cross
 Trigger/Name/BDA78E0A=Wave 17 - Random Mobs
+Trigger/Name/BF7C2433=STW8 - Dr Bergmann Search Ambient Spawns
 Trigger/Name/C03BC53C=Domes Sealed and Hades Located
 Trigger/Name/C04E98DE=ACW10 - Tanaka Intercepted
 Trigger/Name/C1463202=ACW11 - Tanaka Choice (Dialog)
