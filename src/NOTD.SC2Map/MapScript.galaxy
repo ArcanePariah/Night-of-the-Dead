@@ -31071,22 +31071,26 @@ bool gt_STW8ChaseBergmann_Func (bool testConds, bool runActions) {
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/1655273D"));
     Wait(5.0, c_timeReal);
-    lv_randominteger = RandomInt(1, 7);
-    gv_drBergmannHidePoint = gf_RandomPointatGroundHeight(gv_drBergmannEscapeZones[lv_randominteger], gv_drBergmannEscapeZonesHeight[lv_randominteger]);
-    UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), gv_drBergmannHidePoint), c_orderQueueReplace);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/88B3D376"));
     Wait(3.0, c_timeReal);
+    lv_randominteger = RandomInt(1, 7);
+    gv_drBergmannHidePoint = gf_RandomPointatGroundHeight(gv_drBergmannEscapeZones[lv_randominteger], gv_drBergmannEscapeZonesHeight[lv_randominteger]);
+    UnitSetPosition(gv_drBergmann, gv_drBergmannHidePoint, true);
+    UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), gv_drBergmannHidePoint), c_orderQueueReplace);
     ObjectiveDestroy(gv_primaryObjective);
     ObjectiveCreate(StringExternal("Param/Value/A1177322"), StringExternal("Param/Value/CE2E2FF6"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
     TriggerExecute(gt_STW8DrBergmannSearchPeriodic, true, false);
+    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[1]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
+    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[2]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
+    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[3]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
+    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[4]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
+    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[5]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
+    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[6]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
+    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[7]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/823C2E42"), StringExternal("Param/Value/D1282F00"), 12.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     Wait(12.0, c_timeReal);
     UIHideTextCrawl(PlayerGroupAll());
-    if ((DistanceBetweenPoints(UnitGetPosition(gv_drBergmann), gv_drBergmannHidePoint) >= 10.0) && (gv_drBergmannFound == false) && (UnitIsAlive(gv_drBergmann) == true)) {
-        UnitSetPosition(gv_drBergmann, gv_drBergmannHidePoint, true);
-    }
-
     Wait(15.0, c_timeReal);
     if ((RandomInt(0, 2) == 1) && (gv_drBergmannFound == false) && (UnitIsAlive(gv_drBergmann) == true)) {
         lv_randominteger = RandomInt(1, 7);
