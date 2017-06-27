@@ -31081,13 +31081,11 @@ bool gt_STW8ChaseBergmann_Func (bool testConds, bool runActions) {
     ObjectiveCreate(StringExternal("Param/Value/A1177322"), StringExternal("Param/Value/CE2E2FF6"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
     TriggerExecute(gt_STW8DrBergmannSearchPeriodic, true, false);
-    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[1]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
-    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[2]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
-    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[3]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
-    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[4]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
-    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[5]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
-    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[6]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
-    PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[7]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
+    IntLoopBegin(1, 7);
+    for ( ; !IntLoopDone() ; IntLoopStep() ) {
+        PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[IntLoopCurrent()]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 60.0);
+    }
+    IntLoopEnd();
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/823C2E42"), StringExternal("Param/Value/D1282F00"), 12.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     Wait(12.0, c_timeReal);
     UIHideTextCrawl(PlayerGroupAll());
@@ -31124,13 +31122,11 @@ bool gt_STW8ChaseBergmann_Func (bool testConds, bool runActions) {
         UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionCircle(UnitGetPosition(gv_drBergmann), 6.0))), c_orderQueueReplace);
         UnitBehaviorAddPlayer(gv_drBergmann, "SpeedDebuff", 0, 2);
         Wait(3.0, c_timeReal);
-        PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[1]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 30.0);
-        PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[2]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 30.0);
-        PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[3]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 30.0);
-        PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[4]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 30.0);
-        PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[5]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 30.0);
-        PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[6]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 30.0);
-        PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[7]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 30.0);
+        IntLoopBegin(1, 7);
+        for ( ; !IntLoopDone() ; IntLoopStep() ) {
+            PingCreate(gv_marineSquad, "PingObjective", RegionGetCenter(gv_drBergmannEscapeZones[IntLoopCurrent()]), ColorWithAlpha(95.69, 84.31, 16.86, 0.00), 30.0);
+        }
+        IntLoopEnd();
     }
 
     Wait(45.0, c_timeReal);
