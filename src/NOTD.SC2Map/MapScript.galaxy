@@ -31311,7 +31311,7 @@ bool gt_STW9DrBergmannFound_Func (bool testConds, bool runActions) {
     UIClearMessages(PlayerGroupAll(), c_messageAreaDirective);
     auto5D533209_n = (gv_spawnFactor * 3);
     for (auto5D533209_i = 1; auto5D533209_i <= auto5D533209_n; auto5D533209_i += 1) {
-        libNtve_gf_UnitCreateFacingPoint(1, "ZerglingBurrowed", 0, 14, RegionRandomPoint(lv_drBergmannCaptureZone), UnitGetPosition(gv_drBergmann));
+        libNtve_gf_UnitCreateFacingPoint(1, "ZerglingBurrowed", 0, 14, RegionRandomPoint(lv_drBergmannCaptureZone), RegionRandomPoint(RegionPlayableMap()));
         UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowZerglingUp", 0)), c_orderQueueReplace);
         UnitGroupAddUnitGroup(gv_zombieWave, UnitLastCreatedGroup());
         Wait(RandomFixed(0.1, 1.2), c_timeGame);
