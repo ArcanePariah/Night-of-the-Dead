@@ -31171,6 +31171,7 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
         IntLoopEnd();
     }
     TriggerStop(gt_STW8DrBergmannSearchAmbientSpawns);
+    TriggerStop(gt_STW8ChaseBergmann);
     TriggerExecute(gt_STW9DrBergmannFound, true, false);
     return true;
 }
