@@ -868,6 +868,7 @@ region[11] gv_drBergmannEscapeZones;
 fixed[8] gv_drBergmannEscapeZonesHeight;
 bool gv_drBergmannFound;
 bool gv_drBergmannSaved;
+unit gv_drBergmannRescueMarine;
 unit gv_blackOpsOperator;
 point gv_drBergmannHidePoint;
 timer gv_chapterSelectionTimer;
@@ -1592,7 +1593,7 @@ void gf_ACClosingCinematic ();
 void gf_STEnvironmentalChanges ();
 void gf_DeimosMinionAI ();
 void gf_STC2AmbientSpawns ();
-void gf_BergmannFound (unit lp_rescueMarine);
+void gf_STW9DrBergmannFound ();
 void gf_BergmannAI (unit lp_rescueMarine);
 void gf_ReactorMeltdownAmbience ();
 void gf_DomeAuthorization (unit lp_hexUnit);
@@ -8663,22 +8664,17 @@ bool auto_gf_STC2AmbientSpawns_TriggerFunc (bool testConds, bool runActions) {
     return true;
 }
 
-trigger auto_gf_BergmannFound_Trigger = null;
-unit auto_gf_BergmannFound_lp_rescueMarine;
+trigger auto_gf_STW9DrBergmannFound_Trigger = null;
 
-void gf_BergmannFound (unit lp_rescueMarine) {
-    auto_gf_BergmannFound_lp_rescueMarine = lp_rescueMarine;
-
-    if (auto_gf_BergmannFound_Trigger == null) {
-        auto_gf_BergmannFound_Trigger = TriggerCreate("auto_gf_BergmannFound_TriggerFunc");
+void gf_STW9DrBergmannFound () {
+    if (auto_gf_STW9DrBergmannFound_Trigger == null) {
+        auto_gf_STW9DrBergmannFound_Trigger = TriggerCreate("auto_gf_STW9DrBergmannFound_TriggerFunc");
     }
 
-    TriggerExecute(auto_gf_BergmannFound_Trigger, false, false);
+    TriggerExecute(auto_gf_STW9DrBergmannFound_Trigger, false, false);
 }
 
-bool auto_gf_BergmannFound_TriggerFunc (bool testConds, bool runActions) {
-    unit lp_rescueMarine = auto_gf_BergmannFound_lp_rescueMarine;
-
+bool auto_gf_STW9DrBergmannFound_TriggerFunc (bool testConds, bool runActions) {
     int auto5D533209_n;
     int auto5D533209_i;
 
@@ -8687,7 +8683,7 @@ bool auto_gf_BergmannFound_TriggerFunc (bool testConds, bool runActions) {
     unit lv_rescueMarine;
 
     // Variable Initialization
-    lv_rescueMarine = lp_rescueMarine;
+    lv_rescueMarine = gv_drBergmannRescueMarine;
 
     // Implementation
     gv_wave = 9;
@@ -31165,7 +31161,6 @@ bool gt_STW8ChaseBergmann_Func (bool testConds, bool runActions) {
     ObjectiveCreate(StringExternal("Param/Value/A1177322"), StringExternal("Param/Value/CE2E2FF6"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
     TriggerExecute(gt_STW8DrBergmannSearchPeriodic, true, false);
-    TriggerExecute(gt_STW8DrBergmannSearchAmbientSpawns, true, false);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/823C2E42"), StringExternal("Param/Value/D1282F00"), 12.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     Wait(12.0, c_timeReal);
     UIHideTextCrawl(PlayerGroupAll());
@@ -31244,18 +31239,21 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    TriggerExecute(gt_STW8DrBergmannSearchAmbientSpawns, true, false);
     while ((gv_drBergmannFound == false)) {
         Wait(0.5, c_timeReal);
         IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
         for ( ; !IntLoopDone() ; IntLoopStep() ) {
             if ((UnitIsAlive(gv_marineHero[IntLoopCurrent()]) == true) && (DistanceBetweenPoints(UnitGetPosition(gv_drBergmann), UnitGetPosition(gv_marineHero[IntLoopCurrent()])) <= 2.5)) {
                 gv_drBergmannFound = true;
-                gf_BergmannFound(gv_marineHero[IntLoopCurrent()]);
+                gv_drBergmannRescueMarine = gv_marineHero[IntLoopCurrent()];
             }
 
         }
         IntLoopEnd();
     }
+    TriggerStop(gt_STW8DrBergmannSearchAmbientSpawns);
+    gf_STW9DrBergmannFound();
     return true;
 }
 
