@@ -31245,10 +31245,10 @@ bool gt_STW8DrBergmannSearchPeriodic_Func (bool testConds, bool runActions) {
     }
 
     while ((gv_drBergmannFound == false)) {
-        Wait(5.0, c_timeReal);
+        Wait(0.5, c_timeReal);
         IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
         for ( ; !IntLoopDone() ; IntLoopStep() ) {
-            if ((UnitIsAlive(gv_marineHero[IntLoopCurrent()]) == true) && (DistanceBetweenPoints(UnitGetPosition(gv_drBergmann), UnitGetPosition(gv_marineHero[IntLoopCurrent()])) <= 5.0)) {
+            if ((UnitIsAlive(gv_marineHero[IntLoopCurrent()]) == true) && (DistanceBetweenPoints(UnitGetPosition(gv_drBergmann), UnitGetPosition(gv_marineHero[IntLoopCurrent()])) <= 2.5)) {
                 gv_drBergmannFound = true;
                 gf_BergmannFound(gv_marineHero[IntLoopCurrent()]);
             }
