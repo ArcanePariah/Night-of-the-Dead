@@ -864,6 +864,7 @@ int gv_deimosMission;
 bool gv_shengAIShutdown;
 bool gv_deimosEngaged;
 bool gv_devastatorsDestroyed;
+unitgroup gv_initialHuggers;
 region[11] gv_drBergmannEscapeZones;
 fixed[8] gv_drBergmannEscapeZonesHeight;
 bool gv_drBergmannFound;
@@ -1190,6 +1191,7 @@ void InitGlobals () {
     gv_civilianPopulation = UnitGroupEmpty();
     gv_infectedCivilians = UnitGroupEmpty();
     gv_nazaraImages = UnitGroupEmpty();
+    gv_initialHuggers = UnitGroupEmpty();
     gv_chapterSelectionTimer = TimerCreate();
     gv_finalBossPoint = Point(40.3, 166.8);
     gv_laserDrones = UnitGroupEmpty();
@@ -1959,6 +1961,7 @@ trigger gt_ACBoss4Killed;
 trigger gt_STInitialize;
 trigger gt_STTeam2DeathTraps;
 trigger gt_STC1ItemSpawn;
+trigger gt_STW1HuggerPing;
 trigger gt_STW1ApolloFinalHoldoutDeaths;
 trigger gt_STW1HarassMobCycle;
 trigger gt_STW1AgronWarning;
@@ -28915,9 +28918,10 @@ bool gt_STInitialize_Func (bool testConds, bool runActions) {
         lv_huggerSpawnArea = RegionFromId(99);
     }
     if ((gv_noNewbie == true)) {
-        libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingWarning", RegionGetCenter(lv_huggerSpawnArea), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 30.0, 270.0);
         UnitCreate(3, "Hugger2", 0, 13, RegionRandomPoint(lv_huggerSpawnArea), libNtve_gf_RandomAngle());
         UnitGroupIssueOrder(UnitLastCreatedGroup(), Order(AbilityCommand("UnburrowHugger", 0)), c_orderQueueReplace);
+        UnitGroupAddUnitGroup(gv_initialHuggers, UnitLastCreatedGroup());
+        TriggerExecute(gt_STW1HuggerPing, true, false);
     }
 
     Wait(9.0, c_timeReal);
@@ -29084,6 +29088,28 @@ bool gt_STC1ItemSpawn_Func (bool testConds, bool runActions) {
 void gt_STC1ItemSpawn_Init () {
     gt_STC1ItemSpawn = TriggerCreate("gt_STC1ItemSpawn_Func");
     TriggerEnable(gt_STC1ItemSpawn, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: STW1 - Hugger Ping
+//--------------------------------------------------------------------------------------------------
+bool gt_STW1HuggerPing_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while ((UnitGroupCount(gv_initialHuggers, c_unitCountAlive) > 0)) {
+        libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingWarning", UnitGroupCenterOfGroup(gv_initialHuggers), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 2.0, 270.0);
+        Wait(2.0, c_timeGame);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_STW1HuggerPing_Init () {
+    gt_STW1HuggerPing = TriggerCreate("gt_STW1HuggerPing_Func");
+    TriggerEnable(gt_STW1HuggerPing, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -39438,6 +39464,7 @@ void InitTriggers () {
     gt_STInitialize_Init();
     gt_STTeam2DeathTraps_Init();
     gt_STC1ItemSpawn_Init();
+    gt_STW1HuggerPing_Init();
     gt_STW1ApolloFinalHoldoutDeaths_Init();
     gt_STW1HarassMobCycle_Init();
     gt_STW1AgronWarning_Init();
