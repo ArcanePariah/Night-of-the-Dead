@@ -4914,6 +4914,7 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="225418266" Variation="3" Position="65.1098,124.66,19.9294" Rotation="1.5705" Scale="1.5,1.5,1.5" Type="Decal">
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -13809,6 +13810,7 @@
     <ObjectPoint Id="405327730" Position="245.5,9.5,0" Scale="1,1,1" Type="StartLoc" Name="Start Location 014" Color="0,0,0,0"/>
     <ObjectPoint Id="427860851" Position="245.5,11.5,0" Scale="1,1,1" Type="StartLoc" Name="Start Location 009" Color="0,0,0,0"/>
     <ObjectPoint Id="696597165" Position="245.5,10.5,0" Scale="1,1,1" Type="StartLoc" Name="Start Location 013" Color="0,0,0,0"/>
+    <ObjectPoint Id="833123111" Position="99.8623,80.881,0" Scale="1,1,1" Type="Normal" Name="Spawn Pathing Validator" Color="0,0,0,0"/>
     <ObjectCamera Id="313" Position="186.18,174.176,0" Rotation="2.6437" Scale="1,1,1" Name="Chapter 2 Intro Cam" Color="0,0,0,0" CameraTarget="186.18,174.176">
         <CameraValue Index="FieldOfView" Value="35"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
@@ -13833,14 +13835,14 @@
         <CameraValue Index="FocalDepth" Value="18"/>
         <CameraValue Index="FalloffEnd" Value="18"/>
     </ObjectCamera>
-    <ObjectCamera Id="346" Position="140.7033,176.6752,0" Rotation="0.0971" Scale="1,1,1" Name="Power Generator Cam" Color="0,0,0,0" CameraTarget="140.7033,176.6752">
+    <ObjectCamera Id="346" Position="140.7033,176.6752,0" Rotation="0.097" Scale="1,1,1" Name="Power Generator Cam" Color="0,0,0,0" CameraTarget="140.7033,176.6752">
         <CameraValue Index="FieldOfView" Value="27.7995"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="13.1352"/>
         <CameraValue Index="Pitch" Value="42.23"/>
-        <CameraValue Index="Yaw" Value="5.5812"/>
+        <CameraValue Index="Yaw" Value="5.5671"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
@@ -13904,14 +13906,14 @@
         <CameraValue Index="FocalDepth" Value="18"/>
         <CameraValue Index="FalloffEnd" Value="18"/>
     </ObjectCamera>
-    <ObjectCamera Id="1161" Position="140.7045,176.6647,0" Rotation="0.0434" Scale="1,1,1" Name="Power Generator Cam End" Color="0,0,0,0" CameraTarget="140.7045,176.6647">
+    <ObjectCamera Id="1161" Position="140.7045,176.6647,0" Rotation="0.0432" Scale="1,1,1" Name="Power Generator Cam End" Color="0,0,0,0" CameraTarget="140.7045,176.6647">
         <CameraValue Index="FieldOfView" Value="27.7995"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="9.8686"/>
         <CameraValue Index="Pitch" Value="31.19"/>
-        <CameraValue Index="Yaw" Value="2.5036"/>
+        <CameraValue Index="Yaw" Value="2.4897"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
@@ -14149,26 +14151,26 @@
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="2327" Position="123.0585,157.86,0" Rotation="0.0214" Scale="1,1,1" Name="Bergmann Death A" Color="0,0,0,0" CameraTarget="123.0585,157.86">
+    <ObjectCamera Id="2327" Position="123.0585,157.86,0" Rotation="0.0212" Scale="1,1,1" Name="Bergmann Death A" Color="0,0,0,0" CameraTarget="123.0585,157.86">
         <CameraValue Index="FieldOfView" Value="27.7998"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.0451"/>
         <CameraValue Index="Pitch" Value="21.4772"/>
-        <CameraValue Index="Yaw" Value="1.2448"/>
+        <CameraValue Index="Yaw" Value="1.231"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="165.9748"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="2329" Position="123.0585,157.86,0" Rotation="0.0214" Scale="1,1,1" Name="Bergmann Death B" Color="0,0,0,0" CameraTarget="123.0585,157.86">
+    <ObjectCamera Id="2329" Position="123.0585,157.86,0" Rotation="0.0212" Scale="1,1,1" Name="Bergmann Death B" Color="0,0,0,0" CameraTarget="123.0585,157.86">
         <CameraValue Index="FieldOfView" Value="27.7998"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.3496"/>
         <CameraValue Index="Pitch" Value="21.4772"/>
-        <CameraValue Index="Yaw" Value="1.2448"/>
+        <CameraValue Index="Yaw" Value="1.231"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="165.9748"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
