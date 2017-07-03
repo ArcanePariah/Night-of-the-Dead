@@ -2077,7 +2077,7 @@
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="VenomEnergyTransferLevel1">
-        <Alignment value="Negative"/>
+        <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <MaxStackCount value="4"/>
@@ -2094,7 +2094,7 @@
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="VenomEnergyTransferLevel2">
-        <Alignment value="Negative"/>
+        <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <MaxStackCount value="4"/>
