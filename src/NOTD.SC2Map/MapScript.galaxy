@@ -792,6 +792,7 @@ unitgroup gv_apolloCivs;
 unit gv_rescueArrow;
 int gv_rescuedApolloCivs;
 int gv_civRescueObjective;
+int gv_civRescueBatchObjective;
 bool gv_gunshipSupport;
 region gv_gunshipAttackRegion;
 unitgroup gv_blackOpsDroneTeam;
@@ -1170,6 +1171,7 @@ void InitGlobals () {
     gv_nydusWormGroup = UnitGroupEmpty();
     gv_apolloCivs = UnitGroupEmpty();
     gv_civRescueObjective = c_invalidObjectiveId;
+    gv_civRescueBatchObjective = c_invalidObjectiveId;
     gv_blackOpsDroneTeam = UnitGroupEmpty();
     gv_easyCompany = UnitGroupEmpty();
     gv_queenMoveSpeed = 0.8;
@@ -1572,6 +1574,7 @@ void gf_ECNydusMobs ();
 void gf_ECChapter2ItemSpawn ();
 void gf_ErebosReturns ();
 void gf_PowerGeneratorsComplete ();
+void gf_DestroyObjectiveDelayed (int lp_objective);
 void gf_BlackOpsAIInitiative ();
 void gf_ECChapter3AirDrop ();
 void gf_CharlieCompanyAI ();
@@ -7335,6 +7338,28 @@ void gf_PowerGeneratorsComplete () {
 
     Wait(7.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/D028085E"));
+}
+
+trigger auto_gf_DestroyObjectiveDelayed_Trigger = null;
+int auto_gf_DestroyObjectiveDelayed_lp_objective;
+
+void gf_DestroyObjectiveDelayed (int lp_objective) {
+    auto_gf_DestroyObjectiveDelayed_lp_objective = lp_objective;
+
+    if (auto_gf_DestroyObjectiveDelayed_Trigger == null) {
+        auto_gf_DestroyObjectiveDelayed_Trigger = TriggerCreate("auto_gf_DestroyObjectiveDelayed_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_DestroyObjectiveDelayed_Trigger, false, false);
+}
+
+bool auto_gf_DestroyObjectiveDelayed_TriggerFunc (bool testConds, bool runActions) {
+    int lp_objective = auto_gf_DestroyObjectiveDelayed_lp_objective;
+
+    // Implementation
+    Wait(10.0, c_timeGame);
+    ObjectiveDestroy(lp_objective);
+    return true;
 }
 
 trigger auto_gf_BlackOpsAIInitiative_Trigger = null;
@@ -22587,6 +22612,8 @@ bool gt_Wave10OptionalCivilianRescueInitialization_Func (bool testConds, bool ru
     Wait(5.0, c_timeReal);
     while ((lv_localIntA < 13)) {
         gv_cityRescueAlarm = gv_cityRescue[RandomInt(1, 9)];
+        ObjectiveCreate((StringExternal("Param/Value/5B896DB4") + IntToText(lv_localIntA) + StringExternal("Param/Value/D95CDF30")), StringExternal("Param/Value/34FC3D29"), c_objectiveStateActive, false);
+        gv_civRescueBatchObjective = ObjectiveLastCreated();
         UnitCreate(1, "ShapeArrowPointer", 0, 0, RegionGetCenter(gv_cityRescueAlarm), 45.0);
         UnitSetTeamColorIndex(UnitLastCreated(), 7);
         libNtve_gf_MakeUnitInvulnerable(UnitLastCreated(), true);
@@ -22609,7 +22636,12 @@ bool gt_Wave10OptionalCivilianRescueInitialization_Func (bool testConds, bool ru
         }
         TriggerEnable(gt_Wave10OptionalCivilianRescueSave, true);
         Wait(45.0, c_timeReal);
-        UnitRemove(gv_rescueArrow);
+        if ((ObjectiveGetState(gv_civRescueBatchObjective) == c_objectiveStateActive)) {
+            ObjectiveSetState(gv_civRescueBatchObjective, c_objectiveStateFailed);
+            gf_DestroyObjectiveDelayed(gv_civRescueBatchObjective);
+            UnitRemove(gv_rescueArrow);
+        }
+
         lv_localIntA += 1;
     }
     return true;
@@ -22654,6 +22686,8 @@ bool gt_Wave10OptionalCivilianRescueSave_Func (bool testConds, bool runActions) 
 
     TriggerEnable(TriggerGetCurrent(), false);
     UnitRemove(gv_rescueArrow);
+    ObjectiveSetState(gv_civRescueBatchObjective, c_objectiveStateCompleted);
+    gf_DestroyObjectiveDelayed(gv_civRescueBatchObjective);
     auto4F10CAB0_n = 5;
     for (auto4F10CAB0_i = 1; auto4F10CAB0_i <= auto4F10CAB0_n; auto4F10CAB0_i += 1) {
         libNtve_gf_UnitCreateFacingPoint(1, gv_civPool[RandomInt(0, 1)], 0, lv_savingPlayer, RegionRandomPoint(lv_civRescueRegion), RegionRandomPoint(RegionPlayableMap()));
@@ -22715,6 +22749,7 @@ bool gt_Wave10OptionalCivilianEntersContainment_Func (bool testConds, bool runAc
     gv_rescuedApolloCivs += 1;
     gv_legionOfMeritCivsRescued += 1;
     SoundPlay(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupActive(), 100.0, 0.0);
+    ObjectiveSetName(gv_civRescueObjective, (StringExternal("Param/Value/2FED1591") + IntToText(gv_rescuedApolloCivs) + StringExternal("Param/Value/5AA04D5B")));
     if ((gv_rescuedApolloCivs == 60)) {
         gf_AwardPlayerXPNOTD(3);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/F318EF99"));
