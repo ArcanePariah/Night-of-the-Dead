@@ -102,6 +102,22 @@
         <Value value="1"/>
         <Behavior value="RavagingPhantomLevel2"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitType id="CasterisBrainBug">
+        <WhichUnit Value="Caster"/>
+        <Value value="BrainBug"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="CasterisLelantos">
+        <WhichUnit Value="Caster"/>
+        <Value value="Lelantos"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="CasterisNydusWorm">
+        <WhichUnit Value="Caster"/>
+        <Value value="NydusCanal"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="CasterisTartarus">
+        <WhichUnit Value="Caster"/>
+        <Value value="Tartarus"/>
+    </CValidatorUnitType>
     <CValidatorUnitType id="CasterisSlasher">
         <WhichUnit Value="Caster"/>
         <Value value="Slasher"/>
