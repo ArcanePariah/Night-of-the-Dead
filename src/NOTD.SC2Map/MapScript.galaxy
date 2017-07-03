@@ -13429,6 +13429,7 @@ bool gt_Environment_Func (bool testConds, bool runActions) {
     }
     IntLoopEnd();
     TriggerEnable(gt_InfestorKilled, true);
+    TriggerEnable(gt_InfestorAmbientSpawns, true);
     if ((gv_noNewbie == true) && (gv_squadRating >= 1600)) {
         TriggerEnable(gt_InfestorAI, true);
     }
@@ -15434,19 +15435,17 @@ bool gt_InfestorAmbientSpawns_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    TriggerEnable(TriggerGetCurrent(), false);
     IntLoopBegin(gv_indexBaseValue, 5);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        if ((UnitIsAlive(gv_infestor[IntLoopCurrent()]) == true) && (gv_totalPlayers > 2) && (gv_cinematicMode == false) && (UnitGetOwner(gv_infestor[IntLoopCurrent()]) == 14)) {
+        if ((UnitIsAlive(gv_infestor[IntLoopCurrent()]) == true) && (gv_cinematicMode == false) && (UnitGetOwner(gv_infestor[IntLoopCurrent()]) == 14)) {
             AIAttackWaveSetTargetUnitGroup(14, gv_marines);
             gf_WaveSpawnAtRegion(libNtve_gf_DifficultyValueUnitType("ZombieLevel12", "ZombieLevel22", "ZombieLevel22", "ZombieLevel22"), RegionPlayableMap(), libNtve_gf_DifficultyValueInt(1, 1, 1, 1));
-            AIAttackWaveSend(14, libNtve_gf_DifficultyValueInt(6, 4, 2, 0), true);
+            AIAttackWaveSend(14, libNtve_gf_DifficultyValueInt(6, 4, 2, 0), false);
             UnitIssueOrder(gv_infestor[IntLoopCurrent()], OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())), c_orderQueueReplace);
         }
 
     }
     IntLoopEnd();
-    TriggerEnable(TriggerGetCurrent(), true);
     return true;
 }
 
@@ -15454,7 +15453,7 @@ bool gt_InfestorAmbientSpawns_Func (bool testConds, bool runActions) {
 void gt_InfestorAmbientSpawns_Init () {
     gt_InfestorAmbientSpawns = TriggerCreate("gt_InfestorAmbientSpawns_Func");
     TriggerEnable(gt_InfestorAmbientSpawns, false);
-    TriggerAddEventTimePeriodic(gt_InfestorAmbientSpawns, 1.0, c_timeGame);
+    TriggerAddEventTimePeriodic(gt_InfestorAmbientSpawns, 30.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
