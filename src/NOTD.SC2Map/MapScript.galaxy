@@ -14920,14 +14920,18 @@ void gt_PredatorDies_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_Helium3AcquiredCredits_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    int lv_creditAllocation;
-    int lv_creditPool;
     int lv_creditsEarned;
     int lv_index;
-    fixed lv_multiplier;
 
     // Variable Initialization
-    lv_creditPool = (5 * gv_totalPlayers);
+    lv_creditsEarned = 10;
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnit()) == "Helium3Canister"))) {
+            return false;
+        }
+    }
 
     // Actions
     if (!runActions) {
@@ -14935,30 +14939,14 @@ bool gt_Helium3AcquiredCredits_Func (bool testConds, bool runActions) {
     }
 
     SoundPlay(SoundLink("UI_TerranNewUnitAcquired", -1), PlayerGroupAll(), 150.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/4F9763A6"));
-    lv_creditAllocation = (lv_creditPool / PlayerGroupCount(gv_marineSquad));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, (StringExternal("Param/Value/FF7D5EAC") + PlayerName(UnitGetOwner(EventUnitTargetUnit())) + StringExternal("Param/Value/9A5C7980")));
+    TextTagCreate(StringExternal("Param/Value/B0D8EA27"), 22, UnitGetPosition(EventUnit()), 0.4, true, true, PlayerGroupAll());
+    TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(0.00, 100.00, 0.00));
+    TextTagSetTime(TextTagLastCreated(), c_textTagTimeDuration, 3.0);
+    TextTagSetVelocity(TextTagLastCreated(), 2.0, 90.0);
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         lv_index = PlayerGroupLoopCurrent();
-        if ((gv_playerXP[lv_index] >= 120000)) {
-            lv_multiplier = 2.2;
-        }
-        else if ((gv_playerXP[PlayerGroupLoopCurrent()] >= 80000)) {
-            lv_multiplier = 1.9;
-        }
-        else if ((gv_playerXP[PlayerGroupLoopCurrent()] >= 40000)) {
-            lv_multiplier = 1.6;
-        }
-        else if ((gv_playerXP[PlayerGroupLoopCurrent()] >= 10000)) {
-            lv_multiplier = 1.3;
-        }
-        else if ((gv_playerXP[PlayerGroupLoopCurrent()] >= 5000)) {
-            lv_multiplier = 1.0;
-        }
-        else if (true) {
-            lv_multiplier = 0.5;
-        }
-        lv_creditsEarned = FixedToInt((IntToFixed(lv_creditAllocation) * lv_multiplier));
         gv_playerCredits[lv_index] += lv_creditsEarned;
         gv_playerLifeTimeCreditsAcquired[lv_index] += lv_creditsEarned;
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashLabel[lv_index], IntToText(gv_playerCredits[lv_index]), PlayerGroupAll());
@@ -14971,7 +14959,7 @@ bool gt_Helium3AcquiredCredits_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_Helium3AcquiredCredits_Init () {
     gt_Helium3AcquiredCredits = TriggerCreate("gt_Helium3AcquiredCredits_Func");
-    TriggerAddEventPlayerEffectUsed(gt_Helium3AcquiredCredits, 0, "Helium3AcquiredSet");
+    TriggerAddEventUnitAbility(gt_Helium3AcquiredCredits, null, AbilityCommand("Helium3PowerUp", 0), c_unitAbilStageExecute, false);
 }
 
 //--------------------------------------------------------------------------------------------------

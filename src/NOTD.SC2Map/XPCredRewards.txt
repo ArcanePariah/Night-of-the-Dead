@@ -8,9 +8,7 @@ XP AND CREDIT REWARDS
 6. Credits are multiplied by a number based on player XP. 0 -> 0.5, 5000 -> 1, 10000 -> 1.3, 40000 -> 1.6, 80000 -> 1.9, 120000 -> 2.2
 7. Game caps credits at +500 per game. Anything above 500 is wasted. Its possible to buy an item for 100 credits, and if the game rewards 650, you still get 500. 
 
-Helium-3 canisters have their own rules similar to the above.
-1. A single canister gives 5 credits.
-2. XP based multiplier with same values as above is applied.
+Helium-3 canisters give 10 credits flat to everyone.
 
 The sequence casual/normal/hard/brutal is a number based on AI difficulty level. For NOTD its recruit/veteran/nightmare/[UNUSED].
 
