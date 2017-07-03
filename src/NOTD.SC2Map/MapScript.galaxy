@@ -1510,6 +1510,7 @@ void gf_DeathDisplay (string lp_damageEffect, int lp_playerNumber, unit lp_kille
 void gf_DeathRating (unit lp_deadMarine, int lp_playerNumber);
 void gf_DeathCamera (region lp_deathLocation, unit lp_deadMarine, int lp_playerNumber);
 void gf_DeathDialogDestruction (int lp_playerNumber);
+point gf_RandomSpawnPointNOTD (region lp_spawnRegion);
 void gf_SmartSpawnNOTD (string lp_spawningUnit, fixed lp_spawnRange);
 void gf_WaveSpawnAroundMarines (string lp_spawningUnit, fixed lp_spawnRange, int lp_spawnAmount);
 void gf_WaveSpawnAtRegion (string lp_spawningUnit, region lp_spawnRegion, int lp_spawnAmount);
@@ -3993,6 +3994,85 @@ bool auto_gf_DeathDialogDestruction_TriggerFunc (bool testConds, bool runActions
     return true;
 }
 
+point gf_RandomSpawnPointNOTD (region lp_spawnRegion) {
+    int autoD31D2F7D_n;
+    int autoD31D2F7D_i;
+    int auto34BC4964_n;
+    int auto34BC4964_i;
+
+    // Variable Declarations
+    point lv_bestPoint;
+    int lv_bestQuality;
+    point lv_point;
+    int lv_quality;
+
+    // Variable Initialization
+
+    // Implementation
+    autoD31D2F7D_n = 30;
+    for (autoD31D2F7D_i = 1; autoD31D2F7D_i <= autoD31D2F7D_n; autoD31D2F7D_i += 1) {
+        lv_point = RegionRandomPoint(lp_spawnRegion);
+        lv_quality = 0;
+        if ((PointPathingPassable(lv_point) == true)) {
+            lv_quality = 1;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+        }
+        else {
+            continue;
+        }
+        if ((PointPathingIsConnected(lv_point, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == true)) {
+            lv_quality = 2;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+        }
+        else {
+            continue;
+        }
+        if ((UnitPathableToPoint(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), lv_point, 0.0, 0.0) == true)) {
+            lv_quality = 3;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+        }
+        else {
+            continue;
+        }
+        if ((DistanceBetweenPoints(lv_point, UnitGetPosition(UnitGroupClosestToPoint(gv_marines, lv_point))) >= 5.0)) {
+            lv_quality = 4;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+            break;
+        }
+        else {
+            continue;
+        }
+    }
+    if ((lv_bestPoint == null)) {
+        auto34BC4964_n = 10;
+        for (auto34BC4964_i = 1; auto34BC4964_i <= auto34BC4964_n; auto34BC4964_i += 1) {
+            lv_bestPoint = RegionRandomPoint(RegionPlayableMap());
+            if ((PointPathingPassable(lv_bestPoint) == true)) {
+                break;
+            }
+
+        }
+    }
+
+    return lv_bestPoint;
+}
+
 trigger auto_gf_SmartSpawnNOTD_Trigger = null;
 string auto_gf_SmartSpawnNOTD_lp_spawningUnit;
 fixed auto_gf_SmartSpawnNOTD_lp_spawnRange;
@@ -4012,9 +4092,6 @@ bool auto_gf_SmartSpawnNOTD_TriggerFunc (bool testConds, bool runActions) {
     string lp_spawningUnit = auto_gf_SmartSpawnNOTD_lp_spawningUnit;
     fixed lp_spawnRange = auto_gf_SmartSpawnNOTD_lp_spawnRange;
 
-    int auto7948FB3E_n;
-    int auto7948FB3E_i;
-
     // Variable Declarations
     int lv_attempts;
     point lv_unitSpawnPoint;
@@ -4022,28 +4099,9 @@ bool auto_gf_SmartSpawnNOTD_TriggerFunc (bool testConds, bool runActions) {
     bool lv_spawnPointReset;
 
     // Variable Initialization
-    lv_unitSpawnPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
+    lv_unitSpawnPoint = gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
 
     // Implementation
-    auto7948FB3E_n = 2;
-    for (auto7948FB3E_i = 1; auto7948FB3E_i <= auto7948FB3E_n; auto7948FB3E_i += 1) {
-        UnitGroupLoopBegin(gv_marines);
-        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-            if ((DistanceBetweenPoints(UnitGetPosition(UnitGroupLoopCurrent()), lv_unitSpawnPoint) < 5.0)) {
-                lv_spawnPointReset = true;
-            }
-
-        }
-        UnitGroupLoopEnd();
-        if ((lv_spawnPointReset == true)) {
-            lv_unitSpawnPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
-        }
-
-    }
-    while ((PointPathingIsConnected(lv_unitSpawnPoint, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == false) && (lv_attempts <= 4)) {
-        lv_unitSpawnPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
-        lv_attempts += 1;
-    }
     UnitCreate(1, lp_spawningUnit, 0, 14, lv_unitSpawnPoint, libNtve_gf_RandomAngle());
     lv_spawnUnit = UnitLastCreated();
     UnitGroupAdd(gv_zombieWave, lv_spawnUnit);
