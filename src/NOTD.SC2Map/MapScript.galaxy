@@ -609,6 +609,9 @@ int[9] gv_equipmentButton;
 int gv_equipment;
 int[9] gv_ammoCounterDialog;
 int[9][3] gv_ammoCounterDialogItem;
+int[9] gv_ammoBarDialog;
+int[9] gv_ammoBarDialogItem;
+int[9] gv_ammoBarMaxRounds;
 fixed[9] gv_playerDamageTaken;
 bool[9] gv_playerMarinePetDead;
 bool[9] gv_playerDoctor;
@@ -1034,6 +1037,15 @@ void InitGlobals () {
         for (init_j = 0; init_j <= 2; init_j += 1) {
             gv_ammoCounterDialogItem[init_i][init_j] = c_invalidDialogControlId;
         }
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarDialog[init_i] = c_invalidDialogId;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarDialogItem[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarMaxRounds[init_i] = 30;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_playerRank[init_i] = 1;
@@ -3449,10 +3461,12 @@ void gf_ReloadMagazine (int lp_player, unit lp_reloadingUnit, int lp_reload, str
     if ((UnitGetType(lp_reloadingUnit) == "TychusChaingun")) {
         gv_marineRounds[lp_player] = (gv_playerRoundLimit[lp_player] * lv_assaultAmmo);
         gv_magazinesUsed[lp_player] += lv_assaultAmmo;
+        gv_ammoBarMaxRounds[lp_player] = (gv_playerRoundLimit[lp_player] * lv_assaultAmmo);
     }
     else {
         gv_marineRounds[lp_player] = (gv_playerRoundLimit[lp_player] * lv_baseAmmo);
         gv_magazinesUsed[lp_player] += lv_baseAmmo;
+        gv_ammoBarMaxRounds[lp_player] = (gv_playerRoundLimit[lp_player] * lv_baseAmmo);
     }
     gf_UpdateAmmoDialog(lp_player);
     UnitBehaviorRemovePlayer(lp_reloadingUnit, "InsufficientAmmo", lp_player, 1);
@@ -3613,9 +3627,27 @@ fixed gf_GetWeaponReload (int lp_player, unit lp_reloadingUnit, int lp_reload, s
 }
 
 void gf_UpdateAmmoDialog (int lp_playerNumber) {
+    // Variable Declarations
+    int lv_width;
+
+    // Variable Initialization
+
     // Implementation
     libNtve_gf_SetDialogItemText(gv_ammoCounterDialogItem[lp_playerNumber][0], IntToText(gv_marineRounds[lp_playerNumber]), PlayerGroupActive());
     libNtve_gf_SetDialogItemText(gv_ammoCounterDialogItem[lp_playerNumber][1], IntToText(gv_marineMags[lp_playerNumber]), PlayerGroupActive());
+    lv_width = TruncI((510.0 * (gv_marineRounds[lp_playerNumber] / IntToFixed(gv_ammoBarMaxRounds[lp_playerNumber]))));
+    if ((lv_width > 0)) {
+        DialogControlSetSize(gv_ammoBarDialogItem[lp_playerNumber], PlayerGroupActive(), lv_width, 9);
+    }
+    else {
+        DialogControlSetSize(gv_ammoBarDialogItem[lp_playerNumber], PlayerGroupActive(), 510, 9);
+    }
+    if ((gv_marineRounds[lp_playerNumber] > 2)) {
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogItem[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
+    }
+    else {
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogItem[lp_playerNumber], Color(100.00, 0.00, 0.00), PlayerGroupAll());
+    }
 }
 
 trigger auto_gf_BadlyInjured_Trigger = null;
@@ -3992,6 +4024,7 @@ bool auto_gf_DeathDialogDestruction_TriggerFunc (bool testConds, bool runActions
     DialogControlDestroy(gv_equipmentButton[lp_playerNumber]);
     DialogDestroy(gv_statsPlayerStatsDialog[lp_playerNumber]);
     DialogDestroy(gv_ammoCounterDialog[lp_playerNumber]);
+    DialogDestroy(gv_ammoBarDialog[lp_playerNumber]);
     if ((gv_shellDialog[lp_playerNumber] != c_invalidDialogId)) {
         DialogDestroy(gv_shellDialog[lp_playerNumber]);
     }
@@ -6079,6 +6112,10 @@ bool gf_PreCinematicProcessing () {
             DialogSetVisible(gv_ammoCounterDialog[IntLoopCurrent()], PlayerGroupAll(), false);
         }
 
+        if ((gv_ammoBarDialog[IntLoopCurrent()] != c_invalidDialogId)) {
+            DialogSetVisible(gv_ammoBarDialog[IntLoopCurrent()], PlayerGroupAll(), false);
+        }
+
         if ((gv_shellDialog[IntLoopCurrent()] != c_invalidDialogId)) {
             DialogSetVisible(gv_shellDialog[IntLoopCurrent()], PlayerGroupAll(), false);
         }
@@ -6193,6 +6230,7 @@ bool gf_PostCinematicProcessing () {
         }
 
         DialogSetVisible(gv_ammoCounterDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
+        DialogSetVisible(gv_ammoBarDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         DialogSetVisible(gv_equipment, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         CameraApplyInfo(PlayerGroupLoopCurrent(), CameraInfoDefault(), 0.0, -1, 10, true);
         if ((UnitIsAlive(gv_marineHero[PlayerGroupLoopCurrent()]) == true)) {
@@ -8061,6 +8099,7 @@ bool auto_gf_ECEndCinematic_TriggerFunc (bool testConds, bool runActions) {
     PlayerGroupLoopBegin(gv_activePlayers);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         DialogSetVisible(gv_ammoCounterDialog[PlayerGroupLoopCurrent()], PlayerGroupAll(), false);
+        DialogSetVisible(gv_ammoBarDialog[PlayerGroupLoopCurrent()], PlayerGroupAll(), false);
         DialogSetVisible(gv_shellDialog[PlayerGroupLoopCurrent()], PlayerGroupAll(), false);
     }
     PlayerGroupLoopEnd();
@@ -10333,6 +10372,7 @@ bool auto_gf_ClassCreationMaster_TriggerFunc (bool testConds, bool runActions) {
     else if ((UnitGetType(gv_marineHero[lp_playerIndex]) == "TychusChaingun")) {
         gv_playerRoundLimit[lp_playerIndex] = 40;
         gv_marineRounds[lp_playerIndex] = gv_playerRoundLimit[lp_playerIndex];
+        gv_ammoBarMaxRounds[lp_playerIndex] = 40;
         gf_UpdateAmmoDialog(lp_playerIndex);
     }
     else if ((UnitGetType(gv_marineHero[lp_playerIndex]) == "Spectre")) {
@@ -10417,6 +10457,17 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "MagazineCountLabel");
     gv_ammoCounterDialogItem[lp_player][1] = DialogControlLastCreated();
     DialogSetVisible(gv_ammoCounterDialog[lp_player], PlayerGroupSingle(lp_player), true);
+    DialogCreate(520, 20, c_anchorBottom, 375, 230, true);
+    DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), false);
+    gv_ammoBarDialog[lp_player] = DialogLastCreated();
+    DialogSetTransparency(DialogLastCreated(), 50.0);
+    DialogSetImage(DialogLastCreated(), "Assets\\Textures\\ui_mission_leaderboard_progressbar_frame.dds");
+    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 510, 9, c_anchorTopLeft, 5, 5, StringToText(""), "Assets\\Textures\\ui_mission_leaderboard_progressbar_fill.dds", c_triggerImageTypeNone, false, Color(28*100/255,167*100/255,234*100/255), c_triggerBlendModeNormal);
+    gv_ammoBarDialogItem[lp_player] = DialogControlLastCreated();
+    libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
+    libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
+    libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal("Param/Value/F0770585"), PlayerGroupAll());
+    DialogSetVisible(gv_ammoBarDialog[lp_player], PlayerGroupSingle(lp_player), true);
     gf_UpdateAmmoDialog(lp_player);
     return true;
 }
@@ -10705,6 +10756,7 @@ void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, int lp
     // Implementation
     DialogSetVisible(gv_equipment, PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
     DialogSetVisible(gv_ammoCounterDialog[lp_dialogOwner], PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
+    DialogSetVisible(gv_ammoBarDialog[lp_dialogOwner], PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
     if ((UserDataGetUnit("Classes", gv_playerClass[lp_dialogOwner], "Class Unit", 1) == "ForwardObserver") && (gv_talentLevel[1][lp_dialogOwner] > 0)) {
         DialogSetVisible(gv_shellDialog[lp_dialogOwner], PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
     }
@@ -34971,11 +35023,13 @@ bool gt_ShowInventory_Func (bool testConds, bool runActions) {
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         DialogSetVisible(gv_ammoCounterDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(EventPlayer()), false);
+        DialogSetVisible(gv_ammoBarDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(EventPlayer()), false);
         DialogControlSetVisible(gv_equipmentButton[PlayerGroupLoopCurrent()], PlayerGroupSingle(EventPlayer()), false);
     }
     PlayerGroupLoopEnd();
     DialogControlSetVisible(gv_equipmentButton[UnitGetOwner(EventUnit())], PlayerGroupSingle(EventPlayer()), true);
     DialogSetVisible(gv_ammoCounterDialog[UnitGetOwner(EventUnit())], PlayerGroupSingle(EventPlayer()), true);
+    DialogSetVisible(gv_ammoBarDialog[UnitGetOwner(EventUnit())], PlayerGroupSingle(EventPlayer()), true);
     UnitInventoryContainerOpen(PlayerGroupActive(), EventUnit(), 1, true);
     return true;
 }
