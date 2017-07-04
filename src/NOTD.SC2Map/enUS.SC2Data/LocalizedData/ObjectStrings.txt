@@ -4515,6 +4515,7 @@ Behavior/EditorSuffix/XS4Armor=NOTD
 Behavior/EditorSuffix/ZEffect=(15s immobilized) NOTD
 Behavior/EditorSuffix/ZeratulStun=NOTD
 Behavior/EditorSuffix/ZeusLetoHardenedArmor=NOTD
+Behavior/Name/InsufficientAmmoTimed=Insufficient Ammo Timed
 Behavior/Name/IntelligenceStat=Intelligence (Stat)
 Behavior/Name/OccularImplants=Ocular Implants
 Behavior/Name/StrengthStat=Strength (Stat)
