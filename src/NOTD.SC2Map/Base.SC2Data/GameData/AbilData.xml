@@ -4138,6 +4138,7 @@
             <Cooldown TimeUse="4"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="SonicTrapLevel1"/>
+        <AbilSetId value="SonicTrap"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SonicTrapLevel2">
         <EditorCategories value="AbilityorEffectType:Units"/>

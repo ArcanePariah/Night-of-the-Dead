@@ -1698,8 +1698,9 @@ void gf_CreateStatModPanels (int lp_player, int lp_statIndex, int lp_xOffset, in
 void gf_CreateWeaponModPanels (int lp_player, int lp_statIndex, int lp_xOffset, int lp_yOffset);
 bool gf_AttackerbehindTarget (unit lp_attacker, unit lp_target, fixed lp_rearAngle);
 void gf_RestoreLeaverControl ();
-void gf_SetCombatKnifeDamage (int lp_triggeringPlayer);
-fixed gf_WeaponsProfReloadTimeFactor (int lp_triggPlayer);
+void gf_SetCombatKnifeDamage (int lp_player);
+fixed gf_WeaponsProfReloadTimeFactor (int lp_reloadingPlayer);
+bool gf_HeroicLaserDesignateTarget (unit lp_targetUnit);
 void gf_ForwardObserverLaunchSound (int lp_forwardObserverOwner, point lp_point, int lp_shellMode);
 void gf_ForwardObserverShellFlightSound (int lp_forwardObserverOwner, point lp_point, int lp_shellMode);
 void gf_ForwardObserverCreateShellDialog (int lp_forwardObserverOwner);
@@ -12291,32 +12292,30 @@ void gf_RestoreLeaverControl () {
     }
 }
 
-void gf_SetCombatKnifeDamage (int lp_triggeringPlayer) {
-    // Variable Declarations
-    fixed lv_combatKnifeDamage;
-
-    // Variable Initialization
-    lv_combatKnifeDamage = 15.0;
-
+void gf_SetCombatKnifeDamage (int lp_player) {
     // Implementation
-    lv_combatKnifeDamage += ((IntToFixed(gv_playerRank[lp_triggeringPlayer]) - 1.0) * 0.5);
-    CatalogFieldValueSet(c_gameCatalogEffect, "CombatKnifeDamage", "Amount", lp_triggeringPlayer, FixedToString(lv_combatKnifeDamage, c_fixedPrecisionAny));
+    CatalogFieldValueModify(c_gameCatalogEffect, "CombatKnifeDamage", "Amount", lp_player, FixedToString(((IntToFixed(gv_playerRank[lp_player]) - 1.0) * 0.5), c_fixedPrecisionAny), c_upgradeOperationAdd);
 }
 
-fixed gf_WeaponsProfReloadTimeFactor (int lp_triggPlayer) {
+fixed gf_WeaponsProfReloadTimeFactor (int lp_reloadingPlayer) {
     // Variable Declarations
     fixed lv_abilityLevel;
 
     // Variable Initialization
-    lv_abilityLevel = IntToFixed(gv_talentLevel[3][lp_triggPlayer]);
+    lv_abilityLevel = IntToFixed(gv_talentLevel[3][lp_reloadingPlayer]);
 
     // Implementation
-    if (((lv_abilityLevel > 0.0) && (UnitGetType(gv_marineHero[lp_triggPlayer]) == "Rifleman"))) {
-        return (gv_baseMarineReloadMultiplier[lp_triggPlayer] - ((lv_abilityLevel * 0.175) * gv_baseMarineReloadMultiplier[lp_triggPlayer]));
+    if (((lv_abilityLevel > 0.0) && (UnitGetType(gv_marineHero[lp_reloadingPlayer]) == "Rifleman"))) {
+        return (gv_baseMarineReloadMultiplier[lp_reloadingPlayer] - ((lv_abilityLevel * 0.175) * gv_baseMarineReloadMultiplier[lp_reloadingPlayer]));
     }
     else {
-        return gv_baseMarineReloadMultiplier[lp_triggPlayer];
+        return gv_baseMarineReloadMultiplier[lp_reloadingPlayer];
     }
+}
+
+bool gf_HeroicLaserDesignateTarget (unit lp_targetUnit) {
+    // Implementation
+    return ((UnitGetType(lp_targetUnit) == "Infestor2") || (UnitGetType(lp_targetUnit) == "Tartarus") || (UnitGetType(lp_targetUnit) == "Erebos") || (UnitGetType(lp_targetUnit) == "Deimos") || (UnitGetType(lp_targetUnit) == "Demeter") || (UnitGetType(lp_targetUnit) == "Nazara") || (UnitGetType(lp_targetUnit) == "Apoptosis") || (UnitGetType(lp_targetUnit) == "Eos") || (UnitGetType(lp_targetUnit) == "Perses") || (UnitGetType(lp_targetUnit) == "Cerberus") || (UnitGetType(lp_targetUnit) == "Cronus") || (UnitGetType(lp_targetUnit) == "Ivax") || (UnitGetType(lp_targetUnit) == "Menoetes") || (UnitGetType(lp_targetUnit) == "Hephaestus"));
 }
 
 trigger auto_gf_ForwardObserverLaunchSound_Trigger = null;
@@ -37197,9 +37196,15 @@ void gt_CriticalStrike_Init () {
 // Trigger: Concentrated Fire Critical Strike
 //--------------------------------------------------------------------------------------------------
 bool gt_ConcentratedFireCriticalStrike_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+
+    // Variable Initialization
+    lv_player = UnitGetOwner(EventUnit());
+
     // Conditions
     if (testConds) {
-        if (!((gv_talentLevel[2][UnitGetOwner(EventUnit())] > 0))) {
+        if (!((gv_talentLevel[2][lv_player] > 0))) {
             return false;
         }
     }
@@ -37209,11 +37214,11 @@ bool gt_ConcentratedFireCriticalStrike_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((UnitHasBehavior(EventUnit(), "ConcentratedFireLevel1") == true) || (UnitHasBehavior(EventUnit(), "ConcentratedFireLevel2") == true) || (UnitHasBehavior(EventUnit(), "ConcentratedFireLevel3") == true))) {
-        libNtve_gf_SetUpgradeLevelForPlayer(UnitGetOwner(EventUnit()), "ConcentratedFireCriticalStrike", gv_talentLevel[1][UnitGetOwner(EventUnit())]);
+    if ((EventUnitBehaviorChange() == c_unitBehaviorChangeCreate)) {
+        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike", gv_talentLevel[1][lv_player]);
     }
     else {
-        libNtve_gf_SetUpgradeLevelForPlayer(UnitGetOwner(EventUnit()), "ConcentratedFireCriticalStrike", 0);
+        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike", 0);
     }
     return true;
 }
@@ -37233,16 +37238,22 @@ void gt_ConcentratedFireCriticalStrike_Init () {
 // Trigger: Harvester of Sorrow Critical Strike
 //--------------------------------------------------------------------------------------------------
 bool gt_HarvesterofSorrowCriticalStrike_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_player;
+
+    // Variable Initialization
+    lv_player = UnitGetOwner(EventUnit());
+
     // Actions
     if (!runActions) {
         return true;
     }
 
     if ((UnitHasBehavior(EventUnit(), "HarvesterofSorrow") == true)) {
-        libNtve_gf_SetUpgradeLevelForPlayer(UnitGetOwner(EventUnit()), "ConcentratedFireCriticalStrike2", 1);
+        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike2", 1);
     }
     else {
-        libNtve_gf_SetUpgradeLevelForPlayer(UnitGetOwner(EventUnit()), "ConcentratedFireCriticalStrike2", 0);
+        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike2", 0);
     }
     return true;
 }
@@ -37340,8 +37351,7 @@ bool gt_SonicTrapVision_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_SonicTrapVision_Init () {
     gt_SonicTrapVision = TriggerCreate("gt_SonicTrapVision_Func");
-    TriggerAddEventUnitAbility(gt_SonicTrapVision, null, AbilityCommand("SonicTrapLevel1", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_SonicTrapVision, null, AbilityCommand("SonicTrapLevel2", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_SonicTrapVision, null, AbilityCommand("SonicTrapLevel1", 0), c_unitAbilStageComplete, true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -37631,13 +37641,13 @@ bool gt_LaserDesignator_Func (bool testConds, bool runActions) {
     TimerStart(lv_lDDuration, 60.0, false, c_timeGame);
     PingCreate(gv_marineSquad, "PingObjective", UnitGetPosition(lv_designatedUnit), ColorWithAlpha(100.00, 0.00, 0.00, 49.41), 60.0);
     PingSetUnit(PingLastCreated(), lv_designatedUnit);
-    if (((UnitGetType(lv_designatedUnit) == "Infestor2") || (UnitGetType(lv_designatedUnit) == "Tartarus") || (UnitGetType(lv_designatedUnit) == "Erebos") || (UnitGetType(lv_designatedUnit) == "Deimos") || (UnitGetType(lv_designatedUnit) == "Demeter") || (UnitGetType(lv_designatedUnit) == "Nazara") || (UnitGetType(lv_designatedUnit) == "Apoptosis") || (UnitGetType(lv_designatedUnit) == "Eos") || (UnitGetType(lv_designatedUnit) == "Perses") || (UnitGetType(lv_designatedUnit) == "Ivax") || (UnitGetType(lv_designatedUnit) == "Cronus") || (UnitGetType(lv_designatedUnit) == "Cerberus") || (UnitGetType(lv_designatedUnit) == "Menoetes") || (UnitGetType(lv_designatedUnit) == "Hephaestus"))) {
+    if (gf_HeroicLaserDesignateTarget(lv_designatedUnit)) {
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, (UnitTypeGetName(UnitGetType(lv_designatedUnit)) + StringExternal("Param/Value/72B3A8D0")));
         SoundPlay(SoundLink("TUIWarningPing", -1), PlayerGroupAll(), 100.0, 0.0);
     }
 
     PlayerCreateEffectUnit(9, "LaserDesignatorReveal", lv_designatedUnit);
-    while (!(((UnitIsAlive(lv_designatedUnit) == false) || (libNtve_gf_UnitIsHidden(lv_designatedUnit) == true) || (TimerGetRemaining(lv_lDDuration) <= 0.0)))) {
+    while (!((libNtve_gf_UnitIsHidden(lv_designatedUnit) || !(UnitIsAlive(lv_designatedUnit)) || (TimerGetRemaining(lv_lDDuration) <= 0.0)))) {
         Wait(0.5, c_timeGame);
     }
     PingDestroy(PingLastCreated());
