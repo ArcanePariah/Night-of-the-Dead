@@ -3642,11 +3642,14 @@ void gf_UpdateAmmoDialog (int lp_playerNumber) {
     else {
         DialogControlSetSize(gv_ammoBarDialogItem[lp_playerNumber], PlayerGroupActive(), 510, 9);
     }
-    if ((gv_marineRounds[lp_playerNumber] > 2)) {
-        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogItem[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
-    }
-    else {
+    if ((gv_marineRounds[lp_playerNumber] <= 2)) {
         libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogItem[lp_playerNumber], Color(100.00, 0.00, 0.00), PlayerGroupAll());
+    }
+    else if ((gv_marineRounds[lp_playerNumber] <= 10)) {
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogItem[lp_playerNumber], Color(150*100/255,150*100/255,30*100/255), PlayerGroupAll());
+    }
+    else if (true) {
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogItem[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
     }
 }
 
@@ -10457,7 +10460,7 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "MagazineCountLabel");
     gv_ammoCounterDialogItem[lp_player][1] = DialogControlLastCreated();
     DialogSetVisible(gv_ammoCounterDialog[lp_player], PlayerGroupSingle(lp_player), true);
-    DialogCreate(520, 20, c_anchorBottom, 375, 230, true);
+    DialogCreate(521, 20, c_anchorBottom, 375, 230, true);
     DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), false);
     gv_ammoBarDialog[lp_player] = DialogLastCreated();
     DialogSetTransparency(DialogLastCreated(), 50.0);
