@@ -528,6 +528,9 @@ struct gs_TalentTree {
 //--------------------------------------------------------------------------------------------------
 // Global Preset Declarations
 //--------------------------------------------------------------------------------------------------
+const int ge_GameModes_Normal = 0;
+const int ge_GameModes_Nightmare = 1;
+const int ge_GameModes_Hell = 2;
 const int ge_ReloadType_Automatic = 0;
 const int ge_ReloadType_Manual = 1;
 const int ge_ReloadType_Perfect = 2;
@@ -696,7 +699,7 @@ region[8] gv_reinforcementSpawn;
 fixed[8] gv_reinforcementSpawnHeight;
 text gv_difficulty;
 int gv_storyline;
-int gv_mode;
+int gv_currentGameMode;
 trigger[gv_stories + 1] gv_storyIntializationTriggers;
 bool[gv_stories + 1] gv_storylineUnlocked;
 int gv_storylineDialog;
@@ -1094,7 +1097,7 @@ void InitGlobals () {
     }
     gv_difficulty = StringExternal("Param/Value/F8130A42");
     gv_storyline = 1;
-    gv_mode = 1;
+    gv_currentGameMode = ge_GameModes_Normal;
     for (init_i = 0; init_i <= gv_stories; init_i += 1) {
         gv_storylineUnlocked[init_i] = true;
     }
@@ -2639,8 +2642,8 @@ bool auto_gf_SetDifficulty_TriggerFunc (bool testConds, bool runActions) {
     gf_SQDifficultyAdjustments();
     DialogControlHookupStandard(c_triggerControlTypePanel, "UIContainer/ConsoleUIContainer/MissionTimePanel/BackgroundImage");
     lv_missionTimePanel = DialogControlLastCreated();
-    autoB90D3843_val = gv_mode;
-    if (autoB90D3843_val == 1) {
+    autoB90D3843_val = gv_currentGameMode;
+    if (autoB90D3843_val == ge_GameModes_Normal) {
         if ((gv_noNewbie == true)) {
             gv_difficulty = UserDataGetText("Mode", "Veteran", "Mode Name", 1);
             libNtve_gf_SetDialogItemImage(lv_missionTimePanel, "Assets\\Textures\\ui_commandcard_protossframe_normal.dds", PlayerGroupAll());
@@ -2655,7 +2658,7 @@ bool auto_gf_SetDifficulty_TriggerFunc (bool testConds, bool runActions) {
             PlayerGroupLoopEnd();
         }
     }
-    else if (autoB90D3843_val == 2) {
+    else if (autoB90D3843_val == ge_GameModes_Nightmare) {
         TriggerEnable(gt_InfestorAI, true);
         gv_nightmare = true;
         gv_difficulty = UserDataGetText("Mode", "Nightmare", "Mode Name", 1);
@@ -2677,7 +2680,7 @@ bool auto_gf_SetDifficulty_TriggerFunc (bool testConds, bool runActions) {
             gv_difficultyHPScaling += 0.2;
         }
     }
-    else if (autoB90D3843_val == 3) {
+    else if (autoB90D3843_val == ge_GameModes_Hell) {
         gv_difficulty = UserDataGetText("Mode", "Hell", "Mode Name", 1);
     }
     else {
@@ -13823,20 +13826,20 @@ bool gt_ModeSelection_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((lv_usedDialogControl == gv_modeSelection[1]) && (gv_mode != 1)) {
-        gv_mode = 1;
+    if ((lv_usedDialogControl == gv_modeSelection[1]) && (gv_currentGameMode != ge_GameModes_Normal)) {
+        gv_currentGameMode = ge_GameModes_Normal;
         libNtve_gf_SetDialogItemImage(gv_modeSelection[1], "Difficulty Buttons\\NOTDNormal3.dds", PlayerGroupAll());
         libNtve_gf_SetDialogItemImage(gv_modeSelection[2], "Difficulty Buttons\\NOTDNightmare2.dds", PlayerGroupAll());
         libNtve_gf_SetDialogItemImage(gv_modeSelection[3], "Difficulty Buttons\\NOTDHell2.dds", PlayerGroupAll());
     }
-    else if ((lv_usedDialogControl == gv_modeSelection[2]) && (gv_mode != 2)) {
-        gv_mode = 2;
+    else if ((lv_usedDialogControl == gv_modeSelection[2]) && (gv_currentGameMode != ge_GameModes_Nightmare)) {
+        gv_currentGameMode = ge_GameModes_Nightmare;
         libNtve_gf_SetDialogItemImage(gv_modeSelection[1], "Difficulty Buttons\\NOTDNormal2.dds", PlayerGroupAll());
         libNtve_gf_SetDialogItemImage(gv_modeSelection[2], "Difficulty Buttons\\NOTDNightmare3.dds", PlayerGroupAll());
         libNtve_gf_SetDialogItemImage(gv_modeSelection[3], "Difficulty Buttons\\NOTDHell2.dds", PlayerGroupAll());
     }
-    else if ((lv_usedDialogControl == gv_modeSelection[3]) && (gv_mode != 3)) {
-        gv_mode = 3;
+    else if ((lv_usedDialogControl == gv_modeSelection[3]) && (gv_currentGameMode != ge_GameModes_Nightmare)) {
+        gv_currentGameMode = ge_GameModes_Hell;
         libNtve_gf_SetDialogItemImage(gv_modeSelection[1], "Difficulty Buttons\\NOTDNormal2.dds", PlayerGroupAll());
         libNtve_gf_SetDialogItemImage(gv_modeSelection[2], "Difficulty Buttons\\NOTDNightmare2.dds", PlayerGroupAll());
         libNtve_gf_SetDialogItemImage(gv_modeSelection[3], "Difficulty Buttons\\NOTDHell3.dds", PlayerGroupAll());
@@ -13861,8 +13864,6 @@ bool gt_FinaliseStorylineandMode_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(gt_StorylineSelection, false);
-    gv_storyline = 1;
-    gv_mode = 1;
     libNtve_gf_SetDialogItemImage(gv_modeSelection[1], "Difficulty Buttons\\NOTDNormal3.dds", PlayerGroupAll());
     libNtve_gf_SetDialogItemImage(gv_modeSelection[2], "Difficulty Buttons\\NOTDNightmare2.dds", PlayerGroupAll());
     libNtve_gf_SetDialogItemImage(gv_modeSelection[3], "Difficulty Buttons\\NOTDHell2.dds", PlayerGroupAll());
@@ -14202,12 +14203,10 @@ void gt_TeamLocation_Init () {
 bool gt_ClassPointsCheck_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_cPPlayer;
-    int lv_playerIndex;
     int lv_player;
 
     // Variable Initialization
     lv_cPPlayer = StringToInt(StringWord(EventChatMessage(false), 2));
-    lv_playerIndex = lv_cPPlayer;
     lv_player = EventPlayer();
 
     // Conditions
@@ -14223,14 +14222,14 @@ bool gt_ClassPointsCheck_Func (bool testConds, bool runActions) {
     }
 
     UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/73EE1705") + (PlayerName(lv_cPPlayer) + StringExternal("Param/Value/24CA23FD"))));
-    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/C5477355") + IntToText(gv_playerCP[lv_playerIndex].lv_rifleman)));
-    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/9EF2DD88") + IntToText(gv_playerCP[lv_playerIndex].lv_medic)));
-    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/0C10B1B5") + IntToText(gv_playerCP[lv_playerIndex].lv_assaultFlamerTech)));
-    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/F66465BA") + IntToText(gv_playerCP[lv_playerIndex].lv_recon)));
-    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/CC0DFB19") + IntToText(gv_playerCP[lv_playerIndex].lv_marksman)));
-    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/C0F5E603") + IntToText(gv_playerCP[lv_playerIndex].lv_demoFOChem)));
-    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/38912845") + IntToText(gv_playerCP[lv_playerIndex].lv_engiePF)));
-    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/F11D8AEC") + IntToText(gv_playerCP[lv_playerIndex].lv_commandoPO)));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/C5477355") + IntToText(gv_playerCP[lv_cPPlayer].lv_rifleman)));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/9EF2DD88") + IntToText(gv_playerCP[lv_cPPlayer].lv_medic)));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/0C10B1B5") + IntToText(gv_playerCP[lv_cPPlayer].lv_assaultFlamerTech)));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/F66465BA") + IntToText(gv_playerCP[lv_cPPlayer].lv_recon)));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/CC0DFB19") + IntToText(gv_playerCP[lv_cPPlayer].lv_marksman)));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/C0F5E603") + IntToText(gv_playerCP[lv_cPPlayer].lv_demoFOChem)));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/38912845") + IntToText(gv_playerCP[lv_cPPlayer].lv_engiePF)));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaDebug, (StringExternal("Param/Value/F11D8AEC") + IntToText(gv_playerCP[lv_cPPlayer].lv_commandoPO)));
     return true;
 }
 
@@ -14254,7 +14253,7 @@ bool gt_WinsCheck_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((lv_winsPlayer >= 1) && (lv_winsPlayer <= 8)))) {
+        if (!(gf_ValidPlayer(lv_winsPlayer))) {
             return false;
         }
     }
@@ -14294,7 +14293,7 @@ bool gt_AmmoCheck_Func (bool testConds, bool runActions) {
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/490BB556"));
     IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        if ((UnitIsAlive(gv_marineHero[IntLoopCurrent()]) == true)) {
+        if (UnitIsAlive(gv_marineHero[IntLoopCurrent()])) {
             if ((gv_marineMags[IntLoopCurrent()] <= 10)) {
                 UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((((StringExternal("Param/Value/6A4ECC86") + PlayerName(IntLoopCurrent())) + StringExternal("Param/Value/8CADF358")) + IntToText(gv_marineMags[IntLoopCurrent()])) + (StringExternal("Param/Value/B0C550E8") + (IntToText(gv_magazinesUsed[IntLoopCurrent()]) + StringExternal("Param/Value/18EC269C")))));
             }
@@ -14402,7 +14401,7 @@ bool gt_NightmareMode_Func (bool testConds, bool runActions) {
             return false;
         }
 
-        if (!((gv_mode != 2))) {
+        if (!((gv_currentGameMode != ge_GameModes_Nightmare))) {
             return false;
         }
     }
@@ -14414,9 +14413,7 @@ bool gt_NightmareMode_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     TriggerEnable(gt_InfestorAI, true);
-    gv_mode = 2;
-    gv_nightmare = true;
-    gv_difficulty = UserDataGetText("Mode", "Nightmare", "Mode Name", 1);
+    gv_currentGameMode = ge_GameModes_Nightmare;
     gv_nightmare = true;
     gv_difficulty = UserDataGetText("Mode", "Nightmare", "Mode Name", 1);
     DialogControlHookupStandard(c_triggerControlTypeImage, "UIContainer/ConsoleUIContainer/MissionTimePanel/BackgroundImage");
@@ -20975,7 +20972,7 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
     UnitKill(UnitFromId(630));
     libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Large, libNtve_ge_ExplosionType_Zerg, lv_localPointA);
     Wait(0.01, c_timeReal);
-    if ((RandomInt(0, 20) != 1)) {
+    if ((RandomInt(1, 20) != 1)) {
         libNtve_gf_UnitCreateFacingPoint(1, "Hulk", c_unitCreateIgnorePlacement, 14, lv_localPointA, RegionGetCenter(RegionFromId(9)));
         UnitGroupAdd(gv_zombieWave, UnitLastCreated());
     }
