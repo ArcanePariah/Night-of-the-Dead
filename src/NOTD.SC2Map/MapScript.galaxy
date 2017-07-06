@@ -461,6 +461,7 @@ const int gv_indexBaseValue = 1;
 const int gv_numberofTalents = 10;
 const int gv_numberofMedals = 10;
 const string gv_dialogIntialization = "Initialize Dialogs";
+const int gv_stories = 4;
 const int gv_costofWeaponMod = 10000;
 const int gv_costofBOInsignia = 10000;
 const int gv_costofPet = 5000;
@@ -500,6 +501,12 @@ struct gs_PlayerCP {
     int lv_commandoPO;
 };
 
+struct gs_Votekick {
+    int lv_danger;
+    bool lv_nomination;
+    bool lv_kicked;
+};
+
 struct gs_SurvivalSpawnLocation {
     region lv_region;
     camerainfo lv_startCamera;
@@ -536,7 +543,7 @@ const int ge_GRIDDLG_HV2_NoneClient = 2;
 // Global Variables
 //--------------------------------------------------------------------------------------------------
 int gv_classSelection;
-bool[9] gv_playerBanned;
+bool[gv_numberofPlayers + 1] gv_playerBanned;
 point[19] gv_pathtoMilitaryBase;
 int[gv_numberofPlayers + 1] gv_playerXP;
 int[gv_numberofPlayers + 1] gv_playerRating;
@@ -690,17 +697,15 @@ fixed[8] gv_reinforcementSpawnHeight;
 text gv_difficulty;
 int gv_storyline;
 int gv_mode;
-trigger[5] gv_storyIntializationTriggers;
-bool[5] gv_storylineUnlocked;
+trigger[gv_stories + 1] gv_storyIntializationTriggers;
+bool[gv_stories + 1] gv_storylineUnlocked;
 int gv_storylineDialog;
-int[5] gv_storylineSelection;
+int[gv_stories + 1] gv_storylineSelection;
 int[4] gv_modeSelection;
-int[121][9] gv_playerBankData;
+int[121][gv_numberofPlayers + 1] gv_playerBankData;
 int gv_bankSize;
 string[9] gv_localModelPing;
-int[9] gv_voteKickDanger;
-bool[9] gv_voteKickNomination;
-bool[9] gv_kicked;
+gs_Votekick[gv_numberofPlayers + 1] gv_voteKick;
 bool[9] gv_spectatorModeOn;
 bool[9] gv_spectatedBefore;
 int[9] gv_spectatedDialog;
@@ -1090,11 +1095,11 @@ void InitGlobals () {
     gv_difficulty = StringExternal("Param/Value/F8130A42");
     gv_storyline = 1;
     gv_mode = 1;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
+    for (init_i = 0; init_i <= gv_stories; init_i += 1) {
         gv_storylineUnlocked[init_i] = true;
     }
     gv_storylineDialog = c_invalidDialogId;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
+    for (init_i = 0; init_i <= gv_stories; init_i += 1) {
         gv_storylineSelection[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 3; init_i += 1) {
@@ -13988,7 +13993,7 @@ bool gt_VoteKick_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!((gv_voteKickNomination[lv_votingPlayer] == false))) {
+        if (!((gv_voteKick[lv_votingPlayer].lv_nomination == false))) {
             return false;
         }
 
@@ -14012,23 +14017,23 @@ bool gt_VoteKick_Func (bool testConds, bool runActions) {
         UIDisplayMessage(PlayerGroupSingle(lv_votingPlayer), c_messageAreaSubtitle, StringExternal("Param/Value/94E85E61"));
     }
     else {
-        if ((((lv_voteKickTarget >= 1) && (lv_voteKickTarget <= 8)) == true) && (lv_votingPlayer != lv_voteKickTarget) && (gv_kicked[lv_voteKickTarget] == false)) {
-            gv_voteKickNomination[lv_votingPlayer] = true;
-            gv_voteKickDanger[lv_voteKickTarget] += 1;
-            if ((gv_voteKickDanger[lv_voteKickTarget] == 1)) {
+        if ((((lv_voteKickTarget >= 1) && (lv_voteKickTarget <= 8)) == true) && (lv_votingPlayer != lv_voteKickTarget) && (gv_voteKick[lv_voteKickTarget].lv_kicked == false)) {
+            gv_voteKick[lv_votingPlayer].lv_nomination = true;
+            gv_voteKick[lv_voteKickTarget].lv_danger += 1;
+            if ((gv_voteKick[lv_voteKickTarget].lv_danger == 1)) {
                 UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((((StringExternal("Param/Value/F2F0980F") + PlayerName(lv_voteKickTarget)) + StringExternal("Param/Value/41199A23")) + PlayerName(lv_votingPlayer)) + StringExternal("Param/Value/3E1C1E17")));
                 SoundPlay(SoundLink("UI_BnetCountdown", -1), PlayerGroupAll(), 100.0, 0.0);
             }
-            else if ((gv_voteKickDanger[lv_voteKickTarget] == 2)) {
+            else if ((gv_voteKick[lv_voteKickTarget].lv_danger == 2)) {
                 UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((((StringExternal("Param/Value/E4DFE6B3") + PlayerName(lv_voteKickTarget)) + StringExternal("Param/Value/9480FDAF")) + PlayerName(lv_votingPlayer)) + StringExternal("Param/Value/2399241B")));
                 SoundPlay(SoundLink("UI_BnetCountdown", -1), PlayerGroupAll(), 100.0, 0.0);
             }
-            else if ((gv_voteKickDanger[lv_voteKickTarget] == 3)) {
-                gv_kicked[lv_voteKickTarget] = true;
+            else if ((gv_voteKick[lv_voteKickTarget].lv_danger == 3)) {
+                gv_voteKick[lv_voteKickTarget].lv_kicked = true;
                 gv_playerKarma[lv_voteKickTarget] -= 2;
                 IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
                 for ( ; !IntLoopDone() ; IntLoopStep() ) {
-                    gv_voteKickNomination[IntLoopCurrent()] = false;
+                    gv_voteKick[IntLoopCurrent()].lv_nomination = false;
                 }
                 IntLoopEnd();
                 SoundPlay(SoundLink("FullMoonAcknowledgment", -1), PlayerGroupAll(), 100.0, 0.0);
@@ -14201,13 +14206,13 @@ bool gt_ClassPointsCheck_Func (bool testConds, bool runActions) {
     int lv_player;
 
     // Variable Initialization
-    lv_cPPlayer = StringToInt(StringSub(EventChatMessage(false), (StringFind(EventChatMessage(false), "-cp", c_stringCase) + 4), (StringFind(EventChatMessage(false), "-cp", c_stringCase) + 4)));
+    lv_cPPlayer = StringToInt(StringWord(EventChatMessage(false), 2));
     lv_playerIndex = lv_cPPlayer;
     lv_player = EventPlayer();
 
     // Conditions
     if (testConds) {
-        if (!(((lv_cPPlayer >= 1) && (lv_cPPlayer <= 8)))) {
+        if (!(gf_ValidPlayer(lv_cPPlayer))) {
             return false;
         }
     }
