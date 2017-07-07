@@ -3658,17 +3658,17 @@ void gf_UpdateAmmoDialog (int lp_playerNumber) {
     if ((gv_marineRounds[lp_playerNumber] <= 2)) {
         libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRounds[lp_playerNumber], Color(100.00, 0.00, 0.00), PlayerGroupActive());
         libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(100.00, 0.00, 0.00), PlayerGroupActive());
-        DialogControlFadeTransparency(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), 0.0, 0.0);
+        DialogControlFadeTransparency(gv_ammoBarDialogRoundsBorder[lp_playerNumber], PlayerGroupActive(), 0.0, 25.0);
     }
     else if ((gv_marineRounds[lp_playerNumber] <= 10)) {
         libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRounds[lp_playerNumber], Color(150*100/255,150*100/255,30*100/255), PlayerGroupActive());
         libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(150*100/255,150*100/255,30*100/255), PlayerGroupActive());
-        DialogControlFadeTransparency(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), 0.0, 10.0);
+        DialogControlFadeTransparency(gv_ammoBarDialogRoundsBorder[lp_playerNumber], PlayerGroupActive(), 0.0, 50.0);
     }
     else if (true) {
         libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRounds[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupActive());
         libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupActive());
-        DialogControlFadeTransparency(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), 0.0, 40.0);
+        DialogControlFadeTransparency(gv_ammoBarDialogRoundsBorder[lp_playerNumber], PlayerGroupActive(), 0.0, 75.0);
     }
 }
 
@@ -10483,11 +10483,11 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     gv_ammoBarHeight[lp_player] = 20;
     gf_UIDialogCreation(gv_ammoBarHeight[lp_player], gv_ammoBarWidth[lp_player], 375, 230, c_anchorBottom);
     gv_ammoBarDialog[lp_player] = DialogLastCreated();
-    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringExternal("Param/Value/F01780C4"), "Assets\\Textures\\ui_mission_leaderboard_progressbar_frame.dds", c_triggerImageTypeBorder, true, Color(28*100/255,167*100/255,234*100/255), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringExternal("Param/Value/F01780C4"), "Assets\\Textures\\ui_ingame_resourcesharing_numberfieldselectedframe_zerg.dds", c_triggerImageTypeBorder, true, Color(100,100,100), c_triggerBlendModeNormal);
     gv_ammoBarDialogRoundsBorder[lp_player] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
     libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
-    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringExternal("Param/Value/427249E1"), "Assets\\Textures\\ui_mission_leaderboard_progressbar_fill.dds", c_triggerImageTypeBorder, true, Color(28*100/255,167*100/255,234*100/255), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringExternal("Param/Value/427249E1"), "Assets\\Textures\\ui_ingame_resourcesharing_numberfieldselectedframe.dds", c_triggerImageTypeBorder, true, Color(100,100,100), c_triggerBlendModeNormal);
     gv_ammoBarDialogRounds[lp_player] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
     libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
