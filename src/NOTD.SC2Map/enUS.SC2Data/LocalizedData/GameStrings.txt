@@ -4649,6 +4649,7 @@ Param/Value/4D3BD96A=We're airdropping more supplies into your sector.
 Param/Value/4D6E3714=</s>
 Param/Value/4D701111=+
 Param/Value/4DA6AE6B=The compliance field is de-stabilizing. One more Nexus and we'll shut them down.
+Param/Value/4DA754D2=Move
 Param/Value/4DC830E5=<s val="GlueButtonSmall">Survival: 
 Param/Value/4DD907D3='s Marine removed from game for inactivity.
 Param/Value/4DF03C45=(You are currently piloting a Thor...)

@@ -616,6 +616,7 @@ int[9] gv_ammoBarWidth;
 int[9] gv_ammoBarHeight;
 int[9] gv_ammoBarMaxRounds;
 int[9] gv_ammoBarPosition;
+int[9] gv_ammoUIMoveButton;
 fixed[9] gv_playerDamageTaken;
 bool[9] gv_playerMarinePetDead;
 bool[9] gv_playerDoctor;
@@ -1059,6 +1060,9 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_ammoBarMaxRounds[init_i] = 30;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoUIMoveButton[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_playerRank[init_i] = 1;
@@ -1667,7 +1671,7 @@ bool gf_ClassSelectionDialog (int lp_player, int lp_dialogItem);
 void gf_ClassCreationMaster (int lp_player, int lp_playerIndex);
 void gf_RegisterMarineWithEvents (unit lp_marine);
 void gf_AmmoUICreation (int lp_player);
-void gf_AmmoUIMoveUpdate (int lp_player, int lp_position);
+void gf_AmmoUIMove (int lp_player);
 void gf_CustomNameChange (int lp_selectingPlayer);
 int gf_GetRandomRange (int lp_player);
 void gf_EquipmentDialogCreation (int lp_player);
@@ -2091,6 +2095,7 @@ trigger gt_RoadFlare;
 trigger gt_BuyItem;
 trigger gt_BuyStandardItem;
 trigger gt_ClassCreation;
+trigger gt_AmmoUIButtonCallback;
 trigger gt_DialogButtonClicks;
 trigger gt_CreateTeamStatusDialog;
 trigger gt_SaveButtonClick;
@@ -10480,6 +10485,10 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal("Param/Value/2BAB2E60"), PlayerGroupAll());
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "MagazineCountLabel");
     gv_ammoCounterDialogItem[lp_player][1] = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "AmmoUIMoveButton");
+    libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal("Param/Value/4DA754D2"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), "Assets\\Textures\\ui_research_frame_available_arrow_left.dds", PlayerGroupAll());
+    gv_ammoUIMoveButton[lp_player] = DialogControlLastCreated();
     DialogSetVisible(gv_ammoCounterDialog[lp_player], PlayerGroupSingle(lp_player), true);
     gv_ammoBarWidth[lp_player] = 500;
     gv_ammoBarHeight[lp_player] = 20;
@@ -10494,43 +10503,42 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
     libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
     DialogSetVisible(gv_ammoBarDialog[lp_player], PlayerGroupSingle(lp_player), true);
-    gf_AmmoUIMoveUpdate(lp_player, 1);
+    gv_ammoBarPosition[lp_player] = 0;
+    gf_AmmoUIMove(lp_player);
+    gf_UpdateAmmoDialog(lp_player);
     return true;
 }
 
-trigger auto_gf_AmmoUIMoveUpdate_Trigger = null;
-int auto_gf_AmmoUIMoveUpdate_lp_player;
-int auto_gf_AmmoUIMoveUpdate_lp_position;
+trigger auto_gf_AmmoUIMove_Trigger = null;
+int auto_gf_AmmoUIMove_lp_player;
 
-void gf_AmmoUIMoveUpdate (int lp_player, int lp_position) {
-    auto_gf_AmmoUIMoveUpdate_lp_player = lp_player;
-    auto_gf_AmmoUIMoveUpdate_lp_position = lp_position;
+void gf_AmmoUIMove (int lp_player) {
+    auto_gf_AmmoUIMove_lp_player = lp_player;
 
-    if (auto_gf_AmmoUIMoveUpdate_Trigger == null) {
-        auto_gf_AmmoUIMoveUpdate_Trigger = TriggerCreate("auto_gf_AmmoUIMoveUpdate_TriggerFunc");
+    if (auto_gf_AmmoUIMove_Trigger == null) {
+        auto_gf_AmmoUIMove_Trigger = TriggerCreate("auto_gf_AmmoUIMove_TriggerFunc");
     }
 
-    TriggerExecute(auto_gf_AmmoUIMoveUpdate_Trigger, false, false);
+    TriggerExecute(auto_gf_AmmoUIMove_Trigger, false, false);
 }
 
-bool auto_gf_AmmoUIMoveUpdate_TriggerFunc (bool testConds, bool runActions) {
-    int lp_player = auto_gf_AmmoUIMoveUpdate_lp_player;
-    int lp_position = auto_gf_AmmoUIMoveUpdate_lp_position;
+bool auto_gf_AmmoUIMove_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_gf_AmmoUIMove_lp_player;
 
     // Implementation
-    gv_ammoBarPosition[lp_player] = lp_position;
-    if ((lp_position == 0)) {
+    if ((gv_ammoBarPosition[lp_player] == 0)) {
         DialogSetPosition(gv_ammoCounterDialog[lp_player], c_anchorBottom, 240, 255);
         DialogSetPosition(gv_ammoBarDialog[lp_player], c_anchorBottom, 375, 230);
         gv_ammoBarWidth[lp_player] = 500;
+        libNtve_gf_SetDialogItemImage(gv_ammoUIMoveButton[lp_player], "Assets\\Textures\\ui_research_frame_available_arrow_left.dds", PlayerGroupActive());
     }
     else {
         DialogSetPosition(gv_ammoCounterDialog[lp_player], c_anchorBottom, -300, 325);
         DialogSetPosition(gv_ammoBarDialog[lp_player], c_anchorBottom, -235, 305);
         gv_ammoBarWidth[lp_player] = 340;
+        libNtve_gf_SetDialogItemImage(gv_ammoUIMoveButton[lp_player], "Assets\\Textures\\ui_research_frame_available_arrow_right.dds", PlayerGroupActive());
     }
     DialogControlSetSize(gv_ammoBarDialogRoundsBorder[lp_player], PlayerGroupActive(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player]);
-    gf_UpdateAmmoDialog(lp_player);
     return true;
 }
 
@@ -36332,6 +36340,43 @@ void gt_ClassCreation_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Ammo UI Button Callback
+//--------------------------------------------------------------------------------------------------
+bool gt_AmmoUIButtonCallback_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((EventDialogControlEventType() == c_triggerControlEventTypeClick))) {
+            return false;
+        }
+
+        if (!(((EventDialogControl() == gv_ammoUIMoveButton[1]) || (EventDialogControl() == gv_ammoUIMoveButton[2]) || (EventDialogControl() == gv_ammoUIMoveButton[3]) || (EventDialogControl() == gv_ammoUIMoveButton[4]) || (EventDialogControl() == gv_ammoUIMoveButton[5]) || (EventDialogControl() == gv_ammoUIMoveButton[6]) || (EventDialogControl() == gv_ammoUIMoveButton[7]) || (EventDialogControl() == gv_ammoUIMoveButton[8])))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if (gv_ammoBarPosition[EventPlayer()] >= 1) {
+        gv_ammoBarPosition[EventPlayer()] = 0;
+    }
+    else {
+        gv_ammoBarPosition[EventPlayer()] = gv_ammoBarPosition[EventPlayer()] + 1;
+    }
+    gf_AmmoUIMove(EventPlayer());
+    gf_UpdateAmmoDialog(EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AmmoUIButtonCallback_Init () {
+    gt_AmmoUIButtonCallback = TriggerCreate("gt_AmmoUIButtonCallback_Func");
+    TriggerAddEventDialogControl(gt_AmmoUIButtonCallback, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Dialog Button Clicks
 //--------------------------------------------------------------------------------------------------
 bool gt_DialogButtonClicks_Func (bool testConds, bool runActions) {
@@ -39858,6 +39903,7 @@ void InitTriggers () {
     gt_BuyItem_Init();
     gt_BuyStandardItem_Init();
     gt_ClassCreation_Init();
+    gt_AmmoUIButtonCallback_Init();
     gt_DialogButtonClicks_Init();
     gt_CreateTeamStatusDialog_Init();
     gt_SaveButtonClick_Init();

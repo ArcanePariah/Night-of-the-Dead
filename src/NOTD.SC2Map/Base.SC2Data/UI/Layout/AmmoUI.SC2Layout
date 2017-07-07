@@ -42,13 +42,9 @@
             <Style val="Kicker_Zerg"/>
         </Frame>
 
-        <Frame type="Image" name="AmmoBarMoveImage">
+        <Frame type="Button" name="AmmoUIMoveButton">
             <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
             <Anchor side="Left" relative="$parent/MagazineCountLabel" pos="Max" offset="0"/>
-            <Texture val="Assets\Textures\ui_research_frame_available_arrow_left.dds"/>
-            <TextureType val="Normal"/>
-            <BlendMode val="Normal"/>
-            <Color val="215,215,255"/>
             <Height val="15"/>
             <Width val="15"/>
         </Frame>
