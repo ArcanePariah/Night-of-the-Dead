@@ -610,7 +610,10 @@ int gv_equipment;
 int[9] gv_ammoCounterDialog;
 int[9][3] gv_ammoCounterDialogItem;
 int[9] gv_ammoBarDialog;
-int[9] gv_ammoBarDialogItem;
+int[9] gv_ammoBarDialogRounds;
+int[9] gv_ammoBarDialogRoundsBorder;
+int[9] gv_ammoBarWidth;
+int[9] gv_ammoBarHeight;
 int[9] gv_ammoBarMaxRounds;
 fixed[9] gv_playerDamageTaken;
 bool[9] gv_playerMarinePetDead;
@@ -1042,7 +1045,16 @@ void InitGlobals () {
         gv_ammoBarDialog[init_i] = c_invalidDialogId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_ammoBarDialogItem[init_i] = c_invalidDialogControlId;
+        gv_ammoBarDialogRounds[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarDialogRoundsBorder[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarWidth[init_i] = 500;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarHeight[init_i] = 10;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_ammoBarMaxRounds[init_i] = 30;
@@ -3635,21 +3647,28 @@ void gf_UpdateAmmoDialog (int lp_playerNumber) {
     // Implementation
     libNtve_gf_SetDialogItemText(gv_ammoCounterDialogItem[lp_playerNumber][0], IntToText(gv_marineRounds[lp_playerNumber]), PlayerGroupActive());
     libNtve_gf_SetDialogItemText(gv_ammoCounterDialogItem[lp_playerNumber][1], IntToText(gv_marineMags[lp_playerNumber]), PlayerGroupActive());
-    lv_width = TruncI((510.0 * (gv_marineRounds[lp_playerNumber] / IntToFixed(gv_ammoBarMaxRounds[lp_playerNumber]))));
+    lv_width = TruncI((IntToFixed(gv_ammoBarWidth[lp_playerNumber]) * (gv_marineRounds[lp_playerNumber] / IntToFixed(gv_ammoBarMaxRounds[lp_playerNumber]))));
     if ((lv_width > 0)) {
-        DialogControlSetSize(gv_ammoBarDialogItem[lp_playerNumber], PlayerGroupActive(), lv_width, 9);
+        DialogControlSetSize(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), lv_width, gv_ammoBarHeight[lp_playerNumber]);
+        DialogControlSetVisible(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), true);
     }
     else {
-        DialogControlSetSize(gv_ammoBarDialogItem[lp_playerNumber], PlayerGroupActive(), 510, 9);
+        DialogControlSetVisible(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), false);
     }
     if ((gv_marineRounds[lp_playerNumber] <= 2)) {
-        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogItem[lp_playerNumber], Color(100.00, 0.00, 0.00), PlayerGroupAll());
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRounds[lp_playerNumber], Color(100.00, 0.00, 0.00), PlayerGroupActive());
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(100.00, 0.00, 0.00), PlayerGroupActive());
+        DialogControlFadeTransparency(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), 0.0, 0.0);
     }
     else if ((gv_marineRounds[lp_playerNumber] <= 10)) {
-        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogItem[lp_playerNumber], Color(150*100/255,150*100/255,30*100/255), PlayerGroupAll());
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRounds[lp_playerNumber], Color(150*100/255,150*100/255,30*100/255), PlayerGroupActive());
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(150*100/255,150*100/255,30*100/255), PlayerGroupActive());
+        DialogControlFadeTransparency(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), 0.0, 10.0);
     }
     else if (true) {
-        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogItem[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRounds[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupActive());
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupActive());
+        DialogControlFadeTransparency(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), 0.0, 40.0);
     }
 }
 
@@ -10460,16 +10479,18 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "MagazineCountLabel");
     gv_ammoCounterDialogItem[lp_player][1] = DialogControlLastCreated();
     DialogSetVisible(gv_ammoCounterDialog[lp_player], PlayerGroupSingle(lp_player), true);
-    DialogCreate(521, 20, c_anchorBottom, 375, 230, true);
-    DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), false);
+    gv_ammoBarWidth[lp_player] = 500;
+    gv_ammoBarHeight[lp_player] = 20;
+    gf_UIDialogCreation(gv_ammoBarHeight[lp_player], gv_ammoBarWidth[lp_player], 375, 230, c_anchorBottom);
     gv_ammoBarDialog[lp_player] = DialogLastCreated();
-    DialogSetTransparency(DialogLastCreated(), 50.0);
-    DialogSetImage(DialogLastCreated(), "Assets\\Textures\\ui_mission_leaderboard_progressbar_frame.dds");
-    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), 510, 9, c_anchorTopLeft, 5, 5, StringToText(""), "Assets\\Textures\\ui_mission_leaderboard_progressbar_fill.dds", c_triggerImageTypeNone, false, Color(28*100/255,167*100/255,234*100/255), c_triggerBlendModeNormal);
-    gv_ammoBarDialogItem[lp_player] = DialogControlLastCreated();
+    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringExternal("Param/Value/F01780C4"), "Assets\\Textures\\ui_mission_leaderboard_progressbar_frame.dds", c_triggerImageTypeBorder, true, Color(28*100/255,167*100/255,234*100/255), c_triggerBlendModeNormal);
+    gv_ammoBarDialogRoundsBorder[lp_player] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
     libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
-    libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal("Param/Value/F0770585"), PlayerGroupAll());
+    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringExternal("Param/Value/427249E1"), "Assets\\Textures\\ui_mission_leaderboard_progressbar_fill.dds", c_triggerImageTypeBorder, true, Color(28*100/255,167*100/255,234*100/255), c_triggerBlendModeNormal);
+    gv_ammoBarDialogRounds[lp_player] = DialogControlLastCreated();
+    libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
+    libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
     DialogSetVisible(gv_ammoBarDialog[lp_player], PlayerGroupSingle(lp_player), true);
     gf_UpdateAmmoDialog(lp_player);
     return true;
