@@ -4584,7 +4584,7 @@ Param/Value/414A1DEB=</c></s>
 Param/Value/41AFE9EF=<s val="BriefingHanText">   Story/Concepts<n/>   Richard Lim (XaVi)</s>
 Param/Value/41CCC9EC= (<c val="F20000">
 Param/Value/42465C0C= (<c val="F20000">
-Param/Value/427249E1=Rounds
+Param/Value/427249E1=
 Param/Value/42731D11=<c val="0080FF">.</c>
 Param/Value/42BB33F1=Gather with the Marines. We'll cover you.
 Param/Value/42C54EE7=Survival is paramount. Zero human awareness is necessary pre-condition for sustained self-preservation.

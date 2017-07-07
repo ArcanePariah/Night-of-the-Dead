@@ -615,6 +615,7 @@ int[9] gv_ammoBarDialogRoundsBorder;
 int[9] gv_ammoBarWidth;
 int[9] gv_ammoBarHeight;
 int[9] gv_ammoBarMaxRounds;
+int[9] gv_ammoBarPosition;
 fixed[9] gv_playerDamageTaken;
 bool[9] gv_playerMarinePetDead;
 bool[9] gv_playerDoctor;
@@ -1666,6 +1667,7 @@ bool gf_ClassSelectionDialog (int lp_player, int lp_dialogItem);
 void gf_ClassCreationMaster (int lp_player, int lp_playerIndex);
 void gf_RegisterMarineWithEvents (unit lp_marine);
 void gf_AmmoUICreation (int lp_player);
+void gf_AmmoUIMoveUpdate (int lp_player, int lp_position);
 void gf_CustomNameChange (int lp_selectingPlayer);
 int gf_GetRandomRange (int lp_player);
 void gf_EquipmentDialogCreation (int lp_player);
@@ -10466,7 +10468,7 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     lv_tempDialogFrame = c_invalidDialogControlId;
 
     // Implementation
-    gf_UIDialogCreation(35, 190, 220, 255, c_anchorBottom);
+    gf_UIDialogCreation(35, 230, 240, 255, c_anchorBottom);
     gv_ammoCounterDialog[lp_player] = DialogLastCreated();
     DialogControlCreateFromTemplate(gv_ammoCounterDialog[lp_player], c_triggerControlTypePanel, "AmmoUI/AmmoCounter");
     lv_tempDialogFrame = DialogControlLastCreated();
@@ -10487,11 +10489,47 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     gv_ammoBarDialogRoundsBorder[lp_player] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
     libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
-    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringExternal("Param/Value/427249E1"), "Assets\\Textures\\ui_ingame_resourcesharing_numberfieldselectedframe.dds", c_triggerImageTypeBorder, true, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringToText(""), "Assets\\Textures\\ui_ingame_resourcesharing_numberfieldselectedframe.dds", c_triggerImageTypeBorder, true, Color(100,100,100), c_triggerBlendModeNormal);
     gv_ammoBarDialogRounds[lp_player] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
     libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
     DialogSetVisible(gv_ammoBarDialog[lp_player], PlayerGroupSingle(lp_player), true);
+    gf_AmmoUIMoveUpdate(lp_player, 1);
+    return true;
+}
+
+trigger auto_gf_AmmoUIMoveUpdate_Trigger = null;
+int auto_gf_AmmoUIMoveUpdate_lp_player;
+int auto_gf_AmmoUIMoveUpdate_lp_position;
+
+void gf_AmmoUIMoveUpdate (int lp_player, int lp_position) {
+    auto_gf_AmmoUIMoveUpdate_lp_player = lp_player;
+    auto_gf_AmmoUIMoveUpdate_lp_position = lp_position;
+
+    if (auto_gf_AmmoUIMoveUpdate_Trigger == null) {
+        auto_gf_AmmoUIMoveUpdate_Trigger = TriggerCreate("auto_gf_AmmoUIMoveUpdate_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_AmmoUIMoveUpdate_Trigger, false, false);
+}
+
+bool auto_gf_AmmoUIMoveUpdate_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_gf_AmmoUIMoveUpdate_lp_player;
+    int lp_position = auto_gf_AmmoUIMoveUpdate_lp_position;
+
+    // Implementation
+    gv_ammoBarPosition[lp_player] = lp_position;
+    if ((lp_position == 0)) {
+        DialogSetPosition(gv_ammoCounterDialog[lp_player], c_anchorBottom, 240, 255);
+        DialogSetPosition(gv_ammoBarDialog[lp_player], c_anchorBottom, 375, 230);
+        gv_ammoBarWidth[lp_player] = 500;
+    }
+    else {
+        DialogSetPosition(gv_ammoCounterDialog[lp_player], c_anchorBottom, -300, 325);
+        DialogSetPosition(gv_ammoBarDialog[lp_player], c_anchorBottom, -235, 305);
+        gv_ammoBarWidth[lp_player] = 340;
+    }
+    DialogControlSetSize(gv_ammoBarDialogRoundsBorder[lp_player], PlayerGroupActive(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player]);
     gf_UpdateAmmoDialog(lp_player);
     return true;
 }
