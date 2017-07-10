@@ -619,6 +619,14 @@ int[9] gv_equipmentButton;
 int gv_equipment;
 int[9] gv_ammoCounterDialog;
 int[9][3] gv_ammoCounterDialogItem;
+int[9] gv_ammoBarDialog;
+int[9] gv_ammoBarDialogRounds;
+int[9] gv_ammoBarDialogRoundsBorder;
+int[9] gv_ammoBarWidth;
+int[9] gv_ammoBarHeight;
+int[9] gv_ammoBarMaxRounds;
+int[9] gv_ammoBarPosition;
+int[9] gv_ammoUIMoveButton;
 fixed[9] gv_playerDamageTaken;
 bool[9] gv_playerMarinePetDead;
 bool[9] gv_playerDoctor;
@@ -1042,6 +1050,27 @@ void InitGlobals () {
         for (init_j = 0; init_j <= 2; init_j += 1) {
             gv_ammoCounterDialogItem[init_i][init_j] = c_invalidDialogControlId;
         }
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarDialog[init_i] = c_invalidDialogId;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarDialogRounds[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarDialogRoundsBorder[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarWidth[init_i] = 500;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarHeight[init_i] = 10;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoBarMaxRounds[init_i] = 30;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_ammoUIMoveButton[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_playerRank[init_i] = 1;
@@ -1650,6 +1679,7 @@ bool gf_ClassSelectionDialog (int lp_player, int lp_dialogItem);
 void gf_ClassCreationMaster (int lp_player, int lp_playerIndex);
 void gf_RegisterMarineWithEvents (unit lp_marine);
 void gf_AmmoUICreation (int lp_player);
+void gf_AmmoUIMove (int lp_player);
 void gf_CustomNameChange (int lp_selectingPlayer);
 int gf_GetRandomRange (int lp_player);
 void gf_EquipmentDialogCreation (int lp_player);
@@ -2074,6 +2104,7 @@ trigger gt_RoadFlare;
 trigger gt_BuyItem;
 trigger gt_BuyStandardItem;
 trigger gt_ClassCreation;
+trigger gt_AmmoUIButtonCallback;
 trigger gt_DialogButtonClicks;
 trigger gt_CreateTeamStatusDialog;
 trigger gt_SaveButtonClick;
@@ -3458,10 +3489,12 @@ void gf_ReloadMagazine (int lp_player, unit lp_reloadingUnit, int lp_reload, str
     if ((UnitGetType(lp_reloadingUnit) == "TychusChaingun")) {
         gv_marineRounds[lp_player] = (gv_playerRoundLimit[lp_player] * lv_assaultAmmo);
         gv_magazinesUsed[lp_player] += lv_assaultAmmo;
+        gv_ammoBarMaxRounds[lp_player] = (gv_playerRoundLimit[lp_player] * lv_assaultAmmo);
     }
     else {
         gv_marineRounds[lp_player] = (gv_playerRoundLimit[lp_player] * lv_baseAmmo);
         gv_magazinesUsed[lp_player] += lv_baseAmmo;
+        gv_ammoBarMaxRounds[lp_player] = (gv_playerRoundLimit[lp_player] * lv_baseAmmo);
     }
     gf_UpdateAmmoDialog(lp_player);
     UnitBehaviorRemovePlayer(lp_reloadingUnit, "InsufficientAmmo", lp_player, 1);
@@ -3624,9 +3657,37 @@ fixed gf_GetWeaponReload (int lp_player, unit lp_reloadingUnit, int lp_reload, s
 }
 
 void gf_UpdateAmmoDialog (int lp_playerNumber) {
+    // Variable Declarations
+    int lv_width;
+
+    // Variable Initialization
+
     // Implementation
     libNtve_gf_SetDialogItemText(gv_ammoCounterDialogItem[lp_playerNumber][0], IntToText(gv_marineRounds[lp_playerNumber]), PlayerGroupActive());
     libNtve_gf_SetDialogItemText(gv_ammoCounterDialogItem[lp_playerNumber][1], IntToText(gv_marineMags[lp_playerNumber]), PlayerGroupActive());
+    lv_width = TruncI((IntToFixed(gv_ammoBarWidth[lp_playerNumber]) * (gv_marineRounds[lp_playerNumber] / IntToFixed(gv_ammoBarMaxRounds[lp_playerNumber]))));
+    if ((lv_width > 0)) {
+        DialogControlSetSize(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), lv_width, gv_ammoBarHeight[lp_playerNumber]);
+        DialogControlSetVisible(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), true);
+    }
+    else {
+        DialogControlSetVisible(gv_ammoBarDialogRounds[lp_playerNumber], PlayerGroupActive(), false);
+    }
+    if ((gv_marineRounds[lp_playerNumber] <= 2)) {
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRounds[lp_playerNumber], Color(100.00, 0.00, 0.00), PlayerGroupActive());
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(100.00, 0.00, 0.00), PlayerGroupActive());
+        DialogControlFadeTransparency(gv_ammoBarDialogRoundsBorder[lp_playerNumber], PlayerGroupActive(), 0.0, 25.0);
+    }
+    else if ((gv_marineRounds[lp_playerNumber] <= 10)) {
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRounds[lp_playerNumber], Color(150*100/255,150*100/255,30*100/255), PlayerGroupActive());
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(150*100/255,150*100/255,30*100/255), PlayerGroupActive());
+        DialogControlFadeTransparency(gv_ammoBarDialogRoundsBorder[lp_playerNumber], PlayerGroupActive(), 0.0, 50.0);
+    }
+    else if (true) {
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRounds[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupActive());
+        libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupActive());
+        DialogControlFadeTransparency(gv_ammoBarDialogRoundsBorder[lp_playerNumber], PlayerGroupActive(), 0.0, 75.0);
+    }
 }
 
 trigger auto_gf_BadlyInjured_Trigger = null;
@@ -4003,6 +4064,7 @@ bool auto_gf_DeathDialogDestruction_TriggerFunc (bool testConds, bool runActions
     DialogControlDestroy(gv_equipmentButton[lp_playerNumber]);
     DialogDestroy(gv_statsPlayerStatsDialog[lp_playerNumber]);
     DialogDestroy(gv_ammoCounterDialog[lp_playerNumber]);
+    DialogDestroy(gv_ammoBarDialog[lp_playerNumber]);
     if ((gv_shellDialog[lp_playerNumber] != c_invalidDialogId)) {
         DialogDestroy(gv_shellDialog[lp_playerNumber]);
     }
@@ -6090,6 +6152,10 @@ bool gf_PreCinematicProcessing () {
             DialogSetVisible(gv_ammoCounterDialog[IntLoopCurrent()], PlayerGroupAll(), false);
         }
 
+        if ((gv_ammoBarDialog[IntLoopCurrent()] != c_invalidDialogId)) {
+            DialogSetVisible(gv_ammoBarDialog[IntLoopCurrent()], PlayerGroupAll(), false);
+        }
+
         if ((gv_shellDialog[IntLoopCurrent()] != c_invalidDialogId)) {
             DialogSetVisible(gv_shellDialog[IntLoopCurrent()], PlayerGroupAll(), false);
         }
@@ -6204,6 +6270,7 @@ bool gf_PostCinematicProcessing () {
         }
 
         DialogSetVisible(gv_ammoCounterDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
+        DialogSetVisible(gv_ammoBarDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         DialogSetVisible(gv_equipment, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
         CameraApplyInfo(PlayerGroupLoopCurrent(), CameraInfoDefault(), 0.0, -1, 10, true);
         if ((UnitIsAlive(gv_marineHero[PlayerGroupLoopCurrent()]) == true)) {
@@ -8072,6 +8139,7 @@ bool auto_gf_ECEndCinematic_TriggerFunc (bool testConds, bool runActions) {
     PlayerGroupLoopBegin(gv_activePlayers);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         DialogSetVisible(gv_ammoCounterDialog[PlayerGroupLoopCurrent()], PlayerGroupAll(), false);
+        DialogSetVisible(gv_ammoBarDialog[PlayerGroupLoopCurrent()], PlayerGroupAll(), false);
         DialogSetVisible(gv_shellDialog[PlayerGroupLoopCurrent()], PlayerGroupAll(), false);
     }
     PlayerGroupLoopEnd();
@@ -10344,6 +10412,7 @@ bool auto_gf_ClassCreationMaster_TriggerFunc (bool testConds, bool runActions) {
     else if ((UnitGetType(gv_marineHero[lp_playerIndex]) == "TychusChaingun")) {
         gv_playerRoundLimit[lp_playerIndex] = 40;
         gv_marineRounds[lp_playerIndex] = gv_playerRoundLimit[lp_playerIndex];
+        gv_ammoBarMaxRounds[lp_playerIndex] = 40;
         gf_UpdateAmmoDialog(lp_playerIndex);
     }
     else if ((UnitGetType(gv_marineHero[lp_playerIndex]) == "Spectre")) {
@@ -10415,7 +10484,7 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     lv_tempDialogFrame = c_invalidDialogControlId;
 
     // Implementation
-    gf_UIDialogCreation(35, 190, -300, 295, c_anchorBottom);
+    gf_UIDialogCreation(35, 230, 240, 255, c_anchorBottom);
     gv_ammoCounterDialog[lp_player] = DialogLastCreated();
     DialogControlCreateFromTemplate(gv_ammoCounterDialog[lp_player], c_triggerControlTypePanel, "AmmoUI/AmmoCounter");
     lv_tempDialogFrame = DialogControlLastCreated();
@@ -10427,8 +10496,60 @@ bool auto_gf_AmmoUICreation_TriggerFunc (bool testConds, bool runActions) {
     libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal("Param/Value/2BAB2E60"), PlayerGroupAll());
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "MagazineCountLabel");
     gv_ammoCounterDialogItem[lp_player][1] = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "AmmoUIMoveButton");
+    libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal("Param/Value/4DA754D2"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), "Assets\\Textures\\ui_research_frame_available_arrow_left.dds", PlayerGroupAll());
+    gv_ammoUIMoveButton[lp_player] = DialogControlLastCreated();
     DialogSetVisible(gv_ammoCounterDialog[lp_player], PlayerGroupSingle(lp_player), true);
+    gv_ammoBarWidth[lp_player] = 500;
+    gv_ammoBarHeight[lp_player] = 20;
+    gf_UIDialogCreation(gv_ammoBarHeight[lp_player], gv_ammoBarWidth[lp_player], 375, 230, c_anchorBottom);
+    gv_ammoBarDialog[lp_player] = DialogLastCreated();
+    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringExternal("Param/Value/F01780C4"), "Assets\\Textures\\ui_ingame_resourcesharing_numberfieldselectedframe_zerg.dds", c_triggerImageTypeBorder, true, Color(100,100,100), c_triggerBlendModeNormal);
+    gv_ammoBarDialogRoundsBorder[lp_player] = DialogControlLastCreated();
+    libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
+    libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
+    libNtve_gf_CreateDialogItemImage(DialogLastCreated(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player], c_anchorTopLeft, 0, 0, StringToText(""), "Assets\\Textures\\ui_ingame_resourcesharing_numberfieldselectedframe.dds", c_triggerImageTypeBorder, true, Color(100,100,100), c_triggerBlendModeNormal);
+    gv_ammoBarDialogRounds[lp_player] = DialogControlLastCreated();
+    libNtve_gf_SetDialogItemDesaturated(DialogControlLastCreated(), true, PlayerGroupAll());
+    libNtve_gf_SetDialogItemDesaturationColor(DialogControlLastCreated(), Color(28*100/255,167*100/255,234*100/255), PlayerGroupAll());
+    DialogSetVisible(gv_ammoBarDialog[lp_player], PlayerGroupSingle(lp_player), true);
+    gv_ammoBarPosition[lp_player] = 0;
+    gf_AmmoUIMove(lp_player);
     gf_UpdateAmmoDialog(lp_player);
+    return true;
+}
+
+trigger auto_gf_AmmoUIMove_Trigger = null;
+int auto_gf_AmmoUIMove_lp_player;
+
+void gf_AmmoUIMove (int lp_player) {
+    auto_gf_AmmoUIMove_lp_player = lp_player;
+
+    if (auto_gf_AmmoUIMove_Trigger == null) {
+        auto_gf_AmmoUIMove_Trigger = TriggerCreate("auto_gf_AmmoUIMove_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_AmmoUIMove_Trigger, false, false);
+}
+
+bool auto_gf_AmmoUIMove_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_gf_AmmoUIMove_lp_player;
+
+    // Implementation
+    if ((gv_ammoBarPosition[lp_player] == 0)) {
+        DialogSetPosition(gv_ammoCounterDialog[lp_player], c_anchorBottom, 240, 255);
+        DialogSetPosition(gv_ammoBarDialog[lp_player], c_anchorBottom, 375, 230);
+        gv_ammoBarWidth[lp_player] = 500;
+        libNtve_gf_SetDialogItemImage(gv_ammoUIMoveButton[lp_player], "Assets\\Textures\\ui_research_frame_available_arrow_left.dds", PlayerGroupActive());
+    }
+    else {
+        DialogSetPosition(gv_ammoCounterDialog[lp_player], c_anchorBottom, -300, 325);
+        DialogSetPosition(gv_ammoBarDialog[lp_player], c_anchorBottom, -235, 305);
+        gv_ammoBarWidth[lp_player] = 340;
+        libNtve_gf_SetDialogItemImage(gv_ammoUIMoveButton[lp_player], "Assets\\Textures\\ui_research_frame_available_arrow_right.dds", PlayerGroupActive());
+    }
+    DialogControlSetSize(gv_ammoBarDialogRoundsBorder[lp_player], PlayerGroupActive(), gv_ammoBarWidth[lp_player], gv_ammoBarHeight[lp_player]);
     return true;
 }
 
@@ -10716,6 +10837,7 @@ void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, int lp
     // Implementation
     DialogSetVisible(gv_equipment, PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
     DialogSetVisible(gv_ammoCounterDialog[lp_dialogOwner], PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
+    DialogSetVisible(gv_ammoBarDialog[lp_dialogOwner], PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
     if ((UserDataGetUnit("Classes", gv_playerClass[lp_dialogOwner], "Class Unit", 1) == "ForwardObserver") && (gv_talentLevel[1][lp_dialogOwner] > 0)) {
         DialogSetVisible(gv_shellDialog[lp_dialogOwner], PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
     }
@@ -34974,11 +35096,13 @@ bool gt_ShowInventory_Func (bool testConds, bool runActions) {
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         DialogSetVisible(gv_ammoCounterDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(EventPlayer()), false);
+        DialogSetVisible(gv_ammoBarDialog[PlayerGroupLoopCurrent()], PlayerGroupSingle(EventPlayer()), false);
         DialogControlSetVisible(gv_equipmentButton[PlayerGroupLoopCurrent()], PlayerGroupSingle(EventPlayer()), false);
     }
     PlayerGroupLoopEnd();
     DialogControlSetVisible(gv_equipmentButton[UnitGetOwner(EventUnit())], PlayerGroupSingle(EventPlayer()), true);
     DialogSetVisible(gv_ammoCounterDialog[UnitGetOwner(EventUnit())], PlayerGroupSingle(EventPlayer()), true);
+    DialogSetVisible(gv_ammoBarDialog[UnitGetOwner(EventUnit())], PlayerGroupSingle(EventPlayer()), true);
     UnitInventoryContainerOpen(PlayerGroupActive(), EventUnit(), 1, true);
     return true;
 }
@@ -36216,6 +36340,43 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
 void gt_ClassCreation_Init () {
     gt_ClassCreation = TriggerCreate("gt_ClassCreation_Func");
     TriggerAddEventDialogControl(gt_ClassCreation, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Ammo UI Button Callback
+//--------------------------------------------------------------------------------------------------
+bool gt_AmmoUIButtonCallback_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((EventDialogControlEventType() == c_triggerControlEventTypeClick))) {
+            return false;
+        }
+
+        if (!(((EventDialogControl() == gv_ammoUIMoveButton[1]) || (EventDialogControl() == gv_ammoUIMoveButton[2]) || (EventDialogControl() == gv_ammoUIMoveButton[3]) || (EventDialogControl() == gv_ammoUIMoveButton[4]) || (EventDialogControl() == gv_ammoUIMoveButton[5]) || (EventDialogControl() == gv_ammoUIMoveButton[6]) || (EventDialogControl() == gv_ammoUIMoveButton[7]) || (EventDialogControl() == gv_ammoUIMoveButton[8])))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if (gv_ammoBarPosition[EventPlayer()] >= 1) {
+        gv_ammoBarPosition[EventPlayer()] = 0;
+    }
+    else {
+        gv_ammoBarPosition[EventPlayer()] = gv_ammoBarPosition[EventPlayer()] + 1;
+    }
+    gf_AmmoUIMove(EventPlayer());
+    gf_UpdateAmmoDialog(EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AmmoUIButtonCallback_Init () {
+    gt_AmmoUIButtonCallback = TriggerCreate("gt_AmmoUIButtonCallback_Func");
+    TriggerAddEventDialogControl(gt_AmmoUIButtonCallback, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -39756,6 +39917,7 @@ void InitTriggers () {
     gt_BuyItem_Init();
     gt_BuyStandardItem_Init();
     gt_ClassCreation_Init();
+    gt_AmmoUIButtonCallback_Init();
     gt_DialogButtonClicks_Init();
     gt_CreateTeamStatusDialog_Init();
     gt_SaveButtonClick_Init();

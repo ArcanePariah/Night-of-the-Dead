@@ -2,7 +2,7 @@
 <Desc>
     <Frame type="Frame" name="AmmoCounter">
         <Height val="35"/>
-        <Width val="190"/>
+        <Width val="230"/>
 
         <Frame type="Image" name="AmmoCountImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -40,6 +40,13 @@
             <Height val="35"/>
             <Width val="60"/>
             <Style val="Kicker_Zerg"/>
+        </Frame>
+
+        <Frame type="Button" name="AmmoUIMoveButton">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent/MagazineCountLabel" pos="Max" offset="0"/>
+            <Height val="15"/>
+            <Width val="15"/>
         </Frame>
     </Frame>
 </Desc>

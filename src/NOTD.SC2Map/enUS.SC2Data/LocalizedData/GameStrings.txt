@@ -4584,6 +4584,7 @@ Param/Value/414A1DEB=</c></s>
 Param/Value/41AFE9EF=<s val="BriefingHanText">   Story/Concepts<n/>   Richard Lim (XaVi)</s>
 Param/Value/41CCC9EC= (<c val="F20000">
 Param/Value/42465C0C= (<c val="F20000">
+Param/Value/427249E1=
 Param/Value/42731D11=<c val="0080FF">.</c>
 Param/Value/42BB33F1=Gather with the Marines. We'll cover you.
 Param/Value/42C54EE7=Survival is paramount. Zero human awareness is necessary pre-condition for sustained self-preservation.
@@ -4648,6 +4649,7 @@ Param/Value/4D3BD96A=We're airdropping more supplies into your sector.
 Param/Value/4D6E3714=</s>
 Param/Value/4D701111=+
 Param/Value/4DA6AE6B=The compliance field is de-stabilizing. One more Nexus and we'll shut them down.
+Param/Value/4DA754D2=Move
 Param/Value/4DC830E5=<s val="GlueButtonSmall">Survival: 
 Param/Value/4DD907D3='s Marine removed from game for inactivity.
 Param/Value/4DF03C45=(You are currently piloting a Thor...)
@@ -5573,6 +5575,7 @@ Param/Value/EEF78AC9=Got to move to another terminal. Cover me.
 Param/Value/EF2860EA=Our distress signal went through. UGC command intercepted it and deleted any further broadcasts before it could reach others.
 Param/Value/EF4B1F62=+10 XP for Nightmare Bonus
 Param/Value/EFBE02D4=Ogilvy
+Param/Value/F01780C4=Rounds
 Param/Value/F080EC08=<s val="BriefingHanText">(Gunship leaving combat zone in 15 seconds...)</s>
 Param/Value/F0B80E2D=</c>)
 Param/Value/F0CC8C89=Picking up a heavy life form. We should stay away from it.
