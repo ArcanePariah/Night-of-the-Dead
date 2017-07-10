@@ -92,6 +92,15 @@
         <MaxStackCount value="3"/>
         <DamageResponse Chance="1" Handled="APAmmoApplyArmorDebuff" Location="Attacker"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="InsufficientAmmoTimed">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.7"/>
+        <Modification>
+            <AbilLinkDisableArray value="attack"/>
+            <AbilLinkDisableArray value="L3LaunchGrenade"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="KittenBeacon2">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

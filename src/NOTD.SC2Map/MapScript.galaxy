@@ -3474,8 +3474,10 @@ void gf_AmmoUsage (int lp_player, unit lp_attackingUnit, int lp_reload, string l
     gf_ActivateDeactiveReload(lp_player, lp_attackingUnit);
     if ((gv_marineRounds[lp_player] <= 0) && (gv_reloading[lp_player] == false)) {
         Wait(0.3, c_timeGame);
-        UnitIssueOrder(lp_attackingUnit, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-        UnitAbilityEnable(lp_attackingUnit, "attack", false);
+        if ((gv_marineRounds[lp_player] <= 0) && (gv_reloading[lp_player] == false)) {
+            UnitIssueOrder(lp_attackingUnit, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
+            UnitBehaviorAddPlayer(lp_attackingUnit, "InsufficientAmmoTimed", lp_player, 1);
+        }
         Wait(0.7, c_timeGame);
         if ((gv_marineRounds[lp_player] <= 0) && (gv_reloading[lp_player] == false)) {
             if ((gv_marineMags[lp_player] <= 0)) {
