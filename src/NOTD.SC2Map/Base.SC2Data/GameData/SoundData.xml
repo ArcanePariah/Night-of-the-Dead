@@ -749,6 +749,7 @@
         <AssetArray File="Assets/Sounds/Terran/Medivac/Medivac_Load0.wav" FacialGroup=""/>
         <AssetArray File="Assets/Sounds/Terran/Medivac/Medivac_Unload0.wav" FacialGroup=""/>
         <Mode value="3DWorld"/>
+        <Volume value="-22.000000,-22.000000"/>
     </CSound>
     <CSound id="CockpitOpen">
         <AssetArray File="Assets/Sounds/Terran/FireSuppressionBots/FireSupressionBots_Water0.wav" FacialGroup=""/>
@@ -758,6 +759,7 @@
         <AssetArray File="Assets/Sounds/Terran/FireSuppressionBots/FireSupressionBots_Water4.wav" FacialGroup=""/>
         <AssetArray File="Assets/Sounds/Terran/FireSuppressionBots/FireSupressionBots_Water5.wav" FacialGroup=""/>
         <Mode value="3DWorld"/>
+        <Volume value="-22.000000,-22.000000"/>
     </CSound>
     <CSound id="CommercialsA00009" parent="DevTV">
         <AssetArray index="0">
@@ -5981,7 +5983,7 @@
     </CSound>
     <CSound id="CockpitOpenLoop" parent="Phoenix_GravitonBeamLoop">
         <AssetArray index="0" File="Assets/Sounds/Uni/Emitters/Emitter_IhanCrystal_Loop.wav" Volume="-10.969999,-10.969999" FacialGroup=""/>
-        <Volume value="-21.939999,-21.939999"/>
+        <Volume value="-22.000000,-22.000000"/>
     </CSound>
     <CSound id="ChemExpert_Attack" parent="ProtossAck">
         <AssetArray File="LocalizedData\Sounds\ProtossVO\CampaignUnits\Urun\Urun_Attack00.ogg"/>

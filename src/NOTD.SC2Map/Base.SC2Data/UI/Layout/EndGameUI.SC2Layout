@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
     <Constant name="ItemSpacing" val="310"/>
+
     <Frame type="Frame" name="EndGameUITemplate">
         <Width val="1669"/>
         <Height val="520"/>
+
         <Frame type="Image" name="UIBorder">
             <Anchor relative="$parent"/>
             <Texture val="Assets\Textures\ui_battlenet_glue_frame_bucket_long.dds"/>
@@ -18,7 +20,8 @@
             <NormalImage val="NormalImage"/>
             <HoverImage val="HoverImage"/>
             <Tooltip val="Scroll End Game UI"/>
-            <TooltipAnchorPosition val="TopRight"/>
+            <TooltipAnchorPosition val="BottomToTop | LeftToRight"/>
+
             <Frame type="Image" name="NormalImage">
                 <Anchor relative="$parent"/>
                 <BlendMode val="Add"/>
@@ -58,6 +61,7 @@
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
         <Label val="Label"/>
+
         <Frame type="Image" name="NormalImage">
             <Anchor relative="$parent"/>
             <BlendMode val="Add"/>
@@ -85,6 +89,7 @@
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
         <Label val="Label"/>
+
         <Frame type="Image" name="NormalImage">
             <Anchor relative="$parent"/>
             <BlendMode val="Add"/>
@@ -111,6 +116,7 @@
         <Height val="75"/>
         <Width val="230"/>
         <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+
         <Frame type="Label" name="TitleLabel">
             <Anchor side="Top" relative="$parent/TitleImage" pos="Mid" offset="-9"/>
             <Anchor side="Left" relative="$parent/TitleImage" pos="Min" offset="50"/>
@@ -132,8 +138,10 @@
         <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
         <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
         <Height val="60"/>
+
         <Frame type="Frame" name="XP" template="EndGameUI/ScoreTitleTemplate">
             <Anchor side="Left" relative="$parent" pos="Min" offset="#ItemSpacing"/>
+
             <Frame type="Label" name="TitleLabel">
                 <Text val="XP"/>
             </Frame>
@@ -145,6 +153,7 @@
 
         <Frame type="Frame" name="Rating" template="EndGameUI/ScoreTitleTemplate">
             <Anchor side="Left" relative="$parent/XP" pos="Min" offset="#ItemSpacing"/>
+
             <Frame type="Label" name="TitleLabel">
                 <Text val="Rating"/>
             </Frame>
@@ -156,6 +165,7 @@
 
         <Frame type="Frame" name="Medals" template="EndGameUI/ScoreTitleTemplate">
             <Anchor side="Left" relative="$parent/Rating" pos="Min" offset="#ItemSpacing"/>
+
             <Frame type="Label" name="TitleLabel">
                 <Text val="Medals"/>
             </Frame>
@@ -167,6 +177,7 @@
 
         <Frame type="Frame" name="GamesPlayed" template="EndGameUI/ScoreTitleTemplate">
             <Anchor side="Left" relative="$parent/Medals" pos="Min" offset="#ItemSpacing"/>
+
             <Frame type="Label" name="TitleLabel">
                 <Text val="Games Played"/>
             </Frame>
@@ -182,8 +193,10 @@
         <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
         <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
         <Height val="60"/>
+
         <Frame type="Frame" name="Kills" template="EndGameUI/ScoreTitleTemplate">
             <Anchor side="Left" relative="$parent" pos="Min" offset="#ItemSpacing"/>
+
             <Frame type="Label" name="TitleLabel">
                 <Text val="Kills"/>
             </Frame>
@@ -195,6 +208,7 @@
 
         <Frame type="Frame" name="Hits" template="EndGameUI/ScoreTitleTemplate">
             <Anchor side="Left" relative="$parent/Kills" pos="Min" offset="#ItemSpacing"/>
+
             <Frame type="Label" name="TitleLabel">
                 <Text val="Hits"/>
             </Frame>
@@ -206,6 +220,7 @@
 
         <Frame type="Frame" name="DamageTaken" template="EndGameUI/ScoreTitleTemplate">
             <Anchor side="Left" relative="$parent/Hits" pos="Min" offset="#ItemSpacing"/>
+
             <Frame type="Label" name="TitleLabel">
                 <Text val="Damage Taken"/>
             </Frame>
@@ -217,6 +232,7 @@
 
         <Frame type="Frame" name="TotalWins" template="EndGameUI/ScoreTitleTemplate">
             <Anchor side="Left" relative="$parent/DamageTaken" pos="Min" offset="#ItemSpacing"/>
+
             <Frame type="Label" name="TitleLabel">
                 <Text val="Total Wins"/>
             </Frame>

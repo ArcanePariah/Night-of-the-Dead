@@ -161,6 +161,22 @@
         <AreaArray Radius="1.5" Effect="RetributionFieldDamage2"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
+    <CEffectModifyUnit id="SharedExperienceBonusTartarus">
+        <EditorCategories value=""/>
+        <XP value="80"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="SharedExperienceBonusNydusWorm">
+        <EditorCategories value=""/>
+        <XP value="20"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="SharedExperienceBonusLelantos">
+        <EditorCategories value=""/>
+        <XP value="80"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="SharedExperienceBonusBrainBug">
+        <EditorCategories value=""/>
+        <XP value="15"/>
+    </CEffectModifyUnit>
     <CEffectApplyBehavior id="SprintSpeedIncrease2">
         <ValidatorArray index="0" value="HiddenCompareBA"/>
         <ValidatorArray value="HiddenCompareAB"/>
@@ -1133,7 +1149,11 @@
         <EditorCategories value=""/>
         <CaseArray Validator="CasterisAgron" Effect="SharedExperienceRifleman22"/>
         <CaseArray Validator="CasterisSlasher" Effect="SharedExperienceRifleman2"/>
+        <CaseArray Validator="CasterisBrainBug" Effect="SharedExperienceBonusBrainBug"/>
+        <CaseArray Validator="CasterisNydusWorm" Effect="SharedExperienceBonusNydusWorm"/>
         <CaseArray Validator="CasterisTitan" Effect="SharedExperienceRifleman23"/>
+        <CaseArray Validator="CasterisLelantos" Effect="SharedExperienceBonusLelantos"/>
+        <CaseArray Validator="CasterisTartarus" Effect="SharedExperienceBonusTartarus"/>
     </CEffectSwitch>
     <CEffectModifyUnit id="SharedExperiencePsiOps">
         <EditorCategories value="Race:Terran"/>
@@ -1163,7 +1183,7 @@
     </CEffectModifyUnit>
     <CEffectModifyUnit id="SharedExperienceRifleman23">
         <EditorCategories value=""/>
-        <XP value="20"/>
+        <XP value="40"/>
     </CEffectModifyUnit>
     <CEffectSet id="SharedExperienceSearchSet">
         <EditorCategories value=""/>

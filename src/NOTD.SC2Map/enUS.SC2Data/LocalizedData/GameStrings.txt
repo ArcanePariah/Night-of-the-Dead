@@ -792,7 +792,6 @@ Behavior/Name/NightmareBonusDamage=Nightmare Bonus Damage
 Behavior/Name/NightmareIntimidation=Nightmare Intimidation
 Behavior/Name/NoQuarterAirborne=No Quarter Airborne
 Behavior/Name/NoQuarterInvulnerable=No Quarter - Invulnerable
-Behavior/Name/OccularImplants=Ocular Implants
 Behavior/Name/OpenWound=Open Wound
 Behavior/Name/OpenWound2=Open Wound
 Behavior/Name/OpenWoundChance=Open Wound Chance
@@ -1272,7 +1271,6 @@ Behavior/Tooltip/NegativePolarity=Deals 35 per sec to anyone with Positive Polar
 Behavior/Tooltip/NeuralParasite=This unit is being immobilized by a Hugger.
 Behavior/Tooltip/NoQuarterAirborne=The Pathfinder is rising up for a massive drop
 Behavior/Tooltip/NoQuarterInvulnerable=Pathfinder is invulnerable for 4 seconds. 
-Behavior/Tooltip/OccularImplants=Increases Sight Radius by 3. <n/><n/>Class: Enhancement (Must be Equipped)<n/><n/>"I see you" - Jake Sully
 Behavior/Tooltip/OpenWound=Unit is bleeding and will lose HP over time. Can be cured with Bandage or Medic's Surgical Laser
 Behavior/Tooltip/OpenWoundChance=5% chance to gain Open Wound on damage received.
 Behavior/Tooltip/Overheating=The turret's cannons are overheated. -80% attack speed for 5 seconds.
@@ -2393,6 +2391,46 @@ DocInfo/PatchNote092= - Shops no longer cause lag (stanK)
 DocInfo/PatchNote093= - Sec NM auto-save not working fixed (stanK)
 DocInfo/PatchNote094= - Lab lighting slightly dimmed (stanK)
 DocInfo/PatchNote095= - Fixed lag at Tartarus cinematic (stanK)
+DocInfo/PatchNote096= - Fixed rare death bug for Erebos (ThunderRazor)
+DocInfo/PatchNote097= - Fixed Nazara health on 3 player (or less) teams (stanK)
+DocInfo/PatchNote098= - Added bonus objective displaying the status of civilian search in Apollo (stanK)
+DocInfo/PatchNote099= - Total civilians rescued counter added to objective (stanK)
+DocInfo/PatchNote100= - Reenabled infestor ambient spawns 2 zombies / min (stanK)
+DocInfo/PatchNote101= - Cocoons east of comm tower now properly hatch in EC (stanK)
+DocInfo/PatchNote102= - Refactored airlock search trigger to check for marines entering cocoons periodically (stanK)
+DocInfo/PatchNote103= - Helium-3 is now properly auto-picked while moving close to the canister (stanK)
+DocInfo/PatchNote104= - Helium-3 gives 10 credits to all players flat (stanK)
+DocInfo/PatchNote105= - Helium-3 displays a tag on pickup, and player name in the global message (stanK)
+DocInfo/PatchNote106= - Oculars properly stack with 2 max (stanK)
+DocInfo/PatchNote107= - Added sound for seeker event in sec (stanK)
+DocInfo/PatchNote108= - Tech cockpit sound is less loud (stanK)
+DocInfo/PatchNote109= - Enemies have a significantly lower probability of spawning in unpathable terrain. (stanK)
+DocInfo/PatchNote110= - Banetrains no longer attack certain enemy units (stanK)
+DocInfo/PatchNote111= - Banetrains no longer spawn in unpathable areas (stanK)
+DocInfo/PatchNote112= - Banetrains are no longer split up (stanK)
+DocInfo/PatchNote113= - Nydus Worms appropriately spawn every time (stanK)
+DocInfo/PatchNote114= - Nydus Worms drop correct number of parasites (stanK)
+DocInfo/PatchNote115= - Brain bugs [45] now share experience and give 15 bonus (stanK)
+DocInfo/PatchNote116= - Lelantos [200] now shares experience and gives 80 bonus (stanK)
+DocInfo/PatchNote117= - Nydus worms [79] now share experience and give bonus 20 (stanK)
+DocInfo/PatchNote118= - Parasites [1] and slithers [1] now share experience (stanK)
+DocInfo/PatchNote119= - Tartarus [50] now gives 200 experience, shares experience and gives 80 bonus (stanK)
+DocInfo/PatchNote120= - Titans [30] now give 100 experience and bonus 40 (was bonus 20) (stanK)
+DocInfo/PatchNote121= - Spawn factor and difficulty hp scaling information now displayed in squad info. (stanK)
+DocInfo/PatchNote122= - Increased survival brightness (stanK)
+DocInfo/PatchNote123= - Removed biological tag from all pets (Deeway1)
+DocInfo/PatchNote124= - Added a model and actor for infection (stanK)
+DocInfo/PatchNote125= - Changed ET alignment to positive to differentiate from venom (stanK)
+DocInfo/PatchNote126= - Doubled the size of Hades venomous explosion model (stanK)
+DocInfo/PatchNote127= - Reload bar added to game UI (stanK)
+DocInfo/PatchNote128= - Fixed minor reload bug (stanK)
+DocInfo/PatchNote129= - Made Apollo security hugger ping last until huggers killed (stanK)
+DocInfo/PatchNote130= - Security Bergmann early trigger exploit fixed (stanK)
+DocInfo/PatchNote131= - Security Bergmann search function is now properly responsive (stanK)
+DocInfo/PatchNote132= - Security Bergmann additional pings added at the beginning of search (stanK)
+DocInfo/PatchNote133= - Security Bergmann final ping now stays on until objective complete (stanK)
+DocInfo/PatchNote134= - Security Bergmann no longer spawns in unpathable areas (stanK)
+DocInfo/PatchNote135= - Security Bergmann now changes color and is vulnerable immediately after cut-off transmission (stanK)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
@@ -3684,7 +3722,11 @@ Effect/Name/SethSearchDamageLevel4=Seth Search Damage Level 4
 Effect/Name/ShadowstepApplyTeamBuff=Shadowstep Apply Team Buff
 Effect/Name/ShadowstepCloak=Shadowstep Cloak
 Effect/Name/ShadowstepSearchArea=Shadowstep Search Area
+Effect/Name/SharedExperienceBonusBrainBug=Shared Experience Bonus Brain Bug
+Effect/Name/SharedExperienceBonusLelantos=Shared Experience Bonus Lelantos
+Effect/Name/SharedExperienceBonusNydusWorm=Shared Experience Bonus Nydus Worm
 Effect/Name/SharedExperienceBonusSwitch=Shared Experience Bonus Switch
+Effect/Name/SharedExperienceBonusTartarus=Shared Experience Bonus Tartarus
 Effect/Name/SharedExperienceDefault=Shared Experience Default
 Effect/Name/SharedExperienceEngineer=Shared Experience Engineer
 Effect/Name/SharedExperienceFlamethrower=Shared Experience Flamethrower
@@ -4447,6 +4489,7 @@ Param/Value/2F9BB167=Give suppressive fire and move! That thing has thick armor.
 Param/Value/2F9E53FC=Resourceful Marines. Processing learning outcomes.
 Param/Value/2FAEA4BE=Find military personnel at Apollo Starport
 Param/Value/2FBBC3C6=There's a log here by Dr. Yen: "Situation dire..unlocking AI inhibitors...last chance..outbreak now reported in 70% of Apollo. No sign of UGC help or response from distress calls."
+Param/Value/2FED1591=Rescue Civilians in Apollo. Bring them to the Containment Facility <c val="C0C000">(
 Param/Value/2FF21ADA=<c val="F4D72B">Class Points: 
 Param/Value/3014E2CA=Attack from the lasers' angle for more damage.
 Param/Value/30437D71=We're not going to leave innocents to their death.
@@ -4477,6 +4520,7 @@ Param/Value/33E4DF99=</c>)
 Param/Value/3445B423=Perses is in a weakened state when charging up.
 Param/Value/349C8407=<s val="GlueButton"><c val="F4D72B">We're what's left of Apollo Sec. Most of the facility is being overrun.</c>
 Param/Value/34A0856D=Who the - ...some survivors must have picked up our transmissions. You can't save them. Most of them are probably infected.
+Param/Value/34FC3D29=Rescue Civilians in Apollo. Bring them to the Containment Facility
 Param/Value/3549F488=(Launching Ion Cannons...)
 Param/Value/354C27AF=You cannot understand what happened here. But no matter...you will not live.
 Param/Value/358DDE20=Don't think anyone got our distress call. Haul ass to the communications tower and check SatLink.
@@ -4549,6 +4593,7 @@ Param/Value/414A1DEB=</c></s>
 Param/Value/41AFE9EF=<s val="BriefingHanText">   Story/Concepts<n/>   Richard Lim (XaVi)</s>
 Param/Value/41CCC9EC= (<c val="F20000">
 Param/Value/42465C0C= (<c val="F20000">
+Param/Value/427249E1=
 Param/Value/42731D11=<c val="0080FF">.</c>
 Param/Value/42BB33F1=Gather with the Marines. We'll cover you.
 Param/Value/42C54EE7=Survival is paramount. Zero human awareness is necessary pre-condition for sustained self-preservation.
@@ -4569,6 +4614,7 @@ Param/Value/460272C9=Negative. We sweeped the whole colony. There are no survivo
 Param/Value/4666C8A0=Chapter 3
 Param/Value/46979E56=<s val="InfoPaneHeroRank">Colonists Rescued:  
 Param/Value/46D423B5=Tier 2
+Param/Value/46F19DE3=Difficulty HP Scaling: 
 Param/Value/4713242D=Click to open Marine Equipment
 Param/Value/472EBABF=</c>
 Param/Value/477A5ACF=Put your guns down and we'll talk.
@@ -4612,6 +4658,7 @@ Param/Value/4D3BD96A=We're airdropping more supplies into your sector.
 Param/Value/4D6E3714=</s>
 Param/Value/4D701111=+
 Param/Value/4DA6AE6B=The compliance field is de-stabilizing. One more Nexus and we'll shut them down.
+Param/Value/4DA754D2=Move
 Param/Value/4DC830E5=<s val="GlueButtonSmall">Survival: 
 Param/Value/4DD907D3='s Marine removed from game for inactivity.
 Param/Value/4DF03C45=(You are currently piloting a Thor...)
@@ -4691,10 +4738,12 @@ Param/Value/58DA23DB=
 Param/Value/5907AE6D=It's down. We destroyed it.
 Param/Value/594AAF09=We need to get to the airlock.
 Param/Value/59BA14F5=Select Storyline
+Param/Value/5AA04D5B=/60)</c>
 Param/Value/5AC82CF0=Chapter 2
 Param/Value/5B1491B3=Use Anti-Air weapons for Dome B
 Param/Value/5B297F90=Picking up life signs!
 Param/Value/5B4DEB8C=<c val="0080FF">Registering Biometric ID. Welcome, </c>
+Param/Value/5B896DB4=Find Civilians stranded in Apollo <c val="C0C000">(
 Param/Value/5B92DE4B=Investigate the mining site
 Param/Value/5BD11E6A=I'm surprised that thing fits into a dropship.
 Param/Value/5C0EEB17=It's too dangerous out here...
@@ -4710,6 +4759,7 @@ Param/Value/5DDB7741=: <c val="F4D72B">
 Param/Value/5E300354=!
 Param/Value/5E6F0326=This, my friends, is not possible.
 Param/Value/5E7C397E=(Sensing her mortality, the Queen begins to withdraw..)
+Param/Value/5E9D241A=asasd
 Param/Value/5EDDC08C=We lost the starport too. Couldn't EVAC out of here.
 Param/Value/5F4DD8DA=ETA 2 Mikes. I see enemy movement. They're moving in on you.
 Param/Value/5FA0B4DE=(The Queen begins to lay eggs..)
@@ -4850,6 +4900,7 @@ Param/Value/77C447C6=<s val="BriefingHanText">(Airlock gates unlocked..)</s>
 Param/Value/77CE5292=Code 66 unlocked. Activating all auxilliary defenses...
 Param/Value/781216FF=Doctor, have you seen a man called Bergmann? He landed here a few days ago.
 Param/Value/78336162=We're safe. There are more people still hiding in Nakagawa Bay east of the main city compound. Can you help bring them to our ship?
+Param/Value/7887C155= 
 Param/Value/789187AF=Hoo-ah!
 Param/Value/78BDA520=<s val="BriefingHanText">   Artwork & Models<n/>   Nicolas Chaussois<n/>   Justin Phang (DinLouz)<n/>   Holly Calilung (Quassy)<n/>   Peerawat Nonthaphodej (Peerawatz)</s>
 Param/Value/78E290D7=<s val="InfoPaneHeroRank">Not eligible for Navy Cross</s>
@@ -5021,6 +5072,7 @@ Param/Value/95F734B9=Boss Approaching
 Param/Value/95FA0B91=<s val="CinematicLabel">  Ivan Plushenko: <c val="F4D72B">This is for everyone you've killed, Bergmann...</c></s>
 Param/Value/9636C697=</c>)
 Param/Value/96BE079C=Your squad has been sent to the Apollo Mining Colony to respond to a distress signal. Follow mission orders and stay alive. Teamwork is key to survival. Once you die, you cannot revive.<n/><n/>Game Basics<n/>Inventory: You will pick up items along the way. These aid your survival.<n/>Ammunition: Your ammo counter is displayed near your Marine portrait. When you run out of ammo, you cannot fire.<n/>Talents: Press B to open your Talent tree. You gain 1 talent point every time your Marine levels up.<n/><n/>Chat Commands<n/>-ammo: Shows everyone's magazine count<n/>-nightmare: Increases game difficulty for good players<n/>-em: Activates Easy Mode. Players also gain shared vision. XP gain rate is reduced<n/><n/>Discuss at www.notdstarcraft.com
+Param/Value/96EBA0B6=Spawn Factor: 
 Param/Value/96EC434E=: 
 Param/Value/970215F7=Mod Points Unassigned: 
 Param/Value/970BB720=<s val="GlueButton"><c val="F4D72B">Deimos has released a swarm of Titans from containment!</c></s>
@@ -5041,6 +5093,7 @@ Param/Value/99B5F70D=Those Cellular Structures are immune to small arms fire. Pu
 Param/Value/99C9601E=What we saw in the underground quarters will scar my men.
 Param/Value/99D46EAC=(Erebos loses his regenerative shell...)
 Param/Value/99F117F0=Destroy Hades
+Param/Value/9A5C7980=)</s>
 Param/Value/9A8995D6=<s val="InfoPaneHeroRank">SELECTION<n/>A - Destroy Apollo and cleanse the infestation<n/>B - Reactivate Mining controls to restore Helium-3 processing</s>
 Param/Value/9A8AA95F=Dropship ETA
 Param/Value/9AAF1748=Base sensors are still operational. Re-arming.
@@ -5057,6 +5110,7 @@ Param/Value/9BE1C351=There's a military base to the West. Maybe the locals know 
 Param/Value/9C2CC7BC=<s val="InfoPaneHeroRank">
 Param/Value/9C362C62=HAL
 Param/Value/9C64BA34=We don't know what else is out there. Upgrade your talents to fight more effectively.
+Param/Value/9D1AD2FF=Rescue Civilians in Apollo. Bring them to the Containment Facility
 Param/Value/9D226B1A=I'm...sorry...
 Param/Value/9D2C0E2F=Target neutralized.
 Param/Value/9D795DCA=Banelings are approaching!
@@ -5129,7 +5183,7 @@ Param/Value/A95F9F3A=Felt like I was in a nightmare.
 Param/Value/A9BBC9F5=Search for survivors in Apollo
 Param/Value/A9BBE26A=Charlie Company is ready to assist. We'll help soften the zombies, but you got to watch out for that Queen.
 Param/Value/A9C5BF56=Suppressive fire!
-Param/Value/A9E035B3=Rescue Civilians in Apollo. Bring them to the Containment Facility
+Param/Value/A9E035B3=Rescue Civilians in Apollo. Bring them to the Containment Facility <c val="C0C000">(0/60)</c>
 Param/Value/A9F3D299=Command, we're being attacked by some creatures.
 Param/Value/AA0161B7=<s val="InfoPaneHeroRank">Navy Cross Mode activated</s><n/>- All medical supplies removed from game.
 Param/Value/AA4F6A1D=Kill the zombie queen. Let's put an end to this.
@@ -5161,6 +5215,7 @@ Param/Value/B0A61D95=)
 Param/Value/B0B303DB=Easy day, Phantom 6.
 Param/Value/B0BFE06F=We're on it, sir.
 Param/Value/B0C550E8=</c> -- (
+Param/Value/B0D8EA27=+10 Credits
 Param/Value/B0E31603=Roast 'em.
 Param/Value/B0F6BFF3=He's got 3 possible escape routes: Starport, Apollo Dock or Site Alpha.
 Param/Value/B1020279=We're detecting something..
@@ -5397,6 +5452,7 @@ Param/Value/D8269A91=Kill all zombies from Bio-Dome C
 Param/Value/D8BB5BCF=Tissue Sample Collection
 Param/Value/D8E2D657=How could HAL be alive, after shutting down its mainframe?
 Param/Value/D9413C5B=<s val="CinematicLabel">  Dr. Bergmann: <c val="F4D72B">You...finish it...</c></s>
+Param/Value/D95CDF30=/12)</c>
 Param/Value/D96BF6CE=Please reconsider your actions.
 Param/Value/D9C4D665=Survive the incoming attack
 Param/Value/DA7A513D=The source of the infestation has been located. Proceed with caution. There is no turning back.
@@ -5528,6 +5584,7 @@ Param/Value/EEF78AC9=Got to move to another terminal. Cover me.
 Param/Value/EF2860EA=Our distress signal went through. UGC command intercepted it and deleted any further broadcasts before it could reach others.
 Param/Value/EF4B1F62=+10 XP for Nightmare Bonus
 Param/Value/EFBE02D4=Ogilvy
+Param/Value/F01780C4=Rounds
 Param/Value/F080EC08=<s val="BriefingHanText">(Gunship leaving combat zone in 15 seconds...)</s>
 Param/Value/F0B80E2D=</c>)
 Param/Value/F0CC8C89=Picking up a heavy life form. We should stay away from it.
@@ -5614,6 +5671,7 @@ Param/Value/FE8803E4=Incoming.
 Param/Value/FEF9177A=Doctor
 Param/Value/FF4D0407=I hope it won't come to that. Keep your distance from the creatures.
 Param/Value/FF63624E=Roger.
+Param/Value/FF7D5EAC=<s val="BriefingHanText">(<c val="8A8AFF">Helium-3 Canister</c> recovered by 
 Pistol Equipped=P-45 Gausss Pistol Equipped
 Precision Shot Level 2=Deals 70 damage to target unit.
 Protoss Armor=Armor
@@ -6294,6 +6352,10 @@ UserData/Ranks/Sergeant_Title Brief=Sgt.
 UserData/Ranks/Sergeant_Title Full=Sergeant
 UserData/Ranks/Staff Sergeant_Title Brief=SSgt. 
 UserData/Ranks/Staff Sergeant_Title Full=Staff Sergeant
+UserData/SquadInformation/Difficulty HP Scaling_Information=Difficulty HP Scaling: 
+UserData/SquadInformation/Spawn Factor_Information=Spawn Factor: 
+UserData/SquadInformation/Squad Rating_Information=Squad Rating: 
+UserData/SquadInformation/Squad XP_Information=Squad XP: 
 UserData/StatData/Agility_Name=Agility
 UserData/StatData/Agility_Tooltip=<c val="FFFF00">Agility</c><n/>Adds movespeed, improved reload time
 UserData/StatData/Endurance_Name=Endurance

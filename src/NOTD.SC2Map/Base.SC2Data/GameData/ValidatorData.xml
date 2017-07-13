@@ -7,6 +7,24 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="Bloodlust"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotConcentratedFire3">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ConcentratedFireLevel3"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotConcentratedFire2">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ConcentratedFireLevel2"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="CasterNotConcentratedFireCombine">
+        <Type value="And"/>
+        <CombineArray value="CasterNotConcentratedFire1"/>
+        <CombineArray value="CasterNotConcentratedFire2"/>
+        <CombineArray value="CasterNotConcentratedFire3"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotConcentratedFire1">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ConcentratedFireLevel1"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterNotTurbo">
         <WhichUnit Value="Caster"/>
         <Behavior value="Turbo"/>
@@ -94,6 +112,10 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="TauntLevel3"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotSlowRoast">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="SlowRoast"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterhasRavagingPhantomLevel1">
         <Value value="1"/>
         <Behavior value="RavagingPhantomLevel1"/>
@@ -102,6 +124,22 @@
         <Value value="1"/>
         <Behavior value="RavagingPhantomLevel2"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitType id="CasterisBrainBug">
+        <WhichUnit Value="Caster"/>
+        <Value value="BrainBug"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="CasterisLelantos">
+        <WhichUnit Value="Caster"/>
+        <Value value="Lelantos"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="CasterisNydusWorm">
+        <WhichUnit Value="Caster"/>
+        <Value value="NydusCanal"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="CasterisTartarus">
+        <WhichUnit Value="Caster"/>
+        <Value value="Tartarus"/>
+    </CValidatorUnitType>
     <CValidatorUnitType id="CasterisSlasher">
         <WhichUnit Value="Caster"/>
         <Value value="Slasher"/>

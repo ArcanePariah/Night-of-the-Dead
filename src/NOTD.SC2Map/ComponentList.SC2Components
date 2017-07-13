@@ -15,4 +15,5 @@
     <DataComponent Type="cine">Cinematics</DataComponent>
     <DataComponent Type="text" Locale="zhCN">GameText</DataComponent>
     <DataComponent Type="text" Locale="zhTW">GameText</DataComponent>
+    <DataComponent Type="text" Locale="frFR">GameText</DataComponent>
 </Components>

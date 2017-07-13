@@ -239,6 +239,10 @@
         <On Terms="ActorCreation.GhostOverlaySelection" Send="SetOpacity"/>
         <Model value="Ghost"/>
     </CActorModel>
+    <CActorModel id="Infection" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.Infection.On" Send="Create"/>
+        <On Terms="Behavior.Infection.Off" Send="Destroy"/>
+    </CActorModel>
     <CActorModel id="LevelUp2" parent="ModelAddition">
         <Terms value="ValidateUnit AboveLevel1"/>
         <Inherits index="BaseModelScale" value="0"/>
@@ -5467,6 +5471,7 @@
     <CActorModel id="FungalGrowth">
         <On Terms="Behavior.VenomousExplosion.On" Send="Create"/>
         <On Terms="Behavior.VenomousExplosion.Off" Send="AnimBracketStop BSD"/>
+        <AutoScaleFactor value="2.000000"/>
     </CActorModel>
     <CActorUnit id="Hades" parent="GenericUnitBase" unitName="Hades">
         <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>

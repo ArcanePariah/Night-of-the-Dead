@@ -13810,6 +13810,7 @@
     <ObjectPoint Id="405327730" Position="245.5,9.5,0" Scale="1,1,1" Type="StartLoc" Name="Start Location 014" Color="0,0,0,0"/>
     <ObjectPoint Id="427860851" Position="245.5,11.5,0" Scale="1,1,1" Type="StartLoc" Name="Start Location 009" Color="0,0,0,0"/>
     <ObjectPoint Id="696597165" Position="245.5,10.5,0" Scale="1,1,1" Type="StartLoc" Name="Start Location 013" Color="0,0,0,0"/>
+    <ObjectPoint Id="833123111" Position="99.8623,80.881,0" Scale="1,1,1" Type="Normal" Name="Spawn Pathing Validator" Color="0,0,0,0"/>
     <ObjectCamera Id="313" Position="186.18,174.176,0" Rotation="2.6437" Scale="1,1,1" Name="Chapter 2 Intro Cam" Color="0,0,0,0" CameraTarget="186.18,174.176">
         <CameraValue Index="FieldOfView" Value="35"/>
         <CameraValue Index="NearClip" Value="0.0998"/>

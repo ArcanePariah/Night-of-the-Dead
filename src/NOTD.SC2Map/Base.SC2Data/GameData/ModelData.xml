@@ -38,6 +38,11 @@
         <Model value="Assets\Portraits\Zerg\BrutaliskPortrait\BrutaliskPortrait.m3"/>
         <Image value="Assets\Textures\BrutaliskPortrait_Static.dds"/>
     </CModel>
+    <CModel id="Infection" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\DiseaseCloud\DiseaseCloud.m3"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
     <CModel id="Invisible2">
         <Model value="Assets\Units\Test\InvisibleUnit\InvisibleUnit.m3"/>
         <EditorCategories value="Race:Neutral"/>
