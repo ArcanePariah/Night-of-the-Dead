@@ -5935,7 +5935,10 @@
         <InfoIcon value="Assets\Textures\btn-ability-terran-domination.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="VengeanceLevel1"/>
-        <DamageResponse Chance="0.15" Handled="VengeanceApply"/>
+        <DamageResponse Chance="0.15" Handled="VengeanceApply">
+            <ExcludeEffectArray value="PolarityShiftDamagePositive"/>
+            <ExcludeEffectArray value="PolarityShiftDamageNegative"/>
+        </DamageResponse>
         <Alignment value="Positive"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="VengeanceLevel2">
@@ -5944,7 +5947,10 @@
         <Requirements value="VengeanceLevel2"/>
         <Period value="0.01"/>
         <PeriodCount value="1"/>
-        <DamageResponse Chance="0.3" Handled="VengeanceApply"/>
+        <DamageResponse Chance="0.3" Handled="VengeanceApply">
+            <ExcludeEffectArray value="PolarityShiftDamagePositive"/>
+            <ExcludeEffectArray value="PolarityShiftDamageNegative"/>
+        </DamageResponse>
         <Alignment value="Positive"/>
         <Modification>
             <BehaviorLinkDisableArray value="VengeanceLevel1"/>
@@ -5956,7 +5962,10 @@
         <Requirements value="VengeanceLevel3"/>
         <Period value="0.01"/>
         <PeriodCount value="1"/>
-        <DamageResponse Chance="0.45" Handled="VengeanceApply"/>
+        <DamageResponse Chance="0.45" Handled="VengeanceApply">
+            <ExcludeEffectArray value="PolarityShiftDamagePositive"/>
+            <ExcludeEffectArray value="PolarityShiftDamageNegative"/>
+        </DamageResponse>
         <Alignment value="Positive"/>
         <Modification>
             <BehaviorLinkDisableArray value="VengeanceLevel1"/>
