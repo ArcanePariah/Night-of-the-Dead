@@ -31434,13 +31434,6 @@ Actor=TerrainMgr
 id=WeaponReloads
 Actor=TerrainMgr
 
-[Water]
-id=PortZion
-asset=Assets\Textures\DefaultWater.dds
-Actor=TerrainMgr
-Model=BelShirBeachShoreline,BelShirCliffShoreline,DefaultLava
-Sound=Emitter_WaterCalm
-
 [Weapon]
 id=LongboltMissile
 asset=Assets\Textures\btn-upgrade-terran-hisecautotracking.dds
