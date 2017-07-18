@@ -115,7 +115,7 @@
             <cliffDoodad name="TerrainObjectBraxisAlphaZergHoleLarge1" pos="103.000000 221.000000 0.000000 " rot="0"/>
             <cliffDoodad name="TerrainObjectBraxisAlphaZergHoleLarge1" pos="75.000000 227.000000 0.000000 " rot="0"/>
         </cliffDoodadList>
-        <vertData quantizeBias="9.070136e+00" quantizeScale="5.021475e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
+        <vertData quantizeBias="9.070360e+00" quantizeScale="5.021467e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
         <masks name="t3TextureMasks"/>
         <textureSetList num="8">
             <textureSet i="0" name="MeinhoffEx1"/>
@@ -1219,7 +1219,7 @@
             <blockTextureSet i="1022" tileSet="0"/>
             <blockTextureSet i="1023" tileSet="0"/>
         </blockTextureSetList>
-        <cliffCellList num="16384" numOccupied="7633">
+        <cliffCellList num="16384" numOccupied="7638">
             <cc i="0" f="0" cid="1" cvar="1"/>
             <cc i="1" f="0" cid="1" cvar="1"/>
             <cc i="2" f="0" cid="1" cvar="2"/>
@@ -3741,7 +3741,9 @@
             <cc i="7061" f="4" cid="1" cvar="0"/>
             <cc i="7062" f="12" cid="1" cvar="0"/>
             <cc i="7063" f="12" cid="0" cvar="0"/>
-            <cc i="7064" f="8" cid="0" cvar="0"/>
+            <cc i="7064" f="12" cid="0" cvar="0"/>
+            <cc i="7065" f="4" cid="0" cvar="0"/>
+            <cc i="7066" f="4" cid="0" cvar="0"/>
             <cc i="7087" f="2" cid="1" cvar="0"/>
             <cc i="7088" f="2" cid="1" cvar="0"/>
             <cc i="7089" f="1" cid="1" cvar="3"/>
@@ -3811,6 +3813,9 @@
             <cc i="7189" f="4" cid="1" cvar="1"/>
             <cc i="7190" f="4" cid="1" cvar="1"/>
             <cc i="7191" f="4" cid="0" cvar="0"/>
+            <cc i="7192" f="4" cid="0" cvar="0"/>
+            <cc i="7193" f="4" cid="0" cvar="0"/>
+            <cc i="7194" f="4" cid="0" cvar="0"/>
             <cc i="7215" f="0" cid="1" cvar="0"/>
             <cc i="7216" f="1" cid="1" cvar="1"/>
             <cc i="7217" f="1" cid="1" cvar="2"/>
