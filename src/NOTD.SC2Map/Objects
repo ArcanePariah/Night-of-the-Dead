@@ -1055,7 +1055,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1269" Variation="2" Position="39,169,19.6333" Rotation="4.492" Scale="1,1,1" Type="AiurOvermindIntestines">
+    <ObjectDoodad Id="1269" Variation="2" Position="39,169,19.6335" Rotation="4.492" Scale="1,1,1" Type="AiurOvermindIntestines">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5256,7 +5256,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2326" Position="13.9494,114.21,19.9516" Rotation="2.557" Scale="0.9,0.9,0.9" Type="DestroyedNydusWorm">
+    <ObjectDoodad Id="2326" Position="13.9494,114.21,19.952" Rotation="2.557" Scale="0.9,0.9,0.9" Type="DestroyedNydusWorm">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5268,7 +5268,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3115" Position="17.383,220.2868,19.8891" Rotation="3.929" Scale="0.89,0.89,0.89" Type="DestroyedNydusWorm">
+    <ObjectDoodad Id="3115" Position="17.383,220.2868,19.8894" Rotation="3.929" Scale="0.89,0.89,0.89" Type="DestroyedNydusWorm">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5975,7 +5975,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2665" Variation="1" Position="157.2573,159.8325,21.9943" Rotation="3.721" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
+    <ObjectDoodad Id="2665" Variation="1" Position="157.2573,159.8325,21.9946" Rotation="3.721" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5987,13 +5987,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3010" Variation="1" Position="150.5698,155.46,21.9943" Rotation="0.1523" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
+    <ObjectDoodad Id="3010" Variation="1" Position="150.5698,155.46,21.9946" Rotation="0.1523" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3012" Position="152.36,159.5925,21.9953" Rotation="0.1525" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
+    <ObjectDoodad Id="3012" Position="152.36,159.5925,21.9956" Rotation="0.1525" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -6040,7 +6040,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3053" Variation="1" Position="62.6791,219.7651,19.556" Rotation="2.4658" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
+    <ObjectDoodad Id="3053" Variation="1" Position="62.6791,219.7651,19.5561" Rotation="2.4658" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -8356,13 +8356,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2082" Variation="7" Position="241.5,15.5,19.7067" Rotation="0.5351" Scale="0.9982,0.9982,0.9982" Type="PortZionTower">
+    <ObjectDoodad Id="2082" Variation="7" Position="241.5,15.5,19.707" Rotation="0.5351" Scale="0.9982,0.9982,0.9982" Type="PortZionTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2108" Variation="7" Position="222.5,10.5,19.8647" Rotation="3.275" Scale="0.9982,0.9982,0.9982" Type="PortZionTower">
+    <ObjectDoodad Id="2108" Variation="7" Position="222.5,10.5,19.865" Rotation="3.275" Scale="0.9982,0.9982,0.9982" Type="PortZionTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10426,7 +10426,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2345" Variation="1" Position="184.981,190.0725,23.961" Rotation="4.5017" Scale="0.75,0.75,1" Type="SpacePlatformArchwayLarge">
+    <ObjectDoodad Id="2345" Variation="1" Position="184.981,190.0725,23.9606" Rotation="4.5017" Scale="0.75,0.75,1" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10480,7 +10480,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2894" Position="148,98,23.9526" Rotation="3.554" Scale="0.9,0.9,0.9" Type="SpacePlatformArchwayLarge">
+    <ObjectDoodad Id="2894" Position="148,98,23.9523" Rotation="3.554" Scale="0.9,0.9,0.9" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10551,7 +10551,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2908" Variation="2" Position="87,172,23.9558" Rotation="0.5498" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
+    <ObjectDoodad Id="2908" Variation="2" Position="87,172,23.9555" Rotation="0.5498" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10567,7 +10567,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2912" Variation="1" Position="40,197,23.9604" Rotation="0.1501" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
+    <ObjectDoodad Id="2912" Variation="1" Position="40,197,23.9602" Rotation="0.1501" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10588,7 +10588,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2916" Variation="1" Position="69,214,23.9438" Rotation="1.2268" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
+    <ObjectDoodad Id="2916" Variation="1" Position="69,214,23.9436" Rotation="1.2268" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10626,12 +10626,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3017" Variation="1" Position="222.8876,1.7658,19.7714" Rotation="3.4777" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
+    <ObjectDoodad Id="3017" Variation="1" Position="222.8876,1.7658,19.7717" Rotation="3.4777" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3018" Variation="4" Position="241.1091,1.2583,20.452" Rotation="2.599" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
+    <ObjectDoodad Id="3018" Variation="4" Position="241.1091,1.2583,20.4521" Rotation="2.599" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10793,7 +10793,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1527" Variation="3" Position="203.38,218.67,22.927" Rotation="0.7705" Scale="1,1,1" Type="SpacePlatformCliffDoodadMedium">
+    <ObjectDoodad Id="1527" Variation="3" Position="203.38,218.67,22.9311" Rotation="0.7705" Scale="1,1,1" Type="SpacePlatformCliffDoodadMedium">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11482,13 +11482,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="48" Variation="1" Position="136,50,20.006" Rotation="2.786" Scale="1,1,1" Type="SpacePlatformTower">
+    <ObjectDoodad Id="48" Variation="1" Position="136,50,20.0063" Rotation="2.786" Scale="1,1,1" Type="SpacePlatformTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="50" Variation="2" Position="158.3476,46.6523,19.9953" Rotation="2.7834" Scale="1.7998,1.7998,1.7998" Type="SpacePlatformTower">
+    <ObjectDoodad Id="50" Variation="2" Position="158.3476,46.6523,19.9956" Rotation="2.7834" Scale="1.7998,1.7998,1.7998" Type="SpacePlatformTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11500,13 +11500,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2677" Variation="1" Position="141.8178,43.6926,20.3603" Rotation="1.283" Scale="1,1,1" Type="SpacePlatformTower">
+    <ObjectDoodad Id="2677" Variation="1" Position="141.8178,43.6926,20.3605" Rotation="1.283" Scale="1,1,1" Type="SpacePlatformTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2678" Variation="1" Position="151,49,19.9555" Rotation="2.7846" Scale="1,1,1" Type="SpacePlatformTower">
+    <ObjectDoodad Id="2678" Variation="1" Position="151,49,19.9553" Rotation="2.7846" Scale="1,1,1" Type="SpacePlatformTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -13835,14 +13835,14 @@
         <CameraValue Index="FocalDepth" Value="18"/>
         <CameraValue Index="FalloffEnd" Value="18"/>
     </ObjectCamera>
-    <ObjectCamera Id="346" Position="140.7033,176.6752,0" Rotation="0.0966" Scale="1,1,1" Name="Power Generator Cam" Color="0,0,0,0" CameraTarget="140.7033,176.6752">
+    <ObjectCamera Id="346" Position="140.7033,176.6752,0" Rotation="0.0964" Scale="1,1,1" Name="Power Generator Cam" Color="0,0,0,0" CameraTarget="140.7033,176.6752">
         <CameraValue Index="FieldOfView" Value="27.7995"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="13.1352"/>
         <CameraValue Index="Pitch" Value="42.23"/>
-        <CameraValue Index="Yaw" Value="5.5532"/>
+        <CameraValue Index="Yaw" Value="5.5393"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
@@ -13906,14 +13906,14 @@
         <CameraValue Index="FocalDepth" Value="18"/>
         <CameraValue Index="FalloffEnd" Value="18"/>
     </ObjectCamera>
-    <ObjectCamera Id="1161" Position="140.7045,176.6647,0" Rotation="0.043" Scale="1,1,1" Name="Power Generator Cam End" Color="0,0,0,0" CameraTarget="140.7045,176.6647">
+    <ObjectCamera Id="1161" Position="140.7045,176.6647,0" Rotation="0.0427" Scale="1,1,1" Name="Power Generator Cam End" Color="0,0,0,0" CameraTarget="140.7045,176.6647">
         <CameraValue Index="FieldOfView" Value="27.7995"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="9.8686"/>
         <CameraValue Index="Pitch" Value="31.19"/>
-        <CameraValue Index="Yaw" Value="2.4758"/>
+        <CameraValue Index="Yaw" Value="2.462"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
@@ -14151,26 +14151,26 @@
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="2327" Position="123.0585,157.86,0" Rotation="0.021" Scale="1,1,1" Name="Bergmann Death A" Color="0,0,0,0" CameraTarget="123.0585,157.86">
+    <ObjectCamera Id="2327" Position="123.0585,157.86,0" Rotation="0.0207" Scale="1,1,1" Name="Bergmann Death A" Color="0,0,0,0" CameraTarget="123.0585,157.86">
         <CameraValue Index="FieldOfView" Value="27.7998"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.0451"/>
         <CameraValue Index="Pitch" Value="21.4772"/>
-        <CameraValue Index="Yaw" Value="1.2167"/>
+        <CameraValue Index="Yaw" Value="1.203"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="165.9748"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="2329" Position="123.0585,157.86,0" Rotation="0.021" Scale="1,1,1" Name="Bergmann Death B" Color="0,0,0,0" CameraTarget="123.0585,157.86">
+    <ObjectCamera Id="2329" Position="123.0585,157.86,0" Rotation="0.0207" Scale="1,1,1" Name="Bergmann Death B" Color="0,0,0,0" CameraTarget="123.0585,157.86">
         <CameraValue Index="FieldOfView" Value="27.7998"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.3496"/>
         <CameraValue Index="Pitch" Value="21.4772"/>
-        <CameraValue Index="Yaw" Value="1.2167"/>
+        <CameraValue Index="Yaw" Value="1.203"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="165.9748"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
