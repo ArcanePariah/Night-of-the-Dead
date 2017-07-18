@@ -228,6 +228,9 @@
         <On Terms="Behavior.Turbo.Off" Send="Destroy"/>
         <Sound value="Zealot_Charge2"/>
     </CActorSound>
+    <CActorDoodad id="CocoonedColonists">
+        <Footprint value=""/>
+    </CActorDoodad>
     <CActorModel id="GenericAttackDamageModel2" parent="GenericAttackModel"/>
     <CActorSound id="GenericAttackDamageSound2" parent="GenericAttackSound"/>
     <CActorModel id="GenericAttackImpactModel2" parent="GenericAttackModel"/>

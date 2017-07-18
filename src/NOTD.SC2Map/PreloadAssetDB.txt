@@ -2297,6 +2297,10 @@ Sound=Raven_DefensiveMatrixBirth
 id=DefensiveMatrixImpact
 Actor=TerrainMgr
 Sound=Raven_DefensiveMatrixDeath
+id=CocoonedColonists
+Actor=SoundEmitter,TerrainMgr
+Model
+Sound=Doodad_##id##
 id=InfestedTerran
 path=Assets\Textures\.dds
 asset=Wireframe-Zerg-InfestedMarine,btn-missing-kaeo,btn-unit-zerg-infestedmarine,btn-upgrade-zerg-groundcarapace-level0,btn-upgrade-zerg-swarmfrenzy,ui_ingame_workercount_bg
