@@ -164,7 +164,7 @@
     <CModel id="SpacePlatformCliffDoodadMedium">
         <Occlusion value="Hide"/>
     </CModel>
-    <CModel id="SpacePlatformTower">
+    <CModel id="SuperCrane">
         <Occlusion value="Hide"/>
     </CModel>
     <CModel id="TerrainObjectBraxisAlphaReactorDoodad">
