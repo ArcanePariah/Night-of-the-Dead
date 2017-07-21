@@ -91,6 +91,10 @@
     <CEffectEnumArea id="330mmBarrageCannonsSearch">
         <SearchFilters value="Ground;Self,Player,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="AddPetDetection5">
+        <EditorCategories value=""/>
+        <Behavior value="Detector5"/>
+    </CEffectApplyBehavior>
     <CEffectDamage id="HotSBanelingExplodeLargeSearchDamage">
         <Amount value="60"/>
     </CEffectDamage>
