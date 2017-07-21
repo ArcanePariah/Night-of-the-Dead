@@ -4342,7 +4342,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -4526,7 +4526,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenDelay value="1"/>
@@ -4634,7 +4634,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="350"/>
         <LifeMax value="350"/>
         <LifeArmor value="4"/>
@@ -4675,7 +4675,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -5011,7 +5011,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenDelay value="0"/>
@@ -5063,7 +5063,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -5209,7 +5209,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -5462,7 +5462,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -5519,7 +5519,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenDelay value="0"/>
@@ -5568,7 +5568,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeRegenRate value="7"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
         <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
