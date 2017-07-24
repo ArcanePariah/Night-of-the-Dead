@@ -1738,7 +1738,7 @@ void gf_CreateStatModPanels (int lp_player, int lp_statIndex, int lp_xOffset, in
 void gf_CreateWeaponModPanels (int lp_player, int lp_statIndex, int lp_xOffset, int lp_yOffset);
 bool gf_AttackerbehindTarget (unit lp_attacker, unit lp_target, fixed lp_rearAngle);
 void gf_RestoreLeaverControl ();
-void gf_SetCombatKnifeDamage (int lp_player);
+void gf_SetCombatKnifeDamage (int lp_triggeringPlayer);
 fixed gf_WeaponsProfReloadTimeFactor (int lp_reloadingPlayer);
 bool gf_HeroicLaserDesignateTarget (unit lp_targetUnit);
 void gf_ForwardObserverLaunchSound (int lp_forwardObserverOwner, point lp_point, int lp_shellMode);
@@ -12343,9 +12343,9 @@ void gf_RestoreLeaverControl () {
     }
 }
 
-void gf_SetCombatKnifeDamage (int lp_player) {
+void gf_SetCombatKnifeDamage (int lp_triggeringPlayer) {
     // Implementation
-    CatalogFieldValueModify(c_gameCatalogEffect, "CombatKnifeDamage", "Amount", lp_player, FixedToString(((IntToFixed(gv_playerRank[lp_player]) - 1.0) * 0.5), c_fixedPrecisionAny), c_upgradeOperationAdd);
+    CatalogFieldValueModify(c_gameCatalogEffect, "CombatKnifeDamage", "Amount", lp_triggeringPlayer, FixedToString(((IntToFixed(gv_playerRank[lp_triggeringPlayer]) - 1.0) * 0.5), c_fixedPrecisionAny), c_upgradeOperationAdd);
 }
 
 fixed gf_WeaponsProfReloadTimeFactor (int lp_reloadingPlayer) {
@@ -14726,6 +14726,7 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
         gv_marineRounds[lv_attackingPlayer] = MaxI((gv_marineRounds[lv_attackingPlayer] - 1), 0);
     }
     gf_AmmoUsage(lv_attackingPlayer, lv_firingUnit, ge_ReloadType_Automatic, lv_attackingWeapon);
+    Wait(0.3, c_timeGame);
     if ((lv_attackingWeapon == "StingerMK3") && (gv_marineRounds[lv_attackingPlayer] < 10)) {
         UnitBehaviorAddPlayer(lv_firingUnit, "InsufficientAmmo", lv_attackingPlayer, 1);
     }
