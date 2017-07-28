@@ -551,6 +551,12 @@
         <CombineArray value="UnitisPathfinder"/>
         <CombineArray value="TargetIsEnemyorNeutral"/>
     </CValidatorCombine>
+    <CValidatorPlayerCompareResource id="PlayerHas5000XP">
+        <WhichPlayer Value="Target"/>
+        <Compare value="GE"/>
+        <Resource value="Custom"/>
+        <Value value="5000"/>
+    </CValidatorPlayerCompareResource>
     <CValidatorUnitCompareBehaviorCount id="QueenBirthing"/>
     <CValidatorUnitCompareAbilLevel id="ReconhasLaserDesignatorLevel1">
         <WhichUnit Value="Source"/>
