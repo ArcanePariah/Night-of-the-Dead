@@ -1738,7 +1738,7 @@ void gf_CreateStatModPanels (int lp_player, int lp_statIndex, int lp_xOffset, in
 void gf_CreateWeaponModPanels (int lp_player, int lp_statIndex, int lp_xOffset, int lp_yOffset);
 bool gf_AttackerbehindTarget (unit lp_attacker, unit lp_target, fixed lp_rearAngle);
 void gf_RestoreLeaverControl ();
-void gf_SetCombatKnifeDamage (int lp_player);
+void gf_SetCombatKnifeDamage (int lp_triggeringPlayer);
 fixed gf_WeaponsProfReloadTimeFactor (int lp_reloadingPlayer);
 bool gf_HeroicLaserDesignateTarget (unit lp_targetUnit);
 void gf_ForwardObserverLaunchSound (int lp_forwardObserverOwner, point lp_point, int lp_shellMode);
@@ -4185,6 +4185,10 @@ bool auto_gf_SmartSpawnNOTD_TriggerFunc (bool testConds, bool runActions) {
     lv_unitSpawnPoint = gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
 
     // Implementation
+    if ((UnitGroupCount(gv_marines, c_unitCountAlive) == 0)) {
+        return true;
+    }
+
     UnitCreate(1, lp_spawningUnit, 0, 14, lv_unitSpawnPoint, libNtve_gf_RandomAngle());
     lv_spawnUnit = UnitLastCreated();
     UnitGroupAdd(gv_zombieWave, lv_spawnUnit);
@@ -12343,9 +12347,9 @@ void gf_RestoreLeaverControl () {
     }
 }
 
-void gf_SetCombatKnifeDamage (int lp_player) {
+void gf_SetCombatKnifeDamage (int lp_triggeringPlayer) {
     // Implementation
-    CatalogFieldValueModify(c_gameCatalogEffect, "CombatKnifeDamage", "Amount", lp_player, FixedToString(((IntToFixed(gv_playerRank[lp_player]) - 1.0) * 0.5), c_fixedPrecisionAny), c_upgradeOperationAdd);
+    CatalogFieldValueModify(c_gameCatalogEffect, "CombatKnifeDamage", "Amount", lp_triggeringPlayer, FixedToString(((IntToFixed(gv_playerRank[lp_triggeringPlayer]) - 1.0) * 0.5), c_fixedPrecisionAny), c_upgradeOperationAdd);
 }
 
 fixed gf_WeaponsProfReloadTimeFactor (int lp_reloadingPlayer) {
@@ -15628,6 +15632,9 @@ void gt_InfestorKilled_Init () {
 // Trigger: Infestor Ambient Spawns
 //--------------------------------------------------------------------------------------------------
 bool gt_InfestorAmbientSpawns_Func (bool testConds, bool runActions) {
+    int auto00261A0A_n;
+    int auto00261A0A_i;
+
     // Conditions
     if (testConds) {
         if (!((gv_infestorsAlive > 0))) {
@@ -15643,9 +15650,10 @@ bool gt_InfestorAmbientSpawns_Func (bool testConds, bool runActions) {
     IntLoopBegin(gv_indexBaseValue, 5);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         if ((UnitIsAlive(gv_infestor[IntLoopCurrent()]) == true) && (gv_cinematicMode == false) && (UnitGetOwner(gv_infestor[IntLoopCurrent()]) == 14)) {
-            AIAttackWaveSetTargetUnitGroup(14, gv_marines);
-            gf_WaveSpawnAtRegion(libNtve_gf_DifficultyValueUnitType("ZombieLevel12", "ZombieLevel22", "ZombieLevel22", "ZombieLevel22"), RegionPlayableMap(), libNtve_gf_DifficultyValueInt(1, 1, 1, 1));
-            AIAttackWaveSend(14, libNtve_gf_DifficultyValueInt(6, 4, 2, 0), false);
+            auto00261A0A_n = 2;
+            for (auto00261A0A_i = 1; auto00261A0A_i <= auto00261A0A_n; auto00261A0A_i += 1) {
+                gf_SmartSpawnNOTD(libNtve_gf_DifficultyValueUnitType("ZombieLevel12", "ZombieLevel22", "ZombieLevel22", "ZombieLevel22"), 80.0);
+            }
             UnitIssueOrder(gv_infestor[IntLoopCurrent()], OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())), c_orderQueueReplace);
         }
 
@@ -15658,7 +15666,7 @@ bool gt_InfestorAmbientSpawns_Func (bool testConds, bool runActions) {
 void gt_InfestorAmbientSpawns_Init () {
     gt_InfestorAmbientSpawns = TriggerCreate("gt_InfestorAmbientSpawns_Func");
     TriggerEnable(gt_InfestorAmbientSpawns, false);
-    TriggerAddEventTimePeriodic(gt_InfestorAmbientSpawns, 30.0, c_timeGame);
+    TriggerAddEventTimePeriodic(gt_InfestorAmbientSpawns, 60.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
