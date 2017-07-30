@@ -6919,7 +6919,7 @@
             <Handled value="SpikedArmorLevel1Damage"/>
             <Maximum value="10000"/>
             <Minimum value="-50000"/>
-            <TargetFilters value="-;Player,Ally"/>
+            <TargetFilters value="-;Player,Ally,Invulnerable"/>
         </DamageResponse>
         <Modification ShieldArmorBonus="1">
             <VitalMaxArray index="Shields" value="5"/>
@@ -6940,7 +6940,7 @@
             <Handled value="SpikedArmorLevel2Damage"/>
             <Maximum value="10000"/>
             <Minimum value="-50000"/>
-            <TargetFilters value="-;Player,Ally"/>
+            <TargetFilters value="-;Player,Ally,Invulnerable"/>
         </DamageResponse>
         <Modification ShieldArmorBonus="2">
             <VitalMaxArray index="Shields" value="10"/>
@@ -6962,7 +6962,7 @@
             <Handled value="SpikedArmorLevel3Damage"/>
             <Maximum value="10000"/>
             <Minimum value="-50000"/>
-            <TargetFilters value="-;Player,Ally"/>
+            <TargetFilters value="-;Player,Ally,Invulnerable"/>
         </DamageResponse>
         <Modification ShieldArmorBonus="4">
             <VitalMaxArray index="Shields" value="15"/>
