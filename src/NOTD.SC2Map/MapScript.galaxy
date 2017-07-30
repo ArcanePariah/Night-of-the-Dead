@@ -14730,6 +14730,7 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
         gv_marineRounds[lv_attackingPlayer] = MaxI((gv_marineRounds[lv_attackingPlayer] - 1), 0);
     }
     gf_AmmoUsage(lv_attackingPlayer, lv_firingUnit, ge_ReloadType_Automatic, lv_attackingWeapon);
+    Wait(0.3, c_timeGame);
     if ((lv_attackingWeapon == "StingerMK3") && (gv_marineRounds[lv_attackingPlayer] < 10)) {
         UnitBehaviorAddPlayer(lv_firingUnit, "InsufficientAmmo", lv_attackingPlayer, 1);
     }
