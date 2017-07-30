@@ -2459,6 +2459,7 @@ Effect/Name/AddConcentrationPointLevel1=Add Concentration Point Level 1
 Effect/Name/AddConcentrationPointLevel2=Add Concentration Point Level 2
 Effect/Name/AddConcentrationPointLevel3=Add Concentration Point Level 3
 Effect/Name/AddMissles=Add Missles
+Effect/Name/AddPetDetection5=Add Pet Detection 5
 Effect/Name/AddtoRegenCount=Add to Regen Count
 Effect/Name/AdrenalineAttackSpeedApplyBehaviorLevel1=Adrenaline Attack Speed Apply Behavior Level 1
 Effect/Name/AdrenalineAttackSpeedApplyBehaviorLevel12=Adrenaline Attack Speed Apply Behavior Level 2

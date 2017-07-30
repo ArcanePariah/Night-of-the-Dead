@@ -4962,8 +4962,8 @@
                 <VitalMaxFractionArray index="Energy" value="0.1"/>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray MinVeterancyXP="300">
-            <Modification Detect="5">
+        <VeterancyLevelArray MinVeterancyXP="300" LevelGainEffect="AddPetDetection5">
+            <Modification>
                 <VitalMaxFractionArray index="Life" value="0.0524"/>
                 <VitalMaxFractionArray index="Shields" value="0.39"/>
                 <VitalMaxFractionArray index="Energy" value="0.11"/>
@@ -5169,8 +5169,8 @@
                 </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
-        <VeterancyLevelArray index="2">
-            <Modification Detect="0" DetectBonus="5">
+        <VeterancyLevelArray index="2" LevelGainEffect="">
+            <Modification DetectBonus="5">
                 <DamageDealtFraction index="Melee" value="0.1"/>
                 <DamageDealtFraction index="Ranged" value="0.1"/>
                 <DamageDealtFraction index="Splash" value="0.1"/>

@@ -6547,6 +6547,7 @@ Effect/EditorSuffix/AcidSalivaU=(Damage) NOTD
 Effect/EditorSuffix/AcidSpines=(Queen Anti-Air) NOTD
 Effect/EditorSuffix/AcidSpit=(Damage) NOTD
 Effect/EditorSuffix/ActivateRegeneration=NOTD
+Effect/EditorSuffix/AddPetDetection5=NOTD
 Effect/EditorSuffix/AddtoRegenCount=NOTD
 Effect/EditorSuffix/AdrenalineAttackSpeedApplyBehaviorLevel1=NOTD
 Effect/EditorSuffix/AdrenalineAttackSpeedApplyBehaviorLevel12=NOTD
