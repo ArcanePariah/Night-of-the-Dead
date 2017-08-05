@@ -14887,7 +14887,7 @@ bool gt_L3Kills_Func (bool testConds, bool runActions) {
 
     UnitSetPropertyFixed(gv_marineHero[EventUnitDamageSourcePlayer()], c_unitPropKills, (libNtve_gf_UnitGetPropertyKills(gv_marineHero[EventUnitDamageSourcePlayer()], c_unitPropCurrent) + 1));
     UnitSetPropertyFixed(gv_marineHero[EventUnitDamageSourcePlayer()], c_unitPropXP, (UnitGetPropertyFixed(gv_marineHero[EventUnitDamageSourcePlayer()], c_unitPropXP, c_unitPropCurrent) + StringToFixed(CatalogFieldValueGet(c_gameCatalogUnit, (UnitGetType(EventUnit())), "KillXP", 14))));
-    UnitCreateEffectUnit(EventUnit(), "SharedExperienceSet", gv_marineHero[EventUnitDamageSourcePlayer()]);
+    UnitCreateEffectUnit(EventUnit(), "SharedExperienceSearchSet", gv_marineHero[EventUnitDamageSourcePlayer()]);
     return true;
 }
 
