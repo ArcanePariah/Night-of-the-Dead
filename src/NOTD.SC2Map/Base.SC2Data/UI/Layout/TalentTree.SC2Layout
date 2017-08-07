@@ -69,18 +69,21 @@
             <Anchor side="Left" relative="$parent" pos="Max" offset="-125"/>
             <Anchor side="Top" relative="$parent" pos="Min" offset="153"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Tier 1" />
         </Frame>
 
         <Frame type="Label" name="Tier2Label">
             <Anchor side="Left" relative="$parent" pos="Max" offset="-125"/>
             <Anchor side="Top" relative="$parent" pos="Min" offset="293"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Tier 2" />
         </Frame>
 
         <Frame type="Label" name="Tier3Label">
             <Anchor side="Left" relative="$parent" pos="Max" offset="-125"/>
             <Anchor side="Top" relative="$parent" pos="Min" offset="435"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Tier 3" />
         </Frame>
 
         <Frame type="Frame" name="Talent1" template="TalentTree/TalentButtonTemplate">

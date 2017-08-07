@@ -4439,7 +4439,6 @@ Param/Value/26E60809=-1
 Param/Value/271AF673=Is everyone okay? We need to leave this place.
 Param/Value/275382AF=Avoid the deadly beams. Sprint if needed.
 Param/Value/2757CF11=You've got to be kidding me.
-Param/Value/27580023=Tier 1
 Param/Value/275E16C1=Anti-Toxin Release
 Param/Value/27B9C85A=Heal up, use your Medkits.
 Param/Value/27BB3E98=Stay with the IVAX unit. We're going to secure the mining facility.
@@ -4622,7 +4621,6 @@ Param/Value/45FDE674=What was that?
 Param/Value/460272C9=Negative. We sweeped the whole colony. There are no survivors. Get out of here before the creatures overrun your position.
 Param/Value/4666C8A0=Chapter 3
 Param/Value/46979E56=<s val="InfoPaneHeroRank">Colonists Rescued:  
-Param/Value/46D423B5=Tier 2
 Param/Value/46F19DE3=Difficulty HP Scaling: 
 Param/Value/4713242D=Click to open Marine Equipment
 Param/Value/472EBABF=</c>
@@ -4793,7 +4791,6 @@ Param/Value/62C73F80=HAL?!
 Param/Value/63100822=<s val="BriefingHanText">(New sector data uploaded...)</s>
 Param/Value/6311462F=Connor
 Param/Value/6346A37F=Why have you come?
-Param/Value/635417A9=Tier 3
 Param/Value/6354C52B=Get to 5 Cameras. That'll give us a good picture of what we're dealing with.
 Param/Value/637E1EF6=Marine: <c val="F4D72B">We've a few options. We can break in through the scrapyard entrance.</c>
 Param/Value/63D10F1E=<s val="BriefingHanText">   Programmers<n/>   Tan Yik Boon (Earendil)<n/>   Eric Nelson (ArcanePariah)<n/>    Tristan Stallans (Blaqk)<n/>  </s>

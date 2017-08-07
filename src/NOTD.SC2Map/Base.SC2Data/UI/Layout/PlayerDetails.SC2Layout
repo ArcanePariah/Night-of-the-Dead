@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-
+	<Constant name="MedalColumnOneHorizontalOffset" val = "50" />
+	<Constant name="MedalColumnTwoHorizontalOffset" val = "345" />
+	<Constant name="MedalVerticalSpacing" val = "15" />
+	
 	<Frame type="Image" name="ButtonBorderTemplate">
 		<Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
 		<TextureType val="HorizontalBorder"/>
@@ -250,6 +253,49 @@
             <Style val="ModCenterSize12"/>
         </Frame>
     </Frame>
+	
+	<Frame type = "Frame" name = "Medals" template = "PlayerDetails/DetailsUI">
+		<Frame type = "Frame" name = "Medal1" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent" pos="Min" offset="#MedalColumnOneHorizontalOffset"/>
+			<Anchor side = "Top" relative= "$parent" pos="Min" offset="85"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal2" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent" pos="Min" offset="#MedalColumnTwoHorizontalOffset"/>
+			<Anchor side = "Top" relative= "$parent/Medal1" pos="Min" offset="0"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal3" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal1" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal1" pos="Max" offset="#MedalVerticalSpacing"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal4" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal2" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal3" pos="Min" offset="0"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal5" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal1" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal3" pos="Max" offset="#MedalVerticalSpacing"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal6" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal2" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal5" pos="Min" offset="0"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal7" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal1" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal5" pos="Max" offset="#MedalVerticalSpacing"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal8" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal2" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal7" pos="Min" offset="0"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal9" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal1" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal7" pos="Max" offset="#MedalVerticalSpacing"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal10" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal2" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal9" pos="Min" offset="0"/>
+		</Frame>		
+	</Frame>
 
     <Frame type="Frame" name="StatsWeaponModsUI">
         <Height val="610"/>
