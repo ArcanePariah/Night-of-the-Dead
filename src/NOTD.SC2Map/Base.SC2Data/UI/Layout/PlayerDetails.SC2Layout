@@ -255,7 +255,7 @@
         </Frame>
     </Frame>
 	
-	<Frame type = "Frame" name = "Medals" template = "PlayerDetails/DetailsUI">
+	<Frame type="Frame" name="Medals" template="PlayerDetails/DetailsUI">
 		<Frame type = "Frame" name = "Medal1" template = "PlayerDetails/MedalContainer">
 			<Anchor side = "Left" relative= "$parent" pos="Min" offset="#MedalColumnOneHorizontalOffset"/>
 			<Anchor side = "Top" relative= "$parent" pos="Min" offset="85"/>
@@ -382,24 +382,15 @@
             <Width val="60"/>
         </Frame>
 
-        <Frame type="Image" name="StatsButtonImage">
-            <Anchor side="Top" relative="$parent/StatsButtonBorder" pos="Min" offset="5"/>
-            <Anchor side="Left" relative="$parent/StatsButtonBorder" pos="Min" offset="5"/>
-            <Height val="50"/>
-            <Width val="50"/>
-        </Frame>
-
         <Frame type="Button" name="StatsButton">
-            <Anchor side="Top" relative="$parent/StatsButtonImage" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/StatsButtonImage" pos="Min" offset="0"/>
-            <Height val="50"/>
-            <Width val="50"/>
+            <Anchor relative="$parent/StatsButtonBorder" offset="-5"/>
+			<Tooltip val = "Marine Stats" />
         </Frame>
 
         <!-- Weapon Mods Button -->
         <Frame type="Image" name="ModsButtonBorder">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="236"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="175"/>
+            <Anchor side="Top" relative="$parent/StatsButtonBorder" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent/StatsButtonBorder" pos="Min" offset="0"/>
             <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
             <TextureType val="HorizontalBorder"/>
             <BlendMode val="Add"/>
@@ -408,25 +399,21 @@
             <Width val="60"/>
         </Frame>
 
-        <Frame type="Image" name="ModsButtonImage">
-            <Anchor side="Top" relative="$parent/ModsButtonBorder" pos="Min" offset="5"/>
-            <Anchor side="Left" relative="$parent/ModsButtonBorder" pos="Min" offset="5"/>
-            <Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
-            <Height val="50"/>
-            <Width val="50"/>
-        </Frame>
-
         <Frame type="Button" name="ModsButton">
-            <Anchor side="Top" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
-            <Height val="50"/>
-            <Width val="50"/>
+			<Anchor relative="$parent/ModsButtonBorder" offset="-5"/>
+			<NormalImage val = "ModsButtonImage" />
+			<HoverImage val = "ModsButtonImage" />
+			<Tooltip val = "Weapon Modifications"/>
+			<Frame type="Image" name="ModsButtonImage">
+				<Anchor relative="$parent" offset="0"/>
+				<Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
+			</Frame>
         </Frame>
 
         <!-- Stats sub-dialog -->
         <Frame type="Frame" name="PlayerStatsContainer">
             <Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
-            <Anchor side="Left" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ModsButton" pos="Min" offset="0"/>
             <Height val="300"/>
             <Width val="500"/>
 
@@ -450,7 +437,7 @@
         <!-- Weapon mods sub-dialog -->
         <Frame type="Frame" name="WeaponModsContainer">
             <Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
-            <Anchor side="Left" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ModsButton" pos="Min" offset="0"/>
             <Height val="300"/>
             <Width val="500"/>
 

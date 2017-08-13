@@ -960,7 +960,6 @@ int[9] gv_statsPerception4;
 int[9] gv_statsIntelligence5;
 int[9] gv_statsTotalStats;
 int[9] gv_statsPlayerStatsStatsButton;
-int[9] gv_statsPlayerStatsStatsHeroImage;
 int[9] gv_statsPlayerStatsPanel;
 int[9] gv_statsPlayerHeroImage;
 int[9] gv_statsPlayerLivesLeft;
@@ -1353,9 +1352,6 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsPlayerStatsStatsButton[init_i] = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_statsPlayerStatsStatsHeroImage[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsPlayerStatsPanel[init_i] = c_invalidDialogControlId;
@@ -2252,6 +2248,11 @@ bool auto_gf_NOTDBanlist_TriggerFunc (bool testConds, bool runActions) {
 }
 
 bool gf_PlayerBanCheck (string lp_playerHandle) {
+    // Variable Declarations
+    point lv_untitledVariable001;
+
+    // Variable Initialization
+
     // Implementation
     IntLoopBegin(1, UserDataFieldValueCount("Banlist", "Player Handle"));
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
@@ -12121,7 +12122,8 @@ void gf_StatsLoadPlayerStats (int lp_player) {
 void gf_StatsUpdateHeroImage (int lp_triggeringPlayer) {
     // Implementation
     libNtve_gf_SetDialogItemImage(gv_statsPlayerHeroImage[lp_triggeringPlayer], UserDataGetImagePath("Classes", gv_playerClass[lp_triggeringPlayer], "Class Image", 1), PlayerGroupAll());
-    libNtve_gf_SetDialogItemImage(gv_statsPlayerStatsStatsHeroImage[lp_triggeringPlayer], UserDataGetImagePath("Classes", gv_playerClass[lp_triggeringPlayer], "Class Image", 1), PlayerGroupAll());
+    libNtve_gf_SetDialogItemImage2(gv_statsPlayerStatsStatsButton[lp_triggeringPlayer], UserDataGetImagePath("Classes", gv_playerClass[lp_triggeringPlayer], "Class Image", 1), PlayerGroupAll());
+    libNtve_gf_SetDialogItemImage(gv_statsPlayerStatsStatsButton[lp_triggeringPlayer], UserDataGetImagePath("Classes", gv_playerClass[lp_triggeringPlayer], "Class Image", 1), PlayerGroupAll());
 }
 
 void gf_StatsSetBehaviors (int lp_triggeringPlayer) {
@@ -37017,14 +37019,10 @@ bool gt_CreateStatsDialog_Func (bool testConds, bool runActions) {
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsEarned");
         gv_statsPlayerCashAcquiredLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashAcquiredLabel[lv_index], IntToText(gv_playerLifeTimeCreditsAcquired[lv_index]), PlayerGroupAll());
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "StatsButtonImage");
-        gv_statsPlayerStatsStatsHeroImage[lv_index] = DialogControlLastCreated();
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "StatsButton");
         gv_statsPlayerStatsStatsButton[lv_index] = DialogControlLastCreated();
-        libNtve_gf_SetDialogItemTooltip(gv_statsPlayerStatsStatsButton[lv_index], StringExternal("Param/Value/1F4A128E"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "ModsButton");
         gv_wModWeaponsModButton[lv_index] = DialogControlLastCreated();
-        libNtve_gf_SetDialogItemTooltip(gv_wModWeaponsModButton[lv_index], StringExternal("Param/Value/CF7C000E"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "PlayerStatsContainer");
         gv_statsPlayerStatsPanel[lv_index] = DialogControlLastCreated();
         DialogControlHookup(gv_statsPlayerStatsPanel[lv_index], c_triggerControlTypeLabel, "AvailableStatsLabel");

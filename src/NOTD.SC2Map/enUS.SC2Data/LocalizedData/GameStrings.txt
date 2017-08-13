@@ -4395,7 +4395,6 @@ Param/Value/1EA31214=People started getting sick, others delirious. Some went mi
 Param/Value/1EB20139=Most intriguing. I need to key my formulas in the next station.
 Param/Value/1EE2C403=Transmission Download
 Param/Value/1F337022=Phantom 6, exfiltration of sample complete.
-Param/Value/1F4A128E=Marine Stats
 Param/Value/1F87A3AE=So...cold. Who...are you?
 Param/Value/1F8DE977=<s val="BriefingHanText">(Weapons online...)</s>
 Param/Value/1F9EE955=Night of the Dead
@@ -5407,7 +5406,6 @@ Param/Value/CF0DC1C1=Nothing.
 Param/Value/CF0F64B0=We caught an Infestor yesterday. It's chained up at our base. We've come close to understanding these zombies before we were attacked.
 Param/Value/CF63E660=40 hours after outbreak
 Param/Value/CF795EB0=It's all over if Tanaka dies. Stay close to him.
-Param/Value/CF7C000E=Weapon Modifications
 Param/Value/CFA17E6B=+5 XP for No Man Left Behind Bonus
 Param/Value/CFC5D923=<c val="FF0000">Low Ammo</c>
 Param/Value/D028085E=All callsigns Phantom. We are go for entry.
