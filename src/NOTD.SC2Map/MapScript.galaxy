@@ -10811,7 +10811,6 @@ void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, te
     gv_dialogButtons[lp_dialogControlCategory][1][lp_player] = DialogControlLastCreated();
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "StatsButton");
     gv_dialogButtons[lp_dialogControlCategory][2][lp_player] = DialogControlLastCreated();
-    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ObjectiveDisplay", PlayerGroupAll());
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "TalentsButton");
     gv_dialogButtons[lp_dialogControlCategory][3][lp_player] = DialogControlLastCreated();
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "NavLeftArrowButton");
@@ -36832,9 +36831,6 @@ bool gt_CreateMedalsDialog_Func (bool testConds, bool runActions) {
     int lv_tempDialogFrame;
     int lv_tempDialogSubFrame;
     int lv_medalFrame;
-    int lv_column1OffsetX;
-    int lv_column2OffsetX;
-    int lv_offsetY;
     int lv_currentPlayer;
 
     // Variable Initialization
@@ -36842,9 +36838,6 @@ bool gt_CreateMedalsDialog_Func (bool testConds, bool runActions) {
     lv_tempDialogFrame = c_invalidDialogControlId;
     lv_tempDialogSubFrame = c_invalidDialogControlId;
     lv_medalFrame = c_invalidDialogControlId;
-    lv_column1OffsetX = 50;
-    lv_column2OffsetX = 345;
-    lv_offsetY = 85;
     lv_currentPlayer = 1;
 
     // Actions
@@ -36860,7 +36853,6 @@ bool gt_CreateMedalsDialog_Func (bool testConds, bool runActions) {
             GameOver(lv_currentPlayer, c_gameOverVictory, true, true);
         }
 
-        lv_offsetY = 85;
         gf_UIDialogCreation(610, 690, 270, 150, c_anchorTopRight);
         gv_playerMedalsDialog[lv_currentPlayer] = DialogLastCreated();
         DialogControlCreateFromTemplate(gv_playerMedalsDialog[lv_currentPlayer], c_triggerControlTypePanel, "PlayerDetails/Medals");
