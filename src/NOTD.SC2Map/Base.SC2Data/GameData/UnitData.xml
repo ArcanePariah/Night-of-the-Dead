@@ -7540,6 +7540,10 @@
         <Sight value="1"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
+        <Collide index="Burrow" value="0"/>
+        <Collide index="Ground" value="0"/>
+        <Footprint value=""/>
+        <PlacementFootprint value=""/>
     </CUnit>
     <CUnit id="InfestorBurrowed2">
         <Description value="Button/Tooltip/Infestor"/>
@@ -8749,6 +8753,9 @@
         <FogVisibility value="Hidden"/>
         <AttackTargetPriority value="21"/>
         <Race value=""/>
+        <Collide index="Burrow" value="0"/>
+        <Collide index="Ground" value="0"/>
+        <Footprint value=""/>
     </CUnit>
     <CUnit id="FMJAmmo" parent="ITEM">
         <DeathRevealRadius value="2"/>

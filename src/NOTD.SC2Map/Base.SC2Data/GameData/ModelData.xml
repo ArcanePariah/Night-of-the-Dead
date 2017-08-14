@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="AiurOvermindIntestines">
+        <Occlusion value="Hide"/>
+    </CModel>
+    <CModel id="Antenna">
+        <Occlusion value="Hide"/>
+    </CModel>
     <CModel id="BloodTargetImpact2" parent="ImpactFX">
         <Model value="Assets\Effects\Other\BloodTargetImpact\BloodTargetImpact.m3"/>
         <EditorCategories value="Race:Neutral"/>
@@ -38,10 +44,19 @@
         <Model value="Assets\Portraits\Zerg\BrutaliskPortrait\BrutaliskPortrait.m3"/>
         <Image value="Assets\Textures\BrutaliskPortrait_Static.dds"/>
     </CModel>
+    <CModel id="Crate">
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="DestroyedNydusWorm">
+        <Occlusion value="Hide"/>
+    </CModel>
     <CModel id="Infection" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Zerg\DiseaseCloud\DiseaseCloud.m3"/>
         <ScaleMax value="2.000000,2.000000,2.000000"/>
         <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="InfestedHomeLarge">
+        <Occlusion value="Hide"/>
     </CModel>
     <CModel id="Invisible2">
         <Model value="Assets\Units\Test\InvisibleUnit\InvisibleUnit.m3"/>
@@ -50,6 +65,12 @@
         <Radius value="-1.000000"/>
         <SelectionRadius value="0.000000"/>
         <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CModel id="ItemGrenadesWeapon">
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="KorhalBuildingWreckedSmall">
+        <Occlusion value="Hide"/>
     </CModel>
     <CModel id="LevelUp2" parent="PersistentSpellFX">
         <Model value="Assets\UI\BriefingUnitSelectProtoss\BriefingUnitSelectProtoss.m3"/>
@@ -72,6 +93,15 @@
         <VariationCount value="1"/>
         <Variations index="0" removed="1"/>
         <Variations index="1" removed="1"/>
+    </CModel>
+    <CModel id="PickupPlasmaRounds">
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="PickupRestorationCharge">
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="PortZionTower">
+        <Occlusion value="Hide"/>
     </CModel>
     <CModel id="ProtossSmallUnitDeathLow2" parent="UnitDeath" Race="Protoss">
         <Model value="Assets\Effects\Protoss\ProtossUnitDeath\ProtossUnitDeath_Low.m3"/>
@@ -128,6 +158,18 @@
     <CModel id="SiegeBreaker">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="1.700000"/>
     </CModel>
+    <CModel id="SpacePlatformArchwayLarge">
+        <Occlusion value="Hide"/>
+    </CModel>
+    <CModel id="SpacePlatformCliffDoodadMedium">
+        <Occlusion value="Hide"/>
+    </CModel>
+    <CModel id="SuperCrane">
+        <Occlusion value="Hide"/>
+    </CModel>
+    <CModel id="TerrainObjectBraxisAlphaReactorDoodad">
+        <Occlusion value="Hide"/>
+    </CModel>
     <CModel id="TerranSmallUnitDeathLow2" parent="UnitDeath" Race="Terran">
         <Model value="Assets\Effects\Terran\TerranSmallUnitDeath\TerranSmallUnitDeath_Low.m3"/>
         <Flags index="TeenSafe" value="1"/>
@@ -135,6 +177,9 @@
         <ScaleMin value="1.100000,1.100000,1.100000"/>
         <SelectionRadius value="0.454300"/>
         <ShadowRadius value="0.454300"/>
+    </CModel>
+    <CModel id="ThorAAWeapon">
+        <Occlusion value="Show"/>
     </CModel>
     <CModel id="WarhoundPortrait">
         <Model value="Assets\Portraits\Terran\ThorPortrait\ThorPortrait.m3"/>
@@ -496,6 +541,7 @@
         <Flags index="AutoUnload" value="1"/>
         <SelectionLayer value="100"/>
         <SelectionOffset value="0.000000,0.000000,0.100000"/>
+        <Occlusion value="Show"/>
     </CModel>
     <CModel id="DrBergmann" parent="Unit">
         <Model value="Assets\Units\Terran\ScientistMale\ScientistMale.m3"/>
@@ -529,6 +575,7 @@
     <CModel id="SpecialAmmoCrate" parent="Doodad">
         <Model value="Assets\Doodads\Crate\Crate_01.m3"/>
         <Lighting value=""/>
+        <Occlusion value="Show"/>
     </CModel>
     <CModel id="Marauder">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.700000"/>
@@ -574,9 +621,11 @@
     <CModel id="MagazineCrate" parent="Doodad">
         <Model value="Assets\Doodads\MilitarySupplies\MilitarySupplies_07.m3"/>
         <Lighting value=""/>
+        <Occlusion value="Show"/>
     </CModel>
     <CModel id="PickupHealth100">
         <AnimSpeed value="0.700000"/>
+        <Occlusion value="Show"/>
     </CModel>
     <CModel id="PortJunker">
         <ScaleMax value="0.200000,0.200000,0.200000"/>
@@ -2211,6 +2260,7 @@
     <CModel id="AmmoBox" parent="Doodad">
         <Model value="Assets\Doodads\HavenDoodadsCrates\HavenDoodadsCrates_00.m3"/>
         <Lighting value=""/>
+        <Occlusion value="Show"/>
     </CModel>
     <CModel id="InfernoBlast" parent="ImpactFX">
         <Model value="Assets\Effects\Terran\TerranBuildingFireSmall\TerranBuildingFireSmall.m3"/>
@@ -2385,6 +2435,7 @@
     <CModel id="ColonistSupplyCrate">
         <Model value="Assets\Doodads\ColonistSupplyCrate\ColonistSupplyCrate_00.m3"/>
         <VariationCount value="1"/>
+        <Occlusion value="Show"/>
     </CModel>
     <CModel id="Blind" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Zerg\KerriganSearchFlashImpact\KerriganSearchFlashImpact.m3"/>
