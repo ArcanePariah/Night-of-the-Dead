@@ -971,7 +971,6 @@ int[6][9] gv_statsPlayerStatLabel;
 int[9] gv_statsPlayerStatAvailableLabel;
 int[8][9] gv_statsModProperties;
 int[9] gv_wModTotalPointsLeft;
-int[9] gv_wModWeaponsModButton;
 int[9] gv_statsWeaponModPanel;
 int[8][9] gv_wModPlayerDecreImage;
 int[8][9] gv_wModPlayerDecreButton;
@@ -1389,9 +1388,6 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsPlayerStatAvailableLabel[init_i] = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_wModWeaponsModButton[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsWeaponModPanel[init_i] = c_invalidDialogControlId;
@@ -2118,7 +2114,6 @@ trigger gt_CreateMedalsDialog;
 trigger gt_ToggleMedalsDialog;
 trigger gt_CreateStatsDialog;
 trigger gt_ToggleStatsDialog;
-trigger gt_ToggleStatsWeaponModsDialog;
 trigger gt_ModifyHeroStats;
 trigger gt_DisableStatAndModsModification;
 trigger gt_Backstab;
@@ -13501,7 +13496,6 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    TriggerEnable(TriggerGetCurrent(), false);
     SoundtrackStop(PlayerGroupAll(), c_soundtrackCategoryMusic, false);
     SoundtrackPlay(PlayerGroupAll(), c_soundtrackCategoryMusic, "Mission_MusicCue005", c_soundtrackCueAny, c_soundtrackIndexAny, false);
     libNtve_gf_HideGameUI(false, PlayerGroupActive());
@@ -37000,29 +36994,21 @@ bool gt_CreateStatsDialog_Func (bool testConds, bool runActions) {
         libNtve_gf_CreateDialogItemLabel(gv_statsPlayerStatsDialog[lv_index], 520, 37, c_anchorTopLeft, 85, 391, (IntToText(gv_playerXP[lv_index]) + (gv_forwardSlash + IntToText(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)))), Color(100,100,100), false, 2.0);
         gv_statsPlayerNextXP[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemStyle(gv_statsPlayerNextXP[lv_index], "ModCenterSize20", PlayerGroupAll());
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "NextRankLabel");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/73296121"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "NextRank");
         gv_statsPlayerNextLevelPromotionLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerNextLevelPromotionLabel[lv_index], UserDataGetText("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "Title Full", 1), PlayerGroupAll());
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "LivesLeftLabel");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/91A6002C"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "LivesLeft");
         gv_statsPlayerLivesLeft[lv_index] = DialogControlLastCreated();
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsAvailableLabel");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/BAE7DD80"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsAvailable");
         gv_statsPlayerCashLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashLabel[lv_index], IntToText(gv_playerCredits[lv_index]), PlayerGroupAll());
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsEarnedLabel");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/32F5FC2A"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsEarned");
         gv_statsPlayerCashAcquiredLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashAcquiredLabel[lv_index], IntToText(gv_playerLifeTimeCreditsAcquired[lv_index]), PlayerGroupAll());
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "PlayerDetailsTabController");
+        lv_tempDialogFrame = DialogControlLastCreated();
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "StatsButton");
         gv_statsPlayerStatsStatsButton[lv_index] = DialogControlLastCreated();
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "ModsButton");
-        gv_wModWeaponsModButton[lv_index] = DialogControlLastCreated();
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "PlayerStatsContainer");
         gv_statsPlayerStatsPanel[lv_index] = DialogControlLastCreated();
         DialogControlHookup(gv_statsPlayerStatsPanel[lv_index], c_triggerControlTypeLabel, "AvailableStatsLabel");
@@ -37122,52 +37108,6 @@ void gt_ToggleStatsDialog_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Toggle Weapons Mod Dialog
-//--------------------------------------------------------------------------------------------------
-bool gt_ToggleStatsWeaponModsDialog_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_clickingPlayer;
-    int lv_usedDialogItem;
-    int lv_iLocal;
-    int lv_index;
-
-    // Variable Initialization
-    lv_clickingPlayer = EventPlayer();
-    lv_usedDialogItem = EventDialogControl();
-
-    // Conditions
-    if (testConds) {
-        if (!(((lv_usedDialogItem == gv_wModWeaponsModButton[1]) || (lv_usedDialogItem == gv_wModWeaponsModButton[2]) || (lv_usedDialogItem == gv_wModWeaponsModButton[3]) || (lv_usedDialogItem == gv_wModWeaponsModButton[4]) || (lv_usedDialogItem == gv_wModWeaponsModButton[5]) || (lv_usedDialogItem == gv_wModWeaponsModButton[6]) || (lv_usedDialogItem == gv_wModWeaponsModButton[7]) || (lv_usedDialogItem == gv_wModWeaponsModButton[8]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[1]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[2]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[3]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[4]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[5]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[6]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[7]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[8])))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    while ((lv_usedDialogItem != gv_wModWeaponsModButton[lv_index]) && (lv_usedDialogItem != gv_statsPlayerStatsStatsButton[lv_index])) {
-        lv_index += 1;
-    }
-    if ((lv_usedDialogItem == gv_statsPlayerStatsStatsButton[lv_index])) {
-        DialogControlSetVisible(gv_statsWeaponModPanel[lv_index], PlayerGroupSingle(lv_clickingPlayer), false);
-        DialogControlSetVisible(gv_statsPlayerStatsPanel[lv_index], PlayerGroupSingle(lv_clickingPlayer), true);
-    }
-    else if ((lv_usedDialogItem == gv_wModWeaponsModButton[lv_index])) {
-        DialogControlSetVisible(gv_statsPlayerStatsPanel[lv_index], PlayerGroupSingle(lv_clickingPlayer), false);
-        DialogControlSetVisible(gv_statsWeaponModPanel[lv_index], PlayerGroupSingle(lv_clickingPlayer), true);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ToggleStatsWeaponModsDialog_Init () {
-    gt_ToggleStatsWeaponModsDialog = TriggerCreate("gt_ToggleStatsWeaponModsDialog_Func");
-    TriggerAddEventDialogControl(gt_ToggleStatsWeaponModsDialog, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Modify Hero Stats
 //--------------------------------------------------------------------------------------------------
 bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
@@ -37188,7 +37128,7 @@ bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((lv_usedDialog == gv_statsPlayerStatsDialog[1]) || (lv_usedDialog == gv_statsPlayerStatsDialog[2]) || (lv_usedDialog == gv_statsPlayerStatsDialog[3]) || (lv_usedDialog == gv_statsPlayerStatsDialog[4]) || (lv_usedDialog == gv_statsPlayerStatsDialog[5]) || (lv_usedDialog == gv_statsPlayerStatsDialog[6]) || (lv_usedDialog == gv_statsPlayerStatsDialog[7]) || (lv_usedDialog == gv_statsPlayerStatsDialog[8])))) {
+        if (!(gf_UsedDialogIsStats(lv_usedDialog))) {
             return false;
         }
     }
@@ -40016,7 +39956,6 @@ void InitTriggers () {
     gt_ToggleMedalsDialog_Init();
     gt_CreateStatsDialog_Init();
     gt_ToggleStatsDialog_Init();
-    gt_ToggleStatsWeaponModsDialog_Init();
     gt_ModifyHeroStats_Init();
     gt_DisableStatAndModsModification_Init();
     gt_Backstab_Init();

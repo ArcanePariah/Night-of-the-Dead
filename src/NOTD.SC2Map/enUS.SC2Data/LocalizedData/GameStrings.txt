@@ -4514,7 +4514,6 @@ Param/Value/3277B085=(Superior Service Medal awarded...)
 Param/Value/32D3A5EF=It doesn't look heavily armored. Our sniper rifles or flamers can take it down.
 Param/Value/32F197EC=<s val="GlueButton"><c val="F4D72B">We can chase it down before it gets there.</c></s>
 Param/Value/32F3AC3C=+1 XP for Performance Bonus
-Param/Value/32F5FC2A=Career Earnings:
 Param/Value/331FE52D=Go easy on the firing. We need to disorient it.
 Param/Value/332DEA9D=Evasive maneuvers! Knife 'em!
 Param/Value/3331F97F=has succumbed to serious injuries.
@@ -4875,7 +4874,6 @@ Param/Value/72B3A8D0= designated
 Param/Value/72C03E64=
 Param/Value/73057007=Your unit performed admirably. You will be celebrated as heroes of Apollo.
 Param/Value/7314D1E2=Poison gas will disorient you temporarily
-Param/Value/73296121=Next Promotion:
 Param/Value/736406F9=We have the package. Life signs stable.
 Param/Value/7391DB71=<s val="InfoPaneHeroRank">+
 Param/Value/73A03076=<s val="GlueButton"><c val="F4D72B">The worms are spawning more zombies. We have to take them down to stop the spread.</c>
@@ -5044,7 +5042,6 @@ Param/Value/9128F33D=Did you hear that? Someone's still alive in Apollo. We're g
 Param/Value/918A8106=It's in a dormant state now.
 Param/Value/9190998C=Protect Dr. Tanaka until his research is complete
 Param/Value/91A0BD6A=(Cronus prepares for <c val="FF0000">destruction</c>...)
-Param/Value/91A6002C=Lives Remaining:
 Param/Value/91B75E77=<s val="GlueButton"><c val="F4D72B">An infested Marine...who is that?</c></s>
 Param/Value/91F0176F=Collect items scattered throughout the map. These help improve your chances of success in NOTD.<n/><n/>Item Classes:<n/>Weapons: Each weapon shines in different situations.<n/>Armor: Improves your armor<n/>Enhancements: Equip these to improve your stats<n/>Ammo: You require ammo to continue firing your weapons<n/>Supplies: These include medkits which keep you in top shape.<n/><n/>Sharing items with teammates will improve squad survivability.
 Param/Value/9263B5DE=+3 XP for Performance Bonus
@@ -5280,7 +5277,6 @@ Param/Value/B9BE8668=(Log complete...)
 Param/Value/B9C7B047=We have a serious chemical leak in the scrapyard. Usually Apollo's regular maintenance crew would clean it up.
 Param/Value/B9DF17AA=<s val="InfoPaneHeroRank">(Truck destroyed...)</s>
 Param/Value/BABD3C69=I hear gunfire. Move quickly!
-Param/Value/BAE7DD80=Credits Available:
 Param/Value/BAF05AC5= XP for Devastator Survival Bonus.
 Param/Value/BB3AB6E9=
 Param/Value/BB3F797E=

@@ -309,6 +309,7 @@
             <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Next Promotion:" />
         </Frame>
 
         <Frame type="Label" name="NextRank">
@@ -326,6 +327,7 @@
             <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Lives Remaining:" />
         </Frame>
 
         <Frame type="Label" name="LivesLeft">
@@ -343,6 +345,7 @@
             <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Credits Available:" />
         </Frame>
 
         <Frame type="Label" name="CreditsAvailable">
@@ -360,6 +363,7 @@
             <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Career Earnings:" />
         </Frame>
 
         <Frame type="Label" name="CreditsEarned">
@@ -369,103 +373,114 @@
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
-
-        <!-- Character Stats Button -->
-        <Frame type="Image" name="StatsButtonBorder">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="186"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="175"/>
-            <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
-            <TextureType val="HorizontalBorder"/>
-            <BlendMode val="Add"/>
-            <Color val="127,127,127"/>
-            <Height val="60"/>
-            <Width val="60"/>
-        </Frame>
-
-        <Frame type="Button" name="StatsButton">
-            <Anchor relative="$parent/StatsButtonBorder" offset="-5"/>
-			<Tooltip val = "Marine Stats" />
-        </Frame>
-
-        <!-- Weapon Mods Button -->
-        <Frame type="Image" name="ModsButtonBorder">
-            <Anchor side="Top" relative="$parent/StatsButtonBorder" pos="Max" offset="-10"/>
-            <Anchor side="Left" relative="$parent/StatsButtonBorder" pos="Min" offset="0"/>
-            <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
-            <TextureType val="HorizontalBorder"/>
-            <BlendMode val="Add"/>
-            <Color val="127,127,127"/>
-            <Height val="60"/>
-            <Width val="60"/>
-        </Frame>
-
-        <Frame type="Button" name="ModsButton">
-			<Anchor relative="$parent/ModsButtonBorder" offset="-5"/>
-			<NormalImage val = "ModsButtonImage" />
-			<HoverImage val = "ModsButtonImage" />
-			<Tooltip val = "Weapon Modifications"/>
-			<Frame type="Image" name="ModsButtonImage">
-				<Anchor relative="$parent" offset="0"/>
-				<Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
+		
+		<Frame type="TabControl" name="PlayerDetailsTabController">
+            <Anchor relative="$parent" offset="0"/>
+			<TabListItem val="StatsButton"/>
+			<TabListItem val="ModsButton"/>
+			
+			<PanelListItem val="PlayerStatsContainer"/>
+			<PanelListItem val="WeaponModsContainer"/>
+		
+			<!-- Character Stats Button -->
+		   <Frame type="Image" name="StatsButtonBorder">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="186"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="175"/>
+				<Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
+				<TextureType val="HorizontalBorder"/>
+				<BlendMode val="Add"/>
+				<Color val="127,127,127"/>
+				<Height val="60"/>
+				<Width val="60"/>
 			</Frame>
-        </Frame>
 
-        <!-- Stats sub-dialog -->
-        <Frame type="Frame" name="PlayerStatsContainer">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
-            <Anchor side="Left" relative="$parent/ModsButton" pos="Min" offset="0"/>
-            <Height val="300"/>
-            <Width val="500"/>
+			<Frame type="Button" name="StatsButton">
+				<Anchor relative="$parent/StatsButtonBorder" offset="-5"/>
+				<Tooltip val = "Marine Stats" />
+			</Frame>
+			
+			
+			<!-- Weapon Mods Button -->
+			<Frame type="Image" name="ModsButtonBorder">
+				<Anchor side="Top" relative="$parent/StatsButtonBorder" pos="Max" offset="-10"/>
+				<Anchor side="Left" relative="$parent/StatsButtonBorder" pos="Min" offset="0"/>
+				<Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
+				<TextureType val="HorizontalBorder"/>
+				<BlendMode val="Add"/>
+				<Color val="127,127,127"/>
+				<Height val="60"/>
+				<Width val="60"/>
+			</Frame>
 
-            <Frame type="Label" name="AvailableStatsLabel">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Height val="34"/>
-                <Width val="500"/>
-                <Style val="HelpPanelListBoxItemTitle"/>
-            </Frame>
+			<Frame type="Button" name="ModsButton">
+				<Anchor relative="$parent/ModsButtonBorder" offset="-5"/>
+				<NormalImage val = "ModsButtonImage" />
+				<HoverImage val = "ModsButtonImage" />
+				<Tooltip val = "Weapon Modifications"/>
+				<Frame type="Image" name="ModsButtonImage">
+					<Anchor relative="$parent" offset="0"/>
+					<Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
+				</Frame>
+			</Frame>
+		
+			<!-- Stats sub-dialog -->
+			<Frame type="Frame" name="PlayerStatsContainer">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
+				<Anchor side="Left" relative="$parent/ModsButton" pos="Min" offset="0"/>
+				<Height val="300"/>
+				<Width val="500"/>
 
-            <Frame type="Image" name="HeroImage">
-                <Anchor side="Top" relative="$parent/AvailableStatsLabel" pos="Min" offset="60"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
-                <Color val="255,255,255"/>
-                <Height val="150"/>
-                <Width val="150"/>
-            </Frame>
-        </Frame>
+				<Frame type="Label" name="AvailableStatsLabel">
+					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Height val="34"/>
+					<Width val="500"/>
+					<Style val="HelpPanelListBoxItemTitle"/>
+				</Frame>
 
-        <!-- Weapon mods sub-dialog -->
-        <Frame type="Frame" name="WeaponModsContainer">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
-            <Anchor side="Left" relative="$parent/ModsButton" pos="Min" offset="0"/>
-            <Height val="300"/>
-            <Width val="500"/>
+				<Frame type="Image" name="HeroImage">
+					<Anchor side="Top" relative="$parent/AvailableStatsLabel" pos="Min" offset="60"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+					<Color val="255,255,255"/>
+					<Height val="150"/>
+					<Width val="150"/>
+				</Frame>
+			</Frame>
 
-            <Frame type="Label" name="UnlockedWeaponModsLabel">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Height val="34"/>
-                <Width val="500"/>
-                <Style val="HelpPanelListBoxItemTitle"/>
-            </Frame>
+			<!-- Weapon mods sub-dialog -->
+			<Frame type="Frame" name="WeaponModsContainer">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
+				<Anchor side="Left" relative="$parent/ModsButton" pos="Min" offset="0"/>
+				<Height val="300"/>
+				<Width val="500"/>
 
-            <Frame type="Label" name="AvailableWeaponModsLabel">
-                <Anchor side="Top" relative="$parent/UnlockedWeaponModsLabel" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Height val="34"/>
-                <Width val="500"/>
-                <Style val="HelpPanelListBoxItemTitle"/>
-            </Frame>
+				<Frame type="Label" name="UnlockedWeaponModsLabel">
+					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Height val="34"/>
+					<Width val="500"/>
+					<Style val="HelpPanelListBoxItemTitle"/>
+				</Frame>
 
-            <Frame type="Image" name="WeaponModImage">
-                <Anchor side="Top" relative="$parent/AvailableWeaponModsLabel" pos="Min" offset="60"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
-                <Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
-                <Color val="255,255,255"/>
-                <Height val="150"/>
-                <Width val="150"/>
-            </Frame>
-        </Frame>
+				<Frame type="Label" name="AvailableWeaponModsLabel">
+					<Anchor side="Top" relative="$parent/UnlockedWeaponModsLabel" pos="Max" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Height val="34"/>
+					<Width val="500"/>
+					<Style val="HelpPanelListBoxItemTitle"/>
+				</Frame>
+
+				<Frame type="Image" name="WeaponModImage">
+					<Anchor side="Top" relative="$parent/AvailableWeaponModsLabel" pos="Min" offset="60"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+					<Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
+					<Color val="255,255,255"/>
+					<Height val="150"/>
+					<Width val="150"/>
+				</Frame>
+			</Frame>
+	
+		</Frame>     
     </Frame>
 
     <Frame type="Frame" name="StatsButtonContainer">
