@@ -4357,6 +4357,7 @@ Param/Value/1425470D=
 Param/Value/14B74FC4=Apollo Lunar Facility
 Param/Value/14E935D9=Watch your ammo counters. Cover each other during reloads.
 Param/Value/14EFB092=I've run the simulations here. Moving to the next terminal.
+Param/Value/154EAE13=<s val="InfoPaneHeroRank">(Survive the airlock battle before saving the civilians...)</s>
 Param/Value/159F8057=<s val="GlueButtonSmall">Easy Company: 
 Param/Value/163EA7C6=I'm your dropship pilot. We've located a suitable LZ. You need to clear the area for me.
 Param/Value/1655273D=Chase him.

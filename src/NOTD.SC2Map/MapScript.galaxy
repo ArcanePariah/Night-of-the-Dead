@@ -547,6 +547,7 @@ const int ge_GRIDDLG_HV2_NoneClient = 2;
 //--------------------------------------------------------------------------------------------------
 int gv_classSelection;
 bool[gv_numberofPlayers + 1] gv_playerBanned;
+bool gv_warningTextBreak;
 point[19] gv_pathtoMilitaryBase;
 int[gv_numberofPlayers + 1] gv_playerXP;
 int[gv_numberofPlayers + 1] gv_playerRating;
@@ -792,11 +793,11 @@ unitgroup gv_episilonMinis;
 bool gv_tartarusCapture;
 bool gv_tartarusMission;
 int gv_tartarusCaptureObjective;
+bool gv_delta1Enabled;
 region gv_truckSelected;
 int gv_truckRoute;
 bool gv_colonyShipRescue;
 bool gv_colonyShipRescueSuccessful;
-bool gv_warningTextBreak;
 bool gv_nydusDanger;
 bool gv_nydusFailed;
 unitgroup gv_nydusWormGroup;
@@ -1505,6 +1506,7 @@ void gf_NOTDBanlist ();
 bool gf_PlayerBanCheck (string lp_playerHandle);
 bool gf_PlayerAutomaticBanCheck (int lp_player);
 void gf_NOTDFormatTimerWindow (int lp_tw);
+void gf_DisplayWarningWithTimeout (text lp_message);
 void gf_PlayerAlliances ();
 void gf_LocationIntialization ();
 void gf_MapNightMemoryLoad (int lp_player);
@@ -2304,6 +2306,32 @@ void gf_NOTDFormatTimerWindow (int lp_tw) {
     TimerWindowSetColor(lp_tw, c_timerWindowColorTime, Color(75.29, 75.29, 0.00), 0.0);
     TimerWindowSetStyle(lp_tw, c_timerWindowStyleHorizontalTitleTime, false);
     TimerWindowSetFormat(lp_tw, StringToText("<mintotal/>:<sec2/>"));
+}
+
+trigger auto_gf_DisplayWarningWithTimeout_Trigger = null;
+text auto_gf_DisplayWarningWithTimeout_lp_message;
+
+void gf_DisplayWarningWithTimeout (text lp_message) {
+    auto_gf_DisplayWarningWithTimeout_lp_message = lp_message;
+
+    if (auto_gf_DisplayWarningWithTimeout_Trigger == null) {
+        auto_gf_DisplayWarningWithTimeout_Trigger = TriggerCreate("auto_gf_DisplayWarningWithTimeout_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_DisplayWarningWithTimeout_Trigger, false, false);
+}
+
+bool auto_gf_DisplayWarningWithTimeout_TriggerFunc (bool testConds, bool runActions) {
+    text lp_message = auto_gf_DisplayWarningWithTimeout_lp_message;
+
+    // Implementation
+    if ((gv_warningTextBreak == false)) {
+        gv_warningTextBreak = true;
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, lp_message);
+        Wait(7.0, c_timeGame);
+        gv_warningTextBreak = false;
+    }
+    return true;
 }
 
 trigger auto_gf_PlayerAlliances_Trigger = null;
@@ -20515,7 +20543,10 @@ bool gt_ECDelta1Transport_Func (bool testConds, bool runActions) {
         lv_terminal2Present = true;
     }
 
-    if ((lv_terminal1Present == true) && (lv_terminal2Present == true)) {
+    if ((gv_delta1Enabled == false)) {
+        gf_DisplayWarningWithTimeout(StringExternal("Param/Value/154EAE13"));
+    }
+    if ((lv_terminal1Present == true) && (lv_terminal2Present == true) && (gv_delta1Enabled == true)) {
         TriggerEnable(TriggerGetCurrent(), false);
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(39), "DecalProtoss");
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(167), "DecalProtoss");
@@ -20684,14 +20715,7 @@ bool gt_ECDelta1Transport_Func (bool testConds, bool runActions) {
         }
         ObjectiveDestroy(gv_secondaryObjective);
     }
-    else {
-        if ((gv_warningTextBreak == false)) {
-            gv_warningTextBreak = true;
-            Wait(7.0, c_timeReal);
-            gv_warningTextBreak = false;
-        }
 
-    }
     return true;
 }
 
@@ -20991,6 +21015,7 @@ bool gt_Wave5AirlockBattle_Func (bool testConds, bool runActions) {
         Wait(6.0, c_timeGame);
     }
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
+    gv_delta1Enabled = true;
     Wait(25.0, c_timeReal);
     if ((gv_noNewbie == true) && (gv_colonyShipRescue == false)) {
         TriggerEnable(gt_ECDelta1Transport, false);
