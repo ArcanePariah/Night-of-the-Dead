@@ -1635,7 +1635,6 @@ void gf_DeimosMinionAI ();
 void gf_STC2AmbientSpawns ();
 void gf_BergmannAI (unit lp_rescueMarine);
 void gf_ReactorMeltdownAmbience ();
-void gf_DomeAuthorization (unit lp_hexUnit);
 void gf_DomeFlash (unit lp_firstMarine, unit lp_secondMarine, region lp_region);
 void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit, region lp_domeHexagonContainer);
 void gf_HadesSporeDrops ();
@@ -9034,18 +9033,6 @@ bool auto_gf_ReactorMeltdownAmbience_TriggerFunc (bool testConds, bool runAction
     return true;
 }
 
-void gf_DomeAuthorization (unit lp_hexUnit) {
-    // Implementation
-    if ((gv_warningTextBreak == false)) {
-        gv_warningTextBreak = true;
-        UnitFlashSelection(EventUnit(), 1.0);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/A230C657"));
-        Wait(7.0, c_timeReal);
-        gv_warningTextBreak = false;
-    }
-
-}
-
 void gf_DomeFlash (unit lp_firstMarine, unit lp_secondMarine, region lp_region) {
     // Implementation
     UnitFlashSelection(lp_firstMarine, 1.0);
@@ -9061,7 +9048,8 @@ void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeComple
         TriggerExecute(gt_DomesSealedandHadesLocated, true, false);
     }
     else {
-        gf_DomeAuthorization(lp_triggeringUnit);
+        UnitFlashSelection(EventUnit(), 1.0);
+        gf_DisplayWarningWithTimeout(StringExternal("Param/Value/8A81181E"));
     }
 }
 
@@ -20388,13 +20376,7 @@ bool gt_Wave4EnterAirlockGate3P_Func (bool testConds, bool runActions) {
         UnitGroupLoopEnd();
     }
     else {
-        if ((gv_warningTextBreak == false)) {
-            gv_warningTextBreak = true;
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/759E2CE5"));
-            Wait(7.0, c_timeReal);
-            gv_warningTextBreak = false;
-        }
-
+        gf_DisplayWarningWithTimeout(StringExternal("Param/Value/D99EB192"));
     }
     return true;
 }

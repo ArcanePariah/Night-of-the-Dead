@@ -4899,7 +4899,6 @@ Param/Value/7527BA88=Seal Bio-Domes (
 Param/Value/75315112=The lab is abandoned. Whoever sent the transmission must have fled.
 Param/Value/75805F30=<n/></c>Damage Taken: <c val="F4D72B">
 Param/Value/758D5CB1=I'm detecting multiple air bogeys. We need to haul ass.
-Param/Value/759E2CE5=<s val="InfoPaneHeroRank">(Airlock Terminals require 2 authorized personnel..)</s>
 Param/Value/75B4E619=<c val="0080FF">
 Param/Value/75B54346=You will find items throughout the mission.
 Param/Value/75D0FAFD=Career Stats<n/>   Rating: 
@@ -5013,6 +5012,7 @@ Param/Value/89DE7F2D=Activate IVAX
 Param/Value/8A179710=Redrum...
 Param/Value/8A3E12C6=Zeus and Leto must be killed simultaneously to put them down permanently
 Param/Value/8A44C126=<s val="BriefingHanText">(Downloading Sec Cam Feed...)</s>
+Param/Value/8A81181E=<s val="InfoPaneHeroRank">(Bio-Dome Terminals require 2 authorized personnel..)</s>
 Param/Value/8A9EFD0F=Talents Available: 
 Param/Value/8B0A5814=You have 2 inventory types. <n/>-  Equipment slots on the left (Numpad 0) allow you to equip weapons/armor/enhancements for use.<n/>Backpack slots on the right (Numpad 1) store spare equipment & supplies.<n/><n/>The more items you carry, the slower your Marine will move. Be selective and carry what you need. Share the load with other Marines
 Param/Value/8B17FA99=Re-activate Devastators from Airlock. They provide heavy support.
@@ -5159,7 +5159,6 @@ Param/Value/A1B2CCD2=<s val="GlueButton"><c val="F4D72B">That thing is headed to
 Param/Value/A1DB0E9F=<s val="InfoPaneHeroRank">
 Param/Value/A1E10F66=<s val="InfoPaneHeroRank">(3 XP awarded for objective completion)</s>
 Param/Value/A21263F3=Proceed to Starport
-Param/Value/A230C657=<s val="InfoPaneHeroRank">(Bio-Dome Terminals require 2 authorized personnel..)</s>
 Param/Value/A2C6FC3F=HAL - stop this!
 Param/Value/A2F1CD75=Type '-karmabite' if you have been TKed intentionally. You have 15 secs to do this.
 Param/Value/A37105E0=Find Dr. Tanaka
@@ -5467,6 +5466,7 @@ Param/Value/D8E2D657=How could HAL be alive, after shutting down its mainframe?
 Param/Value/D9413C5B=<s val="CinematicLabel">  Dr. Bergmann: <c val="F4D72B">You...finish it...</c></s>
 Param/Value/D95CDF30=/12)</c>
 Param/Value/D96BF6CE=Please reconsider your actions.
+Param/Value/D99EB192=<s val="InfoPaneHeroRank">(Airlock Terminals require 2 authorized personnel..)</s>
 Param/Value/D9C4D665=Survive the incoming attack
 Param/Value/DA7A513D=The source of the infestation has been located. Proceed with caution. There is no turning back.
 Param/Value/DA815637=Our mission brief showed a Dr. Bergmann. Do you think he's related to all this?
