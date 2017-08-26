@@ -793,6 +793,7 @@ unitgroup gv_episilonMinis;
 bool gv_tartarusCapture;
 bool gv_tartarusMission;
 int gv_tartarusCaptureObjective;
+int gv_delta1CheckBonusObjective;
 bool gv_delta1Enabled;
 region gv_truckSelected;
 int gv_truckRoute;
@@ -1206,6 +1207,7 @@ void InitGlobals () {
     gv_episionCivilians = UnitGroupEmpty();
     gv_episilonMinis = UnitGroupEmpty();
     gv_tartarusCaptureObjective = c_invalidObjectiveId;
+    gv_delta1CheckBonusObjective = c_invalidObjectiveId;
     gv_truckSelected = RegionFromId(41);
     gv_truckRoute = RandomInt(1, 2);
     gv_nydusWormGroup = UnitGroupEmpty();
@@ -20530,6 +20532,8 @@ bool gt_ECDelta1Transport_Func (bool testConds, bool runActions) {
     }
     if ((lv_terminal1Present == true) && (lv_terminal2Present == true) && (gv_delta1Enabled == true)) {
         TriggerEnable(TriggerGetCurrent(), false);
+        ObjectiveSetState(gv_delta1CheckBonusObjective, c_objectiveStateCompleted);
+        gf_DestroyObjectiveDelayed(gv_delta1CheckBonusObjective);
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(39), "DecalProtoss");
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(167), "DecalProtoss");
         gv_colonyShipRescue = true;
@@ -20997,9 +21001,13 @@ bool gt_Wave5AirlockBattle_Func (bool testConds, bool runActions) {
         Wait(6.0, c_timeGame);
     }
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
+    ObjectiveCreate(StringExternal("Param/Value/1D3DA12D"), StringExternal("Param/Value/E6187E1A"), c_objectiveStateActive, false);
+    gv_delta1CheckBonusObjective = ObjectiveLastCreated();
     gv_delta1Enabled = true;
     Wait(25.0, c_timeReal);
     if ((gv_noNewbie == true) && (gv_colonyShipRescue == false)) {
+        ObjectiveSetState(gv_delta1CheckBonusObjective, c_objectiveStateFailed);
+        gf_DestroyObjectiveDelayed(gv_delta1CheckBonusObjective);
         TriggerEnable(gt_ECDelta1Transport, false);
         TriggerEnable(gt_ECZombieTime, true);
     }

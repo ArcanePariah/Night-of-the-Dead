@@ -4395,6 +4395,7 @@ Param/Value/1C988643=Chapter 3
 Param/Value/1CA9E01E=Kill Apoptosis
 Param/Value/1D11F6E3=Probably a good time to recon & retrieve supplies. We're going to need ammo.
 Param/Value/1D314B61=
+Param/Value/1D3DA12D=Check Delta-1 for survivors
 Param/Value/1DB5DCFB=We read you. Dropship ETA 7 Mikes.
 Param/Value/1DBE4975=
 Param/Value/1DEADE8E=Shame...I'm looking for him.
@@ -5540,6 +5541,7 @@ Param/Value/E4C92319=<s val="GlueButton">Farica Augustin
 Param/Value/E4DFE6B3=<s val="InfoPaneHeroRank">
 Param/Value/E51F85FC=Tanks have arrived. They will provide heavy support.
 Param/Value/E5BA10F6=Hold position at Mine until data transfer is complete.
+Param/Value/E6187E1A=The transport ship Delta-1 in airlock may hold survivors that need to be rescued.
 Param/Value/E658C7CF=Alright. We've unlocked Apollo's gates.
 Param/Value/E65AD898=<s val="GlueButton">
 Param/Value/E69CF360=...posthumously
