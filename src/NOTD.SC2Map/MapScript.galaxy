@@ -8340,7 +8340,6 @@ bool auto_gf_ACAmbientSpawn_TriggerFunc (bool testConds, bool runActions) {
 
         Wait(2.7, c_timeReal);
         if ((gv_aCSpawnHalt == false) && (PlayerGetPropertyInt(14, c_playerPropSuppliesUsed) < 100) && (gv_aCSpawnRespite == false) && (gv_gameOver == false)) {
-            AIAttackWaveSetTargetUnitGroup(14, gv_marines);
             if ((RandomInt(0, 15) == 1)) {
                 auto3EA867AD_n = gv_spawnFactor;
                 for (auto3EA867AD_i = 1; auto3EA867AD_i <= auto3EA867AD_n; auto3EA867AD_i += 1) {
@@ -8350,11 +8349,6 @@ bool auto_gf_ACAmbientSpawn_TriggerFunc (bool testConds, bool runActions) {
                     else {
                         gf_SmartSpawnNOTD("Mutalisk", 80.0);
                     }
-                    AIAttackWaveUseUnit(14, UnitLastCreated());
-                    if ((gv_wave == 14) && (libNtve_gf_UnitGroupIsDead(gv_colonists) == false)) {
-                        AIAttackWaveSetTargetUnitGroup(14, gv_colonists);
-                    }
-
                 }
             }
             else if ((RandomInt(0, 30) == 1)) {
@@ -8362,10 +8356,6 @@ bool auto_gf_ACAmbientSpawn_TriggerFunc (bool testConds, bool runActions) {
                 for (auto3A78A35C_i = 1; auto3A78A35C_i <= auto3A78A35C_n; auto3A78A35C_i += 1) {
                     if ((RandomInt(0, 2) == 1)) {
                         gf_SmartSpawnNOTD("Devourer2", 80.0);
-                        if ((gv_wave == 14) && (libNtve_gf_UnitGroupIsDead(gv_colonists) == false)) {
-                            AIAttackWaveSetTargetUnitGroup(14, gv_colonists);
-                        }
-
                     }
                     else {
                         gf_SmartSpawnNOTD("UltraliskBurrowed", 70.0);
@@ -8378,7 +8368,6 @@ bool auto_gf_ACAmbientSpawn_TriggerFunc (bool testConds, bool runActions) {
                     gf_SmartSpawnNOTD("ZombieLevel12", 55.0);
                 }
             }
-            AIAttackWaveSend(14, (12 - gv_spawnFactor), true);
         }
 
     }
