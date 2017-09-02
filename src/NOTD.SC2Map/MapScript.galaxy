@@ -8329,6 +8329,8 @@ bool auto_gf_ACAmbientSpawn_TriggerFunc (bool testConds, bool runActions) {
     int auto3EA867AD_i;
     int auto3A78A35C_n;
     int auto3A78A35C_i;
+    int auto7A3948C3_n;
+    int auto7A3948C3_i;
     int auto8B975771_n;
     int auto8B975771_i;
 
@@ -8363,9 +8365,12 @@ bool auto_gf_ACAmbientSpawn_TriggerFunc (bool testConds, bool runActions) {
                 }
             }
             else if ((RandomInt(0, 3) == 1)) {
-                auto8B975771_n = (gv_spawnFactor * 3);
-                for (auto8B975771_i = 1; auto8B975771_i <= auto8B975771_n; auto8B975771_i += 1) {
-                    gf_SmartSpawnNOTD("ZombieLevel12", 55.0);
+                auto7A3948C3_n = gv_spawnFactor;
+                for (auto7A3948C3_i = 1; auto7A3948C3_i <= auto7A3948C3_n; auto7A3948C3_i += 1) {
+                    auto8B975771_n = 3;
+                    for (auto8B975771_i = 1; auto8B975771_i <= auto8B975771_n; auto8B975771_i += 1) {
+                        gf_SmartSpawnNOTD("ZombieLevel12", 55.0);
+                    }
                 }
             }
         }
