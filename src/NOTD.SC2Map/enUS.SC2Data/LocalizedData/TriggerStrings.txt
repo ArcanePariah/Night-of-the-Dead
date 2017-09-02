@@ -973,6 +973,7 @@ Trigger/Name/23DA019E=AC - Nakagawa Rescue - Ngoc
 Trigger/Name/249272D1=ACW2 - Charlie Find
 Trigger/Name/24E0CC8E=Open Equipment
 Trigger/Name/24E4285F=Gunship Selection
+Trigger/Name/25A7D4A0=ACW2 - Charlie Periodic Rampage
 Trigger/Name/25BC34F6=Gunship Support
 Trigger/Name/26505329=Class Points Update (Victory Only)
 Trigger/Name/266A26F8=ACW9 - Chase Dr Tanaka (Poison Gas)

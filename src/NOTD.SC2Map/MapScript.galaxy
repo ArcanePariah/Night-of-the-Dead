@@ -1945,6 +1945,7 @@ trigger gt_ACW1EnterArmory;
 trigger gt_ACProwlerEnters;
 trigger gt_ACProwlerDies;
 trigger gt_ACW2DefendwithSecTeamArmory;
+trigger gt_ACW2CharliePeriodicRampage;
 trigger gt_ACW2CharlieFind;
 trigger gt_ACW3CharlieFound;
 trigger gt_ACDemeterSpawn;
@@ -8332,10 +8333,6 @@ bool auto_gf_ACAmbientSpawn_TriggerFunc (bool testConds, bool runActions) {
 
     // Implementation
     while (true) {
-        if ((gv_charlieFound == false)) {
-            UnitBehaviorAddPlayer(gv_charlie, "Rampage", 0, 1);
-        }
-
         Wait(2.7, c_timeReal);
         if ((gv_aCSpawnHalt == false) && (PlayerGetPropertyInt(14, c_playerPropSuppliesUsed) < 100) && (gv_aCSpawnRespite == false) && (gv_gameOver == false)) {
             auto3EA867AD_n = gv_spawnFactor;
@@ -25748,6 +25745,7 @@ bool gt_ACW2DefendwithSecTeamArmory_Func (bool testConds, bool runActions) {
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(gv_characterLieutenantSheng, StringExternal("Param/Value/2CC7E08B"));
     TriggerEnable(gt_ACW2CharlieFind, true);
+    TriggerEnable(gt_ACW2CharliePeriodicRampage, true);
     return true;
 }
 
@@ -25755,6 +25753,26 @@ bool gt_ACW2DefendwithSecTeamArmory_Func (bool testConds, bool runActions) {
 void gt_ACW2DefendwithSecTeamArmory_Init () {
     gt_ACW2DefendwithSecTeamArmory = TriggerCreate("gt_ACW2DefendwithSecTeamArmory_Func");
     TriggerEnable(gt_ACW2DefendwithSecTeamArmory, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: ACW2 - Charlie Periodic Rampage
+//--------------------------------------------------------------------------------------------------
+bool gt_ACW2CharliePeriodicRampage_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitBehaviorAddPlayer(gv_charlie, "Rampage", 0, 1);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ACW2CharliePeriodicRampage_Init () {
+    gt_ACW2CharliePeriodicRampage = TriggerCreate("gt_ACW2CharliePeriodicRampage_Func");
+    TriggerEnable(gt_ACW2CharliePeriodicRampage, false);
+    TriggerAddEventTimePeriodic(gt_ACW2CharliePeriodicRampage, 5.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -25786,6 +25804,7 @@ bool gt_ACW2CharlieFind_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
+    TriggerEnable(gt_ACW2CharliePeriodicRampage, false);
     gv_charlieFound = true;
     gf_RadioNOTD(PlayerName(EventPlayer()), StringExternal("Param/Value/B4A4C624"));
     TriggerExecute(gt_ACW3CharlieFound, true, false);
@@ -39765,6 +39784,7 @@ void InitTriggers () {
     gt_ACProwlerEnters_Init();
     gt_ACProwlerDies_Init();
     gt_ACW2DefendwithSecTeamArmory_Init();
+    gt_ACW2CharliePeriodicRampage_Init();
     gt_ACW2CharlieFind_Init();
     gt_ACW3CharlieFound_Init();
     gt_ACDemeterSpawn_Init();
