@@ -4342,7 +4342,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -4526,7 +4526,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenDelay value="1"/>
@@ -4634,7 +4634,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="350"/>
         <LifeMax value="350"/>
         <LifeArmor value="4"/>
@@ -4675,7 +4675,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -5011,7 +5011,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenDelay value="0"/>
@@ -5063,7 +5063,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -5209,7 +5209,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -5462,7 +5462,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenRate value="7"/>
@@ -5519,7 +5519,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
         <LifeRegenDelay value="0"/>
@@ -5568,7 +5568,7 @@
         <DeathRevealRadius value="3"/>
         <ReviveType value=""/>
         <Mob value="Campaign"/>
-        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeRegenRate value="7"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
         <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
@@ -7540,6 +7540,10 @@
         <Sight value="1"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
+        <Collide index="Burrow" value="0"/>
+        <Collide index="Ground" value="0"/>
+        <Footprint value=""/>
+        <PlacementFootprint value=""/>
     </CUnit>
     <CUnit id="InfestorBurrowed2">
         <Description value="Button/Tooltip/Infestor"/>
@@ -8749,6 +8753,9 @@
         <FogVisibility value="Hidden"/>
         <AttackTargetPriority value="21"/>
         <Race value=""/>
+        <Collide index="Burrow" value="0"/>
+        <Collide index="Ground" value="0"/>
+        <Footprint value=""/>
     </CUnit>
     <CUnit id="FMJAmmo" parent="ITEM">
         <DeathRevealRadius value="2"/>

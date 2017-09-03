@@ -610,7 +610,7 @@
         <TargetFilters value="Visible;Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="20"/>
         <Period value="4"/>
-        <DamagePoint value="0.2"/>
+        <DamagePoint value="0.1"/>
         <Backswing value="0.2"/>
         <Effect value="StingerMK3LaunchMissile"/>
         <Tip value="Button/Tooltip/StingerMK3"/>

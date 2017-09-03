@@ -155,6 +155,10 @@
         <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
     </CActorModel>
     <CActorMissile id="AcidMissile" parent="GenericAttackMissile" unitName="AcidMissile"/>
+    <CActorDoodad id="Antenna">
+        <NoFlyZoneSoftRadius value="0"/>
+        <NoFlyZoneHardRadius value="0"/>
+    </CActorDoodad>
     <CActorSound id="AntiVenomSound" parent="SoundOneShot">
         <Flags index="SuppressSaveLoad" value="0"/>
         <InheritType value="Continuous"/>
@@ -224,6 +228,9 @@
         <On Terms="Behavior.Turbo.Off" Send="Destroy"/>
         <Sound value="Zealot_Charge2"/>
     </CActorSound>
+    <CActorDoodad id="CocoonedColonists">
+        <Footprint value=""/>
+    </CActorDoodad>
     <CActorModel id="GenericAttackDamageModel2" parent="GenericAttackModel"/>
     <CActorSound id="GenericAttackDamageSound2" parent="GenericAttackSound"/>
     <CActorModel id="GenericAttackImpactModel2" parent="GenericAttackModel"/>
@@ -13324,6 +13331,8 @@
     </CActorDoodad>
     <CActorDoodad id="RockTower">
         <Footprint value="FootprintDoodad6x6"/>
+        <NoFlyZoneSoftRadius value="0"/>
+        <NoFlyZoneHardRadius value="0"/>
     </CActorDoodad>
     <CActorUnit id="SatchelLevel2" parent="GenericUnitSelectable" unitName="SatchelLevel2">
         <On Terms="UnitBirth.*.Normal" Send="$Birth"/>

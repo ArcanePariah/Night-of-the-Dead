@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <StyleFile>
+    <Style name="ModCenterSize16NoHover" template="ModCenterSize16" font="UI\Fonts\bl.ttf" height="16" vjustify="Middle" hjustify="Center" styleflags="Shadow" textcolor="255,255,255,255" highlightcolor="255,255,255,255" disabledcolor="255,255,255,255" hotkeycolor="255,0,0,0" hyperlinkcolor="255,0,0,0" glowcolor="255,0,0,0" shadowoffset="2" outlinewidth="0"/>
     <Style name="BossBarTitle" template="BossBarTitleProtoss"/>
     <Style name="HelpPanelListBoxItemTitleCentered" template="HelpPanelListBoxItemTitle" font="UI\Fonts\EurostileExt-Med.otf" height="20" vjustify="Top" hjustify="Center" styleflags="Shadow" textcolor="255,255,255,255" highlightcolor="255,0,0,0" disabledcolor="255,255,255,255" hotkeycolor="255,0,0,0" hyperlinkcolor="255,255,255,255" glowcolor="255,255,255,255" shadowoffset="2"/>
     <Style name="PlayerXP" template="HeaderExtendedTemplate" font="UI\Fonts\EurostileExt-Med.otf" height="16" vjustify="Middle" hjustify="Left" fontflags="HintingNative" styleflags="Shadow" textcolor="255,255,255,255" highlightcolor="255,0,0,0" disabledcolor="255,0,0,0" hotkeycolor="255,0,0,0" hyperlinkcolor="255,0,0,0" glowcolor="255,0,0,0" shadowoffset="1"/>

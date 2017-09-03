@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-
+	<Constant name="MedalColumnOneHorizontalOffset" val = "50" />
+	<Constant name="MedalColumnTwoHorizontalOffset" val = "345" />
+	<Constant name="MedalVerticalSpacing" val = "15" />
+	
 	<Frame type="Image" name="ButtonBorderTemplate">
 		<Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
 		<TextureType val="HorizontalBorder"/>
@@ -13,7 +16,16 @@
 	<Frame type="Label" name="ButtonLabelTemplate">
 		<Height val="48"/>
 		<Width val="96"/>
-		<Style val="ModCenterSize16"/>
+		<Style val="ModCenterSize16NoHover"/>
+	</Frame>
+	
+	<Frame type="TabControl" name="PlayerDetailsTabController">
+		<Height val="610"/>
+        <Width val="690"/>
+		<!--<TabListItem val="PageButtonsContainer/Button01"/>-->
+		
+		<!--<PanelListItem val="InfoPage1"/>-->
+	
 	</Frame>
 	
 	
@@ -44,17 +56,14 @@
             <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
         </Frame>
 
-        <Frame type="Label" name="MedalsLabel" template="PlayerDetails/ButtonLabelTemplate">
-            <Anchor side="Top" relative="$parent/MedalsBorder" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/MedalsBorder" pos="Min" offset="2"/>
-			<Text val = "Medals"/>
-        </Frame>
-
         <Frame type="Button" name="MedalsButton">
-            <Anchor side="Top" relative="$parent/MedalsBorder" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/MedalsBorder" pos="Min" offset="0"/>
-            <Height val="48"/>
-            <Width val="96"/>
+            <Anchor relative="$parent/MedalsBorder" offset="0"/>
+            <Label val = "MedalsLabel" />
+			<Frame type="Label" name="MedalsLabel" template="PlayerDetails/ButtonLabelTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+				<Text val = "Medals"/>
+			</Frame>
         </Frame>
 
         <!-- Stats Related -->
@@ -62,18 +71,16 @@
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
             <Anchor side="Left" relative="$parent/MedalsBorder" pos="Max" offset="-10"/>
         </Frame>
-
-        <Frame type="Label" name="StatsLabel" template="PlayerDetails/ButtonLabelTemplate">
-            <Anchor side="Top" relative="$parent/StatsBorder" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/StatsBorder" pos="Min" offset="2"/>
-			<Text val = "Stats"/>
-        </Frame>
-
+    
         <Frame type="Button" name="StatsButton">
-            <Anchor side="Top" relative="$parent/StatsBorder" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/StatsBorder" pos="Min" offset="0"/>
-            <Height val="48"/>
-            <Width val="96"/>
+            <Anchor relative="$parent/StatsBorder" offset="0"/>
+			<Label val = "StatsLabel"/>
+			
+			<Frame type="Label" name="StatsLabel" template="PlayerDetails/ButtonLabelTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+				<Text val = "Stats"/>
+			</Frame>
         </Frame>
 
         <!-- Talents Related -->
@@ -82,17 +89,14 @@
             <Anchor side="Left" relative="$parent/StatsBorder" pos="Max" offset="-10"/>
         </Frame>
 
-        <Frame type="Label" name="TalentsLabel" template="PlayerDetails/ButtonLabelTemplate">
-            <Anchor side="Top" relative="$parent/TalentsBorder" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/TalentsBorder" pos="Min" offset="2"/>
-			<Text val = "Talents"/>
-        </Frame>
-
         <Frame type="Button" name="TalentsButton">
-            <Anchor side="Top" relative="$parent/TalentsBorder" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/TalentsBorder" pos="Min" offset="0"/>
-            <Height val="48"/>
-            <Width val="96"/>
+            <Anchor relative="$parent/TalentsBorder" offset="0"/>
+			<Label val = "TalentsLabel" />
+			<Frame type="Label" name="TalentsLabel" template="PlayerDetails/ButtonLabelTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+				<Text val = "Talents"/>
+			</Frame>
         </Frame>
 
         <!-- Navigation Buttons -->
@@ -250,6 +254,49 @@
             <Style val="ModCenterSize12"/>
         </Frame>
     </Frame>
+	
+	<Frame type="Frame" name="Medals" template="PlayerDetails/DetailsUI">
+		<Frame type = "Frame" name = "Medal1" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent" pos="Min" offset="#MedalColumnOneHorizontalOffset"/>
+			<Anchor side = "Top" relative= "$parent" pos="Min" offset="85"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal2" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent" pos="Min" offset="#MedalColumnTwoHorizontalOffset"/>
+			<Anchor side = "Top" relative= "$parent/Medal1" pos="Min" offset="0"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal3" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal1" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal1" pos="Max" offset="#MedalVerticalSpacing"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal4" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal2" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal3" pos="Min" offset="0"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal5" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal1" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal3" pos="Max" offset="#MedalVerticalSpacing"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal6" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal2" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal5" pos="Min" offset="0"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal7" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal1" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal5" pos="Max" offset="#MedalVerticalSpacing"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal8" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal2" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal7" pos="Min" offset="0"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal9" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal1" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal7" pos="Max" offset="#MedalVerticalSpacing"/>
+		</Frame>
+		<Frame type = "Frame" name = "Medal10" template = "PlayerDetails/MedalContainer">
+			<Anchor side = "Left" relative= "$parent/Medal2" pos="Min" offset="0"/>
+			<Anchor side = "Top" relative= "$parent/Medal9" pos="Min" offset="0"/>
+		</Frame>		
+	</Frame>
 
     <Frame type="Frame" name="StatsWeaponModsUI">
         <Height val="610"/>
@@ -262,6 +309,7 @@
             <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Next Promotion:" />
         </Frame>
 
         <Frame type="Label" name="NextRank">
@@ -279,6 +327,7 @@
             <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Lives Remaining:" />
         </Frame>
 
         <Frame type="Label" name="LivesLeft">
@@ -296,6 +345,7 @@
             <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Credits Available:" />
         </Frame>
 
         <Frame type="Label" name="CreditsAvailable">
@@ -313,6 +363,7 @@
             <Height val="26"/>
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
+			<Text val = "Career Earnings:" />
         </Frame>
 
         <Frame type="Label" name="CreditsEarned">
@@ -322,116 +373,114 @@
             <Width val="260"/>
             <Style val="HelpPanelListBoxItemTitle"/>
         </Frame>
+		
+		<Frame type="TabControl" name="PlayerDetailsTabController">
+            <Anchor relative="$parent" offset="0"/>
+			<TabListItem val="StatsButton"/>
+			<TabListItem val="ModsButton"/>
+			
+			<PanelListItem val="PlayerStatsContainer"/>
+			<PanelListItem val="WeaponModsContainer"/>
+		
+			<!-- Character Stats Button -->
+		   <Frame type="Image" name="StatsButtonBorder">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="186"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="175"/>
+				<Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
+				<TextureType val="HorizontalBorder"/>
+				<BlendMode val="Add"/>
+				<Color val="127,127,127"/>
+				<Height val="60"/>
+				<Width val="60"/>
+			</Frame>
 
-        <!-- Character Stats Button -->
-        <Frame type="Image" name="StatsButtonBorder">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="186"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="175"/>
-            <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
-            <TextureType val="HorizontalBorder"/>
-            <BlendMode val="Add"/>
-            <Color val="127,127,127"/>
-            <Height val="60"/>
-            <Width val="60"/>
-        </Frame>
+			<Frame type="Button" name="StatsButton">
+				<Anchor relative="$parent/StatsButtonBorder" offset="-5"/>
+				<Tooltip val = "Marine Stats" />
+			</Frame>
+			
+			
+			<!-- Weapon Mods Button -->
+			<Frame type="Image" name="ModsButtonBorder">
+				<Anchor side="Top" relative="$parent/StatsButtonBorder" pos="Max" offset="-10"/>
+				<Anchor side="Left" relative="$parent/StatsButtonBorder" pos="Min" offset="0"/>
+				<Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
+				<TextureType val="HorizontalBorder"/>
+				<BlendMode val="Add"/>
+				<Color val="127,127,127"/>
+				<Height val="60"/>
+				<Width val="60"/>
+			</Frame>
 
-        <Frame type="Image" name="StatsButtonImage">
-            <Anchor side="Top" relative="$parent/StatsButtonBorder" pos="Min" offset="5"/>
-            <Anchor side="Left" relative="$parent/StatsButtonBorder" pos="Min" offset="5"/>
-            <Height val="50"/>
-            <Width val="50"/>
-        </Frame>
+			<Frame type="Button" name="ModsButton">
+				<Anchor relative="$parent/ModsButtonBorder" offset="-5"/>
+				<NormalImage val = "ModsButtonImage" />
+				<HoverImage val = "ModsButtonImage" />
+				<Tooltip val = "Weapon Modifications"/>
+				<Frame type="Image" name="ModsButtonImage">
+					<Anchor relative="$parent" offset="0"/>
+					<Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
+				</Frame>
+			</Frame>
+		
+			<!-- Stats sub-dialog -->
+			<Frame type="Frame" name="PlayerStatsContainer">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
+				<Anchor side="Left" relative="$parent/ModsButton" pos="Min" offset="0"/>
+				<Height val="300"/>
+				<Width val="500"/>
 
-        <Frame type="Button" name="StatsButton">
-            <Anchor side="Top" relative="$parent/StatsButtonImage" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/StatsButtonImage" pos="Min" offset="0"/>
-            <Height val="50"/>
-            <Width val="50"/>
-        </Frame>
+				<Frame type="Label" name="AvailableStatsLabel">
+					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Height val="34"/>
+					<Width val="500"/>
+					<Style val="HelpPanelListBoxItemTitle"/>
+				</Frame>
 
-        <!-- Weapon Mods Button -->
-        <Frame type="Image" name="ModsButtonBorder">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="236"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="175"/>
-            <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
-            <TextureType val="HorizontalBorder"/>
-            <BlendMode val="Add"/>
-            <Color val="127,127,127"/>
-            <Height val="60"/>
-            <Width val="60"/>
-        </Frame>
+				<Frame type="Image" name="HeroImage">
+					<Anchor side="Top" relative="$parent/AvailableStatsLabel" pos="Min" offset="60"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+					<Color val="255,255,255"/>
+					<Height val="150"/>
+					<Width val="150"/>
+				</Frame>
+			</Frame>
 
-        <Frame type="Image" name="ModsButtonImage">
-            <Anchor side="Top" relative="$parent/ModsButtonBorder" pos="Min" offset="5"/>
-            <Anchor side="Left" relative="$parent/ModsButtonBorder" pos="Min" offset="5"/>
-            <Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
-            <Height val="50"/>
-            <Width val="50"/>
-        </Frame>
+			<!-- Weapon mods sub-dialog -->
+			<Frame type="Frame" name="WeaponModsContainer">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
+				<Anchor side="Left" relative="$parent/ModsButton" pos="Min" offset="0"/>
+				<Height val="300"/>
+				<Width val="500"/>
 
-        <Frame type="Button" name="ModsButton">
-            <Anchor side="Top" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
-            <Height val="50"/>
-            <Width val="50"/>
-        </Frame>
+				<Frame type="Label" name="UnlockedWeaponModsLabel">
+					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Height val="34"/>
+					<Width val="500"/>
+					<Style val="HelpPanelListBoxItemTitle"/>
+				</Frame>
 
-        <!-- Stats sub-dialog -->
-        <Frame type="Frame" name="PlayerStatsContainer">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
-            <Anchor side="Left" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
-            <Height val="300"/>
-            <Width val="500"/>
+				<Frame type="Label" name="AvailableWeaponModsLabel">
+					<Anchor side="Top" relative="$parent/UnlockedWeaponModsLabel" pos="Max" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+					<Height val="34"/>
+					<Width val="500"/>
+					<Style val="HelpPanelListBoxItemTitle"/>
+				</Frame>
 
-            <Frame type="Label" name="AvailableStatsLabel">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Height val="34"/>
-                <Width val="500"/>
-                <Style val="HelpPanelListBoxItemTitle"/>
-            </Frame>
-
-            <Frame type="Image" name="HeroImage">
-                <Anchor side="Top" relative="$parent/AvailableStatsLabel" pos="Min" offset="60"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
-                <Color val="255,255,255"/>
-                <Height val="150"/>
-                <Width val="150"/>
-            </Frame>
-        </Frame>
-
-        <!-- Weapon mods sub-dialog -->
-        <Frame type="Frame" name="WeaponModsContainer">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="90"/>
-            <Anchor side="Left" relative="$parent/ModsButtonImage" pos="Min" offset="0"/>
-            <Height val="300"/>
-            <Width val="500"/>
-
-            <Frame type="Label" name="UnlockedWeaponModsLabel">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Height val="34"/>
-                <Width val="500"/>
-                <Style val="HelpPanelListBoxItemTitle"/>
-            </Frame>
-
-            <Frame type="Label" name="AvailableWeaponModsLabel">
-                <Anchor side="Top" relative="$parent/UnlockedWeaponModsLabel" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Height val="34"/>
-                <Width val="500"/>
-                <Style val="HelpPanelListBoxItemTitle"/>
-            </Frame>
-
-            <Frame type="Image" name="WeaponModImage">
-                <Anchor side="Top" relative="$parent/AvailableWeaponModsLabel" pos="Min" offset="60"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
-                <Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
-                <Color val="255,255,255"/>
-                <Height val="150"/>
-                <Width val="150"/>
-            </Frame>
-        </Frame>
+				<Frame type="Image" name="WeaponModImage">
+					<Anchor side="Top" relative="$parent/AvailableWeaponModsLabel" pos="Min" offset="60"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+					<Texture val="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
+					<Color val="255,255,255"/>
+					<Height val="150"/>
+					<Width val="150"/>
+				</Frame>
+			</Frame>
+	
+		</Frame>     
     </Frame>
 
     <Frame type="Frame" name="StatsButtonContainer">

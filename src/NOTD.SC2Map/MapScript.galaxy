@@ -547,6 +547,7 @@ const int ge_GRIDDLG_HV2_NoneClient = 2;
 //--------------------------------------------------------------------------------------------------
 int gv_classSelection;
 bool[gv_numberofPlayers + 1] gv_playerBanned;
+bool gv_warningTextBreak;
 point[19] gv_pathtoMilitaryBase;
 int[gv_numberofPlayers + 1] gv_playerXP;
 int[gv_numberofPlayers + 1] gv_playerRating;
@@ -792,11 +793,12 @@ unitgroup gv_episilonMinis;
 bool gv_tartarusCapture;
 bool gv_tartarusMission;
 int gv_tartarusCaptureObjective;
+int gv_delta1CheckBonusObjective;
+bool gv_delta1Enabled;
 region gv_truckSelected;
 int gv_truckRoute;
 bool gv_colonyShipRescue;
 bool gv_colonyShipRescueSuccessful;
-bool gv_warningTextBreak;
 bool gv_nydusDanger;
 bool gv_nydusFailed;
 unitgroup gv_nydusWormGroup;
@@ -960,7 +962,6 @@ int[9] gv_statsPerception4;
 int[9] gv_statsIntelligence5;
 int[9] gv_statsTotalStats;
 int[9] gv_statsPlayerStatsStatsButton;
-int[9] gv_statsPlayerStatsStatsHeroImage;
 int[9] gv_statsPlayerStatsPanel;
 int[9] gv_statsPlayerHeroImage;
 int[9] gv_statsPlayerLivesLeft;
@@ -972,7 +973,6 @@ int[6][9] gv_statsPlayerStatLabel;
 int[9] gv_statsPlayerStatAvailableLabel;
 int[8][9] gv_statsModProperties;
 int[9] gv_wModTotalPointsLeft;
-int[9] gv_wModWeaponsModButton;
 int[9] gv_statsWeaponModPanel;
 int[8][9] gv_wModPlayerDecreImage;
 int[8][9] gv_wModPlayerDecreButton;
@@ -1207,6 +1207,7 @@ void InitGlobals () {
     gv_episionCivilians = UnitGroupEmpty();
     gv_episilonMinis = UnitGroupEmpty();
     gv_tartarusCaptureObjective = c_invalidObjectiveId;
+    gv_delta1CheckBonusObjective = c_invalidObjectiveId;
     gv_truckSelected = RegionFromId(41);
     gv_truckRoute = RandomInt(1, 2);
     gv_nydusWormGroup = UnitGroupEmpty();
@@ -1355,9 +1356,6 @@ void InitGlobals () {
         gv_statsPlayerStatsStatsButton[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_statsPlayerStatsStatsHeroImage[init_i] = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsPlayerStatsPanel[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
@@ -1393,9 +1391,6 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsPlayerStatAvailableLabel[init_i] = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_wModWeaponsModButton[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsWeaponModPanel[init_i] = c_invalidDialogControlId;
@@ -1513,6 +1508,7 @@ void gf_NOTDBanlist ();
 bool gf_PlayerBanCheck (string lp_playerHandle);
 bool gf_PlayerAutomaticBanCheck (int lp_player);
 void gf_NOTDFormatTimerWindow (int lp_tw);
+void gf_DisplayWarningWithTimeout (text lp_message);
 void gf_PlayerAlliances ();
 void gf_LocationIntialization ();
 void gf_MapNightMemoryLoad (int lp_player);
@@ -1601,6 +1597,7 @@ void gf_MineBossZeusLeto ();
 void gf_BossBarCreation (int lp_race, unit lp_unit, int lp_usePing);
 void gf_BossAfterAction ();
 void gf_ECEnvironmentalChanges ();
+void gf_ECShopXPReq ();
 void gf_ECC1ItemSpawn ();
 void gf_ECC1AmbientSpawns ();
 void gf_EpsilonMineMobs ();
@@ -1641,7 +1638,6 @@ void gf_DeimosMinionAI ();
 void gf_STC2AmbientSpawns ();
 void gf_BergmannAI (unit lp_rescueMarine);
 void gf_ReactorMeltdownAmbience ();
-void gf_DomeAuthorization (unit lp_hexUnit);
 void gf_DomeFlash (unit lp_firstMarine, unit lp_secondMarine, region lp_region);
 void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeCompleted, unit lp_triggeringUnit, region lp_domeHexagonContainer);
 void gf_HadesSporeDrops ();
@@ -1693,6 +1689,9 @@ void gf_HideAllDialogsForPlayer (int lp_player);
 void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, int lp_playertoHideFrom);
 int gf_GetPreviousNextPlayer (int lp_currentPlayer, bool lp_isNext);
 void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, text lp_dialogTitle, int lp_highlightDialogFrame, int lp_dialogControlCategory);
+bool gf_UsedDialogIsMedal (int lp_usedDialog);
+bool gf_UsedDialogIsStats (int lp_usedDialog);
+bool gf_UsedDialogIsTalent (int lp_usedDialog);
 bool gf_TournamentWinner (string lp_playerHandle);
 bool gf_Staff (string lp_playerHandle);
 void gf_TeamStatusInitializePlayerPortrait (int lp_triggeringPlayer);
@@ -2119,7 +2118,6 @@ trigger gt_CreateMedalsDialog;
 trigger gt_ToggleMedalsDialog;
 trigger gt_CreateStatsDialog;
 trigger gt_ToggleStatsDialog;
-trigger gt_ToggleStatsWeaponModsDialog;
 trigger gt_ModifyHeroStats;
 trigger gt_DisableStatAndModsModification;
 trigger gt_Backstab;
@@ -2249,6 +2247,11 @@ bool auto_gf_NOTDBanlist_TriggerFunc (bool testConds, bool runActions) {
 }
 
 bool gf_PlayerBanCheck (string lp_playerHandle) {
+    // Variable Declarations
+    point lv_untitledVariable001;
+
+    // Variable Initialization
+
     // Implementation
     IntLoopBegin(1, UserDataFieldValueCount("Banlist", "Player Handle"));
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
@@ -2266,40 +2269,34 @@ bool gf_PlayerAutomaticBanCheck (int lp_player) {
     if ((gf_StatsGetMaxModPoints(lp_player) < 0)) {
         return true;
     }
-    if ((gf_StatsGetMaxModPoints(lp_player) > 0) && (gv_playerLifeTimeCreditsAcquired[lp_player] < 10000)) {
+    else if ((gf_StatsGetMaxModPoints(lp_player) > (gv_playerLifeTimeCreditsAcquired[lp_player] / 10000))) {
         return true;
     }
-    if ((gv_playerXP[lp_player] < 135000) && (gv_playerGamesPlayed[lp_player] > 4500)) {
-        return true;
-    }
-    else if ((gv_playerXP[lp_player] >= 260000) && (gv_playerKarma[lp_player] < 1500)) {
-        return true;
-    }
-    else if (((gv_playerXP[lp_player] / gv_playerGamesPlayed[lp_player]) >= 300)) {
-        return true;
-    }
-    else if (((gv_playerXP[lp_player] / gv_playerGamesPlayed[lp_player]) < 30) && (gv_playerXP[lp_player] >= 40000)) {
+    else if ((((gv_playerRank[lp_player] * 2) + gf_GetMedalStats(lp_player)) < gf_GetCurrentAllocatedStats(lp_player))) {
         return true;
     }
     else if ((gf_BOInsigniaBought(lp_player) == true) && (gv_playerLifeTimeCreditsAcquired[lp_player] < 10000)) {
         return true;
     }
-    else if (((gv_playerXP[lp_player] >= 160000) && (gv_playerXP[lp_player] <= 170000)) && (gv_playerGamesPlayed[lp_player] > 4500)) {
-        return true;
-    }
     else if ((gv_playerXP[lp_player] >= 600000)) {
         return true;
     }
-    else if ((gv_playerXP[lp_player] < 3500) && (gv_combatActionRibbon[lp_player] > 50)) {
+    else if ((gv_combatActionRibbon[lp_player] > gv_playerGamesPlayed[lp_player])) {
         return true;
     }
-    else if ((gv_lifeSavingMedal[lp_player] > gv_combatActionRibbon[lp_player])) {
-        return true;
-    }
-    else if ((gv_silverStar[lp_player] > gv_combatActionRibbon[lp_player])) {
+    else if (((gv_lifeSavingMedal[lp_player] + gv_silverStar[lp_player]) > gv_combatActionRibbon[lp_player])) {
         return true;
     }
     else if ((gf_StatsGetMaxModPoints(lp_player) > 20)) {
+        return true;
+    }
+    else if ((gv_superiorServiceMedal[lp_player] < (MinI(gv_survivalWin[lp_player], 20) + gv_survivalWinNM[lp_player]))) {
+        return true;
+    }
+    else if (((gv_statsModProperties[1][lp_player] + gv_statsModProperties[2][lp_player] + gv_statsModProperties[3][lp_player] + gv_statsModProperties[4][lp_player] + gv_statsModProperties[5][lp_player] + gv_statsModProperties[6][lp_player] + gv_statsModProperties[7][lp_player]) > 35)) {
+        return true;
+    }
+    else if ((gf_StatsGetMaxModPoints(lp_player) < gv_modTotalPointsNegative[lp_player])) {
         return true;
     }
     return false;
@@ -2311,6 +2308,32 @@ void gf_NOTDFormatTimerWindow (int lp_tw) {
     TimerWindowSetColor(lp_tw, c_timerWindowColorTime, Color(75.29, 75.29, 0.00), 0.0);
     TimerWindowSetStyle(lp_tw, c_timerWindowStyleHorizontalTitleTime, false);
     TimerWindowSetFormat(lp_tw, StringToText("<mintotal/>:<sec2/>"));
+}
+
+trigger auto_gf_DisplayWarningWithTimeout_Trigger = null;
+text auto_gf_DisplayWarningWithTimeout_lp_message;
+
+void gf_DisplayWarningWithTimeout (text lp_message) {
+    auto_gf_DisplayWarningWithTimeout_lp_message = lp_message;
+
+    if (auto_gf_DisplayWarningWithTimeout_Trigger == null) {
+        auto_gf_DisplayWarningWithTimeout_Trigger = TriggerCreate("auto_gf_DisplayWarningWithTimeout_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_DisplayWarningWithTimeout_Trigger, false, false);
+}
+
+bool auto_gf_DisplayWarningWithTimeout_TriggerFunc (bool testConds, bool runActions) {
+    text lp_message = auto_gf_DisplayWarningWithTimeout_lp_message;
+
+    // Implementation
+    if ((gv_warningTextBreak == false)) {
+        gv_warningTextBreak = true;
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, lp_message);
+        Wait(7.0, c_timeGame);
+        gv_warningTextBreak = false;
+    }
+    return true;
 }
 
 trigger auto_gf_PlayerAlliances_Trigger = null;
@@ -4185,6 +4208,10 @@ bool auto_gf_SmartSpawnNOTD_TriggerFunc (bool testConds, bool runActions) {
     lv_unitSpawnPoint = gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
 
     // Implementation
+    if ((UnitGroupCount(gv_marines, c_unitCountAlive) == 0)) {
+        return true;
+    }
+
     UnitCreate(1, lp_spawningUnit, 0, 14, lv_unitSpawnPoint, libNtve_gf_RandomAngle());
     lv_spawnUnit = UnitLastCreated();
     UnitGroupAdd(gv_zombieWave, lv_spawnUnit);
@@ -5144,7 +5171,7 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
         if ((RandomInt(1, 500) == 1) && (gv_wave > 1) && (gv_cinematicMode == false)) {
             gf_RandomBanetrain();
         }
-        else if (((RandomInt(1, 200) == 1) || (gv_wave == 4)) && (gv_oMCommTower == false) && (gv_survivalMode == false) && (gv_storyline != 3) && (gv_wave > 1)) {
+        else if (((RandomInt(1, 200) == 1) || (gv_wave >= 4)) && (gv_oMCommTower == false) && (gv_survivalMode == false) && (gv_storyline != 3) && (gv_wave > 1)) {
             gv_oMCommTower = true;
             ObjectiveCreate(StringExternal("Param/Value/2E1900EB"), StringExternal("Param/Value/49791ACC"), c_objectiveStateActive, false);
             gv_commTowerObjective = ObjectiveLastCreated();
@@ -5153,7 +5180,7 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
             TriggerEnable(gt_OM6CommTowerTransmission, false);
             TriggerEnable(gt_OM1EnterCommTower, true);
         }
-        else if ((gv_noNewbie == true) && (gv_survivalMode == false) && ((RandomInt(1, 300) == 1) || (gv_wave == 5)) && (gv_oMScrapyard == false) && (gv_alivePlayers > 1) && (gv_wave > 1) && (gv_storyline != 3)) {
+        else if ((gv_noNewbie == true) && (gv_survivalMode == false) && ((RandomInt(1, 300) == 1) || (gv_wave >= 5)) && (gv_oMScrapyard == false) && (gv_alivePlayers > 1) && (gv_wave > 1) && (gv_storyline != 3)) {
             gv_oMScrapyard = true;
             TriggerExecute(gt_OM4ScrapyardSalvageInit, true, false);
         }
@@ -6658,6 +6685,29 @@ bool auto_gf_ECEnvironmentalChanges_TriggerFunc (bool testConds, bool runActions
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(80), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(81), "DecalProtoss");
     return true;
+}
+
+void gf_ECShopXPReq () {
+    // Variable Declarations
+    bool lv_vets;
+
+    // Variable Initialization
+    lv_vets = true;
+
+    // Implementation
+    PlayerGroupLoopBegin(gv_marineSquad);
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        if ((PlayerGetPropertyInt(PlayerGroupLoopCurrent(), c_playerPropCustom) < 5000)) {
+            lv_vets = false;
+        }
+
+    }
+    PlayerGroupLoopEnd();
+    if ((lv_vets == false)) {
+        UnitSetInfoText2(UnitFromId(178), StringExternal("Param/Value/F64869B1"));
+        UnitSetInfoText2(UnitFromId(2503), StringExternal("Param/Value/97BA6CAF"));
+    }
+
 }
 
 trigger auto_gf_ECC1ItemSpawn_Trigger = null;
@@ -9009,18 +9059,6 @@ bool auto_gf_ReactorMeltdownAmbience_TriggerFunc (bool testConds, bool runAction
     return true;
 }
 
-void gf_DomeAuthorization (unit lp_hexUnit) {
-    // Implementation
-    if ((gv_warningTextBreak == false)) {
-        gv_warningTextBreak = true;
-        UnitFlashSelection(EventUnit(), 1.0);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/A230C657"));
-        Wait(7.0, c_timeReal);
-        gv_warningTextBreak = false;
-    }
-
-}
-
 void gf_DomeFlash (unit lp_firstMarine, unit lp_secondMarine, region lp_region) {
     // Implementation
     UnitFlashSelection(lp_firstMarine, 1.0);
@@ -9036,7 +9074,8 @@ void gf_DomeTrigger (region lp_region1, region lp_region2, trigger lp_domeComple
         TriggerExecute(gt_DomesSealedandHadesLocated, true, false);
     }
     else {
-        gf_DomeAuthorization(lp_triggeringUnit);
+        UnitFlashSelection(EventUnit(), 1.0);
+        gf_DisplayWarningWithTimeout(StringExternal("Param/Value/8A81181E"));
     }
 }
 
@@ -10804,7 +10843,6 @@ void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, te
     gv_dialogButtons[lp_dialogControlCategory][1][lp_player] = DialogControlLastCreated();
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "StatsButton");
     gv_dialogButtons[lp_dialogControlCategory][2][lp_player] = DialogControlLastCreated();
-    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ObjectiveDisplay", PlayerGroupAll());
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "TalentsButton");
     gv_dialogButtons[lp_dialogControlCategory][3][lp_player] = DialogControlLastCreated();
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "NavLeftArrowButton");
@@ -10820,6 +10858,72 @@ void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, te
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "CloseButton");
     gv_dialogButtons[lp_dialogControlCategory][6][lp_player] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemImage(lp_highlightDialogFrame, "Assets\\Textures\\ui_research_frame_tooltip_zerg.dds", PlayerGroupAll());
+}
+
+bool gf_UsedDialogIsMedal (int lp_usedDialog) {
+    int autoA65A2FF9_ae;
+    int autoA65A2FF9_ai;
+
+    // Variable Declarations
+    int lv_player;
+
+    // Variable Initialization
+
+    // Implementation
+    autoA65A2FF9_ae = gv_numberofPlayers;
+    autoA65A2FF9_ai = 1;
+    lv_player = gv_indexBaseValue;
+    for ( ; ( (autoA65A2FF9_ai >= 0 && lv_player <= autoA65A2FF9_ae) || (autoA65A2FF9_ai <= 0 && lv_player >= autoA65A2FF9_ae) ) ; lv_player += autoA65A2FF9_ai ) {
+        if ((lp_usedDialog == gv_playerMedalsDialog[lv_player])) {
+            return true;
+        }
+
+    }
+    return false;
+}
+
+bool gf_UsedDialogIsStats (int lp_usedDialog) {
+    int auto0EF7AA38_ae;
+    int auto0EF7AA38_ai;
+
+    // Variable Declarations
+    int lv_player;
+
+    // Variable Initialization
+
+    // Implementation
+    auto0EF7AA38_ae = gv_numberofPlayers;
+    auto0EF7AA38_ai = 1;
+    lv_player = gv_indexBaseValue;
+    for ( ; ( (auto0EF7AA38_ai >= 0 && lv_player <= auto0EF7AA38_ae) || (auto0EF7AA38_ai <= 0 && lv_player >= auto0EF7AA38_ae) ) ; lv_player += auto0EF7AA38_ai ) {
+        if ((lp_usedDialog == gv_statsPlayerStatsDialog[lv_player])) {
+            return true;
+        }
+
+    }
+    return false;
+}
+
+bool gf_UsedDialogIsTalent (int lp_usedDialog) {
+    int auto521925CA_ae;
+    int auto521925CA_ai;
+
+    // Variable Declarations
+    int lv_player;
+
+    // Variable Initialization
+
+    // Implementation
+    auto521925CA_ae = gv_numberofPlayers;
+    auto521925CA_ai = 1;
+    lv_player = gv_indexBaseValue;
+    for ( ; ( (auto521925CA_ai >= 0 && lv_player <= auto521925CA_ae) || (auto521925CA_ai <= 0 && lv_player >= auto521925CA_ae) ) ; lv_player += auto521925CA_ai ) {
+        if ((lp_usedDialog == gv_talentTree[lv_player])) {
+            return true;
+        }
+
+    }
+    return false;
 }
 
 bool gf_TournamentWinner (string lp_playerHandle) {
@@ -12049,7 +12153,8 @@ void gf_StatsLoadPlayerStats (int lp_player) {
 void gf_StatsUpdateHeroImage (int lp_triggeringPlayer) {
     // Implementation
     libNtve_gf_SetDialogItemImage(gv_statsPlayerHeroImage[lp_triggeringPlayer], UserDataGetImagePath("Classes", gv_playerClass[lp_triggeringPlayer], "Class Image", 1), PlayerGroupAll());
-    libNtve_gf_SetDialogItemImage(gv_statsPlayerStatsStatsHeroImage[lp_triggeringPlayer], UserDataGetImagePath("Classes", gv_playerClass[lp_triggeringPlayer], "Class Image", 1), PlayerGroupAll());
+    libNtve_gf_SetDialogItemImage2(gv_statsPlayerStatsStatsButton[lp_triggeringPlayer], UserDataGetImagePath("Classes", gv_playerClass[lp_triggeringPlayer], "Class Image", 1), PlayerGroupAll());
+    libNtve_gf_SetDialogItemImage(gv_statsPlayerStatsStatsButton[lp_triggeringPlayer], UserDataGetImagePath("Classes", gv_playerClass[lp_triggeringPlayer], "Class Image", 1), PlayerGroupAll());
 }
 
 void gf_StatsSetBehaviors (int lp_triggeringPlayer) {
@@ -13263,12 +13368,6 @@ bool auto_gf_TalentTreeCreation_TriggerFunc (bool testConds, bool runActions) {
     libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("TalentTrees", gv_playerClass[lp_player], "Headers", 1), PlayerGroupAll());
     DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeLabel, "TalentTree2Title");
     libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("TalentTrees", gv_playerClass[lp_player], "Headers", 2), PlayerGroupAll());
-    DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeLabel, "Tier1Label");
-    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/27580023"), PlayerGroupAll());
-    DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeLabel, "Tier2Label");
-    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/46D423B5"), PlayerGroupAll());
-    DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeLabel, "Tier3Label");
-    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/635417A9"), PlayerGroupAll());
     IntLoopBegin(gv_indexBaseValue, gv_numberofTalents);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         gf_TalentButton(lv_tempDialogItem, lp_player, IntLoopCurrent());
@@ -13433,7 +13532,6 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    TriggerEnable(TriggerGetCurrent(), false);
     SoundtrackStop(PlayerGroupAll(), c_soundtrackCategoryMusic, false);
     SoundtrackPlay(PlayerGroupAll(), c_soundtrackCategoryMusic, "Mission_MusicCue005", c_soundtrackCueAny, c_soundtrackIndexAny, false);
     libNtve_gf_HideGameUI(false, PlayerGroupActive());
@@ -14726,6 +14824,7 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
         gv_marineRounds[lv_attackingPlayer] = MaxI((gv_marineRounds[lv_attackingPlayer] - 1), 0);
     }
     gf_AmmoUsage(lv_attackingPlayer, lv_firingUnit, ge_ReloadType_Automatic, lv_attackingWeapon);
+    Wait(0.3, c_timeGame);
     if ((lv_attackingWeapon == "StingerMK3") && (gv_marineRounds[lv_attackingPlayer] < 10)) {
         Wait(0.7, c_timeGame);
         UnitBehaviorAddPlayer(lv_firingUnit, "InsufficientAmmo", lv_attackingPlayer, 1);
@@ -14883,7 +14982,7 @@ bool gt_L3Kills_Func (bool testConds, bool runActions) {
 
     UnitSetPropertyFixed(gv_marineHero[EventUnitDamageSourcePlayer()], c_unitPropKills, (libNtve_gf_UnitGetPropertyKills(gv_marineHero[EventUnitDamageSourcePlayer()], c_unitPropCurrent) + 1));
     UnitSetPropertyFixed(gv_marineHero[EventUnitDamageSourcePlayer()], c_unitPropXP, (UnitGetPropertyFixed(gv_marineHero[EventUnitDamageSourcePlayer()], c_unitPropXP, c_unitPropCurrent) + StringToFixed(CatalogFieldValueGet(c_gameCatalogUnit, (UnitGetType(EventUnit())), "KillXP", 14))));
-    UnitCreateEffectUnit(EventUnit(), "SharedExperienceSet", gv_marineHero[EventUnitDamageSourcePlayer()]);
+    UnitCreateEffectUnit(EventUnit(), "SharedExperienceSearchSet", gv_marineHero[EventUnitDamageSourcePlayer()]);
     return true;
 }
 
@@ -15629,6 +15728,9 @@ void gt_InfestorKilled_Init () {
 // Trigger: Infestor Ambient Spawns
 //--------------------------------------------------------------------------------------------------
 bool gt_InfestorAmbientSpawns_Func (bool testConds, bool runActions) {
+    int auto00261A0A_n;
+    int auto00261A0A_i;
+
     // Conditions
     if (testConds) {
         if (!((gv_infestorsAlive > 0))) {
@@ -15644,9 +15746,10 @@ bool gt_InfestorAmbientSpawns_Func (bool testConds, bool runActions) {
     IntLoopBegin(gv_indexBaseValue, 5);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         if ((UnitIsAlive(gv_infestor[IntLoopCurrent()]) == true) && (gv_cinematicMode == false) && (UnitGetOwner(gv_infestor[IntLoopCurrent()]) == 14)) {
-            AIAttackWaveSetTargetUnitGroup(14, gv_marines);
-            gf_WaveSpawnAtRegion(libNtve_gf_DifficultyValueUnitType("ZombieLevel12", "ZombieLevel22", "ZombieLevel22", "ZombieLevel22"), RegionPlayableMap(), libNtve_gf_DifficultyValueInt(1, 1, 1, 1));
-            AIAttackWaveSend(14, libNtve_gf_DifficultyValueInt(6, 4, 2, 0), false);
+            auto00261A0A_n = 2;
+            for (auto00261A0A_i = 1; auto00261A0A_i <= auto00261A0A_n; auto00261A0A_i += 1) {
+                gf_SmartSpawnNOTD(libNtve_gf_DifficultyValueUnitType("ZombieLevel12", "ZombieLevel22", "ZombieLevel22", "ZombieLevel22"), 80.0);
+            }
             UnitIssueOrder(gv_infestor[IntLoopCurrent()], OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())), c_orderQueueReplace);
         }
 
@@ -15659,7 +15762,7 @@ bool gt_InfestorAmbientSpawns_Func (bool testConds, bool runActions) {
 void gt_InfestorAmbientSpawns_Init () {
     gt_InfestorAmbientSpawns = TriggerCreate("gt_InfestorAmbientSpawns_Func");
     TriggerEnable(gt_InfestorAmbientSpawns, false);
-    TriggerAddEventTimePeriodic(gt_InfestorAmbientSpawns, 30.0, c_timeGame);
+    TriggerAddEventTimePeriodic(gt_InfestorAmbientSpawns, 60.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -18140,6 +18243,7 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
     if ((gv_noNewbie == true)) {
         UnitCreate(1, "P45GaussPistol", 0, 0, RegionRandomPoint(RegionFromId(14)), 270.0);
         UnitSetState(UnitFromId(178), c_unitStateSelectable, true);
+        gf_ECShopXPReq();
     }
 
     Wait(9.0, c_timeReal);
@@ -20300,13 +20404,7 @@ bool gt_Wave4EnterAirlockGate3P_Func (bool testConds, bool runActions) {
         UnitGroupLoopEnd();
     }
     else {
-        if ((gv_warningTextBreak == false)) {
-            gv_warningTextBreak = true;
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/759E2CE5"));
-            Wait(7.0, c_timeReal);
-            gv_warningTextBreak = false;
-        }
-
+        gf_DisplayWarningWithTimeout(StringExternal("Param/Value/D99EB192"));
     }
     return true;
 }
@@ -20455,8 +20553,13 @@ bool gt_ECDelta1Transport_Func (bool testConds, bool runActions) {
         lv_terminal2Present = true;
     }
 
-    if ((lv_terminal1Present == true) && (lv_terminal2Present == true)) {
+    if ((gv_delta1Enabled == false)) {
+        gf_DisplayWarningWithTimeout(StringExternal("Param/Value/154EAE13"));
+    }
+    if ((lv_terminal1Present == true) && (lv_terminal2Present == true) && (gv_delta1Enabled == true)) {
         TriggerEnable(TriggerGetCurrent(), false);
+        ObjectiveSetState(gv_delta1CheckBonusObjective, c_objectiveStateCompleted);
+        gf_DestroyObjectiveDelayed(gv_delta1CheckBonusObjective);
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(39), "DecalProtoss");
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(167), "DecalProtoss");
         gv_colonyShipRescue = true;
@@ -20624,14 +20727,7 @@ bool gt_ECDelta1Transport_Func (bool testConds, bool runActions) {
         }
         ObjectiveDestroy(gv_secondaryObjective);
     }
-    else {
-        if ((gv_warningTextBreak == false)) {
-            gv_warningTextBreak = true;
-            Wait(7.0, c_timeReal);
-            gv_warningTextBreak = false;
-        }
 
-    }
     return true;
 }
 
@@ -20931,8 +21027,13 @@ bool gt_Wave5AirlockBattle_Func (bool testConds, bool runActions) {
         Wait(6.0, c_timeGame);
     }
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
+    ObjectiveCreate(StringExternal("Param/Value/1D3DA12D"), StringExternal("Param/Value/E6187E1A"), c_objectiveStateActive, false);
+    gv_delta1CheckBonusObjective = ObjectiveLastCreated();
+    gv_delta1Enabled = true;
     Wait(25.0, c_timeReal);
     if ((gv_noNewbie == true) && (gv_colonyShipRescue == false)) {
+        ObjectiveSetState(gv_delta1CheckBonusObjective, c_objectiveStateFailed);
+        gf_DestroyObjectiveDelayed(gv_delta1CheckBonusObjective);
         TriggerEnable(gt_ECDelta1Transport, false);
         TriggerEnable(gt_ECZombieTime, true);
     }
@@ -36429,7 +36530,7 @@ bool gt_DialogButtonClicks_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((lv_usedDialog == gv_playerMedalsDialog[1]) || (lv_usedDialog == gv_playerMedalsDialog[2]) || (lv_usedDialog == gv_playerMedalsDialog[3]) || (lv_usedDialog == gv_playerMedalsDialog[4]) || (lv_usedDialog == gv_playerMedalsDialog[5]) || (lv_usedDialog == gv_playerMedalsDialog[6]) || (lv_usedDialog == gv_playerMedalsDialog[7]) || (lv_usedDialog == gv_playerMedalsDialog[8]) || (lv_usedDialog == gv_statsPlayerStatsDialog[1]) || (lv_usedDialog == gv_statsPlayerStatsDialog[2]) || (lv_usedDialog == gv_statsPlayerStatsDialog[3]) || (lv_usedDialog == gv_statsPlayerStatsDialog[4]) || (lv_usedDialog == gv_statsPlayerStatsDialog[5]) || (lv_usedDialog == gv_statsPlayerStatsDialog[6]) || (lv_usedDialog == gv_statsPlayerStatsDialog[7]) || (lv_usedDialog == gv_statsPlayerStatsDialog[8]) || (lv_usedDialog == gv_talentTree[1]) || (lv_usedDialog == gv_talentTree[2]) || (lv_usedDialog == gv_talentTree[3]) || (lv_usedDialog == gv_talentTree[4]) || (lv_usedDialog == gv_talentTree[5]) || (lv_usedDialog == gv_talentTree[6]) || (lv_usedDialog == gv_talentTree[7]) || (lv_usedDialog == gv_talentTree[8])))) {
+        if (!((gf_UsedDialogIsMedal(lv_usedDialog) || gf_UsedDialogIsStats(lv_usedDialog) || gf_UsedDialogIsTalent(lv_usedDialog)))) {
             return false;
         }
     }
@@ -36760,18 +36861,14 @@ bool gt_CreateMedalsDialog_Func (bool testConds, bool runActions) {
     int lv_i;
     int lv_tempDialogFrame;
     int lv_tempDialogSubFrame;
-    int lv_column1OffsetX;
-    int lv_column2OffsetX;
-    int lv_offsetY;
+    int lv_medalFrame;
     int lv_currentPlayer;
 
     // Variable Initialization
     lv_i = 1;
     lv_tempDialogFrame = c_invalidDialogControlId;
     lv_tempDialogSubFrame = c_invalidDialogControlId;
-    lv_column1OffsetX = 50;
-    lv_column2OffsetX = 345;
-    lv_offsetY = 85;
+    lv_medalFrame = c_invalidDialogControlId;
     lv_currentPlayer = 1;
 
     // Actions
@@ -36787,19 +36884,18 @@ bool gt_CreateMedalsDialog_Func (bool testConds, bool runActions) {
             GameOver(lv_currentPlayer, c_gameOverVictory, true, true);
         }
 
-        lv_offsetY = 85;
         gf_UIDialogCreation(610, 690, 270, 150, c_anchorTopRight);
         gv_playerMedalsDialog[lv_currentPlayer] = DialogLastCreated();
-        DialogControlCreateFromTemplate(gv_playerMedalsDialog[lv_currentPlayer], c_triggerControlTypePanel, "PlayerDetails/DetailsUI");
-        lv_tempDialogFrame = DialogControlLastCreated();
+        DialogControlCreateFromTemplate(gv_playerMedalsDialog[lv_currentPlayer], c_triggerControlTypePanel, "PlayerDetails/Medals");
+        lv_medalFrame = DialogControlLastCreated();
         DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeImage, "MedalsBorder");
         lv_tempDialogSubFrame = DialogControlLastCreated();
-        gf_SetupPlayerDetailsUI(lv_currentPlayer, lv_tempDialogFrame, gv_labelMedalsButton, lv_tempDialogSubFrame, 1);
+        gf_SetupPlayerDetailsUI(lv_currentPlayer, lv_medalFrame, gv_labelMedalsButton, lv_tempDialogSubFrame, 1);
         auto8930B51B_ae = gv_numberofMedals;
         auto8930B51B_ai = 1;
         lv_i = gv_indexBaseValue;
         for ( ; ( (auto8930B51B_ai >= 0 && lv_i <= auto8930B51B_ae) || (auto8930B51B_ai <= 0 && lv_i >= auto8930B51B_ae) ) ; lv_i += auto8930B51B_ai ) {
-            DialogControlCreateFromTemplate(gv_playerMedalsDialog[lv_currentPlayer], c_triggerControlTypePanel, "PlayerDetails/MedalContainer");
+            DialogControlHookup(lv_medalFrame, c_triggerControlTypePanel, "Medal" + IntToString(lv_i));
             lv_tempDialogFrame = DialogControlLastCreated();
             DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "MedalImage");
             gv_playerMedalsImage[lv_i][lv_currentPlayer] = DialogControlLastCreated();
@@ -36811,13 +36907,6 @@ bool gt_CreateMedalsDialog_Func (bool testConds, bool runActions) {
             gv_playerMedalsMedalProgressBar[lv_i][lv_currentPlayer] = DialogControlLastCreated();
             DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "MedalProgressPercentLabel");
             gv_playerMedalsMedalProgressText[lv_i][lv_currentPlayer] = DialogControlLastCreated();
-            if ((ModI(lv_i, 2) == 1)) {
-                DialogControlSetPosition(lv_tempDialogFrame, PlayerGroupAll(), c_anchorTopLeft, lv_column1OffsetX, lv_offsetY);
-            }
-            else {
-                DialogControlSetPosition(lv_tempDialogFrame, PlayerGroupAll(), c_anchorTopLeft, lv_column2OffsetX, lv_offsetY);
-                lv_offsetY += 91;
-            }
         }
         gf_PlayerMedalsSetMedalItems(lv_currentPlayer);
     }
@@ -36940,33 +37029,21 @@ bool gt_CreateStatsDialog_Func (bool testConds, bool runActions) {
         libNtve_gf_CreateDialogItemLabel(gv_statsPlayerStatsDialog[lv_index], 520, 37, c_anchorTopLeft, 85, 391, (IntToText(gv_playerXP[lv_index]) + (gv_forwardSlash + IntToText(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)))), Color(100,100,100), false, 2.0);
         gv_statsPlayerNextXP[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemStyle(gv_statsPlayerNextXP[lv_index], "ModCenterSize20", PlayerGroupAll());
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "NextRankLabel");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/73296121"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "NextRank");
         gv_statsPlayerNextLevelPromotionLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerNextLevelPromotionLabel[lv_index], UserDataGetText("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "Title Full", 1), PlayerGroupAll());
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "LivesLeftLabel");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/91A6002C"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "LivesLeft");
         gv_statsPlayerLivesLeft[lv_index] = DialogControlLastCreated();
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsAvailableLabel");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/BAE7DD80"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsAvailable");
         gv_statsPlayerCashLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashLabel[lv_index], IntToText(gv_playerCredits[lv_index]), PlayerGroupAll());
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsEarnedLabel");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/32F5FC2A"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsEarned");
         gv_statsPlayerCashAcquiredLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashAcquiredLabel[lv_index], IntToText(gv_playerLifeTimeCreditsAcquired[lv_index]), PlayerGroupAll());
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "StatsButtonImage");
-        gv_statsPlayerStatsStatsHeroImage[lv_index] = DialogControlLastCreated();
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "PlayerDetailsTabController");
+        lv_tempDialogFrame = DialogControlLastCreated();
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "StatsButton");
         gv_statsPlayerStatsStatsButton[lv_index] = DialogControlLastCreated();
-        libNtve_gf_SetDialogItemTooltip(gv_statsPlayerStatsStatsButton[lv_index], StringExternal("Param/Value/1F4A128E"), PlayerGroupAll());
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "ModsButton");
-        gv_wModWeaponsModButton[lv_index] = DialogControlLastCreated();
-        libNtve_gf_SetDialogItemTooltip(gv_wModWeaponsModButton[lv_index], StringExternal("Param/Value/CF7C000E"), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "PlayerStatsContainer");
         gv_statsPlayerStatsPanel[lv_index] = DialogControlLastCreated();
         DialogControlHookup(gv_statsPlayerStatsPanel[lv_index], c_triggerControlTypeLabel, "AvailableStatsLabel");
@@ -37066,52 +37143,6 @@ void gt_ToggleStatsDialog_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Toggle Weapons Mod Dialog
-//--------------------------------------------------------------------------------------------------
-bool gt_ToggleStatsWeaponModsDialog_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_clickingPlayer;
-    int lv_usedDialogItem;
-    int lv_iLocal;
-    int lv_index;
-
-    // Variable Initialization
-    lv_clickingPlayer = EventPlayer();
-    lv_usedDialogItem = EventDialogControl();
-
-    // Conditions
-    if (testConds) {
-        if (!(((lv_usedDialogItem == gv_wModWeaponsModButton[1]) || (lv_usedDialogItem == gv_wModWeaponsModButton[2]) || (lv_usedDialogItem == gv_wModWeaponsModButton[3]) || (lv_usedDialogItem == gv_wModWeaponsModButton[4]) || (lv_usedDialogItem == gv_wModWeaponsModButton[5]) || (lv_usedDialogItem == gv_wModWeaponsModButton[6]) || (lv_usedDialogItem == gv_wModWeaponsModButton[7]) || (lv_usedDialogItem == gv_wModWeaponsModButton[8]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[1]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[2]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[3]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[4]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[5]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[6]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[7]) || (lv_usedDialogItem == gv_statsPlayerStatsStatsButton[8])))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    while ((lv_usedDialogItem != gv_wModWeaponsModButton[lv_index]) && (lv_usedDialogItem != gv_statsPlayerStatsStatsButton[lv_index])) {
-        lv_index += 1;
-    }
-    if ((lv_usedDialogItem == gv_statsPlayerStatsStatsButton[lv_index])) {
-        DialogControlSetVisible(gv_statsWeaponModPanel[lv_index], PlayerGroupSingle(lv_clickingPlayer), false);
-        DialogControlSetVisible(gv_statsPlayerStatsPanel[lv_index], PlayerGroupSingle(lv_clickingPlayer), true);
-    }
-    else if ((lv_usedDialogItem == gv_wModWeaponsModButton[lv_index])) {
-        DialogControlSetVisible(gv_statsPlayerStatsPanel[lv_index], PlayerGroupSingle(lv_clickingPlayer), false);
-        DialogControlSetVisible(gv_statsWeaponModPanel[lv_index], PlayerGroupSingle(lv_clickingPlayer), true);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ToggleStatsWeaponModsDialog_Init () {
-    gt_ToggleStatsWeaponModsDialog = TriggerCreate("gt_ToggleStatsWeaponModsDialog_Func");
-    TriggerAddEventDialogControl(gt_ToggleStatsWeaponModsDialog, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Modify Hero Stats
 //--------------------------------------------------------------------------------------------------
 bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
@@ -37132,7 +37163,7 @@ bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((lv_usedDialog == gv_statsPlayerStatsDialog[1]) || (lv_usedDialog == gv_statsPlayerStatsDialog[2]) || (lv_usedDialog == gv_statsPlayerStatsDialog[3]) || (lv_usedDialog == gv_statsPlayerStatsDialog[4]) || (lv_usedDialog == gv_statsPlayerStatsDialog[5]) || (lv_usedDialog == gv_statsPlayerStatsDialog[6]) || (lv_usedDialog == gv_statsPlayerStatsDialog[7]) || (lv_usedDialog == gv_statsPlayerStatsDialog[8])))) {
+        if (!(gf_UsedDialogIsStats(lv_usedDialog))) {
             return false;
         }
     }
@@ -39960,7 +39991,6 @@ void InitTriggers () {
     gt_ToggleMedalsDialog_Init();
     gt_CreateStatsDialog_Init();
     gt_ToggleStatsDialog_Init();
-    gt_ToggleStatsWeaponModsDialog_Init();
     gt_ModifyHeroStats_Init();
     gt_DisableStatAndModsModification_Init();
     gt_Backstab_Init();

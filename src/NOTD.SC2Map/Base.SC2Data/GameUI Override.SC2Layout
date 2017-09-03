@@ -97,5 +97,57 @@
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Top" relative="$parent" pos="Min" offset="85"/>
         </Frame>
-    </Frame>
+		
+		<Frame type = "Frame" name = "Player1Data"  template="PlayerDetails/Medals">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
+			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
+			<Visible val = "False"/>
+			<Frame type="Button" name="MedalsButton">
+				<AcceptsMouse val = "false" />
+			</Frame>
+		</Frame>
+		
+		<Frame type = "Frame" name = "Player2Data"  template="PlayerDetails/DetailsUI">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
+			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
+			<Visible val = "False"/>
+		</Frame>
+		
+		<Frame type = "Frame" name = "Player3Data"  template="PlayerDetails/DetailsUI">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
+			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
+			<Visible val = "False"/>
+		</Frame>
+		
+		<Frame type = "Frame" name = "Player4Data"  template="PlayerDetails/DetailsUI">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
+			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
+			<Visible val = "False"/>
+		</Frame>
+		
+		<Frame type = "Frame" name = "Player5Data"  template="PlayerDetails/DetailsUI">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
+			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
+			<Visible val = "False"/>
+		</Frame>
+		
+		<Frame type = "Frame" name = "Player6Data"  template="PlayerDetails/DetailsUI">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
+			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
+			<Visible val = "False"/>
+		</Frame>
+		
+		<Frame type = "Frame" name = "Player7Data"  template="PlayerDetails/DetailsUI">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
+			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
+			<Visible val = "False"/>
+		</Frame>
+		
+		<Frame type = "Frame" name = "Player8Data"  template="PlayerDetails/DetailsUI">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
+			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
+			<Visible val = "False"/>
+		</Frame>
+
+	</Frame>
 </Desc>
