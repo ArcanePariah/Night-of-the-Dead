@@ -4357,6 +4357,7 @@ Param/Value/1425470D=
 Param/Value/14B74FC4=Apollo Lunar Facility
 Param/Value/14E935D9=Watch your ammo counters. Cover each other during reloads.
 Param/Value/14EFB092=I've run the simulations here. Moving to the next terminal.
+Param/Value/154EAE13=<s val="InfoPaneHeroRank">(Survive the airlock battle before saving the civilians...)</s>
 Param/Value/159F8057=<s val="GlueButtonSmall">Easy Company: 
 Param/Value/163EA7C6=I'm your dropship pilot. We've located a suitable LZ. You need to clear the area for me.
 Param/Value/1655273D=Chase him.
@@ -4394,6 +4395,7 @@ Param/Value/1C988643=Chapter 3
 Param/Value/1CA9E01E=Kill Apoptosis
 Param/Value/1D11F6E3=Probably a good time to recon & retrieve supplies. We're going to need ammo.
 Param/Value/1D314B61=
+Param/Value/1D3DA12D=Check Delta-1 for survivors
 Param/Value/1DB5DCFB=We read you. Dropship ETA 7 Mikes.
 Param/Value/1DBE4975=
 Param/Value/1DEADE8E=Shame...I'm looking for him.
@@ -4898,7 +4900,6 @@ Param/Value/7527BA88=Seal Bio-Domes (
 Param/Value/75315112=The lab is abandoned. Whoever sent the transmission must have fled.
 Param/Value/75805F30=<n/></c>Damage Taken: <c val="F4D72B">
 Param/Value/758D5CB1=I'm detecting multiple air bogeys. We need to haul ass.
-Param/Value/759E2CE5=<s val="InfoPaneHeroRank">(Airlock Terminals require 2 authorized personnel..)</s>
 Param/Value/75B4E619=<c val="0080FF">
 Param/Value/75B54346=You will find items throughout the mission.
 Param/Value/75D0FAFD=Career Stats<n/>   Rating: 
@@ -5012,6 +5013,7 @@ Param/Value/89DE7F2D=Activate IVAX
 Param/Value/8A179710=Redrum...
 Param/Value/8A3E12C6=Zeus and Leto must be killed simultaneously to put them down permanently
 Param/Value/8A44C126=<s val="BriefingHanText">(Downloading Sec Cam Feed...)</s>
+Param/Value/8A81181E=<s val="InfoPaneHeroRank">(Bio-Dome Terminals require 2 authorized personnel..)</s>
 Param/Value/8A9EFD0F=Talents Available: 
 Param/Value/8B0A5814=You have 2 inventory types. <n/>-  Equipment slots on the left (Numpad 0) allow you to equip weapons/armor/enhancements for use.<n/>Backpack slots on the right (Numpad 1) store spare equipment & supplies.<n/><n/>The more items you carry, the slower your Marine will move. Be selective and carry what you need. Share the load with other Marines
 Param/Value/8B17FA99=Re-activate Devastators from Airlock. They provide heavy support.
@@ -5158,7 +5160,6 @@ Param/Value/A1B2CCD2=<s val="GlueButton"><c val="F4D72B">That thing is headed to
 Param/Value/A1DB0E9F=<s val="InfoPaneHeroRank">
 Param/Value/A1E10F66=<s val="InfoPaneHeroRank">(3 XP awarded for objective completion)</s>
 Param/Value/A21263F3=Proceed to Starport
-Param/Value/A230C657=<s val="InfoPaneHeroRank">(Bio-Dome Terminals require 2 authorized personnel..)</s>
 Param/Value/A2C6FC3F=HAL - stop this!
 Param/Value/A2F1CD75=Type '-karmabite' if you have been TKed intentionally. You have 15 secs to do this.
 Param/Value/A37105E0=Find Dr. Tanaka
@@ -5466,6 +5467,7 @@ Param/Value/D8E2D657=How could HAL be alive, after shutting down its mainframe?
 Param/Value/D9413C5B=<s val="CinematicLabel">  Dr. Bergmann: <c val="F4D72B">You...finish it...</c></s>
 Param/Value/D95CDF30=/12)</c>
 Param/Value/D96BF6CE=Please reconsider your actions.
+Param/Value/D99EB192=<s val="InfoPaneHeroRank">(Airlock Terminals require 2 authorized personnel..)</s>
 Param/Value/D9C4D665=Survive the incoming attack
 Param/Value/DA7A513D=The source of the infestation has been located. Proceed with caution. There is no turning back.
 Param/Value/DA815637=Our mission brief showed a Dr. Bergmann. Do you think he's related to all this?
@@ -5539,6 +5541,7 @@ Param/Value/E4C92319=<s val="GlueButton">Farica Augustin
 Param/Value/E4DFE6B3=<s val="InfoPaneHeroRank">
 Param/Value/E51F85FC=Tanks have arrived. They will provide heavy support.
 Param/Value/E5BA10F6=Hold position at Mine until data transfer is complete.
+Param/Value/E6187E1A=The transport ship Delta-1 in airlock may hold survivors that need to be rescued.
 Param/Value/E658C7CF=Alright. We've unlocked Apollo's gates.
 Param/Value/E65AD898=<s val="GlueButton">
 Param/Value/E69CF360=...posthumously
