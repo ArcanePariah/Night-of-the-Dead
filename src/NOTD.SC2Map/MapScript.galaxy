@@ -1597,6 +1597,7 @@ void gf_MineBossZeusLeto ();
 void gf_BossBarCreation (int lp_race, unit lp_unit, int lp_usePing);
 void gf_BossAfterAction ();
 void gf_ECEnvironmentalChanges ();
+void gf_ECShopXPReq ();
 void gf_ECC1ItemSpawn ();
 void gf_ECC1AmbientSpawns ();
 void gf_EpsilonMineMobs ();
@@ -6684,6 +6685,29 @@ bool auto_gf_ECEnvironmentalChanges_TriggerFunc (bool testConds, bool runActions
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(80), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(81), "DecalProtoss");
     return true;
+}
+
+void gf_ECShopXPReq () {
+    // Variable Declarations
+    bool lv_vets;
+
+    // Variable Initialization
+    lv_vets = true;
+
+    // Implementation
+    PlayerGroupLoopBegin(gv_marineSquad);
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        if ((PlayerGetPropertyInt(PlayerGroupLoopCurrent(), c_playerPropCustom) < 5000)) {
+            lv_vets = false;
+        }
+
+    }
+    PlayerGroupLoopEnd();
+    if ((lv_vets == false)) {
+        UnitSetInfoText2(UnitFromId(178), StringExternal("Param/Value/F64869B1"));
+        UnitSetInfoText2(UnitFromId(2503), StringExternal("Param/Value/97BA6CAF"));
+    }
+
 }
 
 trigger auto_gf_ECC1ItemSpawn_Trigger = null;
@@ -18218,6 +18242,7 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
     if ((gv_noNewbie == true)) {
         UnitCreate(1, "P45GaussPistol", 0, 0, RegionRandomPoint(RegionFromId(14)), 270.0);
         UnitSetState(UnitFromId(178), c_unitStateSelectable, true);
+        gf_ECShopXPReq();
     }
 
     Wait(9.0, c_timeReal);

@@ -234,6 +234,7 @@ FunctionDef/Name/269E443F=Class Selection UI
 FunctionDef/Name/26F09F18=Koller's Fire Mission
 FunctionDef/Name/28D96A52=Level Up Talent: Rifleman
 FunctionDef/Name/295AC501=Wave Spawn At Region
+FunctionDef/Name/29956724=EC Shop XP Req
 FunctionDef/Name/29D99874=Debug Behavior Unit
 FunctionDef/Name/2A16561E=Deimos Minion AI
 FunctionDef/Name/2A915789=Coordinate Text NOTD

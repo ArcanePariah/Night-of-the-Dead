@@ -3154,6 +3154,7 @@
         <Range value="5"/>
         <AutoCastRange value="5"/>
         <TargetFilters value="Heroic;Neutral,Enemy"/>
+        <AutoCastValidatorArray value="PlayerHas5000XP"/>
     </CAbilInteract>
     <CAbilMorph id="BurrowBlindling">
         <AbilSetId value="BrwD"/>
