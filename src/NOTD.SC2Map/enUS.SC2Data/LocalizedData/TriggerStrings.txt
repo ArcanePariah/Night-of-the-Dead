@@ -1660,6 +1660,7 @@ Variable/Name/3EB6DB60=Coordinates X
 Variable/Name/3EC05243=Window Zombies
 Variable/Name/3EEDDD5C=Chapter1SpawnRegion
 Variable/Name/3EFD9154=PerformanceTimer
+Variable/Name/3F252889=a
 Variable/Name/400ABCEC=Owner of Forward Observer
 Variable/Name/4022FAE0=Farica
 Variable/Name/403C56F1=PNumber

@@ -6689,21 +6689,21 @@ bool auto_gf_ECEnvironmentalChanges_TriggerFunc (bool testConds, bool runActions
 
 void gf_ECShopXPReq () {
     // Variable Declarations
-    bool lv_vets;
+    bool lv_a;
 
     // Variable Initialization
-    lv_vets = true;
+    lv_a = true;
 
     // Implementation
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         if ((PlayerGetPropertyInt(PlayerGroupLoopCurrent(), c_playerPropCustom) < 5000)) {
-            lv_vets = false;
+            lv_a = false;
         }
 
     }
     PlayerGroupLoopEnd();
-    if ((lv_vets == false)) {
+    if ((lv_a == false)) {
         UnitSetInfoText2(UnitFromId(178), StringExternal("Param/Value/F64869B1"));
         UnitSetInfoText2(UnitFromId(2503), StringExternal("Param/Value/97BA6CAF"));
     }
