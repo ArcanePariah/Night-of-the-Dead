@@ -6661,9 +6661,7 @@ bool auto_gf_ECEnvironmentalChanges_TriggerFunc (bool testConds, bool runActions
     UnitRemove(UnitFromId(2158));
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(196), "TOCastanarBrutaliskCage");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(196), "TerrainObjectCastanarBrutaCageDoodad");
-    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(28), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(219), "DecalProtoss");
-    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(147), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(177), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(183), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(184), "DecalProtoss");
@@ -8324,8 +8322,9 @@ bool auto_gf_ACEnvironmentalChanges_TriggerFunc (bool testConds, bool runActions
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(196), "TerrainObjectCastanarBrutaCageDoodad");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(140), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(141), "DecalProtoss");
-    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(28), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(147), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(148), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(151), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(104), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(105), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(106), "DecalProtoss");
@@ -8353,6 +8352,7 @@ bool auto_gf_ACEnvironmentalChanges_TriggerFunc (bool testConds, bool runActions
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(81), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(96), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(97), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(177), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(40), "KorhalBuildingDebris");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(204), "InfestedHomeLarge");
     CameraSetBounds(PlayerGroupActive(), RegionFromId(160), true);
@@ -8809,10 +8809,16 @@ bool auto_gf_STEnvironmentalChanges_TriggerFunc (bool testConds, bool runActions
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(36), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(229), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(230), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(39), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(167), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(134), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(25), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(26), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(27), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(188), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(189), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(190), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(177), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(136), "ColonistCorpse");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(136), "MarineCorpse");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(136), "ScientistCorpseGory");
@@ -9271,8 +9277,9 @@ bool auto_gf_SurvivalEnvironmentalChanges_TriggerFunc (bool testConds, bool runA
     UnitGroupLoopEnd();
     UnitKill(UnitFromId(1462));
     UnitKill(UnitFromId(2831));
-    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(28), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(147), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(148), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(151), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(104), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(105), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(106), "DecalProtoss");
@@ -9290,10 +9297,7 @@ bool auto_gf_SurvivalEnvironmentalChanges_TriggerFunc (bool testConds, bool runA
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(141), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(122), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(219), "DecalProtoss");
-    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(36), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(1), "DecalProtoss");
-    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(198), "DecalProtoss");
-    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(199), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(206), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(192), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(50), "DecalProtoss");
@@ -9301,8 +9305,15 @@ bool auto_gf_SurvivalEnvironmentalChanges_TriggerFunc (bool testConds, bool runA
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(48), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(40), "DecalProtoss");
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(177), "DecalProtoss");
-    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(96), "DecalProtoss");
-    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(97), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(229), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(230), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(188), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(189), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(190), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(79), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(78), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(80), "DecalProtoss");
+    libNtve_gf_RemoveDoodadsinRegion(RegionFromId(81), "DecalProtoss");
     UnitSetState(UnitFromId(2502), c_unitStateSelectable, true);
     return true;
 }
