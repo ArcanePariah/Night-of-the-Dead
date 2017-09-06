@@ -9931,6 +9931,7 @@ Actor=TerrainMgr
 Effect=ChemicalExtractionRemoveETLevel1,ChemicalExtractionRemoveETLevel2,ChemicalExtractionRemovePenanceLevel1,ChemicalExtractionRemovePenanceLevel2,ChemicalExtractionRemoveShrinkerLevel1,ChemicalExtractionRemoveShrinkerLevel2,ChemicalExtractionRemoveShrinkerLevel3
 id=ArmageddonCreateUnit
 Actor=TerrainMgr
+Effect=KillsToCaster
 Unit=ArmageddonBomb
 id=ArmageddonSearchDamageEnemy
 Actor=ArmageddonBlast,ArmageddonExplosionSound,ScorchedEarthScale2,TerrainMgr
@@ -14731,11 +14732,11 @@ Actor=TerrainMgr
 Unit
 
 [Model]
-id=RadarBlip
-asset=Assets\Units\Terran\##id##\##id##.m3
-Actor=TerrainMgr
 id=ProtossSmallUnitDeathLow
 asset=Assets\Effects\Protoss\ProtossUnitDeath\ProtossUnitDeath_Low.m3
+Actor=TerrainMgr
+id=RadarBlip
+asset=Assets\Units\Terran\##id##\##id##.m3
 Actor=TerrainMgr
 id=PingBoss
 asset=Assets\UI\Feedback\##id##\##id##.m3
@@ -14863,6 +14864,7 @@ Light=TassadarPortrait
 id=InfestorTerranPortrait
 asset=Assets\Textures\InfestedMarinePortrait_Static.dds
 asset=LocalizedData\Facial\InfestedMarinePortrait.fxa
+asset=Assets\Portraits\Zerg\InfestedMarinePortrait\InfestedMarinePortrait.m3
 Actor=TerrainMgr
 Light=TassadarPortrait
 id=InfestorPortrait

@@ -3080,6 +3080,7 @@
     <CEffectCreateUnit id="ArmageddonCreateUnit">
         <EditorCategories value=""/>
         <WhichLocation Value="TargetPoint"/>
+        <SpawnEffect value="KillsToCaster"/>
         <SpawnUnit value="ArmageddonBomb"/>
     </CEffectCreateUnit>
     <CEffectDamage id="ArmageddonDamage">
