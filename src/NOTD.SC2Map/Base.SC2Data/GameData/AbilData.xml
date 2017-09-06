@@ -2796,97 +2796,97 @@
         <ErrorAlert value=""/>
         <Range value="5"/>
         <InfoArray index="Train1">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Shotgun"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train2">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="XS4Armor"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train3">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="FlamethrowerMK3"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train4">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="UA420AssaultRifle"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train5">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="MP9A2SubMachineGun"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train6">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="M5PulseRifle"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train7">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="StingerMK3"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train8">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="OcularImplants2"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train9">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="APAmmo"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train10">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="HEAmmo"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train11">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="HPAmmo"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train12">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="FMJAmmo"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train13">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Medkit"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train14">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Bandage"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train15">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="AntiVenom"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train16">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Magazine"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train17">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="RoadFlare"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train18">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="AmmoBox"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train19">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="PersonnelArcReactor"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
@@ -2895,50 +2895,50 @@
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train21">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="BarrettM112"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train22">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="NanoHealthAugment"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train23">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Chaingun"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train24">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="L3GrenadeLauncher2"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train25">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="HighCapacityClip"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train26">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="C2Armor"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train27">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="C4Armor"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train28">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train29">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train30">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <Alert value=""/>
