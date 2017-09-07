@@ -1,15 +1,15 @@
 # Night of the Dead
-This repository contains latest version of Night of the Dead for Starcraft II.
+This repository contains latest version of Night of the Dead for StarCraft II.
 
 ## Requirements
-1. Starcraft II account (Starter Edition will open the map, but will not let testing it)
+1. StarCraft II account (Starter Edition will open the map, but will not let testing it)
 
 ## Installation
-1. Place bin/src folders in "Mods\Night of the Dead" in Starcraft II install folder (e.g. "C:\Program Files (x86)\StarCraft II\Mods\Night of the Dead"). Create "Mods" folder if necessary.
+1. Place bin/src folders in "Mods\Night of the Dead" in StarCraft II install folder (e. g. "C:\Program Files (x86)\StarCraft II\Mods\Night of the Dead"). Create "Mods" folder if necessary.
 2. Launch "Mods\Night of the Dead\src\NOTD.SC2Map\ComponentList.SC2Components" to open map in editor. File associations may not work for first run, so be sure to open it with SC2Edit.
 
 ## Tips
-1. To make map load faster, change Editor startup settings to load triggers module instead of terrain in File -> Preferences -> startup.
+1. To make map load faster, change Editor startup settings to load triggers module instead of terrain in File -> Preferences -> Startup.
 2. Place your SC2Bank file in "Documents\StarCraft II\Banks" to use it in test mode.
 3. While in test mode additional Editor cheats can be used for convenience. For full reference see [docs/SC2TestDocumentCheats.txt](docs/SC2TestDocumentCheats.txt), copy pasted from [patch 1.3.0 notes](http://us.battle.net/sc2/en/blog/2514162/patch-130-now-live-3-22-2011). Common cheats:
 	* god - Turns on god mode for the selected player.
@@ -20,8 +20,8 @@ This repository contains latest version of Night of the Dead for Starcraft II.
 	* deathunit - Kills the selected units.
 	* move - Moves the selected units to the cursor position.
 	* xp 10000 - Adds 10000 XP to the selected units.
-4. Triggers can be manually run with TrigRun, however the naming may be a bit confusing. To run Sec B hades fight trigger named "STW16b - Boss Fight (Hades)" type "trigrun STW16bBossFightHades". Spaces, minus and parentheses are removed, name is case sensitive, so "trigrun stw16bbossfighthades" will not work.
-5. For testing purposes it may be usefull to disable certain story/world triggers, like ambient spawns.
+4. Triggers can be manually run with TrigRun, however the naming may be a bit confusing. To run Sec B Hades fight trigger named "STW16b - Boss Fight (Hades)" type "trigrun STW16bBossFightHades". Spaces, minus and parentheses are removed, name is case sensitive, so "trigrun stw16bbossfighthades" will not work.
+5. For testing purposes it may be useful to disable certain story/world triggers, like ambient spawns.
 
 ## Original instructions
 Original instructions by ArcanePariah on [forum](http://notdstarcraft.com/threads/notd-1-repository.3631/) are copy pasted here for convenience.
