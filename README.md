@@ -20,7 +20,7 @@ This repository contains latest version of Night of the Dead for StarCraft II.
 	* deathunit - Kills the selected units.
 	* move - Moves the selected units to the cursor position.
 	* xp 10000 - Adds 10000 XP to the selected units.
-4. Triggers can be manually run with TrigRun, however the naming may be a bit confusing. To run Sec B Hades fight trigger named "STW16b - Boss Fight (Hades)" type "trigrun STW16bBossFightHades". Spaces, minus and parentheses are removed, name is case sensitive, so "trigrun stw16bbossfighthades" will not work.
+4. Triggers can be manually run with TrigRun, however correct identifier needs to be used. To run Sec B Hades fight trigger named "STW16b - Boss Fight (Hades)" type "trigrun STW16bBossFightHades". Correct identifier can be found by right clicking trigger and selecting 'Element Properties...', or highlighting a trigger and pressing Ctrl+Enter.
 5. For testing purposes it may be useful to disable certain story/world triggers, like ambient spawns.
 
 ## Original instructions
