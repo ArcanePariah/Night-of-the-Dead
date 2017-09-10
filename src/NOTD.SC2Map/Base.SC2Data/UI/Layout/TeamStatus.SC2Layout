@@ -207,6 +207,7 @@
 			
 			<Frame type="PlayerNameFrame" name="PlayerName">
 				<Anchor relative="$parent"/>
+				<ShowClanTag val = "false" />
 				<Frame type="Label" name="PlayerNameLabel">
 					<Style val="HeaderExtendedTemplate"/>
 					<Color val = "255,255,255" />
