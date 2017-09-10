@@ -14333,7 +14333,7 @@ bool gt_ClassPointsCheck_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(gf_ValidPlayer(lv_cPPlayer))) {
+        if (!(((lv_cPPlayer >= gv_indexBaseValue) && (lv_cPPlayer <= gv_numberofPlayers)))) {
             return false;
         }
     }
@@ -14375,7 +14375,7 @@ bool gt_WinsCheck_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(gf_ValidPlayer(lv_winsPlayer))) {
+        if (!(((lv_winsPlayer >= gv_indexBaseValue) && (lv_winsPlayer <= gv_numberofPlayers)))) {
             return false;
         }
     }
@@ -37113,7 +37113,7 @@ bool gt_ToggleStatsDialog_Func (bool testConds, bool runActions) {
 
     if ((UnitGroupCount(lv_unitsSelected, c_unitCountAlive) > 0)) {
         lv_ownerofSelectedUnit = UnitGetOwner(UnitGroupUnit(lv_unitsSelected, 1));
-        if ((((lv_ownerofSelectedUnit >= 1) && (lv_ownerofSelectedUnit <= 8)) == true)) {
+        if (((lv_ownerofSelectedUnit >= gv_indexBaseValue) && (lv_ownerofSelectedUnit <= gv_numberofPlayers))) {
             if ((DialogIsVisible(gv_statsPlayerStatsDialog[lv_ownerofSelectedUnit], lv_triggeringPlayer) == true)) {
                 gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
             }
