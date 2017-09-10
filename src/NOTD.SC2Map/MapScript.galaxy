@@ -37014,13 +37014,11 @@ bool gt_CreateStatsDialog_Func (bool testConds, bool runActions) {
         gv_statsTotalStats[lv_index] = (((gv_playerRank[lv_index] * 2) + gf_GetMedalStats(lv_index)) - gf_GetCurrentAllocatedStats(lv_index));
         gf_UIDialogCreation(610, 690, 270, 150, c_anchorTopRight);
         gv_statsPlayerStatsDialog[lv_index] = DialogLastCreated();
-        DialogControlCreateFromTemplate(gv_statsPlayerStatsDialog[lv_index], c_triggerControlTypePanel, "PlayerDetails/DetailsUI");
+        DialogControlCreateFromTemplate(gv_statsPlayerStatsDialog[lv_index], c_triggerControlTypePanel, "PlayerDetails/StatsWeaponModsUI");
         lv_tempDialogFrame = DialogControlLastCreated();
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "StatsBorder");
         lv_tempDialogSubFrame = DialogControlLastCreated();
         gf_SetupPlayerDetailsUI(lv_index, lv_tempDialogFrame, gv_labelStatsButton, lv_tempDialogSubFrame, 2);
-        DialogControlCreateFromTemplate(gv_statsPlayerStatsDialog[lv_index], c_triggerControlTypePanel, "PlayerDetails/StatsWeaponModsUI");
-        lv_tempDialogFrame = DialogControlLastCreated();
         DialogControlCreate(gv_statsPlayerStatsDialog[lv_index], c_triggerControlTypeProgressBar);
         gv_statsPlayerNextLevelProgressBar[lv_index] = DialogControlLastCreated();
         DialogControlSetSize(gv_statsPlayerNextLevelProgressBar[lv_index], PlayerGroupAll(), 520, 37);

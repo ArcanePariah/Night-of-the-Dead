@@ -19,14 +19,7 @@
 		<Style val="ModCenterSize16NoHover"/>
 	</Frame>
 	
-	<Frame type="TabControl" name="PlayerDetailsTabController">
-		<Height val="610"/>
-        <Width val="690"/>
-		<!--<TabListItem val="PageButtonsContainer/Button01"/>-->
-		
-		<!--<PanelListItem val="InfoPage1"/>-->
-	
-	</Frame>
+
 	
 	
     <Frame type="Frame" name="DetailsUI">
@@ -298,9 +291,7 @@
 		</Frame>		
 	</Frame>
 
-    <Frame type="Frame" name="StatsWeaponModsUI">
-        <Height val="610"/>
-        <Width val="690"/>
+    <Frame type="Frame" name="StatsWeaponModsUI" template="PlayerDetails/DetailsUI">
 
         <!-- Next Rank -->
         <Frame type="Label" name="NextRankLabel">
@@ -636,4 +627,80 @@
             <Style val="ModCenterSize20"/>
         </Frame>
     </Frame>
+	
+	<Frame type="TabControl" name="PlayerDetailsTabController">
+		<Height val="610"/>
+        <Width val="690"/>
+		<TabListItem val="PageButtonsContainer/MedalButton"/>
+		<TabListItem val="PageButtonsContainer/TalentButton"/>
+		<TabListItem val="PageButtonsContainer/StatsButton"/>
+		<PanelListItem val="MedalTab"/>
+		<PanelListItem val="TalentTab"/>
+		<PanelListItem val="StatsTab"/>
+		
+		<Frame type="Frame" name = "PageButtonsContainer">
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
+			<Height val = "48" />
+			<Width val = "288" />
+			<!-- Medal Related -->
+			<Frame type="Image" name="MedalsBorder" template="PlayerDetails/ButtonBorderTemplate">
+				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+			</Frame>
+
+			<Frame type="Button" name="MedalsButton">
+				<Anchor relative="$parent/MedalsBorder" offset="0"/>
+				<Label val = "MedalsLabel" />
+				<Frame type="Label" name="MedalsLabel" template="PlayerDetails/ButtonLabelTemplate">
+					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+					<Text val = "Medals"/>
+				</Frame>
+			</Frame>
+
+			<!-- Stats Related -->
+			<Frame type="Image" name="StatsBorder" template="PlayerDetails/ButtonBorderTemplate">
+				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+				<Anchor side="Left" relative="$parent/MedalsBorder" pos="Max" offset="-10"/>
+			</Frame>
+		
+			<Frame type="Button" name="StatsButton">
+				<Anchor relative="$parent/StatsBorder" offset="0"/>
+				<Label val = "StatsLabel"/>
+				
+				<Frame type="Label" name="StatsLabel" template="PlayerDetails/ButtonLabelTemplate">
+					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+					<Text val = "Stats"/>
+				</Frame>
+			</Frame>
+
+			<!-- Talents Related -->
+			<Frame type="Image" name="TalentsBorder" template="PlayerDetails/ButtonBorderTemplate">
+				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+				<Anchor side="Left" relative="$parent/StatsBorder" pos="Max" offset="-10"/>
+			</Frame>
+
+			<Frame type="Button" name="TalentsButton">
+            <Anchor relative="$parent/TalentsBorder" offset="0"/>
+			<Label val = "TalentsLabel" />
+			<Frame type="Label" name="TalentsLabel" template="PlayerDetails/ButtonLabelTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+				<Text val = "Talents"/>
+			</Frame>
+        </Frame>
+		
+		</Frame>
+		
+		<Frame type="Frame" name = "MedalTab" template="PlayerDetails/Medals" >
+		</Frame>
+		
+		<Frame type="Frame" name = "TalentTab">
+		</Frame>
+		
+		<Frame type="Frame" name = "StatsTab" template="PlayerDetails/StatsWeaponModsUI">
+		</Frame>
+	</Frame>
 </Desc>
