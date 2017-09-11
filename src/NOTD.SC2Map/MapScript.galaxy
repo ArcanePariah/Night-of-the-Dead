@@ -1733,6 +1733,8 @@ bool gf_StatsStatsChecking (int lp_playerNo);
 void gf_StatsUpdateStatText (int lp_stat, int lp_statSlot, int lp_player);
 void gf_StatsAddStat (int lp_playerNo, int lp_statSlot, string lp_statBehavior);
 void gf_StatsRemoveStat (int lp_playerNo, int lp_statSlot, string lp_statBehavior);
+bool gf_UsedButtonisStatsModification (int lp_usedDialogItem, int lp_player);
+bool gf_UsedButtonisWeaponModification (int lp_usedDialogItem, int lp_player);
 void gf_CreateStatModPanels (int lp_player, int lp_statIndex, int lp_xOffset, int lp_yOffset);
 void gf_CreateWeaponModPanels (int lp_player, int lp_statIndex, int lp_xOffset, int lp_yOffset);
 bool gf_AttackerbehindTarget (unit lp_attacker, unit lp_target, fixed lp_rearAngle);
@@ -12318,6 +12320,50 @@ bool auto_gf_StatsRemoveStat_TriggerFunc (bool testConds, bool runActions) {
     return true;
 }
 
+bool gf_UsedButtonisStatsModification (int lp_usedDialogItem, int lp_player) {
+    int auto269DD2D1_ae;
+    int auto269DD2D1_ai;
+
+    // Variable Declarations
+    int lv_statButton;
+
+    // Variable Initialization
+
+    // Implementation
+    auto269DD2D1_ae = gv_numberofStats;
+    auto269DD2D1_ai = 1;
+    lv_statButton = gv_indexBaseValue;
+    for ( ; ( (auto269DD2D1_ai >= 0 && lv_statButton <= auto269DD2D1_ae) || (auto269DD2D1_ai <= 0 && lv_statButton >= auto269DD2D1_ae) ) ; lv_statButton += auto269DD2D1_ai ) {
+        if (((lp_usedDialogItem == gv_statsPlayerDecreButton[lp_player][lv_statButton]) || (lp_usedDialogItem == gv_statsPlayerIncreButton[lp_player][lv_statButton]))) {
+            return true;
+        }
+
+    }
+    return false;
+}
+
+bool gf_UsedButtonisWeaponModification (int lp_usedDialogItem, int lp_player) {
+    int auto0EA869C3_ae;
+    int auto0EA869C3_ai;
+
+    // Variable Declarations
+    int lv_statButton;
+
+    // Variable Initialization
+
+    // Implementation
+    auto0EA869C3_ae = gv_numberofWeaponMods;
+    auto0EA869C3_ai = 1;
+    lv_statButton = gv_indexBaseValue;
+    for ( ; ( (auto0EA869C3_ai >= 0 && lv_statButton <= auto0EA869C3_ae) || (auto0EA869C3_ai <= 0 && lv_statButton >= auto0EA869C3_ae) ) ; lv_statButton += auto0EA869C3_ai ) {
+        if (((lp_usedDialogItem == gv_wModPlayerDecreButton[lp_player][lv_statButton]) || (lp_usedDialogItem == gv_wModPlayerIncreButton[lp_player][lv_statButton]))) {
+            return true;
+        }
+
+    }
+    return false;
+}
+
 void gf_CreateStatModPanels (int lp_player, int lp_statIndex, int lp_xOffset, int lp_yOffset) {
     // Variable Declarations
     int lv_tempDialogFrame;
@@ -13335,12 +13381,12 @@ bool auto_gf_TalentTreeCreation_TriggerFunc (bool testConds, bool runActions) {
     // Implementation
     gf_UIDialogCreation(610, 690, 270, 150, c_anchorTopRight);
     gv_talentTree[lp_player] = DialogLastCreated();
-    DialogControlCreateFromTemplate(gv_talentTree[lp_player], c_triggerControlTypePanel, "PlayerDetails/DetailsUI");
+    DialogControlCreateFromTemplate(gv_talentTree[lp_player], c_triggerControlTypePanel, "PlayerDetails/TalentTreeTab");
     lv_tempDialogFrame = DialogControlLastCreated();
     DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeImage, "TalentsBorder");
     lv_tempDialogSubFrame = DialogControlLastCreated();
     gf_SetupPlayerDetailsUI(lp_player, lv_tempDialogFrame, gv_labelTalentsButton, lv_tempDialogSubFrame, 3);
-    DialogControlCreateFromTemplate(gv_talentTree[lp_player], c_triggerControlTypePanel, "TalentTree/TalentTreeTemplate");
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "TalentTree");
     lv_tempDialogItem = DialogControlLastCreated();
     DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeLabel, "TalentsAvailable");
     gv_talentsAvailableDialog[lp_player] = DialogControlLastCreated();
@@ -37177,7 +37223,7 @@ bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
         lv_index += 1;
     }
     if ((lv_index == lv_clickingPlayer) && (UnitIsValid(gv_marineHero[lv_index]) == true)) {
-        if (((lv_usedDialogItem == gv_statsPlayerDecreButton[1][lv_index]) || (lv_usedDialogItem == gv_statsPlayerDecreButton[2][lv_index]) || (lv_usedDialogItem == gv_statsPlayerDecreButton[3][lv_index]) || (lv_usedDialogItem == gv_statsPlayerDecreButton[4][lv_index]) || (lv_usedDialogItem == gv_statsPlayerDecreButton[5][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[1][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[2][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[3][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[4][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[5][lv_index]))) {
+        if (gf_UsedButtonisStatsModification(lv_usedDialogItem, lv_index)) {
             while ((lv_usedDialogItem != gv_statsPlayerDecreButton[lv_strEnAgPeIn][lv_index]) && (lv_usedDialogItem != gv_statsPlayerIncreButton[lv_strEnAgPeIn][lv_index])) {
                 lv_strEnAgPeIn += 1;
             }
@@ -37209,7 +37255,7 @@ bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
             gf_StatsUpdateStatText(lv_statValues[lv_strEnAgPeIn], lv_strEnAgPeIn, lv_index);
             gf_StatsUpdateAvailableStatsText(lv_index);
         }
-        else if (((lv_usedDialogItem == gv_wModPlayerDecreButton[1][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[2][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[3][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[4][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[5][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[6][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[7][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[1][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[2][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[3][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[4][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[5][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[6][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[7][lv_index]))) {
+        else if (gf_UsedButtonisWeaponModification(lv_usedDialogItem, gv_indexBaseValue)) {
             while ((lv_usedDialogItem != gv_wModPlayerDecreButton[lv_strEnAgPeIn][lv_index]) && (lv_usedDialogItem != gv_wModPlayerIncreButton[lv_strEnAgPeIn][lv_index])) {
                 lv_strEnAgPeIn += 1;
             }
@@ -37279,7 +37325,6 @@ bool gt_DisableStatAndModsModification_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(gt_ModifyHeroStats, false);
-    TriggerEnable(TriggerGetCurrent(), false);
     return true;
 }
 

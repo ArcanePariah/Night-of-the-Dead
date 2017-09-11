@@ -474,6 +474,12 @@
 		</Frame>     
     </Frame>
 
+	<Frame type="Frame" name="TalentTreeTab" template="PlayerDetails/DetailsUI">
+		<Frame type="Frame" name="TalentTree" template="TalentTree/TalentTreeTemplate">
+		
+		</Frame>
+	</Frame>
+	
     <Frame type="Frame" name="StatsButtonContainer">
         <Height val="60"/>
         <Width val="150"/>
