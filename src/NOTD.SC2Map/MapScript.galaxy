@@ -6796,7 +6796,7 @@ bool auto_gf_ECC1AmbientSpawns_TriggerFunc (bool testConds, bool runActions) {
         if ((gv_cinematicMode == false)) {
             AIAttackWaveSetTargetUnitGroup(14, gv_marines);
             gf_WaveSpawnAroundMarines("ZombieLevel12", 40.0, 1);
-            AIAttackWaveSend(14, (10 - gv_spawnFactor), true);
+            AIAttackWaveSend(14, MaxI(1, (10 - gv_spawnFactor)), true);
             if ((RandomInt(0, 4) == 1) && (gv_alivePlayers > 4)) {
                 AIAttackWaveSetTargetUnitGroup(14, gv_marines);
                 gf_WaveSpawnAroundMarines("RoachBurrowed", 50.0, 1);
@@ -6804,7 +6804,7 @@ bool auto_gf_ECC1AmbientSpawns_TriggerFunc (bool testConds, bool runActions) {
                     UnitBehaviorAdd(UnitLastCreated(), "Weakness", UnitLastCreated(), 1);
                 }
 
-                AIAttackWaveSend(14, ((10 + libNtve_gf_DifficultyValueInt(3, 0, 0, 0)) - gv_spawnFactor), true);
+                AIAttackWaveSend(14, MaxI(1, ((10 + libNtve_gf_DifficultyValueInt(3, 0, 0, 0)) - gv_spawnFactor)), true);
             }
 
         }
