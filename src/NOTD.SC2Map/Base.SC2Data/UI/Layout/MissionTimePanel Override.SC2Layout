@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Image" name="GameUI/UIContainer/ConsoleUIContainer/MissionTimePanel/BackgroundImage" file="GameUI">
+        <Texture val="Assets\Textures\ui_commandcard_protossframe_normal.dds"/>
+        <TextureType val="Normal"/>
+        <LayerColor val="175,175,175"/>
+        <RenderPriority val="500"/>
+        <Color val="175,175,175"/>
+        <BlendMode val="Add"/>
+    </Frame>
+
+    <Frame type="Label" name="GameUI/UIContainer/ConsoleUIContainer/MissionTimePanel/TimeLabel" file="GameUI">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+        <Style val="ModCenterSize24Bold"/>
+    </Frame>
+</Desc>
