@@ -8705,11 +8705,13 @@ bool auto_gf_ACClosingCinematic_TriggerFunc (bool testConds, bool runActions) {
     SoundtrackStop(PlayerGroupAll(), c_soundtrackCategoryMusic, true);
     UnitGroupLoopBegin(gv_marines);
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitSetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLifeRegen, 100.0);
         libNtve_gf_ChangeUnitDamage(UnitGroupLoopCurrent(), libNtve_ge_UnitDamageTakenDealt_Damage_Take, libNtve_ge_UnitDamageChangeOption_No);
     }
     UnitGroupLoopEnd();
     UnitGroupLoopBegin(gv_pets);
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitSetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLifeRegen, 100.0);
         libNtve_gf_ChangeUnitDamage(UnitGroupLoopCurrent(), libNtve_ge_UnitDamageTakenDealt_Damage_Take, libNtve_ge_UnitDamageChangeOption_No);
     }
     UnitGroupLoopEnd();
