@@ -299,6 +299,23 @@
 		<Frame type="Label" name="Title">
 			<Text val = "Stats"/>
         </Frame>
+		
+		
+		<Frame type = "ProgressBar" name = "NextLevelXP" template = "TriggerDialogFrame/TriggerControlProgressBarTemplate">
+			<Height val = "37"/>
+			<Width val = "520"/>
+			<Anchor side = "Left" relative= "$parent" pos="Min" offset="85"/>
+			<Anchor side = "Top" relative= "$parent" pos="Min" offset="391"/>
+			<MinValue val="0"/>
+            <MaxValue val="0"/>
+            <Value val="0"/>
+            <UseFillContainer val="true"/>
+		</Frame>
+			
+		<Frame type = "Label" name = "XP">
+			<Anchor relative= "$parent/NextLevelXP"/>
+			<Style val = "ModCenterSize20"/>
+		</Frame>
         <!-- Next Rank -->
         <Frame type="Label" name="NextRankLabel">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-156"/>
@@ -644,6 +661,7 @@
     </Frame>
 	
 	<Frame type="TabControl" name="PlayerDetailsTabController">
+	
 		<Height val="610"/>
         <Width val="690"/>
 		<SelectedIndex val = "0"/>
@@ -777,6 +795,12 @@
             <Anchor side="Left" relative="$parent/NavRightArrow" pos="Min" offset="0"/>
             <Height val="33"/>
             <Width val="33"/>
+			<Animation name = "Previous">
+				<Event event = "OnClick" action="Reset,Play" />
+				<Controller type = "State" stateGroup = "NextFrame" end = "Pause" frame="$parent">
+					<Key type="Identifier" time="0" value="Forward"/>
+				</Controller>
+			</Animation>
         </Frame>
 
         <!-- Player Rank Image + Name -->
@@ -816,6 +840,15 @@
             <Anchor side="Left" relative="$parent/CloseButtonImage" pos="Min" offset="0"/>
             <Height val="34"/>
             <Width val="34"/>
+			
+			<Animation name = "Toggle">
+				<Event event = "OnClick" action="Reset,Play" />
+				<Controller type = "Visibility" end = "Pause" frame="$parent">
+					<Key type="Bool" time="0" value="false"/>
+				</Controller>
+			</Animation>
         </Frame>
+		
+		
 	</Frame>
 </Desc>

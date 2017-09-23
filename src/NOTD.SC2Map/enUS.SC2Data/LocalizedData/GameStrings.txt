@@ -5687,7 +5687,6 @@ Param/Value/FD4C0073=<s val="InfoPaneHeroRank">(The tracking beacon stops broadc
 Param/Value/FD6E91D5=Inventory
 Param/Value/FD7B4E49=<s val="InfoPaneHeroRank">(2 XP awarded for colonist rescue)</s>
 Param/Value/FDC4E24A=The generators are spread out across the colony.
-Param/Value/FDC983B7=<s val="HeaderExtendedTemplate">/</s>
 Param/Value/FDF2EF7E= (
 Param/Value/FE378CE9=We've reached the truck. Let's move. Keep a tight formation.
 Param/Value/FE4BD6DD=I sense a link between them. Bring them down together.

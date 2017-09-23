@@ -101,7 +101,61 @@
 		<Frame type = "TabControl" name = "Player1Data"  template="PlayerDetails/PlayerDetailsTabController">
 			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
 			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<!--<Visible val = "True"/> -->
+
+		
+			<StateGroup name = "FrameSwitch">
+				
+				<State name = "NextPlayerMedal">
+					<When type="StateGroup" frame="$this" CurrentTab="Medal"/>
+					<When type="StateGroup" frame="$this" NextFrame="Forward"/>
+					<Action type="SetProperty" frame="$this" visible="false"/>
+					<Action type="SetProperty" frame="$parent/Player2Data" visible="true"/>
+					<Action type="SetProperty" frame="$parent/Player2Data" SelectedIndex="0"/>
+				</State>
+				
+				<State name = "NextPlayerTalent">
+					<When type="StateGroup" frame="$this" CurrentTab="Talent"/>
+					<When type="StateGroup" frame="$this" NextFrame="Forward"/>
+					<Action type="SetProperty" frame="$this" visible="false"/>
+					<Action type="SetProperty" frame="$parent/Player2Data" visible="true"/>
+					<Action type="SetProperty" frame="$parent/Player2Data" SelectedIndex="1"/>
+				</State>
+	<!--			
+				<State name = "NextPlayerStats">
+					<When type="StateGroup" frame="$this" CurrentTab="Stats"/>
+					<When type="StateGroup" frame="$this" NextFrame="Forward"/>
+					<Action type="SetProperty" frame="$this" visible="false"/>
+					<Action type="SetProperty" frame="$parent/Player2Data" visible="true"/>
+					<Action type="SetProperty" frame="$parent/Player2Data" SelectedIndex="2"/>
+				</State>-->
+				
+				<State name = "PreviousPlayerMedal">
+					<When type="StateGroup" frame="$this" CurrentTab="Medal"/>
+					<When type="StateGroup" frame="$this" NextFrame="Back"/>
+					<Action type="SetProperty" frame="$this" visible="false"/>
+					<Action type="SetProperty" frame="$parent/Player8Data" visible="true"/>
+					<Action type="SetProperty" frame="$parent/Player8Data" SelectedIndex="0"/>
+				</State>
+				
+				<State name = "PreviousPlayerTalent">
+					<When type="StateGroup" frame="$this" CurrentTab="Talent"/>
+					<When type="StateGroup" frame="$this" NextFrame="Back"/>
+					<Action type="SetProperty" frame="$this" visible="false"/>
+					<Action type="SetProperty" frame="$parent/Player8Data" visible="true"/>
+					<Action type="SetProperty" frame="$parent/Player8Data" SelectedIndex="1"/>
+				</State>	
+		<!--			
+				<State name = "PreviousPlayerStats">
+					<When type="StateGroup" frame="$this" CurrentTab="Stats"/>
+					<When type="StateGroup" frame="$this" NextFrame="Back"/>
+					<Action type="SetProperty" frame="$this" visible="false"/>
+					<Action type="SetProperty" frame="$parent/Player8Data" visible="true"/>
+					<Action type="SetProperty" frame="$parent/Player8Data" SelectedIndex="2"/>
+				</State>-->
+			
+			</StateGroup>
+
+			<Visible val = "True"/> -->
 		</Frame>
 		
 		<Frame type = "TabControl" name = "Player2Data"  template="PlayerDetails/PlayerDetailsTabController">
@@ -140,7 +194,7 @@
 			<Visible val = "False"/>
 		</Frame>
 		
-		<Frame type = "TabControl" name = "Player8Data"  template="PlayerDetails/DetailsUI">
+		<Frame type = "TabControl" name = "Player8Data"  template="PlayerDetails/PlayerDetailsTabController">
 			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
 			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
 			<Visible val = "False"/>
