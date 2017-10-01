@@ -38114,9 +38114,6 @@ bool gt_FieldNexusRevokeSharedVision_Func (bool testConds, bool runActions) {
                             libNtve_gf_SetAllianceOneWay(lv_localInt, IntLoopCurrent(), libNtve_ge_AllianceSetting_Ally);
                         }
                     }
-                    else if ((PlayerStatus(lv_localInt) == c_playerStatusLeft) && (lv_localInt != IntLoopCurrent())) {
-                        libNtve_gf_SetAllianceOneWay(lv_localInt, IntLoopCurrent(), libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
-                    }
                 }
             }
             else if ((PlayerStatus(IntLoopCurrent()) == c_playerStatusActive) && (UnitIsAlive(gv_marineHero[IntLoopCurrent()]) == false)) {
@@ -38131,9 +38128,6 @@ bool gt_FieldNexusRevokeSharedVision_Func (bool testConds, bool runActions) {
                         else {
                             libNtve_gf_SetAllianceOneWay(lv_localInt, IntLoopCurrent(), libNtve_ge_AllianceSetting_AllyWithSharedVision);
                         }
-                    }
-                    else if ((PlayerStatus(lv_localInt) == c_playerStatusLeft) && (lv_localInt != IntLoopCurrent())) {
-                        libNtve_gf_SetAllianceOneWay(lv_localInt, IntLoopCurrent(), libNtve_ge_AllianceSetting_AllyWithSharedVisionAndControl);
                     }
                 }
             }
@@ -38158,6 +38152,7 @@ bool gt_FieldNexusRevokeSharedVision_Func (bool testConds, bool runActions) {
 
     }
     UnitGroupLoopEnd();
+    gf_RestoreLeaverControl();
     return true;
 }
 
@@ -38612,6 +38607,12 @@ bool gt_MindLinkShareVision_Func (bool testConds, bool runActions) {
     if ((lv_numberofMindLinkedUnits > (lv_mindLinkLevel + 1))) {
         UnitGroupLoopBegin(gv_mindLinkedGroup[lv_psiOpsOwner]);
         for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+            PlayerGroupAdd(lv_mindLinkedPlayers, UnitGetOwner(UnitGroupLoopCurrent()));
+        }
+        UnitGroupLoopEnd();
+        libNtve_gf_SetPlayerGroupAlliance(lv_mindLinkedPlayers, libNtve_ge_AllianceSetting_Ally);
+        UnitGroupLoopBegin(gv_mindLinkedGroup[lv_psiOpsOwner]);
+        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
             if ((UnitGroupLoopCurrent() != lv_psiOpsHero)) {
                 UnitGroupRemove(gv_mindLinkedGroup[lv_psiOpsOwner], UnitGroupLoopCurrent());
                 UnitBehaviorRemove(UnitGroupLoopCurrent(), lv_mindLinkBehavior, 1);
@@ -38622,7 +38623,7 @@ bool gt_MindLinkShareVision_Func (bool testConds, bool runActions) {
         UnitGroupLoopEnd();
     }
 
-    libNtve_gf_SetPlayerGroupAlliance(gv_activePlayers, libNtve_ge_AllianceSetting_Ally);
+    PlayerGroupClear(lv_mindLinkedPlayers);
     UnitGroupLoopBegin(gv_mindLinkedGroup[lv_psiOpsOwner]);
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         PlayerGroupAdd(lv_mindLinkedPlayers, UnitGetOwner(UnitGroupLoopCurrent()));
