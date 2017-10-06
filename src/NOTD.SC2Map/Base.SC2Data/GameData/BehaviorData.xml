@@ -3256,6 +3256,9 @@
         <InfoIcon value="Assets/Textures/btn-ability-protoss-blink.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="FloodlightsLevel2"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="FloodlightsLevel1"/>
+        </Modification>
         <TimeScaleSource Value="Global"/>
         <Period value="1"/>
         <PeriodicEffect value="FloodlightsLevel2Reveal"/>
@@ -3266,6 +3269,9 @@
         <InfoIcon value="Assets/Textures/btn-ability-protoss-blink.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="FloodlightsLevel3"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="FloodlightsLevel2"/>
+        </Modification>
         <TimeScaleSource Value="Global"/>
         <Period value="1"/>
         <PeriodicEffect value="FloodlightsLevel3Reveal"/>
@@ -6838,7 +6844,13 @@
         <InfoIcon value="Assets\Textures\btn-unit-terran-marauderkillsquad.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="SadistLevel1"/>
+        <DamageResponse Chance="1" Handled="SadistLv1HealingTemp" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SadistLv1HealingTemp">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="SadistLv1Healing"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SadistLevel2">
         <Alignment value="Positive"/>
@@ -6848,7 +6860,13 @@
         <Modification>
             <BehaviorLinkDisableArray value="SadistLevel1"/>
         </Modification>
+        <DamageResponse Chance="1" Handled="SadistLv2HealingTemp" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SadistLv2HealingTemp">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="SadistLv2Healing"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SatchelLevel1">
         <EditorCategories value="AbilityorEffectType:Units"/>

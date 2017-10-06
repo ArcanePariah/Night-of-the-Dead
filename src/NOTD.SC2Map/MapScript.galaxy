@@ -2126,7 +2126,6 @@ trigger gt_SupplyStation;
 trigger gt_LaserDesignator;
 trigger gt_Flare;
 trigger gt_RefresherResetCooldowns;
-trigger gt_Sadist;
 trigger gt_FieldNexusRevokeSharedVision;
 trigger gt_FieldNexusShareVision;
 trigger gt_Synergy;
@@ -12738,10 +12737,6 @@ void gf_LevelUpTalentDemolitions (int lp_itemNo, unit lp_triggUnit, int lp_trigg
 
     }
 
-    if ((lp_itemNo == 9)) {
-        TriggerEnable(gt_Sadist, true);
-    }
-
 }
 
 void gf_LevelUpTalentEngineer (int lp_itemNo, unit lp_triggUnit, int lp_triggPlayer) {
@@ -12867,15 +12862,6 @@ void gf_LevelUpTalentPsiOps (int lp_itemNo, unit lp_triggUnit, int lp_triggPlaye
 
 void gf_LevelUpTalentTechnician (int lp_itemNo, unit lp_triggUnit, int lp_triggPlayer) {
     // Implementation
-    if ((lp_itemNo == 1)) {
-        if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 2)) {
-            UnitBehaviorRemovePlayer(lp_triggUnit, "FloodlightsLevel1", lp_triggPlayer, 1);
-        }
-        else if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 3)) {
-            UnitBehaviorRemovePlayer(lp_triggUnit, "FloodlightsLevel2", lp_triggPlayer, 1);
-        }
-    }
-
     if ((lp_itemNo == 5)) {
         TriggerEnable(gt_HammeroftheGodsCamShake, true);
     }
@@ -37900,40 +37886,6 @@ void gt_RefresherResetCooldowns_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Sadist
-//--------------------------------------------------------------------------------------------------
-bool gt_Sadist_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_sadistLevel;
-
-    // Variable Initialization
-
-    // Conditions
-    if (testConds) {
-        if (!((UnitGetType(libNtve_gf_KillingUnit()) == "DominionKillTeam"))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    lv_sadistLevel = gv_talentLevel[9][libNtve_gf_KillingPlayer()];
-    UnitSetPropertyFixed(gv_marineHero[libNtve_gf_KillingPlayer()], c_unitPropLife, (UnitGetPropertyFixed(gv_marineHero[libNtve_gf_KillingPlayer()], c_unitPropLife, c_unitPropCurrent) + (lv_sadistLevel * 2.0)));
-    UnitSetPropertyFixed(gv_marineHero[libNtve_gf_KillingPlayer()], c_unitPropShields, (UnitGetPropertyFixed(gv_marineHero[libNtve_gf_KillingPlayer()], c_unitPropShields, c_unitPropCurrent) + lv_sadistLevel));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_Sadist_Init () {
-    gt_Sadist = TriggerCreate("gt_Sadist_Func");
-    TriggerEnable(gt_Sadist, false);
-    TriggerAddEventUnitDied(gt_Sadist, null);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Field Nexus - Revoke Shared Vision
 //--------------------------------------------------------------------------------------------------
 bool gt_FieldNexusRevokeSharedVision_Func (bool testConds, bool runActions) {
@@ -39825,7 +39777,6 @@ void InitTriggers () {
     gt_LaserDesignator_Init();
     gt_Flare_Init();
     gt_RefresherResetCooldowns_Init();
-    gt_Sadist_Init();
     gt_FieldNexusRevokeSharedVision_Init();
     gt_FieldNexusShareVision_Init();
     gt_Synergy_Init();
