@@ -222,4 +222,14 @@
         <Sound value="UI_TerranKlaxonAlert"/>
         <SupersededVolume value="1.000000"/>
     </CAlert>
+    <CAlert id="SonicTrapPing">
+        <Display index="Ally" value="1"/>
+        <Display index="Neutral" value="1"/>
+        <Flags index="Ping" value="1"/>
+        <Fade value="0.000000"/>
+        <Life value="5.000000"/>
+        <PingColor value="196,219,253,0"/>
+        <PingModel value="PingWarning"/>
+        <PingTime value="1.000000"/>
+    </CAlert>
 </Catalog>

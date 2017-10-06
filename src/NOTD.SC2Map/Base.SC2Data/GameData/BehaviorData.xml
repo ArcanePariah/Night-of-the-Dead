@@ -1074,10 +1074,10 @@
             <StateFlags index="Uncommandable" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HammeroftheGodsUnqiue">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <InitialEffect value="HammeroftheGodUnique"/>
+    <CBehaviorBuff id="BlackDogLimit">
         <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InitialEffect value="BlackDogLimit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KillstoCasterGrenade">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1087,10 +1087,10 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <KillCredit Value="CasterOuter"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MaintenenceDroneUnqiue">
+    <CBehaviorBuff id="MaintenanceDroneLimit">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <InitialEffect value="HammeroftheGodUnique2"/>
+        <InitialEffect value="MaintenanceDroneLimit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HardenCaraspace">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -2280,6 +2280,11 @@
             <ModifyFlags index="SuppressMoving" value="1"/>
             <ModifyFlags index="SuppressTurning" value="1"/>
         </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ArmageddonBombLimit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="ArmageddonBombLimit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Armageddon">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -3648,6 +3653,11 @@
             </DeathResponse>
         </Modification>
     </CBehaviorAttribute>
+    <CBehaviorBuff id="X1GuardianLimit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="X1GuardianLimit"/>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="X1BotVeterancy">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <VeterancyLevelArray MinVeterancyXP="300">
@@ -5136,6 +5146,11 @@
         <PeriodicEffect value="BurstFireDamageLevel3"/>
         <DamageResponse Chance="1" Fatal="1" Handled="FrenzyApplyBuffSet"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="ReaperMK13Limit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="ReaperMK13Limit"/>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="DroneVeterancy" parent="PetVeterancy">
         <Name value="Behavior/Name/DroneVeterancy"/>
         <Tooltip value="Behavior/Tooltip/DroneVeterancy"/>
@@ -6206,6 +6221,11 @@
         <DamageResponse Chance="1" Handled="BloodFrenzyApplySlow" Location="Attacker">
             <RequireEffectArray value="CriticalStrike"/>
         </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SonicTrapLimit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="SonicTrapLimit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SonicTrapCount">
         <InfoFlags index="Hidden" value="1"/>

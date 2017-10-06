@@ -542,6 +542,12 @@
         <AreaArray MaxCount="1" Radius="500" Effect="BoomHeadshotX1Level2"/>
         <MaxCount value="1"/>
     </CEffectEnumArea>
+    <CEffectEnumArea id="X1GuardianLimit">
+        <EditorCategories value=""/>
+        <SearchFilters value="Armored,Mechanical;Ally,Neutral,Enemy,Psionic,Structure,Heroic,Dead"/>
+        <ExcludeArray Value="Source"/>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
+    </CEffectEnumArea>
     <CEffectCreatePersistent id="CannonSwapDelay">
         <EditorCategories value=""/>
         <WhichLocation Value="CasterUnit"/>
@@ -1524,15 +1530,6 @@
         <EditorCategories value=""/>
         <Behavior value="Shocked"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="DestroyHammeroftheGods">
-        <EditorCategories value=""/>
-        <Flags index="Kill" value="1"/>
-    </CEffectDamage>
-    <CEffectDamage id="DestroyMaintenceDrone">
-        <EditorCategories value=""/>
-        <Marker Link="Effect/DestroyHammeroftheGods"/>
-        <Flags index="Kill" value="1"/>
-    </CEffectDamage>
     <CEffectApplyBehavior id="EnergyTransferApplyLevel1">
         <EditorCategories value="Race:Terran"/>
         <Behavior value="VenomEnergyTransferLevel1"/>
@@ -1689,18 +1686,17 @@
         <EditorCategories value=""/>
         <PeriodicEffectArray index="0" value="HadesBloodWheelDamage"/>
     </CEffectCreatePersistent>
-    <CEffectEnumArea id="HammeroftheGodUnique">
+    <CEffectEnumArea id="BlackDogLimit">
         <EditorCategories value=""/>
         <ExcludeArray Value="Source"/>
         <SearchFilters value="Robotic,Mechanical,Structure;Ally,Neutral,Enemy"/>
-        <AreaArray Radius="500" Effect="DestroyHammeroftheGods"/>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
     </CEffectEnumArea>
-    <CEffectEnumArea id="HammeroftheGodUnique2">
+    <CEffectEnumArea id="MaintenanceDroneLimit">
         <EditorCategories value=""/>
-        <Marker Link="Effect/HammeroftheGodUnique"/>
         <ExcludeArray Value="Source"/>
         <SearchFilters value="Robotic,Mechanical;Ally,Neutral,Enemy,Light,Structure,Item,Invulnerable"/>
-        <AreaArray Radius="500" Effect="DestroyMaintenceDrone"/>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="HardenCaraspaceRecruitApplyBehavior">
         <ValidatorArray index="0" value="IsRecruit"/>
@@ -2860,6 +2856,15 @@
         <SearchFilters value="Heroic;Self,Player,Ally,Neutral,Structure,Missile,Destructible,Item,Cloaked,UnderConstruction,Dead"/>
         <AreaArray Radius="5" Effect="SonicTrapLevel1SlowHeroic"/>
     </CEffectEnumArea>
+    <CEffectEnumArea id="SonicTrapLimit">
+        <EditorCategories value=""/>
+        <SearchFilters value="Structure;Ally,Neutral,Enemy,Heroic,Dead"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSDistanceToTarget"/>
+        </TargetSorts>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
+        <MinCount value="5"/>
+    </CEffectEnumArea>
     <CEffectApplyBehavior id="SonicTrapLevel1Slow">
         <ValidatorArray index="0" removed="1"/>
         <EditorCategories value=""/>
@@ -3127,6 +3132,15 @@
         <EditorCategories value=""/>
         <SearchFilters value="-;Neutral,Enemy,RawResource,HarvestableResource,Missile,Item,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="5" Effect="ArmageddonDamageFriendly"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="ArmageddonBombLimit">
+        <EditorCategories value=""/>
+        <SearchFilters value="Mechanical,Structure;Ally,Neutral,Enemy,Heroic,Dead"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSDistanceToTarget"/>
+        </TargetSorts>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
+        <MinCount value="3"/>
     </CEffectEnumArea>
     <CEffectSet id="ArmageddonSet">
         <EditorCategories value=""/>
@@ -10684,6 +10698,12 @@
         <Marker Link="Effect/DefensiveMatrixModifyUnit"/>
         <VitalArray index="Shields" ChangeFraction="1"/>
     </CEffectModifyUnit>
+    <CEffectEnumArea id="ReaperMK13Limit">
+        <EditorCategories value=""/>
+        <SearchFilters value="Light,Mechanical;Ally,Neutral,Enemy,Heroic,Dead"/>
+        <ExcludeArray Value="Source"/>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
+    </CEffectEnumArea>
     <CEffectCreateUnit id="DroneCreateUnit">
         <EditorCategories value=""/>
         <WhichLocation Value="CasterPoint"/>

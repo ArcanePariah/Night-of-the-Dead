@@ -4138,6 +4138,7 @@
             <Charge CountMax="7" CountStart="7" CountUse="1"/>
             <Cooldown TimeUse="4"/>
         </Cost>
+        <AlertArray index="Cast" value="SonicTrapPing"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SonicTrapLevel1"/>
         <AbilSetId value="SonicTrap"/>
     </CAbilEffectInstant>
@@ -4155,6 +4156,7 @@
         </Cost>
         <Marker Link="Abil/SonicTrapLevel1"/>
         <AINotifyEffect value="SonicTrapLevel1"/>
+        <AlertArray index="Cast" value="SonicTrapPing"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SonicTrapLevel1"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SurgicalStrike">
