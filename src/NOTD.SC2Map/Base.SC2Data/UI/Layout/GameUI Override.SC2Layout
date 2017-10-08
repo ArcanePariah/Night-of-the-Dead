@@ -98,107 +98,222 @@
             <Anchor side="Top" relative="$parent" pos="Min" offset="85"/>
         </Frame>
 		
-		<Frame type = "TabControl" name = "Player1Data"  template="PlayerDetails/PlayerDetailsTabController">
+		<Frame type ="Button" name = "TalentButton">
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+			<Height val = "1"/>
+			<Width val = "1"/>
+			<Animation name = "Toggle">
+				<Event event = "OnClick" action="Reset,Play" />
+				<Controller type="Event" end="Stop" frame="$parent/PlayerDataContainer">
+					<Key type="Event" time="0" event="update"/>
+				</Controller>
+				<Controller type="Event" end="Stop" frame="$parent/PlayerDataContainer">
+					<Key type="Event" time="0" event="ShowTalent"/>
+				</Controller>
+			</Animation>
+			<Shortcut val="B"/>
+		</Frame>
+		
+		<Frame type = "Frame" name = "PlayerDataContainer">
 			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
 			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-
-		
-			<StateGroup name = "FrameSwitch">
-				
-				<State name = "NextPlayerMedal">
-					<When type="StateGroup" frame="$this" CurrentTab="Medal"/>
-					<When type="StateGroup" frame="$this" NextFrame="Forward"/>
-					<Action type="SetProperty" frame="$this" visible="false"/>
-					<Action type="SetProperty" frame="$parent/Player2Data" visible="true"/>
-					<Action type="SetProperty" frame="$parent/Player2Data" SelectedIndex="0"/>
-				</State>
-				
-				<State name = "NextPlayerTalent">
-					<When type="StateGroup" frame="$this" CurrentTab="Talent"/>
-					<When type="StateGroup" frame="$this" NextFrame="Forward"/>
-					<Action type="SetProperty" frame="$this" visible="false"/>
-					<Action type="SetProperty" frame="$parent/Player2Data" visible="true"/>
-					<Action type="SetProperty" frame="$parent/Player2Data" SelectedIndex="1"/>
-				</State>
-	<!--			
-				<State name = "NextPlayerStats">
-					<When type="StateGroup" frame="$this" CurrentTab="Stats"/>
-					<When type="StateGroup" frame="$this" NextFrame="Forward"/>
-					<Action type="SetProperty" frame="$this" visible="false"/>
-					<Action type="SetProperty" frame="$parent/Player2Data" visible="true"/>
-					<Action type="SetProperty" frame="$parent/Player2Data" SelectedIndex="2"/>
-				</State>-->
-				
-				<State name = "PreviousPlayerMedal">
-					<When type="StateGroup" frame="$this" CurrentTab="Medal"/>
-					<When type="StateGroup" frame="$this" NextFrame="Back"/>
-					<Action type="SetProperty" frame="$this" visible="false"/>
-					<Action type="SetProperty" frame="$parent/Player8Data" visible="true"/>
-					<Action type="SetProperty" frame="$parent/Player8Data" SelectedIndex="0"/>
-				</State>
-				
-				<State name = "PreviousPlayerTalent">
-					<When type="StateGroup" frame="$this" CurrentTab="Talent"/>
-					<When type="StateGroup" frame="$this" NextFrame="Back"/>
-					<Action type="SetProperty" frame="$this" visible="false"/>
-					<Action type="SetProperty" frame="$parent/Player8Data" visible="true"/>
-					<Action type="SetProperty" frame="$parent/Player8Data" SelectedIndex="1"/>
-				</State>	
-		<!--			
-				<State name = "PreviousPlayerStats">
-					<When type="StateGroup" frame="$this" CurrentTab="Stats"/>
-					<When type="StateGroup" frame="$this" NextFrame="Back"/>
-					<Action type="SetProperty" frame="$this" visible="false"/>
-					<Action type="SetProperty" frame="$parent/Player8Data" visible="true"/>
-					<Action type="SetProperty" frame="$parent/Player8Data" SelectedIndex="2"/>
-				</State>-->
+			<Height val="610"/>
+			<Width val="690"/>
+			<Visible val = "false" />
 			
-			</StateGroup>
+			<Frame type = "Frame" name = "Player1Data"  template="PlayerDetails/PlayerDetailsContainer">
+			</Frame>
+			
+			<Frame type = "Frame" name = "Player2Data"  template="PlayerDetails/PlayerDetailsContainer">
+			</Frame>
+			
+			<Frame type = "Frame" name = "Player3Data"  template="PlayerDetails/PlayerDetailsContainer">
+			</Frame>
+			
+			<Frame type = "Frame" name = "Player4Data"  template="PlayerDetails/PlayerDetailsContainer">
+			</Frame>
+			
+			<Frame type = "Frame" name = "Player5Data"  template="PlayerDetails/PlayerDetailsContainer">
+			</Frame>
+			
+			<Frame type = "Frame" name = "Player6Data"  template="PlayerDetails/PlayerDetailsContainer">
+			</Frame>
+			
+			<Frame type = "Frame" name = "Player7Data"  template="PlayerDetails/PlayerDetailsContainer">
+			</Frame>
+			
+			<Frame type = "Frame" name = "Player8Data"  template="PlayerDetails/PlayerDetailsContainer">
+			</Frame>
+			
+			<Frame type = "TabControl" name = "TabControl">
+				<Anchor relative="$parent" />
+				<TabListItem val="PageButtonsContainer/MedalsButton"/>
+				<TabListItem val="PageButtonsContainer/TalentsButton"/>
+				<TabListItem val="PageButtonsContainer/StatsButton"/>
+				
+				<Frame type="Frame" name = "PageButtonsContainer">
+					<Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
+					<Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
+					<Height val = "48" />
+					<Width val = "288" />
 
-			<Visible val = "True"/> -->
-		</Frame>
-		
-		<Frame type = "TabControl" name = "Player2Data"  template="PlayerDetails/PlayerDetailsTabController">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
-		</Frame>
-		
-		<Frame type = "TabControl" name = "Player3Data"  template="PlayerDetails/PlayerDetailsTabController">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
-		</Frame>
-		
-		<Frame type = "TabControl" name = "Player4Data"  template="PlayerDetails/PlayerDetailsTabController">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
-		</Frame>
-		
-		<Frame type = "TabControl" name = "Player5Data"  template="PlayerDetails/PlayerDetailsTabController">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
-		</Frame>
-		
-		<Frame type = "TabControl" name = "Player6Data"  template="PlayerDetails/PlayerDetailsTabController">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
-		</Frame>
-		
-		<Frame type = "TabControl" name = "Player7Data"  template="PlayerDetails/PlayerDetailsTabController">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
-		</Frame>
-		
-		<Frame type = "TabControl" name = "Player8Data"  template="PlayerDetails/PlayerDetailsTabController">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
-		</Frame>
+					<!-- Medal Related -->
+					<Frame type="Button" name="MedalsButton">
+						<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+						<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+						<Height val="48"/>
+						<Width val="96"/>
+						<Toggleable val="true"/>
+						
+						<Label val = "MedalsLabel" />
+						<NormalImage val = "MedalsBorder" />
+						
+						<Frame type="Image" name="MedalsBorder" template="PlayerDetails/ButtonBorderTemplate">
+							<Anchor relative="$parent" offset="0"/>
+						</Frame>
+						
+						<Frame type="Label" name="MedalsLabel" template="PlayerDetails/ButtonLabelTemplate">
+							<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+							<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+							<Text val = "Medals"/>
+						</Frame>
+					</Frame>
 
+					<!-- Stats Related -->
+					<Frame type="Button" name="StatsButton">
+						<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+						<Anchor side="Left" relative="$parent/MedalsButton" pos="Max" offset="-10"/>
+						<Height val="48"/>
+						<Width val="96"/>
+						<Toggleable val="true"/>
+						
+						<NormalImage val = "StatsBorder" />
+						<Label val = "StatsLabel"/>
+						
+						<Frame type="Image" name="StatsBorder" template="PlayerDetails/ButtonBorderTemplate">
+							<Anchor relative="$parent" offset="0"/>
+						</Frame>
+						
+						<Frame type="Label" name="StatsLabel" template="PlayerDetails/ButtonLabelTemplate">
+							<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+							<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+							<Text val = "Stats"/>
+						</Frame>		
+					</Frame>
+
+					<!-- Talents Related -->	
+					<Frame type="Button" name="TalentsButton">
+						<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+						<Anchor side="Left" relative="$parent/StatsButton" pos="Max" offset="-10"/>
+						<Height val="48"/>
+						<Width val="96"/>
+						<Toggleable val="true"/>
+						
+						<Label val = "TalentsLabel" />
+						<NormalImage val = "TalentsBorder" />
+						
+						<Frame type="Label" name="TalentsLabel" template="PlayerDetails/ButtonLabelTemplate">
+							<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+							<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
+							<Text val = "Talents"/>
+						</Frame>
+						
+						<Frame type="Image" name="TalentsBorder" template="PlayerDetails/ButtonBorderTemplate">
+							<Anchor relative="$parent" offset="0"/>
+						</Frame>
+					</Frame>
+				
+				</Frame>
+			
+			</Frame>
+		
+			<Frame type="Image" name="CloseButtonImage">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+				<Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
+				<BlendMode val="Normal"/>
+				<Color val="255,255,255"/>
+				<Texture val="Assets\Textures\ui_ingame_resourcesharing_closebutton_normalandpressed.dds"/>
+				<TextureType val="Normal"/>
+				<Tiled val="true"/>
+				<Height val="34"/>
+				<Width val="34"/>
+			</Frame>
+
+			<Frame type="Button" name="CloseButton">
+				<Anchor side="Top" relative="$parent/CloseButtonImage" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent/CloseButtonImage" pos="Min" offset="0"/>
+				<Height val="34"/>
+				<Width val="34"/>
+				
+				<Animation name = "Toggle">
+					<Event event = "OnClick" action="Reset,Play" />
+					<Controller type="Event" end="Stop" frame="$parent">
+						<Key type="Event" time="0" event="update"/>
+					</Controller>
+				</Animation>
+			</Frame>
+			
+			<Frame type="Animation" name="PlayerDetailVisibility">
+				<Event event="hideall" action="Reset, Play" frame="$this"/>
+
+                <Controller type="Visibility" end="Pause" frame="Player1Data">
+                    <Key type="Bool" time="0.000" value="false"/>
+                </Controller>
+				<Controller type="Visibility" end="Pause" frame="Player2Data">
+                    <Key type="Bool" time="0.000" value="false"/>
+                </Controller>
+				<Controller type="Visibility" end="Pause" frame="Player3Data">
+                    <Key type="Bool" time="0.000" value="false"/>
+                </Controller>
+				<Controller type="Visibility" end="Pause" frame="Player4Data">
+                    <Key type="Bool" time="0.000" value="false"/>
+                </Controller>
+				<Controller type="Visibility" end="Pause" frame="Player5Data">
+                    <Key type="Bool" time="0.000" value="false"/>
+                </Controller>
+				<Controller type="Visibility" end="Pause" frame="Player6Data">
+                    <Key type="Bool" time="0.000" value="false"/>
+                </Controller>
+				<Controller type="Visibility" end="Pause" frame="Player7Data">
+                    <Key type="Bool" time="0.000" value="false"/>
+                </Controller>
+				<Controller type="Visibility" end="Pause" frame="Player8Data">
+                    <Key type="Bool" time="0.000" value="false"/>
+                </Controller>
+            </Frame>
+			
+			<Frame type="Animation" name="ContainerVisibility">
+				<Event event="update" action="ToggleDirection, Play" frame="$this"/>
+				<Event event="show" action="DirectionForward,Play" frame="$this"/>
+				<Event event="hide" action="DirectionReverse,Play" frame="$this"/>
+                <Controller type="Visibility" end="Pause" frame="$this">
+                    <Key type="Bool" time="0.000" value="true"/>
+                    <Key type="Bool" time="0.005" value="false"/>
+                </Controller>
+            </Frame>
+			
+			<Animation name = "EnableTalent">
+				<Event event="ShowTalent" action = "Reset, Play"/>
+				<Controller type="Property" property="SelectedIndex" end="Pause" frame = "TabControl">
+					<Key type="Property" time="0" value="1"/>
+				</Controller>
+			</Animation>
+			
+			<Animation name = "EnableMedal">
+				<Event event="ShowMedal" action = "Reset, Play"/>
+				<Controller type="Property" property="SelectedIndex" end="Pause" frame = "TabControl">
+					<Key type="Property" time="0" value="0"/>
+				</Controller>
+			</Animation>
+			
+			<Animation name = "EnableStat">
+				<Event event="ShowStat" action = "Reset, Play"/>
+				<Controller type="Property" property="SelectedIndex" end="Pause" frame = "TabControl">
+					<Key type="Property" time="0" value="2"/>
+				</Controller>
+			</Animation>
+			
+		</Frame>
 	</Frame>
 </Desc>

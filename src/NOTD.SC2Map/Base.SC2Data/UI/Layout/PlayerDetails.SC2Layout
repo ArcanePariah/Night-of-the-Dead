@@ -19,12 +19,7 @@
 		<Style val="ModCenterSize16NoHover"/>
 	</Frame>
 	
-
-	
-	
     <Frame type="Frame" name="DetailsUI">
-        <Height val="610"/>
-        <Width val="690"/>
 
         <Frame type="Label" name="Title">
             <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
@@ -43,132 +38,16 @@
             <Color val="255,255,255"/>
         </Frame>
 
-        <!--<!{1}** Medal Related **{1}>
-        <Frame type="Image" name="MedalsBorder" template="PlayerDetails/ButtonBorderTemplate">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
-        </Frame>
-
-        <Frame type="Button" name="MedalsButton">
-            <Anchor relative="$parent/MedalsBorder" offset="0"/>
-            <Label val = "MedalsLabel" />
-			<Frame type="Label" name="MedalsLabel" template="PlayerDetails/ButtonLabelTemplate">
-				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-				<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
-				<Text val = "Medals"/>
-			</Frame>
-        </Frame>
-
-        <!{1}** Stats Related **{1}>
-        <Frame type="Image" name="StatsBorder" template="PlayerDetails/ButtonBorderTemplate">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
-            <Anchor side="Left" relative="$parent/MedalsBorder" pos="Max" offset="-10"/>
-        </Frame>
-    
-        <Frame type="Button" name="StatsButton">
-            <Anchor relative="$parent/StatsBorder" offset="0"/>
-			<Label val = "StatsLabel"/>
-			
-			<Frame type="Label" name="StatsLabel" template="PlayerDetails/ButtonLabelTemplate">
-				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-				<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
-				<Text val = "Stats"/>
-			</Frame>
-        </Frame>
-
-        <!{1}** Talents Related **{1}>
-        <Frame type="Image" name="TalentsBorder" template="PlayerDetails/ButtonBorderTemplate">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
-            <Anchor side="Left" relative="$parent/StatsBorder" pos="Max" offset="-10"/>
-        </Frame>
-
-        <Frame type="Button" name="TalentsButton">
-            <Anchor relative="$parent/TalentsBorder" offset="0"/>
-			<Label val = "TalentsLabel" />
-			<Frame type="Label" name="TalentsLabel" template="PlayerDetails/ButtonLabelTemplate">
-				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-				<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
-				<Text val = "Talents"/>
-			</Frame>
-        </Frame>
-
-        <!{1}** Navigation Buttons **{1}>
-        <!{1}** Left Arrow **{1}>
-        <Frame type="Image" name="NavLeftArrow">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-28"/>
-            <Anchor side="Left" relative="$parent/TalentsBorder" pos="Max" offset="-6"/>
-            <Texture val="Assets\Textures\ui_research_frame_available_arrow_left.dds"/>
-            <TextureType val="Normal"/>
-            <BlendMode val="Normal"/>
-            <Color val="127,255,255"/>
-            <Height val="33"/>
-            <Width val="33"/>
-        </Frame>
-
-        <Frame type="Button" name="NavLeftArrowButton">
-            <Anchor side="Top" relative="$parent/NavLeftArrow" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/NavLeftArrow" pos="Min" offset="0"/>
-            <Height val="33"/>
-            <Width val="33"/>
-        </Frame>
-
-        <!{1}** Right Arrow **{1}>
-        <Frame type="Image" name="NavRightArrow">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-28"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-82"/>
-            <Texture val="Assets\Textures\ui_research_frame_available_arrow_right.dds"/>
-            <TextureType val="Normal"/>
-            <BlendMode val="Normal"/>
-            <Color val="127,255,255"/>
-            <Height val="33"/>
-            <Width val="33"/>
-        </Frame>
-
-        <Frame type="Button" name="NavRightArrowButton">
-            <Anchor side="Top" relative="$parent/NavRightArrow" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/NavRightArrow" pos="Min" offset="0"/>
-            <Height val="33"/>
-            <Width val="33"/>
-        </Frame>
-
-        <!{1}** Player Rank Image + Name **{1}>
-        <Frame type="Image" name="PlayerRankIcon">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-28"/>
-            <Anchor side="Left" relative="$parent/NavLeftArrow" pos="Max" offset="0"/>
-            <BlendMode val="Normal"/>
-            <Color val="255,255,255"/>
-            <Height val="33"/>
-            <Width val="33"/>
-        </Frame>
-
-        <Frame type="Label" name="PlayerName">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
-            <Anchor side="Left" relative="$parent/PlayerRankIcon" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent/NavRightArrow" pos="Min" offset="0"/>
-            <BlendMode val="Normal"/>
-            <Color val="255,255,0"/>
-            <Height val="48"/>
-            <Style val="ModCenterSize16"/>
-        </Frame>
-
-        <Frame type="Image" name="CloseButtonImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
-            <BlendMode val="Normal"/>
-            <Color val="255,255,255"/>
-            <Texture val="Assets\Textures\ui_ingame_resourcesharing_closebutton_normalandpressed.dds"/>
-            <TextureType val="Normal"/>
-            <Tiled val="true"/>
-            <Height val="34"/>
-            <Width val="34"/>
-        </Frame>
-
-        <Frame type="Button" name="CloseButton">
-            <Anchor side="Top" relative="$parent/CloseButtonImage" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CloseButtonImage" pos="Min" offset="0"/>
-            <Height val="34"/>
-            <Width val="34"/>
-        </Frame>-->
+	   <StateGroup name="VisibleState">
+            <DefaultState val="NotVisible"/>
+            <State name="Visible">
+                <When type="Property" frame="$parent/$parent/TabControl" SelectedIndex="0"/>
+                <Action type="SetProperty" frame="$this" Visible="True"/>
+            </State>
+            <State name="NotVisible">
+                <Action type="SetProperty" frame="$this" Visible="False"/>
+            </State>
+        </StateGroup>
     </Frame>
 
     <Frame type="Frame" name="MedalContainer">
@@ -299,23 +178,24 @@
 		<Frame type="Label" name="Title">
 			<Text val = "Stats"/>
         </Frame>
-		
-		
-		<Frame type = "ProgressBar" name = "NextLevelXP" template = "TriggerDialogFrame/TriggerControlProgressBarTemplate">
-			<Height val = "37"/>
-			<Width val = "520"/>
+
+		<Frame type="ProgressBar" name="NextRankProgressBar">
 			<Anchor side = "Left" relative= "$parent" pos="Min" offset="85"/>
 			<Anchor side = "Top" relative= "$parent" pos="Min" offset="391"/>
-			<MinValue val="0"/>
-            <MaxValue val="0"/>
-            <Value val="0"/>
-            <UseFillContainer val="true"/>
+			<Height val="37"/>
+			<Width val="520"/>
+			<Texture val="Assets\Textures\progress-queue.dds"/>
+			<Color val="##StandardProgressFill"/>
 		</Frame>
-			
-		<Frame type = "Label" name = "XP">
-			<Anchor relative= "$parent/NextLevelXP"/>
-			<Style val = "ModCenterSize20"/>
+
+		<Frame type="Label" name="NextRankProgress">
+			<Anchor side="Top" relative="$parent/NextRankProgressBar" pos="Min" offset="0"/>
+			<Anchor side="Left" relative="$parent/NextRankProgressBar" pos="Min" offset="0"/>
+			<Height val="44"/>
+			<Width val="520"/>
+			<Style val="ModCenterSize20"/>
 		</Frame>
+		
         <!-- Next Rank -->
         <Frame type="Label" name="NextRankLabel">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-156"/>
@@ -494,7 +374,13 @@
 				</Frame>
 			</Frame>
 	
-		</Frame>     
+		</Frame>
+
+        <StateGroup name="VisibleState">
+            <State name="Visible">
+                <When type="Property" frame="$parent/$parent/TabControl" SelectedIndex="2"/>
+            </State>
+        </StateGroup>		
     </Frame>
 
 	<Frame type="Frame" name="TalentTreeTab" template="PlayerDetails/DetailsUI">
@@ -504,6 +390,12 @@
 		<Frame type="Frame" name="TalentTree" template="TalentTree/TalentTreeTemplate">
 		
 		</Frame>
+		
+		<StateGroup name="VisibleState">
+            <State name="Visible">
+                <When type="Property" frame="$parent/$parent/TabControl" SelectedIndex="1"/>
+            </State>
+        </StateGroup>
 	</Frame>
 	
     <Frame type="Frame" name="StatsButtonContainer">
@@ -638,131 +530,26 @@
         </Frame>
     </Frame>
 
-    <Frame type="Frame" name="TextProgressBar">
-        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-
-        <Frame type="ProgressBar" name="NextRankProgressBar">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Height val="37"/>
-            <Width val="520"/>
-            <Texture val="Assets\Textures\progress-queue.dds"/>
-            <Color val="##StandardProgressFill"/>
-        </Frame>
-
-        <Frame type="Label" name="NextRankProgress">
-            <Anchor side="Top" relative="$parent/NextRankProgressBar" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/NextRankProgressBar" pos="Min" offset="0"/>
-            <Height val="44"/>
-            <Width val="520"/>
-            <Style val="ModCenterSize20"/>
-        </Frame>
-    </Frame>
-	
-	<Frame type="TabControl" name="PlayerDetailsTabController">
-	
-		<Height val="610"/>
-        <Width val="690"/>
-		<SelectedIndex val = "0"/>
-		<TabListItem val="PageButtonsContainer/MedalsButton"/>
-		<TabListItem val="PageButtonsContainer/TalentsButton"/>
-		<TabListItem val="PageButtonsContainer/StatsButton"/>
-		<PanelListItem val="MedalTab"/>
-		<PanelListItem val="TalentTab"/>
-		<PanelListItem val="StatsTab"/>
-		
-		<Frame type="Frame" name = "PageButtonsContainer">
-			<Anchor side="Bottom" relative="$parent" pos="Max" offset="-22"/>
-			<Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
-			<Height val = "48" />
-			<Width val = "288" />
-
-			<!-- Medal Related -->
-			<Frame type="Button" name="MedalsButton">
-				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-				<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-				<Height val="48"/>
-				<Width val="96"/>
-				<Toggleable val="true"/>
-				
-				<Label val = "MedalsLabel" />
-				<NormalImage val = "MedalsBorder" />
-				
-				<Frame type="Image" name="MedalsBorder" template="PlayerDetails/ButtonBorderTemplate">
-					<Anchor relative="$parent" offset="0"/>
-				</Frame>
-				
-				<Frame type="Label" name="MedalsLabel" template="PlayerDetails/ButtonLabelTemplate">
-					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-					<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
-					<Text val = "Medals"/>
-				</Frame>
-			</Frame>
-
-			<!-- Stats Related -->
-			<Frame type="Button" name="StatsButton">
-				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-				<Anchor side="Left" relative="$parent/MedalsButton" pos="Max" offset="-10"/>
-				<Height val="48"/>
-				<Width val="96"/>
-				<Toggleable val="true"/>
-				
-				<NormalImage val = "StatsBorder" />
-				<Label val = "StatsLabel"/>
-				
-				<Frame type="Image" name="StatsBorder" template="PlayerDetails/ButtonBorderTemplate">
-					<Anchor relative="$parent" offset="0"/>
-				</Frame>
-				
-				<Frame type="Label" name="StatsLabel" template="PlayerDetails/ButtonLabelTemplate">
-					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-					<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
-					<Text val = "Stats"/>
-				</Frame>		
-			</Frame>
-
-			<!-- Talents Related -->	
-			<Frame type="Button" name="TalentsButton">
-				<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-				<Anchor side="Left" relative="$parent/StatsButton" pos="Max" offset="-10"/>
-				<Height val="48"/>
-				<Width val="96"/>
-				<Toggleable val="true"/>
-				
-				<Label val = "TalentsLabel" />
-				<NormalImage val = "TalentsBorder" />
-				
-				<Frame type="Label" name="TalentsLabel" template="PlayerDetails/ButtonLabelTemplate">
-					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-					<Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
-					<Text val = "Talents"/>
-				</Frame>
-				
-				<Frame type="Image" name="TalentsBorder" template="PlayerDetails/ButtonBorderTemplate">
-					<Anchor relative="$parent" offset="0"/>
-				</Frame>
-			</Frame>
-		
-		</Frame>
-		
+	<Frame type="Frame" name="PlayerDetailsContainer">
+		<Anchor relative="$parent" />
+		<Visible val = "false" />
 		<Frame type="Frame" name = "MedalTab" template="PlayerDetails/Medals" >
-			<Anchor relative= "$parent"  offset="0"/>
+			<Anchor relative="$parent" />
 		</Frame>
 		
 		<Frame type="Frame" name = "TalentTab" template="PlayerDetails/TalentTreeTab">
-			<Anchor relative= "$parent"  offset="0"/>
+			<Anchor relative="$parent" />
 		</Frame>
 		
 		<Frame type="Frame" name = "StatsTab" template="PlayerDetails/StatsWeaponModsUI">
-			<Anchor relative= "$parent"  offset="0"/>
+			<Anchor relative="$parent" />
 		</Frame>
 		
 		<!-- Navigation Buttons -->
         <!-- Left Arrow -->
         <Frame type="Image" name="NavLeftArrow">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-28"/>
-            <Anchor side="Left" relative="$parent/PageButtonsContainer" pos="Max" offset="-6"/>
+            <Anchor side="Left" relative="$parent/$parent/TabControl/PageButtonsContainer" pos="Max" offset="-6"/>
             <Texture val="Assets\Textures\ui_research_frame_available_arrow_left.dds"/>
             <TextureType val="Normal"/>
             <BlendMode val="Normal"/>
@@ -776,6 +563,12 @@
             <Anchor side="Left" relative="$parent/NavLeftArrow" pos="Min" offset="0"/>
             <Height val="33"/>
             <Width val="33"/>
+			<Animation name = "Toggle">
+				<Event event = "OnClick" action="Reset,Play" />
+				<Controller type = "Visibility" end = "Pause" frame="$parent">
+					<Key type="Bool" time="0" value="false"/>
+				</Controller>
+			</Animation>
         </Frame>
 
         <!-- Right Arrow -->
@@ -795,10 +588,10 @@
             <Anchor side="Left" relative="$parent/NavRightArrow" pos="Min" offset="0"/>
             <Height val="33"/>
             <Width val="33"/>
-			<Animation name = "Previous">
+			<Animation name = "Toggle">
 				<Event event = "OnClick" action="Reset,Play" />
-				<Controller type = "State" stateGroup = "NextFrame" end = "Pause" frame="$parent">
-					<Key type="Identifier" time="0" value="Forward"/>
+				<Controller type = "Visibility" end = "Pause" frame="$parent">
+					<Key type="Bool" time="0" value="false"/>
 				</Controller>
 			</Animation>
         </Frame>
@@ -823,32 +616,14 @@
             <Style val="ModCenterSize16"/>
         </Frame>
 
-        <Frame type="Image" name="CloseButtonImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
-            <BlendMode val="Normal"/>
-            <Color val="255,255,255"/>
-            <Texture val="Assets\Textures\ui_ingame_resourcesharing_closebutton_normalandpressed.dds"/>
-            <TextureType val="Normal"/>
-            <Tiled val="true"/>
-            <Height val="34"/>
-            <Width val="34"/>
-        </Frame>
-
-        <Frame type="Button" name="CloseButton">
-            <Anchor side="Top" relative="$parent/CloseButtonImage" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CloseButtonImage" pos="Min" offset="0"/>
-            <Height val="34"/>
-            <Width val="34"/>
-			
-			<Animation name = "Toggle">
-				<Event event = "OnClick" action="Reset,Play" />
-				<Controller type = "Visibility" end = "Pause" frame="$parent">
-					<Key type="Bool" time="0" value="false"/>
-				</Controller>
-			</Animation>
-        </Frame>
-		
+		<Frame type="Animation" name="DetailVisibiltyState">
+			<Event event="show" action="DirectionForward,Play" frame="$this"/>
+			<Event event="hide" action="DirectionReverse,Play" frame="$this"/>
+			<Controller type="Visibility" end="Pause" frame="$this">
+				<Key type="Bool" time="0.000" value="false"/>
+				<Key type="Bool" time="0.005" value="true"/>
+			</Controller>
+		</Frame>
 		
 	</Frame>
 </Desc>
