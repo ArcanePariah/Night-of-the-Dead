@@ -11157,6 +11157,7 @@
         <ImpactUnit Value="Caster"/>
         <VitalArray index="Life" Change="2"/>
         <VitalArray index="Shields" Change="1"/>
+        <ValidatorArray value="KillerHasSadist1"/>
     </CEffectModifyUnit>
     <CEffectApplyBehavior id="SadistLv2HealingTemp">
         <EditorCategories value=""/>
@@ -11166,6 +11167,7 @@
         <ImpactUnit Value="Caster"/>
         <VitalArray index="Life" Change="4"/>
         <VitalArray index="Shields" Change="2"/>
+        <ValidatorArray value="KillerHasSadist2"/>
     </CEffectModifyUnit>
     <CEffectDamage id="SatchelBeepDummy">
         <EditorCategories value=""/>
