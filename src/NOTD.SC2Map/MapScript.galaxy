@@ -18298,7 +18298,6 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
 
     }
     UnitGroupLoopEnd();
-    TriggerEnable(gt_ECW1EnterMine, true);
     if ((RandomInt(0, 4) == 1)) {
         Wait(RandomFixed(4.0, 7.5), c_timeReal);
     }
