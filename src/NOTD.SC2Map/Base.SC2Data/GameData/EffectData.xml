@@ -1144,6 +1144,11 @@
     </CEffectSet>
     <CEffectCreateUnit id="RoadFlareSpawn">
         <SpawnUnit value="RoadFlareFire"/>
+        <SpawnOwner Value="Neutral"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="SonicCreateRevealDummy">
+        <SpawnUnit value="SonicRevealDummy"/>
+        <SpawnOwner Value="Neutral"/>
     </CEffectCreateUnit>
     <CEffectModifyUnit id="SharedExperienceDefault">
         <EditorCategories value=""/>
@@ -9901,11 +9906,6 @@
         <Behavior value="FireVulnerabilityHEAmmo"/>
         <ValidatorArray index="0" value="TargetIsNotAlly"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="HEAmmoBurnDamage">
-        <EditorCategories value=""/>
-        <Death value="Fire"/>
-        <SearchFilters value="-;Item,Dead,Invulnerable"/>
-    </CEffectDamage>
     <CEffectSet id="HEAmmoSet">
         <EditorCategories value=""/>
         <EffectArray value="HEAmmoApplyBurn"/>
@@ -10053,6 +10053,12 @@
         <AINotifyFlags index="HurtEnemy" value="1"/>
         <Alert value="TacticalNuke"/>
     </CEffectCreatePersistent>
+    <CEffectCreateUnit id="NukeCreateRevealDummy">
+        <WhichLocation Value="TargetPoint"/>
+        <SpawnUnit value="NukeRevealDummy"/>
+        <SpawnOwner Value="Neutral"/>
+        <SpawnEffect value="NukePersistent"/>
+    </CEffectCreateUnit>
     <CEffectDamage id="NukeSuicide">
         <ImpactLocation Value="TargetPoint"/>
     </CEffectDamage>
@@ -10457,12 +10463,14 @@
         <EditorCategories value=""/>
         <EffectArray value="SonicTrapLevel1Shockwave"/>
         <EffectArray value="SonicTrapApplyCount"/>
+        <EffectArray value="SonicCreateRevealDummy"/>
     </CEffectSet>
     <CEffectSet id="SonicTrapSetLevel2">
         <EditorCategories value=""/>
         <Marker Link="Effect/SonicTrapSetLevel1"/>
         <EffectArray value="SonicTrapLevel2Shockwave"/>
         <EffectArray value="SonicTrapApplyCount"/>
+        <EffectArray value="SonicCreateRevealDummy"/>
     </CEffectSet>
     <CEffectApplyBehavior id="SonicTrapLevel1Stun">
         <EditorCategories value=""/>
