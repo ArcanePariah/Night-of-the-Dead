@@ -2158,7 +2158,6 @@ trigger gt_GunshipSelection;
 trigger gt_GunshipSupport;
 trigger gt_GunshipOtherKeys;
 trigger gt_GunshipImpactQuake;
-trigger gt_HugRevealWhenActivated;
 trigger gt_TalentSelection;
 trigger gt_TalentTreeToggle;
 
@@ -39408,29 +39407,6 @@ void gt_GunshipImpactQuake_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Hug - Reveal When Activated
-//--------------------------------------------------------------------------------------------------
-bool gt_HugRevealWhenActivated_Func (bool testConds, bool runActions) {
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    IntLoopBegin(gv_indexBaseValue, gv_numberofPlayers);
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        VisRevealArea(IntLoopCurrent(), RegionCircle(UnitGetPosition(EventUnit()), 3.0), 5.0, false);
-    }
-    IntLoopEnd();
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_HugRevealWhenActivated_Init () {
-    gt_HugRevealWhenActivated = TriggerCreate("gt_HugRevealWhenActivated_Func");
-    TriggerAddEventUnitAbility(gt_HugRevealWhenActivated, null, AbilityCommand("NeuralParasite", 0), c_unitAbilStageAll, false);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Talent Selection
 //--------------------------------------------------------------------------------------------------
 bool gt_TalentSelection_Func (bool testConds, bool runActions) {
@@ -39910,7 +39886,6 @@ void InitTriggers () {
     gt_GunshipSupport_Init();
     gt_GunshipOtherKeys_Init();
     gt_GunshipImpactQuake_Init();
-    gt_HugRevealWhenActivated_Init();
     gt_TalentSelection_Init();
     gt_TalentTreeToggle_Init();
 }
