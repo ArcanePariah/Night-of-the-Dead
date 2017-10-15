@@ -1153,6 +1153,7 @@ Trigger/Name/83C90FA2=Mine Shaft
 Trigger/Name/8462F0FB=OM5 - Ramirez's Taunts
 Trigger/Name/84E26899=Boss 2 - Killed
 Trigger/Name/851C7C80=Demeter Killed
+Trigger/Name/85CB1E07=Talent Tree Toggle
 Trigger/Name/86405CAD=Demeter Engaged
 Trigger/Name/86FED63D=Chapter 3 - Mini Marine Evasion AI
 Trigger/Name/874C3475=AC - IVAX Killed

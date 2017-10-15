@@ -617,8 +617,8 @@
         </Frame>
 
 		<Frame type="Animation" name="DetailVisibiltyState">
-			<Event event="show" action="DirectionForward,Play" frame="$this"/>
-			<Event event="hide" action="DirectionReverse,Play" frame="$this"/>
+			<Event event="show" action="Reset, DirectionForward,Play" frame="$this"/>
+			<Event event="hide" action="Reset, DirectionReverse,Play" frame="$this"/>
 			<Controller type="Visibility" end="Pause" frame="$this">
 				<Key type="Bool" time="0.000" value="false"/>
 				<Key type="Bool" time="0.005" value="true"/>

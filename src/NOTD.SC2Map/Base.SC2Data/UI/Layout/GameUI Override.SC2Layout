@@ -249,7 +249,7 @@
 				<Animation name = "Toggle">
 					<Event event = "OnClick" action="Reset,Play" />
 					<Controller type="Event" end="Stop" frame="$parent">
-						<Key type="Event" time="0" event="update"/>
+						<Key type="Event" time="0" event="hideall"/>
 					</Controller>
 				</Animation>
 			</Frame>

@@ -37025,7 +37025,6 @@ bool gt_TeamStatusClickedTalentTree_Func (bool testConds, bool runActions) {
 void gt_TeamStatusClickedTalentTree_Init () {
     gt_TeamStatusClickedTalentTree = TriggerCreate("gt_TeamStatusClickedTalentTree_Func");
     TriggerEnable(gt_TeamStatusClickedTalentTree, false);
-    TriggerAddEventDialogControl(gt_TeamStatusClickedTalentTree, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -39821,6 +39820,7 @@ bool gt_TalentTreeToggle_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    DialogControlSendAnimationEvent(gv_playerDetailContainer, PlayerGroupSingle(lv_selectingPlayer), "hideall");
     DialogControlSendAnimationEvent(gv_playerDetailsFrame[lv_selectingPlayer], PlayerGroupSingle(lv_selectingPlayer), "show");
     return true;
 }

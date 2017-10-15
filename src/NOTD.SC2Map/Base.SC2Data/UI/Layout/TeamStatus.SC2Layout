@@ -376,6 +376,20 @@
 		<Frame type = "Frame" name = "Marine1" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent" pos = "Min" offset = "35"/>
 			<Anchor side = "Left" relative = "$parent" pos = "Min" offset = "42"/>
+			<Frame type="Button" name="StatusButton">
+				<Animation name = "ShowStatus">
+					<Event event = "OnClick" action="Reset,Play" />
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="hideall"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="update"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player1Data">
+						<Key type="Event" time="0" event="show"/>
+					</Controller>
+				</Animation>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "1" />
@@ -386,6 +400,20 @@
 		<Frame type = "Frame" name = "Marine2" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine1" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type="Button" name="StatusButton">
+				<Animation name = "ShowStatus">
+					<Event event = "OnClick" action="Reset,Play" />
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="hideall"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="update"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player2Data">
+						<Key type="Event" time="0" event="show"/>
+					</Controller>
+				</Animation>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "2" />
@@ -396,6 +424,20 @@
 		<Frame type = "Frame" name = "Marine3" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine2" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type="Button" name="StatusButton">
+				<Animation name = "ShowStatus">
+					<Event event = "OnClick" action="Reset,Play" />
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="hideall"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="update"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player3Data">
+						<Key type="Event" time="0" event="show"/>
+					</Controller>
+				</Animation>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "3" />
@@ -406,6 +448,20 @@
 		<Frame type = "Frame" name = "Marine4" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine3" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type="Button" name="StatusButton">
+				<Animation name = "ShowStatus">
+					<Event event = "OnClick" action="Reset,Play" />
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="hideall"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="update"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player4Data">
+						<Key type="Event" time="0" event="show"/>
+					</Controller>
+				</Animation>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "4" />
@@ -416,6 +472,20 @@
 		<Frame type = "Frame" name = "Marine5" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine4" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type="Button" name="StatusButton">
+				<Animation name = "ShowStatus">
+					<Event event = "OnClick" action="Reset,Play" />
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="hideall"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="update"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player5Data">
+						<Key type="Event" time="0" event="show"/>
+					</Controller>
+				</Animation>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "5" />
@@ -426,6 +496,20 @@
 		<Frame type = "Frame" name = "Marine6" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine5" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type="Button" name="StatusButton">
+				<Animation name = "ShowStatus">
+					<Event event = "OnClick" action="Reset,Play" />
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="hideall"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="update"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player6Data">
+						<Key type="Event" time="0" event="show"/>
+					</Controller>
+				</Animation>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "6" />
@@ -436,6 +520,20 @@
 		<Frame type = "Frame" name = "Marine7" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine6" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type="Button" name="StatusButton">
+				<Animation name = "ShowStatus">
+					<Event event = "OnClick" action="Reset,Play" />
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="hideall"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="update"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player7Data">
+						<Key type="Event" time="0" event="show"/>
+					</Controller>
+				</Animation>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "7" />
@@ -446,6 +544,20 @@
 		<Frame type = "Frame" name = "Marine8" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine7" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type="Button" name="StatusButton">
+				<Animation name = "ShowStatus">
+					<Event event = "OnClick" action="Reset,Play" />
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="hideall"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
+						<Key type="Event" time="0" event="update"/>
+					</Controller>
+					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player8Data">
+						<Key type="Event" time="0" event="show"/>
+					</Controller>
+				</Animation>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "8" />
