@@ -363,6 +363,7 @@
 			<Frame type="Label" name="ButtonLabel">
 				<Text val = "Medals"/>
 			</Frame>
+			<Visible val = "false" />
 		</Frame>
 		
 		<Frame type="Button" name="StatsButton" template="TeamStatus/ButtonTemplate">
@@ -371,6 +372,7 @@
 			<Frame type="Label" name="ButtonLabel">
 				<Text val = "Stats"/>
 			</Frame>
+			<Visible val = "false" />
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine1" template = "TeamStatus/MarineStatusFrame">
