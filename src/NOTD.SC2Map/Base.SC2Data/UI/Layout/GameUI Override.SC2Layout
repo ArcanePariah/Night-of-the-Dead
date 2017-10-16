@@ -99,10 +99,16 @@
         </Frame>
 		
 		<Frame type ="Button" name = "TalentButton">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-			<Height val = "1"/>
-			<Width val = "1"/>
+			<Anchor side="Right" relative="$parent" pos="0.55" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="0.7" offset="0"/>
+			<Height val = "76"/>
+			<Width val = "76"/>
+			<NormalImage val = "NormalImage"/>
+			
+			<Frame type = "Image" name = "NormalImage">
+				<Anchor relative = "$parent"/>
+				<Texture val = "Assets\Textures\btn-tips-sellprotossartifacts.dds" />
+			</Frame>
 			<Animation name = "Toggle">
 				<Event event = "OnClick" action="Reset,Play" />
 				<Controller type="Event" end="Stop" frame="$parent/PlayerDataContainer">
