@@ -820,6 +820,7 @@ bool[4] gv_bioDomeCompleted;
 unit gv_blackOpsSentinel;
 bool gv_generatorMissionSuccessful;
 unitgroup gv_easyCompany;
+unitgroup gv_easyCompanyTanks;
 bool gv_queenBirthing;
 bool gv_queenFrenzy;
 bool gv_queenEscapeMode;
@@ -1218,6 +1219,7 @@ void InitGlobals () {
     gv_civRescueBatchObjective = c_invalidObjectiveId;
     gv_blackOpsDroneTeam = UnitGroupEmpty();
     gv_easyCompany = UnitGroupEmpty();
+    gv_easyCompanyTanks = UnitGroupEmpty();
     gv_queenMoveSpeed = 0.8;
     gv_queenBossPing = c_invalidPingId;
     gv_truckAttackers = UnitGroupEmpty();
@@ -1619,8 +1621,6 @@ void gf_DestroyObjectiveDelayed (int lp_objective);
 void gf_BlackOpsAIInitiative ();
 void gf_ECChapter3AirDrop ();
 void gf_CharlieCompanyAI ();
-void gf_CharlieCompanyAIOrders ();
-unit gf_CharlieCompanyAIGetFavHero (unit lp_referenceUnit);
 void gf_BrokenArrow ();
 void gf_KollersFireMission ();
 void gf_QueenAI ();
@@ -7789,77 +7789,87 @@ void gf_CharlieCompanyAI () {
 }
 
 bool auto_gf_CharlieCompanyAI_TriggerFunc (bool testConds, bool runActions) {
+    // Variable Declarations
+    unitgroup lv_possibleEscorts;
+    unit lv_nearestEscort;
+    fixed lv_escortDist;
+    unit lv_escortUnit;
+    unitgroup lv_siegeTanks;
+    unitgroup lv_unescorted;
+
+    // Variable Initialization
+    lv_possibleEscorts = UnitGroupEmpty();
+    lv_siegeTanks = UnitGroupEmpty();
+    lv_unescorted = UnitGroupEmpty();
+
     // Implementation
     while ((gv_gameOver == false)) {
-        Wait(7.0, c_timeReal);
-        gf_CharlieCompanyAIOrders();
-    }
-    return true;
-}
-
-void gf_CharlieCompanyAIOrders () {
-    // Variable Declarations
-    unit lv_myFavHero;
-
-    // Variable Initialization
-
-    // Implementation
-    UnitGroupLoopBegin(gv_easyCompany);
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        lv_myFavHero = gf_CharlieCompanyAIGetFavHero(UnitGroupLoopCurrent());
-        if ((lv_myFavHero != null)) {
-            if ((DistanceBetweenPoints(UnitGetPosition(UnitGroupLoopCurrent()), UnitGetPosition(lv_myFavHero)) > 5.0)) {
-                if (((UnitGetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLifePercent, c_unitPropCurrent) <= 60.0) || (RandomInt(0, 3) == 1))) {
-                    if (((UnitGetType(UnitGroupLoopCurrent()) == "SiegeBreaker") || (UnitGetType(UnitGroupLoopCurrent()) == "SpartanCompany"))) {
-                        UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionCircle(UnitGetPosition(lv_myFavHero), 5.0))), c_orderQueueReplace);
-                    }
-                    else {
-                        UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionCircle(UnitGetPosition(lv_myFavHero), 3.0))), c_orderQueueReplace);
-                    }
+        if ((UnitGroupCount(lv_possibleEscorts, c_unitCountAlive) == 0)) {
+            UnitGroupLoopBegin(gv_marines);
+            for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                if ((UnitGetType(UnitGroupLoopCurrent()) != "Marksman") && (UnitGetType(UnitGroupLoopCurrent()) != "Spectre")) {
+                    UnitGroupAdd(lv_possibleEscorts, UnitGroupLoopCurrent());
+                }
+            }
+            UnitGroupLoopEnd();
+            if ((UnitGroupCount(lv_possibleEscorts, c_unitCountAlive) == 0)) {
+                UnitGroupAddUnitGroup(lv_possibleEscorts, gv_marines);
+            }
+        }
+        UnitGroupLoopBegin(gv_easyCompanyTanks);
+        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+            lv_nearestEscort = UnitGroupClosestToPoint(lv_possibleEscorts, UnitGetPosition(UnitGroupLoopCurrent()));
+            lv_escortDist = DistanceBetweenPoints(UnitGetPosition(UnitGroupLoopCurrent()), UnitGetPosition(lv_nearestEscort));
+            if ((UnitGetType(UnitGroupLoopCurrent()) == "SiegeBreaker") && (IntToFixed(UnitGroupCount(lv_siegeTanks, c_unitCountAlive)) < (IntToFixed(UnitGroupCount(gv_easyCompanyTanks, c_unitCountAlive)) * 0.5)) && (lv_escortDist <= 3.0) && (lv_escortDist >= 1.35) && (DistanceBetweenPoints(UnitGetPosition(lv_nearestEscort), UnitGetGoalPosition(lv_nearestEscort)) <= 1.5)) {
+                AISetUnitScriptControlled(UnitGroupLoopCurrent(), true);
+                UnitGroupAdd(lv_siegeTanks, UnitGroupLoopCurrent());
+                UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("SiegeBreakerSiege", 0)), c_orderQueueReplace);
+            }
+            else if ((UnitGetType(UnitGroupLoopCurrent()) == "SiegeBreakerSieged") && ((lv_escortDist > 3.0) || (lv_escortDist < 1.35) || (DistanceBetweenPoints(UnitGetPosition(lv_nearestEscort), UnitGetGoalPosition(lv_nearestEscort)) > 3.0))) {
+                AISetUnitScriptControlled(UnitGroupLoopCurrent(), true);
+                UnitGroupRemove(lv_siegeTanks, UnitGroupLoopCurrent());
+                UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("SiegeBreakerUnsiege", 0)), c_orderQueueReplace);
+                UnitGroupAdd(lv_unescorted, UnitGroupLoopCurrent());
+            }
+        }
+        UnitGroupLoopEnd();
+        Wait(2.1, c_timeGame);
+        UnitGroupLoopBegin(gv_easyCompany);
+        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+            lv_nearestEscort = UnitGroupClosestToPoint(lv_possibleEscorts, UnitGetPosition(UnitGroupLoopCurrent()));
+            lv_escortDist = DistanceBetweenPoints(UnitGetPosition(UnitGroupLoopCurrent()), UnitGetPosition(lv_nearestEscort));
+            if ((lv_escortDist > 10.0)) {
+                AISetUnitScriptControlled(UnitGroupLoopCurrent(), true);
+                if ((lv_escortDist > 20.0)) {
+                    UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("Sprint", 0)), c_orderQueueReplace);
+                    UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("Turbo", 0)), c_orderQueueReplace);
+                    UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(lv_nearestEscort)), c_orderQueueReplace);
                 }
                 else {
-                    if (((UnitGetType(UnitGroupLoopCurrent()) == "SiegeBreaker") || (UnitGetType(UnitGroupLoopCurrent()) == "SpartanCompany"))) {
-                        UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionRandomPoint(RegionCircle(UnitGetPosition(lv_myFavHero), 5.0))), c_orderQueueReplace);
-                    }
-                    else {
-                        UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), RegionRandomPoint(RegionCircle(UnitGetPosition(lv_myFavHero), 3.0))), c_orderQueueReplace);
-                    }
+                    UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("move", 0), UnitGetPosition(lv_nearestEscort)), c_orderQueueReplace);
                 }
             }
-
-        }
-        else {
-            UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("Sprint", 0)), c_orderQueueReplace);
-            UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("Turbo", 0)), c_orderQueueReplace);
-            UnitIssueOrder(UnitGroupLoopCurrent(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), c_orderQueueReplace);
-        }
-    }
-    UnitGroupLoopEnd();
-}
-
-unit gf_CharlieCompanyAIGetFavHero (unit lp_referenceUnit) {
-    int autoE5F42EAB_n;
-    int autoE5F42EAB_i;
-
-    // Variable Declarations
-    unit lv_myFavHero;
-    int lv_localIntA;
-
-    // Variable Initialization
-    lv_localIntA = 1;
-
-    // Implementation
-    autoE5F42EAB_n = 8;
-    for (autoE5F42EAB_i = 1; autoE5F42EAB_i <= autoE5F42EAB_n; autoE5F42EAB_i += 1) {
-        if ((gv_marineHero[lv_localIntA] != null)) {
-            if ((DistanceBetweenPoints(UnitGetPosition(gv_marineHero[lv_localIntA]), UnitGetPosition(lp_referenceUnit)) <= 20.0)) {
-                lv_myFavHero = gv_marineHero[lv_localIntA];
+            else if ((lv_escortDist <= 10.0) && (AIIsScriptControlled(UnitGroupLoopCurrent()) == true) && (UnitGetType(UnitGroupLoopCurrent()) != "SiegeBreakerSieged")) {
+                UnitGroupAdd(lv_unescorted, UnitGroupLoopCurrent());
             }
-
         }
-        lv_localIntA += 1;
+        UnitGroupLoopEnd();
+        Wait(0.1, c_timeGame);
+        if ((UnitGroupCount(lv_unescorted, c_unitCountAlive) != 0)) {
+            UnitGroupLoopBegin(lv_unescorted);
+            for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+                lv_nearestEscort = UnitGroupClosestToPoint(lv_possibleEscorts, UnitGetPosition(UnitGroupLoopCurrent()));
+                lv_escortUnit = UnitGroupRandomUnit(UnitGroupFilterRegion(lv_possibleEscorts, RegionCircle(UnitGetPosition(lv_nearestEscort), 10.0), 0), c_unitCountAlive);
+                UnitGroupRemove(lv_unescorted, UnitGroupLoopCurrent());
+                AISetUnitScriptControlled(UnitGroupLoopCurrent(), false);
+                AIAttackWaveAddEscortUnit(9, UnitGroupLoopCurrent(), lv_escortUnit, RandomFixed(2.5, 3.5), libNtve_gf_RandomAngle());
+            }
+            UnitGroupLoopEnd();
+            AIAttackWaveSend(9, 0, false);
+        }
+        Wait(4.7, c_timeGame);
     }
-    return lv_myFavHero;
+    return true;
 }
 
 trigger auto_gf_BrokenArrow_Trigger = null;
@@ -24342,7 +24352,6 @@ bool gt_Wave15RandomMobs_Func (bool testConds, bool runActions) {
     ObjectiveCreate(StringExternal("Param/Value/E3864FB9"), StringExternal("Param/Value/3969D2BA"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
     UnitSetPropertyFixed(gv_finalBoss, c_unitPropMovementSpeed, 0.8);
-    gf_CharlieCompanyAI();
     TriggerEnable(gt_Chapter3MiniMarineEvasionAI, true);
     gf_RadioNOTD(gv_characterCaptainLinh, StringExternal("Param/Value/A9BBE26A"));
     auto350EC625_n = gv_spawnFactor;
@@ -24364,6 +24373,7 @@ bool gt_Wave15RandomMobs_Func (bool testConds, bool runActions) {
     UnitGroupAdd(gv_easyCompany, UnitLastCreated());
     UnitSetTeamColorIndex(UnitLastCreated(), 14);
     Wait(0.1, c_timeGame);
+    gf_CharlieCompanyAI();
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         if ((UnitIsAlive(gv_marineHero[PlayerGroupLoopCurrent()]) == false)) {
@@ -24540,6 +24550,7 @@ bool gt_Wave17RandomMobs_Func (bool testConds, bool runActions) {
     for (autoB1ED5CA0_i = 1; autoB1ED5CA0_i <= autoB1ED5CA0_n; autoB1ED5CA0_i += 1) {
         libNtve_gf_UnitCreateFacingPoint(1, "SiegeBreaker", 0, 9, gf_RandomPointatGroundHeight(lv_charlieDropPoint, gv_reinforcementSpawnHeight[lv_randominteger]), RegionRandomPoint(RegionPlayableMap()));
         UnitGroupAdd(gv_easyCompany, UnitLastCreated());
+        UnitGroupAdd(gv_easyCompanyTanks, UnitLastCreated());
         UnitSetTeamColorIndex(UnitLastCreated(), 6);
         Wait(0.5, c_timeGame);
     }
