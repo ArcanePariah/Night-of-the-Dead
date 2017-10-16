@@ -36802,8 +36802,7 @@ bool gt_DialogButtonClicks_Func (bool testConds, bool runActions) {
     else if ((lv_usedDialogItem == gv_dialogButtons[2][lv_ownerofDialog])) {
         lv_nextOwnerofDialog = gf_GetPreviousNextPlayer(lv_ownerofDialog, true);
     }
-    gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
-    DialogControlSetVisible(gv_playerDetailsFrame[lv_nextOwnerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+    DialogControlSendAnimationEvent(gv_playerDetailsFrame[lv_nextOwnerofDialog], PlayerGroupSingle(lv_triggeringPlayer), "show");
     return true;
 }
 
