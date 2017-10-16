@@ -383,10 +383,10 @@
 						<Key type="Event" time="0" event="hideall"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="update"/>
+						<Key type="Event" time="0.1" event="update"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player1Data">
-						<Key type="Event" time="0" event="show"/>
+						<Key type="Event" time="0.1" event="show"/>
 					</Controller>
 				</Animation>
 			</Frame>
@@ -407,10 +407,10 @@
 						<Key type="Event" time="0" event="hideall"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="update"/>
+						<Key type="Event" time="0.1" event="update"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player2Data">
-						<Key type="Event" time="0" event="show"/>
+						<Key type="Event" time="0.1" event="show"/>
 					</Controller>
 				</Animation>
 			</Frame>
@@ -431,10 +431,10 @@
 						<Key type="Event" time="0" event="hideall"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="update"/>
+						<Key type="Event" time="0.1" event="update"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player3Data">
-						<Key type="Event" time="0" event="show"/>
+						<Key type="Event" time="0.1" event="show"/>
 					</Controller>
 				</Animation>
 			</Frame>
@@ -455,10 +455,10 @@
 						<Key type="Event" time="0" event="hideall"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="update"/>
+						<Key type="Event" time="0.1" event="update"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player4Data">
-						<Key type="Event" time="0" event="show"/>
+						<Key type="Event" time="0.1" event="show"/>
 					</Controller>
 				</Animation>
 			</Frame>
@@ -479,10 +479,10 @@
 						<Key type="Event" time="0" event="hideall"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="update"/>
+						<Key type="Event" time="0.1" event="update"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player5Data">
-						<Key type="Event" time="0" event="show"/>
+						<Key type="Event" time="0.1" event="show"/>
 					</Controller>
 				</Animation>
 			</Frame>
@@ -503,10 +503,10 @@
 						<Key type="Event" time="0" event="hideall"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="update"/>
+						<Key type="Event" time="0.1" event="update"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player6Data">
-						<Key type="Event" time="0" event="show"/>
+						<Key type="Event" time="0.1" event="show"/>
 					</Controller>
 				</Animation>
 			</Frame>
@@ -524,10 +524,10 @@
 				<Animation name = "ShowStatus">
 					<Event event = "OnClick" action="Reset,Play" />
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="hideall"/>
+						<Key type="Event" time="0.1" event="hideall"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="update"/>
+						<Key type="Event" time="0.1" event="update"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player7Data">
 						<Key type="Event" time="0" event="show"/>
@@ -548,10 +548,10 @@
 				<Animation name = "ShowStatus">
 					<Event event = "OnClick" action="Reset,Play" />
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="hideall"/>
+						<Key type="Event" time="0.1" event="hideall"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer">
-						<Key type="Event" time="0" event="update"/>
+						<Key type="Event" time="0.1" event="update"/>
 					</Controller>
 					<Controller type="Event" end="Stop" frame="$parent/$parent/$parent/PlayerDataContainer/Player8Data">
 						<Key type="Event" time="0" event="show"/>

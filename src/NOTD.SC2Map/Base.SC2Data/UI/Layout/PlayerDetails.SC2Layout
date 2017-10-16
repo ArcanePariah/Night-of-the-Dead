@@ -616,14 +616,14 @@
             <Style val="ModCenterSize16"/>
         </Frame>
 
-		<Frame type="Animation" name="DetailVisibiltyState">
+		<Animation name="DetailVisibiltyState">
 			<Event event="show" action="Reset, DirectionForward,Play" frame="$this"/>
 			<Event event="hide" action="Reset, DirectionReverse,Play" frame="$this"/>
 			<Controller type="Visibility" end="Pause" frame="$this">
 				<Key type="Bool" time="0.000" value="false"/>
 				<Key type="Bool" time="0.005" value="true"/>
 			</Controller>
-		</Frame>
+		</Animation>
 		
 	</Frame>
 </Desc>

@@ -249,41 +249,44 @@
 				<Animation name = "Toggle">
 					<Event event = "OnClick" action="Reset,Play" />
 					<Controller type="Event" end="Stop" frame="$parent">
-						<Key type="Event" time="0" event="hideall"/>
+						<Key type="Event" time="0" event="update"/>
 					</Controller>
 				</Animation>
 			</Frame>
 			
-			<Frame type="Animation" name="PlayerDetailVisibility">
-				<Event event="hideall" action="Reset, Play" frame="$this"/>
+			<Animation name="PlayerDetailVisibility">
+				<Event event="hideall" action="Reset, DirectionForward, Play" frame="$this"/>
 
-                <Controller type="Visibility" end="Pause" frame="Player1Data">
-                    <Key type="Bool" time="0.000" value="false"/>
-                </Controller>
-				<Controller type="Visibility" end="Pause" frame="Player2Data">
-                    <Key type="Bool" time="0.000" value="false"/>
-                </Controller>
-				<Controller type="Visibility" end="Pause" frame="Player3Data">
-                    <Key type="Bool" time="0.000" value="false"/>
-                </Controller>
-				<Controller type="Visibility" end="Pause" frame="Player4Data">
-                    <Key type="Bool" time="0.000" value="false"/>
-                </Controller>
-				<Controller type="Visibility" end="Pause" frame="Player5Data">
-                    <Key type="Bool" time="0.000" value="false"/>
-                </Controller>
-				<Controller type="Visibility" end="Pause" frame="Player6Data">
-                    <Key type="Bool" time="0.000" value="false"/>
-                </Controller>
-				<Controller type="Visibility" end="Pause" frame="Player7Data">
-                    <Key type="Bool" time="0.000" value="false"/>
-                </Controller>
-				<Controller type="Visibility" end="Pause" frame="Player8Data">
-                    <Key type="Bool" time="0.000" value="false"/>
-                </Controller>
-            </Frame>
+				<Controller type="Event" end="Stop" frame="Player1Data">
+					<Key type="Event" time="0" event="hide"/>
+				</Controller>
+				<Controller type="Event" end="Stop" frame="Player1Data">
+					<Key type="Event" time="0" event="hide"/>
+				</Controller>
+				<Controller type="Event" end="Stop" frame="Player2Data">
+					<Key type="Event" time="0" event="hide"/>
+				</Controller>
+				<Controller type="Event" end="Stop" frame="Player3Data">
+					<Key type="Event" time="0" event="hide"/>
+				</Controller>
+				<Controller type="Event" end="Stop" frame="Player4Data">
+					<Key type="Event" time="0" event="hide"/>
+				</Controller>
+				<Controller type="Event" end="Stop" frame="Player5Data">
+					<Key type="Event" time="0" event="hide"/>
+				</Controller>
+				<Controller type="Event" end="Stop" frame="Player6Data">
+					<Key type="Event" time="0" event="hide"/>
+				</Controller>
+				<Controller type="Event" end="Stop" frame="Player7Data">
+					<Key type="Event" time="0" event="hide"/>
+				</Controller>
+				<Controller type="Event" end="Stop" frame="Player8Data">
+					<Key type="Event" time="0" event="hide"/>
+				</Controller>
+            </Animation>
 			
-			<Frame type="Animation" name="ContainerVisibility">
+			<Animation name="ContainerVisibility">
 				<Event event="update" action="ToggleDirection, Play" frame="$this"/>
 				<Event event="show" action="DirectionForward,Play" frame="$this"/>
 				<Event event="hide" action="DirectionReverse,Play" frame="$this"/>
@@ -291,7 +294,7 @@
                     <Key type="Bool" time="0.000" value="true"/>
                     <Key type="Bool" time="0.005" value="false"/>
                 </Controller>
-            </Frame>
+            </Animation>
 			
 			<Animation name = "EnableTalent">
 				<Event event="ShowTalent" action = "Reset, Play"/>

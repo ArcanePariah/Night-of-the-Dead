@@ -2120,7 +2120,6 @@ trigger gt_SetupPlayerDetails;
 trigger gt_DialogButtonClicks;
 trigger gt_CreateTeamStatusDialog;
 trigger gt_SaveButtonClick;
-trigger gt_TeamStatusClickedTalentTree;
 trigger gt_PeriodicTeamUIUpdate;
 trigger gt_CreateMedalsDialog;
 trigger gt_ToggleMedalsDialog;
@@ -36679,7 +36678,6 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(gt_ModifyHeroStats, true);
-    TriggerEnable(gt_TeamStatusClickedTalentTree, true);
     TriggerEnable(gt_DialogButtonClicks, true);
     gf_ClassCreationMaster(lv_selectingPlayer, lv_selectingPlayer);
     gf_TalentTreeCreation(lv_selectingPlayer);
@@ -36944,87 +36942,6 @@ bool gt_SaveButtonClick_Func (bool testConds, bool runActions) {
 void gt_SaveButtonClick_Init () {
     gt_SaveButtonClick = TriggerCreate("gt_SaveButtonClick_Func");
     TriggerAddEventDialogControl(gt_SaveButtonClick, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Team Status Clicked - Talent Tree
-//--------------------------------------------------------------------------------------------------
-bool gt_TeamStatusClickedTalentTree_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_talentTreeOwner;
-    int lv_triggeringPlayer;
-    int lv_usedDialog;
-    bool lv_iAmLookingAtMedals;
-    bool lv_iAmLookingAtStats;
-    bool lv_iAmLookingAtTalents;
-
-    // Variable Initialization
-    lv_talentTreeOwner = 1;
-    lv_triggeringPlayer = EventPlayer();
-    lv_usedDialog = EventDialogControl();
-
-    // Conditions
-    if (testConds) {
-        if (!(((lv_usedDialog == gv_teamStatusPortraitButton[1]) || (lv_usedDialog == gv_teamStatusPortraitButton[2]) || (lv_usedDialog == gv_teamStatusPortraitButton[3]) || (lv_usedDialog == gv_teamStatusPortraitButton[4]) || (lv_usedDialog == gv_teamStatusPortraitButton[5]) || (lv_usedDialog == gv_teamStatusPortraitButton[6]) || (lv_usedDialog == gv_teamStatusPortraitButton[7]) || (lv_usedDialog == gv_teamStatusPortraitButton[8])))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    while ((gv_teamStatusPortraitButton[lv_talentTreeOwner] != lv_usedDialog)) {
-        lv_talentTreeOwner += 1;
-    }
-    PlayerGroupLoopBegin(gv_activePlayers);
-    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        if ((DialogIsVisible(gv_playerMedalsDialog[PlayerGroupLoopCurrent()], lv_triggeringPlayer) == true)) {
-            lv_iAmLookingAtMedals = true;
-        }
-        else if ((DialogIsVisible(gv_statsPlayerStatsDialog[PlayerGroupLoopCurrent()], lv_triggeringPlayer) == true)) {
-            lv_iAmLookingAtStats = true;
-        }
-        else if ((DialogIsVisible(gv_talentTree[PlayerGroupLoopCurrent()], lv_triggeringPlayer) == true)) {
-            lv_iAmLookingAtTalents = true;
-        }
-    }
-    PlayerGroupLoopEnd();
-    if ((lv_iAmLookingAtMedals == true)) {
-        if ((DialogIsVisible(gv_playerMedalsDialog[lv_talentTreeOwner], lv_triggeringPlayer) == true)) {
-            DialogSetVisible(gv_playerMedalsDialog[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), false);
-        }
-        else {
-            gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
-            DialogSetVisible(gv_playerMedalsDialog[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), true);
-        }
-    }
-    else if ((lv_iAmLookingAtStats == true)) {
-        if ((DialogIsVisible(gv_statsPlayerStatsDialog[lv_talentTreeOwner], lv_triggeringPlayer) == true)) {
-            gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
-        }
-        else {
-            gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
-            DialogSetVisible(gv_statsPlayerStatsDialog[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), true);
-        }
-    }
-    else if (true) {
-        if ((DialogIsVisible(gv_talentTree[lv_talentTreeOwner], lv_triggeringPlayer) == true)) {
-            DialogSetVisible(gv_talentTree[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), false);
-        }
-        else {
-            gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
-            DialogSetVisible(gv_talentTree[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), true);
-        }
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_TeamStatusClickedTalentTree_Init () {
-    gt_TeamStatusClickedTalentTree = TriggerCreate("gt_TeamStatusClickedTalentTree_Func");
-    TriggerEnable(gt_TeamStatusClickedTalentTree, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -40175,7 +40092,6 @@ void InitTriggers () {
     gt_DialogButtonClicks_Init();
     gt_CreateTeamStatusDialog_Init();
     gt_SaveButtonClick_Init();
-    gt_TeamStatusClickedTalentTree_Init();
     gt_PeriodicTeamUIUpdate_Init();
     gt_CreateMedalsDialog_Init();
     gt_ToggleMedalsDialog_Init();

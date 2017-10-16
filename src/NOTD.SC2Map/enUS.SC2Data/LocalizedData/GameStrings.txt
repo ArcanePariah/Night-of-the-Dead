@@ -5761,10 +5761,8 @@ UI/ResourceToolTip1=Magazines are used to replenish your rounds.
 UI/Rifleman Gear=Equipping Rifleman Gear
 UI/SystemAlert/LagMessageOtherGuilty=%player% is facing TacNet interference
 UI/WaitingForPlayers=Waiting for Marines...
-Unit/Category/ProtossUnits=UGC Marines
 Unit/LifeArmorName/CritterGroundArmor=Carapace
 Unit/LifeArmorName/None=UGC Infantry Armor
-Unit/LifeArmorName/ProtossArmor=Armor
 Unit/LifeArmorName/TerranInfantryArmor=UGC Infantry Armor
 Unit/LifeArmorName/ZergAirArmor=
 Unit/LifeArmorName/ZergAthenaArmor=Carapace
@@ -6068,7 +6066,6 @@ Unit/Name/X1GuardianLevel2=X1 Guardian MK-2
 Unit/Name/X1GuardianLevel3=X1 Guardian MK-3
 Unit/Name/XS4Armor=<c val="00FFFF">XS-4 Armor</c>
 Unit/Name/XS4ArmorHighlightTooltip=<c val="00FFFF">XS-4 Armor</c>
-Unit/Name/Zealot=Zealot
 Unit/Name/Zeratul2=Zeratul
 Unit/Name/Zergling=Ghoul
 Unit/Name/ZerglingPet=Zergling
@@ -6079,7 +6076,6 @@ Unit/Name/ZombieLevel1=Zombie
 Unit/Name/ZombieLevel12=Zombie
 Unit/Name/ZombieLevel2=Zombie
 Unit/Name/ZombieLevel22=Zombie
-Unit/ShieldArmorName/ProtossPlasmaShields=Plasma Shields
 Unit/ShieldArmorName/XelNagaShields=   
 UnitKillRank/CrawlerDrone1=Drone
 UnitKillRank/CrawlerDrone2=Killer Drone
