@@ -917,13 +917,14 @@ int[9][19] gv_classSelectionDialogItem;
 fixed gv_classLimitMultiplier;
 bool gv_classLimitBroken;
 int[15] gv_classCount;
-int gv_playerDetailContainer;
-int[gv_numberofPlayers + 1] gv_playerDetailsFrame;
 int[gv_numberofPlayers + 1] gv_playerNameLabel;
 int[gv_numberofPlayers + 1] gv_playerNameRankIcon;
-int[3][gv_numberofPlayers + 1] gv_dialogButtons;
+int[4][7][gv_numberofPlayers + 1] gv_dialogButtons;
 int gv_saveButton;
 bool[gv_numberofPlayers + 1] gv_saveButtonEnabled;
+text gv_labelMedalsButton;
+text gv_labelStatsButton;
+text gv_labelTalentsButton;
 int gv_teamUI;
 int[9] gv_teamStatusPlayerPanel;
 int[9] gv_teamStatusLifeBar;
@@ -971,20 +972,20 @@ int[6][9] gv_statsPlayerIncreButton;
 int[6][9] gv_statsPlayerStatLabel;
 int[9] gv_statsPlayerStatAvailableLabel;
 int[8][9] gv_statsModProperties;
-int[gv_numberofPlayers + 1] gv_wModTotalPointsLeft;
-int[gv_numberofPlayers + 1] gv_statsWeaponModPanel;
-int[gv_numberofWeaponMods + 1][gv_numberofPlayers + 1] gv_wModPlayerDecreImage;
-int[gv_numberofWeaponMods + 1][gv_numberofPlayers + 1] gv_wModPlayerDecreButton;
-int[gv_numberofWeaponMods + 1][gv_numberofPlayers + 1] gv_wModPlayerIncreImage;
-int[gv_numberofWeaponMods + 1][gv_numberofPlayers + 1] gv_wModPlayerIncreButton;
-int[gv_numberofWeaponMods + 1][gv_numberofPlayers + 1] gv_wModWeaponPointsLabels;
-int[gv_numberofPlayers + 1] gv_statsWeaponModPointsUnlockedLabel;
-int[gv_numberofPlayers + 1] gv_wModWeaponPointsAvailableLabel;
-int[gv_numberofPlayers + 1] gv_modTotalPointsPositive;
-int[gv_numberofPlayers + 1] gv_modTotalPointsNegative;
-fixed[gv_numberofPlayers + 1] gv_baseMarineReloadMultiplier;
-fixed[gv_numberofPlayers + 1] gv_baseMarineSwitchingMultiplier;
-fixed[gv_numberofPlayers + 1] gv_baseMarineWeightPointMultiplier;
+int[9] gv_wModTotalPointsLeft;
+int[9] gv_statsWeaponModPanel;
+int[8][9] gv_wModPlayerDecreImage;
+int[8][9] gv_wModPlayerDecreButton;
+int[8][9] gv_wModPlayerIncreImage;
+int[8][9] gv_wModPlayerIncreButton;
+int[8][9] gv_wModWeaponPointsLabels;
+int[9] gv_statsWeaponModPointsUnlockedLabel;
+int[9] gv_wModWeaponPointsAvailableLabel;
+int[9] gv_modTotalPointsPositive;
+int[9] gv_modTotalPointsNegative;
+fixed[9] gv_baseMarineReloadMultiplier;
+fixed[9] gv_baseMarineSwitchingMultiplier;
+fixed[9] gv_baseMarineWeightPointMultiplier;
 unitgroup[9] gv_sonicTrap;
 unit[9] gv_reaperMK13;
 unitgroup[9] gv_armageddonBomb;
@@ -1023,6 +1024,7 @@ int gv_talentTreePlayer;
 void InitGlobals () {
     int init_i;
     int init_j;
+    int init_k;
     int init_i1;
 
     gv_defaultLighting = "UnknownLight";
@@ -1253,25 +1255,26 @@ void InitGlobals () {
         }
     }
     gv_classLimitMultiplier = 1.0;
-    gv_playerDetailContainer = c_invalidDialogControlId;
-    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
-        gv_playerDetailsFrame[init_i] = c_invalidDialogControlId;
-    }
     for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
         gv_playerNameLabel[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
         gv_playerNameRankIcon[init_i] = c_invalidDialogControlId;
     }
-    for (init_i = 0; init_i <= 2; init_i += 1) {
-        for (init_j = 0; init_j <= gv_numberofPlayers; init_j += 1) {
-            gv_dialogButtons[init_i][init_j] = c_invalidDialogControlId;
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        for (init_j = 0; init_j <= 6; init_j += 1) {
+            for (init_k = 0; init_k <= gv_numberofPlayers; init_k += 1) {
+                gv_dialogButtons[init_i][init_j][init_k] = c_invalidDialogControlId;
+            }
         }
     }
     gv_saveButton = c_invalidDialogControlId;
     for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
         gv_saveButtonEnabled[init_i] = true;
     }
+    gv_labelMedalsButton = StringExternal("Param/Value/6E811AED");
+    gv_labelStatsButton = StringExternal("Param/Value/8B3790A4");
+    gv_labelTalentsButton = StringExternal("Param/Value/ABC09330");
     gv_teamUI = c_invalidDialogControlId;
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_teamStatusPlayerPanel[init_i] = c_invalidDialogControlId;
@@ -1389,47 +1392,47 @@ void InitGlobals () {
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsPlayerStatAvailableLabel[init_i] = c_invalidDialogControlId;
     }
-    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+    for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsWeaponModPanel[init_i] = c_invalidDialogControlId;
     }
-    for (init_i = 0; init_i <= gv_numberofWeaponMods; init_i += 1) {
-        for (init_j = 0; init_j <= gv_numberofPlayers; init_j += 1) {
+    for (init_i = 0; init_i <= 7; init_i += 1) {
+        for (init_j = 0; init_j <= 8; init_j += 1) {
             gv_wModPlayerDecreImage[init_i][init_j] = c_invalidDialogControlId;
         }
     }
-    for (init_i = 0; init_i <= gv_numberofWeaponMods; init_i += 1) {
-        for (init_j = 0; init_j <= gv_numberofPlayers; init_j += 1) {
+    for (init_i = 0; init_i <= 7; init_i += 1) {
+        for (init_j = 0; init_j <= 8; init_j += 1) {
             gv_wModPlayerDecreButton[init_i][init_j] = c_invalidDialogControlId;
         }
     }
-    for (init_i = 0; init_i <= gv_numberofWeaponMods; init_i += 1) {
-        for (init_j = 0; init_j <= gv_numberofPlayers; init_j += 1) {
+    for (init_i = 0; init_i <= 7; init_i += 1) {
+        for (init_j = 0; init_j <= 8; init_j += 1) {
             gv_wModPlayerIncreImage[init_i][init_j] = c_invalidDialogControlId;
         }
     }
-    for (init_i = 0; init_i <= gv_numberofWeaponMods; init_i += 1) {
-        for (init_j = 0; init_j <= gv_numberofPlayers; init_j += 1) {
+    for (init_i = 0; init_i <= 7; init_i += 1) {
+        for (init_j = 0; init_j <= 8; init_j += 1) {
             gv_wModPlayerIncreButton[init_i][init_j] = c_invalidDialogControlId;
         }
     }
-    for (init_i = 0; init_i <= gv_numberofWeaponMods; init_i += 1) {
-        for (init_j = 0; init_j <= gv_numberofPlayers; init_j += 1) {
+    for (init_i = 0; init_i <= 7; init_i += 1) {
+        for (init_j = 0; init_j <= 8; init_j += 1) {
             gv_wModWeaponPointsLabels[init_i][init_j] = c_invalidDialogControlId;
         }
     }
-    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+    for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_statsWeaponModPointsUnlockedLabel[init_i] = c_invalidDialogControlId;
     }
-    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+    for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_wModWeaponPointsAvailableLabel[init_i] = c_invalidDialogControlId;
     }
-    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+    for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_baseMarineReloadMultiplier[init_i] = 1.0;
     }
-    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+    for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_baseMarineSwitchingMultiplier[init_i] = 1.0;
     }
-    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+    for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_baseMarineWeightPointMultiplier[init_i] = 1.0;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
@@ -1685,10 +1688,10 @@ int gf_GetClassColor (string lp_class);
 void gf_HideAllDialogsForPlayer (int lp_player);
 void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, int lp_playertoHideFrom);
 int gf_GetPreviousNextPlayer (int lp_currentPlayer, bool lp_isNext);
-void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, int lp_highlightDialogFrame);
-bool gf_UsedButtonforPlayerisNavigation (int lp_usedDialogItem, int lp_player);
-bool gf_UsedButtonisNavigation (int lp_usedDialogItem);
-int gf_GetPlayerofNavigation (int lp_usedDialogItem);
+void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, text lp_dialogTitle, int lp_highlightDialogFrame, int lp_dialogControlCategory);
+bool gf_UsedDialogIsMedal (int lp_usedDialog);
+bool gf_UsedDialogIsStats (int lp_usedDialog);
+bool gf_UsedDialogIsTalent (int lp_usedDialog);
 bool gf_TournamentWinner (string lp_playerHandle);
 bool gf_Staff (string lp_playerHandle);
 void gf_TeamStatusInitializePlayerPortrait (int lp_triggeringPlayer);
@@ -1730,12 +1733,6 @@ bool gf_StatsStatsChecking (int lp_playerNo);
 void gf_StatsUpdateStatText (int lp_stat, int lp_statSlot, int lp_player);
 void gf_StatsAddStat (int lp_playerNo, int lp_statSlot, string lp_statBehavior);
 void gf_StatsRemoveStat (int lp_playerNo, int lp_statSlot, string lp_statBehavior);
-bool gf_UsedButtonforPlayerisStatsModification (int lp_usedDialogItem, int lp_player);
-bool gf_UsedButtonforPlayerisWeaponModification (int lp_usedDialogItem, int lp_player);
-bool gf_UsedButtonisStatsModification (int lp_usedDialogItem);
-bool gf_UsedButtonisWeaponModification (int lp_usedDialogItem);
-int gf_GetPlayerofUsedStatButton (int lp_usedDialogItem);
-int gf_GetPlayerofUsedWeaponModButton (int lp_usedDialogItem);
 void gf_CreateStatModPanels (int lp_player, int lp_statIndex, int lp_xOffset, int lp_yOffset);
 void gf_CreateWeaponModPanels (int lp_player, int lp_statIndex, int lp_xOffset, int lp_yOffset);
 bool gf_AttackerbehindTarget (unit lp_attacker, unit lp_target, fixed lp_rearAngle);
@@ -1748,9 +1745,6 @@ void gf_ForwardObserverShellFlightSound (int lp_forwardObserverOwner, point lp_p
 void gf_ForwardObserverCreateShellDialog (int lp_forwardObserverOwner);
 void gf_ArtilleryCamaraShake (point lp_impactPoint);
 void gf_ArtilleryStart (int lp_artillaryType, color lp_pingColor, point lp_targetPoint, unit lp_forwardObserver, int lp_player);
-bool gf_UsedButtonforPlayerisTalentButton (int lp_usedDialogItem, int lp_player);
-bool gf_UsedButtonisTalentButton (int lp_usedDialogItem);
-int gf_GetPlayerofUsedTalent (int lp_usedDialogItem);
 void gf_LevelUpTalentRifleman (int lp_itemNo, unit lp_triggUnit, int lp_trigPlayer);
 void gf_LevelUpTalentMedic (int lp_itemNo, unit lp_triggUnit, int lp_triggPlayer);
 void gf_LevelUpTalentAssault (int lp_itemNo, unit lp_triggUnit, int lp_triggPlayer);
@@ -2116,10 +2110,10 @@ trigger gt_BuyItem;
 trigger gt_BuyStandardItem;
 trigger gt_ClassCreation;
 trigger gt_AmmoUIButtonCallback;
-trigger gt_SetupPlayerDetails;
 trigger gt_DialogButtonClicks;
 trigger gt_CreateTeamStatusDialog;
 trigger gt_SaveButtonClick;
+trigger gt_TeamStatusClickedTalentTree;
 trigger gt_PeriodicTeamUIUpdate;
 trigger gt_CreateMedalsDialog;
 trigger gt_ToggleMedalsDialog;
@@ -10772,7 +10766,9 @@ void gf_HideAllDialogsForPlayer (int lp_player) {
     auto8B09B2D9_p = 1;
     for ( ; auto8B09B2D9_p <= PlayerGroupCount(auto8B09B2D9_g) ; auto8B09B2D9_p += BoolToInt(lv_index == PlayerGroupPlayer(auto8B09B2D9_g, auto8B09B2D9_p)) ) {
         lv_index = PlayerGroupPlayer(auto8B09B2D9_g, auto8B09B2D9_p);
-        DialogControlSetVisible(gv_playerDetailsFrame[lv_index], PlayerGroupSingle(lp_player), false);
+        DialogSetVisible(gv_playerMedalsDialog[lv_index], PlayerGroupSingle(lp_player), false);
+        DialogSetVisible(gv_statsPlayerStatsDialog[lv_index], PlayerGroupSingle(lp_player), false);
+        DialogSetVisible(gv_talentTree[lv_index], PlayerGroupSingle(lp_player), false);
     }
 }
 
@@ -10820,45 +10816,34 @@ int gf_GetPreviousNextPlayer (int lp_currentPlayer, bool lp_isNext) {
     return lv_validPlayer;
 }
 
-void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, int lp_highlightDialogFrame) {
+void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, text lp_dialogTitle, int lp_highlightDialogFrame, int lp_dialogControlCategory) {
     // Implementation
+    DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeLabel, "Title");
+    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), lp_dialogTitle, PlayerGroupAll());
+    DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "MedalsButton");
+    gv_dialogButtons[lp_dialogControlCategory][1][lp_player] = DialogControlLastCreated();
+    DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "StatsButton");
+    gv_dialogButtons[lp_dialogControlCategory][2][lp_player] = DialogControlLastCreated();
+    DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "TalentsButton");
+    gv_dialogButtons[lp_dialogControlCategory][3][lp_player] = DialogControlLastCreated();
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "NavLeftArrowButton");
-    gv_dialogButtons[1][lp_player] = DialogControlLastCreated();
+    gv_dialogButtons[lp_dialogControlCategory][4][lp_player] = DialogControlLastCreated();
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "NavRightArrowButton");
-    gv_dialogButtons[2][lp_player] = DialogControlLastCreated();
+    gv_dialogButtons[lp_dialogControlCategory][5][lp_player] = DialogControlLastCreated();
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeImage, "PlayerRankIcon");
     libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("Ranks", UserDataInstance("Ranks", gv_playerRank[lp_player]), "Icon", 1), PlayerGroupAll());
     gv_playerNameRankIcon[lp_player] = DialogControlLastCreated();
     DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeLabel, "PlayerName");
     libNtve_gf_SetDialogItemText(DialogControlLastCreated(), (UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[lp_player]), "Title Brief", 1) + PlayerName(lp_player)), PlayerGroupAll());
     gv_playerNameLabel[lp_player] = DialogControlLastCreated();
+    DialogControlHookup(lp_playerDetailsDialogFrame, c_triggerControlTypeButton, "CloseButton");
+    gv_dialogButtons[lp_dialogControlCategory][6][lp_player] = DialogControlLastCreated();
+    libNtve_gf_SetDialogItemImage(lp_highlightDialogFrame, "Assets\\Textures\\ui_research_frame_tooltip_zerg.dds", PlayerGroupAll());
 }
 
-bool gf_UsedButtonforPlayerisNavigation (int lp_usedDialogItem, int lp_player) {
-    int autoEAE5225E_ae;
-    int autoEAE5225E_ai;
-
-    // Variable Declarations
-    int lv_navigation;
-
-    // Variable Initialization
-
-    // Implementation
-    autoEAE5225E_ae = 2;
-    autoEAE5225E_ai = 1;
-    lv_navigation = gv_indexBaseValue;
-    for ( ; ( (autoEAE5225E_ai >= 0 && lv_navigation <= autoEAE5225E_ae) || (autoEAE5225E_ai <= 0 && lv_navigation >= autoEAE5225E_ae) ) ; lv_navigation += autoEAE5225E_ai ) {
-        if ((lp_usedDialogItem == gv_dialogButtons[lv_navigation][lp_player])) {
-            return true;
-        }
-
-    }
-    return false;
-}
-
-bool gf_UsedButtonisNavigation (int lp_usedDialogItem) {
-    int autoE8FC1BC1_ae;
-    int autoE8FC1BC1_ai;
+bool gf_UsedDialogIsMedal (int lp_usedDialog) {
+    int autoA65A2FF9_ae;
+    int autoA65A2FF9_ai;
 
     // Variable Declarations
     int lv_player;
@@ -10866,11 +10851,11 @@ bool gf_UsedButtonisNavigation (int lp_usedDialogItem) {
     // Variable Initialization
 
     // Implementation
-    autoE8FC1BC1_ae = gv_numberofPlayers;
-    autoE8FC1BC1_ai = 1;
+    autoA65A2FF9_ae = gv_numberofPlayers;
+    autoA65A2FF9_ai = 1;
     lv_player = gv_indexBaseValue;
-    for ( ; ( (autoE8FC1BC1_ai >= 0 && lv_player <= autoE8FC1BC1_ae) || (autoE8FC1BC1_ai <= 0 && lv_player >= autoE8FC1BC1_ae) ) ; lv_player += autoE8FC1BC1_ai ) {
-        if (gf_UsedButtonforPlayerisNavigation(lp_usedDialogItem, lv_player)) {
+    for ( ; ( (autoA65A2FF9_ai >= 0 && lv_player <= autoA65A2FF9_ae) || (autoA65A2FF9_ai <= 0 && lv_player >= autoA65A2FF9_ae) ) ; lv_player += autoA65A2FF9_ai ) {
+        if ((lp_usedDialog == gv_playerMedalsDialog[lv_player])) {
             return true;
         }
 
@@ -10878,34 +10863,48 @@ bool gf_UsedButtonisNavigation (int lp_usedDialogItem) {
     return false;
 }
 
-int gf_GetPlayerofNavigation (int lp_usedDialogItem) {
-    int auto2AE43949_ae;
-    int auto2AE43949_ai;
-    int autoE25488F3_ae;
-    int autoE25488F3_ai;
+bool gf_UsedDialogIsStats (int lp_usedDialog) {
+    int auto0EF7AA38_ae;
+    int auto0EF7AA38_ai;
 
     // Variable Declarations
-    int lv_navButton;
     int lv_player;
 
     // Variable Initialization
 
     // Implementation
-    auto2AE43949_ae = 2;
-    auto2AE43949_ai = 1;
-    lv_navButton = gv_indexBaseValue;
-    for ( ; ( (auto2AE43949_ai >= 0 && lv_navButton <= auto2AE43949_ae) || (auto2AE43949_ai <= 0 && lv_navButton >= auto2AE43949_ae) ) ; lv_navButton += auto2AE43949_ai ) {
-        autoE25488F3_ae = gv_numberofPlayers;
-        autoE25488F3_ai = 1;
-        lv_player = gv_indexBaseValue;
-        for ( ; ( (autoE25488F3_ai >= 0 && lv_player <= autoE25488F3_ae) || (autoE25488F3_ai <= 0 && lv_player >= autoE25488F3_ae) ) ; lv_player += autoE25488F3_ai ) {
-            if ((lp_usedDialogItem == gv_dialogButtons[lv_navButton][lv_player])) {
-                return lv_player;
-            }
-
+    auto0EF7AA38_ae = gv_numberofPlayers;
+    auto0EF7AA38_ai = 1;
+    lv_player = gv_indexBaseValue;
+    for ( ; ( (auto0EF7AA38_ai >= 0 && lv_player <= auto0EF7AA38_ae) || (auto0EF7AA38_ai <= 0 && lv_player >= auto0EF7AA38_ae) ) ; lv_player += auto0EF7AA38_ai ) {
+        if ((lp_usedDialog == gv_statsPlayerStatsDialog[lv_player])) {
+            return true;
         }
+
     }
-    return 0;
+    return false;
+}
+
+bool gf_UsedDialogIsTalent (int lp_usedDialog) {
+    int auto521925CA_ae;
+    int auto521925CA_ai;
+
+    // Variable Declarations
+    int lv_player;
+
+    // Variable Initialization
+
+    // Implementation
+    auto521925CA_ae = gv_numberofPlayers;
+    auto521925CA_ai = 1;
+    lv_player = gv_indexBaseValue;
+    for ( ; ( (auto521925CA_ai >= 0 && lv_player <= auto521925CA_ae) || (auto521925CA_ai <= 0 && lv_player >= auto521925CA_ae) ) ; lv_player += auto521925CA_ai ) {
+        if ((lp_usedDialog == gv_talentTree[lv_player])) {
+            return true;
+        }
+
+    }
+    return false;
 }
 
 bool gf_TournamentWinner (string lp_playerHandle) {
@@ -12319,154 +12318,6 @@ bool auto_gf_StatsRemoveStat_TriggerFunc (bool testConds, bool runActions) {
     return true;
 }
 
-bool gf_UsedButtonforPlayerisStatsModification (int lp_usedDialogItem, int lp_player) {
-    int auto269DD2D1_ae;
-    int auto269DD2D1_ai;
-
-    // Variable Declarations
-    int lv_statButton;
-
-    // Variable Initialization
-
-    // Implementation
-    auto269DD2D1_ae = gv_numberofStats;
-    auto269DD2D1_ai = 1;
-    lv_statButton = gv_indexBaseValue;
-    for ( ; ( (auto269DD2D1_ai >= 0 && lv_statButton <= auto269DD2D1_ae) || (auto269DD2D1_ai <= 0 && lv_statButton >= auto269DD2D1_ae) ) ; lv_statButton += auto269DD2D1_ai ) {
-        if (((lp_usedDialogItem == gv_statsPlayerDecreButton[lv_statButton][lp_player]) || (lp_usedDialogItem == gv_statsPlayerIncreButton[lv_statButton][lp_player]))) {
-            return true;
-        }
-
-    }
-    return false;
-}
-
-bool gf_UsedButtonforPlayerisWeaponModification (int lp_usedDialogItem, int lp_player) {
-    int auto02525AE7_ae;
-    int auto02525AE7_ai;
-
-    // Variable Declarations
-    int lv_weaponModButton;
-
-    // Variable Initialization
-
-    // Implementation
-    auto02525AE7_ae = gv_numberofWeaponMods;
-    auto02525AE7_ai = 1;
-    lv_weaponModButton = gv_indexBaseValue;
-    for ( ; ( (auto02525AE7_ai >= 0 && lv_weaponModButton <= auto02525AE7_ae) || (auto02525AE7_ai <= 0 && lv_weaponModButton >= auto02525AE7_ae) ) ; lv_weaponModButton += auto02525AE7_ai ) {
-        if (((lp_usedDialogItem == gv_wModPlayerDecreButton[lv_weaponModButton][lp_player]) || (lp_usedDialogItem == gv_wModPlayerIncreButton[lv_weaponModButton][lp_player]))) {
-            return true;
-        }
-
-    }
-    return false;
-}
-
-bool gf_UsedButtonisStatsModification (int lp_usedDialogItem) {
-    int auto81908E4C_ae;
-    int auto81908E4C_ai;
-
-    // Variable Declarations
-    int lv_player;
-
-    // Variable Initialization
-
-    // Implementation
-    auto81908E4C_ae = gv_numberofPlayers;
-    auto81908E4C_ai = 1;
-    lv_player = gv_indexBaseValue;
-    for ( ; ( (auto81908E4C_ai >= 0 && lv_player <= auto81908E4C_ae) || (auto81908E4C_ai <= 0 && lv_player >= auto81908E4C_ae) ) ; lv_player += auto81908E4C_ai ) {
-        if (gf_UsedButtonforPlayerisStatsModification(lp_usedDialogItem, lv_player)) {
-            return true;
-        }
-
-    }
-    return false;
-}
-
-bool gf_UsedButtonisWeaponModification (int lp_usedDialogItem) {
-    int auto67F6E66D_ae;
-    int auto67F6E66D_ai;
-
-    // Variable Declarations
-    int lv_player;
-
-    // Variable Initialization
-
-    // Implementation
-    auto67F6E66D_ae = gv_numberofPlayers;
-    auto67F6E66D_ai = 1;
-    lv_player = gv_indexBaseValue;
-    for ( ; ( (auto67F6E66D_ai >= 0 && lv_player <= auto67F6E66D_ae) || (auto67F6E66D_ai <= 0 && lv_player >= auto67F6E66D_ae) ) ; lv_player += auto67F6E66D_ai ) {
-        if (gf_UsedButtonforPlayerisWeaponModification(lp_usedDialogItem, lv_player)) {
-            return true;
-        }
-
-    }
-    return false;
-}
-
-int gf_GetPlayerofUsedStatButton (int lp_usedDialogItem) {
-    int autoC259AC52_ae;
-    int autoC259AC52_ai;
-    int auto0E1B802B_ae;
-    int auto0E1B802B_ai;
-
-    // Variable Declarations
-    int lv_stat;
-    int lv_player;
-
-    // Variable Initialization
-
-    // Implementation
-    autoC259AC52_ae = gv_numberofStats;
-    autoC259AC52_ai = 1;
-    lv_stat = gv_indexBaseValue;
-    for ( ; ( (autoC259AC52_ai >= 0 && lv_stat <= autoC259AC52_ae) || (autoC259AC52_ai <= 0 && lv_stat >= autoC259AC52_ae) ) ; lv_stat += autoC259AC52_ai ) {
-        auto0E1B802B_ae = gv_numberofPlayers;
-        auto0E1B802B_ai = 1;
-        lv_player = gv_indexBaseValue;
-        for ( ; ( (auto0E1B802B_ai >= 0 && lv_player <= auto0E1B802B_ae) || (auto0E1B802B_ai <= 0 && lv_player >= auto0E1B802B_ae) ) ; lv_player += auto0E1B802B_ai ) {
-            if (((lp_usedDialogItem == gv_statsPlayerDecreButton[lv_stat][lv_player]) || (lp_usedDialogItem == gv_statsPlayerIncreButton[lv_stat][lv_player]))) {
-                return lv_stat;
-            }
-
-        }
-    }
-    return 0;
-}
-
-int gf_GetPlayerofUsedWeaponModButton (int lp_usedDialogItem) {
-    int auto8551DCF9_ae;
-    int auto8551DCF9_ai;
-    int autoCE09F296_ae;
-    int autoCE09F296_ai;
-
-    // Variable Declarations
-    int lv_weaponMod;
-    int lv_player;
-
-    // Variable Initialization
-
-    // Implementation
-    auto8551DCF9_ae = gv_numberofWeaponMods;
-    auto8551DCF9_ai = 1;
-    lv_weaponMod = gv_indexBaseValue;
-    for ( ; ( (auto8551DCF9_ai >= 0 && lv_weaponMod <= auto8551DCF9_ae) || (auto8551DCF9_ai <= 0 && lv_weaponMod >= auto8551DCF9_ae) ) ; lv_weaponMod += auto8551DCF9_ai ) {
-        autoCE09F296_ae = gv_numberofPlayers;
-        autoCE09F296_ai = 1;
-        lv_player = gv_indexBaseValue;
-        for ( ; ( (autoCE09F296_ai >= 0 && lv_player <= autoCE09F296_ae) || (autoCE09F296_ai <= 0 && lv_player >= autoCE09F296_ae) ) ; lv_player += autoCE09F296_ai ) {
-            if (((lp_usedDialogItem == gv_wModPlayerDecreButton[lv_weaponMod][lv_player]) || (lp_usedDialogItem == gv_wModPlayerIncreButton[lv_weaponMod][lv_player]))) {
-                return lv_weaponMod;
-            }
-
-        }
-    }
-    return 0;
-}
-
 void gf_CreateStatModPanels (int lp_player, int lp_statIndex, int lp_xOffset, int lp_yOffset) {
     // Variable Declarations
     int lv_tempDialogFrame;
@@ -12770,80 +12621,6 @@ void gf_ArtilleryStart (int lp_artillaryType, color lp_pingColor, point lp_targe
     VisRevealArea(lp_player, RegionCircle(lp_targetPoint, 7.0), 3.5, true);
 }
 
-bool gf_UsedButtonforPlayerisTalentButton (int lp_usedDialogItem, int lp_player) {
-    int auto8EF39511_ae;
-    int auto8EF39511_ai;
-
-    // Variable Declarations
-    int lv_talentButton;
-
-    // Variable Initialization
-
-    // Implementation
-    auto8EF39511_ae = gv_numberofTalents;
-    auto8EF39511_ai = 1;
-    lv_talentButton = gv_indexBaseValue;
-    for ( ; ( (auto8EF39511_ai >= 0 && lv_talentButton <= auto8EF39511_ae) || (auto8EF39511_ai <= 0 && lv_talentButton >= auto8EF39511_ae) ) ; lv_talentButton += auto8EF39511_ai ) {
-        if ((lp_usedDialogItem == gv_talentTrees[lp_player].lv_talentButtons[lv_talentButton].lv_button)) {
-            return true;
-        }
-
-    }
-    return false;
-}
-
-bool gf_UsedButtonisTalentButton (int lp_usedDialogItem) {
-    int auto6EE7FB2D_ae;
-    int auto6EE7FB2D_ai;
-
-    // Variable Declarations
-    int lv_player;
-
-    // Variable Initialization
-
-    // Implementation
-    auto6EE7FB2D_ae = gv_numberofPlayers;
-    auto6EE7FB2D_ai = 1;
-    lv_player = gv_indexBaseValue;
-    for ( ; ( (auto6EE7FB2D_ai >= 0 && lv_player <= auto6EE7FB2D_ae) || (auto6EE7FB2D_ai <= 0 && lv_player >= auto6EE7FB2D_ae) ) ; lv_player += auto6EE7FB2D_ai ) {
-        if (gf_UsedButtonforPlayerisTalentButton(lp_usedDialogItem, lv_player)) {
-            return true;
-        }
-
-    }
-    return false;
-}
-
-int gf_GetPlayerofUsedTalent (int lp_usedDialogItem) {
-    int autoF6931279_ae;
-    int autoF6931279_ai;
-    int auto51D9A840_ae;
-    int auto51D9A840_ai;
-
-    // Variable Declarations
-    int lv_talent;
-    int lv_player;
-
-    // Variable Initialization
-
-    // Implementation
-    autoF6931279_ae = gv_numberofTalents;
-    autoF6931279_ai = 1;
-    lv_talent = gv_indexBaseValue;
-    for ( ; ( (autoF6931279_ai >= 0 && lv_talent <= autoF6931279_ae) || (autoF6931279_ai <= 0 && lv_talent >= autoF6931279_ae) ) ; lv_talent += autoF6931279_ai ) {
-        auto51D9A840_ae = gv_numberofPlayers;
-        auto51D9A840_ai = 1;
-        lv_player = gv_indexBaseValue;
-        for ( ; ( (auto51D9A840_ai >= 0 && lv_player <= auto51D9A840_ae) || (auto51D9A840_ai <= 0 && lv_player >= auto51D9A840_ae) ) ; lv_player += auto51D9A840_ai ) {
-            if ((lp_usedDialogItem == gv_talentTrees[lv_player].lv_talentButtons[lv_talent].lv_button)) {
-                return lv_player;
-            }
-
-        }
-    }
-    return 0;
-}
-
 void gf_LevelUpTalentRifleman (int lp_itemNo, unit lp_triggUnit, int lp_trigPlayer) {
     int auto0708C518_val;
 
@@ -12960,12 +12737,12 @@ void gf_LevelUpTalentDemolitions (int lp_itemNo, unit lp_triggUnit, int lp_trigg
     if ((lp_itemNo == 1)) {
         UnitIssueOrder(lp_triggUnit, Order(AbilityCommand("LearnDemolitions", 10)), c_orderQueueAddToFront);
         if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 2)) {
-            CatalogFieldValueSet(c_gameCatalogEffect, "VultureSpiderMinesDamage", "Amount", lp_triggPlayer, IntToString(60));
+            CatalogFieldValueSet(c_gameCatalogEffect, "VultureSpiderMinesDamage", "Amount", lp_triggPlayer, "60");
             PlayerCreateEffectUnit(lp_triggPlayer, "ReplenishMines14", gv_marineHero[lp_triggPlayer]);
         }
 
         if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 3)) {
-            CatalogFieldValueSet(c_gameCatalogEffect, "VultureSpiderMinesDamage", "Amount", lp_triggPlayer, IntToString(80));
+            CatalogFieldValueSet(c_gameCatalogEffect, "VultureSpiderMinesDamage", "Amount", lp_triggPlayer, "80");
             PlayerCreateEffectUnit(lp_triggPlayer, "ReplenishMines14", gv_marineHero[lp_triggPlayer]);
         }
 
@@ -13546,28 +13323,35 @@ bool auto_gf_TalentTreeCreation_TriggerFunc (bool testConds, bool runActions) {
     int lp_player = auto_gf_TalentTreeCreation_lp_player;
 
     // Variable Declarations
-    int lv_talentTreeFrame;
-    int lv_talentFrame;
+    int lv_tempDialogItem;
+    int lv_tempDialogFrame;
+    int lv_tempDialogSubFrame;
 
     // Variable Initialization
-    lv_talentTreeFrame = c_invalidDialogControlId;
-    lv_talentFrame = c_invalidDialogControlId;
+    lv_tempDialogItem = c_invalidDialogControlId;
+    lv_tempDialogFrame = c_invalidDialogControlId;
+    lv_tempDialogSubFrame = c_invalidDialogControlId;
 
     // Implementation
-    DialogControlHookup(gv_playerDetailsFrame[lp_player], c_triggerControlTypePanel, "TalentTab");
-    lv_talentFrame = DialogControlLastCreated();
-    DialogControlHookup(lv_talentFrame, c_triggerControlTypePanel, "TalentTree");
-    lv_talentTreeFrame = DialogControlLastCreated();
-    DialogControlHookup(lv_talentTreeFrame, c_triggerControlTypeLabel, "TalentsAvailable");
+    gf_UIDialogCreation(610, 690, 270, 150, c_anchorTopRight);
+    gv_talentTree[lp_player] = DialogLastCreated();
+    DialogControlCreateFromTemplate(gv_talentTree[lp_player], c_triggerControlTypePanel, "PlayerDetails/DetailsUI");
+    lv_tempDialogFrame = DialogControlLastCreated();
+    DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeImage, "TalentsBorder");
+    lv_tempDialogSubFrame = DialogControlLastCreated();
+    gf_SetupPlayerDetailsUI(lp_player, lv_tempDialogFrame, gv_labelTalentsButton, lv_tempDialogSubFrame, 3);
+    DialogControlCreateFromTemplate(gv_talentTree[lp_player], c_triggerControlTypePanel, "TalentTree/TalentTreeTemplate");
+    lv_tempDialogItem = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeLabel, "TalentsAvailable");
     gv_talentsAvailableDialog[lp_player] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemText(gv_talentsAvailableDialog[lp_player], (StringExternal("Param/Value/060BE9EA") + IntToText(gv_talentsAvailable[lp_player])), PlayerGroupAll());
-    DialogControlHookup(lv_talentTreeFrame, c_triggerControlTypeLabel, "TalentTree1Title");
+    DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeLabel, "TalentTree1Title");
     libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("TalentTrees", gv_playerClass[lp_player], "Headers", 1), PlayerGroupAll());
-    DialogControlHookup(lv_talentTreeFrame, c_triggerControlTypeLabel, "TalentTree2Title");
+    DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeLabel, "TalentTree2Title");
     libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("TalentTrees", gv_playerClass[lp_player], "Headers", 2), PlayerGroupAll());
     IntLoopBegin(gv_indexBaseValue, gv_numberofTalents);
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        gf_TalentButton(lv_talentTreeFrame, lp_player, IntLoopCurrent());
+        gf_TalentButton(lv_tempDialogItem, lp_player, IntLoopCurrent());
     }
     IntLoopEnd();
     gf_UpdateTalentImage(1, lp_player);
@@ -14549,7 +14333,7 @@ bool gt_ClassPointsCheck_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((lv_cPPlayer >= gv_indexBaseValue) && (lv_cPPlayer <= gv_numberofPlayers)))) {
+        if (!(gf_ValidPlayer(lv_cPPlayer))) {
             return false;
         }
     }
@@ -14591,7 +14375,7 @@ bool gt_WinsCheck_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((lv_winsPlayer >= gv_indexBaseValue) && (lv_winsPlayer <= gv_numberofPlayers)))) {
+        if (!(gf_ValidPlayer(lv_winsPlayer))) {
             return false;
         }
     }
@@ -36678,6 +36462,7 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(gt_ModifyHeroStats, true);
+    TriggerEnable(gt_TeamStatusClickedTalentTree, true);
     TriggerEnable(gt_DialogButtonClicks, true);
     gf_ClassCreationMaster(lv_selectingPlayer, lv_selectingPlayer);
     gf_TalentTreeCreation(lv_selectingPlayer);
@@ -36728,46 +36513,6 @@ void gt_AmmoUIButtonCallback_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Setup Player Details
-//--------------------------------------------------------------------------------------------------
-bool gt_SetupPlayerDetails_Func (bool testConds, bool runActions) {
-    playergroup auto521754D9_g;
-    int auto521754D9_p;
-
-    // Variable Declarations
-    int lv_player;
-
-    // Variable Initialization
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    DialogControlHookupStandard(c_triggerControlTypePanel, "UIContainer/FullscreenUpperContainer/PlayerDataContainer");
-    gv_playerDetailContainer = DialogControlLastCreated();
-    DialogControlHookupStandard(c_triggerControlTypeButton, "UIContainer/FullscreenUpperContainer/TalentButton");
-    TriggerAddEventDialogControl(gt_TalentTreeToggle, c_playerAny, DialogControlLastCreated(), c_triggerControlEventTypeClick);
-    auto521754D9_g = gv_activePlayers; 
-    auto521754D9_p = 1;
-    for ( ; auto521754D9_p <= PlayerGroupCount(auto521754D9_g) ; auto521754D9_p += BoolToInt(lv_player == PlayerGroupPlayer(auto521754D9_g, auto521754D9_p)) ) {
-        lv_player = PlayerGroupPlayer(auto521754D9_g, auto521754D9_p);
-        DialogControlHookup(gv_playerDetailContainer, c_triggerControlTypePanel, libNtve_gf_ConvertStringToUILayoutFrameName(("Player" + IntToString(lv_player) + "Data")));
-        gv_playerDetailsFrame[lv_player] = DialogControlLastCreated();
-        gf_SetupPlayerDetailsUI(lv_player, gv_playerDetailsFrame[lv_player], c_invalidDialogControlId);
-    }
-    TriggerExecute(gt_CreateMedalsDialog, true, false);
-    TriggerExecute(gt_CreateStatsDialog, true, false);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SetupPlayerDetails_Init () {
-    gt_SetupPlayerDetails = TriggerCreate("gt_SetupPlayerDetails_Func");
-    TriggerAddEventGeneric(gt_SetupPlayerDetails, gv_dialogIntialization);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Dialog Button Clicks
 //--------------------------------------------------------------------------------------------------
 bool gt_DialogButtonClicks_Func (bool testConds, bool runActions) {
@@ -36775,17 +36520,19 @@ bool gt_DialogButtonClicks_Func (bool testConds, bool runActions) {
     int lv_triggeringPlayer;
     int lv_ownerofDialog;
     int lv_usedDialogItem;
+    int lv_usedDialog;
     int lv_nextOwnerofDialog;
 
     // Variable Initialization
     lv_triggeringPlayer = EventPlayer();
     lv_ownerofDialog = 1;
     lv_usedDialogItem = EventDialogControl();
+    lv_usedDialog = DialogControlGetDialog(lv_usedDialogItem);
     lv_nextOwnerofDialog = 1;
 
     // Conditions
     if (testConds) {
-        if (!(gf_UsedButtonisNavigation(lv_usedDialogItem))) {
+        if (!((gf_UsedDialogIsMedal(lv_usedDialog) || gf_UsedDialogIsStats(lv_usedDialog) || gf_UsedDialogIsTalent(lv_usedDialog)))) {
             return false;
         }
     }
@@ -36795,14 +36542,50 @@ bool gt_DialogButtonClicks_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_ownerofDialog = gf_GetPlayerofNavigation(lv_usedDialogItem);
-    if ((lv_usedDialogItem == gv_dialogButtons[1][lv_ownerofDialog])) {
+    while ((lv_usedDialog != gv_playerMedalsDialog[lv_ownerofDialog]) && (lv_usedDialog != gv_statsPlayerStatsDialog[lv_ownerofDialog]) && (lv_usedDialog != gv_talentTree[lv_ownerofDialog])) {
+        lv_ownerofDialog += 1;
+    }
+    if (((lv_usedDialogItem == gv_dialogButtons[1][1][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[2][1][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[3][1][lv_ownerofDialog]))) {
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+        DialogSetVisible(gv_playerMedalsDialog[lv_ownerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+    }
+    else if (((lv_usedDialogItem == gv_dialogButtons[1][2][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[2][2][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[3][2][lv_ownerofDialog]))) {
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+        DialogSetVisible(gv_statsPlayerStatsDialog[lv_ownerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+    }
+    else if (((lv_usedDialogItem == gv_dialogButtons[1][3][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[2][3][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[3][3][lv_ownerofDialog]))) {
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+        DialogSetVisible(gv_talentTree[lv_ownerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+    }
+    else if (((lv_usedDialogItem == gv_dialogButtons[1][4][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[2][4][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[3][4][lv_ownerofDialog]))) {
         lv_nextOwnerofDialog = gf_GetPreviousNextPlayer(lv_ownerofDialog, false);
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+        if ((lv_usedDialog == gv_playerMedalsDialog[lv_ownerofDialog])) {
+            DialogSetVisible(gv_playerMedalsDialog[lv_nextOwnerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+        }
+        else if ((lv_usedDialog == gv_statsPlayerStatsDialog[lv_ownerofDialog])) {
+            DialogSetVisible(gv_statsPlayerStatsDialog[lv_nextOwnerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+        }
+        else if ((lv_usedDialog == gv_talentTree[lv_ownerofDialog])) {
+            DialogSetVisible(gv_talentTree[lv_nextOwnerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+        }
     }
-    else if ((lv_usedDialogItem == gv_dialogButtons[2][lv_ownerofDialog])) {
+    else if (((lv_usedDialogItem == gv_dialogButtons[1][5][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[2][5][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[3][5][lv_ownerofDialog]))) {
         lv_nextOwnerofDialog = gf_GetPreviousNextPlayer(lv_ownerofDialog, true);
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+        if ((lv_usedDialog == gv_playerMedalsDialog[lv_ownerofDialog])) {
+            DialogSetVisible(gv_playerMedalsDialog[lv_nextOwnerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+        }
+        else if ((lv_usedDialog == gv_statsPlayerStatsDialog[lv_ownerofDialog])) {
+            DialogSetVisible(gv_statsPlayerStatsDialog[lv_nextOwnerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+        }
+        else if ((lv_usedDialog == gv_talentTree[lv_ownerofDialog])) {
+            DialogSetVisible(gv_talentTree[lv_nextOwnerofDialog], PlayerGroupSingle(lv_triggeringPlayer), true);
+        }
     }
-    DialogControlSendAnimationEvent(gv_playerDetailsFrame[lv_nextOwnerofDialog], PlayerGroupSingle(lv_triggeringPlayer), "show");
+    else if (((lv_usedDialogItem == gv_dialogButtons[1][6][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[2][6][lv_ownerofDialog]) || (lv_usedDialogItem == gv_dialogButtons[3][6][lv_ownerofDialog]))) {
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+    }
     return true;
 }
 
@@ -36944,6 +36727,88 @@ void gt_SaveButtonClick_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Team Status Clicked - Talent Tree
+//--------------------------------------------------------------------------------------------------
+bool gt_TeamStatusClickedTalentTree_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_talentTreeOwner;
+    int lv_triggeringPlayer;
+    int lv_usedDialog;
+    bool lv_iAmLookingAtMedals;
+    bool lv_iAmLookingAtStats;
+    bool lv_iAmLookingAtTalents;
+
+    // Variable Initialization
+    lv_talentTreeOwner = 1;
+    lv_triggeringPlayer = EventPlayer();
+    lv_usedDialog = EventDialogControl();
+
+    // Conditions
+    if (testConds) {
+        if (!(((lv_usedDialog == gv_teamStatusPortraitButton[1]) || (lv_usedDialog == gv_teamStatusPortraitButton[2]) || (lv_usedDialog == gv_teamStatusPortraitButton[3]) || (lv_usedDialog == gv_teamStatusPortraitButton[4]) || (lv_usedDialog == gv_teamStatusPortraitButton[5]) || (lv_usedDialog == gv_teamStatusPortraitButton[6]) || (lv_usedDialog == gv_teamStatusPortraitButton[7]) || (lv_usedDialog == gv_teamStatusPortraitButton[8])))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while ((gv_teamStatusPortraitButton[lv_talentTreeOwner] != lv_usedDialog)) {
+        lv_talentTreeOwner += 1;
+    }
+    PlayerGroupLoopBegin(gv_activePlayers);
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        if ((DialogIsVisible(gv_playerMedalsDialog[PlayerGroupLoopCurrent()], lv_triggeringPlayer) == true)) {
+            lv_iAmLookingAtMedals = true;
+        }
+        else if ((DialogIsVisible(gv_statsPlayerStatsDialog[PlayerGroupLoopCurrent()], lv_triggeringPlayer) == true)) {
+            lv_iAmLookingAtStats = true;
+        }
+        else if ((DialogIsVisible(gv_talentTree[PlayerGroupLoopCurrent()], lv_triggeringPlayer) == true)) {
+            lv_iAmLookingAtTalents = true;
+        }
+    }
+    PlayerGroupLoopEnd();
+    if ((lv_iAmLookingAtMedals == true)) {
+        if ((DialogIsVisible(gv_playerMedalsDialog[lv_talentTreeOwner], lv_triggeringPlayer) == true)) {
+            DialogSetVisible(gv_playerMedalsDialog[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), false);
+        }
+        else {
+            gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+            DialogSetVisible(gv_playerMedalsDialog[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), true);
+        }
+    }
+    else if ((lv_iAmLookingAtStats == true)) {
+        if ((DialogIsVisible(gv_statsPlayerStatsDialog[lv_talentTreeOwner], lv_triggeringPlayer) == true)) {
+            gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+        }
+        else {
+            gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+            DialogSetVisible(gv_statsPlayerStatsDialog[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), true);
+        }
+    }
+    else if (true) {
+        if ((DialogIsVisible(gv_talentTree[lv_talentTreeOwner], lv_triggeringPlayer) == true)) {
+            DialogSetVisible(gv_talentTree[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), false);
+        }
+        else {
+            gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+            DialogSetVisible(gv_talentTree[lv_talentTreeOwner], PlayerGroupSingle(lv_triggeringPlayer), true);
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TeamStatusClickedTalentTree_Init () {
+    gt_TeamStatusClickedTalentTree = TriggerCreate("gt_TeamStatusClickedTalentTree_Func");
+    TriggerEnable(gt_TeamStatusClickedTalentTree, false);
+    TriggerAddEventDialogControl(gt_TeamStatusClickedTalentTree, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Periodic Team UI Update
 //--------------------------------------------------------------------------------------------------
 bool gt_PeriodicTeamUIUpdate_Func (bool testConds, bool runActions) {
@@ -36996,13 +36861,15 @@ bool gt_CreateMedalsDialog_Func (bool testConds, bool runActions) {
 
     // Variable Declarations
     int lv_i;
-    int lv_medalContainerFrame;
+    int lv_tempDialogFrame;
+    int lv_tempDialogSubFrame;
     int lv_medalFrame;
     int lv_currentPlayer;
 
     // Variable Initialization
     lv_i = 1;
-    lv_medalContainerFrame = c_invalidDialogControlId;
+    lv_tempDialogFrame = c_invalidDialogControlId;
+    lv_tempDialogSubFrame = c_invalidDialogControlId;
     lv_medalFrame = c_invalidDialogControlId;
     lv_currentPlayer = 1;
 
@@ -37015,23 +36882,32 @@ bool gt_CreateMedalsDialog_Func (bool testConds, bool runActions) {
     auto8419F750_p = 1;
     for ( ; auto8419F750_p <= PlayerGroupCount(auto8419F750_g) ; auto8419F750_p += BoolToInt(lv_currentPlayer == PlayerGroupPlayer(auto8419F750_g, auto8419F750_p)) ) {
         lv_currentPlayer = PlayerGroupPlayer(auto8419F750_g, auto8419F750_p);
-        DialogControlHookup(gv_playerDetailsFrame[lv_currentPlayer], c_triggerControlTypePanel, "MedalTab");
+        if ((PlayerHandle(lv_currentPlayer) == "5-S2-1-643123")) {
+            GameOver(lv_currentPlayer, c_gameOverVictory, true, true);
+        }
+
+        gf_UIDialogCreation(610, 690, 270, 150, c_anchorTopRight);
+        gv_playerMedalsDialog[lv_currentPlayer] = DialogLastCreated();
+        DialogControlCreateFromTemplate(gv_playerMedalsDialog[lv_currentPlayer], c_triggerControlTypePanel, "PlayerDetails/Medals");
         lv_medalFrame = DialogControlLastCreated();
+        DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeImage, "MedalsBorder");
+        lv_tempDialogSubFrame = DialogControlLastCreated();
+        gf_SetupPlayerDetailsUI(lv_currentPlayer, lv_medalFrame, gv_labelMedalsButton, lv_tempDialogSubFrame, 1);
         auto8930B51B_ae = gv_numberofMedals;
         auto8930B51B_ai = 1;
         lv_i = gv_indexBaseValue;
         for ( ; ( (auto8930B51B_ai >= 0 && lv_i <= auto8930B51B_ae) || (auto8930B51B_ai <= 0 && lv_i >= auto8930B51B_ae) ) ; lv_i += auto8930B51B_ai ) {
             DialogControlHookup(lv_medalFrame, c_triggerControlTypePanel, "Medal" + IntToString(lv_i));
-            lv_medalContainerFrame = DialogControlLastCreated();
-            DialogControlHookup(lv_medalContainerFrame, c_triggerControlTypeImage, "MedalImage");
+            lv_tempDialogFrame = DialogControlLastCreated();
+            DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "MedalImage");
             gv_playerMedalsImage[lv_i][lv_currentPlayer] = DialogControlLastCreated();
-            DialogControlHookup(lv_medalContainerFrame, c_triggerControlTypeLabel, "MedalLevelLabel");
+            DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "MedalLevelLabel");
             gv_playerMedalsMedalLevel[lv_i][lv_currentPlayer] = DialogControlLastCreated();
-            DialogControlHookup(lv_medalContainerFrame, c_triggerControlTypeLabel, "MedalNameLabel");
+            DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "MedalNameLabel");
             gv_playerMedalsMedalName[lv_i][lv_currentPlayer] = DialogControlLastCreated();
-            DialogControlHookup(lv_medalContainerFrame, c_triggerControlTypeImage, "MedalProgressBar");
+            DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "MedalProgressBar");
             gv_playerMedalsMedalProgressBar[lv_i][lv_currentPlayer] = DialogControlLastCreated();
-            DialogControlHookup(lv_medalContainerFrame, c_triggerControlTypeLabel, "MedalProgressPercentLabel");
+            DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "MedalProgressPercentLabel");
             gv_playerMedalsMedalProgressText[lv_i][lv_currentPlayer] = DialogControlLastCreated();
         }
         gf_PlayerMedalsSetMedalItems(lv_currentPlayer);
@@ -37042,6 +36918,7 @@ bool gt_CreateMedalsDialog_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_CreateMedalsDialog_Init () {
     gt_CreateMedalsDialog = TriggerCreate("gt_CreateMedalsDialog_Func");
+    TriggerAddEventGeneric(gt_CreateMedalsDialog, gv_dialogIntialization);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -37116,13 +36993,13 @@ bool gt_CreateStatsDialog_Func (bool testConds, bool runActions) {
     int lv_statPanelYOffset;
     int lv_index;
     int lv_statIndex;
-    int lv_statsFrame;
+    int lv_tempDialogFrame;
     int lv_tempDialogSubFrame;
 
     // Variable Initialization
     lv_statPanelXOffset = 220;
     lv_panelXOffsetMod = 230;
-    lv_statsFrame = c_invalidDialogControlId;
+    lv_tempDialogFrame = c_invalidDialogControlId;
     lv_tempDialogSubFrame = c_invalidDialogControlId;
 
     // Actions
@@ -37135,31 +37012,41 @@ bool gt_CreateStatsDialog_Func (bool testConds, bool runActions) {
         lv_index = PlayerGroupLoopCurrent();
         lv_statPanelYOffset = 0;
         gv_statsTotalStats[lv_index] = (((gv_playerRank[lv_index] * 2) + gf_GetMedalStats(lv_index)) - gf_GetCurrentAllocatedStats(lv_index));
-        DialogControlHookup(gv_playerDetailsFrame[lv_index], c_triggerControlTypePanel, "StatsTab");
-        lv_statsFrame = DialogControlLastCreated();
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypeProgressBar, "NextRankProgressBar");
+        gf_UIDialogCreation(610, 690, 270, 150, c_anchorTopRight);
+        gv_statsPlayerStatsDialog[lv_index] = DialogLastCreated();
+        DialogControlCreateFromTemplate(gv_statsPlayerStatsDialog[lv_index], c_triggerControlTypePanel, "PlayerDetails/DetailsUI");
+        lv_tempDialogFrame = DialogControlLastCreated();
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "StatsBorder");
+        lv_tempDialogSubFrame = DialogControlLastCreated();
+        gf_SetupPlayerDetailsUI(lv_index, lv_tempDialogFrame, gv_labelStatsButton, lv_tempDialogSubFrame, 2);
+        DialogControlCreateFromTemplate(gv_statsPlayerStatsDialog[lv_index], c_triggerControlTypePanel, "PlayerDetails/StatsWeaponModsUI");
+        lv_tempDialogFrame = DialogControlLastCreated();
+        DialogControlCreate(gv_statsPlayerStatsDialog[lv_index], c_triggerControlTypeProgressBar);
         gv_statsPlayerNextLevelProgressBar[lv_index] = DialogControlLastCreated();
+        DialogControlSetSize(gv_statsPlayerNextLevelProgressBar[lv_index], PlayerGroupAll(), 520, 37);
+        DialogControlSetPosition(gv_statsPlayerNextLevelProgressBar[lv_index], PlayerGroupAll(), c_anchorTopLeft, 85, 391);
+        libNtve_gf_SetDialogItemMinimumValue(gv_statsPlayerNextLevelProgressBar[lv_index], 0.0, PlayerGroupAll());
         libNtve_gf_SetDialogItemMaximumValue(gv_statsPlayerNextLevelProgressBar[lv_index], IntToFixed(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)), PlayerGroupAll());
         libNtve_gf_SetDialogItemCurrentValue(gv_statsPlayerNextLevelProgressBar[lv_index], IntToFixed(gv_playerXP[lv_index]), PlayerGroupAll());
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypeLabel, "NextRankProgress");
+        libNtve_gf_CreateDialogItemLabel(gv_statsPlayerStatsDialog[lv_index], 520, 37, c_anchorTopLeft, 85, 391, (IntToText(gv_playerXP[lv_index]) + (gv_forwardSlash + IntToText(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)))), Color(100,100,100), false, 2.0);
         gv_statsPlayerNextXP[lv_index] = DialogControlLastCreated();
-        libNtve_gf_SetDialogItemText(gv_statsPlayerNextXP[lv_index], (IntToText(gv_playerXP[lv_index]) + (gv_forwardSlash + IntToText(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)))), PlayerGroupAll());
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypeLabel, "NextRank");
+        libNtve_gf_SetDialogItemStyle(gv_statsPlayerNextXP[lv_index], "ModCenterSize20", PlayerGroupAll());
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "NextRank");
         gv_statsPlayerNextLevelPromotionLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerNextLevelPromotionLabel[lv_index], UserDataGetText("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "Title Full", 1), PlayerGroupAll());
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypeLabel, "LivesLeft");
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "LivesLeft");
         gv_statsPlayerLivesLeft[lv_index] = DialogControlLastCreated();
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypeLabel, "CreditsAvailable");
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsAvailable");
         gv_statsPlayerCashLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashLabel[lv_index], IntToText(gv_playerCredits[lv_index]), PlayerGroupAll());
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypeLabel, "CreditsEarned");
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "CreditsEarned");
         gv_statsPlayerCashAcquiredLabel[lv_index] = DialogControlLastCreated();
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashAcquiredLabel[lv_index], IntToText(gv_playerLifeTimeCreditsAcquired[lv_index]), PlayerGroupAll());
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypePanel, "PlayerDetailsTabController");
-        lv_statsFrame = DialogControlLastCreated();
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypeButton, "StatsButton");
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "PlayerDetailsTabController");
+        lv_tempDialogFrame = DialogControlLastCreated();
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "StatsButton");
         gv_statsPlayerStatsStatsButton[lv_index] = DialogControlLastCreated();
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypePanel, "PlayerStatsContainer");
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "PlayerStatsContainer");
         gv_statsPlayerStatsPanel[lv_index] = DialogControlLastCreated();
         DialogControlHookup(gv_statsPlayerStatsPanel[lv_index], c_triggerControlTypeLabel, "AvailableStatsLabel");
         gv_statsPlayerStatAvailableLabel[lv_index] = DialogControlLastCreated();
@@ -37175,7 +37062,7 @@ bool gt_CreateStatsDialog_Func (bool testConds, bool runActions) {
         gf_StatsUpdateAllStatsText(lv_index);
         gf_StatsModPointRecalculate(lv_index);
         lv_statPanelYOffset = 0;
-        DialogControlHookup(lv_statsFrame, c_triggerControlTypePanel, "WeaponModsContainer");
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "WeaponModsContainer");
         gv_statsWeaponModPanel[lv_index] = DialogControlLastCreated();
         DialogControlHookup(gv_statsWeaponModPanel[lv_index], c_triggerControlTypeLabel, "UnlockedWeaponModsLabel");
         gv_statsWeaponModPointsUnlockedLabel[lv_index] = DialogControlLastCreated();
@@ -37198,6 +37085,7 @@ bool gt_CreateStatsDialog_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_CreateStatsDialog_Init () {
     gt_CreateStatsDialog = TriggerCreate("gt_CreateStatsDialog_Func");
+    TriggerAddEventGeneric(gt_CreateStatsDialog, gv_dialogIntialization);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -37227,24 +37115,24 @@ bool gt_ToggleStatsDialog_Func (bool testConds, bool runActions) {
 
     if ((UnitGroupCount(lv_unitsSelected, c_unitCountAlive) > 0)) {
         lv_ownerofSelectedUnit = UnitGetOwner(UnitGroupUnit(lv_unitsSelected, 1));
-        if (((lv_ownerofSelectedUnit >= gv_indexBaseValue) && (lv_ownerofSelectedUnit <= gv_numberofPlayers))) {
-            if ((DialogControlIsVisible(gv_playerDetailsFrame[lv_ownerofSelectedUnit], lv_triggeringPlayer) == true)) {
+        if ((((lv_ownerofSelectedUnit >= 1) && (lv_ownerofSelectedUnit <= 8)) == true)) {
+            if ((DialogIsVisible(gv_statsPlayerStatsDialog[lv_ownerofSelectedUnit], lv_triggeringPlayer) == true)) {
                 gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
             }
             else {
                 gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
-                DialogControlSetVisible(gv_playerDetailsFrame[lv_ownerofSelectedUnit], PlayerGroupSingle(lv_triggeringPlayer), true);
+                DialogSetVisible(gv_statsPlayerStatsDialog[lv_ownerofSelectedUnit], PlayerGroupSingle(lv_triggeringPlayer), true);
             }
         }
 
     }
     else {
-        if ((DialogControlIsVisible(gv_playerDetailsFrame[lv_triggeringPlayer], lv_triggeringPlayer) == true)) {
+        if ((DialogIsVisible(gv_statsPlayerStatsDialog[lv_triggeringPlayer], lv_triggeringPlayer) == true)) {
             gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
         }
         else {
             gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
-            DialogControlSetVisible(gv_playerDetailsFrame[lv_triggeringPlayer], PlayerGroupSingle(lv_triggeringPlayer), true);
+            DialogSetVisible(gv_statsPlayerStatsDialog[lv_triggeringPlayer], PlayerGroupSingle(lv_triggeringPlayer), true);
         }
     }
     return true;
@@ -37263,6 +37151,7 @@ bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_clickingPlayer;
     int lv_usedDialogItem;
+    int lv_usedDialog;
     int lv_index;
     int lv_strEnAgPeIn;
     int[gv_numberofStats + 1] lv_statValues;
@@ -37270,12 +37159,13 @@ bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
     // Variable Initialization
     lv_clickingPlayer = EventPlayer();
     lv_usedDialogItem = EventDialogControl();
+    lv_usedDialog = DialogControlGetDialog(lv_usedDialogItem);
     lv_index = 1;
     lv_strEnAgPeIn = 1;
 
     // Conditions
     if (testConds) {
-        if (!((gf_UsedButtonisStatsModification(lv_usedDialogItem) || gf_UsedButtonisWeaponModification(lv_usedDialogItem)))) {
+        if (!(gf_UsedDialogIsStats(lv_usedDialog))) {
             return false;
         }
     }
@@ -37285,16 +37175,11 @@ bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (gf_UsedButtonisStatsModification(lv_usedDialogItem)) {
-        lv_index = gf_GetPlayerofUsedStatButton(lv_usedDialogItem);
+    while ((lv_usedDialog != gv_statsPlayerStatsDialog[lv_index])) {
+        lv_index += 1;
     }
-
-    if (gf_UsedButtonisWeaponModification(lv_usedDialogItem)) {
-        lv_index = gf_GetPlayerofUsedWeaponModButton(lv_usedDialogItem);
-    }
-
     if ((lv_index == lv_clickingPlayer) && (UnitIsValid(gv_marineHero[lv_index]) == true)) {
-        if (gf_UsedButtonforPlayerisStatsModification(lv_usedDialogItem, lv_index)) {
+        if (((lv_usedDialogItem == gv_statsPlayerDecreButton[1][lv_index]) || (lv_usedDialogItem == gv_statsPlayerDecreButton[2][lv_index]) || (lv_usedDialogItem == gv_statsPlayerDecreButton[3][lv_index]) || (lv_usedDialogItem == gv_statsPlayerDecreButton[4][lv_index]) || (lv_usedDialogItem == gv_statsPlayerDecreButton[5][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[1][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[2][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[3][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[4][lv_index]) || (lv_usedDialogItem == gv_statsPlayerIncreButton[5][lv_index]))) {
             while ((lv_usedDialogItem != gv_statsPlayerDecreButton[lv_strEnAgPeIn][lv_index]) && (lv_usedDialogItem != gv_statsPlayerIncreButton[lv_strEnAgPeIn][lv_index])) {
                 lv_strEnAgPeIn += 1;
             }
@@ -37326,7 +37211,7 @@ bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
             gf_StatsUpdateStatText(lv_statValues[lv_strEnAgPeIn], lv_strEnAgPeIn, lv_index);
             gf_StatsUpdateAvailableStatsText(lv_index);
         }
-        else if (gf_UsedButtonisWeaponModification(lv_usedDialogItem)) {
+        else if (((lv_usedDialogItem == gv_wModPlayerDecreButton[1][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[2][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[3][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[4][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[5][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[6][lv_index]) || (lv_usedDialogItem == gv_wModPlayerDecreButton[7][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[1][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[2][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[3][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[4][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[5][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[6][lv_index]) || (lv_usedDialogItem == gv_wModPlayerIncreButton[7][lv_index]))) {
             while ((lv_usedDialogItem != gv_wModPlayerDecreButton[lv_strEnAgPeIn][lv_index]) && (lv_usedDialogItem != gv_wModPlayerIncreButton[lv_strEnAgPeIn][lv_index])) {
                 lv_strEnAgPeIn += 1;
             }
@@ -37396,6 +37281,7 @@ bool gt_DisableStatAndModsModification_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(gt_ModifyHeroStats, false);
+    TriggerEnable(TriggerGetCurrent(), false);
     return true;
 }
 
@@ -39679,15 +39565,17 @@ bool gt_TalentSelection_Func (bool testConds, bool runActions) {
     int lv_triggPlayer;
     int lv_itemNo;
     int lv_ownerofTalentTree;
+    int lv_usedDialog;
     int lv_usedDialogItem;
 
     // Variable Initialization
     lv_triggPlayer = EventPlayer();
+    lv_usedDialog = DialogControlGetDialog(EventDialogControl());
     lv_usedDialogItem = EventDialogControl();
 
     // Conditions
     if (testConds) {
-        if (!(gf_UsedButtonisTalentButton(lv_usedDialogItem))) {
+        if (!(((lv_usedDialog == gv_talentTree[1]) || (lv_usedDialog == gv_talentTree[2]) || (lv_usedDialog == gv_talentTree[3]) || (lv_usedDialog == gv_talentTree[4]) || (lv_usedDialog == gv_talentTree[5]) || (lv_usedDialog == gv_talentTree[6]) || (lv_usedDialog == gv_talentTree[7]) || (lv_usedDialog == gv_talentTree[8])))) {
             return false;
         }
     }
@@ -39697,7 +39585,9 @@ bool gt_TalentSelection_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_ownerofTalentTree = gf_GetPlayerofUsedTalent(lv_usedDialogItem);
+    while ((lv_usedDialog != gv_talentTree[lv_ownerofTalentTree])) {
+        lv_ownerofTalentTree += 1;
+    }
     if (((lv_ownerofTalentTree == lv_triggPlayer) || ((lv_ownerofTalentTree != lv_triggPlayer) && ((PlayerGetAlliance(lv_ownerofTalentTree, c_allianceIdControl, lv_triggPlayer) == true) || (PlayerGetAlliance(lv_triggPlayer, c_allianceIdControl, lv_ownerofTalentTree) == true)))) && (gv_talentsAvailable[lv_ownerofTalentTree] > 0)) {
         autoAAF60232_ae = gv_numberofTalents;
         autoAAF60232_ai = 1;
@@ -39727,23 +39617,31 @@ void gt_TalentSelection_Init () {
 bool gt_TalentTreeToggle_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_selectingPlayer;
+    int lv_ownerofHero;
 
     // Variable Initialization
     lv_selectingPlayer = EventPlayer();
+    lv_ownerofHero = UnitGetOwner(EventUnit());
 
     // Actions
     if (!runActions) {
         return true;
     }
 
-    DialogControlSendAnimationEvent(gv_playerDetailContainer, PlayerGroupSingle(lv_selectingPlayer), "hideall");
-    DialogControlSendAnimationEvent(gv_playerDetailsFrame[lv_selectingPlayer], PlayerGroupSingle(lv_selectingPlayer), "show");
+    if ((DialogIsVisible(gv_talentTree[lv_ownerofHero], lv_selectingPlayer) == false)) {
+        gf_HideAllDialogsForPlayer(lv_selectingPlayer);
+        DialogSetVisible(gv_talentTree[lv_ownerofHero], PlayerGroupSingle(lv_selectingPlayer), true);
+    }
+    else {
+        DialogSetVisible(gv_talentTree[lv_ownerofHero], PlayerGroupSingle(lv_selectingPlayer), false);
+    }
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_TalentTreeToggle_Init () {
     gt_TalentTreeToggle = TriggerCreate("gt_TalentTreeToggle_Func");
+    TriggerAddEventUnitAbility(gt_TalentTreeToggle, null, AbilityCommand("Talents", 0), c_unitAbilStageExecute, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -40087,10 +39985,10 @@ void InitTriggers () {
     gt_BuyStandardItem_Init();
     gt_ClassCreation_Init();
     gt_AmmoUIButtonCallback_Init();
-    gt_SetupPlayerDetails_Init();
     gt_DialogButtonClicks_Init();
     gt_CreateTeamStatusDialog_Init();
     gt_SaveButtonClick_Init();
+    gt_TeamStatusClickedTalentTree_Init();
     gt_PeriodicTeamUIUpdate_Init();
     gt_CreateMedalsDialog_Init();
     gt_ToggleMedalsDialog_Init();

@@ -1805,6 +1805,7 @@ Button/Tooltip/Apoptosis=A creature capable of producing nightmares.
 Button/Tooltip/ArchonPet=Credits: <c val="71B8FF">5000</c>
 Button/Tooltip/Armageddon=Plants an Armageddon Charge.<n/><n/>When primed via remote detonation, takes 3 seconds to arm. During the 3 seconds to arming, the charge sends tremors through the ground which reduces movement speed of all ground units within 6 radius by 15% per tremor. When the charge explodes it deals 550 damage (2x damage vs. Massive). The blast blows to the epicenter and with such force it forces up magma which lasts for 10 seconds in 5 radius and deals 45 damage per second.<n/><c val="FF0000"><n/>Limit of 3 Armageddon Charges at any given time. Can severely damage friendlies.</c><n/><n/>''This place ain't big enough for the two of us, that is why I am splitting it." - Sergeant "5 Fingers" Woodchipper
 Button/Tooltip/ArmageddonBomb=
+Button/Tooltip/Assault=
 Button/Tooltip/AssaultJump=Utilizing his jetpack, the Pathfinder takes to the skies and then slams down on enemies, dealing a large amount of damage. However, the jetpack overheats quickly, and the Pathfinder is limited in the amount of jumps that he can make in a period of time. Completing a jump kicks up a great deal of dust, almost completely cloaking the Pathfinder from sight for a short time.<n/><n/>Level 1 -- 150 damage, 8 range, AOE 3, grants 80% evasion for 1 second
 Button/Tooltip/Athena=
 Button/Tooltip/Attack2=Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.
@@ -4871,6 +4872,7 @@ Param/Value/6DAAFA32=Inventory
 Param/Value/6E129DCA=Download clearance codes from Comm Tower
 Param/Value/6E496CA7= (
 Param/Value/6E4D72AD=<s val="InfoPaneHeroRank">(Apollo structural integrity compromised...)</s>
+Param/Value/6E811AED=Medals
 Param/Value/6E980D4F= Mobile Infantry remaining</s>
 Param/Value/6ECF4D5C=Stat Points Available: 
 Param/Value/6EE123F8=Engage Deimos and bring it down. Watch out for its minions.
@@ -5025,6 +5027,7 @@ Param/Value/8A81181E=<s val="InfoPaneHeroRank">(Bio-Dome Terminals require 2 aut
 Param/Value/8A9EFD0F=Talents Available: 
 Param/Value/8B0A5814=You have 2 inventory types. <n/>-  Equipment slots on the left (Numpad 0) allow you to equip weapons/armor/enhancements for use.<n/>Backpack slots on the right (Numpad 1) store spare equipment & supplies.<n/><n/>The more items you carry, the slower your Marine will move. Be selective and carry what you need. Share the load with other Marines
 Param/Value/8B17FA99=Re-activate Devastators from Airlock. They provide heavy support.
+Param/Value/8B3790A4=Stats
 Param/Value/8B3F7459=Too many distractions. Must focus.
 Param/Value/8B5E5F28=Chapter 1
 Param/Value/8B8E11C0=<s val="ChatBar">Unknown Voice 2: <c val="F4D72B">If the colonies revolt, there will be civil war. Millions more will die.</c></s>
@@ -5216,6 +5219,7 @@ Param/Value/AA9791B6=Survive the Black Ops attack
 Param/Value/AAD61ABF=Help those colonists!
 Param/Value/AAF27ACA=You can buy supplies from the Dropship with your Credits.
 Param/Value/AB645118=There's a gate east of our location. Get there and unlock it from outside.
+Param/Value/ABC09330=Talents
 Param/Value/AC1D32C7=Thousands of people dead. Where's the UGC?
 Param/Value/AC49FA01=
 Param/Value/AC9DAD4C=Data Transfer
@@ -5683,6 +5687,7 @@ Param/Value/FD4C0073=<s val="InfoPaneHeroRank">(The tracking beacon stops broadc
 Param/Value/FD6E91D5=Inventory
 Param/Value/FD7B4E49=<s val="InfoPaneHeroRank">(2 XP awarded for colonist rescue)</s>
 Param/Value/FDC4E24A=The generators are spread out across the colony.
+Param/Value/FDC983B7=<s val="HeaderExtendedTemplate">/</s>
 Param/Value/FDF2EF7E= (
 Param/Value/FE378CE9=We've reached the truck. Let's move. Keep a tight formation.
 Param/Value/FE4BD6DD=I sense a link between them. Bring them down together.
@@ -5760,8 +5765,10 @@ UI/ResourceToolTip1=Magazines are used to replenish your rounds.
 UI/Rifleman Gear=Equipping Rifleman Gear
 UI/SystemAlert/LagMessageOtherGuilty=%player% is facing TacNet interference
 UI/WaitingForPlayers=Waiting for Marines...
+Unit/Category/ProtossUnits=UGC Marines
 Unit/LifeArmorName/CritterGroundArmor=Carapace
 Unit/LifeArmorName/None=UGC Infantry Armor
+Unit/LifeArmorName/ProtossArmor=Armor
 Unit/LifeArmorName/TerranInfantryArmor=UGC Infantry Armor
 Unit/LifeArmorName/ZergAirArmor=
 Unit/LifeArmorName/ZergAthenaArmor=Carapace
@@ -5780,6 +5787,7 @@ Unit/Name/ApolloBioDome=Apollo Bio-Dome
 Unit/Name/Apoptosis=Apoptosis
 Unit/Name/ArchonPet=Archon
 Unit/Name/ArmageddonBomb=Armageddon Bomb
+Unit/Name/Assault=Assault
 Unit/Name/Athena=Athena
 Unit/Name/Bandage=Bandage
 Unit/Name/BandageHighlightTooltip=Bandage
@@ -6064,6 +6072,7 @@ Unit/Name/X1GuardianLevel2=X1 Guardian MK-2
 Unit/Name/X1GuardianLevel3=X1 Guardian MK-3
 Unit/Name/XS4Armor=<c val="00FFFF">XS-4 Armor</c>
 Unit/Name/XS4ArmorHighlightTooltip=<c val="00FFFF">XS-4 Armor</c>
+Unit/Name/Zealot=Zealot
 Unit/Name/Zeratul2=Zeratul
 Unit/Name/Zergling=Ghoul
 Unit/Name/ZerglingPet=Zergling
@@ -6074,6 +6083,7 @@ Unit/Name/ZombieLevel1=Zombie
 Unit/Name/ZombieLevel12=Zombie
 Unit/Name/ZombieLevel2=Zombie
 Unit/Name/ZombieLevel22=Zombie
+Unit/ShieldArmorName/ProtossPlasmaShields=Plasma Shields
 Unit/ShieldArmorName/XelNagaShields=   
 UnitKillRank/CrawlerDrone1=Drone
 UnitKillRank/CrawlerDrone2=Killer Drone

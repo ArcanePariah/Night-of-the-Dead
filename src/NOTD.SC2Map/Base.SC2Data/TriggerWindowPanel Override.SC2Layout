@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="TimerWindow" name="TimerWindowTemplate" file="TriggerWindowPanel">
+        <Frame type="Image" name="BackgroundImage">
+            <Texture val="@@UI/StandardGameTooltip_Prot"/>
+            <TextureType val="Border"/>
+            <Tiled val="true"/>
+            <Alpha val="85"/>
+            <Visible val="true"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="4"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-4"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="4"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-4"/>
+        </Frame>
+
+        <Frame type="Label" name="TimerTitle">
+            <Style val="TimerTitle"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="8"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-150"/>
+        </Frame>
+
+        <Frame type="Label" name="TimerText">
+            <Style val="TimerText"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Max" offset="-150"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-8"/>
+        </Frame>
+    </Frame>
+</Desc>
