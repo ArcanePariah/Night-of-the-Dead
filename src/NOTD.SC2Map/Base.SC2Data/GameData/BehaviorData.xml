@@ -1000,6 +1000,24 @@
         <Duration value="60"/>
         <ExpireEffect value="Suicide"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SonicRevealTimed">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <ExpireEffect value="Suicide"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NukeRevealTimed">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="12"/>
+        <ExpireEffect value="Suicide"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NeuralParasiteRevealTimed">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <ExpireEffect value="Suicide"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="FlashFlareLevel1">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
