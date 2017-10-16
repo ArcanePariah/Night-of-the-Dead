@@ -301,6 +301,14 @@
         <WhichUnit Value="Caster"/>
         <Value value="DominionKillTeam"/>
     </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="KillerHasSadist1">
+        <Value value="1"/>
+        <Behavior value="SadistLevel1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="KillerHasSadist2">
+        <Value value="1"/>
+        <Behavior value="SadistLevel2"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitBehaviorState id="CasterUnitnotStunned">
         <WhichUnit Value="Caster"/>
         <BehaviorState value="Stun"/>

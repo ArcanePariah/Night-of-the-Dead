@@ -987,9 +987,7 @@ int[9] gv_modTotalPointsNegative;
 fixed[9] gv_baseMarineReloadMultiplier;
 fixed[9] gv_baseMarineSwitchingMultiplier;
 fixed[9] gv_baseMarineWeightPointMultiplier;
-unitgroup[9] gv_sonicTrap;
 unit[9] gv_reaperMK13;
-unitgroup[9] gv_armageddonBomb;
 unit[9] gv_fieldNexus;
 bool gv_fieldNexusAlive;
 timer[9] gv_synergyTimerEngineer;
@@ -1436,12 +1434,6 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_baseMarineWeightPointMultiplier[init_i] = 1.0;
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_sonicTrap[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_armageddonBomb[init_i] = UnitGroupEmpty();
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_synergyTimerEngineer[init_i] = TimerCreate();
@@ -2126,7 +2118,6 @@ trigger gt_CriticalStrike;
 trigger gt_ConcentratedFireCriticalStrike;
 trigger gt_HarvesterofSorrowCriticalStrike;
 trigger gt_GrenadeLauncherFireUpEnd;
-trigger gt_SonicTrapLimit5;
 trigger gt_SonicTrapVision;
 trigger gt_Anticipation;
 trigger gt_Concentration;
@@ -2134,14 +2125,10 @@ trigger gt_ExecuteMovespeedBonus;
 trigger gt_SupplyStation;
 trigger gt_LaserDesignator;
 trigger gt_Flare;
-trigger gt_ReaperMK13Created;
 trigger gt_RefresherResetCooldowns;
-trigger gt_Sadist;
-trigger gt_ArmageddonBombLimit3;
 trigger gt_FieldNexusRevokeSharedVision;
 trigger gt_FieldNexusShareVision;
 trigger gt_Synergy;
-trigger gt_X1Guardian;
 trigger gt_TacticalNuke;
 trigger gt_RavagingPhantom;
 trigger gt_Inception;
@@ -2149,7 +2136,6 @@ trigger gt_MindLinkShareDamage;
 trigger gt_MindLinkShareVision;
 trigger gt_CancelMindLink;
 trigger gt_HammeroftheGodsCamShake;
-trigger gt_AMRounds;
 trigger gt_MiniTKPenalty;
 trigger gt_ModifyShellLimit;
 trigger gt_FireMission;
@@ -12723,10 +12709,6 @@ void gf_LevelUpTalentRecon (int lp_itemNo, unit lp_triggUnit, int lp_triggPlayer
         TechTreeAbilityAllow(lp_triggPlayer, AbilityCommand("MassDesignate", 0), true);
     }
 
-    if ((lp_itemNo == 5)) {
-        TriggerEnable(gt_ReaperMK13Created, true);
-    }
-
     if ((lp_itemNo == 7)) {
         UnitBehaviorAddPlayer(lp_triggUnit, "Backstab", lp_triggPlayer, 1);
     }
@@ -12771,19 +12753,11 @@ void gf_LevelUpTalentDemolitions (int lp_itemNo, unit lp_triggUnit, int lp_trigg
 
     }
 
-    if ((lp_itemNo == 5)) {
-        TriggerEnable(gt_ArmageddonBombLimit3, true);
-    }
-
     if ((lp_itemNo == 8)) {
         if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 2)) {
             TechTreeUpgradeAddLevel(lp_triggPlayer, "LookLevel2", 1);
         }
 
-    }
-
-    if ((lp_itemNo == 9)) {
-        TriggerEnable(gt_Sadist, true);
     }
 
 }
@@ -12812,7 +12786,6 @@ void gf_LevelUpTalentEngineer (int lp_itemNo, unit lp_triggUnit, int lp_triggPla
         if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 1)) {
             TechTreeAbilityAllow(lp_triggPlayer, AbilityCommand("X1UpgradeLevel1", 0), false);
             TechTreeAbilityAllow(lp_triggPlayer, AbilityCommand("X1UpgradeLevel2", 0), false);
-            TriggerEnable(gt_X1Guardian, true);
         }
 
         if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 2)) {
@@ -12912,18 +12885,8 @@ void gf_LevelUpTalentPsiOps (int lp_itemNo, unit lp_triggUnit, int lp_triggPlaye
 
 void gf_LevelUpTalentTechnician (int lp_itemNo, unit lp_triggUnit, int lp_triggPlayer) {
     // Implementation
-    if ((lp_itemNo == 1)) {
-        if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 2)) {
-            UnitBehaviorRemovePlayer(lp_triggUnit, "FloodlightsLevel1", lp_triggPlayer, 1);
-        }
-        else if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 3)) {
-            UnitBehaviorRemovePlayer(lp_triggUnit, "FloodlightsLevel2", lp_triggPlayer, 1);
-        }
-    }
-
     if ((lp_itemNo == 5)) {
         TriggerEnable(gt_HammeroftheGodsCamShake, true);
-        TriggerEnable(gt_AMRounds, true);
     }
 
 }
@@ -37539,40 +37502,6 @@ void gt_GrenadeLauncherFireUpEnd_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Sonic Trap - Limit 5
-//--------------------------------------------------------------------------------------------------
-bool gt_SonicTrapLimit5_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_riflemanOwner;
-
-    // Variable Initialization
-    lv_riflemanOwner = UnitGetOwner(EventUnit());
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitGroupAdd(gv_sonicTrap[lv_riflemanOwner], EventUnitCreatedUnit());
-    if ((UnitGroupCount(gv_sonicTrap[lv_riflemanOwner], c_unitCountAlive) > 5)) {
-        UnitGroupLoopBegin(gv_sonicTrap[lv_riflemanOwner]);
-        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-            UnitKill(UnitGroupLoopCurrent());
-            break;
-        }
-        UnitGroupLoopEnd();
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_SonicTrapLimit5_Init () {
-    gt_SonicTrapLimit5 = TriggerCreate("gt_SonicTrapLimit5_Func");
-    TriggerAddEventUnitCreated(gt_SonicTrapLimit5, null, "SonicTrap", null);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Sonic Trap Vision
 //--------------------------------------------------------------------------------------------------
 bool gt_SonicTrapVision_Func (bool testConds, bool runActions) {
@@ -37591,7 +37520,6 @@ bool gt_SonicTrapVision_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    PingCreate(PlayerGroupActive(), "PingWarning", lv_sonicTrapTargetPoint, ColorWithAlpha(76.86, 85.88, 99.22, 49.80), 1.0);
     PlayerGroupLoopBegin(gv_marineSquad);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         VisRevealArea(PlayerGroupLoopCurrent(), RegionCircle(lv_sonicTrapTargetPoint, lv_revealRadius), lv_revealDuration, false);
@@ -37950,37 +37878,6 @@ void gt_Flare_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Reaper MK-13 Created
-//--------------------------------------------------------------------------------------------------
-bool gt_ReaperMK13Created_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv_reaperMK13Unit;
-    int lv_reconOwner;
-
-    // Variable Initialization
-    lv_reaperMK13Unit = EventUnitCreatedUnit();
-    lv_reconOwner = UnitGetOwner(lv_reaperMK13Unit);
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitKill(gv_reaperMK13[lv_reconOwner]);
-    Wait(0.2, c_timeGame);
-    gv_reaperMK13[lv_reconOwner] = lv_reaperMK13Unit;
-    UnitSetPropertyFixed(gv_reaperMK13[lv_reconOwner], c_unitPropLevel, 1.0);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ReaperMK13Created_Init () {
-    gt_ReaperMK13Created = TriggerCreate("gt_ReaperMK13Created_Func");
-    TriggerEnable(gt_ReaperMK13Created, false);
-    TriggerAddEventUnitCreated(gt_ReaperMK13Created, null, "ReaperMK13", null);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Refresher - Reset Cooldowns
 //--------------------------------------------------------------------------------------------------
 bool gt_RefresherResetCooldowns_Func (bool testConds, bool runActions) {
@@ -38010,75 +37907,6 @@ bool gt_RefresherResetCooldowns_Func (bool testConds, bool runActions) {
 void gt_RefresherResetCooldowns_Init () {
     gt_RefresherResetCooldowns = TriggerCreate("gt_RefresherResetCooldowns_Func");
     TriggerAddEventUnitAbility(gt_RefresherResetCooldowns, null, AbilityCommand("Refresher", 0), c_unitAbilStageComplete, false);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Sadist
-//--------------------------------------------------------------------------------------------------
-bool gt_Sadist_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_sadistLevel;
-
-    // Variable Initialization
-
-    // Conditions
-    if (testConds) {
-        if (!((UnitGetType(libNtve_gf_KillingUnit()) == "DominionKillTeam"))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    lv_sadistLevel = gv_talentLevel[9][libNtve_gf_KillingPlayer()];
-    UnitSetPropertyFixed(gv_marineHero[libNtve_gf_KillingPlayer()], c_unitPropLife, (UnitGetPropertyFixed(gv_marineHero[libNtve_gf_KillingPlayer()], c_unitPropLife, c_unitPropCurrent) + (lv_sadistLevel * 2.0)));
-    UnitSetPropertyFixed(gv_marineHero[libNtve_gf_KillingPlayer()], c_unitPropShields, (UnitGetPropertyFixed(gv_marineHero[libNtve_gf_KillingPlayer()], c_unitPropShields, c_unitPropCurrent) + lv_sadistLevel));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_Sadist_Init () {
-    gt_Sadist = TriggerCreate("gt_Sadist_Func");
-    TriggerEnable(gt_Sadist, false);
-    TriggerAddEventUnitDied(gt_Sadist, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Armageddon Bomb - Limit 3
-//--------------------------------------------------------------------------------------------------
-bool gt_ArmageddonBombLimit3_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_demoOwner;
-
-    // Variable Initialization
-    lv_demoOwner = UnitGetOwner(EventUnitCreatedUnit());
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitGroupAdd(gv_armageddonBomb[lv_demoOwner], EventUnitCreatedUnit());
-    if ((UnitGroupCount(gv_armageddonBomb[lv_demoOwner], c_unitCountAlive) > 3)) {
-        UnitGroupLoopBegin(gv_armageddonBomb[lv_demoOwner]);
-        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-            UnitKill(UnitGroupLoopCurrent());
-            break;
-        }
-        UnitGroupLoopEnd();
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ArmageddonBombLimit3_Init () {
-    gt_ArmageddonBombLimit3 = TriggerCreate("gt_ArmageddonBombLimit3_Func");
-    TriggerEnable(gt_ArmageddonBombLimit3, false);
-    TriggerAddEventUnitCreated(gt_ArmageddonBombLimit3, null, "Armageddon", null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -38368,40 +38196,6 @@ void gt_Synergy_Init () {
     TriggerAddEventUnitDamaged(gt_Synergy, null, c_unitDamageTypeAny, c_unitDamageEither, "X1EvisceratorBeamLevel2");
     TriggerAddEventUnitDamaged(gt_Synergy, null, c_unitDamageTypeAny, c_unitDamageEither, "X1EvisceratorBeamLevel3");
     TriggerAddEventUnitDamaged(gt_Synergy, null, c_unitDamageTypeAny, c_unitDamageEither, "ThermalLancesMU");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: X-1 Guardian
-//--------------------------------------------------------------------------------------------------
-bool gt_X1Guardian_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv_x1GuardianUnit;
-    int lv_engineerOwner;
-
-    // Variable Initialization
-    lv_x1GuardianUnit = EventUnitCreatedUnit();
-    lv_engineerOwner = UnitGetOwner(lv_x1GuardianUnit);
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitKill(gv_x1Guardian[lv_engineerOwner]);
-    Wait(0.2, c_timeGame);
-    gv_x1Guardian[lv_engineerOwner] = lv_x1GuardianUnit;
-    if ((gv_fPS[lv_engineerOwner] == true)) {
-        UnitSetState(lv_x1GuardianUnit, c_unitStateStatusBar, false);
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_X1Guardian_Init () {
-    gt_X1Guardian = TriggerCreate("gt_X1Guardian_Func");
-    TriggerEnable(gt_X1Guardian, false);
-    TriggerAddEventUnitCreated(gt_X1Guardian, null, "X1Guardian", null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -38746,32 +38540,6 @@ void gt_HammeroftheGodsCamShake_Init () {
     gt_HammeroftheGodsCamShake = TriggerCreate("gt_HammeroftheGodsCamShake_Func");
     TriggerEnable(gt_HammeroftheGodsCamShake, false);
     TriggerAddEventUnitStartedAttack(gt_HammeroftheGodsCamShake, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: AMRounds
-//--------------------------------------------------------------------------------------------------
-bool gt_AMRounds_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv_localTurret;
-
-    // Variable Initialization
-    lv_localTurret = EventUnit();
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitAbilityEnable(lv_localTurret, "SwitchtoHEFRounds", true);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_AMRounds_Init () {
-    gt_AMRounds = TriggerCreate("gt_AMRounds_Func");
-    TriggerEnable(gt_AMRounds, false);
-    TriggerAddEventUnitAbility(gt_AMRounds, null, AbilityCommand("SwitchtoAMRounds", 0), c_unitAbilStageComplete, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -40026,7 +39794,6 @@ void InitTriggers () {
     gt_ConcentratedFireCriticalStrike_Init();
     gt_HarvesterofSorrowCriticalStrike_Init();
     gt_GrenadeLauncherFireUpEnd_Init();
-    gt_SonicTrapLimit5_Init();
     gt_SonicTrapVision_Init();
     gt_Anticipation_Init();
     gt_Concentration_Init();
@@ -40034,14 +39801,10 @@ void InitTriggers () {
     gt_SupplyStation_Init();
     gt_LaserDesignator_Init();
     gt_Flare_Init();
-    gt_ReaperMK13Created_Init();
     gt_RefresherResetCooldowns_Init();
-    gt_Sadist_Init();
-    gt_ArmageddonBombLimit3_Init();
     gt_FieldNexusRevokeSharedVision_Init();
     gt_FieldNexusShareVision_Init();
     gt_Synergy_Init();
-    gt_X1Guardian_Init();
     gt_TacticalNuke_Init();
     gt_RavagingPhantom_Init();
     gt_Inception_Init();
@@ -40049,7 +39812,6 @@ void InitTriggers () {
     gt_MindLinkShareVision_Init();
     gt_CancelMindLink_Init();
     gt_HammeroftheGodsCamShake_Init();
-    gt_AMRounds_Init();
     gt_MiniTKPenalty_Init();
     gt_ModifyShellLimit_Init();
     gt_FireMission_Init();

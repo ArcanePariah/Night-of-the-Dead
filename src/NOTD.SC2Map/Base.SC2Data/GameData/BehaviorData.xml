@@ -1074,10 +1074,10 @@
             <StateFlags index="Uncommandable" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HammeroftheGodsUnqiue">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <InitialEffect value="HammeroftheGodUnique"/>
+    <CBehaviorBuff id="BlackDogLimit">
         <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InitialEffect value="BlackDogLimit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KillstoCasterGrenade">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1087,10 +1087,10 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <KillCredit Value="CasterOuter"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MaintenenceDroneUnqiue">
+    <CBehaviorBuff id="MaintenanceDroneLimit">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <InitialEffect value="HammeroftheGodUnique2"/>
+        <InitialEffect value="MaintenanceDroneLimit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HardenCaraspace">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -2281,6 +2281,11 @@
             <ModifyFlags index="SuppressTurning" value="1"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="ArmageddonBombLimit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="ArmageddonBombLimit"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="Armageddon">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="5"/>
@@ -3251,6 +3256,9 @@
         <InfoIcon value="Assets/Textures/btn-ability-protoss-blink.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="FloodlightsLevel2"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="FloodlightsLevel1"/>
+        </Modification>
         <TimeScaleSource Value="Global"/>
         <Period value="1"/>
         <PeriodicEffect value="FloodlightsLevel2Reveal"/>
@@ -3261,6 +3269,9 @@
         <InfoIcon value="Assets/Textures/btn-ability-protoss-blink.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="FloodlightsLevel3"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="FloodlightsLevel2"/>
+        </Modification>
         <TimeScaleSource Value="Global"/>
         <Period value="1"/>
         <PeriodicEffect value="FloodlightsLevel3Reveal"/>
@@ -3648,6 +3659,11 @@
             </DeathResponse>
         </Modification>
     </CBehaviorAttribute>
+    <CBehaviorBuff id="X1GuardianLimit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="X1GuardianLimit"/>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="X1BotVeterancy">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <VeterancyLevelArray MinVeterancyXP="300">
@@ -5136,6 +5152,11 @@
         <PeriodicEffect value="BurstFireDamageLevel3"/>
         <DamageResponse Chance="1" Fatal="1" Handled="FrenzyApplyBuffSet"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="ReaperMK13Limit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="ReaperMK13Limit"/>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="DroneVeterancy" parent="PetVeterancy">
         <Name value="Behavior/Name/DroneVeterancy"/>
         <Tooltip value="Behavior/Tooltip/DroneVeterancy"/>
@@ -6207,6 +6228,11 @@
             <RequireEffectArray value="CriticalStrike"/>
         </DamageResponse>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SonicTrapLimit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="SonicTrapLimit"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="SonicTrapCount">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -6818,7 +6844,13 @@
         <InfoIcon value="Assets\Textures\btn-unit-terran-marauderkillsquad.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="SadistLevel1"/>
+        <DamageResponse Chance="1" Handled="SadistLv1HealingTemp" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SadistLv1HealingTemp">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="SadistLv1Healing"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SadistLevel2">
         <Alignment value="Positive"/>
@@ -6828,7 +6860,13 @@
         <Modification>
             <BehaviorLinkDisableArray value="SadistLevel1"/>
         </Modification>
+        <DamageResponse Chance="1" Handled="SadistLv2HealingTemp" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SadistLv2HealingTemp">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="SadistLv2Healing"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SatchelLevel1">
         <EditorCategories value="AbilityorEffectType:Units"/>
