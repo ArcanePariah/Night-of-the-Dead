@@ -53,7 +53,6 @@
         <AbilArray Link="FibrinBandage"/>
         <AbilArray Link="CombatKnife"/>
         <AbilArray Link="L3LaunchGrenade"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="CurrentAmmo"/>
         <AbilArray Link="CurrentMagazine"/>
         <BehaviorArray Link="Basic_Hero"/>
@@ -69,7 +68,6 @@
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="MarineActions" Type="Submenu" SubmenuCardId="2" Row="1" Column="4"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
         </CardLayouts>
         <CardLayouts CardId="2">
@@ -77,7 +75,7 @@
             <LayoutButtons Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
-            <LayoutButtons Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade" Row="0" Column="1"/>
+            <LayoutButtons Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,255" Row="0" Column="1"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="DisableInventoryTransfer" Type="AbilCmd" AbilCmd="BlockInventoryTransfer,On" Row="1" Column="0"/>
             <LayoutButtons Face="EnableInventoryTransfer" Type="AbilCmd" AbilCmd="BlockInventoryTransfer,Off" Row="1" Column="0"/>
@@ -979,7 +977,6 @@
         <AbilArray Link="FibrinBandage"/>
         <AbilArray Link="CombatKnife"/>
         <AbilArray Link="L3LaunchGrenade"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="InventoryChemExpert"/>
         <AbilArray Link="Desolation"/>
         <AbilArray Link="Contaminate2"/>
@@ -1013,7 +1010,6 @@
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="MarineActions" Type="Submenu" SubmenuCardId="2" Row="1" Column="4"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="Desolation" Type="AbilCmd" AbilCmd="Desolation,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="Contaminate2" Type="AbilCmd" AbilCmd="Contaminate2,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="InboundSickness" Type="AbilCmd" AbilCmd="InboundSickness,Execute" Row="2" Column="2"/>
@@ -1224,7 +1220,6 @@
         <AbilArray index="1" Link="move"/>
         <AbilArray index="2" Link="Sprint"/>
         <AbilArray index="3" Link="InventoryDemolitions"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="Reload"/>
         <AbilArray Link="DropMagazine"/>
         <AbilArray Link="GhostHoldFire"/>
@@ -1274,10 +1269,9 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="5" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="6" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="7" Face="BuildMines" Type="AbilCmd" AbilCmd="BuildMines,Execute" Row="2" Column="1"/>
-            <LayoutButtons Face="SpiderMine" Type="AbilCmd" AbilCmd="VultureSpiderMines,Execute" Row="2" Column="2"/>
+            <LayoutButtons index="5" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
+            <LayoutButtons index="6" Face="BuildMines" Type="AbilCmd" AbilCmd="BuildMines,Execute" Row="2" Column="1"/>
+            <LayoutButtons index="7" Face="SpiderMine" Type="AbilCmd" AbilCmd="VultureSpiderMines,Execute" Row="2" Column="2"/>
             <LayoutButtons Face="Satchel" Type="AbilCmd" AbilCmd="Satchel,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="FireVulnerability" Type="AbilCmd" AbilCmd="FireVulnerability,Execute" Row="2" Column="3"/>
             <LayoutButtons Face="Armageddon" Type="AbilCmd" AbilCmd="Armageddon,Execute" Row="1" Column="1"/>
@@ -1687,7 +1681,6 @@
         <AbilArray Link="GhostWeaponsFree"/>
         <AbilArray Link="Sprint"/>
         <AbilArray Link="InventoryMarksman"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="Reload"/>
         <AbilArray Link="DropMagazine"/>
         <AbilArray Link="CriticalStrike"/>
@@ -1722,7 +1715,6 @@
         <BehaviorArray Link="ConcentrationLevel3Dummy"/>
         <CardLayouts>
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="Stealth" Type="AbilCmd" AbilCmd="Stealth,On" Row="1" Column="2"/>
             <LayoutButtons Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
@@ -2095,8 +2087,7 @@
         <AbilArray index="5" Link="GhostWeaponsFree"/>
         <AbilArray index="6" Link="Sprint"/>
         <AbilArray index="7" Link="InventoryRecon"/>
-        <AbilArray index="8" Link="Talents"/>
-        <AbilArray Link="Reload"/>
+        <AbilArray index="8" Link="Reload"/>
         <AbilArray Link="DropMagazine"/>
         <AbilArray Link="FibrinBandage"/>
         <AbilArray Link="LearnRecon"/>
@@ -2140,21 +2131,20 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="7" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="8" Face="Escape" Type="AbilCmd" AbilCmd="Escape,Execute" Row="1" Column="2"/>
-            <LayoutButtons index="9" Face="Refresher" Type="AbilCmd" AbilCmd="Refresher,Execute" Row="1" Column="1"/>
+            <LayoutButtons index="7" Face="Escape" Type="AbilCmd" AbilCmd="Escape,Execute" Row="1" Column="2"/>
+            <LayoutButtons index="8" Face="Refresher" Type="AbilCmd" AbilCmd="Refresher,Execute" Row="1" Column="1"/>
+            <LayoutButtons index="9" Face="ReaperMK13" Type="AbilCmd" AbilCmd="ReaperMK13,Execute" Row="1" Column="0"/>
             <LayoutButtons index="10">
-                <Face value="ReaperMK13"/>
+                <Face value="Attack"/>
                 <Type value="AbilCmd"/>
-                <AbilCmd value="ReaperMK13,Execute"/>
+                <AbilCmd value="attack,Execute"/>
                 <Requirements value=""/>
-                <Row value="1"/>
-                <Column value="0"/>
+                <Row value="0"/>
+                <Column value="1"/>
             </LayoutButtons>
-            <LayoutButtons index="11" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="12" Face="SupplyStation" Type="AbilCmd" AbilCmd="SupplyStation,Execute" Row="2" Column="1"/>
-            <LayoutButtons index="13" Face="MassDesignate" Type="AbilCmd" AbilCmd="MassDesignate,Execute" Row="1" Column="3"/>
-            <LayoutButtons Face="StealthMatrixDeactivate" Type="AbilCmd" AbilCmd="StealthMatrix,Execute" Row="1" Column="2"/>
+            <LayoutButtons index="11" Face="SupplyStation" Type="AbilCmd" AbilCmd="SupplyStation,Execute" Row="2" Column="1"/>
+            <LayoutButtons index="12" Face="MassDesignate" Type="AbilCmd" AbilCmd="MassDesignate,Execute" Row="1" Column="3"/>
+            <LayoutButtons index="13" Face="StealthMatrixDeactivate" Type="AbilCmd" AbilCmd="StealthMatrix,Execute" Row="1" Column="2"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="Execute" Type="AbilCmd" AbilCmd="Execute,Execute" Row="2" Column="2"/>
         </CardLayouts>
@@ -2522,7 +2512,6 @@
         <StationaryTurningRate value="574.9804"/>
         <TurningRate value="574.9804"/>
         <KillXP value="0"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="Reload"/>
         <AbilArray Link="TeamLocation"/>
         <AbilArray Link="CombatKnife"/>
@@ -2576,12 +2565,11 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="2" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="3" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="4" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="5" Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
+            <LayoutButtons index="2" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
+            <LayoutButtons index="3" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
+            <LayoutButtons index="4" Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
+            <LayoutButtons index="5" Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="Sprint2" Type="AbilCmd" AbilCmd="Sprint2,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="FastFive" Type="AbilCmd" AbilCmd="FastFive,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="ShoottoMaim" Type="AbilCmd" AbilCmd="ShoottoMaim,On" Row="1" Column="1"/>
             <LayoutButtons Face="ShoottoMaimTurnOff" Type="AbilCmd" AbilCmd="ShoottoMaim,Off" Row="1" Column="1"/>
@@ -2750,7 +2738,6 @@
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
         <AbilArray Link="Sprint"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="Reload"/>
         <AbilArray Link="DropMagazine"/>
         <AbilArray Link="GhostHoldFire"/>
@@ -2805,7 +2792,6 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="TargetingArray" Type="AbilCmd" AbilCmd="TargetingArray,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="MadSpark" Type="AbilCmd" AbilCmd="MadSpark,Execute" Row="2" Column="2"/>
@@ -3103,7 +3089,6 @@
         <AbilArray index="1" Link="move"/>
         <AbilArray index="2" Link="Sprint"/>
         <AbilArray Link="InventoryAssault"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="Reload"/>
         <AbilArray Link="DropMagazine"/>
         <AbilArray Link="ConcentratedFire"/>
@@ -3159,7 +3144,6 @@
             <LayoutButtons Face="HarvesterofSorrow" Type="AbilCmd" AbilCmd="HarvesterofSorrow,Execute" Row="2" Column="2"/>
             <LayoutButtons Face="Taunt2" Type="AbilCmd" AbilCmd="Taunt2,On" Row="2" Column="1"/>
             <LayoutButtons Face="Charge2" Type="AbilCmd" AbilCmd="Charge2,Execute" Row="2" Column="3"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="BloodFrenzy" Type="AbilCmd" AbilCmd="BloodFrenzy,On" Row="1" Column="0"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
         </CardLayouts>
@@ -3199,142 +3183,6 @@
         <SubgroupPriority value="9"/>
         <MinimapRadius value="0.2"/>
         <HotkeyCategory value="Hotkey/Heros"/>
-    </CUnit>
-    <CUnit id="Assault" parent="BaseHero">
-        <DeathRevealFilters value="Visible;Player,Ally,Neutral,Missile,Dead,Hidden"/>
-        <Mob value="Campaign"/>
-        <LifeStart value="265"/>
-        <LifeMax value="265"/>
-        <LifeArmor value="2"/>
-        <LifeRegenRate value="0.3515"/>
-        <EnergyStart value="75"/>
-        <EnergyMax value="75"/>
-        <EnergyRegenRate value="1"/>
-        <ShieldsStart value="50"/>
-        <ShieldsMax value="50"/>
-        <ShieldRegenRate value="1.5"/>
-        <Speed value="2.1992"/>
-        <StationaryTurningRate value="524.8828"/>
-        <CostResource index="Minerals" value="50"/>
-        <RepairTime value="20"/>
-        <DamageDealtXP value="1"/>
-        <DamageTakenXP value="1"/>
-        <KillXP value="15"/>
-        <AbilArray index="0" Link="attack"/>
-        <AbilArray index="1" Link="move"/>
-        <AbilArray index="3" Link="InventoryAssault"/>
-        <AbilArray index="4" Link="Talents"/>
-        <AbilArray index="5" Link="Reload"/>
-        <AbilArray index="6" Link="DropMagazine"/>
-        <AbilArray index="7" Link="ConcentratedFire"/>
-        <AbilArray index="8" Link="LearnAssault"/>
-        <AbilArray index="9" Link="Taunt2"/>
-        <AbilArray index="10" Link="DefensivePlating"/>
-        <AbilArray index="11" Link="HarvesterofSorrow"/>
-        <AbilArray index="12" Link="Cohesion"/>
-        <AbilArray index="13" Link="Safeguard"/>
-        <AbilArray index="14" Link="ConcentratedFire"/>
-        <AbilArray index="15" Link="CriticalStrike"/>
-        <AbilArray index="16" Link="AmmoFeedDummy"/>
-        <AbilArray Link="Rampage"/>
-        <AbilArray Link="Charge2"/>
-        <AbilArray Link="GhostHoldFire"/>
-        <AbilArray Link="GhostWeaponsFree"/>
-        <AbilArray Link="FibrinBandage"/>
-        <AbilArray Link="TeamLocation"/>
-        <AbilArray Link="BloodFrenzy"/>
-        <AbilArray Link="CombatKnife"/>
-        <AbilArray Link="L3LaunchGrenade"/>
-        <AbilArray Link="CurrentAmmo"/>
-        <AbilArray Link="CurrentMagazine"/>
-        <AbilArray Link="BlockInventoryTransfer"/>
-        <BehaviorArray index="1" Link="DefensivePlatingLevel1"/>
-        <BehaviorArray index="2" Link="DefensivePlatingLevel2"/>
-        <BehaviorArray index="3" Link="DefensivePlatingLevel3"/>
-        <BehaviorArray index="4" Link="CohesionAuraLevel1"/>
-        <BehaviorArray index="5" Link="CohesionAuraLevel2"/>
-        <BehaviorArray Link="SafeguardHidden"/>
-        <BehaviorArray Link="KittenBeacon"/>
-        <BehaviorArray Link="RecruitDamageReduction"/>
-        <BehaviorArray Link="FlashlightFatsuits"/>
-        <BehaviorArray Link="CriticalStrikeAttacker"/>
-        <BehaviorArray Link="CriticalStrikeAttackerKnife"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
-            <LayoutButtons index="4" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
-            <LayoutButtons index="5">
-                <Face value="ConcentratedFire"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="ConcentratedFire,Execute"/>
-                <SubmenuCardId value=""/>
-                <Row value="2"/>
-                <Column value="0"/>
-            </LayoutButtons>
-            <LayoutButtons index="6">
-                <Face value="MarineActions"/>
-                <Type value="Submenu"/>
-                <AbilCmd value="attack,Execute"/>
-                <SubmenuCardId value="2"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons index="7" Face="HarvesterofSorrow" Type="AbilCmd" AbilCmd="HarvesterofSorrow,Execute" Row="2" Column="2"/>
-            <LayoutButtons Face="Taunt2" Type="AbilCmd" AbilCmd="Taunt2,On" Row="2" Column="1"/>
-            <LayoutButtons Face="Charge2" Type="AbilCmd" AbilCmd="Charge2,Execute" Row="2" Column="3"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons Face="BloodFrenzy" Type="AbilCmd" AbilCmd="BloodFrenzy,On" Row="1" Column="0"/>
-            <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
-        </CardLayouts>
-        <CardLayouts index="1" CardId="2">
-            <LayoutButtons index="1" Face="DropMagazine" Type="AbilCmd" AbilCmd="DropMagazine,Execute" Row="1" Column="1"/>
-            <LayoutButtons index="2" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
-            <LayoutButtons index="3" Face="TeamLocation" Type="AbilCmd" AbilCmd="TeamLocation,Execute" Row="1" Column="3"/>
-            <LayoutButtons index="4" Face="SpectreHoldFire" Type="AbilCmd" AbilCmd="GhostHoldFire,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="5" Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="2" Column="2"/>
-            <LayoutButtons index="6" Face="SpectreWeaponsFree" Type="AbilCmd" AbilCmd="GhostWeaponsFree,Execute" Row="2" Column="1"/>
-            <LayoutButtons index="7" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
-            <LayoutButtons index="8" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="9" Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
-            <LayoutButtons index="10" Face="FibrinBandage" Type="AbilCmd" AbilCmd="FibrinBandage,Execute" Row="1" Column="2"/>
-            <LayoutButtons index="11" Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
-            <LayoutButtons index="12">
-                <Face value="DisableInventoryTransfer"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="BlockInventoryTransfer,On"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="0"/>
-            </LayoutButtons>
-            <LayoutButtons index="13">
-                <Face value="EnableInventoryTransfer"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="BlockInventoryTransfer,Off"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="0"/>
-            </LayoutButtons>
-            <LayoutButtons index="14" removed="1"/>
-        </CardLayouts>
-        <CargoSize value="1"/>
-        <ScoreMake value="50"/>
-        <ScoreKill value="100"/>
-        <SubgroupPriority value="9"/>
-        <TacticalAI value="Assault"/>
-        <LeaderAlias value="Tychus"/>
-        <SelectAlias value="Tychus"/>
-        <GlossaryCategory value="Unit/Category/TerranUnits"/>
-        <GlossaryPriority value="310"/>
-        <HotkeyCategory value=""/>
-        <KillDisplay value="Default"/>
-        <RankDisplay value="Default"/>
-        <AIEvaluateAlias value="Assault"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="33"/>
-            <ChanceArray index="Idle" value="33"/>
-            <ChanceArray index="Turn" value="33"/>
-        </Fidget>
     </CUnit>
     <CUnit id="WeaponHybridD">
         <FlagArray index="Invulnerable" value="1"/>
@@ -6493,7 +6341,6 @@
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
         <AbilArray Link="Sprint"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="TeamLocation"/>
         <AbilArray Link="FibrinBandage"/>
         <AbilArray Link="Reload"/>
@@ -6549,8 +6396,6 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="BurstFire" Type="AbilCmd" AbilCmd="BurstFire,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="BURN" Type="AbilCmd" AbilCmd="BURN,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="Inferno" Type="AbilCmd" AbilCmd="Inferno,Execute" Row="1" Column="1"/>
@@ -6995,8 +6840,15 @@
         <BehaviorArray Link="SuicideBackup"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="AblativeScales" AbilCmd="255,0" Requirements="UseAblativeScales" Column="2"/>
-            <LayoutButtons index="6" Face="Stealth2" AbilCmd="StealthIvax,On"/>
+            <LayoutButtons index="5">
+                <Face value="AblativeScales"/>
+                <Type value="Passive"/>
+                <AbilCmd value="255,0"/>
+                <Requirements value="UseAblativeScales"/>
+                <Row value="2"/>
+                <Column value="2"/>
+            </LayoutButtons>
+            <LayoutButtons index="6" Face="Stealth2" Type="AbilCmd" AbilCmd="StealthIvax,On" Row="2" Column="0"/>
             <LayoutButtons>
                 <Face value="Bloodlust"/>
                 <Type value="AbilCmd"/>
@@ -8375,7 +8227,6 @@
         <AbilArray Link="MentalProjection"/>
         <AbilArray Link="Foresight"/>
         <AbilArray Link="PsionicTempest"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="Blackout"/>
         <AbilArray Link="ForcePush"/>
         <AbilArray Link="RavagingPhantom"/>
@@ -8409,7 +8260,6 @@
             <LayoutButtons Face="MindRavage" Type="AbilCmd" AbilCmd="MindRavage,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="MentalProjection" Type="AbilCmd" AbilCmd="MentalProjection,Execute" Row="2" Column="2"/>
             <LayoutButtons Face="PsionicTempest" Type="AbilCmd" AbilCmd="PsionicTempest,Execute" Row="2" Column="3"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons>
                 <Face value="MarineActions"/>
                 <Type value="Submenu"/>
@@ -10489,7 +10339,6 @@
         <AbilArray index="1" Link="move"/>
         <AbilArray index="2" Link="Sprint"/>
         <AbilArray index="3" Link="InventoryForwardObserver"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="Reload"/>
         <AbilArray Link="DropMagazine"/>
         <AbilArray Link="GhostHoldFire"/>
@@ -10563,7 +10412,6 @@
             <LayoutButtons index="5" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons index="6" Face="NapalmBarrage" Type="AbilCmd" AbilCmd="NapalmBarrage,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="ShockwaveBarrage" Type="AbilCmd" AbilCmd="ShockwaveBarrage,Execute" Row="2" Column="1"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="FireMission" Type="AbilCmd" AbilCmd="FireMission,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="MobileInfantry" Type="AbilCmd" AbilCmd="MobileInfantry,Execute" Row="2" Column="2"/>
@@ -10789,7 +10637,6 @@
         <AbilArray Link="Reload"/>
         <AbilArray Link="DropMagazine"/>
         <AbilArray Link="TeamLocation"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="GhostHoldFire"/>
         <AbilArray Link="GhostWeaponsFree"/>
         <AbilArray Link="FibrinBandage"/>
@@ -10840,7 +10687,6 @@
                 <Column value="4"/>
             </LayoutButtons>
             <LayoutButtons Face="PlasmaDischarge" Type="AbilCmd" AbilCmd="PlasmaDischarge,Execute" Row="2" Column="1"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="X1Guardian" Type="AbilCmd" AbilCmd="X1Guardian,Execute" Row="2" Column="3"/>
             <LayoutButtons Face="Repair2" Type="AbilCmd" AbilCmd="RepairNOTD,Execute" Row="1" Column="1"/>
@@ -11566,7 +11412,6 @@
         <AbilArray Link="Reload"/>
         <AbilArray Link="DropMagazine"/>
         <AbilArray Link="TeamLocation"/>
-        <AbilArray Link="Talents"/>
         <AbilArray Link="GhostHoldFire"/>
         <AbilArray Link="GhostWeaponsFree"/>
         <AbilArray Link="FibrinBandage"/>
@@ -11609,7 +11454,6 @@
                 <Column value="4"/>
             </LayoutButtons>
             <LayoutButtons Face="SurgicalStrike" Type="AbilCmd" AbilCmd="SurgicalStrike,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="MonofilamentTrap" Type="AbilCmd" AbilCmd="MonofilamentTrap,Execute" Row="1" Column="2"/>
             <LayoutButtons Face="Adrenaline" Type="AbilCmd" AbilCmd="Adrenaline,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="TacticalNuke" Type="AbilCmd" AbilCmd="TacNukeStrike,Execute" Row="1" Column="0"/>

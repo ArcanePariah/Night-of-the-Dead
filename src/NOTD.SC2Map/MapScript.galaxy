@@ -37286,7 +37286,7 @@ bool gt_ModifyHeroStats_Func (bool testConds, bool runActions) {
     }
 
     if (gf_UsedButtonisStatsModification(lv_usedDialogItem)) {
-        lv_index = gf_GetPlayerofUsedStatButton(c_invalidDialogControlId);
+        lv_index = gf_GetPlayerofUsedStatButton(lv_usedDialogItem);
     }
 
     if (gf_UsedButtonisWeaponModification(lv_usedDialogItem)) {
