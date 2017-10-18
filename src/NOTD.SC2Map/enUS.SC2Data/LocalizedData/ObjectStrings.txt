@@ -4726,6 +4726,7 @@ Behavior/Name/NapalmPersistent=Napalm (Persistent)
 Behavior/Name/NeuralParasiteTargeted=Neural Parasite (Targeted)
 Behavior/Name/NightmareBonusDamage=Nightmare Bonus Damage
 Behavior/Name/NightmareIntimidation=Nightmare Intimidation
+Behavior/Name/NotMoving=Not Moving
 Behavior/Name/OccularImplants=Ocular Implants
 Behavior/Name/OpenWound2=Open Wound
 Behavior/Name/OpenWoundChance=Open Wound Chance
