@@ -2130,7 +2130,6 @@ trigger gt_FieldNexusRevokeSharedVision;
 trigger gt_FieldNexusShareVision;
 trigger gt_Synergy;
 trigger gt_TacticalNuke;
-trigger gt_RavagingPhantom;
 trigger gt_Inception;
 trigger gt_MindLinkShareDamage;
 trigger gt_MindLinkShareVision;
@@ -12844,10 +12843,6 @@ void gf_LevelUpTalentPsiOps (int lp_itemNo, unit lp_triggUnit, int lp_triggPlaye
         else if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 3)) {
             TechTreeUpgradeAddLevel(lp_triggPlayer, "ForcePushLevel3", 1);
         }
-    }
-
-    if ((lp_itemNo == 3)) {
-        TriggerEnable(gt_RavagingPhantom, true);
     }
 
     if ((lp_itemNo == 7)) {
@@ -38232,53 +38227,6 @@ void gt_TacticalNuke_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Ravaging Phantom
-//--------------------------------------------------------------------------------------------------
-bool gt_RavagingPhantom_Func (bool testConds, bool runActions) {
-    // Conditions
-    if (testConds) {
-        if (!((UnitGetType(EventUnit()) != "Egg"))) {
-            return false;
-        }
-
-        if (!((UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeStructure) == false))) {
-            return false;
-        }
-
-        if (!(((UnitGetOwner(EventUnit()) == 13) || (UnitGetOwner(EventUnit()) == 14)))) {
-            return false;
-        }
-
-        if (!((((EventUnitDamageEffect() != "PsionicTempestDamage") && (UnitHasBehavior(libNtve_gf_KillingUnit(), "RavagingPhantomLevel1") == true) && (RandomInt(1, 100) <= 40)) || ((EventUnitDamageEffect() != "PsionicTempestDamage") && (UnitHasBehavior(libNtve_gf_KillingUnit(), "RavagingPhantomLevel2") == true) && (RandomInt(1, 100) <= 80)) || ((EventUnitDamageEffect() == "PsionicTempestDamage") && (UnitHasBehavior(libNtve_gf_KillingUnit(), "RavagingPhantomLevel1") == true) && (RandomInt(1, 100) <= 25)) || ((EventUnitDamageEffect() == "PsionicTempestDamage") && (UnitHasBehavior(libNtve_gf_KillingUnit(), "RavagingPhantomLevel2") == true) && (RandomInt(1, 100) <= 50))))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitCreate(1, UnitGetType(EventUnit()), c_unitCreateIgnorePlacement, UnitGetOwner(libNtve_gf_KillingUnit()), UnitGetPosition(EventUnit()), UnitGetFacing(EventUnit()));
-    libNtve_gf_SendActorMessageToUnit(UnitLastCreated(), "SetOpacity 0.700000");
-    UnitBehaviorAdd(UnitLastCreated(), "PhantomSuicide", UnitLastCreated(), 1);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_RavagingPhantom_Init () {
-    gt_RavagingPhantom = TriggerCreate("gt_RavagingPhantom_Func");
-    TriggerEnable(gt_RavagingPhantom, false);
-    TriggerAddEventUnitDamaged(gt_RavagingPhantom, null, c_unitDamageTypeAny, c_unitDamageFatal, "MindRavageLevel1Damage");
-    TriggerAddEventUnitDamaged(gt_RavagingPhantom, null, c_unitDamageTypeAny, c_unitDamageFatal, "MindRavageLevel2Damage");
-    TriggerAddEventUnitDamaged(gt_RavagingPhantom, null, c_unitDamageTypeAny, c_unitDamageFatal, "MindRavageLevel3Damage");
-    TriggerAddEventUnitDamaged(gt_RavagingPhantom, null, c_unitDamageTypeAny, c_unitDamageFatal, "MindRavageDamageExtraStunLevel1");
-    TriggerAddEventUnitDamaged(gt_RavagingPhantom, null, c_unitDamageTypeAny, c_unitDamageFatal, "MindRavageDamageExtraStunLevel2");
-    TriggerAddEventUnitDamaged(gt_RavagingPhantom, null, c_unitDamageTypeAny, c_unitDamageFatal, "MindRavageDamageExtraStunLevel3");
-    TriggerAddEventUnitDamaged(gt_RavagingPhantom, null, c_unitDamageTypeAny, c_unitDamageFatal, "PsionicTempestDamage");
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Inception
 //--------------------------------------------------------------------------------------------------
 bool gt_Inception_Func (bool testConds, bool runActions) {
@@ -39806,7 +39754,6 @@ void InitTriggers () {
     gt_FieldNexusShareVision_Init();
     gt_Synergy_Init();
     gt_TacticalNuke_Init();
-    gt_RavagingPhantom_Init();
     gt_Inception_Init();
     gt_MindLinkShareDamage_Init();
     gt_MindLinkShareVision_Init();

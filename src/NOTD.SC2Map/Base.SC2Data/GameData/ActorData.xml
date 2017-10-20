@@ -189,6 +189,7 @@
         <On Terms="TimerExpired; TimerName ReRoar" Send="StatusSet Roar 1"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart BSD Attack"/>
         <On Terms="WeaponStop" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Queen"/>
         <Scale value="0.650000"/>
         <AutoScaleFactor value="1.000000"/>
@@ -406,6 +407,7 @@
         <On Terms="WeaponStart.*.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
         <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="NeuralParasiteModel"/>
         <Scale value="1.300000"/>
         <BuildModel value="NeuralParasiteModel"/>
@@ -503,6 +505,7 @@
     </CActorAction>
     <CActorUnit id="Marksman" parent="GenericUnitStandard" unitName="Marksman">
         <Macros value="Shrinker"/>
+        <Macros value="Phantom"/>
         <On index="53" Terms="Abil.Snipe.SourcePrepStart" Send="AnimPlay SpellA Spell,A 0 -1.000000 0.500000 -1.000000 AsDuration"/>
         <On index="54" Terms="Abil.Snipe.SourceFinishStart" Send="AnimClear SpellA 0.500000"/>
         <On index="55" Terms="Abil.RaynorSnipe.SourcePrepStart" Send="AnimPlay SpellA Spell,A PlayForever"/>
@@ -552,6 +555,7 @@
         <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Ghost"/>
         <EventDataFootprint index="0" Actor="UnitFootprint" Model="GhostLaserLinesFootprint"/>
         <BuildModel value="Ghost"/>
@@ -1024,6 +1028,7 @@
         <On Terms="ActorCreation" Send="TimerSet"/>
         <On Terms="TimerExpired" Send="TextureSelectById Marine_Diffuse"/>
         <On Terms="ActorCreation" Send="AttachModel ModelAdditionHarness MedicShield {Hardpoint 1}"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="MedicNOTD"/>
         <Scale value="1.100000"/>
         <BuildModel value="MedicNOTD"/>
@@ -1076,6 +1081,7 @@
         <On Terms="AbilMorph.MarksmanGear.Finish; MorphFrom MobileInfantryFlamethrower; MorphTo MobileInfantryMarksman" Send="Create MobileInfantryMarksman"/>
         <On Terms="AbilMorph.RiflemanGear.Finish; MorphFrom MobileInfantryFlamethrower; MorphTo MobileInfantryRifleman" Send="Create MobileInfantry"/>
         <On Terms="AbilMorph.*.Finish" Send="Destroy Immediate"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Firebat"/>
         <BuildModel value="Firebat"/>
         <DeathArray index="Normal" ModelLink="FirebatDeath" SoundLink="Firebat_Explode"/>
@@ -1163,6 +1169,7 @@
         <On Terms="AbilMorph.RiflemanGear.Finish; MorphFrom MobileInfantryMarksman; MorphTo MobileInfantryRifleman" Send="Create MobileInfantry"/>
         <On Terms="AbilMorph.FlamethrowerGear.Finish; MorphFrom MobileInfantryMarksman; MorphTo MobileInfantryFlamethrower" Send="Create MobileInfantryFlamethrower"/>
         <On Terms="AbilMorph.*.Finish" Send="Destroy Immediate"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="GhostLaserLines"/>
         <BuildModel value="GhostLaserLines"/>
         <DeathArray index="Normal" ModelLink="GhostDeath" SoundLink="Ghost_Death"/>
@@ -1201,6 +1208,7 @@
         <On index="0" Send="Create SoundEmitter Parasite_Ambience"/>
         <On index="50" Terms="AbilMorph.*.Finish; MorphTo" Send="Create"/>
         <On index="51" Terms="AbilMorph.*.Start; MorphFrom" Send="Destroy"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Larva"/>
         <Scale value="1.100000"/>
         <BuildModel value="Larva"/>
@@ -1275,6 +1283,7 @@
         <On index="4" Terms="UnitConstruction.MaintenanceDroneMK2.Finish"/>
         <On index="5" Terms="UnitConstruction.Finish"/>
         <On Terms="Abil.PlasmaCutterOvercharge.SourceCastStart" Send="$Spell"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="ScienceVessel"/>
         <Scale value="0.250000"/>
         <BuildModel value="ScienceVessel"/>
@@ -1306,6 +1315,7 @@
         <On index="4" Terms="UnitConstruction.MaintenanceDroneMK3.Finish"/>
         <On index="5" Terms="UnitConstruction.Finish"/>
         <On Terms="Abil.PlasmaCutterOvercharge.SourceCastStart" Send="$Spell"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="ScienceVessel"/>
         <Scale value="0.280000"/>
         <BuildModel value="ScienceVessel"/>
@@ -1373,6 +1383,7 @@
         <On index="0" Send="Create SoundEmitter Parasite_Ambience"/>
         <On index="50" Terms="AbilMorph.*.Finish; MorphTo" Send="Create"/>
         <On index="51" Terms="AbilMorph.*.Start; MorphFrom" Send="Destroy"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Larva"/>
         <Scale value="0.800000"/>
         <BuildModel value="Larva"/>
@@ -2004,6 +2015,7 @@
         </Wireframe>
         <BarOffset value="110"/>
         <On Terms="ActorCreation" Send="SetTintColor 64,96,4"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
     </CActorUnit>
     <CActorRange id="NoQuarterRange" parent="RangeAbil" abil="NoQuarter">
         <FogVisibility value="Visible"/>
@@ -2279,6 +2291,7 @@
         <On Terms="WeaponStop" Send="AnimClear BSD"/>
         <On Terms="UnitBirth.ChemicalExpert" Send="SetTintColor 185,223,159"/>
         <On Terms="UnitCreation.ChemicalExpert" Send="SetTintColor 185,223,159"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <DeathArray index="Normal" ModelLink="MarauderMercenaryDeath" SoundLink="Marauder_Explode"/>
         <DeathArray index="Eviscerate" ModelLink="MarauderMercenaryDeath" SoundLink="Uni_DeathFXEviscerate"/>
         <PortraitModel value="MarauderMercenaryPortrait"/>
@@ -3031,6 +3044,7 @@
         <On Terms="ActorCreation" Send="SetOpacity 0.000000 0.000000 opa"/>
         <On Terms="ActorCreation" Send="TimerSet 0.100000 timerOpa"/>
         <On Terms="TimerExpired; TimerName timerOpa" Send="ClearOpacity 3.000000 opa"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="0.750000"/>
         <DeathArray index="Normal" ModelLink="UtilityBotDeath" SoundLink="Terran_ExplosionSmall" VoiceLink="UtilityBotDeathVoice"/>
         <PortraitModel value="UtilityBotPortrait"/>
@@ -3218,6 +3232,7 @@
         <On Terms="Abil.Snipe.SourceFinishStart" Send="AnimPlay SpellC Spell,C"/>
         <On Terms="Abil.Snipe.SourceFinishStop" Send="AnimClear SpellC"/>
         <On Terms="ActorCreation.BlackOps" Send="SetLocalTintColor 55,55,55"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <DeathArray index="Normal" ModelLink="SpecterDeath" SoundLink="Ghost_Death"/>
         <DeathArray index="Blast" ModelLink="SpecterDeath" SoundLink="Ghost_Explode"/>
         <DeathArray index="Disintegrate" ModelLink="SpecterDeath" SoundLink="Uni_DeathFXAcid"/>
@@ -3639,6 +3654,7 @@
     <!--                                                                                         -->
     <CActorUnit id="CivilianFemale">
         <StatusBarFlags index="Shields" value="0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Macros value="Shrinker"/>
     </CActorUnit>
     <CActorModel id="ClicklingHead" parent="ModelAddition">
@@ -3670,6 +3686,7 @@
         <On Terms="ActorCreation" Send="AttachModelOffset C_DeimosEye DeimosEye {Hardpoint 0} 0.000000,0.000000,0.900000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset C_DeimosShield DeimosShield {Hardpoint 0} 0.620000,-0.300000,0.750000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset C_DeimosPad2 DeimosPad {Hardpoint 0} -0.650000,0.000000,0.300000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <DeathArray index="Normal" ModelLink="InfestedMarineDeath" SoundLink="InfestedTerran_Explode"/>
         <DeathArray index="Disintegrate" ModelLink="InfestedMarineDeathAcid" SoundLink="Uni_DeathFXAcid"/>
         <DeathArray index="Fire" ModelLink="InfestedMarineDeathFire" SoundLink="Uni_DeathFXFire"/>
@@ -3817,6 +3834,7 @@
     </CActorSiteOpRotationExplicit>
     <CActorUnit id="MaintenanceDroneMK1" parent="GenericUnitBase" unitName="MaintenanceDroneMK1">
         <On Terms="Abil.PlasmaCutterOvercharge.SourceCastStart" Send="$Spell"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="ScienceVessel"/>
         <Scale value="0.220000"/>
         <BuildModel value="ScienceVessel"/>
@@ -3915,6 +3933,7 @@
         <On Terms="Abil.CrawlerDrone.SourceFinishStop" Send="AnimBracketStop SurDrone"/>
         <On Terms="Abil.L3LaunchGrenade.SourcePrepStart" Send="AnimBracketStart {Attack Superior} {} {} {} ContentPlayOnce"/>
         <On Terms="Abil.L3LaunchGrenade.SourcePrepStop" Send="AnimBracketStop {Attack Superior}"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <GroupSoundArray index="What" value="Odin_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Odin_GroupYes"/>
         <GroupSoundArray index="Attack" value="Odin_GroupAttack"/>
@@ -3938,6 +3957,7 @@
         <On Terms="ActorCreation" Send="SetOpacity 0.000000 0.000000 opa"/>
         <On Terms="ActorCreation" Send="TimerSet 0.100000 opacityTimer"/>
         <On Terms="TimerExpired; TimerName opacityTimer" Send="ClearOpacity 3.000000 opa"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="0.650000"/>
         <DeathArray index="Normal" ModelLink="UtilityBotDeath" SoundLink="Terran_ExplosionSmall" VoiceLink="UtilityBotDeathVoice"/>
         <PortraitModel value="UtilityBotPortrait"/>
@@ -4229,6 +4249,7 @@
         <On Terms="Abil.EggPop.SourceCastStart" Send="$Spell,B 0 -1.000000 -1.000000 1.500000 AsDuration"/>
         <On Terms="Abil.QueenShockwave.SourceCastStart" Send="$Spell"/>
         <On Terms="Abil.Transfusion2.SourceFinishStart" Send="AnimPlay Transfusion Spell,B"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Queen"/>
         <BuildModel value="Queen"/>
         <DeathArray index="Normal" ModelLink="QueenDeath" SoundLink="Queen_Explode"/>
@@ -4261,6 +4282,7 @@
     <CActorUnit id="Nazara" parent="GenericUnitBase" unitName="Nazara">
         <On Terms="Abil.Irradiate.SourceCastStart" Send="$Spell"/>
         <On Terms="ActorCreation" Send="AnimPlay BSD Stand,Work PlayForever"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <DeathArray index="Normal" ModelLink="ScienceVesselDeath" SoundLink=""/>
         <DeathActorModel value="ScienceVesselDeathModel"/>
         <PortraitModel value="ScienceVesselPortrait"/>
@@ -4361,6 +4383,7 @@
     <CActorUnit id="T65Sentinel" parent="GenericUnitBase" unitName="T65Sentinel">
         <On Terms="Abil.Irradiate.SourceCastStart" Send="$Spell"/>
         <On Terms="ActorCreation" Send="SetLocalTintColor 55,55,55"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <DeathArray index="Normal" ModelLink="ScienceVesselDeath" SoundLink=""/>
         <DeathActorModel value="ScienceVesselDeathModel"/>
         <PortraitModel value="ConfederateAdjutantPortrait"/>
@@ -4433,6 +4456,7 @@
         <On Terms="ActorCreation.Cerberus" Send="SetTintColor {0,0,0 10.000000}"/>
         <On Terms="Behavior.CerberusCharging.On" Send="SetTintColor {255,255,0 5.000000}"/>
         <On Terms="Behavior.CerberusCharging.Off" Send="SetTintColor 0,0,0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <AnimBlendTime value="0.200000"/>
         <BuildModel value="Sin"/>
         <DeathArray index="Normal" ModelLink="HybridProtossDeath" SoundLink="Hybrid_DeathFX"/>
@@ -4486,6 +4510,7 @@
         <On Terms="Signal.*.Harden" Send="AttachModelOffset HardenedCaraspace TartaComb {Weapon 0} 0.550000,0.800000,1.000000"/>
         <On Terms="Signal.*.Harden" Send="AttachModelOffset HardenedCaraspace TartaComb {Weapon 0} -0.100000,0.650000,1.250000"/>
         <On Terms="Signal.*.Harden" Send="AttachModelOffset HardenedCaraspace TartaComb {Weapon 0} -0.600000,1.000000,0.800000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <DeathArray index="Normal" ModelLink="TartarusDeath" SoundLink="Roach_Explode"/>
         <DeathArray index="Disintegrate" ModelLink="TartarusDeath" SoundLink="Uni_DeathFXAcid"/>
         <DeathArray index="Fire" ModelLink="TartarusDeath" SoundLink="Uni_DeathFXFire"/>
@@ -4700,6 +4725,7 @@
         <On Terms="Behavior.Gather.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
         <On Terms="Behavior.Hustle.On" Send="AnimGroupApply Slow"/>
         <On Terms="Behavior.Hustle.Off" Send="AnimGroupRemove Slow"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="CivilianFemale"/>
         <Scale value="1.250000"/>
         <DeathArray index="Normal" SoundLink="CivilianFemaleDeath"/>
@@ -4748,6 +4774,7 @@
         <On Terms="Abil.attack.ReadyStop" Target="DiamondbackAttackBeam" Send="SetOpacity 0.000000 0.250000"/>
         <On Terms="ActorCreation" Send="AnimPlay BSD Run PlayForever"/>
         <On Terms="ActorCreation" Send="SetTeamColor 255,0,0 255,0,0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <DeathArray index="Normal" ModelLink="DiamondbackDeath" SoundLink="Diamondback_Explode"/>
         <PortraitModel value="ARESPortrait"/>
         <BarOffset value="40"/>
@@ -4795,6 +4822,7 @@
         <On Terms="Abil.attack.ReadyStop" Target="DiamondbackAttackBeam" Send="SetOpacity 0.000000 0.250000"/>
         <On Terms="ActorCreation" Send="AnimPlay BSD Run PlayForever"/>
         <On Terms="ActorCreation" Send="SetTeamColor 255,0,0 255,0,0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="X1"/>
         <Scale value="0.700000"/>
         <BuildModel value="X1"/>
@@ -4843,6 +4871,7 @@
         <On Terms="Abil.attack.ReadyStop" Target="DiamondbackAttackBeam" Send="SetOpacity 0.000000 0.250000"/>
         <On Terms="ActorCreation" Send="AnimPlay BSD Run PlayForever"/>
         <On Terms="ActorCreation" Send="SetTeamColor 255,0,0 255,0,0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="X1"/>
         <BuildModel value="X1"/>
         <DeathArray index="Normal" ModelLink="DiamondbackDeath" SoundLink="Diamondback_Explode"/>
@@ -5075,6 +5104,7 @@
         <On Terms="ActorCreation" Send="AttachModelOffset SlasherThorn SlasherThorn2 {Head 0} 0.000000,0.400000,0.200000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset SlasherThorn SlasherThorn2 {Head 0} 0.000000,0.600000,0.500000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset SlasherThorn SlasherThorn2 {Head 0} 0.000000,1.000000,0.600000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <EventDataSound Name="HydraliskAttackImpactMelee" Actor="UnitSound" Sound="Hydralisk_AttackImpactMelee"/>
         <DeathArray index="Normal" ModelLink="HydraliskDeath" SoundLink="Hydralisk_Explode"/>
         <DeathArray index="Disintegrate" ModelLink="HydraliskDeathAcid" SoundLink="Uni_DeathFXAcid"/>
@@ -5129,6 +5159,7 @@
         <On Terms="Behavior.Gather.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
         <On Terms="Behavior.Hustle.On" Send="AnimGroupApply Slow"/>
         <On Terms="Behavior.Hustle.Off" Send="AnimGroupRemove Slow"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Civilian"/>
         <Scale value="1.250000"/>
         <DeathArray index="Normal" SoundLink="CivilianDeath"/>
@@ -5202,6 +5233,7 @@
         <On Terms="Behavior.Gather.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
         <On Terms="Behavior.Hustle.On" Send="AnimGroupApply Slow"/>
         <On Terms="Behavior.Hustle.Off" Send="AnimGroupRemove Slow"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="CivilianFemale"/>
         <Scale value="1.250000"/>
         <DeathArray index="Normal" SoundLink="CivilianFemaleDeath"/>
@@ -5318,6 +5350,7 @@
         <On Terms="Behavior.Gather.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
         <On Terms="Behavior.Hustle.On" Send="AnimGroupApply Slow"/>
         <On Terms="Behavior.Hustle.Off" Send="AnimGroupRemove Slow"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Civilian"/>
         <DeathArray index="Normal" SoundLink="CivilianDeath"/>
         <DeathArray index="Fire" ModelLink="ColonistMaleDeathFire"/>
@@ -5497,6 +5530,7 @@
         <On Terms="AbilMorph.*.Finish; MorphTo HulkingHorror; MorphFrom InfestedTerransEgg" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
         <On Terms="ActorCreation" Send="SetOpacity"/>
         <On Terms="ActorCreation" Send="SetOpacity 1.000000 5.000000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="HelsAngelAssault"/>
         <Scale value="2.000000"/>
         <EventDataFootprint index="0" Actor="" Model=""/>
@@ -5727,6 +5761,7 @@
         <On Terms="ActorCreation; ValidateUnit SCVUpgraded" Send="ModelSwap SCVFusionWelder"/>
         <On Terms="Upgrade.FusionWelder.Add" Send="ModelSwap SCVFusionWelder"/>
         <On Terms="Upgrade.DualFusionWelders.Add" Send="ModelSwap SCVFusionWelder"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="SCV"/>
         <Scale value="2.000000"/>
         <AnimBlendTime value="0.500000"/>
@@ -5793,6 +5828,7 @@
         <On Terms="Behavior.Run.Off" Send="AnimGroupRemove Fast"/>
         <On Terms="Behavior.Run.On" Send="SetWalkAnimMoveSpeed 2.7968"/>
         <On Terms="Behavior.Run.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="MinerMale"/>
         <Scale value="1.300000,1.300000,1.100000"/>
         <BuildModel value="MinerMale"/>
@@ -6499,6 +6535,7 @@
         <On Terms="TimerExpired; TimerName ReRoar" Send="StatusSet Roar 1"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart BSD Attack"/>
         <On Terms="WeaponStop" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Brutalisk"/>
         <Scale value="0.600000"/>
         <BuildModel value="Brutalisk"/>
@@ -6890,6 +6927,7 @@
         <On Terms="Behavior.Wounded.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
         <On Terms="Behavior.Scared.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
         <On Terms="Behavior.Gather.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Scientist"/>
         <Scale value="1.350000,1.350000,1.200000"/>
         <BuildModel value="Scientist"/>
@@ -7018,6 +7056,7 @@
         <On Terms="Abil.PsiRift.SourceCastStart" Send="AnimPlay A A"/>
         <On Terms="Abil.ConsumeDNA.SourceCastStart" Send="$Spell,00"/>
         <On Terms="Abil.HybridFAoEStun.SourceCastStart" Send="AnimPlay Spell Stand,Work"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="HybridReaver"/>
         <Scale value="0.400000"/>
         <AnimBlendTime value="0.200000"/>
@@ -7068,6 +7107,7 @@
         <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Behavior.HybridSingularity.On" Send="ModelSwap HybridProtossBlackDeath"/>
         <On Terms="Behavior.HybridSingularity.On" Send="$Birth"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="HybridDestroyer"/>
         <Scale value="0.500000"/>
         <AnimBlendTime value="0.200000"/>
@@ -7149,6 +7189,7 @@
         <On Terms="UnitDeathCustomize; ValidateUnit IsKillerPhantasm" Send="DeathCustomize Hallucination"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimPlay BSD Attack"/>
         <On Terms="WeaponStop" Send="AnimClear BSD"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Hydralisk"/>
         <Scale value="0.700000"/>
         <EventDataSound Name="HydraliskAttackImpactMelee" Actor="UnitSound" Sound="Hydralisk_AttackImpactMelee"/>
@@ -7198,7 +7239,7 @@
         <On index="48" Terms="WeaponStart.InfestedAbomination.AttackStart" Send="AnimBracketStart Attack Attack"/>
         <On index="49" Terms="WeaponStop.InfestedAbomination.AttackStop" Send="AnimBracketStop Attack"/>
         <On index="50" Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownAberration"/>
-        <On index="51" removed="1"/>
+        <On index="51" Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <On index="52" removed="1"/>
         <On index="53" removed="1"/>
         <On index="54" removed="1"/>
@@ -7281,6 +7322,7 @@
         <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownLurker"/>
         <On Terms="AbilMorph.*.Cancel; MorphFrom Lurker; MorphTo LurkerBurrowed" Send="AnimClear Burrow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo Lurker; MorphFrom LurkerBurrowed" Send="AnimBracketStop Burrow"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Zergling"/>
         <Scale value="1.100000"/>
         <BuildModel value="Zergling"/>
@@ -7359,6 +7401,7 @@
         <On Terms="UnitBirth.Minion" Send="SetTintColor 220,242,130"/>
         <On Terms="UnitCreation.Minion2" Send="SetTintColor 220,242,130"/>
         <On Terms="UnitBirth.Minion2" Send="SetTintColor 220,242,130"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="InfestedCivilian"/>
         <Scale value="2.000000"/>
         <BuildModel value="InfestedCivilian"/>
@@ -7405,6 +7448,7 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-terran-murlocmarine.dds"/>
         </Wireframe>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarHeight value="6"/>
         <Macros value=""/>
         <Macros value=""/>
@@ -7421,7 +7465,7 @@
         <On index="46" Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart BSD Attack"/>
         <On index="47" Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop BSD"/>
         <On index="48" Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
-        <On index="49" removed="1"/>
+        <On index="49" Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <On index="50" removed="1"/>
         <On index="51" removed="1"/>
         <On index="52" removed="1"/>
@@ -7485,7 +7529,7 @@
         <On index="60" Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="AnimClear Fidget"/>
         <On index="61" Terms="AbilMorph.*.Cancel; MorphFrom Roach; MorphTo RoachBurrowed" Send="AnimClear Burrow"/>
         <On index="62" Terms="AbilMorph.*.Finish; MorphTo Roach; MorphFrom RoachBurrowed" Send="AnimBracketStop Burrow"/>
-        <On index="63" removed="1"/>
+        <On index="63" Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <On index="64" removed="1"/>
         <On index="65" removed="1"/>
         <On index="66" removed="1"/>
@@ -7553,6 +7597,7 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Terran-taurenspacemarine.dds"/>
         </Wireframe>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarHeight value="6"/>
         <SoundArray index="Ready" value="TaurenSpaceMarine_Ready"/>
         <SoundArray index="Help" value="TaurenSpaceMarine_Help"/>
@@ -7580,6 +7625,7 @@
         <On Terms="AnimBracketState.*.BeforeClosing; AnimName MissileSpinAttack" Send="Create SS_TerraTronCloseChestDoors"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimPlay BSD Attack"/>
         <On Terms="WeaponStop" Send="AnimClear BSD"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="SS_TerraTron"/>
         <Scale value="0.150000"/>
         <BuildModel value="SS_TerraTron"/>
@@ -7743,6 +7789,7 @@
         <On Terms="TimerExpired; TimerName ReRoar" Send="StatusSet Roar 1"/>
         <On Terms="Effect.RemoveArmorSet.Start; At Source" Send="Create TriggeredExplosion"/>
         <On Terms="Effect.RemoveArmorSet.Stop" Send="Signal ZergLarge"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Brutalisk"/>
         <Scale value="1.800000"/>
         <BuildModel value="Brutalisk"/>
@@ -7939,6 +7986,7 @@
         <On Terms="Behavior.Run.Off" Send="AnimGroupRemove Fast"/>
         <On Terms="Behavior.Run.On" Send="SetWalkAnimMoveSpeed 2.7968"/>
         <On Terms="Behavior.Run.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="MinerMale"/>
         <Scale value="1.300000,1.300000,1.100000"/>
         <BuildModel value="MinerMale"/>
@@ -8272,6 +8320,7 @@
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackLeft"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackRight"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <DeathArray index="Normal" ModelLink="TerranLargeBuildingDeath" SoundLink="Marauder_Explode"/>
         <DeathArray index="Eviscerate" SoundLink="Uni_DeathFXEviscerate"/>
         <DeathArray index="Silentkill" SoundLink="Uni_DeathFXSilentKill"/>
@@ -8509,6 +8558,7 @@
             <Image value="Assets\Textures\Wireframe-Protoss-Tassadar-Shield02.dds"/>
             <Image value="Assets\Textures\Wireframe-Protoss-Tassadar-Shield03.dds"/>
         </WireframeShield>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarHeight value="6"/>
         <Macros value=""/>
         <Macros value=""/>
@@ -8548,6 +8598,7 @@
         <On Terms="Abil.Val03QueenOfBladesDeepTunnel.SourceCastStop; ValidateUnit IsNotBuried" Send="AnimBracketStop Burrow"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimPlay BSD Attack"/>
         <On Terms="WeaponStop" Send="AnimClear BSD"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="KerriganChar"/>
         <Scale value="0.500000"/>
         <AnimBlendTime value="0.250000"/>
@@ -8709,6 +8760,7 @@
         <On Terms="ActorCreation" Send="AttachModelOffset CronusBlades CronusBlades {Weapon 1}"/>
         <On Terms="ActorCreation" Send="AttachModelOffset CronusPBeam CronusFace {Weapon 0} 0.000000,0.000000,-1.300000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset CronusPBeam CronusFace {Weapon 1} 0.000000,0.000000,-1.300000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="InfestedCivilian"/>
         <BuildModel value="InfestedCivilian"/>
         <DeathArray index="Normal" ModelLink="InfestedCivilianDeath" SoundLink="InfestedTerran_Explode"/>
@@ -8751,6 +8803,7 @@
         <On Terms="WeaponStart.*.AttackStart" Send="AnimPlay BSD Spell"/>
         <On Terms="WeaponStop" Send="AnimClear BSD"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Medic"/>
         <BuildModel value="Medic"/>
         <DeathArray index="Normal" ModelLink="Medic"/>
@@ -8912,6 +8965,7 @@
     <CActorUnit id="Hephaestus" parent="GenericUnitStandard" unitName="Hephaestus">
         <On Terms="Behavior.HybridSingularity.On" Send="ModelSwap HybridZergBlackDeath"/>
         <On Terms="Behavior.HybridSingularity.On" Send="$Birth"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="HybridReaver"/>
         <AnimBlendTime value="0.200000"/>
         <BuildModel value="HybridReaver"/>
@@ -9094,6 +9148,7 @@
         <On Terms="AbilMorph.*.Cancel; MorphFrom Lurker; MorphTo LurkerBurrowed" Send="AnimClear Burrow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo Lurker; MorphFrom LurkerBurrowed" Send="AnimBracketStop Burrow"/>
         <On Terms="UnitBirth.Menoetes" Send="SetTintColor 125,174,128"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Lurker"/>
         <Scale value="2.000000"/>
         <BuildModel value="Lurker"/>
@@ -9249,6 +9304,7 @@
     <!-- Baneling .............................................................................. -->
     <!--                                                                                         -->
     <CActorUnit id="Baneling">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarWidth value="16"/>
         <BarHeight value="6"/>
         <StatusBarFlags index="Shields" value="0"/>
@@ -9333,6 +9389,7 @@
         <On Terms="UnitDeathCustomize; ValidateUnit NoDarkProtoss" Send="DeathCustomize DarkProtoss"/>
         <On Terms="UnitCreation.FieldProbe" Send="SetTintColor 187,174,186"/>
         <On Terms="UnitBirth.FieldProbe" Send="SetTintColor 187,174,186"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="SCVFusionWelder"/>
         <AnimBlendTime value="0.250000"/>
         <BuildModel value="SCVFusionWelder"/>
@@ -9415,6 +9472,7 @@
         <On Terms="Abil.MorphToBroodLord.Start" Send="AnimPlay Morph Stand,Morph,Start"/>
         <On Terms="Abil.Corruption.SourceChannelStart" Send="$Spell"/>
         <On Terms="Effect.InfestedVentSpawnCorruptorCreateCorruptor.Create" Send="$Birth 0 -1.000000 -1.000000 0.500000 AsDuration"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <HostSiteOps Ops="SOpBankerCorruptor"/>
         <Model value="Corruptor"/>
         <Baselines index="Stand" BlendIn="1.000000" BlendOut="1.000000"/>
@@ -9458,6 +9516,7 @@
         <On Terms="Abil.BioPlasmidDischarge.SourceCastStart" Send="$Spell"/>
         <On Terms="Abil.BioPlasmidDischarge.SourceCastStart" Send="Create BioPlasmidDischargeChargeLaunchBurstSound"/>
         <On Terms="Abil.BioStasis.SourceCastStart" Send="$Spell"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Leviathan"/>
         <AnimBlendTime value="0.300000"/>
         <BuildModel value="Leviathan"/>
@@ -9500,6 +9559,7 @@
         <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownUltralisk"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
         <On Terms="UnitBirth.Zeus" Send="SetTintColor {155,191,176 0.800000}"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="2.100000"/>
         <AnimBlendTime value="0.300000"/>
         <EventDataSound Name="UltraliskAttack" Actor="UnitSound" Sound="Ultralisk_AttackLaunch"/>
@@ -9539,6 +9599,7 @@
         <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownUltralisk"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
         <On Terms="UnitBirth.Leto" Send="SetTintColor {233,140,135 0.800000}"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="2.500000"/>
         <AnimBlendTime value="0.300000"/>
         <EventDataSound Name="UltraliskAttack" Actor="UnitSound" Sound="Ultralisk_AttackLaunch"/>
@@ -9796,6 +9857,7 @@
         <On Terms="UnitMovementUpdate.PsiOps.Walk" Send="AnimClear SnipeSpell"/>
         <On Terms="ActorCreation.PsiOpsMentalProjection" Send="Create GhostOverlaySelection"/>
         <On Terms="ActorCreation.PsiOpsMentalProjection" Send="ModelAllowHitTest"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Nova"/>
         <Scale value="1.050000"/>
         <BuildModel value="Nova"/>
@@ -9956,6 +10018,7 @@
         <AutoScaleFactor value="0.200000"/>
     </CActorModel>
     <CActorUnit id="InfestedCocoon">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarWidth value="24"/>
         <StatusBarFlags index="Life" value="0"/>
     </CActorUnit>
@@ -10089,6 +10152,7 @@
         <On Terms="UnitBirth.HydraliskBurrowed" Send="Create"/>
         <On Terms="UnitBirth.HydraliskBurrowed" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
         <On Terms="UnitDeathCustomize; ValidateUnit IsKillerPhantasm" Send="DeathCustomize Hallucination"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <EventDataSound Name="HydraliskAttackImpactMelee" Actor="UnitSound" Sound="Hydralisk_AttackImpactMelee"/>
         <DeathArray index="Normal" ModelLink="HydraliskDeath" SoundLink="Hydralisk_Explode"/>
         <DeathArray index="Disintegrate" ModelLink="HydraliskDeathAcid" SoundLink="Uni_DeathFXAcid"/>
@@ -10176,6 +10240,7 @@
         <On Terms="ActorCreation" Send="AttachModel IvaxArc IvaxElectricalArcs AMFilterHead"/>
         <On Terms="ActorCreation" Send="AttachModel IvaxArc IvaxElectricalArcs AMFilterCenter"/>
         <On Terms="ActorCreation" Send="AttachModelOffset IvaxArc IvaxElectricalArcs AMFilterWeapon 0.000000,2.700000,0.500000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Odin"/>
         <BuildModel value="Odin"/>
         <DeathArray index="Normal" ModelLink="ThorDeath" SoundLink="Marauder_Explode"/>
@@ -10324,6 +10389,7 @@
         <On Terms="BehaviorLevel.PetVeterancy; Level 6" Send="SetTeamColor 255,255,0 255,255,0"/>
         <On Terms="BehaviorLevel.PetVeterancy; Level 10" Send="SetTeamColor 255,0,0 255,0,0"/>
         <On Terms="ActorCreation" Send="SetTeamColor 255,255,255 255,255,255"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
     </CActorUnit>
     <CActorUnit id="MarksmanMini" parent="GenericUnitStandard" unitName="Sniper">
         <On Terms="Abil.nuke.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
@@ -10350,6 +10416,7 @@
         <On Terms="Abil.Snipe.SourceFinishStart" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.RaynorSnipe.SourceFinishStart" Send="AnimBracketStop Attack"/>
         <On Terms="UnitBirth.GhostLaserLines" Send="SetTintColor 91,91,91"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="GhostLaserLines"/>
         <BuildModel value="GhostLaserLines"/>
         <DeathArray index="Normal" ModelLink="GhostDeath" SoundLink="Ghost_Death"/>
@@ -10521,6 +10588,7 @@
         <On Terms="Effect.ImpalerTentacleLM.Start" Send="TimerSet 2.000000 TimerAttack"/>
         <On Terms="TimerExpired; TimerName TimerAttack" Send="AnimClear NeuralParasite"/>
         <On Terms="ActorCreation" Send="AttachModelOffset DemeterHead DemeterHead AMFilterHead 0.000000,-0.500000,0.100000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Infestor"/>
         <Scale value="2.750000"/>
         <BuildModel value="Infestor"/>
@@ -10575,6 +10643,7 @@
         <On Terms="UnitCreation.Beastling2" Send="SetTintColor 159,159,255"/>
         <On Terms="UnitBirth.Beastling2" Send="SetTintColor 159,159,255"/>
         <On Terms="ActorCreation" Send="AttachModel ClicklingHead ClicklingHead {Head 0}"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Baneling"/>
         <Scale value="1.500000"/>
         <BuildModel value="Baneling"/>
@@ -10646,6 +10715,7 @@
         <On Terms="Behavior.Gather.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
         <On Terms="Behavior.Hustle.On" Send="AnimGroupApply Slow"/>
         <On Terms="Behavior.Hustle.Off" Send="AnimGroupRemove Slow"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="CivilianFemale"/>
         <Scale value="1.250000"/>
         <BuildModel value="CivilianFemale"/>
@@ -10813,6 +10883,7 @@
         <On Terms="Abil.L3LaunchGrenade.SourcePrepStart" Send="AnimBracketStart {Attack Superior} {} {} {} ContentPlayOnce"/>
         <On Terms="Abil.L3LaunchGrenade.SourceFinishStop" Send="AnimBracketStop {Attack Superior}"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Reload"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
     </CActorUnit>
     <CActorSound id="ForwardObserverLaunch" parent="SoundOneShot">
         <On Terms="Effect.ForwardObserverLaunch.Start" Send="Create"/>
@@ -10867,6 +10938,7 @@
         <On Terms="AbilMorph.*.Cancel; MorphFrom Infestor; MorphTo InfestorBurrowed" Send="AnimClear Burrow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo Infestor; MorphFrom InfestorBurrowed" Send="AnimBracketStop Burrow"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Spell"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Infestor"/>
         <BuildModel value="Infestor"/>
         <DeathArray index="Normal" ModelLink="InfestorDeath" SoundLink=""/>
@@ -10910,6 +10982,7 @@
     <CActorUnit id="Marine">
         <BarOffset value="50"/>
         <StatusBarFlags index="Energy" value="0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarHeight value="6"/>
         <PortraitModel value="Marine10Portrait"/>
         <Macros value=""/>
@@ -10925,6 +10998,7 @@
         <On Terms="AbilMorph.MarksmanGear.Finish; MorphFrom MobileInfantryRifleman; MorphTo MobileInfantryMarksman" Send="Create MobileInfantryMarksman"/>
         <On Terms="AbilMorph.FlamethrowerGear.Finish; MorphFrom MobileInfantryRifleman; MorphTo MobileInfantryFlamethrower" Send="Create MobileInfantryFlamethrower"/>
         <On Terms="AbilMorph.*.Finish" Send="Destroy Immediate"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <EventDataFootprint index="0" Model="MobileInfantryRiflemanFootprint"/>
         <DeathArray index="Normal" VoiceLink="MobileInfantryRiflemanDeathVoice"/>
         <GroupSoundArray index="What" value="MobileInfantryRifleman_GroupWhat"/>
@@ -10946,6 +11020,7 @@
         <On index="2" Terms="UnitRevive.PfcBrooks"/>
         <On index="3" Terms="UnitConstruction.PfcBrooks.Start"/>
         <On index="4" Terms="UnitConstruction.PfcBrooks.Finish"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <EventDataFootprint index="0" Model="PfcBrooksFootprint"/>
         <DeathArray index="Normal" VoiceLink="PfcBrooksDeathVoice"/>
         <PortraitModel value="Marine9Portrait"/>
@@ -10968,6 +11043,7 @@
         <On index="2" Terms="UnitRevive.LtSheng"/>
         <On index="3" Terms="UnitConstruction.LtSheng.Start"/>
         <On index="4" Terms="UnitConstruction.LtSheng.Finish"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="WarPig"/>
         <EventDataFootprint index="0" Model="LtShengFootprint"/>
         <BuildModel value="WarPig"/>
@@ -10993,6 +11069,7 @@
         <On index="2" Terms="UnitRevive.CplIrvin"/>
         <On index="3" Terms="UnitConstruction.CplIrvin.Start"/>
         <On index="4" Terms="UnitConstruction.CplIrvin.Finish"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <EventDataFootprint index="0" Model="CplIrvinFootprint"/>
         <DeathArray index="Normal" VoiceLink="CplIrvinDeathVoice"/>
         <PortraitModel value="MarinePortrait"/>
@@ -11043,6 +11120,7 @@
         <On index="2" Terms="UnitRevive.SgtStallans"/>
         <On index="3" Terms="UnitConstruction.SgtStallans.Start"/>
         <On index="4" Terms="UnitConstruction.SgtStallans.Finish"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <EventDataFootprint index="0" Model="SgtStallansFootprint"/>
         <DeathArray index="Normal" VoiceLink="SgtStallansDeathVoice"/>
         <PortraitModel value="Marine1Portrait"/>
@@ -11168,6 +11246,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-firebat.dds"/>
         </Wireframe>
         <StatusBarFlags index="Energy" value="0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarHeight value="6"/>
     </CActorUnit>
     <CActorUnit id="Sheep3" parent="GenericUnitStandard" unitName="Sheep2">
@@ -11333,6 +11412,7 @@
         <On Terms="Abil.L3LaunchGrenade.SourceFinishStop" Send="AnimBracketStop {Attack Superior}"/>
         <On Terms="ActorCreation" Send="TimerSet"/>
         <On Terms="TimerExpired" Send="TextureSelectById Marine_Diffuse"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarOffset value="70"/>
         <BarWidth value="48"/>
         <Scale value="0.950000"/>
@@ -11349,6 +11429,7 @@
     <CActorUnit id="Apoptosis" parent="GenericUnitStandard" unitName="Apoptosis">
         <Macros value="SS_ImpactRedTint"/>
         <On Terms="Abil.SS_SwarmGuardianAttack.SourceCastStart" Send="AnimPlay Attack Attack"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="SS_SwarmGuardian"/>
         <Scale value="2.800000,2.800000,2.500000"/>
         <AnimBlendTime value="0.500000"/>
@@ -11474,6 +11555,7 @@
         <On Terms="ActorCreation" Send="AttachModel DevourerHead SlasherRHead {Head 0}"/>
         <On Terms="ActorCreation" Send="AttachModelOffset DevourerParasites SlasherRParasites {Weapon 2} 0.000000,-0.400000,0.000000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset DevourerThorns SlasherRThorns {Head 0} 0.000000,0.200000,0.450000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Roach2"/>
         <BuildModel value="Roach2"/>
         <DeathArray index="Normal" ModelLink="RoachDeath" SoundLink="Roach_Explode"/>
@@ -11525,6 +11607,7 @@
         <StatusBarFlags index="Shields" value="0"/>
         <StatusBarFlags index="Life" value="0"/>
         <StatusBarFlags index="Energy" value="0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarWidth value="16"/>
     </CActorUnit>
     <CActorModel id="Blind" parent="ModelAnimationStyleContinuous">
@@ -11811,12 +11894,14 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Terran-Raven.dds"/>
         </Wireframe>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarHeight value="6"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- Firebat ............................................................................... -->
     <!--                                                                                         -->
     <CActorUnit id="Firebat">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarWidth value="24"/>
     </CActorUnit>
     <CActorModel id="Cripple" parent="ModelAnimationStyleContinuous">
@@ -12024,6 +12109,7 @@
         <On Terms="Abil.330mmBarrageCannons.SourceChannelStop" Send="AnimClear Spell"/>
         <On Terms="Abil.330mmBarrageCannons.SourceFinishStart" Send="AnimPlay MorphEnd Morph,End NonLooping"/>
         <On Terms="Abil.330mmBarrageCannons.SourceFinishStop" Send="AnimClear MorphEnd"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Thor"/>
         <EventDataFootprint index="0" Actor="" Model=""/>
         <BuildModel value="Thor"/>
@@ -12143,6 +12229,7 @@
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Reload"/>
         <On Terms="ActorCreation.PsiOps" Send="Create GhostOverlaySelection"/>
         <On Terms="ActorCreation.PsiOps" Send="ModelAllowHitTest"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Nova"/>
         <BuildModel value="Nova"/>
         <DeathArray index="Normal" ModelLink="NovaDeath" SoundLink="Nova_Death"/>
@@ -12196,6 +12283,7 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Zerg-Larva.dds"/>
         </Wireframe>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <StatusBarFlags index="Life" value="0"/>
         <Macros value="Shrinker"/>
         <Macros value=""/>
@@ -12390,6 +12478,7 @@
         <On Terms="UnitMovementUpdate.Blindling.Walk" Send="AnimClear Birth"/>
         <On Terms="UnitBirth.Blindling" Send="SetTintColorBlendPair 244,192,11 255,0,0 2.000000 Bounce"/>
         <On Terms="UnitBirth.Blindling2" Send="SetTintColorBlendPair 244,192,11 255,0,0 2.000000 Bounce"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Baneling"/>
         <BuildModel value="Baneling"/>
         <DeathArray index="Normal" ModelLink="BanelingDeath" SoundLink=""/>
@@ -12458,6 +12547,7 @@
         <On Terms="ActorCreation" Send="AttachModelOffset BrainBugHead BrainBugHead {Head 0} 0.000000,0.900000,0.200000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset BrainBugSide BrainBugHead {Head 0} -0.300000,0.300000,0.100000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset BrainBugSide BrainBugHead {Head 0} 0.300000,0.300000,0.100000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Baneling2"/>
         <BuildModel value="Baneling2"/>
         <DeathArray index="Normal" ModelLink="BanelingDeath" SoundLink=""/>
@@ -12557,6 +12647,7 @@
         <Macros value="Shrinker"/>
         <On Terms="ActorCreation" Send="AttachModelOffset GargoyleWing GargoyleWings {Target 2} 0.000000,0.000000,-0.200000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset GargoyleWing GargoyleWings {Target 3} 0.000000,0.000000,-0.200000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
     </CActorUnit>
     <CActorUnit id="Wraith2" parent="Mutalisk" unitName="Wraith2">
         <On index="0" Terms="UnitBirth.Wraith2" Send="Create SoundEmitter Wraith2_Ambience"/>
@@ -12566,6 +12657,7 @@
         <On index="4" Terms="UnitConstruction.Wraith2.Finish"/>
         <On index="64" Terms="UnitBirth.Wraith2" Send="SetTintColor 115,156,219"/>
         <On index="65" Terms="UnitCreation.Wraith2" Send="SetTintColor 115,156,219"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <EventDataFootprint index="0" Model="Wraith2Footprint"/>
         <DeathArray index="Normal" ModelLink="WraithDeathNOTD" VoiceLink="Wraith2DeathVoice"/>
         <GroupSoundArray index="What" value="Wraith2_GroupWhat"/>
@@ -12608,19 +12700,23 @@
     <!-- Siege Breaker ......................................................................... -->
     <!--                                                                                         -->
     <CActorUnit id="SiegeBreaker">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarWidth value="64"/>
         <BarHeight value="6"/>
     </CActorUnit>
     <CActorUnit id="SiegeBreakerSiegeModeMorphModel">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarWidth value="48"/>
         <BarHeight value="6"/>
     </CActorUnit>
     <CActorUnit id="SiegeBreakerSieged">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarWidth value="64"/>
         <BarHeight value="6"/>
         <BarOffset value="80"/>
     </CActorUnit>
     <CActorUnit id="SiegeBreakerTankModeMorphModel">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarWidth value="48"/>
         <BarHeight value="6"/>
     </CActorUnit>
@@ -12639,6 +12735,7 @@
     <CActorUnit id="SpartanCompany">
         <BarWidth value="48"/>
         <BarHeight value="6"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="0.900000,1.000000,0.950000"/>
         <Macros value=""/>
         <Macros value=""/>
@@ -12662,6 +12759,7 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Zerg-LurkerEgg.dds"/>
         </Wireframe>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- ValhallaDestructibleWall .............................................................. -->
@@ -12940,6 +13038,7 @@
         <On Terms="Behavior.makeCreep2x2Overlord.Off" Target="OverlordGenerateCreepSound" Send="Destroy"/>
         <On Terms="UnitMovementUpdate.*.Walk" Target="OverlordGenerateCreepModel" Send="Destroy"/>
         <On Terms="UnitMovementUpdate.*.Walk" Target="OverlordGenerateCreepSound" Send="Destroy"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Eileithya"/>
         <Scale value="3.000000"/>
         <BuildModel value="Eileithya"/>
@@ -13106,6 +13205,7 @@
         <On Terms="AbilMorph.*.Cancel; MorphFrom Hugger; MorphTo Hugger2" Send="AnimClear Burrow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo Hugger; MorphFrom Hugger2" Send="AnimBracketStop Burrow"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Spell"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Infestor"/>
         <Scale value="0.500000"/>
         <BuildModel value="Infestor"/>
@@ -13381,6 +13481,7 @@
         <On Terms="ActorCreation" Send="$Birth 0 0.000000 -1.000000 0.000000"/>
         <On Terms="Abil.BroodLordHangar.Launch" Send="AnimPlay SWE Stand,Work,End"/>
         <On Terms="Effect.InfestedVentSpawnBroodLordCreateBroodLord.Create" Send="$Birth"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <HostSiteOps Ops="SOpBankerBroodLord"/>
         <Model value="BroodLord"/>
         <Baselines index="Stand" BlendIn="1.000000" BlendOut="1.000000"/>
@@ -13494,6 +13595,7 @@
         <On Terms="Behavior.Sprint.Off" Send="AnimGroupRemove Fast"/>
         <On Terms="Behavior.Sprint.On" Send="SetWalkAnimMoveSpeed 2.7968"/>
         <On Terms="Behavior.Sprint.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Civilian"/>
         <DeathArray index="Normal" SoundLink="CivilianDeath"/>
         <DeathArray index="Fire" ModelLink="ColonistMaleDeathFire"/>
@@ -13568,6 +13670,7 @@
         <On Terms="Behavior.Sprint.Off" Send="AnimGroupRemove Fast"/>
         <On Terms="Behavior.Sprint.On" Send="SetWalkAnimMoveSpeed 2.7968"/>
         <On Terms="Behavior.Sprint.Off" Send="SetWalkAnimMoveSpeed 1.2968"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="CivilianFemale"/>
         <DeathArray index="Normal" SoundLink="CivilianFemaleDeath"/>
         <PortraitModel value="FemaleCivilian1Portrait"/>
@@ -13670,6 +13773,7 @@
         <AcceptedHostedPropTransfers index="TintColor" value="0"/>
         <AcceptedHostedPropTransfers index="Visibility" value="0"/>
         <AcceptedHostedPropTransfers index="WarpGroup" value="0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarWidth value="24"/>
         <BarHeight value="6"/>
     </CActorUnit>
@@ -13682,6 +13786,7 @@
         <StatusBarFlags index="Life" value="0"/>
         <On Terms="UnitBirth.Egg" Send="SetTintColor 147,94,87"/>
         <On Terms="UnitCreation.Egg" Send="SetTintColor 147,94,87"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
     </CActorUnit>
     <CActorModel id="EscapeAnimation" parent="ModelAnimationStyleOneShot">
         <On Terms="Abil.Escape.SourceCastStart" Send="Create"/>
@@ -13734,6 +13839,7 @@
         <On Terms="AbilMorph.*.Finish; MorphTo ZambieLevel1; MorphFrom ZambieLevel12" Send="AnimBracketStop Burrow"/>
         <On Terms="UnitCreation.Seeker" Send="SetTintColor 125,62,64"/>
         <On Terms="UnitBirth.Seeker" Send="SetTintColor 125,62,64"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="InfestedCivilian"/>
         <Scale value="1.300000"/>
         <BuildModel value="InfestedCivilian"/>
@@ -13799,6 +13905,7 @@
         <On Terms="UnitMovementUpdate.Zeratul.Walk" Send="AnimClear Spell"/>
         <On Terms="Behavior.Read.On" Send="AnimBracketStart Work Stand,Work,Start Stand,Work Stand,Work,End"/>
         <On Terms="Behavior.Read.Off" Send="AnimBracketStop Work"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Zeratul"/>
         <Scale value="0.800000"/>
         <BuildModel value="Zeratul"/>
@@ -13929,6 +14036,7 @@
         <On Terms="UnitCreation.Immortal22" Send="SetTintColor 140,247,125"/>
         <On Terms="UnitBirth.Immortal22" Send="SetTintColor 140,247,125"/>
         <On Terms="UnitRevive.Immortal2" Send="SetTintColor 140,247,125"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="InfestedCivilian"/>
         <Scale value="1.600000,1.600000,1.500000"/>
         <BuildModel value="InfestedCivilian"/>
@@ -13988,6 +14096,7 @@
         <On Terms="AbilMorph.*.Finish; MorphTo InfestorTerran; MorphFrom InfestedTerransEgg" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
         <On Terms="AbilMorph.*.Cancel; MorphFrom ZombieLevel2; MorphTo ZombieLevel22" Send="AnimClear Burrow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo ZombieLevel2; MorphFrom ZombieLevel22" Send="AnimBracketStop Burrow"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="InfestedCivilian"/>
         <BuildModel value="InfestedCivilian"/>
         <DeathArray index="Normal" ModelLink="InfestedCivilianDeath" SoundLink="InfestedTerran_Explode" VoiceLink="InfestorTerran22DeathVoice"/>
@@ -14049,6 +14158,7 @@
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Reload"/>
         <On Terms="WeaponStart.PsionicShockwave" Send="AnimPlay BSD Attack,00"/>
         <On Terms="WeaponStop.*.AttackStop" Send="AnimClear BSD"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Marauder"/>
         <BuildModel value="Marauder"/>
         <PlacementModel value="Marauder"/>
@@ -14089,6 +14199,7 @@
         <On Terms="WeaponStop" Send="AnimClear BSD"/>
         <On Terms="TimerExpired" Send="TextureSelectById KillTeamRauderDiffuse"/>
         <On Terms="ActorCreation" Send="TimerSet"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Swann"/>
         <BuildModel value="Swann"/>
         <DeathArray index="Normal" ModelLink="MarauderDeath" SoundLink="Swann_Explode"/>
@@ -14262,6 +14373,7 @@
         <On Terms="ActorCreation" Send="AttachModelOffset QueenEgg QueenEgg1 {Target 1} -1.400000,-1.000000,-0.300000 {-0.845154,0.169031,-0.507093 -0.497246,0.099449,0.861891}"/>
         <On Terms="ActorCreation" Send="AttachModelOffset QueenEgg QueenEgg1 {Target 1} 1.200000,0.200000,-0.200000"/>
         <On Terms="ActorCreation" Send="AttachModelOffset QueenEgg QueenEgg1 {Target 1} -0.600000,-0.200000,0.000000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="2.000000"/>
         <DeathArray index="Normal" ModelLink="QueenDeath" SoundLink="Queen_Explode"/>
         <DeathArray index="Disintegrate" ModelLink="QueenDeathAcid" SoundLink="Uni_DeathFXAcid"/>
@@ -14494,6 +14606,7 @@
         <On Terms="Effect.ErebosBlindSearch.Stop" Send="SetTeamColor 255,0,0 255,0,0"/>
         <On Terms="Behavior.ErebosRegeneration.On" Send="SetTeamColor 128,255,0 128,255,0"/>
         <On Terms="Behavior.ErebosRegeneration.Off" Send="SetTeamColor 255,255,255 255,255,255"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="InfestedAbomination"/>
         <Scale value="1.200000"/>
         <AnimBlendTime value="0.300000"/>
@@ -14540,6 +14653,7 @@
     <!-- Infested Marine ....................................................................... -->
     <!--                                                                                         -->
     <CActorUnit id="InfestedTerran">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <StatusBarFlags index="Shields" value="0"/>
         <StatusBarFlags index="Life" value="0"/>
         <StatusBarFlags index="Energy" value="0"/>
@@ -14548,6 +14662,7 @@
     <!-- Infested Terran Campaign .............................................................. -->
     <!--                                                                                         -->
     <CActorUnit id="InfestedTerranCampaign">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <StatusBarFlags index="Shields" value="0"/>
         <StatusBarFlags index="Life" value="0"/>
         <StatusBarFlags index="Energy" value="0"/>
@@ -14574,6 +14689,7 @@
         <On Terms="AbilMorph.*.Cancel; MorphFrom Infestor; MorphTo InfestorBurrowed" Send="AnimClear Burrow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo Infestor; MorphFrom InfestorBurrowed" Send="AnimBracketStop Burrow"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Spell"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Infestor"/>
         <BuildModel value="Infestor"/>
         <DeathArray index="Normal" ModelLink="InfestorDeath" SoundLink=""/>
@@ -14611,6 +14727,7 @@
         <On index="50" Terms="UnitBirth.InfestorTerran2" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
         <On index="54" Terms="AbilMorph.*.Cancel; MorphFrom InfestorTerran; MorphTo InfestorTerran2" Send="AnimClear Burrow"/>
         <On index="55" Terms="AbilMorph.*.Finish; MorphTo InfestorTerran; MorphFrom InfestorTerran2" Send="AnimBracketStop Burrow"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
     </CActorUnit>
     <CActorUnit id="ZombieLevel1" parent="GenericBurrowerStandard" unitName="ZombieLevel1">
         <Macros value="ZergBurrowStandardAnimMacro"/>
@@ -14624,6 +14741,7 @@
         <On Terms="AbilMorph.*.Finish; MorphTo InfestorTerran; MorphFrom InfestedTerransEgg" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
         <On Terms="AbilMorph.*.Cancel; MorphFrom ZombieLevel1; MorphTo ZombieLevel12" Send="AnimClear Burrow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo ZombieLevel1; MorphFrom ZombieLevel12" Send="AnimBracketStop Burrow"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <DeathArray index="Normal" ModelLink="InfestedCivilianDeath" SoundLink="InfestedTerran_Explode" VoiceLink="InfestorTerran22DeathVoice"/>
         <DeathArray index="Disintegrate" ModelLink="InfestorTerranDeathAcid" SoundLink="Uni_DeathFXAcid"/>
         <DeathArray index="Fire" ModelLink="InfestedCivilianDeathFire" SoundLink="Uni_DeathFXFire"/>
@@ -14674,6 +14792,7 @@
         <On Terms="AbilMorph.*.Finish; MorphTo ZombieHighHP; MorphFrom ZombieHighHP2" Send="AnimBracketStop Burrow"/>
         <On Terms="ActorCreation" Send="AttachModelOffset HulkSides HighHPZombSides {Weapon 0} 0.100000,0.000000,0.500000 {0.000000,-0.000000,1.000000 0.000000,-1.000000,0.000000}"/>
         <On Terms="ActorCreation" Send="AttachModelOffset HulkSides HighHPZombSides {Weapon 1} -0.100000,0.000000,0.500000 {0.000000,-0.000000,1.000000 0.000000,-1.000000,0.000000}"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="InfestedCivilian"/>
         <Scale value="2.000000,2.000000,1.550000"/>
         <DeathArray index="Normal" ModelLink="InfestedCivilianDeath" SoundLink="InfestedTerran_Explode"/>
@@ -14723,6 +14842,7 @@
         <On Terms="Abil.L3LaunchGrenade.SourceFinishStop" Send="AnimBracketStop {Attack Superior}"/>
         <On Terms="Abil.GravityGrenade.SourceCastStart" Send="AnimBracketStart Grenade Attack {} {} ContentPlayOnce"/>
         <On Terms="Abil.GravityGrenade.SourceCastStart" Send="AnimSetTimeScale Grenade 2.500000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="WarPig"/>
         <BuildModel value="WarPig"/>
         <DeathArray index="Normal" ModelLink="KelmorianMinerDeath" SoundLink="Marine_DeathFXBloodSpray"/>
@@ -15183,6 +15303,7 @@
         <On Terms="Abil.L3LaunchGrenade.SourceFinishStop" Send="AnimBracketStop {Attack Superior}"/>
         <On Terms="ActorCreation" Send="TextureSelectById Marine_Diffuse"/>
         <On Terms="CursorUpdate.*.Start" Send="SetFacing"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Macros value="Shrinker"/>
         <AbilSoundArray AbilCmd="FocusedFire,Execute" Sound="FocusedFireVO"/>
         <AbilSoundArray AbilCmd="Bloodlust,Off" Sound="Bloodlust"/>
@@ -15212,6 +15333,7 @@
         <On Terms="AbilMorph.*.Finish; MorphTo Roach; MorphFrom RoachBurrowed" Send="AnimBracketStop Burrow"/>
         <On Terms="WeaponStart.StalkerClaws.AttackStart" Send="AnimBracketStart Attack Cover Cover Cover"/>
         <On Terms="WeaponStop.StalkerClaws.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Roach"/>
         <Scale value="1.500000"/>
         <BuildModel value="Roach"/>
@@ -15366,6 +15488,7 @@
         <On Terms="Abil.L3LaunchGrenade.SourcePrepStart" Send="AnimBracketStart {Attack Superior} Attack {} {} ContentPlayOnce"/>
         <On Terms="Abil.L3LaunchGrenade.SourceFinishStop" Send="AnimBracketStop {Attack Superior}"/>
         <On Terms="Abil.Execute.SourceCastStart" Send="AnimPlay Execute Spell,A"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Macros value="Shrinker"/>
         <AbilSoundArray AbilCmd="Refresher,Execute" Sound="RefresherSound"/>
         <AbilSoundArray AbilCmd="Refresher,Execute" Sound="RefresherSound2"/>
@@ -15418,6 +15541,7 @@
         <On Terms="Abil.L3LaunchGrenade.SourceFinishStop" Send="AnimBracketStop {Attack Superior}"/>
         <On Terms="ActorCreation" Send="TimerSet"/>
         <On Terms="TimerExpired" Send="TextureSelectById Marine_Diffuse"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="1.100000"/>
         <SoundArray index="Ready" value="Viking_Ready"/>
         <SoundArray index="Help" value="Viking_Help"/>
@@ -15444,6 +15568,7 @@
         <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} -0.400000,0.400000,0.000000 {-0.000000,1.000000,-0.000000 -0.242536,0.000000,0.970142}"/>
         <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} -0.300000,-0.100000,-0.100000 {-0.000000,1.000000,-0.000000 -0.242536,0.000000,0.970142}"/>
         <On Terms="ActorCreation" Send="AttachModelOffset AgronInfestation AgronInfest {Target 1} 0.000000,0.200000,-0.200000"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Model value="Agron"/>
         <BuildModel value="Agron"/>
         <PlacementModel value="Agron"/>
@@ -15451,6 +15576,7 @@
     </CActorUnit>
     <!-- Ursadak Calf                                                            -->
     <CActorUnit id="UrsadakCalf">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="0.500000"/>
         <Macros value="Shrinker"/>
     </CActorUnit>
@@ -15467,6 +15593,7 @@
     <!-- Zealot ................................................................................ -->
     <!--                                                                                         -->
     <CActorUnit id="Zealot">
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="4.000000"/>
     </CActorUnit>
     <CActorUnit id="GuardianoftheBeta" parent="Zealot" unitName="GuardianoftheBeta">
@@ -15477,6 +15604,7 @@
         <On index="4" Terms="UnitConstruction.GuardianoftheBeta.Finish"/>
         <On Terms="UnitBirth.GuardianoftheBeta" Send="SetTintColor 160,135,122"/>
         <On Terms="UnitCreation.GuardianoftheBeta" Send="SetTintColor 160,135,122"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <Scale value="3.000000"/>
         <EventDataFootprint index="0" Model="GuardianoftheBetaFootprint"/>
         <DeathArray index="Normal" VoiceLink="GuardianoftheBetaDeathVoice"/>
@@ -15507,6 +15635,7 @@
         <WalkAnimMoveSpeed value="3.6992"/>
         <On Terms="UnitBirth.Zergling" Send="SetTintColor 120,16,16"/>
         <On Terms="UnitCreation.Zergling" Send="SetTintColor 120,16,16"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
         <BarHeight value="6"/>
         <Macros value="Shrinker"/>
     </CActorUnit>

@@ -2108,7 +2108,23 @@
         <EditorCategories value=""/>
         <CaseArray/>
     </CEffectSwitch>
-    <CEffectSet id="RavagingPhantomSet">
+    <CEffectApplyBehavior id="RavagingPhantomControl">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="RavagingPhantomApplyTemp">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="RavagingPhantomSpawn">
+        <EditorCategories value=""/>
+        <WhichLocation Value="SourceUnit"/>
+        <Origin Value="CasterPoint"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <SpawnRange value="30"/>
+        <SpawnEffect value="RavagingPhantomControl"/>
+        <TypeFallbackUnit Value="Source"/>
+        <ValidatorArray value="KillerHasRavagingPhantom"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="RavagingPhantomExpireSet">
         <EditorCategories value=""/>
         <EffectArray value="RavagingPhantomExpire"/>
         <EffectArray value="Suicide"/>
@@ -10132,14 +10148,13 @@
         <Count value="1"/>
         <Chance value="0.33"/>
     </CEffectRemoveBehavior>
-    <CEffectApplyBehavior id="SensoryConfusionApplyCloak">
-        <EditorCategories value=""/>
-        <Behavior value="SensoryConfusionCloak"/>
-        <WhichUnit Value="Caster"/>
-    </CEffectApplyBehavior>
-    <CEffectRemoveBehavior id="SensoryConfusionRemove">
+    <CEffectRemoveBehavior id="RavagingPhantomRemove">
         <EditorCategories value=""/>
         <BehaviorLink value="RavagingPhantomLevel1"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="RavagingPhantomTempestRemove">
+        <EditorCategories value=""/>
+        <BehaviorLink value="RavagingPhantomLevel1Tempest"/>
     </CEffectRemoveBehavior>
     <CEffectApplyBehavior id="ShockwaveBarrageApplyLevel1">
         <EditorCategories value=""/>

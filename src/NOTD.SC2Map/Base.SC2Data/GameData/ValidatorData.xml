@@ -116,6 +116,10 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="SlowRoast"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="KillerHasRavagingPhantom">
+        <CombineArray value="CasterhasRavagingPhantomLevel1"/>
+        <CombineArray value="CasterhasRavagingPhantomLevel2"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="CasterhasRavagingPhantomLevel1">
         <Value value="1"/>
         <Behavior value="RavagingPhantomLevel1"/>

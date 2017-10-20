@@ -6998,8 +6998,15 @@
         <BehaviorArray Link="SuicideBackup"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="AblativeScales" AbilCmd="255,0" Requirements="UseAblativeScales" Column="2"/>
-            <LayoutButtons index="6" Face="Stealth2" AbilCmd="StealthIvax,On"/>
+            <LayoutButtons index="5">
+                <Face value="AblativeScales"/>
+                <Type value="Passive"/>
+                <AbilCmd value="255,0"/>
+                <Requirements value="UseAblativeScales"/>
+                <Row value="2"/>
+                <Column value="2"/>
+            </LayoutButtons>
+            <LayoutButtons index="6" Face="Stealth2" Type="AbilCmd" AbilCmd="StealthIvax,On" Row="2" Column="0"/>
             <LayoutButtons>
                 <Face value="Bloodlust"/>
                 <Type value="AbilCmd"/>
@@ -8398,6 +8405,8 @@
         <BehaviorArray Link="ForesightLevel2"/>
         <BehaviorArray Link="RavagingPhantomLevel1"/>
         <BehaviorArray Link="RavagingPhantomLevel2"/>
+        <BehaviorArray Link="RavagingPhantomLevel1Tempest"/>
+        <BehaviorArray Link="RavagingPhantomLevel2Tempest"/>
         <BehaviorArray Link="KittenBeacon"/>
         <BehaviorArray Link="RecruitDamageReduction"/>
         <BehaviorArray Link="Flashlight"/>

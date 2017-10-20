@@ -1247,42 +1247,6 @@
             <StateFlags index="Cloak" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="RavagingPhantomDeathLevel1">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="0.25" Fatal="1">
-            <Kind index="Melee" value="0"/>
-            <Kind index="Ranged" value="0"/>
-            <Kind index="Splash" value="0"/>
-        </DamageResponse>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RavagingPhantomDeathLevel12">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="0.5" Fatal="1">
-            <Kind index="Melee" value="0"/>
-            <Kind index="Ranged" value="0"/>
-            <Kind index="Splash" value="0"/>
-        </DamageResponse>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RavagingPhantomDeathPsionicTempestLevel1">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="0.4" Fatal="1">
-            <Kind index="Melee" value="0"/>
-            <Kind index="Ranged" value="0"/>
-            <Kind index="Splash" value="0"/>
-        </DamageResponse>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RavagingPhantomDeathPsionicTempestLevel12">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="0.8" Fatal="1">
-            <Kind index="Melee" value="0"/>
-            <Kind index="Ranged" value="0"/>
-            <Kind index="Splash" value="0"/>
-        </DamageResponse>
-    </CBehaviorBuff>
     <CBehaviorBuff id="SatchelShieldEnergyDamage">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -2210,16 +2174,6 @@
                     <Cooldown Link="Behavior/BringThemDownLevel1"/>
                 </Cost>
             </DeathResponse>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="PhantomSuicide">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <Duration value="11"/>
-        <ExpireEffect value="Suicide"/>
-        <Modification>
-            <StateFlags index="Uncommandable" value="1"/>
-            <VitalMaxFractionArray index="Life" value="0.5"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="HeroDetectorRadar2">
@@ -6080,23 +6034,37 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="1"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="SensoryConfusionCloak">
-        <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Duration value="10"/>
-        <Modification>
-            <StateFlags index="Cloak" value="1"/>
-        </Modification>
-    </CBehaviorBuff>
     <CBehaviorBuff id="RavagingPhantomLevel1">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="SensoryConfusionLevel1"/>
-        <DamageResponse Chance="1" Location="Attacker" TargetFilters="-;Player,Ally,Neutral,Structure,Heroic,Item,Invulnerable">
+        <DamageResponse>
+            <Chance value="0.4"/>
+            <Handled value="RavagingPhantomApplyTemp"/>
+            <Location value="Attacker"/>
+            <TargetFilters value="-;Player,Ally,Neutral,Structure,Item,Invulnerable"/>
             <Kind index="Melee" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
+            <ExcludeEffectArray value="PsionicTempestDamage"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavagingPhantomLevel1Tempest">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Requirements value="SensoryConfusionLevel1"/>
+        <DamageResponse>
+            <Chance value="0.25"/>
+            <Handled value="RavagingPhantomApplyTemp"/>
+            <Location value="Attacker"/>
+            <TargetFilters value="-;Player,Ally,Neutral,Structure,Item,Invulnerable"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <RequireEffectArray value="PsionicTempestDamage"/>
         </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
@@ -6105,11 +6073,54 @@
         <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="SensoryConfusionLevel2"/>
-        <Period value="0.002"/>
+        <Period value="0.1"/>
         <PeriodCount value="1"/>
-        <PeriodicEffect value="SensoryConfusionRemove"/>
-        <DamageResponse Handled="SensoryConfusionApplyCloak"/>
+        <PeriodicEffect value="RavagingPhantomRemove"/>
+        <DamageResponse>
+            <Chance value="0.8"/>
+            <Handled value="RavagingPhantomApplyTemp"/>
+            <Location value="Attacker"/>
+            <TargetFilters value="-;Player,Ally,Neutral,Structure,Item,Invulnerable"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <ExcludeEffectArray value="PsionicTempestDamage"/>
+        </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavagingPhantomLevel2Tempest">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Requirements value="SensoryConfusionLevel2"/>
+        <Period value="0.1"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffect value="RavagingPhantomTempestRemove"/>
+        <DamageResponse>
+            <Chance value="0.5"/>
+            <Handled value="RavagingPhantomApplyTemp"/>
+            <Location value="Attacker"/>
+            <TargetFilters value="-;Player,Ally,Neutral,Structure,Item,Invulnerable"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <RequireEffectArray value="PsionicTempestDamage"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavagingPhantomControl">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="11"/>
+        <ExpireEffect value="RavagingPhantomExpireSet"/>
+        <Modification>
+            <StateFlags index="Uncommandable" value="1"/>
+            <VitalMaxFractionArray index="Life" value="0.5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavagingPhantomApplyTemp">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="RavagingPhantomSpawn"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Shriek">
         <Alignment value="Negative"/>
