@@ -15800,11 +15800,11 @@ bool gt_InfestorAI_Func (bool testConds, bool runActions) {
             UnitGroupLoopBegin(lv_banelingEggs);
             for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
                 if ((UnitIsAlive(UnitGroupLoopCurrent()) == true) && (gv_cinematicMode == false)) {
-                    if (((lv_infestorOwner == 13) || (lv_infestorOwner == 14))) {
-                        libNtve_gf_UnitCreateFacingPoint(1, "Baneling", 0, lv_infestorOwner, UnitGetPosition(UnitGroupLoopCurrent()), RegionRandomPoint(lv_infestorArea));
-                    }
-                    else if (((gv_squadRating >= 1700) || (gv_nightmare == true)) && ((lv_infestorOwner == 13) || (lv_infestorOwner == 14)) && (RandomInt(0, 2) == 1)) {
+                    if (((gv_squadRating >= 1700) || (gv_nightmare == true)) && ((lv_infestorOwner == 13) || (lv_infestorOwner == 14)) && (RandomInt(0, 2) == 1)) {
                         libNtve_gf_UnitCreateFacingPoint(1, "Blindling", 0, lv_infestorOwner, UnitGetPosition(UnitGroupLoopCurrent()), RegionRandomPoint(lv_infestorArea));
+                    }
+                    else if (((lv_infestorOwner == 13) || (lv_infestorOwner == 14))) {
+                        libNtve_gf_UnitCreateFacingPoint(1, "Baneling", 0, lv_infestorOwner, UnitGetPosition(UnitGroupLoopCurrent()), RegionRandomPoint(lv_infestorArea));
                     }
                     else if (true) {
                         libNtve_gf_UnitCreateFacingPoint(1, "Sheep2", 0, 0, UnitGetPosition(UnitGroupLoopCurrent()), RegionRandomPoint(lv_infestorArea));
