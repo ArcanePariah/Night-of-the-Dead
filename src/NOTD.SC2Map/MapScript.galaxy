@@ -3958,11 +3958,11 @@ bool auto_gf_DeathDisplay_TriggerFunc (bool testConds, bool runActions) {
             }
         }
     }
-    else if (((lp_damageEffect == "StingerMK3DamageAllies") || (lp_damageEffect == "StingerMK3Damage") || (lp_damageEffect == "SatchelLevel1Damage") || (lp_damageEffect == "SatchelLevel2Damage") || (lp_damageEffect == "VultureSpiderMinesDamage"))) {
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (lv_baseMessage + StringExternal("Param/Value/4BBC15E6")));
-    }
     else if ((UnitGetOwner(lp_killer) == lp_playerNumber)) {
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (lv_baseMessage + StringExternal("Param/Value/0EC88977")));
+    }
+    else if (((lp_damageEffect == "StingerMK3DamageAllies") || (lp_damageEffect == "StingerMK3Damage") || (lp_damageEffect == "HellfireMissleDamageEnemies") || (lp_damageEffect == "SatchelLevel1Damage") || (lp_damageEffect == "SatchelLevel2Damage") || (lp_damageEffect == "VultureSpiderMinesDamage") || (lp_damageEffect == "ArmageddonDamageFriendly") || (lp_damageEffect == "PlasmaDischargeDamageAllies") || (lp_damageEffect == "NukeDamage") || (lp_damageEffect == "Damage") || (lp_damageEffect == "GunshipSupportGaussCannonDamageAlly") || (lp_damageEffect == "InboundSicknessDamageFriendlyLevel1") || (lp_damageEffect == "InboundSicknessDamageFriendlyLevel2") || (lp_damageEffect == "ScorchedEarthDamage"))) {
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (lv_baseMessage + StringExternal("Param/Value/4BBC15E6")));
     }
     else if (true) {
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (lv_baseMessage + StringExternal("Param/Value/3331F97F")));

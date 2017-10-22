@@ -762,8 +762,8 @@
         <EditorCategories value=""/>
         <Amount value="300"/>
         <Death value="Impact"/>
-        <AreaArray Radius="3.5" Fraction="1" Validator="TargetIsEnemy"/>
-        <AreaArray Radius="3.5" Fraction="0.2" Validator="TargetIsAlly"/>
+        <AreaArray Radius="3.5" Fraction="1" Validator="TargetIsNotAlly"/>
+        <AreaArray Radius="3.5" Fraction="0.2" Validator="TargetIsNotEnemy"/>
         <SearchFilters value="-;Neutral,Item,Invulnerable"/>
     </CEffectDamage>
     <CEffectSet id="HellfireMissleImpactSet">
