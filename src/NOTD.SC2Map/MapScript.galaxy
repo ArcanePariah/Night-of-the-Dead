@@ -724,6 +724,7 @@ int[9] gv_spectatedDialog;
 int[9] gv_spectatedLabel;
 bool[9] gv_spectated;
 bool gv_navyCrossMode;
+bool gv_outbreakActivated;
 int[9] gv_marineMags;
 int gv_magazineAdjustment;
 int[9] gv_marineRounds;
@@ -735,6 +736,7 @@ int gv_griefingPlayer;
 bool[9] gv_playerHasRankedUp;
 bool gv_infestorLock;
 bool gv_infestorAggroMode;
+int gv_outbreakCounter;
 int gv_victoryButton1;
 int gv_victoryButton2;
 int gv_endGameDialog1;
@@ -1151,6 +1153,7 @@ void InitGlobals () {
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_marineRounds[init_i] = 30;
     }
+    gv_outbreakCounter = 100;
     gv_victoryButton1 = c_invalidDialogControlId;
     gv_victoryButton2 = c_invalidDialogControlId;
     gv_endGameDialog1 = c_invalidDialogId;
@@ -1788,6 +1791,7 @@ trigger gt_WinsCheck;
 trigger gt_AmmoCheck;
 trigger gt_NavyCross;
 trigger gt_NightmareMode;
+trigger gt_OutbreakCommand;
 trigger gt_SpectatorModeType;
 trigger gt_SpectatorModeClick;
 trigger gt_SpectatorModeOff;
@@ -1810,6 +1814,7 @@ trigger gt_InfestorKilled;
 trigger gt_InfestorAmbientSpawns;
 trigger gt_InfestorAI;
 trigger gt_ClearImmortalEnemies;
+trigger gt_OutbreakSpawn;
 trigger gt_VictoryBonus;
 trigger gt_ClassPointsUpdateVictoryOnly;
 trigger gt_ReturntoEarth;
@@ -2743,6 +2748,7 @@ bool auto_gf_SetDifficulty_TriggerFunc (bool testConds, bool runActions) {
 
     Wait(20.0, c_timeReal);
     TriggerEnable(gt_NightmareMode, false);
+    TriggerEnable(gt_OutbreakCommand, false);
     return true;
 }
 
@@ -3429,6 +3435,9 @@ void gf_DisplaySquadInformation () {
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/7887C155"));
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((gv_infoPanelHeroRank + (UserDataGetText("SquadInformation", "Squad XP", "Information", 1) + IntToText(gv_squadXP))) + gv_endStyling));
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((gv_infoPanelHeroRank + gv_difficulty) + gv_endStyling));
+    if ((gv_outbreakActivated == true)) {
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((gv_infoPanelHeroRank + StringExternal("Param/Value/3EC532D7")) + gv_endStyling));
+    }
 }
 
 fixed gf_CommandoReload (fixed lp_currentReload, unit lp_firingUnit) {
@@ -13530,6 +13539,7 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
     TimerStart(gv_gameTime, 10800.0, false, c_timeReal);
     TriggerExecute(gt_PlayerIntialize, true, true);
     TriggerEnable(gt_NightmareMode, true);
+    TriggerEnable(gt_OutbreakCommand, true);
     DialogCreate(66, 66, c_anchorBottom, -450, 230, true);
     gv_equipment = DialogLastCreated();
     DialogSetImageVisible(DialogLastCreated(), false);
@@ -14548,6 +14558,41 @@ void gt_NightmareMode_Init () {
     TriggerAddEventChatMessage(gt_NightmareMode, 1, "-nm", true);
     TriggerAddEventChatMessage(gt_NightmareMode, 2, "-nightmare", true);
     TriggerAddEventChatMessage(gt_NightmareMode, 2, "-nm", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Outbreak Command
+//--------------------------------------------------------------------------------------------------
+bool gt_OutbreakCommand_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((gv_noNewbie == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/DAA0ACEF"));
+    SoundPlayForPlayer(SoundLink("UI_TerranKlaxonAlert", -1), c_maxPlayers, PlayerGroupAll(), 75.0, 0.0);
+    gv_outbreakActivated = true;
+    libNtve_gf_WaitForTimer(gv_gameTime, 240.0, true);
+    TriggerEnable(gt_OutbreakSpawn, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_OutbreakCommand_Init () {
+    gt_OutbreakCommand = TriggerCreate("gt_OutbreakCommand_Func");
+    TriggerEnable(gt_OutbreakCommand, false);
+    TriggerAddEventChatMessage(gt_OutbreakCommand, 1, "-outbreak", true);
+    TriggerAddEventChatMessage(gt_OutbreakCommand, 1, "-ob", true);
+    TriggerAddEventChatMessage(gt_OutbreakCommand, 2, "-outbreak", true);
+    TriggerAddEventChatMessage(gt_OutbreakCommand, 2, "-ob", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -15866,6 +15911,65 @@ bool gt_ClearImmortalEnemies_Func (bool testConds, bool runActions) {
 void gt_ClearImmortalEnemies_Init () {
     gt_ClearImmortalEnemies = TriggerCreate("gt_ClearImmortalEnemies_Func");
     TriggerAddEventTimePeriodic(gt_ClearImmortalEnemies, 15.0, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Outbreak Spawn
+//--------------------------------------------------------------------------------------------------
+bool gt_OutbreakSpawn_Func (bool testConds, bool runActions) {
+    int auto98931652_n;
+    int auto98931652_i;
+
+    // Conditions
+    if (testConds) {
+        if (!((PlayerGetPropertyInt(14, c_playerPropSuppliesUsed) < 200))) {
+            return false;
+        }
+
+        if (!((gv_gameOver == false))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_outbreakCounter = MinI((gv_outbreakCounter + 4), 400);
+    Wait(RandomInt(0, 15), c_timeGame);
+    auto98931652_n = gv_outbreakCounter;
+    for (auto98931652_i = 1; auto98931652_i <= auto98931652_n; auto98931652_i += 1) {
+        if ((RandomInt(1, 15) == 1)) {
+            gf_SmartSpawnNOTD("Mutalisk", 40.0);
+        }
+        if ((RandomInt(1, 45) == 1)) {
+            gf_SmartSpawnNOTD("Wraith2", 40.0);
+        }
+        if ((RandomInt(1, 30) == 1)) {
+            gf_SmartSpawnNOTD("UltraliskBurrowed", 40.0);
+        }
+        if ((RandomInt(1, 45) == 1)) {
+            gf_SmartSpawnNOTD("Devourer", 40.0);
+        }
+        if ((RandomInt(1, 80) == 1)) {
+            gf_SmartSpawnNOTD("Slasher2", 40.0);
+        }
+        if ((RandomInt(1, 1000) == 1)) {
+            gf_SmartSpawnNOTD("TitanBurrowed", 40.0);
+        }
+        if ((RandomInt(1, 2000) == 1)) {
+            gf_SmartSpawnNOTD("Lelantos", 40.0);
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_OutbreakSpawn_Init () {
+    gt_OutbreakSpawn = TriggerCreate("gt_OutbreakSpawn_Func");
+    TriggerEnable(gt_OutbreakSpawn, false);
+    TriggerAddEventTimePeriodic(gt_OutbreakSpawn, 60.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -34179,6 +34283,7 @@ bool gt_SurvivalW15_Func (bool testConds, bool runActions) {
     }
     Wait(30.0, c_timeReal);
     TriggerEnable(gt_NightmareMode, false);
+    TriggerEnable(gt_OutbreakCommand, false);
     gv_wave += 1;
     gf_SurvivalWaveTitleDisplay(gv_wave);
     autoAC4073FA_n = (gv_spawnFactor * 8);
@@ -39464,6 +39569,7 @@ void InitTriggers () {
     gt_AmmoCheck_Init();
     gt_NavyCross_Init();
     gt_NightmareMode_Init();
+    gt_OutbreakCommand_Init();
     gt_SpectatorModeType_Init();
     gt_SpectatorModeClick_Init();
     gt_SpectatorModeOff_Init();
@@ -39486,6 +39592,7 @@ void InitTriggers () {
     gt_InfestorAmbientSpawns_Init();
     gt_InfestorAI_Init();
     gt_ClearImmortalEnemies_Init();
+    gt_OutbreakSpawn_Init();
     gt_VictoryBonus_Init();
     gt_ClassPointsUpdateVictoryOnly_Init();
     gt_ReturntoEarth_Init();

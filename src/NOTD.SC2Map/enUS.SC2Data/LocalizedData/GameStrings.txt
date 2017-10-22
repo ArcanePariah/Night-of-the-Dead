@@ -4219,6 +4219,7 @@ Param/Value/3E1C1E17=. Removal with 2 more votes.</s>
 Param/Value/3E48A243=<s val="GlueButton"><c val="F4D72B">Follow us.</c></s>
 Param/Value/3E5FA299=Corpsman Kellen
 Param/Value/3EA0E930=Secure Airlock perimeter until decryption is complete
+Param/Value/3EC532D7=[Outbreak]
 Param/Value/3EF0EAF1=It doesn't end here. We'll find a way into Apollo.
 Param/Value/3F3D628D=+1 XP for Mission Bonus
 Param/Value/3F4AD3BB=Cover my back.
@@ -5092,6 +5093,7 @@ Param/Value/D9C4D665=Survive the incoming attack
 Param/Value/DA7A513D=The source of the infestation has been located. Proceed with caution. There is no turning back.
 Param/Value/DA815637=Our mission brief showed a Dr. Bergmann. Do you think he's related to all this?
 Param/Value/DA8B85CD=<s val="GlueButton">Log (5 Nov 2103) - <c val="88DAF9">Lt. Sheng's men drop by for a routine patrol. We treat them to a few cold ones.</c></s>
+Param/Value/DAA0ACEF=<s val="InfoPaneHeroRank">Outbreak activated</s><n/>- Large groups of enemies attack periodically.<n/>- Number of enemies is increased over time.
 Param/Value/DAB8AD38=We're not coming. Return to base.
 Param/Value/DAD3C239=We're Oscar Mike to target location.
 Param/Value/DAEA2E45=Class: 
