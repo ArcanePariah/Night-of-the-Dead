@@ -9915,11 +9915,6 @@
         <Behavior value="FireVulnerabilityHEAmmo"/>
         <ValidatorArray index="0" value="TargetIsNotAlly"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="HEAmmoBurnDamage">
-        <EditorCategories value=""/>
-        <Death value="Fire"/>
-        <SearchFilters value="-;Item,Dead,Invulnerable"/>
-    </CEffectDamage>
     <CEffectSet id="HEAmmoSet">
         <EditorCategories value=""/>
         <EffectArray value="HEAmmoApplyBurn"/>
