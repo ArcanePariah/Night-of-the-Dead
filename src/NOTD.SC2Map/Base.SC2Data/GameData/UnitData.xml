@@ -8405,6 +8405,8 @@
         <BehaviorArray Link="ForesightLevel2"/>
         <BehaviorArray Link="RavagingPhantomLevel1"/>
         <BehaviorArray Link="RavagingPhantomLevel2"/>
+        <BehaviorArray Link="RavagingPhantomLevel1Tempest"/>
+        <BehaviorArray Link="RavagingPhantomLevel2Tempest"/>
         <BehaviorArray Link="KittenBeacon"/>
         <BehaviorArray Link="RecruitDamageReduction"/>
         <BehaviorArray Link="Flashlight"/>
