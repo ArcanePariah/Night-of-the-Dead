@@ -1809,7 +1809,6 @@ trigger gt_ZombieDeathEffects;
 trigger gt_InfestorKilled;
 trigger gt_InfestorAmbientSpawns;
 trigger gt_InfestorAI;
-trigger gt_TestScore;
 trigger gt_ClearImmortalEnemies;
 trigger gt_VictoryBonus;
 trigger gt_ClassPointsUpdateVictoryOnly;
@@ -15834,25 +15833,6 @@ void gt_InfestorAI_Init () {
     gt_InfestorAI = TriggerCreate("gt_InfestorAI_Func");
     TriggerEnable(gt_InfestorAI, false);
     TriggerAddEventUnitAttacked2(gt_InfestorAI, null, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Test Score
-//--------------------------------------------------------------------------------------------------
-bool gt_TestScore_Func (bool testConds, bool runActions) {
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    PlayerScoreValueSetFromInt(1, "PlayerXP", (PlayerScoreValueGetAsInt(1, "PlayerXP") + 5));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_TestScore_Init () {
-    gt_TestScore = TriggerCreate("gt_TestScore_Func");
-    TriggerAddEventChatMessage(gt_TestScore, c_playerAny, "Score", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -39457,7 +39437,6 @@ void InitTriggers () {
     gt_InfestorKilled_Init();
     gt_InfestorAmbientSpawns_Init();
     gt_InfestorAI_Init();
-    gt_TestScore_Init();
     gt_ClearImmortalEnemies_Init();
     gt_VictoryBonus_Init();
     gt_ClassPointsUpdateVictoryOnly_Init();
