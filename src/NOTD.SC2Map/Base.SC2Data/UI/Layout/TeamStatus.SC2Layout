@@ -127,6 +127,8 @@
             <Width val="78"/>
             <Height val="78"/>
         </Frame>
+		
+	
 
         <Frame type="Image" name="BorderImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -168,13 +170,33 @@
             <TextureType val="Normal"/>
         </Frame>
 
-        <Frame type="Label" name="PlayerXP">
+        <Frame type="Label" name="PlayerXPLabel">
             <Height val="26"/>
             <Anchor side="Top" relative="$parent/RankIcon" pos="Min" offset="6"/>
             <Anchor side="Left" relative="$parent/RankIcon" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Width val = "47"/>
             <Style val="PlayerXP"/>
+			<Text val = "XP: "/>
         </Frame>
+		
+		<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+			<Anchor side="Top" relative="$parent/PlayerXPLabel" pos="Min" offset="0"/>
+			<Anchor side="Left" relative="$parent/PlayerXPLabel" pos="Max" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			<Height val="26"/>
+			<PlayerId val = "1"/>
+			<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame0">
+				<Anchor relative="$parent"/>
+				<ScoreValueLink val="PlayerXP"/>
+				<AddCommas val="False"/>
+				
+				<Frame type="Label" name="Label">
+					<Anchor relative="$parent"/>
+					<Style val="PlayerXP"/>
+					<Color val = "#FFFFFF"/>
+				</Frame>
+			</Frame>
+		</Frame>
 		
 		<Frame type="Label" name="LeaverLabel">
 			<Anchor  relative="$parent/UnitHealth" offset="0"/>
@@ -380,6 +402,9 @@
 					<PlayerId val = "1" />
 				</Frame>
 			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "1"/>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine2" template = "TeamStatus/MarineStatusFrame">
@@ -390,6 +415,9 @@
 					<PlayerId val = "2" />
 				</Frame>
 			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "2"/>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine3" template = "TeamStatus/MarineStatusFrame">
@@ -399,7 +427,10 @@
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "3" />
 				</Frame>
-			</Frame>			
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "3"/>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine4" template = "TeamStatus/MarineStatusFrame">
@@ -409,6 +440,9 @@
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "4" />
 				</Frame>
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "4"/>
 			</Frame>
 		</Frame>
 		
@@ -420,6 +454,9 @@
 					<PlayerId val = "5" />
 				</Frame>
 			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "5"/>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine6" template = "TeamStatus/MarineStatusFrame">
@@ -429,6 +466,9 @@
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "6" />
 				</Frame>
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "6"/>
 			</Frame>
 		</Frame>
 		
@@ -440,6 +480,9 @@
 					<PlayerId val = "7" />
 				</Frame>
 			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "7"/>
+			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine8" template = "TeamStatus/MarineStatusFrame">
@@ -450,7 +493,11 @@
 					<PlayerId val = "8" />
 				</Frame>
 			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "8"/>
+			</Frame>
 		</Frame>
+		
     </Frame>
 
 

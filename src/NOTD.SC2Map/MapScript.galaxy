@@ -1809,6 +1809,7 @@ trigger gt_ZombieDeathEffects;
 trigger gt_InfestorKilled;
 trigger gt_InfestorAmbientSpawns;
 trigger gt_InfestorAI;
+trigger gt_TestScore;
 trigger gt_ClearImmortalEnemies;
 trigger gt_VictoryBonus;
 trigger gt_ClassPointsUpdateVictoryOnly;
@@ -2562,6 +2563,7 @@ void gf_MemoryLoad (int lp_player) {
 
     // Implementation
     gv_playerXP[lp_player] = gv_playerBankData[1][lp_player];
+    PlayerScoreValueSetFromInt(lp_player, "PlayerXP", gv_playerXP[lp_player]);
     gv_playerRating[lp_player] = gv_playerBankData[2][lp_player];
     gv_playerGamesPlayed[lp_player] = gv_playerBankData[3][lp_player];
     if ((gv_totalPlayers > 1)) {
@@ -5826,6 +5828,7 @@ bool auto_gf_AwardPlayerXPNOTD_TriggerFunc (bool testConds, bool runActions) {
             gv_playerXP[lv_index] += (lv_xPAwarded / 2);
         }
         gf_UIUpdateXP(lv_index);
+        PlayerScoreValueSetFromInt(lv_index, "PlayerXP", gv_playerXP[lv_index]);
         if ((gv_playerXP[lv_index] >= UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)) && (gv_playerHasRankedUp[lv_index] == false)) {
             gv_playerHasRankedUp[lv_index] = true;
             gv_playerRank[lv_index] = (gv_playerRank[lv_index] + 1);
@@ -11150,7 +11153,6 @@ bool auto_gf_UIUpdateXP_TriggerFunc (bool testConds, bool runActions) {
 
     // Implementation
     lv_xPText = (StringExternal("Param/Value/174CE2FA") + IntToText(gv_playerXP[lp_triggeringPlayer]));
-    libNtve_gf_SetDialogItemText(gv_teamStatusXP[lp_triggeringPlayer], lv_xPText, PlayerGroupAll());
     if ((gv_statsPlayerNextXP[lp_triggeringPlayer] != c_invalidDialogControlId)) {
         libNtve_gf_SetDialogItemText(gv_statsPlayerNextXP[lp_triggeringPlayer], (IntToText(gv_playerXP[lp_triggeringPlayer]) + (gv_forwardSlash + IntToText(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lp_triggeringPlayer] + 1)), "XP Required", 1)))), PlayerGroupAll());
     }
@@ -15832,6 +15834,25 @@ void gt_InfestorAI_Init () {
     gt_InfestorAI = TriggerCreate("gt_InfestorAI_Func");
     TriggerEnable(gt_InfestorAI, false);
     TriggerAddEventUnitAttacked2(gt_InfestorAI, null, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Test Score
+//--------------------------------------------------------------------------------------------------
+bool gt_TestScore_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PlayerScoreValueSetFromInt(1, "PlayerXP", (PlayerScoreValueGetAsInt(1, "PlayerXP") + 5));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TestScore_Init () {
+    gt_TestScore = TriggerCreate("gt_TestScore_Func");
+    TriggerAddEventChatMessage(gt_TestScore, c_playerAny, "Score", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -36650,8 +36671,6 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
             DialogControlHookup(gv_teamStatusDebuffsBackground[lv_i][lv_currentPlayer], c_triggerControlTypeImage, "AilmentImage");
             gv_teamStatusDebuffs[lv_i][lv_currentPlayer] = DialogControlLastCreated();
         }
-        DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypeLabel, "PlayerXP");
-        gv_teamStatusXP[lv_currentPlayer] = DialogControlLastCreated();
         DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypeImage, "RankIcon");
         gv_teamStatusRankIcon[lv_currentPlayer] = DialogControlLastCreated();
         gf_UISetPlayerRankNameIconXP(lv_currentPlayer);
@@ -39485,6 +39504,7 @@ void InitTriggers () {
     gt_InfestorKilled_Init();
     gt_InfestorAmbientSpawns_Init();
     gt_InfestorAI_Init();
+    gt_TestScore_Init();
     gt_ClearImmortalEnemies_Init();
     gt_VictoryBonus_Init();
     gt_ClassPointsUpdateVictoryOnly_Init();

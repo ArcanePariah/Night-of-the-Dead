@@ -5321,6 +5321,7 @@ RequirementNode/Tooltip/LT3507390604SumCountUnitMobileInfantryFlamethrowerComple
 Righteousness Level 2=+1 armor for each unit damaged by Smite. Lasts 16 seconds.<n/><n/>"I shall walk down the road of shadow, the path of the wicked, the trail of damnation but I fear not for I stand as an unfaltering beacon to the lost for all those who have been cast down."
 Saline IV Level 2=Level 2 - Heals 40 HP instantly. Also removes 1 stack of Venom.
 Saline IV Level 3=Level 3 - Heals 60 HP instantly. Remove 1 stack of Venom and Open Wounds. Also heals Cripple when Repulse is active.
+ScoreValue/Name/PlayerXP=Player XP
 SethPolarityNegative= <IMG path = "NOTD Generic Art/NOTD Negative Polarity.dds" height = "64" width = "64"/>
 SethPolarityPositive= <IMG path = "NOTD Generic Art/NOTD Positive Polarity.dds" height = "64" width = "64"/>
 Shoot To Maim Level 2=The Pathfinder uses precise aim in his attacks to cripple enemy targets, but in doing so, he no longer aims to ricochet his shots.<n/><n/>Level 2 - +20% damage, each Maim stack slows by 7.5%, maximum stack of 3

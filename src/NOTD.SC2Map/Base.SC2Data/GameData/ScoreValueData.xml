@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CScoreValueCustom id="PlayerXP" parent="BaseScoreValue">
+        <Flags index="DisplayAsSigned" value="1"/>
+    </CScoreValueCustom>
+</Catalog>
