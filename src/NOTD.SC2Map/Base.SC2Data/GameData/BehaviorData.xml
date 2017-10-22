@@ -113,6 +113,11 @@
         <Duration value="0.1"/>
         <FinalEffect value=""/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="NotMoving">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="NotMoving"/>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="PetVeterancy2">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <SharedXPMaxCount index="Kills" value="0"/>

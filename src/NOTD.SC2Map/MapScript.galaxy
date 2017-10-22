@@ -7792,6 +7792,11 @@ bool auto_gf_CharlieCompanyAI_TriggerFunc (bool testConds, bool runActions) {
     lv_unescorted = UnitGroupEmpty();
 
     // Implementation
+    UnitGroupLoopBegin(gv_marines);
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitBehaviorAdd(UnitGroupLoopCurrent(), "NotMoving", UnitGroupLoopCurrent(), 1);
+    }
+    UnitGroupLoopEnd();
     while ((gv_gameOver == false)) {
         if ((UnitGroupCount(lv_possibleEscorts, c_unitCountAlive) == 0)) {
             UnitGroupLoopBegin(gv_marines);
@@ -7809,12 +7814,12 @@ bool auto_gf_CharlieCompanyAI_TriggerFunc (bool testConds, bool runActions) {
         for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
             lv_nearestEscort = UnitGroupClosestToPoint(lv_possibleEscorts, UnitGetPosition(UnitGroupLoopCurrent()));
             lv_escortDist = DistanceBetweenPoints(UnitGetPosition(UnitGroupLoopCurrent()), UnitGetPosition(lv_nearestEscort));
-            if ((UnitGetType(UnitGroupLoopCurrent()) == "SiegeBreaker") && (IntToFixed(UnitGroupCount(lv_siegeTanks, c_unitCountAlive)) < (IntToFixed(UnitGroupCount(gv_easyCompanyTanks, c_unitCountAlive)) * 0.5)) && (lv_escortDist <= 3.0) && (lv_escortDist >= 1.35) && (DistanceBetweenPoints(UnitGetPosition(lv_nearestEscort), UnitGetGoalPosition(lv_nearestEscort)) <= 1.5)) {
+            if ((UnitGetType(UnitGroupLoopCurrent()) == "SiegeBreaker") && (IntToFixed(UnitGroupCount(lv_siegeTanks, c_unitCountAlive)) < (IntToFixed(UnitGroupCount(gv_easyCompanyTanks, c_unitCountAlive)) * 0.5)) && (lv_escortDist <= 3.0) && (lv_escortDist >= 1.35) && (UnitBehaviorEnabled(lv_nearestEscort, "NotMoving") == true)) {
                 AISetUnitScriptControlled(UnitGroupLoopCurrent(), true);
                 UnitGroupAdd(lv_siegeTanks, UnitGroupLoopCurrent());
                 UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("SiegeBreakerSiege", 0)), c_orderQueueReplace);
             }
-            else if ((UnitGetType(UnitGroupLoopCurrent()) == "SiegeBreakerSieged") && ((lv_escortDist > 3.0) || (lv_escortDist < 1.35) || (DistanceBetweenPoints(UnitGetPosition(lv_nearestEscort), UnitGetGoalPosition(lv_nearestEscort)) > 3.0))) {
+            else if ((UnitGetType(UnitGroupLoopCurrent()) == "SiegeBreakerSieged") && ((lv_escortDist > 3.0) || (lv_escortDist < 1.35) || (UnitBehaviorEnabled(lv_nearestEscort, "NotMoving") == false))) {
                 AISetUnitScriptControlled(UnitGroupLoopCurrent(), true);
                 UnitGroupRemove(lv_siegeTanks, UnitGroupLoopCurrent());
                 UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("SiegeBreakerUnsiege", 0)), c_orderQueueReplace);
