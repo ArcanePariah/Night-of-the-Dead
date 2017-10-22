@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PlacedObjects Version="27">
-    <ObjectUnit Id="1" Position="235.5063,109.7785,0" Scale="1,1,1" UnitType="AmmoBox"/>
-    <ObjectUnit Id="822" Variation="2" Position="90.4138,180.0871,0" Scale="1,1,1" UnitType="AmmoBox"/>
-    <ObjectUnit Id="160" Variation="1" Position="96.5,162.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ApolloBioDome">
+    <ObjectUnit Id="1" Position="235.5063,109.7785,0" Scale="1,1,1" UnitType="AmmoBox" Player="10"/>
+    <ObjectUnit Id="822" Variation="2" Position="90.4138,180.0871,0" Scale="1,1,1" UnitType="AmmoBox" Player="10"/>
+    <ObjectUnit Id="160" Variation="1" Position="96.5,162.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ApolloBioDome" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="619" Variation="3" Position="176.5,111.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ApolloBioDome">
+    <ObjectUnit Id="619" Variation="3" Position="176.5,111.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ApolloBioDome" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="728" Variation="1" Position="190.5,173.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ApolloBioDome">
+    <ObjectUnit Id="728" Variation="1" Position="190.5,173.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ApolloBioDome" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="765" Variation="1" Position="154.5,157.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ApolloBioDome">
+    <ObjectUnit Id="765" Variation="1" Position="154.5,157.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="ApolloBioDome" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1857" Position="9.5,39.5,0" Scale="1,1,1" UnitType="Armory">
+    <ObjectUnit Id="1857" Position="9.5,39.5,0" Scale="1,1,1" UnitType="Armory" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2502" Position="237.5,222.5,0" Scale="1,1,1" UnitType="Armory">
+    <ObjectUnit Id="2502" Position="237.5,222.5,0" Scale="1,1,1" UnitType="Armory" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="60" Position="130.29,36.4484,0" Scale="1,1,1" UnitType="Bandage"/>
-    <ObjectUnit Id="61" Position="129.4733,35.606,0" Scale="1,1,1" UnitType="Bandage"/>
-    <ObjectUnit Id="882" Position="64.7224,90.748,0" Scale="1,1,1" UnitType="Bandage"/>
-    <ObjectUnit Id="883" Position="36.17,155.3803,0" Scale="1,1,1" UnitType="Bandage"/>
-    <ObjectUnit Id="896" Position="212.8676,174.6916,0" Scale="1,1,1" UnitType="Bandage"/>
-    <ObjectUnit Id="897" Position="245.005,99.9726,0" Scale="1,1,1" UnitType="Bandage"/>
-    <ObjectUnit Id="821" Position="173.5,143.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="BioDomeCommand">
+    <ObjectUnit Id="60" Position="130.29,36.4484,0" Scale="1,1,1" UnitType="Bandage" Player="10"/>
+    <ObjectUnit Id="61" Position="129.4733,35.606,0" Scale="1,1,1" UnitType="Bandage" Player="10"/>
+    <ObjectUnit Id="882" Position="64.7224,90.748,0" Scale="1,1,1" UnitType="Bandage" Player="10"/>
+    <ObjectUnit Id="883" Position="36.17,155.3803,0" Scale="1,1,1" UnitType="Bandage" Player="10"/>
+    <ObjectUnit Id="896" Position="212.8676,174.6916,0" Scale="1,1,1" UnitType="Bandage" Player="10"/>
+    <ObjectUnit Id="897" Position="245.005,99.9726,0" Scale="1,1,1" UnitType="Bandage" Player="10"/>
+    <ObjectUnit Id="821" Position="173.5,143.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="BioDomeCommand" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="58" Position="247.5646,99.048,0" Scale="1,1,1" UnitType="C2Armor"/>
-    <ObjectUnit Id="62" Position="234.1237,111.3608,0" Scale="1,1,1" UnitType="C2Armor"/>
-    <ObjectUnit Id="135" Position="229.2316,77.619,0" Scale="1,1,1" UnitType="C2Armor"/>
-    <ObjectUnit Id="172" Position="51.0964,12.6655,0" Scale="1,1,1" UnitType="C2Armor"/>
-    <ObjectUnit Id="312" Position="92.3405,124.442,0" Scale="1,1,1" UnitType="C4Armor"/>
-    <ObjectUnit Id="2211" Position="46.482,25.243,0" Rotation="0.8195" Scale="1,1,1" UnitType="Charlie"/>
-    <ObjectUnit Id="2378" Position="215.5,234.5,0" Rotation="4.5996" Scale="1,1,1" UnitType="ComplianceNexus">
+    <ObjectUnit Id="58" Position="247.5646,99.048,0" Scale="1,1,1" UnitType="C2Armor" Player="10"/>
+    <ObjectUnit Id="62" Position="234.1237,111.3608,0" Scale="1,1,1" UnitType="C2Armor" Player="10"/>
+    <ObjectUnit Id="135" Position="229.2316,77.619,0" Scale="1,1,1" UnitType="C2Armor" Player="10"/>
+    <ObjectUnit Id="172" Position="51.0964,12.6655,0" Scale="1,1,1" UnitType="C2Armor" Player="10"/>
+    <ObjectUnit Id="312" Position="92.3405,124.442,0" Scale="1,1,1" UnitType="C4Armor" Player="10"/>
+    <ObjectUnit Id="2211" Position="46.482,25.243,0" Rotation="0.8195" Scale="1,1,1" UnitType="Charlie" Player="10"/>
+    <ObjectUnit Id="2378" Position="215.5,234.5,0" Rotation="4.5996" Scale="1,1,1" UnitType="ComplianceNexus" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2381" Position="113.5,142.5,0" Rotation="0.7946" Scale="1,1,1" UnitType="ComplianceNexus"/>
-    <ObjectUnit Id="2382" Position="36.5,3.5,0" Rotation="2.4533" Scale="1,1,1" UnitType="ComplianceNexus"/>
-    <ObjectUnit Id="2471" Position="208.5,33.5,0" Rotation="4.359" Scale="1,1,1" UnitType="ComplianceNexus"/>
-    <ObjectUnit Id="2472" Position="81.5,242.5,0" Rotation="0.4758" Scale="1,1,1" UnitType="ComplianceNexus"/>
-    <ObjectUnit Id="2473" Position="75.5,143.5,0" Rotation="1.8942" Scale="1,1,1" UnitType="ComplianceNexus"/>
-    <ObjectUnit Id="2474" Position="247.5,70.5,0" Rotation="4.3383" Scale="1,1,1" UnitType="ComplianceNexus"/>
-    <ObjectUnit Id="2475" Position="48.5,139.5,0" Rotation="1.43" Scale="1,1,1" UnitType="ComplianceNexus">
+    <ObjectUnit Id="2381" Position="113.5,142.5,0" Rotation="0.7946" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
+    <ObjectUnit Id="2382" Position="36.5,3.5,0" Rotation="2.4533" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
+    <ObjectUnit Id="2471" Position="208.5,33.5,0" Rotation="4.359" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
+    <ObjectUnit Id="2472" Position="81.5,242.5,0" Rotation="0.4758" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
+    <ObjectUnit Id="2473" Position="75.5,143.5,0" Rotation="1.8942" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
+    <ObjectUnit Id="2474" Position="247.5,70.5,0" Rotation="4.3383" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
+    <ObjectUnit Id="2475" Position="48.5,139.5,0" Rotation="1.43" Scale="1,1,1" UnitType="ComplianceNexus" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2476" Position="76.5,89.5,0" Rotation="2.2802" Scale="1,1,1" UnitType="ComplianceNexus"/>
-    <ObjectUnit Id="2477" Position="109.5,58.5,0" Rotation="0.7941" Scale="1,1,1" UnitType="ComplianceNexus"/>
-    <ObjectUnit Id="2478" Position="88.5,192.5,0" Rotation="0.421" Scale="1,1,1" UnitType="ComplianceNexus"/>
-    <ObjectUnit Id="2479" Position="148.5,192.5,0" Rotation="0.2292" Scale="1,1,1" UnitType="ComplianceNexus">
+    <ObjectUnit Id="2476" Position="76.5,89.5,0" Rotation="2.2802" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
+    <ObjectUnit Id="2477" Position="109.5,58.5,0" Rotation="0.7941" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
+    <ObjectUnit Id="2478" Position="88.5,192.5,0" Rotation="0.421" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
+    <ObjectUnit Id="2479" Position="148.5,192.5,0" Rotation="0.2292" Scale="1,1,1" UnitType="ComplianceNexus" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="170" Position="60.5,113.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="14"/>
@@ -64,114 +64,114 @@
     <ObjectUnit Id="676" Position="73.5,128.5,0" Scale="1,1,1" UnitType="CreepTumorBurrowed" Player="14">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1058" Position="137.4118,119.8017,0" Scale="1,1,1" UnitType="Crowbar7"/>
-    <ObjectUnit Id="2400" Position="22.111,135.468,0" Scale="1,1,1" UnitType="Crowbar7"/>
-    <ObjectUnit Id="169" Position="70,41,0" Rotation="1.838" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="213" Position="112,57,0" Rotation="2.315" Scale="0.71,0.71,0.71" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="1058" Position="137.4118,119.8017,0" Scale="1,1,1" UnitType="Crowbar7" Player="10"/>
+    <ObjectUnit Id="2400" Position="22.111,135.468,0" Scale="1,1,1" UnitType="Crowbar7" Player="10"/>
+    <ObjectUnit Id="169" Position="70,41,0" Rotation="1.838" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="213" Position="112,57,0" Rotation="2.315" Scale="0.71,0.71,0.71" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="299" Position="67,42,0" Rotation="6.0422" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="300" Position="227,71,0" Rotation="1.0083" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="816" Position="250,246,0" Rotation="0.9438" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="846" Position="157,149,0" Rotation="0.3317" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="977" Position="172,210,0" Rotation="5.1093" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="1012" Position="226,112,0" Rotation="3.237" Scale="1,1,1" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="299" Position="67,42,0" Rotation="6.0422" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="300" Position="227,71,0" Rotation="1.0083" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="816" Position="250,246,0" Rotation="0.9438" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="846" Position="157,149,0" Rotation="0.3317" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="977" Position="172,210,0" Rotation="5.1093" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1012" Position="226,112,0" Rotation="3.237" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1052" Position="246,133,0" Rotation="3.9853" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="1053" Position="176,207,0" Rotation="6.0764" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="1063" Position="176,211,0" Rotation="2.0332" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="1245" Position="194,128,0" Rotation="1.7915" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="1462" Position="207,135,0" Rotation="0.2473" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="1479" Position="55,149,0" Rotation="5.9731" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="1592" Position="143,189,0" Rotation="4.047" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="1918" Position="205,171,0" Rotation="1.7905" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2030" Position="241,86,0" Rotation="1.571" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2126" Position="10,83,0" Rotation="1.4042" Scale="0.7897,0.7897,0.7897" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="1052" Position="246,133,0" Rotation="3.9853" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1053" Position="176,207,0" Rotation="6.0764" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1063" Position="176,211,0" Rotation="2.0332" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1245" Position="194,128,0" Rotation="1.7915" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1462" Position="207,135,0" Rotation="0.2473" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1479" Position="55,149,0" Rotation="5.9731" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1592" Position="143,189,0" Rotation="4.047" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1918" Position="205,171,0" Rotation="1.7905" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2030" Position="241,86,0" Rotation="1.571" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2126" Position="10,83,0" Rotation="1.4042" Scale="0.7897,0.7897,0.7897" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2226" Position="94,66,0" Rotation="3.3562" Scale="0.89,0.89,0.89" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2247" Position="117,161,0" Rotation="1.6977" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2348" Position="104,96,0" Rotation="2.0341" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2351" Position="101,105,0" Rotation="2.0341" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2352" Position="104,103,0" Rotation="2.0341" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2354" Position="109,107,0" Rotation="2.0332" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2355" Position="20,101,0" Rotation="2.033" Scale="0.75,0.75,0.75" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2408" Position="7,66,0" Rotation="4.1701" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2695" Position="56,192,0" Rotation="0.5893" Scale="0.9,0.9,0.9" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2696" Position="54,190,0" Rotation="4.0451" Scale="0.9,0.9,0.9" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2702" Position="119,137,0" Rotation="0.7187" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2703" Position="125,131,0" Rotation="3.6901" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2716" Position="82,21,0" Rotation="0.4028" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2718" Position="187,232,0" Rotation="1.7905" Scale="1,1,1" Name="Fort Path Blocker Main Entrace" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2741" Position="36,67,0" Rotation="2.7221" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2742" Position="46,66,0" Rotation="4.896" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2777" Position="123,75,0" Rotation="1.7897" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2778" Position="155,52,0" Rotation="1.7897" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2796" Position="151,103,0" Rotation="0.098" Scale="1,1,1" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="2226" Position="94,66,0" Rotation="3.3562" Scale="0.89,0.89,0.89" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2247" Position="117,161,0" Rotation="1.6977" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2348" Position="104,96,0" Rotation="2.0341" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2351" Position="101,105,0" Rotation="2.0341" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2352" Position="104,103,0" Rotation="2.0341" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2354" Position="109,107,0" Rotation="2.0332" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2355" Position="20,101,0" Rotation="2.033" Scale="0.75,0.75,0.75" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2408" Position="7,66,0" Rotation="4.1701" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2695" Position="56,192,0" Rotation="0.5893" Scale="0.9,0.9,0.9" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2696" Position="54,190,0" Rotation="4.0451" Scale="0.9,0.9,0.9" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2702" Position="119,137,0" Rotation="0.7187" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2703" Position="125,131,0" Rotation="3.6901" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2716" Position="82,21,0" Rotation="0.4028" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2718" Position="187,232,0" Rotation="1.7905" Scale="1,1,1" Name="Fort Path Blocker Main Entrace" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2741" Position="36,67,0" Rotation="2.7221" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2742" Position="46,66,0" Rotation="4.896" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2777" Position="123,75,0" Rotation="1.7897" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2778" Position="155,52,0" Rotation="1.7897" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2796" Position="151,103,0" Rotation="0.098" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2797" Position="166,78,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="2797" Position="166,78,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2798" Position="216,79,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="2798" Position="216,79,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2799" Position="222,120,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="2799" Position="222,120,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2800" Position="223,113,0" Rotation="0.979" Scale="1,1,1" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="2800" Position="223,113,0" Rotation="0.979" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2801" Position="238,69,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="2801" Position="238,69,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2802" Position="241,75,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="2802" Position="241,75,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2831" Position="78,97,0" Rotation="4.42" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2832" Position="80,135,0" Rotation="2.2851" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2833" Position="38,228,0" Rotation="4.791" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2834" Position="40,237,0" Rotation="1.3007" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2835" Position="24,24,0" Rotation="3.9597" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2836" Position="29,38,0" Rotation="1.6965" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2837" Position="164,131,0" Rotation="4.2656" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2882" Position="179,160,0" Rotation="0.681" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2883" Position="180,145,0" Rotation="5.7333" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2884" Position="197,152,0" Rotation="0.1555" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="2987" Position="243,217,0" Rotation="1.7897" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3022" Position="244,87,0" Rotation="4.1132" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3023" Position="245,90,0" Rotation="6.2" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3024" Position="252,90,0" Rotation="0.9785" Scale="1,1,1" UnitType="DestructibleDebris4x4">
+    <ObjectUnit Id="2831" Position="78,97,0" Rotation="4.42" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2832" Position="80,135,0" Rotation="2.2851" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2833" Position="38,228,0" Rotation="4.791" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2834" Position="40,237,0" Rotation="1.3007" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2835" Position="24,24,0" Rotation="3.9597" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2836" Position="29,38,0" Rotation="1.6965" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2837" Position="164,131,0" Rotation="4.2656" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2882" Position="179,160,0" Rotation="0.681" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2883" Position="180,145,0" Rotation="5.7333" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2884" Position="197,152,0" Rotation="0.1555" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="2987" Position="243,217,0" Rotation="1.7897" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3022" Position="244,87,0" Rotation="4.1132" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3023" Position="245,90,0" Rotation="6.2" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3024" Position="252,90,0" Rotation="0.9785" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="3025" Position="245,80,0" Rotation="1.2814" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3071" Position="111,51,0" Rotation="3.48" Scale="0.91,0.91,0.91" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3072" Position="119,55,0" Rotation="1.3161" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3073" Position="112,54,0" Rotation="1.2277" Scale="0.95,0.95,0.95" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3074" Position="114,59,0" Rotation="2.1662" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3080" Position="120,41,0" Rotation="6.1108" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3082" Position="135,56,0" Rotation="1.1293" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="3145" Position="18,17,0" Rotation="4.3395" Scale="1,1,1" UnitType="DestructibleDebris4x4"/>
-    <ObjectUnit Id="168" Position="44,139,0" Rotation="4.7121" Scale="1.0998,1.2998,1.2998" UnitType="DestructibleGateStraightHorizontal">
+    <ObjectUnit Id="3025" Position="245,80,0" Rotation="1.2814" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3071" Position="111,51,0" Rotation="3.48" Scale="0.91,0.91,0.91" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3072" Position="119,55,0" Rotation="1.3161" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3073" Position="112,54,0" Rotation="1.2277" Scale="0.95,0.95,0.95" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3074" Position="114,59,0" Rotation="2.1662" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3080" Position="120,41,0" Rotation="6.1108" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3082" Position="135,56,0" Rotation="1.1293" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="3145" Position="18,17,0" Rotation="4.3395" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="168" Position="44,139,0" Rotation="4.7121" Scale="1.0998,1.2998,1.2998" UnitType="DestructibleGateStraightHorizontal" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="229" Position="69,98,0" Rotation="4.7121" Scale="1,1.75,1.5" UnitType="DestructibleGateStraightHorizontal">
+    <ObjectUnit Id="229" Position="69,98,0" Rotation="4.7121" Scale="1,1.75,1.5" UnitType="DestructibleGateStraightHorizontal" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="287" Position="41,99,0" Rotation="4.7121" Scale="1.2,1.7,1.5" UnitType="DestructibleGateStraightHorizontal">
+    <ObjectUnit Id="287" Position="41,99,0" Rotation="4.7121" Scale="1.2,1.7,1.5" UnitType="DestructibleGateStraightHorizontal" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2622" Position="41,89,0" Rotation="4.7121" Scale="1.2,1.7,1.5" UnitType="DestructibleGateStraightHorizontal">
+    <ObjectUnit Id="2622" Position="41,89,0" Rotation="4.7121" Scale="1.2,1.7,1.5" UnitType="DestructibleGateStraightHorizontal" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1812" Variation="1" Position="137,235,0" Scale="1.0297,1.0297,1.0297" UnitType="DestructibleRock2x4Vertical"/>
-    <ObjectUnit Id="434" Variation="5" Position="36.5,105.5,0" Rotation="6.2521" Scale="1,1,1" UnitType="DestructibleTrafficSignal"/>
-    <ObjectUnit Id="136" Position="130.2431,116.784,0" Rotation="3.1916" Scale="1,1,1" UnitType="DrBergmann">
+    <ObjectUnit Id="1812" Variation="1" Position="137,235,0" Scale="1.0297,1.0297,1.0297" UnitType="DestructibleRock2x4Vertical" Player="10"/>
+    <ObjectUnit Id="434" Variation="5" Position="36.5,105.5,0" Rotation="6.2521" Scale="1,1,1" UnitType="DestructibleTrafficSignal" Player="10"/>
+    <ObjectUnit Id="136" Position="130.2431,116.784,0" Rotation="3.1916" Scale="1,1,1" UnitType="DrBergmann" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2635" Variation="1" Position="128.715,113.7448,0" Rotation="1.148" Scale="1,1,1" UnitType="DrGunjan"/>
-    <ObjectUnit Id="2625" Variation="2" Position="129.6962,116.8076,0" Rotation="2.9753" Scale="1,1,1" UnitType="DrTanaka">
+    <ObjectUnit Id="2635" Variation="1" Position="128.715,113.7448,0" Rotation="1.148" Scale="1,1,1" UnitType="DrGunjan" Player="10"/>
+    <ObjectUnit Id="2625" Variation="2" Position="129.6962,116.8076,0" Rotation="2.9753" Scale="1,1,1" UnitType="DrTanaka" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="63" Variation="1" Position="90.406,107.191,0" Rotation="4.8632" Scale="1,1,1" UnitType="Egg" Player="14"/>
@@ -272,369 +272,369 @@
     <ObjectUnit Id="2825" Position="60.1672,120.1083,0" Rotation="5.4172" Scale="1,1,1" UnitType="Egg" Player="14"/>
     <ObjectUnit Id="2826" Position="56.56,116.5642,0" Rotation="5.4172" Scale="1,1,1" UnitType="Egg" Player="14"/>
     <ObjectUnit Id="2827" Position="56.8056,115.009,0" Rotation="5.4172" Scale="1,1,1" UnitType="Egg" Player="14"/>
-    <ObjectUnit Id="96" Position="27.5,100.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="96" Position="27.5,100.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="97" Position="30.5,98.5,0" Rotation="5.251" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="97" Position="30.5,98.5,0" Rotation="5.251" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="98" Position="27.5,92.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="98" Position="27.5,92.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="99" Position="25.5,96.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="99" Position="25.5,96.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="100" Position="143.5,20.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="100" Position="143.5,20.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="143" Position="32.5,207.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="143" Position="32.5,207.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="294" Position="79.5,105.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="294" Position="79.5,105.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="295" Position="79.5,20.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="295" Position="79.5,20.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="334" Position="75.5,106.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="334" Position="75.5,106.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="947" Position="56.5,108.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="947" Position="56.5,108.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="950" Position="45.5,105.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="950" Position="45.5,105.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="951" Position="40.5,123.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="951" Position="40.5,123.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="952" Position="53.5,32.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="952" Position="53.5,32.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="953" Position="39.5,120.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="953" Position="39.5,120.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="954" Position="37.5,123.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="954" Position="37.5,123.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="955" Position="36.5,118.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="955" Position="36.5,118.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="956" Position="54.5,118.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="956" Position="54.5,118.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="957" Position="49.5,113.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="957" Position="49.5,113.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="958" Position="45.5,115.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="958" Position="45.5,115.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="959" Position="48.5,117.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="959" Position="48.5,117.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="960" Position="62.5,99.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="960" Position="62.5,99.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="961" Position="60.5,95.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="961" Position="60.5,95.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="962" Position="62.5,92.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="962" Position="62.5,92.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="963" Position="62.5,89.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="963" Position="62.5,89.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="964" Position="60.5,87.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="964" Position="60.5,87.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="965" Position="54.5,88.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="965" Position="54.5,88.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="966" Position="208.5,133.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="966" Position="208.5,133.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="967" Position="200.5,122.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="967" Position="200.5,122.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="968" Position="51.5,92.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="968" Position="51.5,92.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="969" Position="80.5,98.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="969" Position="80.5,98.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="970" Position="83.5,98.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="970" Position="83.5,98.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="971" Position="76.5,133.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="971" Position="76.5,133.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="972" Position="77.5,136.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="972" Position="77.5,136.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="973" Position="72.5,135.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="973" Position="72.5,135.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="974" Position="193.5,206.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="974" Position="193.5,206.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="975" Position="54.5,133.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="975" Position="54.5,133.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="976" Position="57.5,136.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="976" Position="57.5,136.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="978" Position="36.5,107.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="978" Position="36.5,107.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="979" Position="40.5,111.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="979" Position="40.5,111.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="980" Position="252.5,251.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="980" Position="252.5,251.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="981" Position="32.5,109.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="981" Position="32.5,109.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="982" Position="30.5,105.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="982" Position="30.5,105.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="983" Position="34.5,104.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="983" Position="34.5,104.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="984" Position="50.5,109.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="984" Position="50.5,109.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="985" Position="52.5,105.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="985" Position="52.5,105.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="986" Position="155.5,137.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="986" Position="155.5,137.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="987" Position="97.5,113.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="987" Position="97.5,113.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="988" Position="98.5,104.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="988" Position="98.5,104.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="989" Position="51.5,98.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="989" Position="51.5,98.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="990" Position="55.5,98.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="990" Position="55.5,98.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="991" Position="33.5,93.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="991" Position="33.5,93.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="992" Position="30.5,89.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="992" Position="30.5,89.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="993" Position="53.5,125.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="993" Position="53.5,125.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="994" Position="249.5,221.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="994" Position="249.5,221.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="995" Position="48.5,127.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="995" Position="48.5,127.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="996" Position="57.5,148.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="996" Position="57.5,148.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="997" Position="49.5,123.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="997" Position="49.5,123.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1031" Position="78.5,92.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1031" Position="78.5,92.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1032" Position="80.5,93.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1032" Position="80.5,93.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1033" Position="98.5,124.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1033" Position="98.5,124.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1034" Position="81.5,165.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1034" Position="81.5,165.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1035" Position="98.5,119.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1035" Position="98.5,119.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1036" Position="85.5,117.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1036" Position="85.5,117.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1037" Position="80.5,116.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1037" Position="80.5,116.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1038" Position="67.5,118.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1038" Position="67.5,118.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1039" Position="70.5,116.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1039" Position="70.5,116.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1041" Position="28.5,134.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1041" Position="28.5,134.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1043" Position="23.5,131.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1043" Position="23.5,131.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1044" Position="18.5,104.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1044" Position="18.5,104.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1045" Position="46.5,89.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1045" Position="46.5,89.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1046" Position="90.5,116.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1046" Position="90.5,116.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1047" Position="93.5,120.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1047" Position="93.5,120.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1048" Position="60.5,128.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1048" Position="60.5,128.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1049" Position="63.5,125.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1049" Position="63.5,125.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1055" Position="63.5,135.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1055" Position="63.5,135.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1056" Position="102.5,100.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1056" Position="102.5,100.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1057" Position="88.5,97.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1057" Position="88.5,97.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1341" Position="202.5,215.5,0" Rotation="5.2448" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="1341" Position="202.5,215.5,0" Rotation="5.2448" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2427" Position="41.5,136.5,0" Rotation="5.2448" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2427" Position="41.5,136.5,0" Rotation="5.2448" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2428" Position="38.5,133.5,0" Rotation="5.2448" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2428" Position="38.5,133.5,0" Rotation="5.2448" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2429" Position="45.5,142.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2429" Position="45.5,142.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2431" Position="41.5,147.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2431" Position="41.5,147.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2432" Position="36.5,143.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2432" Position="36.5,143.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2433" Position="30.5,144.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2433" Position="30.5,144.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2434" Position="28.5,202.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2434" Position="28.5,202.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2435" Position="27.5,205.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2435" Position="27.5,205.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2437" Position="22.5,212.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2437" Position="22.5,212.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2439" Position="29.5,212.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2439" Position="29.5,212.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2440" Position="36.5,231.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2440" Position="36.5,231.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2441" Position="29.5,228.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2441" Position="29.5,228.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2442" Position="38.5,242.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2442" Position="38.5,242.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2443" Position="40.5,239.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2443" Position="40.5,239.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2444" Position="243.5,249.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2444" Position="243.5,249.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2445" Position="200.5,174.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2445" Position="200.5,174.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2446" Position="196.5,175.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2446" Position="196.5,175.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2447" Position="126.5,159.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2447" Position="126.5,159.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2448" Position="125.5,163.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2448" Position="125.5,163.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2493" Position="211.5,52.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2493" Position="211.5,52.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2494" Position="237.5,4.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2494" Position="237.5,4.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2545" Position="7.5,208.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2545" Position="7.5,208.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2546" Position="6.5,203.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2546" Position="6.5,203.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2547" Position="230.5,72.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2547" Position="230.5,72.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2548" Position="225.5,73.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2548" Position="225.5,73.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2550" Position="235.5,71.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2550" Position="235.5,71.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2551" Position="243.5,105.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2551" Position="243.5,105.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2552" Position="241.5,88.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2552" Position="241.5,88.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2553" Position="242.5,91.5,0" Rotation="5.2404" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2553" Position="242.5,91.5,0" Rotation="5.2404" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2554" Position="229.5,100.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2554" Position="229.5,100.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2555" Position="226.5,94.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2555" Position="226.5,94.5,0" Rotation="5.2407" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2620" Position="222.5,209.5,0" Rotation="5.2448" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2620" Position="222.5,209.5,0" Rotation="5.2448" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2621" Position="229.5,203.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2621" Position="229.5,203.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2623" Position="211.5,195.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="2623" Position="211.5,195.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="3076" Position="113.5,51.5,0" Rotation="3.1286" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="3076" Position="113.5,51.5,0" Rotation="3.1286" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="3077" Position="120.5,50.5,0" Rotation="3.1286" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="3077" Position="120.5,50.5,0" Rotation="3.1286" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="3078" Position="118.5,57.5,0" Rotation="3.1286" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="3078" Position="118.5,57.5,0" Rotation="3.1286" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="3079" Position="107.5,50.5,0" Rotation="3.1286" Scale="1,1,1" UnitType="ExplodingBarrelLarge">
+    <ObjectUnit Id="3079" Position="107.5,50.5,0" Rotation="3.1286" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="25" Position="79.7163,129.509,0" Scale="1,1,1" UnitType="Flamethrower"/>
-    <ObjectUnit Id="26" Position="48.3395,25.628,0" Scale="1,1,1" UnitType="Flamethrower"/>
-    <ObjectUnit Id="235" Position="13.8994,75.5708,0" Scale="1,1,1" UnitType="Flamethrower"/>
-    <ObjectUnit Id="343" Position="244.3103,98.737,0" Scale="1,1,1" UnitType="Flamethrower"/>
-    <ObjectUnit Id="79" Position="235.3388,11.8535,0" Scale="1,1,1" UnitType="GaussRifle">
+    <ObjectUnit Id="25" Position="79.7163,129.509,0" Scale="1,1,1" UnitType="Flamethrower" Player="10"/>
+    <ObjectUnit Id="26" Position="48.3395,25.628,0" Scale="1,1,1" UnitType="Flamethrower" Player="10"/>
+    <ObjectUnit Id="235" Position="13.8994,75.5708,0" Scale="1,1,1" UnitType="Flamethrower" Player="10"/>
+    <ObjectUnit Id="343" Position="244.3103,98.737,0" Scale="1,1,1" UnitType="Flamethrower" Player="10"/>
+    <ObjectUnit Id="79" Position="235.3388,11.8535,0" Scale="1,1,1" UnitType="GaussRifle" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="930" Position="97.0725,201.2194,0" Rotation="1.9487" Scale="1,1,1" UnitType="HerculesLander"/>
-    <ObjectUnit Id="1271" Position="26.9597,113.1445,0" Rotation="0.0322" Scale="1,1,1" UnitType="InactiveDevastator">
+    <ObjectUnit Id="930" Position="97.0725,201.2194,0" Rotation="1.9487" Scale="1,1,1" UnitType="HerculesLander" Player="10"/>
+    <ObjectUnit Id="1271" Position="26.9597,113.1445,0" Rotation="0.0322" Scale="1,1,1" UnitType="InactiveDevastator" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2158" Position="89.0671,118.5671,0" Scale="1,1,1" UnitType="InactiveDevastator">
+    <ObjectUnit Id="2158" Position="89.0671,118.5671,0" Scale="1,1,1" UnitType="InactiveDevastator" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2159" Position="72.9941,118.5715,0" Scale="1,1,1" UnitType="InactiveDevastator">
+    <ObjectUnit Id="2159" Position="72.9941,118.5715,0" Scale="1,1,1" UnitType="InactiveDevastator" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="880" Position="23.5,122.5,0" Rotation="1.9638" Scale="1,1,1" UnitType="InfestedCocoon" Player="14"/>
@@ -756,239 +756,239 @@
     <ObjectUnit Id="2372" Position="92.5,239.5,0" Rotation="1.117" Scale="1,1,1" UnitType="InfestedCocoon" Player="14"/>
     <ObjectUnit Id="2373" Position="90.5,237.5,0" Rotation="1.117" Scale="1,1,1" UnitType="InfestedCocoon" Player="14"/>
     <ObjectUnit Id="2374" Position="90.5,240.5,0" Rotation="1.117" Scale="1,1,1" UnitType="InfestedCocoon" Player="14"/>
-    <ObjectUnit Id="844" Variation="3" Position="29.5,126.5,0" Rotation="1.4978" Scale="1,1,1" UnitType="InfestedColonistShip">
+    <ObjectUnit Id="844" Variation="3" Position="29.5,126.5,0" Rotation="1.4978" Scale="1,1,1" UnitType="InfestedColonistShip" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
         <AIFlag Index="IsUseable" Value="0"/>
     </ObjectUnit>
-    <ObjectUnit Id="590" Position="38.7153,27.7102,0" Rotation="6.2397" Scale="1,1,1" UnitType="Ivax">
+    <ObjectUnit Id="590" Position="38.7153,27.7102,0" Rotation="6.2397" Scale="1,1,1" UnitType="Ivax" Player="10">
         <Flag Index="UnitHidden" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2556" Position="40.89,94.1098,0" Rotation="0.4436" Scale="1,1,1" UnitType="LargeZombieCocoon"/>
-    <ObjectUnit Id="103" Position="10.939,74.621,0" Scale="1,1,1" UnitType="Magazine">
+    <ObjectUnit Id="2556" Position="40.89,94.1098,0" Rotation="0.4436" Scale="1,1,1" UnitType="LargeZombieCocoon" Player="10"/>
+    <ObjectUnit Id="103" Position="10.939,74.621,0" Scale="1,1,1" UnitType="Magazine" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="322" Position="217.8635,122.944,0" Scale="1,1,1" UnitType="Magazine"/>
-    <ObjectUnit Id="341" Position="73.978,97.4807,0" Scale="1,1,1" UnitType="Magazine"/>
-    <ObjectUnit Id="342" Position="232.889,75.5295,0" Scale="1,1,1" UnitType="Magazine"/>
-    <ObjectUnit Id="931" Variation="1" Position="108.7912,56.4096,0" Scale="1,1,1" UnitType="Magazine"/>
-    <ObjectUnit Id="932" Position="133.0024,135.524,0" Scale="1,1,1" UnitType="Magazine"/>
-    <ObjectUnit Id="933" Variation="2" Position="109.6428,56.129,0" Scale="1,1,1" UnitType="Magazine"/>
-    <ObjectUnit Id="127" Position="223.8771,8.762,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="128" Variation="2" Position="223.0793,12.898,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="131" Position="150.4565,46.4238,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="132" Position="151.2851,55.4018,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="133" Position="42.035,68.5776,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="134" Position="64.0087,31.4255,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="150" Position="38.7226,70.7148,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="250" Position="43.6191,13.3037,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="254" Position="24.1875,20.0852,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="332" Variation="3" Position="73.9624,95.5363,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="333" Variation="3" Position="73.9733,94.0324,0" Scale="1,1,1" UnitType="Medpack"/>
-    <ObjectUnit Id="147" Position="124.0246,60.4392,0" Scale="1,1,1" UnitType="OccularImplants"/>
-    <ObjectUnit Id="315" Position="44.256,10.1762,0" Scale="1,1,1" UnitType="OccularImplants"/>
-    <ObjectUnit Id="317" Position="139.3786,46.076,0" Scale="1,1,1" UnitType="OccularImplants"/>
-    <ObjectUnit Id="318" Position="144.323,42.3515,0" Scale="1,1,1" UnitType="OccularImplants">
+    <ObjectUnit Id="322" Position="217.8635,122.944,0" Scale="1,1,1" UnitType="Magazine" Player="10"/>
+    <ObjectUnit Id="341" Position="73.978,97.4807,0" Scale="1,1,1" UnitType="Magazine" Player="10"/>
+    <ObjectUnit Id="342" Position="232.889,75.5295,0" Scale="1,1,1" UnitType="Magazine" Player="10"/>
+    <ObjectUnit Id="931" Variation="1" Position="108.7912,56.4096,0" Scale="1,1,1" UnitType="Magazine" Player="10"/>
+    <ObjectUnit Id="932" Position="133.0024,135.524,0" Scale="1,1,1" UnitType="Magazine" Player="10"/>
+    <ObjectUnit Id="933" Variation="2" Position="109.6428,56.129,0" Scale="1,1,1" UnitType="Magazine" Player="10"/>
+    <ObjectUnit Id="127" Position="223.8771,8.762,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="128" Variation="2" Position="223.0793,12.898,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="131" Position="150.4565,46.4238,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="132" Position="151.2851,55.4018,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="133" Position="42.035,68.5776,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="134" Position="64.0087,31.4255,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="150" Position="38.7226,70.7148,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="250" Position="43.6191,13.3037,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="254" Position="24.1875,20.0852,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="332" Variation="3" Position="73.9624,95.5363,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="333" Variation="3" Position="73.9733,94.0324,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="147" Position="124.0246,60.4392,0" Scale="1,1,1" UnitType="OccularImplants" Player="10"/>
+    <ObjectUnit Id="315" Position="44.256,10.1762,0" Scale="1,1,1" UnitType="OccularImplants" Player="10"/>
+    <ObjectUnit Id="317" Position="139.3786,46.076,0" Scale="1,1,1" UnitType="OccularImplants" Player="10"/>
+    <ObjectUnit Id="318" Position="144.323,42.3515,0" Scale="1,1,1" UnitType="OccularImplants" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="319" Position="39.133,118.4482,0" Scale="1,1,1" UnitType="OccularImplants"/>
-    <ObjectUnit Id="2933" Position="38.8332,28.081,0" Scale="1,1,1" UnitType="OdinBuild"/>
-    <ObjectUnit Id="182" Position="38.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="195" Position="39.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="204" Position="41.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="270" Position="40.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1">
+    <ObjectUnit Id="319" Position="39.133,118.4482,0" Scale="1,1,1" UnitType="OccularImplants" Player="10"/>
+    <ObjectUnit Id="2933" Position="38.8332,28.081,0" Scale="1,1,1" UnitType="OdinBuild" Player="10"/>
+    <ObjectUnit Id="182" Position="38.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="195" Position="39.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="204" Position="41.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="270" Position="40.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="277" Position="42.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="314" Position="43.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="796" Position="34.5,126.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="798" Position="35.5,127.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="799" Position="35.5,129.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="800" Position="34.5,130.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="801" Position="33.5,131.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="802" Position="32.5,131.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="803" Position="31.5,131.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="847" Position="77.5,177.5,0" Rotation="3.2468" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="870" Position="79.5,175.5,0" Rotation="3.9423" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="871" Position="78.5,176.5,0" Rotation="5.404" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="872" Position="167.5,179.5,0" Rotation="5.8085" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="873" Position="166.5,178.5,0" Rotation="5.4514" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="874" Position="165.5,177.5,0" Rotation="4.1586" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="875" Position="164.5,176.5,0" Rotation="3.18" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="876" Position="146.5,136.5,0" Rotation="1.887" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="877" Position="145.5,137.5,0" Rotation="5.8122" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="878" Position="163.5,175.5,0" Rotation="0.4326" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="879" Position="162.5,174.5,0" Rotation="5.832" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="898" Position="202.5,173.5,0" Rotation="5.9045" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="899" Position="202.5,171.5,0" Rotation="3.418" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="900" Position="202.5,169.5,0" Rotation="2.22" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="901" Position="202.5,168.5,0" Rotation="4.163" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="902" Position="144.5,138.5,0" Rotation="5.2663" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="903" Position="71.5,97.5,0" Rotation="2.466" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="904" Position="70.5,97.5,0" Rotation="2.1081" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="905" Position="68.5,97.5,0" Rotation="1.1364" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="906" Position="67.5,97.5,0" Rotation="4.8125" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="907" Position="66.5,97.5,0" Rotation="4.4238" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="908" Position="42.5,138.5,0" Rotation="3.2966" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="909" Position="43.5,138.5,0" Rotation="2.866" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="910" Position="45.5,138.5,0" Rotation="5.5964" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="911" Position="88.5,136.5,0" Rotation="5.0507" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="912" Position="90.5,136.5,0" Rotation="4.8671" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="913" Position="91.5,136.5,0" Rotation="1.5583" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="914" Position="89.5,136.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="915" Position="80.5,174.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1">
+    <ObjectUnit Id="277" Position="42.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="314" Position="43.5,99.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="796" Position="34.5,126.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="798" Position="35.5,127.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="799" Position="35.5,129.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="800" Position="34.5,130.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="801" Position="33.5,131.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="802" Position="32.5,131.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="803" Position="31.5,131.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="847" Position="77.5,177.5,0" Rotation="3.2468" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="870" Position="79.5,175.5,0" Rotation="3.9423" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="871" Position="78.5,176.5,0" Rotation="5.404" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="872" Position="167.5,179.5,0" Rotation="5.8085" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="873" Position="166.5,178.5,0" Rotation="5.4514" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="874" Position="165.5,177.5,0" Rotation="4.1586" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="875" Position="164.5,176.5,0" Rotation="3.18" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="876" Position="146.5,136.5,0" Rotation="1.887" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="877" Position="145.5,137.5,0" Rotation="5.8122" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="878" Position="163.5,175.5,0" Rotation="0.4326" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="879" Position="162.5,174.5,0" Rotation="5.832" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="898" Position="202.5,173.5,0" Rotation="5.9045" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="899" Position="202.5,171.5,0" Rotation="3.418" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="900" Position="202.5,169.5,0" Rotation="2.22" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="901" Position="202.5,168.5,0" Rotation="4.163" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="902" Position="144.5,138.5,0" Rotation="5.2663" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="903" Position="71.5,97.5,0" Rotation="2.466" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="904" Position="70.5,97.5,0" Rotation="2.1081" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="905" Position="68.5,97.5,0" Rotation="1.1364" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="906" Position="67.5,97.5,0" Rotation="4.8125" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="907" Position="66.5,97.5,0" Rotation="4.4238" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="908" Position="42.5,138.5,0" Rotation="3.2966" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="909" Position="43.5,138.5,0" Rotation="2.866" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="910" Position="45.5,138.5,0" Rotation="5.5964" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="911" Position="88.5,136.5,0" Rotation="5.0507" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="912" Position="90.5,136.5,0" Rotation="4.8671" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="913" Position="91.5,136.5,0" Rotation="1.5583" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="914" Position="89.5,136.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="915" Position="80.5,174.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="916" Position="76.5,178.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1">
+    <ObjectUnit Id="916" Position="76.5,178.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="917" Position="202.5,170.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1">
+    <ObjectUnit Id="917" Position="202.5,170.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="919" Position="192.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="920" Position="191.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="921" Position="190.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="922" Position="193.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="923" Position="69.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1">
+    <ObjectUnit Id="919" Position="192.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="920" Position="191.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="921" Position="190.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="922" Position="193.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="923" Position="69.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="924" Position="44.5,138.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1">
+    <ObjectUnit Id="924" Position="44.5,138.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="934" Position="226.5,21.5,0" Rotation="4.8615" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="946" Position="227.5,21.5,0" Rotation="4.8615" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="948" Position="228.5,21.5,0" Rotation="4.8615" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="949" Position="229.5,21.5,0" Rotation="4.8615" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="1003" Position="38.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="1004" Position="39.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="1005" Position="40.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="1006" Position="42.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="1007" Position="41.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1">
+    <ObjectUnit Id="934" Position="226.5,21.5,0" Rotation="4.8615" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="946" Position="227.5,21.5,0" Rotation="4.8615" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="948" Position="228.5,21.5,0" Rotation="4.8615" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="949" Position="229.5,21.5,0" Rotation="4.8615" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="1003" Position="38.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="1004" Position="39.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="1005" Position="40.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="1006" Position="42.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="1007" Position="41.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1008" Position="43.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="1159" Position="202.5,172.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1"/>
-    <ObjectUnit Id="2503" Position="232.5,18.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="PipedreamsEmporium">
+    <ObjectUnit Id="1008" Position="43.5,89.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="1159" Position="202.5,172.5,0" Rotation="4.8632" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
+    <ObjectUnit Id="2503" Position="232.5,18.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="PipedreamsEmporium" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2504" Position="240.5,222.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="PipedreamsEmporium">
+    <ObjectUnit Id="2504" Position="240.5,222.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="PipedreamsEmporium" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2505" Position="14.5,28.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="PipedreamsEmporium">
+    <ObjectUnit Id="2505" Position="14.5,28.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="PipedreamsEmporium" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1778" Position="232.1533,94.3386,0" Rotation="2.4213" Scale="1,1,1" UnitType="PortJunker"/>
-    <ObjectUnit Id="1802" Position="230.7436,58.3757,0" Rotation="1.356" Scale="1,1,1" UnitType="PortJunker"/>
-    <ObjectUnit Id="1803" Position="117.6923,72.2104,0" Rotation="1.6982" Scale="1,1,1" UnitType="PortJunker"/>
-    <ObjectUnit Id="1804" Position="23.6574,220.6127,0" Rotation="0.624" Scale="1,1,1" UnitType="PortJunker"/>
-    <ObjectUnit Id="1805" Position="215.9443,246.5622,0" Rotation="1.764" Scale="1,1,1" UnitType="PortJunker"/>
-    <ObjectUnit Id="1806" Position="11.5598,106.4104,0" Rotation="3.1433" Scale="1,1,1" UnitType="PortJunker"/>
-    <ObjectUnit Id="1807" Position="232.9895,7.653,0" Rotation="3.6018" Scale="1,1,1" UnitType="PortJunker"/>
-    <ObjectUnit Id="824" Position="226.5034,205.357,0" Rotation="5.4184" Scale="1,1,1" UnitType="Ramirez"/>
-    <ObjectUnit Id="1810" Variation="1" Position="238.6198,227.63,0" Scale="1,1,1" UnitType="RiotShield"/>
-    <ObjectUnit Id="820" Position="151.5,132.5,0" Rotation="0.8171" Scale="1,1,1" UnitType="ScienceFacility">
+    <ObjectUnit Id="1778" Position="232.1533,94.3386,0" Rotation="2.4213" Scale="1,1,1" UnitType="PortJunker" Player="10"/>
+    <ObjectUnit Id="1802" Position="230.7436,58.3757,0" Rotation="1.356" Scale="1,1,1" UnitType="PortJunker" Player="10"/>
+    <ObjectUnit Id="1803" Position="117.6923,72.2104,0" Rotation="1.6982" Scale="1,1,1" UnitType="PortJunker" Player="10"/>
+    <ObjectUnit Id="1804" Position="23.6574,220.6127,0" Rotation="0.624" Scale="1,1,1" UnitType="PortJunker" Player="10"/>
+    <ObjectUnit Id="1805" Position="215.9443,246.5622,0" Rotation="1.764" Scale="1,1,1" UnitType="PortJunker" Player="10"/>
+    <ObjectUnit Id="1806" Position="11.5598,106.4104,0" Rotation="3.1433" Scale="1,1,1" UnitType="PortJunker" Player="10"/>
+    <ObjectUnit Id="1807" Position="232.9895,7.653,0" Rotation="3.6018" Scale="1,1,1" UnitType="PortJunker" Player="10"/>
+    <ObjectUnit Id="824" Position="226.5034,205.357,0" Rotation="5.4184" Scale="1,1,1" UnitType="Ramirez" Player="10"/>
+    <ObjectUnit Id="1810" Variation="1" Position="238.6198,227.63,0" Scale="1,1,1" UnitType="RiotShield" Player="10"/>
+    <ObjectUnit Id="820" Position="151.5,132.5,0" Rotation="0.8171" Scale="1,1,1" UnitType="ScienceFacility" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="829" Position="164.5,177.5,0" Scale="2,2,2" UnitType="SecurityGateDiagonalBLUR">
+    <ObjectUnit Id="829" Position="164.5,177.5,0" Scale="2,2,2" UnitType="SecurityGateDiagonalBLUR" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="827" Position="79,177,0" Rotation="1.5705" Scale="1,1,1" UnitType="SecurityGateDiagonalULBR">
+    <ObjectUnit Id="827" Position="79,177,0" Rotation="1.5705" Scale="1,1,1" UnitType="SecurityGateDiagonalULBR" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="828" Position="145,137,0" Rotation="1.5705" Scale="1.2,1.2,1.2" UnitType="SecurityGateDiagonalULBR">
+    <ObjectUnit Id="828" Position="145,137,0" Rotation="1.5705" Scale="1.2,1.2,1.2" UnitType="SecurityGateDiagonalULBR" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="29" Position="227.8432,21.7048,0" Rotation="1.5705" Scale="1.0998,1.0998,1.0998" UnitType="SecurityGateStraightHorizontalBF">
+    <ObjectUnit Id="29" Position="227.8432,21.7048,0" Rotation="1.5705" Scale="1.0998,1.0998,1.0998" UnitType="SecurityGateStraightHorizontalBF" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="197" Position="192.0771,98.2,0" Rotation="1.5705" Scale="1.7998,1.7998,1.7998" UnitType="SecurityGateStraightHorizontalBF">
+    <ObjectUnit Id="197" Position="192.0771,98.2,0" Rotation="1.5705" Scale="1.7998,1.7998,1.7998" UnitType="SecurityGateStraightHorizontalBF" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="620" Position="90.05,136.2441,0" Rotation="1.5705" Scale="1.7998,1.7998,1.7998" UnitType="SecurityGateStraightHorizontalBF">
+    <ObjectUnit Id="620" Position="90.05,136.2441,0" Rotation="1.5705" Scale="1.7998,1.7998,1.7998" UnitType="SecurityGateStraightHorizontalBF" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="825" Position="202.6591,170.8632,0" Rotation="3.1413" Scale="1.9,1.9,1.9" UnitType="SecurityGateStraightVerticalLF"/>
+    <ObjectUnit Id="825" Position="202.6591,170.8632,0" Rotation="3.1413" Scale="1.9,1.9,1.9" UnitType="SecurityGateStraightVerticalLF" Player="10"/>
     <ObjectUnit Id="838" Position="31.5,28.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="SensorTower" Player="9">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="839" Position="58.5,31.5,0" Rotation="5.4975" Scale="1,1,1" UnitType="SensorTower" Player="9"/>
-    <ObjectUnit Id="1873" Position="193.5,227.5,0" Rotation="2.272" Scale="1,1,1" UnitType="SentryGun">
+    <ObjectUnit Id="1873" Position="193.5,227.5,0" Rotation="2.272" Scale="1,1,1" UnitType="SentryGun" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1876" Position="167.5,223.5,0" Rotation="4.3925" Scale="1,1,1" UnitType="SentryGun">
+    <ObjectUnit Id="1876" Position="167.5,223.5,0" Rotation="4.3925" Scale="1,1,1" UnitType="SentryGun" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1883" Position="116.5,95.5,0" Rotation="1.549" Scale="1,1,1" UnitType="SentryGun">
+    <ObjectUnit Id="1883" Position="116.5,95.5,0" Rotation="1.549" Scale="1,1,1" UnitType="SentryGun" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1920" Position="230.5,176.5,0" Rotation="5.8337" Scale="1,1,1" UnitType="SentryGun"/>
-    <ObjectUnit Id="1922" Position="239.5,173.5,0" Rotation="5.5468" Scale="1,1,1" UnitType="SentryGun"/>
-    <ObjectUnit Id="1961" Position="23.5,27.5,0" Rotation="4.209" Scale="1,1,1" UnitType="SentryGun"/>
-    <ObjectUnit Id="1962" Position="54.5,29.5,0" Rotation="3.827" Scale="1,1,1" UnitType="SentryGun"/>
-    <ObjectUnit Id="1963" Position="57.5,13.5,0" Rotation="1.5393" Scale="1,1,1" UnitType="SentryGun"/>
-    <ObjectUnit Id="2017" Position="116.5,100.5,0" Rotation="1.5954" Scale="1,1,1" UnitType="SentryGun">
+    <ObjectUnit Id="1920" Position="230.5,176.5,0" Rotation="5.8337" Scale="1,1,1" UnitType="SentryGun" Player="10"/>
+    <ObjectUnit Id="1922" Position="239.5,173.5,0" Rotation="5.5468" Scale="1,1,1" UnitType="SentryGun" Player="10"/>
+    <ObjectUnit Id="1961" Position="23.5,27.5,0" Rotation="4.209" Scale="1,1,1" UnitType="SentryGun" Player="10"/>
+    <ObjectUnit Id="1962" Position="54.5,29.5,0" Rotation="3.827" Scale="1,1,1" UnitType="SentryGun" Player="10"/>
+    <ObjectUnit Id="1963" Position="57.5,13.5,0" Rotation="1.5393" Scale="1,1,1" UnitType="SentryGun" Player="10"/>
+    <ObjectUnit Id="2017" Position="116.5,100.5,0" Rotation="1.5954" Scale="1,1,1" UnitType="SentryGun" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2488" Position="201.5,119.5,0" Rotation="5.4387" Scale="1,1,1" UnitType="SentryGun"/>
-    <ObjectUnit Id="2489" Position="66.5,201.5,0" Rotation="3.482" Scale="1,1,1" UnitType="SentryGun">
+    <ObjectUnit Id="2488" Position="201.5,119.5,0" Rotation="5.4387" Scale="1,1,1" UnitType="SentryGun" Player="10"/>
+    <ObjectUnit Id="2489" Position="66.5,201.5,0" Rotation="3.482" Scale="1,1,1" UnitType="SentryGun" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2499" Position="222.5,223.5,0" Rotation="5.3745" Scale="1,1,1" UnitType="SentryGun"/>
-    <ObjectUnit Id="2500" Position="225.5,220.5,0" Rotation="5.3728" Scale="1,1,1" UnitType="SentryGun"/>
-    <ObjectUnit Id="2501" Position="187.5,203.5,0" Rotation="6.2353" Scale="1,1,1" UnitType="SentryGun">
+    <ObjectUnit Id="2499" Position="222.5,223.5,0" Rotation="5.3745" Scale="1,1,1" UnitType="SentryGun" Player="10"/>
+    <ObjectUnit Id="2500" Position="225.5,220.5,0" Rotation="5.3728" Scale="1,1,1" UnitType="SentryGun" Player="10"/>
+    <ObjectUnit Id="2501" Position="187.5,203.5,0" Rotation="6.2353" Scale="1,1,1" UnitType="SentryGun" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2155" Position="92.1486,206.7343,0" Scale="1,1,1" UnitType="Shotgun"/>
-    <ObjectUnit Id="148" Position="228.8876,76.4643,0" Scale="1,1,1" UnitType="SniperRifle"/>
-    <ObjectUnit Id="177" Position="234.4707,109.8735,0" Scale="1,1,1" UnitType="SniperRifle"/>
-    <ObjectUnit Id="205" Position="57.5092,9.5207,0" Scale="1,1,1" UnitType="SniperRifle"/>
-    <ObjectUnit Id="276" Position="33.34,19.7226,0" Scale="1,1,1" UnitType="SniperRifle"/>
-    <ObjectUnit Id="325" Position="39.8945,125.3757,0" Scale="1,1,1" UnitType="SniperRifle"/>
-    <ObjectUnit Id="260" Variation="1" Position="45,85,0" Rotation="6.2348" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2155" Position="92.1486,206.7343,0" Scale="1,1,1" UnitType="Shotgun" Player="10"/>
+    <ObjectUnit Id="148" Position="228.8876,76.4643,0" Scale="1,1,1" UnitType="SniperRifle" Player="10"/>
+    <ObjectUnit Id="177" Position="234.4707,109.8735,0" Scale="1,1,1" UnitType="SniperRifle" Player="10"/>
+    <ObjectUnit Id="205" Position="57.5092,9.5207,0" Scale="1,1,1" UnitType="SniperRifle" Player="10"/>
+    <ObjectUnit Id="276" Position="33.34,19.7226,0" Scale="1,1,1" UnitType="SniperRifle" Player="10"/>
+    <ObjectUnit Id="325" Position="39.8945,125.3757,0" Scale="1,1,1" UnitType="SniperRifle" Player="10"/>
+    <ObjectUnit Id="260" Variation="1" Position="45,85,0" Rotation="6.2348" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="288" Variation="2" Position="37,62,0" Rotation="0.025" Scale="1,1,1" UnitType="TRaynor01SignsDestructible1"/>
-    <ObjectUnit Id="429" Variation="9" Position="45,50,0" Rotation="0.2001" Scale="1,1,1" UnitType="TRaynor01SignsDestructible1"/>
-    <ObjectUnit Id="432" Variation="7" Position="44,38,0" Rotation="0.5854" Scale="1,1,1" UnitType="TRaynor01SignsDestructible1"/>
-    <ObjectUnit Id="600" Variation="1" Position="37,85,0" Rotation="6.266" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="288" Variation="2" Position="37,62,0" Rotation="0.025" Scale="1,1,1" UnitType="TRaynor01SignsDestructible1" Player="10"/>
+    <ObjectUnit Id="429" Variation="9" Position="45,50,0" Rotation="0.2001" Scale="1,1,1" UnitType="TRaynor01SignsDestructible1" Player="10"/>
+    <ObjectUnit Id="432" Variation="7" Position="44,38,0" Rotation="0.5854" Scale="1,1,1" UnitType="TRaynor01SignsDestructible1" Player="10"/>
+    <ObjectUnit Id="600" Variation="1" Position="37,85,0" Rotation="6.266" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2007" Variation="1" Position="203,149,0" Rotation="0.3134" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2007" Variation="1" Position="203,149,0" Rotation="0.3134" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2008" Variation="1" Position="200,149,0" Rotation="6.224" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2008" Variation="1" Position="200,149,0" Rotation="6.224" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2009" Variation="1" Position="180,154,0" Rotation="6.0026" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2009" Variation="1" Position="180,154,0" Rotation="6.0026" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2010" Variation="1" Position="177,156,0" Rotation="5.8024" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2010" Variation="1" Position="177,156,0" Rotation="5.8024" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2011" Variation="1" Position="164,167,0" Rotation="5.5476" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2011" Variation="1" Position="164,167,0" Rotation="5.5476" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2012" Variation="1" Position="165,165,0" Rotation="4.9511" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2012" Variation="1" Position="165,165,0" Rotation="4.9511" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2062" Variation="1" Position="232,171,0" Rotation="5.6025" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2062" Variation="1" Position="232,171,0" Rotation="5.6025" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2064" Variation="1" Position="235,170,0" Rotation="0.11" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2064" Variation="1" Position="235,170,0" Rotation="0.11" Scale="0.75,0.75,0.75" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2065" Variation="2" Position="231,180,0" Rotation="5.8337" Scale="1.15,1.15,1.15" UnitType="TRaynor01SignsDestructible1">
+    <ObjectUnit Id="2065" Variation="2" Position="231,180,0" Rotation="5.8337" Scale="1.15,1.15,1.15" UnitType="TRaynor01SignsDestructible1" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1710" Position="149.5397,166.5598,0" Scale="1,1,1" UnitType="ThermalSight"/>
-    <ObjectUnit Id="1711" Position="148.4956,166.6166,0" Scale="1,1,1" UnitType="ThermalSight"/>
-    <ObjectUnit Id="2992" Position="19.6743,170.1655,0" Rotation="2.5415" Scale="1,1,1" UnitType="ThorWreckage"/>
-    <ObjectUnit Id="2993" Position="43.8637,165.4831,0" Rotation="4.8635" Scale="1,1,1" UnitType="ThorWreckage"/>
-    <ObjectUnit Id="2994" Position="25.4462,189.292,0" Rotation="1.1997" Scale="1,1,1" UnitType="ThorWreckage"/>
-    <ObjectUnit Id="178" Position="231.38,13.92,0" Scale="1,1,1" UnitType="TransportTruck"/>
-    <ObjectUnit Id="337" Position="105.5524,241.3735,0" Rotation="0.8981" Scale="1,1,1" UnitType="TruckSemiUnit"/>
-    <ObjectUnit Id="1988" Position="148.2395,68.212,0" Rotation="1.3981" Scale="1,1,1" UnitType="TruckSemiUnit"/>
-    <ObjectUnit Id="2168" Position="13.5598,35.73,0" Rotation="0.6433" Scale="1,1,1" UnitType="UGCDropship"/>
+    <ObjectUnit Id="1710" Position="149.5397,166.5598,0" Scale="1,1,1" UnitType="ThermalSight" Player="10"/>
+    <ObjectUnit Id="1711" Position="148.4956,166.6166,0" Scale="1,1,1" UnitType="ThermalSight" Player="10"/>
+    <ObjectUnit Id="2992" Position="19.6743,170.1655,0" Rotation="2.5415" Scale="1,1,1" UnitType="ThorWreckage" Player="10"/>
+    <ObjectUnit Id="2993" Position="43.8637,165.4831,0" Rotation="4.8635" Scale="1,1,1" UnitType="ThorWreckage" Player="10"/>
+    <ObjectUnit Id="2994" Position="25.4462,189.292,0" Rotation="1.1997" Scale="1,1,1" UnitType="ThorWreckage" Player="10"/>
+    <ObjectUnit Id="178" Position="231.38,13.92,0" Scale="1,1,1" UnitType="TransportTruck" Player="10"/>
+    <ObjectUnit Id="337" Position="105.5524,241.3735,0" Rotation="0.8981" Scale="1,1,1" UnitType="TruckSemiUnit" Player="10"/>
+    <ObjectUnit Id="1988" Position="148.2395,68.212,0" Rotation="1.3981" Scale="1,1,1" UnitType="TruckSemiUnit" Player="10"/>
+    <ObjectUnit Id="2168" Position="13.5598,35.73,0" Rotation="0.6433" Scale="1,1,1" UnitType="UGCDropship" Player="10"/>
     <ObjectDoodad Id="44" Variation="1" Position="139,17,20.0185" Rotation="5.5986" Scale="1.1745,1.1745,1.1745" Type="AgriaDebrisLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -13835,14 +13835,14 @@
         <CameraValue Index="FocalDepth" Value="18"/>
         <CameraValue Index="FalloffEnd" Value="18"/>
     </ObjectCamera>
-    <ObjectCamera Id="346" Position="140.7033,176.6752,0" Rotation="0.0957" Scale="1,1,1" Name="Power Generator Cam" Color="0,0,0,0" CameraTarget="140.7033,176.6752">
+    <ObjectCamera Id="346" Position="140.7033,176.6752,0" Rotation="0.0954" Scale="1,1,1" Name="Power Generator Cam" Color="0,0,0,0" CameraTarget="140.7033,176.6752">
         <CameraValue Index="FieldOfView" Value="27.7995"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="13.1352"/>
         <CameraValue Index="Pitch" Value="42.23"/>
-        <CameraValue Index="Yaw" Value="5.4973"/>
+        <CameraValue Index="Yaw" Value="5.4831"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
@@ -13906,14 +13906,14 @@
         <CameraValue Index="FocalDepth" Value="18"/>
         <CameraValue Index="FalloffEnd" Value="18"/>
     </ObjectCamera>
-    <ObjectCamera Id="1161" Position="140.7045,176.6647,0" Rotation="0.042" Scale="1,1,1" Name="Power Generator Cam End" Color="0,0,0,0" CameraTarget="140.7045,176.6647">
+    <ObjectCamera Id="1161" Position="140.7045,176.6647,0" Rotation="0.0417" Scale="1,1,1" Name="Power Generator Cam End" Color="0,0,0,0" CameraTarget="140.7045,176.6647">
         <CameraValue Index="FieldOfView" Value="27.7995"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="9.8686"/>
         <CameraValue Index="Pitch" Value="31.19"/>
-        <CameraValue Index="Yaw" Value="2.42"/>
+        <CameraValue Index="Yaw" Value="2.4057"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
@@ -14151,26 +14151,26 @@
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="2327" Position="123.0585,157.86,0" Rotation="0.02" Scale="1,1,1" Name="Bergmann Death A" Color="0,0,0,0" CameraTarget="123.0585,157.86">
+    <ObjectCamera Id="2327" Position="123.0585,157.86,0" Rotation="0.0197" Scale="1,1,1" Name="Bergmann Death A" Color="0,0,0,0" CameraTarget="123.0585,157.86">
         <CameraValue Index="FieldOfView" Value="27.7998"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.0451"/>
         <CameraValue Index="Pitch" Value="21.4772"/>
-        <CameraValue Index="Yaw" Value="1.161"/>
+        <CameraValue Index="Yaw" Value="1.147"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="165.9748"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="2329" Position="123.0585,157.86,0" Rotation="0.02" Scale="1,1,1" Name="Bergmann Death B" Color="0,0,0,0" CameraTarget="123.0585,157.86">
+    <ObjectCamera Id="2329" Position="123.0585,157.86,0" Rotation="0.0197" Scale="1,1,1" Name="Bergmann Death B" Color="0,0,0,0" CameraTarget="123.0585,157.86">
         <CameraValue Index="FieldOfView" Value="27.7998"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.3496"/>
         <CameraValue Index="Pitch" Value="21.4772"/>
-        <CameraValue Index="Yaw" Value="1.161"/>
+        <CameraValue Index="Yaw" Value="1.147"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="165.9748"/>
         <CameraValue Index="FalloffEnd" Value="8"/>

@@ -4185,7 +4185,7 @@
         <FinishTime index="0" removed="1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="TacticalNuke" Requirements=""/>
         <CmdButtonArray index="Cancel" DefaultButtonFace=""/>
-        <Effect index="0" value="NukePersistent"/>
+        <Effect index="0" value="NukeCreateRevealDummy"/>
         <Flags index="RequireTargetVision" value="0"/>
         <Cost>
             <Vital index="Energy" value="50"/>
