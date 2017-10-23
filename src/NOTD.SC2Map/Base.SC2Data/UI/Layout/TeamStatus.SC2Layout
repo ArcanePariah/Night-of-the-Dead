@@ -205,10 +205,132 @@
 			<Visible val = "false"/>
         </Frame>
 		
-		<Frame type ="Frame" name = "StatusToolTipFrame">
+        <Frame type="StandardTooltip" name="StatsTooltip">
+			<Anchor side="Top" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+			<MinHeight val = "130" />
+			<MaxWidth val="300"/>
+			<MinWidth val="200"/>
+			<Insets top="15" left="15" bottom="15" right="15"/>
+			<Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardBorderTooltipGame">
+				<Anchor relative="$parent"/>
+			</Frame>
+            <Frame type="Label" name="Label">
+                <Anchor relative="$parent"/>
+            </Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+				<Anchor relative="$parent" offset = "-15"/>
+
+				<PlayerId val = "1"/>
+				<Frame type="Label" name="Kills">
+					<Anchor side="Top" pos="Min" offset="0" relative="$parent" />
+					<Anchor side="Left" pos="Min" offset="0" relative="$parent" />
+					<Width val = "45" />
+					<Height val = "26" />
+					<Style val="@@StandardTooltip"/>
+					<Color val="FFFFFF"/>
+					<Text val = "Kills: " />
+				</Frame>
+				
+				<Frame type="Label" name="Hits">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/Kills" />
+					<Anchor side="Left" pos="Min" offset="0" relative="$parent" />
+					<Width val = "100" />
+					<Height val = "26" />
+					<Style val="@@StandardTooltip"/>
+					<Color val="FFFFFF"/>
+					<Text val = "Hits Taken: " />
+				</Frame>
+				
+				<Frame type="Label" name="Damage">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/Hits" />
+					<Anchor side="Left" pos="Min" offset="0" relative="$parent" />
+					<Width val = "140" />
+					<Height val = "26" />
+					<Style val="@@StandardTooltip"/>
+					<Color val="FFFFFF"/>
+					<Text val = "Damage Taken: " />
+				</Frame>
+				
+				<Frame type="Label" name="Magazines">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/Damage" />
+					<Anchor side="Left" pos="Min" offset="0" relative="$parent" />
+					<Width val = "105" />
+					<Height val = "26" />
+					<Style val="@@StandardTooltip"/>
+					<Color val="FFFFFF"/>
+					<Text val = "Magazines: " />
+				</Frame>
+				
+				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame0">
+					<Anchor side="Top" pos="Min" offset="0" relative="$parent" />
+					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Kills" />
+					<Width val = "50" />
+					<Height val = "26" />
+					<ScoreValueLink val="UnitsKilledCount"/>
+					<AddCommas val="False"/>
+					
+					<Frame type="Label" name="Label">
+						<Anchor relative="$parent"/>
+						<Style val="@@StandardTooltip"/>
+						<Color val="F4D72B"/>
+					</Frame>
+				</Frame>
+				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame1">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/ScoreValueFrame0" />
+					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Hits" />
+					<Width val = "50" />
+					<Height val = "26" />
+					<ScoreValueLink val="HitsTaken"/>
+					<AddCommas val="False"/>
+					
+					<Frame type="Label" name="Label">
+						<Anchor relative="$parent"/>
+						<Style val="@@StandardTooltip"/>
+						<Color val="FF0000"/>
+					</Frame>
+				</Frame>
+				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame2">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/ScoreValueFrame1" />
+					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Damage" />
+					<Width val = "50" />
+					<Height val = "26" />
+					<ScoreValueLink val="DamageTaken"/>
+					<AddCommas val="False"/>
+					
+					<Frame type="Label" name="Label">
+						<Anchor relative="$parent"/>
+						<Style val="@@StandardTooltip"/>
+						<Color val="F40000"/>
+					</Frame>
+				</Frame>
+				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame3">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/ScoreValueFrame2" />
+					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Magazines" />
+					<Width val = "50" />
+					<Height val = "26" />
+					<ScoreValueLink val="MagazineCount"/>
+					<AddCommas val="False"/>
+					
+					<Frame type="Label" name="Label">
+						<Anchor relative="$parent"/>
+						<Style val="@@StandardTooltip"/>
+						<Color val="F4D72B"/>
+					</Frame>
+				</Frame>
+			</Frame>
+			
+        </Frame>
+		
+		<Frame type = "Frame" name = "StatusToolTipFrame">
 			<Anchor relative="$parent/UnitHealth" offset="0"/>
 			<AcceptsMouse val = "true" />
+			<TooltipFrame val = "StatsTooltip"/>
+			<TooltipAnchorPosition val = "MiddleLeft" />
 		</Frame>
+		
+
+		
 		
 		<Frame type = "Frame" name = "DeathLabelContainer">
 			<Anchor  relative="$parent/UnitHealth" offset="0"/>
@@ -221,7 +343,6 @@
 		</Frame>
 		
 		<Frame type = "PlayerFrame" name = "PlayerData">
-
 			<Anchor side="Top" relative="$parent" pos="Min" offset="12"/>
             <Anchor side="Left" relative="$parent/DoctorLabel" pos="Max" offset="0"/>
             <Anchor side="Bottom" relative="$parent/UnitHealth" pos="Min" offset="0"/>

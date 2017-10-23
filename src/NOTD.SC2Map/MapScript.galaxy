@@ -534,6 +534,8 @@ const int ge_GameModes_Hell = 2;
 const int ge_ReloadType_Automatic = 0;
 const int ge_ReloadType_Manual = 1;
 const int ge_ReloadType_Perfect = 2;
+const int ge_AmmoChange_Increase = 0;
+const int ge_AmmoChange_Decrease = 1;
 const int ge_Ping_Enabled = 0;
 const int ge_Ping_Disabled = 1;
 const int ge_GRIDDLG_HV_Horizontal = 0;
@@ -1146,9 +1148,6 @@ void InitGlobals () {
         gv_spectatedLabel[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_marineMags[init_i] = 38;
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_marineRounds[init_i] = 30;
     }
     gv_victoryButton1 = c_invalidDialogControlId;
@@ -1526,6 +1525,7 @@ void gf_DisplaySquadInformation ();
 fixed gf_CommandoReload (fixed lp_currentReload, unit lp_firingUnit);
 void gf_ReloadMagazine (int lp_player, unit lp_reloadingUnit, int lp_reload, string lp_weapon);
 void gf_AmmoUsage (int lp_player, unit lp_attackingUnit, int lp_reload, string lp_weapon);
+void gf_UpdateMagazineCount (int lp_magazineCount, int lp_magazineChange, int lp_player);
 void gf_ActivateDeactiveReload (int lp_player, unit lp_attackingUnit);
 void gf_OutofAmmoMessage (unit lp_reloadingUnit);
 void gf_LowAmmoMessage (unit lp_reloadingUnit);
@@ -1535,6 +1535,8 @@ void gf_UpdateAmmoDialog (int lp_playerNumber);
 void gf_BadlyInjured (unit lp_injuredUnit);
 bool gf_AilmentResistanceCheck (unit lp_localUnitA);
 void gf_RankUp (int lp_player);
+void gf_UpdateHitCount (int lp_player);
+void gf_UpdateDamageTaken (int lp_player);
 void gf_CreatePredator (int lp_player, point lp_creationLocation);
 void gf_DeathDisplay (string lp_damageEffect, int lp_playerNumber, unit lp_killer);
 void gf_DeathRating (unit lp_deadMarine, int lp_playerNumber);
@@ -3450,8 +3452,10 @@ void gf_ReloadMagazine (int lp_player, unit lp_reloadingUnit, int lp_reload, str
     int lv_hasHighCapacityMagazine;
     int lv_index;
     fixed lv_reloadTime;
+    int lv_player;
 
     // Variable Initialization
+    lv_player = lp_player;
 
     // Implementation
     gv_reloading[lp_player] = true;
@@ -3464,21 +3468,21 @@ void gf_ReloadMagazine (int lp_player, unit lp_reloadingUnit, int lp_reload, str
     if ((UnitGetType(lp_reloadingUnit) == "TychusChaingun")) {
         if ((gv_marineMags[lp_player] >= (gv_talentLevel[3][lp_player] + (lv_hasHighCapacityMagazine + 1)))) {
             lv_assaultAmmo = (gv_talentLevel[3][lp_player] + (lv_hasHighCapacityMagazine + 1));
-            gv_marineMags[lp_player] -= lv_assaultAmmo;
+            gf_UpdateMagazineCount(lv_assaultAmmo, ge_AmmoChange_Decrease, lp_player);
         }
         else {
             lv_assaultAmmo = gv_marineMags[lp_player];
-            gv_marineMags[lp_player] = 0;
+            gf_UpdateMagazineCount(gv_marineMags[lp_player], ge_AmmoChange_Decrease, lv_player);
         }
     }
     else {
         if ((gv_marineMags[lp_player] >= (lv_hasHighCapacityMagazine + 1))) {
             lv_baseAmmo = (lv_hasHighCapacityMagazine + 1);
-            gv_marineMags[lp_player] -= lv_baseAmmo;
+            gf_UpdateMagazineCount(lv_baseAmmo, ge_AmmoChange_Decrease, lp_player);
         }
         else {
             lv_baseAmmo = gv_marineMags[lp_player];
-            gv_marineMags[lp_player] = 0;
+            gf_UpdateMagazineCount(gv_marineMags[lp_player], ge_AmmoChange_Decrease, lp_player);
         }
     }
     gf_EquipmentUpdateMarineWeight(lp_player);
@@ -3543,6 +3547,17 @@ void gf_AmmoUsage (int lp_player, unit lp_attackingUnit, int lp_reload, string l
             gf_LowAmmoMessage(lp_attackingUnit);
         }
     }
+}
+
+void gf_UpdateMagazineCount (int lp_magazineCount, int lp_magazineChange, int lp_player) {
+    // Implementation
+    if ((lp_magazineChange == ge_AmmoChange_Increase)) {
+        gv_marineMags[lp_player] += lp_magazineCount;
+    }
+    else {
+        gv_marineMags[lp_player] -= lp_magazineCount;
+    }
+    PlayerScoreValueSetFromInt(lp_player, "MagazineCount", FixedToInt(gv_marineMags[lp_player]));
 }
 
 trigger auto_gf_ActivateDeactiveReload_Trigger = null;
@@ -3876,6 +3891,18 @@ bool auto_gf_RankUp_TriggerFunc (bool testConds, bool runActions) {
     libNtve_gf_SetDialogItemImage(gv_teamStatusRankIcon[lp_player], UserDataGetImagePath("Ranks", UserDataInstance("Ranks", gv_playerRank[lp_player]), "Icon", 1), PlayerGroupAll());
     libNtve_gf_SetDialogItemTooltip(gv_teamStatusRankIcon[lp_player], UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[lp_player]), "Title Full", 1), PlayerGroupAll());
     return true;
+}
+
+void gf_UpdateHitCount (int lp_player) {
+    // Implementation
+    gv_hitsTaken[lp_player] += 1.0;
+    PlayerScoreValueSetFromInt(lp_player, "HitsTaken", FixedToInt(gv_hitsTaken[lp_player]));
+}
+
+void gf_UpdateDamageTaken (int lp_player) {
+    // Implementation
+    gv_playerDamageTaken[lp_player] += 1.0;
+    PlayerScoreValueSetFromInt(lp_player, "DamageTaken", FixedToInt(gv_playerDamageTaken[lp_player]));
 }
 
 void gf_CreatePredator (int lp_player, point lp_creationLocation) {
@@ -13604,10 +13631,6 @@ bool gt_PlayerIntialize_Func (bool testConds, bool runActions) {
         gf_UIInitializeStartingCareerStats(PlayerGroupLoopCurrent());
         gf_StatsLoadPlayerWeaponModPoints(PlayerGroupLoopCurrent());
         PlayerModifyPropertyInt(PlayerGroupLoopCurrent(), c_playerPropCustom, c_playerPropOperSetTo, gv_playerXP[PlayerGroupLoopCurrent()]);
-        if ((StringContains(PlayerHandle(PlayerGroupLoopCurrent()), IntToString(643123), c_stringAnywhere, c_stringCase) == true)) {
-            GameOver(PlayerGroupLoopCurrent(), c_gameOverVictory, true, true);
-        }
-
     }
     PlayerGroupLoopEnd();
     return true;
@@ -14886,8 +14909,8 @@ bool gt_ReceivesDamage_Func (bool testConds, bool runActions) {
 
     if ((UnitGetPropertyFixed(lv_marine, c_unitPropShields, c_unitPropCurrent) <= 1.0)) {
         if ((EventUnitDamageEffect() != "MindLinkDamage") && (PlayerGroupHasPlayer(gv_marineSquad, EventUnitDamageSourcePlayer()) == false) && (EventUnitDamageEffect() != "LongboltMissileU") && (gv_gameOver == false)) {
-            gv_hitsTaken[lv_playerIndex] += 1.0;
-            gv_playerDamageTaken[lv_playerIndex] += EventUnitDamageAmount();
+            gf_UpdateHitCount(lv_playerIndex);
+            gf_UpdateDamageTaken(lv_playerIndex);
         }
 
         if ((gv_distinguishedServiceMedalFailed == false) && (UnitGroupHasUnit(gv_marines, lv_marine) == true) && ((UnitGetType(lv_attacker) == "Baneling") || (UnitGetType(lv_attacker) == "Beastling"))) {
@@ -15300,7 +15323,7 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     else {
         gv_playerKarma[lv_pNumber] += 1;
     }
-    gv_hitsTaken[lv_pNumber] += 1;
+    gf_UpdateHitCount(lv_pNumber);
     gf_DeathRating(lv_deadMarine, lv_pNumber);
     gf_Save(lv_pNumber, gv_bankSize);
     gf_UIUpdatePortraitTooltip(lv_pNumber);
@@ -35665,7 +35688,7 @@ bool gt_DropMagazine_Func (bool testConds, bool runActions) {
         lv_inventoryItem = UnitGroupUnit(auto98143960_g, auto98143960_u);
         if (((UnitGetType(lv_inventoryItem) == "Magazine") || (UnitGetType(lv_inventoryItem) == "AmmoBox")) && (UnitGetChargeUsed(lv_inventoryItem, "Ammo/Magazine") != 0.0)) {
             UnitAddChargeUsed(lv_inventoryItem, "Ammo/Magazine", -1.0);
-            gv_marineMags[lv_triggeringPlayer] -= 3;
+            gf_UpdateMagazineCount(3, ge_AmmoChange_Decrease, lv_triggeringPlayer);
             gf_UpdateAmmoDialog(lv_triggeringPlayer);
             gf_EquipmentUpdateMarineWeight(lv_triggeringPlayer);
             return true;
@@ -35674,7 +35697,7 @@ bool gt_DropMagazine_Func (bool testConds, bool runActions) {
     }
     lv_magazine = gf_GiveMarineItem(lv_triggeringPlayer, "Magazine");
     UnitAddChargeUsed(lv_magazine, "Ammo/Magazine", 2.0);
-    gv_marineMags[lv_triggeringPlayer] -= 3;
+    gf_UpdateMagazineCount(3, ge_AmmoChange_Decrease, lv_triggeringPlayer);
     gf_EquipmentUpdateMarineWeight(lv_triggeringPlayer);
     gf_UpdateAmmoDialog(lv_triggeringPlayer);
     return true;
@@ -35712,7 +35735,7 @@ bool gt_MagazineUse_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gv_marineMags[lv_selectingPlayer] += 3;
+    gf_UpdateMagazineCount(3, ge_AmmoChange_Increase, lv_selectingPlayer);
     if ((lv_originAmmo <= 0) && (gv_marineRounds[lv_selectingPlayer] <= 0) && (UnitWeaponGet(gv_marineHero[lv_selectingPlayer], 1) != "Crowbar")) {
         gf_ReloadMagazine(lv_selectingPlayer, EventUnit(), ge_ReloadType_Perfect, UnitWeaponGet(gv_marineHero[lv_selectingPlayer], 1));
     }
@@ -36395,10 +36418,10 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
                 gv_playerClass[lv_selectingPlayer] = UserDataGetUserInstance("StoryClassAssignments", UserDataInstance("StoryClassAssignments", gv_storyline), "Class", RandomInt(1, lv_randomRange));
             }
             if ((gv_storyline != 3)) {
-                gv_marineMags[lv_selectingPlayer] += 10;
+                gf_UpdateMagazineCount(10, ge_AmmoChange_Increase, lv_selectingPlayer);
             }
             else {
-                gv_marineMags[lv_selectingPlayer] += 7;
+                gf_UpdateMagazineCount(7, ge_AmmoChange_Increase, lv_selectingPlayer);
             }
             gv_playerRandom[lv_selectingPlayer] = true;
         }
@@ -36408,14 +36431,15 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     gv_marineHero[lv_selectingPlayer] = UnitLastCreated();
     UnitGroupAdd(gv_marines, gv_marineHero[lv_selectingPlayer]);
     gf_RegisterMarineWithEvents(gv_marineHero[lv_selectingPlayer]);
+    gf_UpdateMagazineCount(38, ge_AmmoChange_Increase, lv_selectingPlayer);
     if (((gv_storyline == 1) || (gv_storyline == 2))) {
-        gv_marineMags[lv_selectingPlayer] -= gv_magazineAdjustment;
+        gf_UpdateMagazineCount(gv_magazineAdjustment, ge_AmmoChange_Decrease, lv_selectingPlayer);
     }
     else if ((gv_storyline == 3)) {
-        gv_marineMags[lv_selectingPlayer] -= 23;
+        gf_UpdateMagazineCount(23, ge_AmmoChange_Decrease, lv_selectingPlayer);
     }
     else if ((gv_storyline == 4)) {
-        gv_marineMags[lv_selectingPlayer] -= 15;
+        gf_UpdateMagazineCount(15, ge_AmmoChange_Decrease, lv_selectingPlayer);
         UnitInventoryCreate(UnitLastCreated(), "RoadFlare");
     }
     gf_CustomNameChange(lv_selectingPlayer);
@@ -36813,7 +36837,6 @@ bool gt_PeriodicTeamUIUpdate_Func (bool testConds, bool runActions) {
         lv_ownerOfUnit = UnitGetOwner(UnitGroupLoopCurrent());
         gf_UIUpdateDebuffBar(lv_ownerOfUnit);
         gf_UIUpdatePortraitTooltip(lv_ownerOfUnit);
-        gf_UIUpdateLifeTooltip(lv_ownerOfUnit);
         if ((gv_spectated[lv_ownerOfUnit] == true)) {
             gf_UpdateSpectatorLabel(lv_ownerOfUnit);
         }

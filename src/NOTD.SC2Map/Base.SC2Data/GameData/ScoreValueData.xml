@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CScoreValueCustom id="DamageTaken" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="HitsTaken" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="MagazineCount" parent="BaseScoreValue"/>
     <CScoreValueCustom id="PlayerXP" parent="BaseScoreValue">
         <Flags index="DisplayAsSigned" value="1"/>
     </CScoreValueCustom>
