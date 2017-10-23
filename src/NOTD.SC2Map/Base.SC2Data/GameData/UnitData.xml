@@ -7525,6 +7525,36 @@
         <BehaviorArray Link="ThermalSight"/>
         <BehaviorArray Link="FlareTimedLife"/>
     </CUnit>
+    <CUnit id="SonicRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="10"/>
+        <BehaviorArray Link="SonicRevealTimed"/>
+    </CUnit>
+    <CUnit id="NukeRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="10"/>
+        <BehaviorArray Link="NukeRevealTimed"/>
+    </CUnit>
+    <CUnit id="NeuralParasiteRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="3"/>
+        <BehaviorArray Link="NeuralParasiteRevealTimed"/>
+    </CUnit>
     <CUnit id="Shotgun" parent="ITEM">
         <Race value="Terr"/>
         <Sight value="0"/>
