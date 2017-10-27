@@ -5938,9 +5938,18 @@
         <EditorCategories value=""/>
         <Behavior value="FocusedFireTarget"/>
     </CEffectApplyBehavior>
+    <CEffectSet id="ApplyRefresherSet">
+        <EditorCategories value=""/>
+        <EffectArray value="ApplyRefresher"/>
+        <EffectArray value="ApplyRefresherCooldownReset"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="ApplyRefresher">
         <EditorCategories value=""/>
         <Behavior value="RefresherDummy"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ApplyRefresherCooldownReset">
+        <EditorCategories value=""/>
+        <Behavior value="RefresherCooldownReset"/>
     </CEffectApplyBehavior>
     <CEffectSet id="ApplySapStunSet">
         <EditorCategories value=""/>

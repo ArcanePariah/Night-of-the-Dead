@@ -4114,6 +4114,14 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="3"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="RefresherCooldownReset">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.01"/>
+        <Modification>
+            <AbilLinkDisableArray value="Refresher"/>
+            <RateMultiplierArray index="Cooldown" value="1000"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="SpectreHoldFire">
         <Modification MoveSpeedMultiplier="1.1"/>
     </CBehaviorBuff>
