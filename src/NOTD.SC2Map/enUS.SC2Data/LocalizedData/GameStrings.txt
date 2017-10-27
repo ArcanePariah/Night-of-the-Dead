@@ -756,7 +756,7 @@ Behavior/Tooltip/BoomHeadshotLevel2Heroic=-30% movespeed and -4 armor for 2 seco
 Behavior/Tooltip/BringThemDownLevel1Slow=Unit is slowed by 15% for 3 seconds. 
 Behavior/Tooltip/BringThemDownLevel2Slow=Unit is slowed by 25% for 3.5 seconds. 
 Behavior/Tooltip/BringThemDownLevel3Slow=Unit is slowed by 35% for 4 seconds. 
-Behavior/Tooltip/BurnHEAmmo=Unit is under effect of he ammo.
+Behavior/Tooltip/BurnHEAmmo=Unit takes 5% of weapon damage over 5 seconds.
 Behavior/Tooltip/ChargeStunLevel1=Unit is stunned for 2 seconds.
 Behavior/Tooltip/ChargeStunLevel2=Unit is stunned for 4 seconds.
 Behavior/Tooltip/ChemicalPlatingAuraLevel1=Attacks on the Chemical Expert and allies in 5 radius stack an oxalic poison that lasts for 30 seconds onto enemies. This poison slows movement by 4% and deals 5 damage per second. Maximum stack of 20.<n/>Level 1 - 1 poison stack per attack
@@ -833,7 +833,7 @@ Behavior/Tooltip/FullThrottleTemplate=Pathfinder engages in full throttle at 200
 Behavior/Tooltip/GhostHoldFire=Hold Fire activated. +10% movespeed.
 Behavior/Tooltip/GhostHoldFireB=Hold Fire activated. +10% movespeed.
 Behavior/Tooltip/GravityGrenade=Units caught within the Gravity Grenade are pulled inwards until the effect ends.
-Behavior/Tooltip/HEAmmo=<c val="80FF80">High Explosive Ammo</c><n/><n/>Damage Modifier: +3% (stacks 3x)<n/>Attack Modifier: Target takes 50% bonus damage from Fire effects for 5 seconds.
+Behavior/Tooltip/HEAmmo=<c val="80FF80">High Explosive Ammo</c><n/><n/>Damage Modifier: +3% (stacks 3x)<n/>Attack Modifier: Target burns for 5% damage over 2 seconds and takes 50% bonus damage from Fire effects for 5 seconds.
 Behavior/Tooltip/HEFRounds=The Black Dog is using HE-F (High Explosive - Fragmentation) Rounds. Deals damage in a 3 radius and causes the Open Wound effect on enemies. <n/><n/><c val="FF0000">WARNING: Can cause Open Wound on any direct target (including friendlies).
 Behavior/Tooltip/HPAmmo=<c val="80FF80">Hollow Point Ammo</c><n/><n/>Damage Modifier: +12% damage.
 Behavior/Tooltip/HandgunExpertiseLevel2=The Pathfinder proficiency level with the P-45 Gauss Pistol is that of an expert, and as a result, he gains increased range and damage.<n/>Level 2 - Increases range by 4, Damage by 6, and increases armor penetration by 0.35
@@ -1574,7 +1574,7 @@ Button/Tooltip/GiveKarma=Increases target player's Karma by 1.
 Button/Tooltip/GravityGrenade=Gravity Grenade<n/>Drags all units within an area to it for a short duration, clustering them together. Massive units are not dragged, but slowed by 50%.<n/><n/>Level 1 -- Affects units within a radius of 3 for 4 seconds<n/><n/><c val="FF0000">Warning: Gravity suction affects allies</c><n/><n/>"Hope you sons of bitches love each other, 'cause it's huggin' time!"
 Button/Tooltip/Green=Changes Marine color to <c val="008040">Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 Button/Tooltip/GuardianoftheBeta=The Engineer.
-Button/Tooltip/HEAmmo=<c val="80FF80">High Explosive Ammo</c><n/>Produced by UGC Engineering Corps. This ammunition makes use of a high yield head which burns targets on impact.<n/>Damage Modifier: <c val="FFFFFF">+3% damage (Stacks 3x)</c><n/>Target takes 50% bonus damage from Fire for 5 seconds</c></n>Weight: <c val="FFFFFF">3</c></n>Credits: <c val="FFFFFF">50</c><n/><n/>"You ain't seen gruesome until you've seen an enemy burn alive from the inside out."
+Button/Tooltip/HEAmmo=<c val="80FF80">High Explosive Ammo</c><n/>Produced by UGC Engineering Corps. This ammunition makes use of a high yield head which burns targets on impact.<n/>Damage Modifier: <c val="FFFFFF">+3% damage (Stacks 3x)</c><n/>Attack Modifier: <c val="FFFFFF">Target burns for 5% of your damage over 2 seconds<n/>Target takes 50% bonus damage from Fire for 5 seconds</c></n>Weight: <c val="FFFFFF">3</c></n>Credits: <c val="FFFFFF">50</c><n/><n/>"You ain't seen gruesome until you've seen an enemy burn alive from the inside out."
 Button/Tooltip/HPAmmo=<c val="80FF80">Hollow Point Ammo</c><n/>Produced by UGC Ballistics this ammunition is designed to cause major damage to targets.<n/>Damage Modifier: <c val="FFFFFF">+12% damage (Stacks 3x)</c><n/>Credits: <c val="FFFFFF">50</c><n/><n/>"When facing a human target shoot to maim. Against all else or other shoot to kill" - Lt. Breanne
 Button/Tooltip/HadesTentacle=Highly infectous tentacles.
 Button/Tooltip/HammeroftheGods=Technician deploys a Black Dog anti-personnel turret. The Black Dog is equipped with high explosive fragmentation shells, and causes open wounds on attacking targets. <n/><n/>Only 1 can be built at a time.
