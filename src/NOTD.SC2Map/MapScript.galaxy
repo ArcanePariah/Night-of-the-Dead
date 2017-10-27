@@ -931,14 +931,10 @@ text gv_labelTalentsButton;
 int gv_teamUI;
 int[9] gv_teamStatusPlayerPanel;
 int[9] gv_teamStatusLifeBar;
-int[4][9] gv_teamStatusDebuffs;
-int[4][9] gv_teamStatusDebuffsBackground;
-int[9] gv_teamStatusLifeBarLabel;
 int[9] gv_teamStatusRankIcon;
 int[9] gv_teamStatusXP;
 int[9] gv_teamStatusPortraitButton;
 text[9] gv_teamStatusPortraitTooltip;
-text[9] gv_teamStatusLifeTooltip;
 int[9] gv_startingKarma;
 int[9] gv_startingRating;
 int[9] gv_startingXP;
@@ -1280,19 +1276,6 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_teamStatusLifeBar[init_i] = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 3; init_i += 1) {
-        for (init_j = 0; init_j <= 8; init_j += 1) {
-            gv_teamStatusDebuffs[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 3; init_i += 1) {
-        for (init_j = 0; init_j <= 8; init_j += 1) {
-            gv_teamStatusDebuffsBackground[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_teamStatusLifeBarLabel[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_teamStatusRankIcon[init_i] = c_invalidDialogControlId;
@@ -1691,9 +1674,7 @@ bool gf_Staff (string lp_playerHandle);
 void gf_TeamStatusInitializePlayerPortrait (int lp_triggeringPlayer);
 void gf_TeamStatusUnderAttackPortraitFlash (int lp_playerNo);
 void gf_UIUpdatePortraitTooltip (int lp_triggeringPlayer);
-void gf_UIUpdateLifeTooltip (int lp_triggeringPlayer);
 void gf_UIUpdateXP (int lp_triggeringPlayer);
-void gf_UIUpdateDebuffBar (int lp_triggeringPlayer);
 void gf_UISetPlayerRankNameIconXP (int lp_triggeringPlayer);
 void gf_UISetDoctorTitle (int lp_triggeringPlayer);
 void gf_UIInitializeStartingCareerStats (int lp_player);
@@ -11128,35 +11109,6 @@ bool auto_gf_UIUpdatePortraitTooltip_TriggerFunc (bool testConds, bool runAction
     return true;
 }
 
-trigger auto_gf_UIUpdateLifeTooltip_Trigger = null;
-int auto_gf_UIUpdateLifeTooltip_lp_triggeringPlayer;
-
-void gf_UIUpdateLifeTooltip (int lp_triggeringPlayer) {
-    auto_gf_UIUpdateLifeTooltip_lp_triggeringPlayer = lp_triggeringPlayer;
-
-    if (auto_gf_UIUpdateLifeTooltip_Trigger == null) {
-        auto_gf_UIUpdateLifeTooltip_Trigger = TriggerCreate("auto_gf_UIUpdateLifeTooltip_TriggerFunc");
-    }
-
-    TriggerExecute(auto_gf_UIUpdateLifeTooltip_Trigger, false, false);
-}
-
-bool auto_gf_UIUpdateLifeTooltip_TriggerFunc (bool testConds, bool runActions) {
-    int lp_triggeringPlayer = auto_gf_UIUpdateLifeTooltip_lp_triggeringPlayer;
-
-    // Implementation
-    gv_teamStatusLifeTooltip[lp_triggeringPlayer] = StringExternal("Param/Value/C1D141D3");
-    gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + IntToText(PlayerScoreValueGetAsInt(lp_triggeringPlayer, "UnitsKilledCount")));
-    gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/371C5830"));
-    gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + FixedToText(gv_hitsTaken[lp_triggeringPlayer], 0));
-    gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/9D8902A7"));
-    gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + FixedToText(gv_playerDamageTaken[lp_triggeringPlayer], 0));
-    gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/77C36B7E"));
-    gv_teamStatusLifeTooltip[lp_triggeringPlayer] = (gv_teamStatusLifeTooltip[lp_triggeringPlayer] + IntToText(gv_marineMags[lp_triggeringPlayer]));
-    libNtve_gf_SetDialogItemTooltip(gv_teamStatusLifeBarLabel[lp_triggeringPlayer], gv_teamStatusLifeTooltip[lp_triggeringPlayer], PlayerGroupAll());
-    return true;
-}
-
 trigger auto_gf_UIUpdateXP_Trigger = null;
 int auto_gf_UIUpdateXP_lp_triggeringPlayer;
 
@@ -11188,53 +11140,6 @@ bool auto_gf_UIUpdateXP_TriggerFunc (bool testConds, bool runActions) {
         libNtve_gf_SetDialogItemCurrentValue(gv_statsPlayerNextLevelProgressBar[lp_triggeringPlayer], IntToFixed(gv_playerXP[lp_triggeringPlayer]), PlayerGroupAll());
     }
 
-    return true;
-}
-
-trigger auto_gf_UIUpdateDebuffBar_Trigger = null;
-int auto_gf_UIUpdateDebuffBar_lp_triggeringPlayer;
-
-void gf_UIUpdateDebuffBar (int lp_triggeringPlayer) {
-    auto_gf_UIUpdateDebuffBar_lp_triggeringPlayer = lp_triggeringPlayer;
-
-    if (auto_gf_UIUpdateDebuffBar_Trigger == null) {
-        auto_gf_UIUpdateDebuffBar_Trigger = TriggerCreate("auto_gf_UIUpdateDebuffBar_TriggerFunc");
-    }
-
-    TriggerExecute(auto_gf_UIUpdateDebuffBar_Trigger, false, false);
-}
-
-bool auto_gf_UIUpdateDebuffBar_TriggerFunc (bool testConds, bool runActions) {
-    int lp_triggeringPlayer = auto_gf_UIUpdateDebuffBar_lp_triggeringPlayer;
-
-    // Variable Declarations
-    unit lv_marineHero;
-    int lv_i;
-
-    // Variable Initialization
-    lv_marineHero = gv_marineHero[lp_triggeringPlayer];
-
-    // Implementation
-    IntLoopBegin(1, UserDataInstanceCount("Ailments"));
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        if ((UnitHasBehavior(lv_marineHero, UserDataGetGameLink("Ailments", UserDataInstance("Ailments", IntLoopCurrent()), "Ailment", 1)) == true)) {
-            libNtve_gf_SetDialogItemImage(gv_teamStatusDebuffsBackground[lv_i][lp_triggeringPlayer], "Assets\\Textures\\ui_research_frame_tooltip_protoss.dds", PlayerGroupAll());
-            libNtve_gf_SetDialogItemColor(gv_teamStatusDebuffsBackground[lv_i][lp_triggeringPlayer], UserDataGetColor("Ailments", UserDataInstance("Ailments", IntLoopCurrent()), "Background Color", 1), PlayerGroupAll());
-            libNtve_gf_SetDialogItemImage(gv_teamStatusDebuffs[lv_i][lp_triggeringPlayer], UserDataGetImagePath("Ailments", UserDataInstance("Ailments", IntLoopCurrent()), "Icon", 1), PlayerGroupAll());
-            libNtve_gf_SetDialogItemTooltip(gv_teamStatusDebuffs[lv_i][lp_triggeringPlayer], StringExternal(CatalogFieldValueGet(c_gameCatalogBehavior, UserDataGetGameLink("Ailments", UserDataInstance("Ailments", IntLoopCurrent()), "Ailment", 1), "Tooltip", c_playerAny)), PlayerGroupAll());
-            lv_i += 1;
-        }
-
-    }
-    IntLoopEnd();
-    IntLoopBegin(lv_i, 3);
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        libNtve_gf_SetDialogItemImage(gv_teamStatusDebuffs[IntLoopCurrent()][lp_triggeringPlayer], "Assets\\Textures\\black.dds", PlayerGroupAll());
-        libNtve_gf_SetDialogItemImage(gv_teamStatusDebuffsBackground[IntLoopCurrent()][lp_triggeringPlayer], "Assets\\Textures\\black.dds", PlayerGroupAll());
-        TextExpressionSetToken("Param/Expression/D329FBDC", "A", null);
-        libNtve_gf_SetDialogItemTooltip(gv_teamStatusDebuffs[IntLoopCurrent()][lp_triggeringPlayer], TextExpressionAssemble("Param/Expression/D329FBDC"), PlayerGroupAll());
-    }
-    IntLoopEnd();
     return true;
 }
 
@@ -15297,12 +15202,6 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     libNtve_gf_SetDialogItemImage(gv_teamStatusPortraitButton[lv_pNumber], "Assets\\Textures\\terranportraittransition_static.dds", PlayerGroupAll());
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lv_pNumber], c_triggerBlendModeAdd, PlayerGroupAll());
     DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lv_pNumber], PlayerGroupAll(), "MarineDeath", "MarineDied");
-    IntLoopBegin(0, 3);
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        libNtve_gf_SetDialogItemImage(gv_teamStatusDebuffsBackground[IntLoopCurrent()][lv_pNumber], "Assets\\Textures\\black.dds", PlayerGroupAll());
-        libNtve_gf_SetDialogItemImage(gv_teamStatusDebuffs[IntLoopCurrent()][lv_pNumber], "Assets\\Textures\\black.dds", PlayerGroupAll());
-    }
-    IntLoopEnd();
     gf_DeathDisplay(EventUnitDamageEffect(), lv_pNumber, libNtve_gf_KillingUnit());
     auto15B9C099_n = (gv_marineMags[lv_pNumber] / 3);
     for (auto15B9C099_i = 1; auto15B9C099_i <= auto15B9C099_n; auto15B9C099_i += 1) {
@@ -36582,8 +36481,6 @@ void gt_DialogButtonClicks_Init () {
 bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
     playergroup autoA2103939_g;
     int autoA2103939_p;
-    int auto8EE08402_ae;
-    int auto8EE08402_ai;
 
     // Variable Declarations
     int lv_currentPlayer;
@@ -36626,23 +36523,6 @@ bool gt_CreateTeamStatusDialog_Func (bool testConds, bool runActions) {
 
         DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypeUnitStatus, "UnitHealth");
         gv_teamStatusLifeBar[lv_currentPlayer] = DialogControlLastCreated();
-        DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypePanel, "StatusToolTipFrame");
-        gv_teamStatusLifeBarLabel[lv_currentPlayer] = DialogControlLastCreated();
-        DialogControlHookup(gv_teamStatusLifeBar[lv_currentPlayer], c_triggerControlTypeImage, "Ailement01");
-        gv_teamStatusDebuffsBackground[0][lv_currentPlayer] = DialogControlLastCreated();
-        DialogControlHookup(gv_teamStatusLifeBar[lv_currentPlayer], c_triggerControlTypeImage, "Ailement02");
-        gv_teamStatusDebuffsBackground[1][lv_currentPlayer] = DialogControlLastCreated();
-        DialogControlHookup(gv_teamStatusLifeBar[lv_currentPlayer], c_triggerControlTypeImage, "Ailement03");
-        gv_teamStatusDebuffsBackground[2][lv_currentPlayer] = DialogControlLastCreated();
-        DialogControlHookup(gv_teamStatusLifeBar[lv_currentPlayer], c_triggerControlTypeImage, "Ailement04");
-        gv_teamStatusDebuffsBackground[3][lv_currentPlayer] = DialogControlLastCreated();
-        auto8EE08402_ae = 3;
-        auto8EE08402_ai = 1;
-        lv_i = 0;
-        for ( ; ( (auto8EE08402_ai >= 0 && lv_i <= auto8EE08402_ae) || (auto8EE08402_ai <= 0 && lv_i >= auto8EE08402_ae) ) ; lv_i += auto8EE08402_ai ) {
-            DialogControlHookup(gv_teamStatusDebuffsBackground[lv_i][lv_currentPlayer], c_triggerControlTypeImage, "AilmentImage");
-            gv_teamStatusDebuffs[lv_i][lv_currentPlayer] = DialogControlLastCreated();
-        }
         DialogControlHookup(gv_teamStatusPlayerPanel[lv_currentPlayer], c_triggerControlTypeImage, "RankIcon");
         gv_teamStatusRankIcon[lv_currentPlayer] = DialogControlLastCreated();
         gf_UISetPlayerRankNameIconXP(lv_currentPlayer);
@@ -36803,7 +36683,6 @@ bool gt_PeriodicTeamUIUpdate_Func (bool testConds, bool runActions) {
     UnitGroupLoopBegin(gv_marines);
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
         lv_ownerOfUnit = UnitGetOwner(UnitGroupLoopCurrent());
-        gf_UIUpdateDebuffBar(lv_ownerOfUnit);
         gf_UIUpdatePortraitTooltip(lv_ownerOfUnit);
         if ((gv_spectated[lv_ownerOfUnit] == true)) {
             gf_UpdateSpectatorLabel(lv_ownerOfUnit);
