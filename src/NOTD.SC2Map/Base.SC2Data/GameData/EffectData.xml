@@ -1150,6 +1150,11 @@
     </CEffectSet>
     <CEffectCreateUnit id="RoadFlareSpawn">
         <SpawnUnit value="RoadFlareFire"/>
+        <SpawnOwner Value="Neutral"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="SonicCreateRevealDummy">
+        <SpawnUnit value="SonicRevealDummy"/>
+        <SpawnOwner Value="Neutral"/>
     </CEffectCreateUnit>
     <CEffectModifyUnit id="SharedExperienceDefault">
         <EditorCategories value=""/>
@@ -2108,7 +2113,23 @@
         <EditorCategories value=""/>
         <CaseArray/>
     </CEffectSwitch>
-    <CEffectSet id="RavagingPhantomSet">
+    <CEffectApplyBehavior id="RavagingPhantomControl">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="RavagingPhantomApplyTemp">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="RavagingPhantomSpawn">
+        <EditorCategories value=""/>
+        <WhichLocation Value="SourceUnit"/>
+        <Origin Value="CasterPoint"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <SpawnRange value="30"/>
+        <SpawnEffect value="RavagingPhantomControl"/>
+        <TypeFallbackUnit Value="Source"/>
+        <ValidatorArray value="KillerHasRavagingPhantom"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="RavagingPhantomExpireSet">
         <EditorCategories value=""/>
         <EffectArray value="RavagingPhantomExpire"/>
         <EffectArray value="Suicide"/>
@@ -10052,9 +10073,18 @@
         <ResponseFlags index="Acquire" value="1"/>
         <ImpactLocation Value="TargetUnit"/>
         <SearchFilters value="Heroic;Player,Ally,Neutral,Cloaked"/>
-        <AreaArray Radius="30" Effect="NeuralParasiteIssueOrder"/>
+        <AreaArray Radius="30" Effect="NeuralParasiteIssueOrderSet"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
+    <CEffectSet id="NeuralParasiteIssueOrderSet">
+        <EffectArray value="NeuralParasiteCreateDummyReveal"/>
+        <EffectArray value="NeuralParasiteIssueOrder"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="NeuralParasiteCreateDummyReveal">
+        <WhichLocation Value="CasterPoint"/>
+        <SpawnUnit value="NeuralParasiteRevealDummy"/>
+        <SpawnOwner Value="Neutral"/>
+    </CEffectCreateUnit>
     <CEffectUseCalldown id="Nuke">
         <CalldownCount value="0"/>
     </CEffectUseCalldown>
@@ -10067,6 +10097,12 @@
         <AINotifyFlags index="HurtEnemy" value="1"/>
         <Alert value="TacticalNuke"/>
     </CEffectCreatePersistent>
+    <CEffectCreateUnit id="NukeCreateRevealDummy">
+        <WhichLocation Value="TargetPoint"/>
+        <SpawnUnit value="NukeRevealDummy"/>
+        <SpawnOwner Value="Neutral"/>
+        <SpawnEffect value="NukePersistent"/>
+    </CEffectCreateUnit>
     <CEffectDamage id="NukeSuicide">
         <ImpactLocation Value="TargetPoint"/>
     </CEffectDamage>
@@ -10132,14 +10168,13 @@
         <Count value="1"/>
         <Chance value="0.33"/>
     </CEffectRemoveBehavior>
-    <CEffectApplyBehavior id="SensoryConfusionApplyCloak">
-        <EditorCategories value=""/>
-        <Behavior value="SensoryConfusionCloak"/>
-        <WhichUnit Value="Caster"/>
-    </CEffectApplyBehavior>
-    <CEffectRemoveBehavior id="SensoryConfusionRemove">
+    <CEffectRemoveBehavior id="RavagingPhantomRemove">
         <EditorCategories value=""/>
         <BehaviorLink value="RavagingPhantomLevel1"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="RavagingPhantomTempestRemove">
+        <EditorCategories value=""/>
+        <BehaviorLink value="RavagingPhantomLevel1Tempest"/>
     </CEffectRemoveBehavior>
     <CEffectApplyBehavior id="ShockwaveBarrageApplyLevel1">
         <EditorCategories value=""/>
@@ -10471,12 +10506,14 @@
         <EditorCategories value=""/>
         <EffectArray value="SonicTrapLevel1Shockwave"/>
         <EffectArray value="SonicTrapApplyCount"/>
+        <EffectArray value="SonicCreateRevealDummy"/>
     </CEffectSet>
     <CEffectSet id="SonicTrapSetLevel2">
         <EditorCategories value=""/>
         <Marker Link="Effect/SonicTrapSetLevel1"/>
         <EffectArray value="SonicTrapLevel2Shockwave"/>
         <EffectArray value="SonicTrapApplyCount"/>
+        <EffectArray value="SonicCreateRevealDummy"/>
     </CEffectSet>
     <CEffectApplyBehavior id="SonicTrapLevel1Stun">
         <EditorCategories value=""/>

@@ -2070,6 +2070,10 @@ DocInfo/PatchNote167=- Charlie company (Easy company) escorts the Marines as all
 DocInfo/PatchNote168=- 50% of tank reinforcements will siege mode whenever the Marines are camping. (ThunderRazor)
 DocInfo/PatchNote169=- Corrected multiple mind link vision share (Niktos)
 DocInfo/PatchNote170=- Optimizations on handling unit limits (Niktos)
+DocInfo/PatchNote171=- Increased AC ambient spawns by 50% (stanK)
+DocInfo/PatchNote172=- Corrected an inconsistency in baneling/blindling spawns from infestor ai trigger.(ThunderRazor)
+DocInfo/PatchNote173=- Various optimizations (Niktos)
+DocInfo/PatchNote174=- UI optimization (ArcanePariah)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
@@ -3831,9 +3835,9 @@ MapInfo/Player06/Name=Marine 6
 MapInfo/Player07/Name=Marine 7
 MapInfo/Player08/Name=Marine 8
 MapInfo/Player09/Name=Apollo Survivors
-MapInfo/Player10/Name=Infested
+MapInfo/Player10/Name=Apollo Environment
 MapInfo/Player11/Name=Infested
-MapInfo/Player12/Name=Player 12
+MapInfo/Player12/Name=Infested
 MapInfo/Player13/Name=Infested
 MapInfo/Player14/Name=Infested
 MapInfo/Player15/Name=Hostile
@@ -3865,7 +3869,6 @@ Param/Expression/8261F9D4=+~A~ XP for Speed Bonus
 Param/Expression/A91F7F6B=~A~~B~~C~
 Param/Expression/ABAE731B=~A~/~B~
 Param/Expression/CB96C272=~A~ : ~B~
-Param/Expression/D329FBDC=~A~
 Param/Expression/D3BA9547=<s val="InfoPaneHeroRank">(~A~ awarded...)</s>
 Param/Expression/D7FE6A11=<s val="InfoPaneHeroRank">(~A~ awarded...)</s>
 Param/Expression/FC24AE7C=<s val="BriefingHanText">(~A~ Infestors remaining..)</s>
@@ -4175,7 +4178,6 @@ Param/Value/36A521CC=<s val="BriefingHanText">(Underground movement detected...)
 Param/Value/36CF9868=(Direct link established with IVAX unit...)
 Param/Value/36E0AE82=Items
 Param/Value/37082E92=There's a backup mainframe north of the Airlock perimeter. We'll shut HAL down there.
-Param/Value/371C5830=<n/></c>Hits Taken: <c val="FF0000">
 Param/Value/372C3780=TANAKA! We can't let you leave.
 Param/Value/373E7CF8=Some of them may be infected. There's no way to tell.
 Param/Value/3778460A=</c></s>
@@ -4530,7 +4532,6 @@ Param/Value/76C3D41C=Dome D is located South. I'm right with you.
 Param/Value/76F1B733=(Leto beckons the rebirth of Zeus..!)
 Param/Value/775CC70B=I will break its secrets. Watch my back.
 Param/Value/77A56ECC=The leak's sealed but we shouldn't linger here long. My rad meter's going crazy.
-Param/Value/77C36B7E=<n/></c>Magazines: <c val="F4D72B">
 Param/Value/77C447C6=<s val="BriefingHanText">(Airlock gates unlocked..)</s>
 Param/Value/77CE5292=Code 66 unlocked. Activating all auxilliary defenses...
 Param/Value/781216FF=Doctor, have you seen a man called Bergmann? He landed here a few days ago.
@@ -4750,7 +4751,6 @@ Param/Value/9D1AD2FF=Rescue Civilians in Apollo. Bring them to the Containment F
 Param/Value/9D226B1A=I'm...sorry...
 Param/Value/9D2C0E2F=Target neutralized.
 Param/Value/9D795DCA=Banelings are approaching!
-Param/Value/9D8902A7=<n/></c>Damage Taken: <c val="FF0000">
 Param/Value/9DAA9819=Get to the evac point!
 Param/Value/9DAEEBF7=We had to seal the main Airlock doors shut. Something's growing in there.
 Param/Value/9E09463D=You're crippled. A Medic can heal you with Surgical Laser.
@@ -4950,7 +4950,6 @@ Param/Value/C15230BC=Their numbers are dwindling. We've got through this.
 Param/Value/C1545F14=(Accessing communications log...)
 Param/Value/C16ADD41=Don't get hit! Tartarus will tear you a new one.
 Param/Value/C17E81A3=</c>) (<c val="F1D845">
-Param/Value/C1D141D3=</c>Kills: <c val="F4D72B">
 Param/Value/C21BD67D=<c val="0080FF">Saving Biometric ID for </c>
 Param/Value/C226EB8D=Retrieve Weapons & Ammo from Armory
 Param/Value/C22C6D9F=Bring the civilians to the Containment Facility east of here.
@@ -5321,6 +5320,10 @@ RequirementNode/Tooltip/LT3507390604SumCountUnitMobileInfantryFlamethrowerComple
 Righteousness Level 2=+1 armor for each unit damaged by Smite. Lasts 16 seconds.<n/><n/>"I shall walk down the road of shadow, the path of the wicked, the trail of damnation but I fear not for I stand as an unfaltering beacon to the lost for all those who have been cast down."
 Saline IV Level 2=Level 2 - Heals 40 HP instantly. Also removes 1 stack of Venom.
 Saline IV Level 3=Level 3 - Heals 60 HP instantly. Remove 1 stack of Venom and Open Wounds. Also heals Cripple when Repulse is active.
+ScoreValue/Name/DamageTaken=Damage Taken
+ScoreValue/Name/HitsTaken=Hits Taken
+ScoreValue/Name/MagazineCount=Magazine Count
+ScoreValue/Name/PlayerXP=Player XP
 SethPolarityNegative= <IMG path = "NOTD Generic Art/NOTD Negative Polarity.dds" height = "64" width = "64"/>
 SethPolarityPositive= <IMG path = "NOTD Generic Art/NOTD Positive Polarity.dds" height = "64" width = "64"/>
 Shoot To Maim Level 2=The Pathfinder uses precise aim in his attacks to cripple enemy targets, but in doing so, he no longer aims to ricochet his shots.<n/><n/>Level 2 - +20% damage, each Maim stack slows by 7.5%, maximum stack of 3

@@ -2014,10 +2014,10 @@
         <BehaviorArray index="1" Link="SharedExperience"/>
         <WeaponArray Link="VenomousFangs"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="Move" AbilCmd="move,Move"/>
-            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute"/>
-            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
-            <LayoutButtons index="3" removed="1"/>
+            <LayoutButtons index="0" Face="Move" AbilCmd="move,Move" Column="4"/>
+            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="1"/>
+            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="2"/>
+            <LayoutButtons index="3" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons index="4" removed="1"/>
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
@@ -6998,8 +6998,15 @@
         <BehaviorArray Link="SuicideBackup"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="AblativeScales" AbilCmd="255,0" Requirements="UseAblativeScales" Column="2"/>
-            <LayoutButtons index="6" Face="Stealth2" AbilCmd="StealthIvax,On"/>
+            <LayoutButtons index="5">
+                <Face value="AblativeScales"/>
+                <Type value="Passive"/>
+                <AbilCmd value="255,0"/>
+                <Requirements value="UseAblativeScales"/>
+                <Row value="2"/>
+                <Column value="2"/>
+            </LayoutButtons>
+            <LayoutButtons index="6" Face="Stealth2" Type="AbilCmd" AbilCmd="StealthIvax,On" Row="2" Column="0"/>
             <LayoutButtons>
                 <Face value="Bloodlust"/>
                 <Type value="AbilCmd"/>
@@ -7517,6 +7524,36 @@
         <Sight value="9"/>
         <BehaviorArray Link="ThermalSight"/>
         <BehaviorArray Link="FlareTimedLife"/>
+    </CUnit>
+    <CUnit id="SonicRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="10"/>
+        <BehaviorArray Link="SonicRevealTimed"/>
+    </CUnit>
+    <CUnit id="NukeRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="10"/>
+        <BehaviorArray Link="NukeRevealTimed"/>
+    </CUnit>
+    <CUnit id="NeuralParasiteRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="3"/>
+        <BehaviorArray Link="NeuralParasiteRevealTimed"/>
     </CUnit>
     <CUnit id="Shotgun" parent="ITEM">
         <Race value="Terr"/>
@@ -8398,6 +8435,8 @@
         <BehaviorArray Link="ForesightLevel2"/>
         <BehaviorArray Link="RavagingPhantomLevel1"/>
         <BehaviorArray Link="RavagingPhantomLevel2"/>
+        <BehaviorArray Link="RavagingPhantomLevel1Tempest"/>
+        <BehaviorArray Link="RavagingPhantomLevel2Tempest"/>
         <BehaviorArray Link="KittenBeacon"/>
         <BehaviorArray Link="RecruitDamageReduction"/>
         <BehaviorArray Link="Flashlight"/>
@@ -8500,10 +8539,10 @@
         <BehaviorArray index="1" Link="SharedExperience"/>
         <WeaponArray Link="NeedleClaws2"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="Move" AbilCmd="move,Move"/>
-            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute"/>
-            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
-            <LayoutButtons index="3" removed="1"/>
+            <LayoutButtons index="0" Face="Move" AbilCmd="move,Move" Column="4"/>
+            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="1"/>
+            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="2"/>
+            <LayoutButtons index="3" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons index="4" removed="1"/>
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
@@ -8559,7 +8598,7 @@
         <LifeStart value="45"/>
         <LifeMax value="45"/>
         <KillXP value="6"/>
-        <AbilArray index="3" removed="1"/>
+        <AbilArray index="3" Link="move"/>
         <AbilArray index="4" removed="1"/>
         <AbilArray index="5" removed="1"/>
         <TacticalAI value="Parasite2"/>

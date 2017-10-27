@@ -14,14 +14,13 @@
     <Frame type="Image" name="AilementBackgroundTemplate">
         <Height val="22"/>
         <Width val="22"/>
-        <Texture val="Assets\Textures\black.dds"/>
+        <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
         <TextureType val="HorizontalBorder"/>
         <BlendMode val="Add"/>
-        <Color val="176,176,176"/>
-
+		<CollapseLayout val="true"/>
         <Frame type="Image" name="AilmentImage" template="TeamStatus/AilementTemplate">
-            <Texture val="Assets\Textures\black.dds"/>
         </Frame>
+		<Visible val = "False" />
     </Frame>
 
     
@@ -95,28 +94,302 @@
 		</Frame>
 		
 		
+		<Frame type = "Frame" name = "AilmentContainer">
+			<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+			<Anchor side="Left" relative="$parent" pos="Min" offset="3"/>
+			<Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			
+			<Frame type="Image" name="Ailement01" template="TeamStatus/AilementBackgroundTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+				<Color val = "255,128,0"/>
+				<Frame type="Image" name="AilmentImage">
+					<Texture val = "Assets\Textures\btn-tips-fallenheroes.dds"/>
+				</Frame>
+			</Frame>
 
-        <Frame type="Image" name="Ailement01" template="TeamStatus/AilementBackgroundTemplate">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="3"/>
+			<Frame type="Image" name="Ailement02" template="TeamStatus/AilementBackgroundTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent/Ailement01" pos="Max" offset="0"/>
+				<Color val = "255,0,0"/>
+				<Frame type="Image" name="AilmentImage">
+					<Texture val = "Assets\Textures\btn-upgrade-zerg-enduringcorruption.dds"/>
+				</Frame>
+			</Frame>
+
+			<Frame type="Image" name="Ailement03" template="TeamStatus/AilementBackgroundTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent/Ailement02" pos="Max" offset="0"/>
+				<Color val = "128,255,0"/>
+				<Frame type="Image" name="AilmentImage">
+					<Texture val = "Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+				</Frame>
+				<Tooltip val = "@Behavior/Tooltip/Venom"/>
+			</Frame>
+
+			<Frame type="Image" name="Ailement04" template="TeamStatus/AilementBackgroundTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent/Ailement03" pos="Max" offset="0"/>
+				<Color val = "255,255,255"/>
+
+				<Frame type="Image" name="AilmentImage">
+					<Texture val = "Assets\Textures\btn-ability-zerg-leech.dds"/>
+				</Frame>
+			</Frame>
+			
+			<Frame type="Image" name="Ailement05" template="TeamStatus/AilementBackgroundTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent/Ailement04" pos="Max" offset="0"/>
+				<Color val = "0,255,255"/>
+				<Frame type="Image" name="AilmentImage">
+					<Texture val = "Assets\Textures\btn-ability-terran-emp-color.dds"/>
+				</Frame>
+			</Frame>
+			
+			<Frame type="Image" name="Ailement06" template="TeamStatus/AilementBackgroundTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent/Ailement05" pos="Max" offset="0"/>
+				<Color val = "255,0,255"/>
+				<Frame type="Image" name="AilmentImage">
+					<Texture val = "Assets\Textures\btn-ability-terran-tosh-mindblast.dds"/>
+				</Frame>
+			</Frame>
+			
+			<Frame type="Image" name="Ailement07" template="TeamStatus/AilementBackgroundTemplate">
+				<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+				<Anchor side="Left" relative="$parent/Ailement06" pos="Max" offset="0"/>
+				<Color val = "255,0,0"/>
+				<Frame type="Image" name="AilmentImage">
+					<Texture val = "Assets\Textures\btn-upgrade-zerg-airattacks-level3.dds"/>
+				</Frame>
+			</Frame>
+			
+		</Frame>
+        
+		<Frame type="UnitStatusValidatorAnimElement" name="ShowCripple">
+            <Anchor relative="$parent"/>
+            <Validator val="HasCripple"/>
+
+            <Animation name="Show">
+				<Event event="NoState" action="Reset"/>
+				<Event event="HasCripple" action="DirectionForward, Play"/>
+
+                <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement01">
+                    <Key type="Bool" time="0" value="False"/>
+                    <Key type="Bool" time="0" value="True"/>
+                </Controller>
+            </Animation>
         </Frame>
+		
+		<Frame type="UnitStatusValidatorAnimElement" name="ShowOpenWound">
+            <Anchor relative="$parent"/>
+            <Validator val="HasOpenWound"/>
 
-        <Frame type="Image" name="Ailement02" template="TeamStatus/AilementBackgroundTemplate">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/Ailement01" pos="Max" offset="0"/>
+            <Animation name="Show">
+				<Event event="NoState" action="Reset"/>
+				<Event event="HasOpenWound" action="DirectionForward, Play"/>
+
+                <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement02">
+                    <Key type="Bool" time="0" value="False"/>
+                    <Key type="Bool" time="0" value="True"/>
+                </Controller>
+            </Animation>
         </Frame>
+		
+		<Frame type="UnitStatusValidatorAnimElement" name="ShowVenom">
+            <Anchor relative="$parent"/>
+            <Validator val="HasVenom"/>
 
-        <Frame type="Image" name="Ailement03" template="TeamStatus/AilementBackgroundTemplate">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/Ailement02" pos="Max" offset="0"/>
+            <Animation name="Show">
+				<Event event="NoState" action="Reset"/>
+				<Event event="HasVenom" action="DirectionForward, Play"/>
+
+                <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement03">
+                    <Key type="Bool" time="0" value="False"/>
+                    <Key type="Bool" time="0" value="True"/>
+                </Controller>
+            </Animation>
         </Frame>
+		
+		<Frame type="UnitStatusValidatorAnimElement" name="ShowBlind">
+            <Anchor relative="$parent"/>
+            <Validator val="HasBlind"/>
 
-        <Frame type="Image" name="Ailement04" template="TeamStatus/AilementBackgroundTemplate">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/Ailement03" pos="Max" offset="0"/>
+            <Animation name="Show">
+				<Event event="NoState" action="Reset"/>
+				<Event event="HasBlind" action="DirectionForward, Play"/>
+
+                <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement04">
+                    <Key type="Bool" time="0" value="False"/>
+                    <Key type="Bool" time="0" value="True"/>
+                </Controller>
+            </Animation>
+        </Frame>
+		
+		<Frame type="UnitStatusValidatorAnimElement" name="ShowShortCircuit">
+            <Anchor relative="$parent"/>
+            <Validator val="HasShortCircuit"/>
+
+            <Animation name="Show">
+				<Event event="NoState" action="Reset"/>
+				<Event event="HasShortCircuit" action="DirectionForward, Play"/>
+
+                <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement05">
+                    <Key type="Bool" time="0" value="False"/>
+                    <Key type="Bool" time="0" value="True"/>
+                </Controller>
+            </Animation>
+        </Frame>
+		
+		<Frame type="UnitStatusValidatorAnimElement" name="ShowMadness">
+            <Anchor relative="$parent"/>
+            <Validator val="HasMadness"/>
+
+            <Animation name="Show">
+				<Event event="NoState" action="Reset"/>
+				<Event event="HasMadness" action="DirectionForward, Play"/>
+
+                <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement06">
+                    <Key type="Bool" time="0" value="False"/>
+                    <Key type="Bool" time="0" value="True"/>
+                </Controller>
+            </Animation>
+        </Frame>
+		
+		<Frame type="UnitStatusValidatorAnimElement" name="ShowInfection">
+            <Anchor relative="$parent"/>
+            <Validator val="HasInfection"/>
+
+            <Animation name="Show">
+				<Event event="NoState" action="Reset"/>
+				<Event event="HasInfection" action="DirectionForward, Play"/>
+
+                <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement07">
+                    <Key type="Bool" time="0" value="False"/>
+                    <Key type="Bool" time="0" value="True"/>
+                </Controller>
+            </Animation>
         </Frame>
     </Frame>
 
+	
+	 <Frame type="StandardTooltip" name="StatsTooltip">
+			
+			<MinHeight val = "130" />
+			<MaxWidth val="300"/>
+			<MinWidth val="200"/>
+			<Insets top="15" left="15" bottom="15" right="15"/>
+			<Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardBorderTooltipGame">
+				<Anchor relative="$parent"/>
+			</Frame>
+            <Frame type="Label" name="Label">
+                <Anchor relative="$parent"/>
+            </Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+				<Anchor relative="$parent" offset = "-15"/>
+
+				<PlayerId val = "1"/>
+				<Frame type="Label" name="Kills">
+					<Anchor side="Top" pos="Min" offset="0" relative="$parent" />
+					<Anchor side="Left" pos="Min" offset="0" relative="$parent" />
+					<Width val = "45" />
+					<Height val = "26" />
+					<Style val="@StandardTooltip"/>
+					<Color val = "80,234,241"/>
+					<Text val = "Kills: " />
+				</Frame>
+				
+				<Frame type="Label" name="Hits">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/Kills" />
+					<Anchor side="Left" pos="Min" offset="0" relative="$parent" />
+					<Width val = "100" />
+					<Height val = "26" />
+					<Style val="@StandardTooltip"/>
+					<Color val = "80,234,241"/>
+					<Text val = "Hits Taken: " />
+				</Frame>
+				
+				<Frame type="Label" name="Damage">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/Hits" />
+					<Anchor side="Left" pos="Min" offset="0" relative="$parent" />
+					<Width val = "140" />
+					<Height val = "26" />
+					<Style val="@StandardTooltip"/>
+					<Color val = "80,234,241"/>
+					<Text val = "Damage Taken: " />
+				</Frame>
+				
+				<Frame type="Label" name="Magazines">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/Damage" />
+					<Anchor side="Left" pos="Min" offset="0" relative="$parent" />
+					<Width val = "105" />
+					<Height val = "26" />
+					<Style val="@StandardTooltip"/>
+					<Color val = "80,234,241"/>
+					<Text val = "Magazines: " />
+				</Frame>
+				
+				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame0">
+					<Anchor side="Top" pos="Min" offset="0" relative="$parent" />
+					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Kills" />
+					<Width val = "50" />
+					<Height val = "26" />
+					<ScoreValueLink val="UnitsKilledCount"/>
+					<AddCommas val="False"/>
+					
+					<Frame type="Label" name="Label">
+						<Anchor relative="$parent"/>
+						<Style val="@@StandardTooltip"/>
+						<Color val="F4D72B"/>
+					</Frame>
+				</Frame>
+				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame1">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/ScoreValueFrame0" />
+					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Hits" />
+					<Width val = "50" />
+					<Height val = "26" />
+					<ScoreValueLink val="HitsTaken"/>
+					<AddCommas val="False"/>
+					
+					<Frame type="Label" name="Label">
+						<Anchor relative="$parent"/>
+						<Style val="@@StandardTooltip"/>
+						<Color val="FF0000"/>
+					</Frame>
+				</Frame>
+				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame2">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/ScoreValueFrame1" />
+					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Damage" />
+					<Width val = "50" />
+					<Height val = "26" />
+					<ScoreValueLink val="DamageTaken"/>
+					<AddCommas val="False"/>
+					
+					<Frame type="Label" name="Label">
+						<Anchor relative="$parent"/>
+						<Style val="@@StandardTooltip"/>
+						<Color val="F40000"/>
+					</Frame>
+				</Frame>
+				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame3">
+					<Anchor side="Top" pos="Max" offset="0" relative="$parent/ScoreValueFrame2" />
+					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Magazines" />
+					<Width val = "50" />
+					<Height val = "26" />
+					<ScoreValueLink val="MagazineCount"/>
+					<AddCommas val="False"/>
+					
+					<Frame type="Label" name="Label">
+						<Anchor relative="$parent"/>
+						<Style val="@@StandardTooltip"/>
+						<Color val="F4D72B"/>
+					</Frame>
+				</Frame>
+			</Frame>
+			
+        </Frame>
+		
     <Frame type="Frame" name="MarineStatusFrame">
         <Height val="94"/>
         <Width val="256"/>
@@ -127,6 +400,8 @@
             <Width val="78"/>
             <Height val="78"/>
         </Frame>
+		
+	
 
         <Frame type="Image" name="BorderImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -152,14 +427,6 @@
 			<Visible val = "false" />
         </Frame>
 
-        <Frame type="Label" name="PlayerName">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="12"/>
-            <Anchor side="Left" relative="$parent/StatusButton" pos="Max" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/UnitHealth" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Style val="HeaderExtendedTemplate"/>
-        </Frame>
-
         <Frame type="Image" name="RankIcon">
             <Width val="26"/>
             <Height val="26"/>
@@ -168,13 +435,33 @@
             <TextureType val="Normal"/>
         </Frame>
 
-        <Frame type="Label" name="PlayerXP">
+        <Frame type="Label" name="PlayerXPLabel">
             <Height val="26"/>
             <Anchor side="Top" relative="$parent/RankIcon" pos="Min" offset="6"/>
             <Anchor side="Left" relative="$parent/RankIcon" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Width val = "47"/>
             <Style val="PlayerXP"/>
+			<Text val = "XP: "/>
         </Frame>
+		
+		<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+			<Anchor side="Top" relative="$parent/PlayerXPLabel" pos="Min" offset="0"/>
+			<Anchor side="Left" relative="$parent/PlayerXPLabel" pos="Max" offset="0"/>
+			<Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+			<Height val="26"/>
+			<PlayerId val = "1"/>
+			<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame0">
+				<Anchor relative="$parent"/>
+				<ScoreValueLink val="PlayerXP"/>
+				<AddCommas val="False"/>
+				
+				<Frame type="Label" name="Label">
+					<Anchor relative="$parent"/>
+					<Style val="PlayerXP"/>
+					<Color val = "#FFFFFF"/>
+				</Frame>
+			</Frame>
+		</Frame>
 		
 		<Frame type="Label" name="LeaverLabel">
 			<Anchor  relative="$parent/UnitHealth" offset="0"/>
@@ -183,10 +470,15 @@
 			<Visible val = "false"/>
         </Frame>
 		
-		<Frame type ="Frame" name = "StatusToolTipFrame">
+       
+		
+		<Frame type = "Frame" name = "StatusToolTipFrame">
 			<Anchor relative="$parent/UnitHealth" offset="0"/>
 			<AcceptsMouse val = "true" />
 		</Frame>
+		
+
+		
 		
 		<Frame type = "Frame" name = "DeathLabelContainer">
 			<Anchor  relative="$parent/UnitHealth" offset="0"/>
@@ -199,7 +491,6 @@
 		</Frame>
 		
 		<Frame type = "PlayerFrame" name = "PlayerData">
-
 			<Anchor side="Top" relative="$parent" pos="Min" offset="12"/>
             <Anchor side="Left" relative="$parent/DoctorLabel" pos="Max" offset="0"/>
             <Anchor side="Bottom" relative="$parent/UnitHealth" pos="Min" offset="0"/>
@@ -207,6 +498,7 @@
 			
 			<Frame type="PlayerNameFrame" name="PlayerName">
 				<Anchor relative="$parent"/>
+				<ShowClanTag val = "false" />
 				<Frame type="Label" name="PlayerNameLabel">
 					<Style val="HeaderExtendedTemplate"/>
 					<Color val = "255,255,255" />
@@ -375,83 +667,130 @@
 		<Frame type = "Frame" name = "Marine1" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent" pos = "Min" offset = "35"/>
 			<Anchor side = "Left" relative = "$parent" pos = "Min" offset = "42"/>
+			<Frame type = "Frame" name = "StatusToolTipFrame">
+				<TooltipFrame val = "Player1StatsTooltip"/>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "1" />
 				</Frame>
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "1"/>
 			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine2" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine1" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "Frame" name = "StatusToolTipFrame">
+				<TooltipFrame val = "Player2StatsTooltip"/>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "2" />
 				</Frame>
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "2"/>
 			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine3" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine2" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "Frame" name = "StatusToolTipFrame">
+				<TooltipFrame val = "Player3StatsTooltip"/>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "3" />
 				</Frame>
-			</Frame>			
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "3"/>
+			</Frame>
+			
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine4" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine3" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "Frame" name = "StatusToolTipFrame">
+				<TooltipFrame val = "Player4StatsTooltip"/>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "4" />
 				</Frame>
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "4"/>
 			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine5" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine4" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "Frame" name = "StatusToolTipFrame">
+				<TooltipFrame val = "Player5StatsTooltip"/>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "5" />
 				</Frame>
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "5"/>
 			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine6" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine5" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "Frame" name = "StatusToolTipFrame">
+				<TooltipFrame val = "Player6StatsTooltip"/>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "6" />
 				</Frame>
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "6"/>
 			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine7" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine6" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "Frame" name = "StatusToolTipFrame">
+				<TooltipFrame val = "Player7StatsTooltip"/>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "7" />
 				</Frame>
+			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "7"/>
 			</Frame>
 		</Frame>
 		
 		<Frame type = "Frame" name = "Marine8" template = "TeamStatus/MarineStatusFrame">
 			<Anchor side = "Top" relative = "$parent/Marine7" pos = "Max" offset = "#StatusOffset"/>
 			<Anchor side = "Left" relative = "$parent/Marine1" pos = "Min" offset = "0"/>
+			<Frame type = "Frame" name = "StatusToolTipFrame">
+				<TooltipFrame val = "Player8StatsTooltip"/>
+			</Frame>
 			<Frame type = "PlayerFrame" name = "PlayerData">
 				<Frame type="PlayerNameFrame" name="PlayerName">
 					<PlayerId val = "8" />
 				</Frame>
 			</Frame>
+			<Frame type="PlayerScoreValueFrame" name="PlayerXP">
+				<PlayerId val = "8"/>
+			</Frame>
 		</Frame>
     </Frame>
-
-
 </Desc>
