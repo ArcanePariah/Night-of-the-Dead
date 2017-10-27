@@ -2106,7 +2106,6 @@ trigger gt_ExecuteMovespeedBonus;
 trigger gt_SupplyStation;
 trigger gt_LaserDesignator;
 trigger gt_Flare;
-trigger gt_RefresherResetCooldowns;
 trigger gt_FieldNexusRevokeSharedVision;
 trigger gt_FieldNexusShareVision;
 trigger gt_Synergy;
@@ -37714,38 +37713,6 @@ void gt_Flare_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Refresher - Reset Cooldowns
-//--------------------------------------------------------------------------------------------------
-bool gt_RefresherResetCooldowns_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv_reconHero;
-
-    // Variable Initialization
-    lv_reconHero = EventUnit();
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitAbilityReset(lv_reconHero, AbilityCommand("Sprint", 0), c_spendLocationAbility);
-    UnitAbilityReset(lv_reconHero, AbilityCommand("Escape", 0), c_spendLocationAbility);
-    UnitAbilityReset(lv_reconHero, AbilityCommand("Flare", 0), c_spendLocationAbility);
-    UnitAbilityReset(lv_reconHero, AbilityCommand("Execute", 0), c_spendLocationAbility);
-    UnitAbilityReset(lv_reconHero, AbilityCommand("LaserDesignator", 0), c_spendLocationAbility);
-    UnitAbilityReset(lv_reconHero, AbilityCommand("MassDesignate", 0), c_spendLocationAbility);
-    UnitAbilityReset(lv_reconHero, AbilityCommand("ReaperMK13", 0), c_spendLocationAbility);
-    UnitAbilityReset(lv_reconHero, AbilityCommand("SupplyStation", 0), c_spendLocationAbility);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_RefresherResetCooldowns_Init () {
-    gt_RefresherResetCooldowns = TriggerCreate("gt_RefresherResetCooldowns_Func");
-    TriggerAddEventUnitAbility(gt_RefresherResetCooldowns, null, AbilityCommand("Refresher", 0), c_unitAbilStageComplete, false);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Field Nexus - Revoke Shared Vision
 //--------------------------------------------------------------------------------------------------
 bool gt_FieldNexusRevokeSharedVision_Func (bool testConds, bool runActions) {
@@ -39532,7 +39499,6 @@ void InitTriggers () {
     gt_SupplyStation_Init();
     gt_LaserDesignator_Init();
     gt_Flare_Init();
-    gt_RefresherResetCooldowns_Init();
     gt_FieldNexusRevokeSharedVision_Init();
     gt_FieldNexusShareVision_Init();
     gt_Synergy_Init();
