@@ -1630,7 +1630,6 @@ unit gf_GiveMarineItem (int lp_player, string lp_item);
 int gf_GetEnhancementSlots (unit lp_hero);
 int gf_GetInventorySlots (unit lp_hero);
 void gf_EquipmentUpdateMarineWeightPointPerItem (int lp_ownerofEquipment, unit lp_item);
-void gf_HEAmmoBurnDamage (int lp_firingMarineOwner, unit lp_weapon);
 void gf_PlayerColorChange (int lp_buyingPlayer);
 void gf_CreatePet (int lp_owner, point lp_point);
 bool gf_BOInsigniaBought (int lp_owner);
@@ -3505,7 +3504,6 @@ void gf_AmmoUsage (int lp_player, unit lp_attackingUnit, int lp_reload, string l
     if ((gv_marineRounds[lp_player] <= 0) && (gv_reloading[lp_player] == false)) {
         Wait(0.3, c_timeGame);
         if ((gv_marineRounds[lp_player] <= 0) && (gv_reloading[lp_player] == false)) {
-            UnitIssueOrder(lp_attackingUnit, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
             UnitBehaviorAddPlayer(lp_attackingUnit, "InsufficientAmmoTimed", lp_player, 1);
         }
         Wait(0.7, c_timeGame);
@@ -3515,7 +3513,6 @@ void gf_AmmoUsage (int lp_player, unit lp_attackingUnit, int lp_reload, string l
                 gf_OutofAmmoMessage(lp_attackingUnit);
             }
             else {
-                UnitIssueOrder(lp_attackingUnit, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
                 gf_ReloadMagazine(lp_player, lp_attackingUnit, lp_reload, lp_weapon);
             }
         }
@@ -3965,11 +3962,11 @@ bool auto_gf_DeathDisplay_TriggerFunc (bool testConds, bool runActions) {
             }
         }
     }
-    else if (((lp_damageEffect == "StingerMK3DamageAllies") || (lp_damageEffect == "StingerMK3Damage") || (lp_damageEffect == "SatchelLevel1Damage") || (lp_damageEffect == "SatchelLevel2Damage") || (lp_damageEffect == "VultureSpiderMinesDamage"))) {
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (lv_baseMessage + StringExternal("Param/Value/4BBC15E6")));
-    }
     else if ((UnitGetOwner(lp_killer) == lp_playerNumber)) {
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (lv_baseMessage + StringExternal("Param/Value/0EC88977")));
+    }
+    else if (((lp_damageEffect == "StingerMK3DamageAllies") || (lp_damageEffect == "StingerMK3Damage") || (lp_damageEffect == "HellfireMissleDamageEnemies") || (lp_damageEffect == "SatchelLevel1Damage") || (lp_damageEffect == "SatchelLevel2Damage") || (lp_damageEffect == "VultureSpiderMinesDamage") || (lp_damageEffect == "ArmageddonDamageFriendly") || (lp_damageEffect == "PlasmaDischargeDamageAllies") || (lp_damageEffect == "NukeDamage") || (lp_damageEffect == "Damage") || (lp_damageEffect == "GunshipSupportGaussCannonDamageAlly") || (lp_damageEffect == "InboundSicknessDamageFriendlyLevel1") || (lp_damageEffect == "InboundSicknessDamageFriendlyLevel2") || (lp_damageEffect == "ScorchedEarthDamage"))) {
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (lv_baseMessage + StringExternal("Param/Value/4BBC15E6")));
     }
     else if (true) {
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (lv_baseMessage + StringExternal("Param/Value/3331F97F")));
@@ -9710,26 +9707,6 @@ void gf_EquipmentUpdateMarineWeightPointPerItem (int lp_ownerofEquipment, unit l
     else {
         gv_marineWeightPoints[lp_ownerofEquipment] = (gv_marineWeightPoints[lp_ownerofEquipment] + FixedToInt(UserDataGetFixed("ItemWeights", UserDataInstance("ItemWeights", lv_index), "Weight", 1)));
     }
-}
-
-void gf_HEAmmoBurnDamage (int lp_firingMarineOwner, unit lp_weapon) {
-    // Variable Declarations
-    fixed lv_weaponDamage;
-    string lv_weaponType;
-
-    // Variable Initialization
-    lv_weaponType = UnitGetType(lp_weapon);
-
-    // Implementation
-    IntLoopBegin(1, UserDataInstanceCount("ItemWeights"));
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        if ((lv_weaponType == UserDataGetGameLink("ItemWeights", UserDataInstance("ItemWeights", IntLoopCurrent()), "Item", 1))) {
-            lv_weaponDamage = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, UserDataGetGameLink("ItemWeights", UserDataInstance("ItemWeights", IntLoopCurrent()), "Weapon Damage Effect", 1), "Amount", lp_firingMarineOwner));
-        }
-
-    }
-    IntLoopEnd();
-    CatalogFieldValueSet(c_gameCatalogEffect, "HEAmmoBurnDamage", "Amount", lp_firingMarineOwner, FixedToString((lv_weaponDamage * 0.05), c_fixedPrecisionAny));
 }
 
 void gf_PlayerColorChange (int lp_buyingPlayer) {
@@ -18206,7 +18183,6 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
 
     }
     UnitGroupLoopEnd();
-    TriggerEnable(gt_ECW1EnterMine, true);
     if ((RandomInt(0, 4) == 1)) {
         Wait(RandomFixed(4.0, 7.5), c_timeReal);
     }
@@ -35495,7 +35471,6 @@ bool gt_ItemGained_Func (bool testConds, bool runActions) {
         UnitGroupLoopEnd();
         if ((lv_noWeapon == true)) {
             UnitInventoryMove(EventUnitInventoryItem(), 2, 6);
-            gf_HEAmmoBurnDamage(lv_triggeringPlayer, EventUnitInventoryItem());
         }
 
     }
