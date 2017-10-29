@@ -14997,8 +14997,9 @@ bool gt_KarmaBite_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    gv_playerKarma[gv_griefingPlayer] = (gv_playerKarma[gv_griefingPlayer] - 25);
-    gv_playerXP[gv_griefingPlayer] = (gv_playerXP[gv_griefingPlayer] - 100);
+    gv_playerKarma[gv_griefingPlayer] -= 25;
+    gv_playerXP[gv_griefingPlayer] -= 100;
+    PlayerScoreValueSetFromInt(gv_griefingPlayer, "PlayerXP", gv_playerXP[gv_griefingPlayer]);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(gv_griefingPlayer) + StringExternal("Param/Value/548D875C")));
     TriggerExecute(gt_AutoSave, true, false);
     return true;
@@ -16483,6 +16484,7 @@ bool gt_VetPugGameBonus_Func (bool testConds, bool runActions) {
     for ( ; !IntLoopDone() ; IntLoopStep() ) {
         if ((gv_playerKarma[IntLoopCurrent()] >= FixedToInt((IntToFixed(gv_squadRating) * 1.1)))) {
             gv_playerXP[IntLoopCurrent()] += 1;
+            PlayerScoreValueSetFromInt(IntLoopCurrent(), "PlayerXP", gv_playerXP[IntLoopCurrent()]);
             gv_playerKarma[IntLoopCurrent()] += 1;
         }
 
