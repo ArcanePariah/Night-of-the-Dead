@@ -37592,17 +37592,17 @@ bool gt_SupplyStation_Func (bool testConds, bool runActions) {
     lv_totalRounds = (gv_playerRoundLimit[lv_ownerofMarine] * lv_localMarineMags);
     gv_marineRounds[lv_ownerofMarine] = MinI((gv_marineRounds[lv_ownerofMarine] + lv_supplyStationLevel), lv_totalRounds);
     gf_UpdateAmmoDialog(lv_ownerofMarine);
-    if ((gv_marineMags[lv_ownerofMarine] == 0) && (UnitHasBehavior(lv_effectTarget, "Reload") == false)) {
-        if ((((UnitWeaponGet(lv_effectTarget, 1) == "StingerMK3") && (gv_marineRounds[lv_ownerofMarine] >= 10)))) {
-            UnitAbilityEnable(lv_effectTarget, "attack", true);
+    if ((UnitHasBehavior(lv_effectTarget, "Reload") == false) && (UnitHasBehavior(lv_effectTarget, "InsufficientAmmo") == true)) {
+        if ((UnitWeaponGet(lv_effectTarget, 1) == "StingerMK3") && (gv_marineRounds[lv_ownerofMarine] >= 10)) {
+            UnitBehaviorRemovePlayer(lv_effectTarget, "InsufficientAmmo", lv_ownerofMarine, 1);
         }
-
-        if ((gv_marineRounds[lv_ownerofMarine] >= 3)) {
-            UnitAbilityEnable(lv_effectTarget, "L3LaunchGrenade", true);
+        if ((UnitWeaponGet(lv_effectTarget, 1) == "L3GrenadeLauncher") && (gv_marineRounds[lv_ownerofMarine] >= 5)) {
+            UnitBehaviorRemovePlayer(lv_effectTarget, "InsufficientAmmo", lv_ownerofMarine, 1);
         }
-
+        if ((gv_marineMags[lv_ownerofMarine] == 0) && (gv_marineRounds[lv_ownerofMarine] >= 1) && (!((UnitWeaponGet(lv_effectTarget, 1) == "StingerMK3") || (UnitWeaponGet(lv_effectTarget, 1) == "L3GrenadeLauncher")))) {
+            UnitBehaviorRemovePlayer(lv_effectTarget, "InsufficientAmmo", lv_ownerofMarine, 1);
+        }
     }
-
     return true;
 }
 
