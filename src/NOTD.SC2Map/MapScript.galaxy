@@ -15071,12 +15071,13 @@ bool gt_PetLevelUp_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if (((UnitGetPropertyFixed(lv_levelingUnit, c_unitPropLevel, c_unitPropCurrent) < 7.0) || ((UnitGetPropertyFixed(lv_levelingUnit, c_unitPropLevel, c_unitPropCurrent) >= 7.0) && (UnitGetPropertyFixed(lv_levelingUnit, c_unitPropLevel, c_unitPropCurrent) < 12.0)) || ((UnitGetPropertyFixed(lv_levelingUnit, c_unitPropLevel, c_unitPropCurrent) == 12.0)))) {
+    if ((UnitGetPropertyFixed(lv_levelingUnit, c_unitPropLevel, c_unitPropCurrent) <= 12.0)) {
         UIDisplayMessage(PlayerGroupSingle(lv_ownerofLevelingUnit), c_messageAreaDebug, UserDataGetText("PredatorLevelUpText", "Predator", "Level Up Texts", (FixedToInt(UnitGetPropertyFixed(lv_levelingUnit, c_unitPropLevel, c_unitPropCurrent)) - 1)));
     }
 
     if ((UnitGetPropertyFixed(lv_levelingUnit, c_unitPropLevel, c_unitPropCurrent) == 10.0)) {
         gv_playerXP[lv_ownerofLevelingUnit] += 5;
+        PlayerScoreValueSetFromInt(lv_ownerofLevelingUnit, "PlayerXP", gv_playerXP[lv_ownerofLevelingUnit]);
         gv_playerRating[lv_ownerofLevelingUnit] += 1;
         gv_playerKarma[lv_ownerofLevelingUnit] += 1;
         UIDisplayMessage(PlayerGroupSingle(lv_ownerofLevelingUnit), c_messageAreaDebug, StringExternal("Param/Value/AA6FF1CB"));
@@ -15828,6 +15829,7 @@ bool gt_VictoryBonus_Func (bool testConds, bool runActions) {
                 gv_playerXP[IntLoopCurrent()] += ((gv_playerRating[IntLoopCurrent()] - 1500) / 100);
             }
 
+            PlayerScoreValueSetFromInt(IntLoopCurrent(), "PlayerXP", gv_playerXP[IntLoopCurrent()]);
             gf_WinUpdate(IntLoopCurrent(), lv_nMSpeed, lv_speed);
         }
 
@@ -27180,9 +27182,10 @@ bool gt_ACW9ChaseDrTanakaPoisonGas_Func (bool testConds, bool runActions) {
         for (autoD7DCD782_i = 1; autoD7DCD782_i <= autoD7DCD782_n; autoD7DCD782_i += 1) {
             libNtve_gf_UnitCreateFacingPoint(2, "ZombieLevel1", 0, 14, RegionRandomPoint(gv_bioDomeSpawn[RandomInt(1, 4)]), RegionRandomPoint(RegionFromId(29)));
             libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
-            UnitSetState(UnitGroupLoopCurrent(), c_unitStateStatusBar, false);
+            UnitSetState(UnitLastCreated(), c_unitStateStatusBar, false);
             Wait(0.2, c_timeReal);
             UnitCreate(1, "Parasite", 0, 14, RegionRandomPoint(gv_bioDomeSpawn[RandomInt(1, 4)]), libNtve_gf_RandomAngle());
+            UnitSetState(UnitLastCreated(), c_unitStateStatusBar, false);
             libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
             Wait(0.2, c_timeReal);
         }
@@ -38343,6 +38346,7 @@ bool gt_MiniTKPenalty_Func (bool testConds, bool runActions) {
         gv_playerXP[lv_index] -= 100;
         gv_playerRating[lv_index] -= 100;
     }
+    PlayerScoreValueSetFromInt(lv_index, "PlayerXP", gv_playerXP[lv_index]);
     gf_Save(libNtve_gf_KillingPlayer(), gv_bankSize);
     return true;
 }
