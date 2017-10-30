@@ -32289,7 +32289,7 @@ bool gt_STW13CiviliansGoWild_Func (bool testConds, bool runActions) {
             libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
             Wait(0.1, c_timeGame);
             if ((RandomInt(0, 1) == 1)) {
-                libNtve_gf_UnitCreateFacingPoint(1, "Colonist2", 0, 0, RegionRandomPoint(gv_undergroundQuarters[RandomInt(1, 4)]), RegionRandomPoint(RegionPlayableMap()));
+                libNtve_gf_UnitCreateFacingPoint(1, "Colonist2", 0, 10, RegionRandomPoint(gv_undergroundQuarters[RandomInt(1, 4)]), RegionRandomPoint(RegionPlayableMap()));
             }
             else {
                 libNtve_gf_UnitCreateFacingPoint(1, "ColonistFemale2", 0, 10, RegionRandomPoint(gv_undergroundQuarters[RandomInt(1, 4)]), RegionRandomPoint(RegionPlayableMap()));
@@ -33111,7 +33111,7 @@ bool gt_STC3bThorPilot_Func (bool testConds, bool runActions) {
     int lv_rescuePlayer;
 
     // Variable Initialization
-    lv_thor = UnitGroupUnit(UnitGroup("InactiveDevastator", 0, RegionCircle(RegionGetCenter(EventUnitRegion()), 5.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
+    lv_thor = UnitGroupUnit(UnitGroup("InactiveDevastator", 10, RegionCircle(RegionGetCenter(EventUnitRegion()), 5.0), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1);
     lv_rescuePlayer = UnitGetOwner(EventUnit());
 
     // Conditions
