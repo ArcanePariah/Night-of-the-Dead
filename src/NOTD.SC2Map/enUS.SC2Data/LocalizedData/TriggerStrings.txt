@@ -711,6 +711,7 @@ ParamDef/Name/AA5DB8A9=Player
 ParamDef/Name/AB38F72C=TriggUnit
 ParamDef/Name/AC548C28=PlayerNo
 ParamDef/Name/ACCC9439=Weapon
+ParamDef/Name/AD5A0D52=Damage Taken
 ParamDef/Name/AD7FB429=Panel
 ParamDef/Name/ADEA4375=PlayerNo
 ParamDef/Name/AE0C2EFF=Value

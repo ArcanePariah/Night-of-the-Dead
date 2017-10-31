@@ -278,7 +278,7 @@
 			
 			<MinHeight val = "130" />
 			<MaxWidth val="300"/>
-			<MinWidth val="200"/>
+			<MinWidth val="220"/>
 			<Insets top="15" left="15" bottom="15" right="15"/>
 			<Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardBorderTooltipGame">
 				<Anchor relative="$parent"/>
@@ -289,7 +289,6 @@
 			<Frame type="PlayerScoreValueFrame" name="PlayerStats">
 				<Anchor relative="$parent" offset = "-15"/>
 
-				<PlayerId val = "1"/>
 				<Frame type="Label" name="Kills">
 					<Anchor side="Top" pos="Min" offset="0" relative="$parent" />
 					<Anchor side="Left" pos="Min" offset="0" relative="$parent" />
@@ -333,7 +332,7 @@
 				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame0">
 					<Anchor side="Top" pos="Min" offset="0" relative="$parent" />
 					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Kills" />
-					<Width val = "50" />
+					<Width val = "80" />
 					<Height val = "26" />
 					<ScoreValueLink val="UnitsKilledCount"/>
 					<AddCommas val="False"/>
@@ -347,7 +346,7 @@
 				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame1">
 					<Anchor side="Top" pos="Max" offset="0" relative="$parent/ScoreValueFrame0" />
 					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Hits" />
-					<Width val = "50" />
+					<Width val = "70" />
 					<Height val = "26" />
 					<ScoreValueLink val="HitsTaken"/>
 					<AddCommas val="False"/>
@@ -361,7 +360,7 @@
 				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame2">
 					<Anchor side="Top" pos="Max" offset="0" relative="$parent/ScoreValueFrame1" />
 					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Damage" />
-					<Width val = "50" />
+					<Width val = "60" />
 					<Height val = "26" />
 					<ScoreValueLink val="DamageTaken"/>
 					<AddCommas val="False"/>
@@ -375,7 +374,7 @@
 				<Frame type="ScoreValueLabelFrame" name="ScoreValueFrame3">
 					<Anchor side="Top" pos="Max" offset="0" relative="$parent/ScoreValueFrame2" />
 					<Anchor side="Left" pos="Max" offset="0" relative="$parent/Magazines" />
-					<Width val = "50" />
+					<Width val = "60" />
 					<Height val = "26" />
 					<ScoreValueLink val="MagazineCount"/>
 					<AddCommas val="False"/>

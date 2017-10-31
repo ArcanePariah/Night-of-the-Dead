@@ -1522,7 +1522,7 @@ void gf_BadlyInjured (unit lp_injuredUnit);
 bool gf_AilmentResistanceCheck (unit lp_localUnitA);
 void gf_RankUp (int lp_player);
 void gf_UpdateHitCount (int lp_player);
-void gf_UpdateDamageTaken (int lp_player);
+void gf_UpdateDamageTaken (int lp_player, fixed lp_damageTaken);
 void gf_CreatePredator (int lp_player, point lp_creationLocation);
 void gf_DeathDisplay (string lp_damageEffect, int lp_playerNumber, unit lp_killer);
 void gf_DeathRating (unit lp_deadMarine, int lp_playerNumber);
@@ -3883,9 +3883,9 @@ void gf_UpdateHitCount (int lp_player) {
     PlayerScoreValueSetFromInt(lp_player, "HitsTaken", FixedToInt(gv_hitsTaken[lp_player]));
 }
 
-void gf_UpdateDamageTaken (int lp_player) {
+void gf_UpdateDamageTaken (int lp_player, fixed lp_damageTaken) {
     // Implementation
-    gv_playerDamageTaken[lp_player] += 1.0;
+    gv_playerDamageTaken[lp_player] += lp_damageTaken;
     PlayerScoreValueSetFromInt(lp_player, "DamageTaken", FixedToInt(gv_playerDamageTaken[lp_player]));
 }
 
@@ -14834,7 +14834,7 @@ bool gt_ReceivesDamage_Func (bool testConds, bool runActions) {
     if ((UnitGetPropertyFixed(lv_marine, c_unitPropShields, c_unitPropCurrent) <= 1.0)) {
         if ((EventUnitDamageEffect() != "MindLinkDamage") && (PlayerGroupHasPlayer(gv_marineSquad, EventUnitDamageSourcePlayer()) == false) && (EventUnitDamageEffect() != "LongboltMissileU") && (gv_gameOver == false)) {
             gf_UpdateHitCount(lv_playerIndex);
-            gf_UpdateDamageTaken(lv_playerIndex);
+            gf_UpdateDamageTaken(lv_playerIndex, lv_damageReceived);
         }
 
         if ((gv_distinguishedServiceMedalFailed == false) && (UnitGroupHasUnit(gv_marines, lv_marine) == true) && ((UnitGetType(lv_attacker) == "Baneling") || (UnitGetType(lv_attacker) == "Beastling"))) {
