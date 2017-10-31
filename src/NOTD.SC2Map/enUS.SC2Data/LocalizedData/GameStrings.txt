@@ -2078,6 +2078,7 @@ DocInfo/PatchNote175= - Ammo granted by supply station now correctly re-enables 
 DocInfo/PatchNote176= - Various minor optimizations (Niktos)
 DocInfo/PatchNote177= - UI optimizations (ArcanePariah)
 DocInfo/PatchNote178= - Outbreak mode added (stanK)
+DocInfo/PatchNote179= - Various small bug fixes from last patch
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
