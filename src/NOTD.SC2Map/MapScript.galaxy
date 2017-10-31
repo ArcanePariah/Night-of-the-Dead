@@ -26701,7 +26701,7 @@ bool gt_ACC2Initialize_Func (bool testConds, bool runActions) {
     Wait(5.5, c_timeReal);
     UnitCreate(1, "LaserRifle", 0, 10, RegionRandomPoint(RegionFromId(168)), libNtve_gf_RandomAngle());
     Wait(0.1, c_timeReal);
-    UnitCreate(1, "M5PulseRifle", 0, 10, RegionRandomPoint(RegionFromId(168)), libNtve_gf_RandomAngle());
+    UnitCreate(1, "UA420AssaultRifle", 0, 10, RegionRandomPoint(RegionFromId(168)), libNtve_gf_RandomAngle());
     TriggerExecute(gt_ACC2ItemSpawn, true, false);
     gf_MarineSpeechNOTD(gv_ltSheng, StringExternal("Param/Value/781216FF"));
     Wait(5.0, c_timeReal);
