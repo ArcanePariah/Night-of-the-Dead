@@ -9218,76 +9218,40 @@ void gf_SurvivalEnvironmentalChanges () {
 
 bool auto_gf_SurvivalEnvironmentalChanges_TriggerFunc (bool testConds, bool runActions) {
     // Implementation
-    UnitIssueOrder(UnitFromId(197), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
-    UnitGroupLoopBegin(UnitGroup(null, 10, RegionFromId(24), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
+    UnitGroupIssueOrder(UnitGroupFromId(4), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
+    UnitGroupLoopBegin(UnitGroupFromId(5));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "PathingBlocker1x1")) {
-            UnitRemove(UnitGroupLoopCurrent());
-        }
-
-    }
-    UnitGroupLoopEnd();
-    UnitIssueOrder(UnitFromId(828), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
-    UnitGroupLoopBegin(UnitGroup(null, 10, RegionFromId(91), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "PathingBlocker1x1")) {
-            UnitRemove(UnitGroupLoopCurrent());
-        }
-
+        UnitRemove(UnitGroupLoopCurrent());
     }
     UnitGroupLoopEnd();
     UnitIssueOrder(UnitFromId(620), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
-    UnitGroupLoopBegin(UnitGroup(null, 10, RegionFromId(11), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
+    UnitGroupLoopBegin(UnitGroup("PathingBlocker1x1", 10, RegionFromId(11), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "PathingBlocker1x1")) {
-            UnitRemove(UnitGroupLoopCurrent());
-        }
-
+        UnitRemove(UnitGroupLoopCurrent());
     }
     UnitGroupLoopEnd();
     UnitIssueOrder(UnitFromId(168), Order(AbilityCommand("DestructibleGateStraightHorizontalLowered", 0)), c_orderQueueReplace);
-    UnitGroupLoopBegin(UnitGroup(null, 10, RegionFromId(38), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
+    UnitGroupLoopBegin(UnitGroup("PathingBlocker1x1", 10, RegionFromId(38), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "PathingBlocker1x1")) {
-            UnitRemove(UnitGroupLoopCurrent());
-        }
-
-    }
-    UnitGroupLoopEnd();
-    UnitIssueOrder(UnitFromId(829), Order(AbilityCommand("DestructibleGateStraightHorizontalLowered", 0)), c_orderQueueReplace);
-    UnitGroupLoopBegin(UnitGroup(null, 10, RegionFromId(89), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "PathingBlocker1x1")) {
-            UnitRemove(UnitGroupLoopCurrent());
-        }
-
-    }
-    UnitGroupLoopEnd();
-    UnitIssueOrder(UnitFromId(827), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
-    UnitGroupLoopBegin(UnitGroup(null, 10, RegionFromId(90), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "PathingBlocker1x1")) {
-            UnitRemove(UnitGroupLoopCurrent());
-        }
-
+        UnitRemove(UnitGroupLoopCurrent());
     }
     UnitGroupLoopEnd();
     UnitIssueOrder(UnitFromId(2622), Order(AbilityCommand("DestructibleGateStraightHorizontalLowered", 0)), c_orderQueueReplace);
-    UnitGroupLoopBegin(UnitGroup(null, 10, RegionFromId(47), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
+    UnitGroupLoopBegin(UnitGroup("PathingBlocker1x1", 10, RegionFromId(47), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "PathingBlocker1x1")) {
-            UnitRemove(UnitGroupLoopCurrent());
-        }
-
+        UnitRemove(UnitGroupLoopCurrent());
     }
     UnitGroupLoopEnd();
     UnitIssueOrder(UnitFromId(287), Order(AbilityCommand("DestructibleGateStraightHorizontalLowered", 0)), c_orderQueueReplace);
-    UnitGroupLoopBegin(UnitGroup(null, 10, RegionFromId(2), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
+    UnitGroupLoopBegin(UnitGroup("PathingBlocker1x1", 10, RegionFromId(2), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "PathingBlocker1x1")) {
-            UnitRemove(UnitGroupLoopCurrent());
-        }
-
+        UnitRemove(UnitGroupLoopCurrent());
+    }
+    UnitGroupLoopEnd();
+    UnitIssueOrder(UnitFromId(229), Order(AbilityCommand("DestructibleGateStraightHorizontalLowered", 0)), c_orderQueueReplace);
+    UnitGroupLoopBegin(UnitGroup("PathingBlocker1x1", 10, RegionFromId(23), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitRemove(UnitGroupLoopCurrent());
     }
     UnitGroupLoopEnd();
     UnitKill(UnitFromId(1462));
@@ -34078,9 +34042,6 @@ bool gt_SurvivalInit_Func (bool testConds, bool runActions) {
     CameraSetBounds(PlayerGroupActive(), RegionPlayableMap(), true);
     SoundtrackStop(PlayerGroupActive(), c_soundtrackCategoryMusic, true);
     SoundtrackPlay(PlayerGroupActive(), c_soundtrackCategoryMusic, "Mission_MusicCue001", c_soundtrackCueAny, c_soundtrackIndexAny, true);
-    TriggerEnable(gt_Wave4EnterAirlockBackupGate, true);
-    TriggerEnable(gt_STW1EnterAirlockColonyGate, true);
-    TriggerExecute(gt_ACEnterSiteAlphaGate, false, false);
     TriggerEnable(gt_OM11Delta2, true);
     TriggerEnable(gt_OM3ArmoryTurrets, false);
     gv_survivalSpawnPoints[1].lv_region = RegionFromId(221);
