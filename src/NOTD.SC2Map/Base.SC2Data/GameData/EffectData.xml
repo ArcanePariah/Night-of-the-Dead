@@ -2120,14 +2120,14 @@
         <EditorCategories value=""/>
     </CEffectApplyBehavior>
     <CEffectCreateUnit id="RavagingPhantomSpawn">
+        <ValidatorArray value="KillerHasRavagingPhantom"/>
         <EditorCategories value=""/>
         <WhichLocation Value="SourceUnit"/>
         <Origin Value="CasterPoint"/>
         <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
-        <SpawnRange value="30"/>
         <SpawnEffect value="RavagingPhantomControl"/>
+        <SpawnRange value="30"/>
         <TypeFallbackUnit Value="Source"/>
-        <ValidatorArray value="KillerHasRavagingPhantom"/>
     </CEffectCreateUnit>
     <CEffectSet id="RavagingPhantomExpireSet">
         <EditorCategories value=""/>
@@ -2737,7 +2737,6 @@
     <CEffectDamage id="OSOKLevel2BarrettDamage" parent="DU_WEAP">
         <ValidatorArray value="HasBarrettEquipped"/>
         <EditorCategories value="Race:Terran"/>
-        <Marker Link="Effect/SnipeDamage"/>
         <ImpactLocation Value="TargetUnit"/>
         <ArmorReduction value="0"/>
         <Kind value="Ranged"/>
@@ -2746,7 +2745,6 @@
     </CEffectDamage>
     <CEffectDamage id="OSOKLevel3BarrettBossDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
-        <Marker Link="Effect/SnipeDamage2"/>
         <ImpactLocation Value="TargetUnit"/>
         <ArmorReduction value="0"/>
         <Kind value="Ranged"/>
@@ -2778,7 +2776,6 @@
     <CEffectDamage id="OSOKLevel3BarrettDamage" parent="DU_WEAP">
         <ValidatorArray value="HasBarrettEquipped"/>
         <EditorCategories value="Race:Terran"/>
-        <Marker Link="Effect/SnipeDamage"/>
         <ImpactLocation Value="TargetUnit"/>
         <ArmorReduction value="0"/>
         <Kind value="Ranged"/>
@@ -2814,7 +2811,6 @@
     <CEffectDamage id="OSOKLevel1BarrettDamage" parent="DU_WEAP">
         <ValidatorArray value="HasBarrettEquipped"/>
         <EditorCategories value="Race:Terran"/>
-        <Marker Link="Effect/SnipeDamage"/>
         <ImpactLocation Value="TargetUnit"/>
         <ArmorReduction value="0"/>
         <Kind value="Ranged"/>
