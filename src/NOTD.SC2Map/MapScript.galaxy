@@ -6370,19 +6370,19 @@ bool auto_gf_MineBossSeth_TriggerFunc (bool testConds, bool runActions) {
     UnitGroupAdd(gv_mineShaftMobs, UnitLastCreated());
     SoundPlay(SoundLink("TTychus05TaldarimExecutor00040", -1), PlayerGroupAll(), 100.0, 0.0);
     if ((gv_alivePlayers <= 3)) {
-        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropNormal) * 0.65));
+        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropCurrent) * 0.65));
     }
     else if ((gv_alivePlayers == 4)) {
-        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropNormal) * 0.75));
+        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropCurrent) * 0.75));
     }
     else if ((gv_alivePlayers == 5)) {
-        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropNormal) * 0.8));
+        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropCurrent) * 0.8));
     }
     else if ((gv_alivePlayers == 6)) {
-        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropNormal) * 0.85));
+        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropCurrent) * 0.85));
     }
     else if ((gv_alivePlayers == 7)) {
-        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropNormal) * 0.9));
+        UnitSetPropertyFixed(gv_zeus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_zeus, c_unitPropLifeMax, c_unitPropCurrent) * 0.9));
     }
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/C669D621"));
     Wait(5.0, c_timeGame);
@@ -19554,12 +19554,9 @@ bool gt_Boss1SpawnCinematic_Func (bool testConds, bool runActions) {
     UnitSetState(gv_tartarus, c_unitStateStatusBar, false);
     libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
     if ((gv_alivePlayers <= 4)) {
-        UnitSetPropertyFixed(gv_tartarus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_tartarus, c_unitPropLifeMax, c_unitPropNormal) * 0.7));
-        UnitSetPropertyFixed(gv_tartarus, c_unitPropLife, (UnitGetPropertyFixed(gv_tartarus, c_unitPropLife, c_unitPropNormal) * 0.7));
+        UnitSetPropertyFixed(gv_tartarus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_tartarus, c_unitPropLifeMax, c_unitPropCurrent) * 0.7));
     }
-    else {
-        UnitBehaviorAdd(gv_tartarus, "Detector5", gv_tartarus, 1);
-    }
+
     gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_tartarus, ge_Ping_Enabled);
     TriggerEnable(gt_Boss1TartarusKilled, true);
     TriggerEnable(gt_Boss1CarapaceHardens33, true);
@@ -20008,8 +20005,7 @@ bool gt_Boss1bSpawn_Func (bool testConds, bool runActions) {
     gv_eilethyia = UnitLastCreated();
     libNtve_gf_MakeUnitInvulnerable(gv_eilethyia, true);
     if ((gv_alivePlayers <= 3)) {
-        UnitSetPropertyFixed(gv_eilethyia, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_eilethyia, c_unitPropLifeMax, c_unitPropNormal) * 0.7));
-        UnitSetPropertyFixed(gv_boss, c_unitPropLife, (UnitGetPropertyFixed(gv_eilethyia, c_unitPropLife, c_unitPropNormal) * 0.7));
+        UnitSetPropertyFixed(gv_eilethyia, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_eilethyia, c_unitPropLifeMax, c_unitPropCurrent) * 0.7));
     }
 
     UnitSetTeamColorIndex(gv_eilethyia, 14);
@@ -23625,20 +23621,20 @@ bool gt_Wave14Betrayal_Func (bool testConds, bool runActions) {
     gv_finalBoss = UnitLastCreated();
     if ((gv_noNewbie == false)) {
         libNtve_gf_AttachModelToUnit(gv_finalBoss, "BriefingUnitSelectLargeRed", "Ref_Center");
-        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropNormal) * 0.8));
+        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropCurrent) * 0.8));
     }
 
     if ((gv_alivePlayers <= 4)) {
-        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropNormal) * 0.65));
+        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropCurrent) * 0.65));
     }
     else if ((gv_alivePlayers == 5)) {
-        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropNormal) * 0.75));
+        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropCurrent) * 0.75));
     }
     else if ((gv_alivePlayers == 6)) {
-        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropNormal) * 0.8));
+        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropCurrent) * 0.8));
     }
     else if ((gv_alivePlayers == 7)) {
-        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropNormal) * 0.95));
+        UnitSetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_finalBoss, c_unitPropLifeMax, c_unitPropCurrent) * 0.95));
     }
     UnitGroupAdd(gv_zombieWave, gv_finalBoss);
     UnitSetPropertyFixed(gv_finalBoss, c_unitPropMovementSpeed, 0.3);
