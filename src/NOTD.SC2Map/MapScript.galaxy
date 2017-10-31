@@ -33922,7 +33922,10 @@ bool gt_STW16bBossPhase1Death_Func (bool testConds, bool runActions) {
     gv_currentBoss = "Hades Phase 2";
     gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_finalBoss, ge_Ping_Disabled);
     TriggerEnable(gt_STW16bBossExecuted, true);
-    gf_CreateItemLocalNOTD("Medpack", 5, RegionFromId(196));
+    if ((gv_navyCrossMode == false)) {
+        gf_CreateItemLocalNOTD("Medpack", 5, RegionFromId(196));
+    }
+
     Wait(3.0, c_timeReal);
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/ACB8A4E6"));
     libNtve_gf_PauseUnit(gv_finalBoss, false);
