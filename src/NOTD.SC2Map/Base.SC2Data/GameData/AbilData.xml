@@ -2749,10 +2749,11 @@
         <Flags index="ReExecutable" value="1"/>
         <Flags index="RequireTargetVision" value="0"/>
         <Arc value="360"/>
-        <AutoCastFilters value="Heroic;Ally,Enemy,Massive"/>
+        <AutoCastFilters value="Heroic;-"/>
         <AutoCastRange value="1"/>
         <Range value="1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
+        <AutoCastValidatorArray value="CanHaveShields"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="IonCannonBeam">
         <EditorCategories value="AbilityorEffectType:Units"/>
