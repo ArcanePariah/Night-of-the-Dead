@@ -9473,7 +9473,7 @@ bool auto_gf_DisableAttackEquippingWeapons_TriggerFunc (bool testConds, bool run
     UnitBehaviorAdd(lv_inventoryHero, "WeaponSwitch", lv_inventoryHero, 1);
     Wait(lv_boltPullWait, c_timeGame);
     if ((gv_reloading[lp_inventoryOwner] == false)) {
-        if ((((lp_equipment == "StingerMK3") && (gv_marineRounds[lp_inventoryOwner] < 10)) || ((lp_equipment == "L3GrenadeLauncher") && (gv_marineRounds[lp_inventoryOwner] < 3)) || (gv_marineRounds[lp_inventoryOwner] == 0))) {
+        if ((((lp_equipment == "StingerMK3") && (gv_marineRounds[lp_inventoryOwner] < 10)) || ((lp_equipment == "L3GrenadeLauncher") && (gv_marineRounds[lp_inventoryOwner] < 5)) || (gv_marineRounds[lp_inventoryOwner] == 0))) {
             UnitBehaviorAddPlayer(lv_inventoryHero, "InsufficientAmmo", lp_inventoryOwner, 1);
         }
         else {
