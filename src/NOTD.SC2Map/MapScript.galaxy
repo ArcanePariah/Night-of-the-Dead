@@ -27984,7 +27984,7 @@ bool gt_ACW12bComplianceNexus_Func (bool testConds, bool runActions) {
     }
     TriggerEnable(gt_NexusKillTracking, false);
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-    gf_AwardPlayerXPNOTD(3);
+    gf_AwardPlayerXPNOTD(4);
     Wait(2.0, c_timeReal);
     TriggerExecute(gt_ACW13AhiveRun, true, false);
     return true;
