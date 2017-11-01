@@ -15297,9 +15297,9 @@
         <On Terms="Behavior.Repulse.On" Send="SetTintColor {163,203,248 7.000000} 1.000000"/>
         <On Terms="Behavior.Repulse.Off" Send="ClearTintColor 3.000000"/>
         <On Terms="Abil.SalineIV.SourceCastStart" Send="AnimSetTimeScale Stand 1.500000"/>
-        <On Terms="Abil.Repulse.SourceCastStart" Send="AnimSetTimeScale SpellA 0.500000"/>
         <On Terms="Abil.SalineIV.SourceCastStart" Send="AnimBracketStart Stand Stand,Left {} {} ContentPlayOnce"/>
         <On Terms="Abil.Repulse.SourceCastStart" Send="AnimBracketStart SpellA Spell {} {} ContentPlayOnce"/>
+        <On Terms="Abil.Repulse.SourceCastStart" Send="AnimSetTimeScale SpellA 0.500000"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Stand"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Stand"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop SpellA"/>
