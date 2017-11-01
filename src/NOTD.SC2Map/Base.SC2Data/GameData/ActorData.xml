@@ -15481,7 +15481,7 @@
         <On Terms="Abil.Escape.SourceCastStart" Send="AnimBracketStart Escape Spell,A,Cover {} {} ContentPlayOnce"/>
         <On Terms="Abil.Escape.SourceCastStart" Send="AnimSetTimeScale Escape 1.250000"/>
         <On Terms="Abil.Refresher.SourceCastStart" Send="AnimBracketStart Refresher Spell,Cover {} {} ContentPlayOnce"/>
-        <On Terms="Abil.SupplyStation.SourceCastStart" Send="AnimSetTimeScale Refresher 1.500000"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="AnimSetTimeScale Refresher 1.500000"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Designate"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Designate"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Flare"/>
