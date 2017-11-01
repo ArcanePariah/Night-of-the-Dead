@@ -14172,6 +14172,22 @@
         <PlacementModel value="LightOmniRed"/>
         <HighlightTooltip value="Unit/Name/Bogus"/>
     </CActorUnit>
+    <CActorUnit id="ItemDummy" parent="GenericUnitBase" unitName="ItemDummy">
+        <EditorCategories value=""/>
+        <Model value="Invisible"/>
+    </CActorUnit>
+    <CActorUnit id="NeuralParasiteRevealDummy" parent="GenericUnitBase" unitName="NeuralParasiteRevealDummy">
+        <EditorCategories value=""/>
+        <Model value="Invisible"/>
+    </CActorUnit>
+    <CActorUnit id="NukeRevealDummy" parent="GenericUnitBase" unitName="NukeRevealDummy">
+        <EditorCategories value=""/>
+        <Model value="Invisible"/>
+    </CActorUnit>
+    <CActorUnit id="SonicRevealDummy" parent="GenericUnitBase" unitName="SonicRevealDummy">
+        <EditorCategories value=""/>
+        <Model value="Invisible"/>
+    </CActorUnit>
     <CActorUnit id="Engineer" parent="GenericUnitBase" unitName="Engineer">
         <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
         <On Terms="Effect.DutchConcussiveGrenadeLaunchMissile.Start; At Caster" Send="AnimPlay AttackRight Attack,Right"/>
