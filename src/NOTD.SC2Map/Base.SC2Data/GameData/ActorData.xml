@@ -1012,13 +1012,13 @@
         <On Terms="WeaponStart.*.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
         <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="Abil.SurgicalLaser.SourcePrepStart" Send="AnimBracketStart Surgical Attack,Superior {} {} ContentPlayOnce"/>
         <On Terms="Abil.SurgicalLaser.SourcePrepStart" Send="AnimSetTimeScale Surgical 2.000000"/>
+        <On Terms="Abil.Restoration.SourceCastStart" Send="AnimBracketStart Restoration Stand,Victory {} {} ContentPlayOnce"/>
         <On Terms="Abil.Restoration.SourceCastStart" Send="AnimSetTimeScale Restoration 3.000000"/>
         <On Terms="Abil.SurgicalLaser.SourceFinishStop" Send="AnimBracketStop Surgical"/>
         <On Terms="Abil.Restoration.SourceCastStart" Send="TimerSet 3.000000 Timer"/>
         <On Terms="TimerExpired; TimerName Timer" Send="AnimBracketStop Restoration"/>
-        <On Terms="Abil.SurgicalLaser.SourcePrepStart" Send="AnimBracketStart Surgical Attack,Superior {} {} ContentPlayOnce"/>
-        <On Terms="Abil.Restoration.SourceCastStart" Send="AnimBracketStart Restoration Stand,Victory {} {} ContentPlayOnce"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Surgical"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Surgical"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Restoration"/>
