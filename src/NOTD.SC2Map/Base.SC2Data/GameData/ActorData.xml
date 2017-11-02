@@ -2269,6 +2269,8 @@
         <On Terms="Effect.DominionKillTeamLM.Start; At Caster; IsStatus WeaponNext 1" Send="AnimPlay AttackRight Attack,01"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackLeft"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackRight"/>
+        <On Terms="Behavior.Reload.On" Send="AnimBracketStart Reload Fidget {} {} ContentPlayOnce"/>
+        <On Terms="Behavior.Reload.On" Send="AnimSetTimeScale Reload 1.250000"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop SpellA"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop SpellA"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Reload"/>
@@ -12213,6 +12215,8 @@
         <On Terms="UnitMovementUpdate.PsiOps.Walk" Send="AnimClear SnipeSpell"/>
         <On Terms="Abil.ForcePush.SourcePrepStart" Send="AnimBracketStart Force Stand,Work,Start Stand,Work,End"/>
         <On Terms="Abil.ForcePush.SourcePrepStart" Send="AnimSetTimeScale Force 2.200000"/>
+        <On Terms="Behavior.Reload.On" Send="AnimBracketStart Reload Fidget {} {} ContentPlayOnce"/>
+        <On Terms="Behavior.Reload.On" Send="AnimSetTimeScale Reload 1.250000"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Force"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Force"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Reload"/>
@@ -14142,6 +14146,8 @@
         <On Terms="Behavior.TimetoDie.Off" Send="ClearTintColor 3.000000"/>
         <On Terms="Behavior.TimetoDie.On" Send="SetScale 1.200000 1.000000"/>
         <On Terms="Behavior.TimetoDie.Off" Send="SetScale 1.000000 3.000000"/>
+        <On Terms="Behavior.Reload.On" Send="AnimBracketStart Reload Fidget {} {} ContentPlayOnce"/>
+        <On Terms="Behavior.Reload.On" Send="AnimSetTimeScale Reload 1.250000"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop SpellA"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop SpellA"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Reload"/>
