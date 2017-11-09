@@ -4418,6 +4418,7 @@
         <AutoCastFilters value="Visible;Player,Ally,Enemy"/>
         <AutoCastRange value="1"/>
         <AcquirePriority value="0"/>
+        <AutoCastValidatorArray value="EnergyFullCaster"/>
     </CAbilEffectInstant>
     <CAbilBehavior id="DefensivePlating">
         <EditorCategories value="AbilityorEffectType:Units"/>
