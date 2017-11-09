@@ -726,6 +726,7 @@ int[9] gv_spectatedDialog;
 int[9] gv_spectatedLabel;
 bool[9] gv_spectated;
 bool gv_navyCrossMode;
+bool gv_noRandoms;
 bool gv_outbreakActivated;
 int[9] gv_marineMags;
 int gv_magazineAdjustment;
@@ -1772,6 +1773,7 @@ trigger gt_ClassPointsCheck;
 trigger gt_WinsCheck;
 trigger gt_AmmoCheck;
 trigger gt_NavyCross;
+trigger gt_NoRandoms;
 trigger gt_NightmareMode;
 trigger gt_OutbreakCommand;
 trigger gt_SpectatorModeType;
@@ -10097,10 +10099,13 @@ bool auto_gf_ClassSelectionUI_TriggerFunc (bool testConds, bool runActions) {
         else {
             libNtve_gf_SetDialogItemTooltip(gv_classSelectionDialogItem[lv_index][8], UserDataGetText("Classes", UserDataGetUserInstance("StoryClassAssignments", UserDataInstance("StoryClassAssignments", gv_storyline), "Class", 8), "Locked Text", 1), PlayerGroupAll());
         }
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "Random");
-        gv_classSelectionDialogItem[lv_index][15] = DialogControlLastCreated();
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "RandomLabel");
-        gf_SetupClassSelection(lv_index, 15, DialogControlLastCreated());
+        if ((gv_noRandoms == false)) {
+            DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "Random");
+            gv_classSelectionDialogItem[lv_index][15] = DialogControlLastCreated();
+            DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "RandomLabel");
+            gf_SetupClassSelection(lv_index, 15, DialogControlLastCreated());
+        }
+
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "PlayerRankImage");
         libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("Ranks", UserDataInstance("Ranks", gv_playerRank[lv_index]), "Icon", 1), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "PlayerRankLabel");
@@ -14406,6 +14411,52 @@ void gt_NavyCross_Init () {
     TriggerAddEventChatMessage(gt_NavyCross, 1, "-nc", true);
     TriggerAddEventChatMessage(gt_NavyCross, 2, "-navycross", true);
     TriggerAddEventChatMessage(gt_NavyCross, 2, "-nc", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: No Randoms
+//--------------------------------------------------------------------------------------------------
+bool gt_NoRandoms_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_marine;
+    unit lv_inventoryItem;
+
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_noNewbie == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_noRandoms = true;
+    TriggerEnable(TriggerGetCurrent(), false);
+    PlayerGroupLoopBegin(gv_marineSquad);
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        if ((gv_classSelectionDialogItem[PlayerGroupLoopCurrent()][15] != c_invalidDialogControlId)) {
+            DialogControlSetVisible(gv_classSelectionDialogItem[PlayerGroupLoopCurrent()][15], PlayerGroupAll(), false);
+        }
+
+    }
+    PlayerGroupLoopEnd();
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/94F387F7"));
+    SoundPlay(SoundLink("TUISecret", -1), PlayerGroupAll(), 100.0, 0.0);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_NoRandoms_Init () {
+    gt_NoRandoms = TriggerCreate("gt_NoRandoms_Func");
+    TriggerAddEventChatMessage(gt_NoRandoms, 1, "-no rand", false);
+    TriggerAddEventChatMessage(gt_NoRandoms, 1, "-nr", true);
+    TriggerAddEventChatMessage(gt_NoRandoms, 2, "-no rand", false);
+    TriggerAddEventChatMessage(gt_NoRandoms, 2, "-nr", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -36277,6 +36328,7 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     DialogDestroy(gv_classSelectionDialog[lv_selectingPlayer]);
     if ((TriggerGetExecCount(TriggerGetCurrent()) == (gv_totalPlayers - 1))) {
         TriggerEnable(TriggerGetCurrent(), false);
+        TriggerEnable(gt_NoRandoms, false);
     }
 
     while ((lv_usedDialogItem != gv_classSelectionDialogItem[lv_selectingPlayer][lv_index])) {
@@ -36328,6 +36380,7 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     }
     else {
         if ((lv_usedDialogItem == gv_classSelectionDialogItem[lv_selectingPlayer][15])) {
+            TriggerEnable(gt_NoRandoms, false);
             lv_randomRange = gf_GetRandomRange(lv_selectingPlayer);
             auto986BF5E4_val = PlayerHandle(lv_selectingPlayer);
             if (auto986BF5E4_val == "1-S2-1-1143628") {
@@ -39282,6 +39335,7 @@ void InitTriggers () {
     gt_WinsCheck_Init();
     gt_AmmoCheck_Init();
     gt_NavyCross_Init();
+    gt_NoRandoms_Init();
     gt_NightmareMode_Init();
     gt_OutbreakCommand_Init();
     gt_SpectatorModeType_Init();

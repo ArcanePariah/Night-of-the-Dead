@@ -4709,6 +4709,7 @@ Param/Value/9480FDAF= vote kicked by
 Param/Value/949319EE=Communication's dead. We're on our own.
 Param/Value/94E85E61=You require 2,000 XP to Vote Kick
 Param/Value/94F0E7E3=We'll need some Thermals or Flares!
+Param/Value/94F387F7=<s val="InfoPaneHeroRank">No Randoms activated</s><n/>- Random class selection removed.
 Param/Value/956708A3=Keep gathering those samples.
 Param/Value/95849F48=+1 
 Param/Value/95989DA8=Download clearance codes from Comm Tower
