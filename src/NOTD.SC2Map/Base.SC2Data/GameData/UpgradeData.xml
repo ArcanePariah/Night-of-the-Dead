@@ -117,11 +117,11 @@
     <CUpgrade id="FlashFlareUpgrade">
         <Alert value=""/>
         <EffectArray Operation="Set" Reference="Effect,FlashFlareSearch,AreaArray[0].Effect[0]" Value="FlashFlareLevel2"/>
-        <EffectArray Operation="Set" Reference="Effect,Flare,InitialEffect[0]" Value="FlashFlareLevel2Search"/>
+        <EffectArray Operation="Set" Reference="Effect,FlareCreateRevealDummy,SpawnEffect[0]" Value="FlashFlareLevel2Search"/>
         <EffectArray Operation="Set" Reference="Button,Flare,Tooltip[0]" Value="Button/Tooltip/FlashFlareLevel2"/>
     </CUpgrade>
     <CUpgrade id="FlashFlare">
-        <EffectArray Operation="Set" Reference="Effect,Flare,InitialEffect[0]" Value="FlashFlareSearch"/>
+        <EffectArray Operation="Set" Reference="Effect,FlareCreateRevealDummy,SpawnEffect[0]" Value="FlashFlareSearch"/>
         <EffectArray Operation="Set" Reference="Button,Flare,Tooltip[0]" Value="Button/Tooltip/FlashFlareLevel1"/>
     </CUpgrade>
     <CUpgrade id="ForcePushLevel2">
@@ -214,12 +214,17 @@
     </CUpgrade>
     <CUpgrade id="SurveillanceFlare">
         <Alert value=""/>
-        <EffectArray Reference="Effect,Flare,RevealRadius[0]" Value="3"/>
-        <EffectArray Reference="Effect,Flare,ExpireDelay[0]" Value="2.000000"/>
+        <EffectArray Reference="Unit,FlareRevealDummy,Sight" Value="3"/>
+        <EffectArray Reference="Behavior,FlareRevealTimed,Duration[0]" Value="2.000000"/>
         <EffectArray Reference="Effect,FlashFlareSearch2,AreaArray[0].Radius[0]" Value="3"/>
         <EffectArray Reference="Effect,FlashFlareSearch,AreaArray[0].Radius[0]" Value="3"/>
-        <EffectArray Reference="Actor,FlareLighting,Scale" Value="5.000000"/>
+        <EffectArray Reference="Actor,FlareLighting,Scale" Value="3.5"/>
+        <EffectArray Reference="Actor,FlareCursorSplat,Scale" Value="3.75"/>
         <MaxLevel value="3"/>
+    </CUpgrade>
+    <CUpgrade id="SurveillanceFlareStarter">
+        <Alert value=""/>
+        <EffectArray Operation="Set" Reference="Actor,FlareCursorSplat,Scale" Value="4.0"/>
     </CUpgrade>
     <CUpgrade id="TrickShotLevel1">
         <EffectArray Operation="Set" Reference="Effect,P38ScytheGuassPistolBurst,PeriodicEffectArray[0]" Value="TrickShotFirstSet"/>
@@ -243,6 +248,11 @@
         <EffectArray index="5" removed="1"/>
         <EffectArray index="6" removed="1"/>
         <EffectArray index="7" removed="1"/>
+        <EffectArray index="8" removed="1"/>
+        <EffectArray index="9" removed="1"/>
+        <EffectArray index="10" removed="1"/>
+        <EffectArray index="11" removed="1"/>
+        <EffectArray index="12" removed="1"/>
     </CUpgrade>
     <CUpgrade id="Helium3IgniterLevel1" parent="HighCapacityBarrels">
         <Name value="Upgrade/Name/Helium3IgniterLevel1"/>
@@ -254,6 +264,11 @@
         <EffectArray index="5" removed="1"/>
         <EffectArray index="6" removed="1"/>
         <EffectArray index="7" removed="1"/>
+        <EffectArray index="8" removed="1"/>
+        <EffectArray index="9" removed="1"/>
+        <EffectArray index="10" removed="1"/>
+        <EffectArray index="11" removed="1"/>
+        <EffectArray index="12" removed="1"/>
     </CUpgrade>
     <CUpgrade id="LookLevel2">
         <EffectArray Operation="Set" Reference="Effect,LookPersistentOrder,PeriodicPeriodArray[2]" Value="1.000000"/>

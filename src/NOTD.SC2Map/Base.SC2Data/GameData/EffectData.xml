@@ -1676,10 +1676,13 @@
         <Abil value="FireUpGrenade"/>
         <AbilCmdIndex value="2"/>
     </CEffectIssueOrder>
-    <CEffectCreatePersistent id="Flare">
-        <RevealFlags index="Detect" value="1"/>
+    <CEffectCreateUnit id="FlareCreateRevealDummy">
+        <WhichLocation Value="TargetPoint"/>
+        <SpawnUnit value="FlareRevealDummy"/>
+        <SpawnOwner Value="Caster"/>
         <Alert value="Flare"/>
-    </CEffectCreatePersistent>
+        <CreateFlags index="Placement" value="0"/>
+    </CEffectCreateUnit>
     <CEffectApplyBehavior id="FocusedFire">
         <EditorCategories value="Race:Terran"/>
     </CEffectApplyBehavior>

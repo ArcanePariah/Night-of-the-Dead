@@ -2122,7 +2122,6 @@ trigger gt_Concentration;
 trigger gt_ExecuteMovespeedBonus;
 trigger gt_SupplyStation;
 trigger gt_LaserDesignator;
-trigger gt_Flare;
 trigger gt_RefresherResetCooldowns;
 trigger gt_FieldNexusRevokeSharedVision;
 trigger gt_FieldNexusShareVision;
@@ -11033,6 +11032,7 @@ bool auto_gf_ClassCreationMaster_TriggerFunc (bool testConds, bool runActions) {
         gf_UpdateAmmoDialog(lp_playerIndex);
     }
     else if ((UnitGetType(gv_marineHero[lp_playerIndex]) == "Spectre")) {
+        TechTreeUpgradeAddLevel(lp_player, "SurveillanceFlareStarter", 1);
         TechTreeAbilityAllow(lp_player, AbilityCommand("MassDesignate", 0), false);
         TriggerEnable(gt_Backstab, true);
     }
@@ -39912,47 +39912,6 @@ void gt_LaserDesignator_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Flare
-//--------------------------------------------------------------------------------------------------
-bool gt_Flare_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_reconOwner;
-    fixed lv_revealRadius;
-    fixed lv_revealDuration;
-    point lv_flareTargetPoint;
-
-    // Automatic Variable Declarations
-    playergroup auto3C4B9BFF_g;
-    int auto3C4B9BFF_var;
-
-    // Variable Initialization
-    lv_reconOwner = UnitGetOwner(EventUnit());
-    lv_revealRadius = CatalogFieldValueGetAsInt(c_gameCatalogEffect, "Flare", "RevealRadius", lv_reconOwner);
-    lv_revealDuration = CatalogFieldValueGetAsInt(c_gameCatalogEffect, "Flare", "ExpireDelay", lv_reconOwner);
-    lv_flareTargetPoint = EventUnitTargetPoint();
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    auto3C4B9BFF_g = gv_marineSquad;
-    auto3C4B9BFF_var = -1;
-    while (true) {
-        auto3C4B9BFF_var = PlayerGroupNextPlayer(auto3C4B9BFF_g, auto3C4B9BFF_var);
-        if (auto3C4B9BFF_var < 0) { break; }
-        VisRevealArea(auto3C4B9BFF_var, RegionCircle(lv_flareTargetPoint, lv_revealRadius), lv_revealDuration, false);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_Flare_Init () {
-    gt_Flare = TriggerCreate("gt_Flare_Func");
-    TriggerAddEventUnitAbility(gt_Flare, null, AbilityCommand("Flare", 0), c_unitAbilStageComplete, false);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Refresher - Reset Cooldowns
 //--------------------------------------------------------------------------------------------------
 bool gt_RefresherResetCooldowns_Func (bool testConds, bool runActions) {
@@ -41874,7 +41833,6 @@ void InitTriggers () {
     gt_ExecuteMovespeedBonus_Init();
     gt_SupplyStation_Init();
     gt_LaserDesignator_Init();
-    gt_Flare_Init();
     gt_RefresherResetCooldowns_Init();
     gt_FieldNexusRevokeSharedVision_Init();
     gt_FieldNexusShareVision_Init();
