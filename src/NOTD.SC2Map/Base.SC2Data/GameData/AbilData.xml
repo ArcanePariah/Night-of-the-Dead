@@ -547,7 +547,9 @@
     </CAbilMorph>
     <CAbilEffectTarget id="Flare">
         <EditorCategories value="AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Flare"/>
         <Flags index="RequireTargetVision" value="0"/>
+        <Effect index="0" value="FlareCreateRevealDummy"/>
         <Cost>
             <Vital index="Energy" value="20"/>
             <Cooldown TimeUse="3"/>
@@ -557,8 +559,6 @@
         <UninterruptibleArray index="Prep" value="1"/>
         <ValidatedArray index="Approach" value="0"/>
         <ValidatedArray index="Finish" value="1"/>
-        <CursorEffect value="Flare"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Flare"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="HurlBoulders">
         <EditorCategories value="AbilityorEffectType:Units"/>

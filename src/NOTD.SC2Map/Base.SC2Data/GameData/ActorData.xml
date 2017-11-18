@@ -155,10 +155,7 @@
         <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
     </CActorModel>
     <CActorMissile id="AcidMissile" parent="GenericAttackMissile" unitName="AcidMissile"/>
-    <CActorDoodad id="Antenna">
-        <NoFlyZoneSoftRadius value="0"/>
-        <NoFlyZoneHardRadius value="0"/>
-    </CActorDoodad>
+    <CActorDoodad id="Antenna"/>
     <CActorSound id="AntiVenomSound" parent="SoundOneShot">
         <Flags index="SuppressSaveLoad" value="0"/>
         <InheritType value="Continuous"/>
@@ -5475,6 +5472,10 @@
         <On Terms="Effect.ChewDamage.Start" Send="Create"/>
         <Sound value="ZukarGiantEel_What"/>
     </CActorSound>
+    <CActorUnit id="FlareRevealDummy" parent="GenericUnitBase" unitName="FlareRevealDummy">
+        <EditorCategories value=""/>
+        <Model value="Invisible"/>
+    </CActorUnit>
     <CActorModel id="FlareLighting" parent="ModelAddition">
         <Inherits index="BaseModelScale" value="0"/>
         <Inherits index="CastShadows" value="0"/>
@@ -5492,8 +5493,8 @@
         <AcceptedHostedPropTransfers index="TeamColor" value="0"/>
         <AcceptedHostedPropTransfers index="TintColor" value="0"/>
         <AcceptedHostedPropTransfers index="Visibility" value="0"/>
-        <On index="1" Terms="Effect.Flare.Start" Send="Create"/>
-        <On index="2" Terms="Effect.Flare.Stop" Send="Destroy"/>
+        <On index="1" Terms="Behavior.FlareRevealTimed.Create" Send="Create"/>
+        <On index="2" Terms="Behavior.FlareRevealTimed.Destroy" Send="Destroy"/>
         <Model value="LightOmniRed"/>
         <Scale value="3.000000"/>
         <ModelFlags index="IgnoreWalkables" value="1"/>
@@ -6319,10 +6320,10 @@
         <On index="65" Terms="AbilMorph.*.Start; AbilKey Root" Send="Create LargeBurrowDownEffects"/>
         <On index="66" Terms="AbilMorph.*.Start; AbilKey Root" Send="Create BurrowDownLarge"/>
         <On index="67" Terms="AbilMorph.*.Start; AbilKey Uproot" Send="Create LargeBurrowUpEffects"/>
-        <On index="68" Terms="AbilMorph.*.Start; AbilKey Uproot" Target="" Send="Create BurrowUpLarge"/>
+        <On index="68" Terms="AbilMorph.*.Start; AbilKey Uproot" Send="Create BurrowUpLarge"/>
         <On index="69" Terms="AbilMorph.*.Finish; MorphTo SpineCrawler" Send="AnimBracketStop Morph"/>
         <On index="70" Terms="AbilMorph.*.Finish; MorphTo SpineCrawler" Target="SpineCrawlerBurrowLoop" Send="Destroy"/>
-        <On index="71" Terms="AbilMorph.*.Cancel; MorphTo SpineCrawler" Target="SpineCrawlerBurrowLoop" Send="Destroy"/>
+        <On index="71" Terms="AbilMorph.*.Cancel; MorphTo SpineCrawler" Target="SpineCrawlerBurrowLoop"/>
         <On index="72" Terms="AbilMorph.*.Start; MorphFrom SpineCrawler" Send="AnimClear AttackEnd"/>
         <On index="73" Terms="AbilMorph.*.Finish; MorphTo SpineCrawler" Send="AnimBlendTimeApply 0.400000"/>
         <On index="74" Terms="Behavior.Enraged.On" Send="SetTintColor {255,0,0 5.000000} 5.000000"/>
@@ -6369,6 +6370,10 @@
         <On index="115" removed="1"/>
         <On index="116" removed="1"/>
         <On index="117" removed="1"/>
+        <On index="118" removed="1"/>
+        <On index="119" removed="1"/>
+        <On index="120" removed="1"/>
+        <On index="121" removed="1"/>
         <Scale value="2.000000"/>
         <EventDataFootprint index="0" Model="HadesTentacleFootprint"/>
         <DeathArray index="Normal" ModelLink="HadesTentacle" VoiceLink="HadesTentacleDeathVoice"/>
@@ -7260,6 +7265,10 @@
         <On index="70" removed="1"/>
         <On index="71" removed="1"/>
         <On index="72" removed="1"/>
+        <On index="73" removed="1"/>
+        <On index="74" removed="1"/>
+        <On index="75" removed="1"/>
+        <On index="76" removed="1"/>
     </CActorUnit>
     <CActorAction id="GuardianBladeAttack" parent="GenericAttack" effectAttack="PsiBlades">
         <On index="0" Terms="Effect.GuardianBladeDamage.Stop; FromEffectTreeDescendant" Send="ActionImpactPhysics"/>
@@ -7480,6 +7489,10 @@
         <On index="62" removed="1"/>
         <On index="63" removed="1"/>
         <On index="64" removed="1"/>
+        <On index="65" removed="1"/>
+        <On index="66" removed="1"/>
+        <On index="67" removed="1"/>
+        <On index="68" removed="1"/>
         <Scale value="0.450000,0.450000,0.400000"/>
         <DeathArray index="Normal" ModelLink="ArchonDeath" SoundLink="Archon_Explode" VoiceLink="ArchonDeathVoice"/>
         <DeathArray index="UnderConstruction" ModelLink="ProtossMediumUnitDeath" SoundLink="Archon_Explode"/>
@@ -7551,6 +7564,10 @@
         <On index="83" removed="1"/>
         <On index="84" removed="1"/>
         <On index="85" removed="1"/>
+        <On index="86" removed="1"/>
+        <On index="87" removed="1"/>
+        <On index="88" removed="1"/>
+        <On index="89" removed="1"/>
         <Macros value="Shrinker"/>
     </CActorUnit>
     <CActorSound id="Sound2" parent="SoundOneShot">
@@ -9069,6 +9086,10 @@
         <On index="64" removed="1"/>
         <On index="65" removed="1"/>
         <On index="66" removed="1"/>
+        <On index="67" removed="1"/>
+        <On index="68" removed="1"/>
+        <On index="69" removed="1"/>
+        <On index="70" removed="1"/>
         <Model value="NydusCanal"/>
         <Scale value="0.500000"/>
         <BuildModel value="NydusRumble"/>
@@ -14598,6 +14619,10 @@
         <On index="68" removed="1"/>
         <On index="69" removed="1"/>
         <On index="70" removed="1"/>
+        <On index="71" removed="1"/>
+        <On index="72" removed="1"/>
+        <On index="73" removed="1"/>
+        <On index="74" removed="1"/>
     </CActorUnit>
     <CActorUnit id="InfestedAbomination2" parent="GenericUnitBase" unitName="Erebos">
         <Macros value="ZergBurrowStandardAnimMacro"/>
@@ -15475,8 +15500,8 @@
         <On index="79" Terms="Behavior.SpectreCloakingFree.Off" Target="::PortraitGameSelf" Send="AnimBracketStop Visor"/>
         <On index="80" Terms="Abil.Refresher.SourceCastStart" Send="SetTintColor {141,163,245 10.000000}"/>
         <On index="81" Terms="Abil.Refresher.SourceCastStart" Send="TimerSet 4.000000 Timer"/>
-        <On index="82" Terms="TimerExpired; TimerName Timer" Target="" Send="ClearTintColor 3.000000"/>
-        <On index="83" Terms="Abil.CounterMeasures.SourceCastStart" Target="" Send="AnimBracketStart Grenade Attack {} {} ContentPlayOnce"/>
+        <On index="82" Terms="TimerExpired; TimerName Timer" Send="ClearTintColor 3.000000"/>
+        <On index="83" Terms="Abil.CounterMeasures.SourceCastStart" Send="AnimBracketStart Grenade Attack {} {} ContentPlayOnce"/>
         <On Terms="Abil.CounterMeasures.SourceCastStart" Send="AnimSetTimeScale Grenade 2.500000"/>
         <On Terms="Abil.LaserDesignator.SourceCastStart" Send="AnimBracketStart Designate Stand,Work,Start"/>
         <On Terms="Abil.LaserDesignator.SourceCastStart" Send="AnimSetTimeScale Designate 1.250000"/>
