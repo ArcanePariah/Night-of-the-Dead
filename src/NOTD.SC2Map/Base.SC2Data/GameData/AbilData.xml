@@ -3310,6 +3310,8 @@
         </Cost>
         <AINotifyEffect value="GunshipSupport"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="TX179Asgard"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
     <CAbilBehavior id="Helium3Igniter">
         <EditorCategories value="AbilityorEffectType:Units"/>
