@@ -3104,6 +3104,7 @@
         <WhichLocation Value="TargetPoint"/>
         <SpawnEffect value="KillsToCaster"/>
         <SpawnUnit value="ArmageddonBomb"/>
+        <ValidatorArray value="BuildPathing"/>
     </CEffectCreateUnit>
     <CEffectDamage id="ArmageddonDamage">
         <EditorCategories value=""/>
@@ -10093,6 +10094,7 @@
         <SpawnUnit value="NukeRevealDummy"/>
         <SpawnOwner Value="Neutral"/>
         <SpawnEffect value="NukePersistent"/>
+        <CreateFlags index="Placement" value="0"/>
     </CEffectCreateUnit>
     <CEffectDamage id="NukeSuicide">
         <ImpactLocation Value="TargetPoint"/>

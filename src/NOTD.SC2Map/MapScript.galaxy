@@ -38608,7 +38608,7 @@ bool gt_NapalmBarrage_Func (bool testConds, bool runActions) {
     auto89C324DD_n = lv_shellLimit;
     for (auto89C324DD_i = 1; auto89C324DD_i <= auto89C324DD_n; auto89C324DD_i += 1) {
         lv_randomPoint = RegionRandomPoint(RegionCircle(EventUnitTargetPoint(), 5.0));
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "NapalmFire", 0, lv_forwardObserverOwner, lv_randomPoint);
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "NapalmFire", c_unitCreateIgnorePlacement, lv_forwardObserverOwner, lv_randomPoint);
         gf_ArtilleryCamaraShake(lv_randomPoint);
         Wait(lv_barrageTimeInterval, c_timeGame);
     }
