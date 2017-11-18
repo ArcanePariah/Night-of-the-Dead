@@ -1012,13 +1012,13 @@
         <On Terms="WeaponStart.*.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
         <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="Abil.SurgicalLaser.SourcePrepStart" Send="AnimBracketStart Surgical Attack,Superior {} {} ContentPlayOnce"/>
         <On Terms="Abil.SurgicalLaser.SourcePrepStart" Send="AnimSetTimeScale Surgical 2.000000"/>
+        <On Terms="Abil.Restoration.SourceCastStart" Send="AnimBracketStart Restoration Stand,Victory {} {} ContentPlayOnce"/>
         <On Terms="Abil.Restoration.SourceCastStart" Send="AnimSetTimeScale Restoration 3.000000"/>
         <On Terms="Abil.SurgicalLaser.SourceFinishStop" Send="AnimBracketStop Surgical"/>
         <On Terms="Abil.Restoration.SourceCastStart" Send="TimerSet 3.000000 Timer"/>
         <On Terms="TimerExpired; TimerName Timer" Send="AnimBracketStop Restoration"/>
-        <On Terms="Abil.SurgicalLaser.SourcePrepStart" Send="AnimBracketStart Surgical Attack,Superior {} {} ContentPlayOnce"/>
-        <On Terms="Abil.Restoration.SourceCastStart" Send="AnimBracketStart Restoration Stand,Victory {} {} ContentPlayOnce"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Surgical"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Surgical"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Restoration"/>
@@ -2269,8 +2269,8 @@
         <On Terms="Effect.DominionKillTeamLM.Start; At Caster; IsStatus WeaponNext 1" Send="AnimPlay AttackRight Attack,01"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackLeft"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackRight"/>
-        <On Terms="Behavior.Reload.On" Send="AnimSetTimeScale Reload 1.250000"/>
         <On Terms="Behavior.Reload.On" Send="AnimBracketStart Reload Fidget {} {} ContentPlayOnce"/>
+        <On Terms="Behavior.Reload.On" Send="AnimSetTimeScale Reload 1.250000"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop SpellA"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop SpellA"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Reload"/>
@@ -6505,8 +6505,7 @@
     </CActorSiteMover>
     <CActorBeamSimple id="MentalProjectionBeam" parent="BeamSimpleAnimationStyleContinuous">
         <EditorCategories value=""/>
-        <On index="1" Terms="ActorCreation" Send="Create Impact7"/>
-        <On index="2" Terms="Effect.MentalProjectionDummyPersistent.Start" Send="Create"/>
+        <On index="1" Terms="Effect.MentalProjectionDummyPersistent.Start" Send="Create"/>
         <On Terms="ActorOrphan" Send="AnimBracketStop BSD"/>
         <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
         <On Terms="Effect.MentalProjectionDummyPersistent.Stop" Send="Destroy"/>
@@ -12216,8 +12215,8 @@
         <On Terms="UnitMovementUpdate.PsiOps.Walk" Send="AnimClear SnipeSpell"/>
         <On Terms="Abil.ForcePush.SourcePrepStart" Send="AnimBracketStart Force Stand,Work,Start Stand,Work,End"/>
         <On Terms="Abil.ForcePush.SourcePrepStart" Send="AnimSetTimeScale Force 2.200000"/>
+        <On Terms="Behavior.Reload.On" Send="AnimBracketStart Reload Fidget {} {} ContentPlayOnce"/>
         <On Terms="Behavior.Reload.On" Send="AnimSetTimeScale Reload 1.250000"/>
-        <On Terms="Behavior.Reload.On" Send="AnimBracketStart Reload Fidget,00 {} {} ContentPlayOnce"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Force"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Force"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Reload"/>
@@ -14147,8 +14146,8 @@
         <On Terms="Behavior.TimetoDie.Off" Send="ClearTintColor 3.000000"/>
         <On Terms="Behavior.TimetoDie.On" Send="SetScale 1.200000 1.000000"/>
         <On Terms="Behavior.TimetoDie.Off" Send="SetScale 1.000000 3.000000"/>
-        <On Terms="Behavior.Reload.On" Send="AnimSetTimeScale Reload 1.250000"/>
         <On Terms="Behavior.Reload.On" Send="AnimBracketStart Reload Fidget {} {} ContentPlayOnce"/>
+        <On Terms="Behavior.Reload.On" Send="AnimSetTimeScale Reload 1.250000"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop SpellA"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop SpellA"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Reload"/>
@@ -14178,6 +14177,22 @@
         <EditorModel value="LightOmniRed"/>
         <PlacementModel value="LightOmniRed"/>
         <HighlightTooltip value="Unit/Name/Bogus"/>
+    </CActorUnit>
+    <CActorUnit id="ItemDummy" parent="GenericUnitBase" unitName="ItemDummy">
+        <EditorCategories value=""/>
+        <Model value="Invisible"/>
+    </CActorUnit>
+    <CActorUnit id="NeuralParasiteRevealDummy" parent="GenericUnitBase" unitName="NeuralParasiteRevealDummy">
+        <EditorCategories value=""/>
+        <Model value="Invisible"/>
+    </CActorUnit>
+    <CActorUnit id="NukeRevealDummy" parent="GenericUnitBase" unitName="NukeRevealDummy">
+        <EditorCategories value=""/>
+        <Model value="Invisible"/>
+    </CActorUnit>
+    <CActorUnit id="SonicRevealDummy" parent="GenericUnitBase" unitName="SonicRevealDummy">
+        <EditorCategories value=""/>
+        <Model value="Invisible"/>
     </CActorUnit>
     <CActorUnit id="Engineer" parent="GenericUnitBase" unitName="Engineer">
         <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
@@ -15288,9 +15303,9 @@
         <On Terms="Behavior.Repulse.On" Send="SetTintColor {163,203,248 7.000000} 1.000000"/>
         <On Terms="Behavior.Repulse.Off" Send="ClearTintColor 3.000000"/>
         <On Terms="Abil.SalineIV.SourceCastStart" Send="AnimSetTimeScale Stand 1.500000"/>
-        <On Terms="Abil.Repulse.SourceCastStart" Send="AnimSetTimeScale SpellA 0.500000"/>
         <On Terms="Abil.SalineIV.SourceCastStart" Send="AnimBracketStart Stand Stand,Left {} {} ContentPlayOnce"/>
         <On Terms="Abil.Repulse.SourceCastStart" Send="AnimBracketStart SpellA Spell {} {} ContentPlayOnce"/>
+        <On Terms="Abil.Repulse.SourceCastStart" Send="AnimSetTimeScale SpellA 0.500000"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Stand"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Stand"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop SpellA"/>
@@ -15472,7 +15487,7 @@
         <On Terms="Abil.Escape.SourceCastStart" Send="AnimBracketStart Escape Spell,A,Cover {} {} ContentPlayOnce"/>
         <On Terms="Abil.Escape.SourceCastStart" Send="AnimSetTimeScale Escape 1.250000"/>
         <On Terms="Abil.Refresher.SourceCastStart" Send="AnimBracketStart Refresher Spell,Cover {} {} ContentPlayOnce"/>
-        <On Terms="Abil.SupplyStation.SourceCastStart" Send="AnimSetTimeScale Refresher 1.500000"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="AnimSetTimeScale Refresher 1.500000"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Designate"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimBracketStop Designate"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStop Flare"/>
