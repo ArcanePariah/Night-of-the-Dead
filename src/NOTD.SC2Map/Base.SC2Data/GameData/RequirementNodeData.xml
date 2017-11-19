@@ -2,8 +2,8 @@
 <Catalog>
     <CRequirementConst id="10">
         <Tooltip value=""/>
-        <Value value="10"/>
     </CRequirementConst>
+    <CRequirementConst id="3"/>
     <CRequirementAllowAbil id="AllowAbil180611996TechTreeCheat">
         <Flags index="TechTreeCheat" value="1"/>
         <Index value="1"/>
@@ -280,12 +280,10 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="StealthMatrixSelfCloakLevel1" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="StealthMatrixSelfCloakLevel2" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorWeaponSwitchCompleteOnly">
@@ -478,7 +476,6 @@
         <OperandArray index="1" value="3"/>
     </CRequirementEq>
     <CRequirementEq id="EqSumCountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCl4219168499">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="SumCountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloa1319847820"/>
         <OperandArray index="1" value="0"/>
     </CRequirementEq>
@@ -789,6 +786,20 @@
         <OperandArray index="0" value="CountBehaviorPistolEquippedCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradeFireUpCompleteOnly1">
+        <OperandArray index="0" value="CountUpgradeFireUpCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradeFireUpCompleteOnly2">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeFireUpCompleteOnly"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradeFireUpCompleteOnly3">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeFireUpCompleteOnly"/>
+        <OperandArray index="1" value="3"/>
+    </CRequirementGTE>
     <CRequirementGTE id="GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnitCountUpgradeAnionPulseCrystalsCompleteOnly1">
         <Tooltip value=""/>
         <OperandArray index="0" value="SumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnitCountUpgradeAnionPulseCrystalsCompleteOnly"/>
@@ -840,7 +851,6 @@
         <OperandArray value="CountBehaviorShadowstepCloakCompleteOnlyAtUnit"/>
     </CRequirementSum>
     <CRequirementSum id="SumCountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloa1319847820">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnit"/>

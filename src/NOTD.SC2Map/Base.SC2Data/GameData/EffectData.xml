@@ -1654,28 +1654,6 @@
         </TargetSorts>
         <AreaArray Radius="500" Effect="SuicideOther"/>
     </CEffectEnumArea>
-    <CEffectSet id="FireUpGrenades">
-        <EditorCategories value=""/>
-        <EffectArray value="FireUpGrenadesLevel1"/>
-        <EffectArray value="FireUpGrenadesLevel2"/>
-        <EffectArray value="FireUpGrenadesLevel3"/>
-    </CEffectSet>
-    <CEffectIssueOrder id="FireUpGrenadesLevel1">
-        <EditorCategories value=""/>
-        <Abil value="FireUpGrenade"/>
-    </CEffectIssueOrder>
-    <CEffectIssueOrder id="FireUpGrenadesLevel2">
-        <EditorCategories value=""/>
-        <Marker Link="Effect/FireUpGrenadesLevel1"/>
-        <Abil value="FireUpGrenade"/>
-        <AbilCmdIndex value="1"/>
-    </CEffectIssueOrder>
-    <CEffectIssueOrder id="FireUpGrenadesLevel3">
-        <EditorCategories value=""/>
-        <Marker Link="Effect/FireUpGrenadesLevel1"/>
-        <Abil value="FireUpGrenade"/>
-        <AbilCmdIndex value="2"/>
-    </CEffectIssueOrder>
     <CEffectCreateUnit id="FlareCreateRevealDummy">
         <WhichLocation Value="TargetPoint"/>
         <SpawnUnit value="FlareRevealDummy"/>
@@ -1683,6 +1661,28 @@
         <Alert value="Flare"/>
         <CreateFlags index="Placement" value="0"/>
     </CEffectCreateUnit>
+    <CEffectSet id="FireUpGrenadesOn">
+        <EffectArray value="FireUpGrenadesLevel1"/>
+        <EffectArray value="FireUpGrenadesLevel2"/>
+        <EffectArray value="FireUpGrenadesLevel3"/>
+    </CEffectSet>
+    <CEffectModifyPlayer id="FireUpGrenadesLevel1">
+        <Upgrades Upgrade="FireUpGrenadesLevel1" Count="1"/>
+        <ValidatorArray value="HaveFireUp1"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="FireUpGrenadesLevel2">
+        <Upgrades Upgrade="FireUpGrenadesLevel12" Count="1"/>
+        <ValidatorArray value="HaveFireUp2"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="FireUpGrenadesLevel3">
+        <Upgrades Upgrade="FireUpGrenadesLevel13" Count="1"/>
+        <ValidatorArray value="HaveFireUp3"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="FireUpGrenadesOff">
+        <Upgrades Upgrade="FireUpGrenadesLevel1" Count="-1"/>
+        <Upgrades Upgrade="FireUpGrenadesLevel12" Count="-1"/>
+        <Upgrades Upgrade="FireUpGrenadesLevel13" Count="-1"/>
+    </CEffectModifyPlayer>
     <CEffectApplyBehavior id="FocusedFire">
         <EditorCategories value="Race:Terran"/>
     </CEffectApplyBehavior>

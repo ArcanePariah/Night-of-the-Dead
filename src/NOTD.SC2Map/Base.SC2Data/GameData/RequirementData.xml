@@ -23,15 +23,6 @@
         <NodeArray index="Use" Link="EqCountAbilComingInHotCompleteOnlyAtUnit2"/>
         <NodeArray index="Show" Link="EqCountAbilComingInHotCompleteOnlyAtUnit2"/>
     </CRequirement>
-    <CRequirement id="FireUpGrenadesLevel1">
-        <NodeArray index="Use" Link="EqCountUpgradeFireUpCompleteOnly1"/>
-    </CRequirement>
-    <CRequirement id="FireUpGrenadesLevel2">
-        <NodeArray index="Use" Link="EqCountUpgradeFireUpCompleteOnly2"/>
-    </CRequirement>
-    <CRequirement id="FireUpGrenadesLevel3">
-        <NodeArray index="Use" Link="EqCountUpgradeFireUpCompleteOnly3"/>
-    </CRequirement>
     <CRequirement id="FlamerEquipped">
         <CanBeSuppressed index="Use" value="0"/>
         <NodeArray index="Use" Link="GTECountBehaviorFlamerEquippedCompleteOnly1"/>
@@ -483,5 +474,14 @@
     <CRequirement id="AmmoFeedLevel1">
         <NodeArray index="Use" Link="GTECountAbilAmmoFeedDummyCompleteOnlyAtUnitTechTreeCheat1"/>
         <NodeArray index="Show" Link="GTECountAbilAmmoFeedDummyCompleteOnlyAtUnitTechTreeCheat1"/>
+    </CRequirement>
+    <CRequirement id="HaveFireUp1">
+        <NodeArray index="Use" Link="GTECountUpgradeFireUpCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="HaveFireUp2">
+        <NodeArray index="Use" Link="GTECountUpgradeFireUpCompleteOnly2"/>
+    </CRequirement>
+    <CRequirement id="HaveFireUp3">
+        <NodeArray index="Use" Link="GTECountUpgradeFireUpCompleteOnly3"/>
     </CRequirement>
 </Catalog>

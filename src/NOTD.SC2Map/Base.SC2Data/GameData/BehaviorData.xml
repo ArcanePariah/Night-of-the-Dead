@@ -1061,7 +1061,8 @@
             <DamageDealtFraction index="Ranged" value="0.25"/>
             <DamageDealtFraction index="Splash" value="0.25"/>
         </Modification>
-        <InitialEffect value="FireUpGrenades"/>
+        <InitialEffect value="FireUpGrenadesOn"/>
+        <ExpireEffect value="FireUpGrenadesOff"/>
         <Tooltip value="Button/Tooltip/FocusedFire"/>
         <DamageResponse Chance="1" Location="Attacker"/>
     </CBehaviorBuff>

@@ -9830,6 +9830,7 @@ Requirement/Name/WeaponExpertiseLevel2=Weapon Expertise Level 2
 Requirement/Name/WeaponsProficiencyLevel1=Weapons Proficiency Level 1
 Requirement/Name/WeaponsProficiencyLevel2=Weapons Proficiency Level 2
 RequirementNode/Name/10=10
+RequirementNode/Name/3=3
 RequirementNode/Name/AllowAbil180611996TechTreeCheat=AllowAbil(,1){Research Stimpack at the Barracks Tech Lab}[TechTreeCheat]
 RequirementNode/Name/AllowAbilBurrowInfestedAbominationDown0=AllowAbil(BurrowInfestedAbominationDown,0)
 RequirementNode/Name/AllowAbilMassDesignate0=AllowAbil(MassDesignate,0)
@@ -10028,6 +10029,9 @@ RequirementNode/Name/GTECountAbilWeaponsProficiencyCompleteOnlyAtUnit1=CountAbil
 RequirementNode/Name/GTECountAbilWeaponsProficiencyCompleteOnlyAtUnit2=CountAbil(WeaponsProficiency,CompleteOnlyAtUnit) >= 2
 RequirementNode/Name/GTECountBehaviorFlamerEquippedCompleteOnly1=CountBehavior(FlamerEquipped,CompleteOnly) >= 1
 RequirementNode/Name/GTECountBehaviorPistolEquippedCompleteOnly1=CountBehavior(PistolEquipped,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradeFireUpCompleteOnly1=CountUpgrade(FireUp,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradeFireUpCompleteOnly2=CountUpgrade(FireUp,CompleteOnly) >= 2
+RequirementNode/Name/GTECountUpgradeFireUpCompleteOnly3=CountUpgrade(FireUp,CompleteOnly) >= 3
 RequirementNode/Name/GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnit1=(CountBehavior(StealthLevel1,CompleteOnlyAtUnit) + CountBehavior(StealthLevel2,CompleteOnlyAtUnit) + CountBehavior(EscapeCloakLevel1,CompleteOnlyAtUnit) + CountBehavior(EscapeCloakLevel2,CompleteOnlyAtUnit) + CountBehavior(CloakField,CompleteOnlyAtUnit) + CountBehavior(ShadowstepCloak,CompleteOnlyAtUnit)) >= 1
 RequirementNode/Name/GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnitCountUpgradeAnionPulseCrystalsCompleteOnly1=(CountBehavior(StealthLevel1,CompleteOnlyAtUnit) + CountBehavior(StealthLevel2,CompleteOnlyAtUnit) + CountBehavior(EscapeCloakLevel1,CompleteOnlyAtUnit) + CountBehavior(EscapeCloakLevel2,CompleteOnlyAtUnit) + CountBehavior(CloakField,CompleteOnlyAtUnit) + CountBehavior(ShadowstepCloak,CompleteOnlyAtUnit) + CountUpgrade(AnionPulseCrystals,CompleteOnly)) >= 1
 RequirementNode/Name/LT3507390604SumCountUnitMobileInfantryFlamethrowerCompleteOnlyCountUnitMobileInfantryMarksmanCompleteOnlyCountUnitMobileInfantryRiflemanCompleteOnlyCountAbilMobileInfantryCompleteOnlyAtUnit=(CountUnit(MobileInfantryFlamethrower,CompleteOnly) + CountUnit(MobileInfantryMarksman,CompleteOnly) + CountUnit(MobileInfantryRifleman,CompleteOnly)) < {Control less then 3 Mobile Infantry}CountAbil(MobileInfantry,CompleteOnlyAtUnit)
@@ -14239,6 +14243,9 @@ Unit/EditorSuffix/ZombieLevel12=(Level 1) (Burrowed) NOTD
 Unit/EditorSuffix/ZombieLevel2=(Level 2) NOTD
 Unit/EditorSuffix/ZombieLevel22=(Level 2) (Burrowed) NOTD
 Unit/Name/DummyBlocker=DummyBlocker
+Unit/Name/ItemDummy=Item Dummy
+Unit/Name/ZombieCreep=Zombie Creep
+Unit/Name/ZombieCreepLarge=Zombie Creep (Large)
 Upgrade/EditorPrefix/AnticipationLevel2=Marksman -
 Upgrade/EditorPrefix/AssaultJumpLevel1=Pathfinder -
 Upgrade/EditorPrefix/AssaultJumpLevel2=Pathfinder -
