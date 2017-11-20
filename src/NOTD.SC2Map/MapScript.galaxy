@@ -2114,8 +2114,6 @@ trigger gt_ModifyHeroStats;
 trigger gt_DisableStatAndModsModification;
 trigger gt_Backstab;
 trigger gt_CriticalStrike;
-trigger gt_ConcentratedFireCriticalStrike;
-trigger gt_HarvesterofSorrowCriticalStrike;
 trigger gt_Anticipation;
 trigger gt_Concentration;
 trigger gt_ExecuteMovespeedBonus;
@@ -39451,81 +39449,6 @@ void gt_CriticalStrike_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Concentrated Fire Critical Strike
-//--------------------------------------------------------------------------------------------------
-bool gt_ConcentratedFireCriticalStrike_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_player;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_player = UnitGetOwner(EventUnit());
-
-    // Conditions
-    if (testConds) {
-        if (!((gv_talentLevel[2][lv_player] > 0))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((EventUnitBehaviorChange() == c_unitBehaviorChangeCreate)) {
-        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike", gv_talentLevel[1][lv_player]);
-    }
-    else {
-        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike", 0);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ConcentratedFireCriticalStrike_Init () {
-    gt_ConcentratedFireCriticalStrike = TriggerCreate("gt_ConcentratedFireCriticalStrike_Func");
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel1", c_unitBehaviorChangeCreate);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel2", c_unitBehaviorChangeCreate);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel3", c_unitBehaviorChangeCreate);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel1", c_unitBehaviorChangeDestroy);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel2", c_unitBehaviorChangeDestroy);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel3", c_unitBehaviorChangeDestroy);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Harvester of Sorrow Critical Strike
-//--------------------------------------------------------------------------------------------------
-bool gt_HarvesterofSorrowCriticalStrike_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_player;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_player = UnitGetOwner(EventUnit());
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((UnitHasBehavior(EventUnit(), "HarvesterofSorrow") == true)) {
-        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike2", 1);
-    }
-    else {
-        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike2", 0);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_HarvesterofSorrowCriticalStrike_Init () {
-    gt_HarvesterofSorrowCriticalStrike = TriggerCreate("gt_HarvesterofSorrowCriticalStrike_Func");
-    TriggerAddEventUnitBehaviorChange(gt_HarvesterofSorrowCriticalStrike, null, "HarvesterofSorrow", c_unitBehaviorChangeCreate);
-    TriggerAddEventUnitBehaviorChange(gt_HarvesterofSorrowCriticalStrike, null, "HarvesterofSorrow", c_unitBehaviorChangeDestroy);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Anticipation
 //--------------------------------------------------------------------------------------------------
 bool gt_Anticipation_Func (bool testConds, bool runActions) {
@@ -41752,8 +41675,6 @@ void InitTriggers () {
     gt_DisableStatAndModsModification_Init();
     gt_Backstab_Init();
     gt_CriticalStrike_Init();
-    gt_ConcentratedFireCriticalStrike_Init();
-    gt_HarvesterofSorrowCriticalStrike_Init();
     gt_Anticipation_Init();
     gt_Concentration_Init();
     gt_ExecuteMovespeedBonus_Init();

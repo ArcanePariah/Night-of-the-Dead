@@ -2973,6 +2973,12 @@
         <PeriodicPeriodArray value="0"/>
         <PeriodicPeriodArray value="0.3"/>
     </CEffectCreatePersistent>
+    <CEffectModifyPlayer id="HarvesterofSorrowBonusCritOn">
+        <Upgrades Upgrade="HarvesterofSorrowBonusCrit" Count="1"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="HarvesterofSorrowBonusCritOff">
+        <Upgrades Upgrade="HarvesterofSorrowBonusCrit" Count="-1"/>
+    </CEffectModifyPlayer>
     <CEffectApplyBehavior id="HarvesterofSorrowApply">
         <ValidatorArray index="0" value="HiddenCompareBA"/>
         <ValidatorArray value="HiddenCompareAB"/>
@@ -11621,6 +11627,21 @@
         <EditorCategories value="Race:Terran"/>
         <VitalArray index="Life" Change="50"/>
     </CEffectModifyUnit>
+    <CEffectModifyPlayer id="ConcentratedFire1BonusCritOn">
+        <Upgrades Upgrade="ConcentratedFireCriticalStrike" Count="1"/>
+        <ValidatorArray value="HaveCriticalStrike"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="ConcentratedFire2BonusCritOn">
+        <Upgrades Upgrade="ConcentratedFireCriticalStrike" Count="2"/>
+        <ValidatorArray value="HaveCriticalStrike"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="ConcentratedFire3BonusCritOn">
+        <Upgrades Upgrade="ConcentratedFireCriticalStrike" Count="3"/>
+        <ValidatorArray value="HaveCriticalStrike"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="ConcentratedFireBonusCritOff">
+        <Upgrades Upgrade="ConcentratedFireCriticalStrike" Count="-3"/>
+    </CEffectModifyPlayer>
     <CEffectApplyBehavior id="SuppressiveFireLevel1">
         <ValidatorArray index="0" value="HiddenCompareBA"/>
         <ValidatorArray value="HiddenCompareAB"/>

@@ -306,6 +306,11 @@
         <Tooltip value=""/>
         <Count Link="MobileInfantryRifleman" State="CompleteOnly"/>
     </CRequirementCountUnit>
+    <CRequirementCountUpgrade id="CountUpgradeCriticalStrikeSkillCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CriticalStrikeSkill" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeFireUpCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Tooltip value=""/>
@@ -786,17 +791,20 @@
         <OperandArray index="0" value="CountBehaviorPistolEquippedCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradeCriticalStrikeSkillCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeCriticalStrikeSkillCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradeFireUpCompleteOnly1">
         <OperandArray index="0" value="CountUpgradeFireUpCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradeFireUpCompleteOnly2">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeFireUpCompleteOnly"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradeFireUpCompleteOnly3">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeFireUpCompleteOnly"/>
         <OperandArray index="1" value="3"/>
     </CRequirementGTE>

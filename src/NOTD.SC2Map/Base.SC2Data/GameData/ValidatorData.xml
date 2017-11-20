@@ -1473,4 +1473,8 @@
         <Find value="1"/>
         <Value value="HaveFireUp3"/>
     </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveCriticalStrike">
+        <Find value="1"/>
+        <Value value="HaveCriticalStrike"/>
+    </CValidatorPlayerRequirement>
 </Catalog>

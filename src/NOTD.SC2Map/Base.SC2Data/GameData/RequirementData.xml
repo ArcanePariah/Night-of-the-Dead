@@ -484,4 +484,7 @@
     <CRequirement id="HaveFireUp3">
         <NodeArray index="Use" Link="GTECountUpgradeFireUpCompleteOnly3"/>
     </CRequirement>
+    <CRequirement id="HaveCriticalStrike">
+        <NodeArray index="Use" Link="GTECountUpgradeCriticalStrikeSkillCompleteOnly1"/>
+    </CRequirement>
 </Catalog>

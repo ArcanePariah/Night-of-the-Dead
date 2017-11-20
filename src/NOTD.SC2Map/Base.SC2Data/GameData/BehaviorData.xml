@@ -2028,6 +2028,8 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="20"/>
         <Modification SightBonus="1" SightMinimum="5" MoveSpeedMultiplier="0.9"/>
+        <InitialEffect value="HarvesterofSorrowBonusCritOn"/>
+        <ExpireEffect value="HarvesterofSorrowBonusCritOff"/>
         <DamageResponse>
             <RequireEffectArray value="SuppressiveFireLevel1"/>
             <RequireEffectArray value="SuppressiveFireLevel2"/>
@@ -7550,6 +7552,8 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="7"/>
         <Period value="7"/>
+        <InitialEffect value="ConcentratedFire1BonusCritOn"/>
+        <ExpireEffect value="ConcentratedFireBonusCritOff"/>
         <Modification>
             <SightBonus value="1"/>
             <SightMinimum value="5"/>
@@ -7626,6 +7630,8 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="7"/>
         <Period value="7"/>
+        <InitialEffect value="ConcentratedFire2BonusCritOn"/>
+        <ExpireEffect value="ConcentratedFireBonusCritOff"/>
         <Modification>
             <SightBonus value="2"/>
             <SightMinimum value="5"/>
@@ -7639,6 +7645,8 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="7"/>
         <Period value="7"/>
+        <InitialEffect value="ConcentratedFire3BonusCritOn"/>
+        <ExpireEffect value="ConcentratedFireBonusCritOff"/>
         <Modification>
             <SightBonus value="3"/>
             <SightMinimum value="5"/>
