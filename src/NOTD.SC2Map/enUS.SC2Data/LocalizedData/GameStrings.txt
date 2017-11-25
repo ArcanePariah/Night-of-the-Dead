@@ -4578,7 +4578,6 @@ Param/Value/7D1C3595=If any of those things come close, make 'em regret with you
 Param/Value/7D24C342=I will melt your armor.
 Param/Value/7D30020D=If it's any consolation, whoever locked you up is probably dead now.
 Param/Value/7D40826F=<s val="GlueButton">Black Ops
-Param/Value/7D755BC0=<s val="BriefingHanText">Gunship Disengaged</s>
 Param/Value/7D9EFC22=Deimos
 Param/Value/7DF35ACF=+
 Param/Value/7DFE6CBB=</c>.
@@ -4690,6 +4689,7 @@ Param/Value/9190998C=Protect Dr. Tanaka until his research is complete
 Param/Value/91A0BD6A=(Cronus prepares for <c val="FF0000">destruction</c>...)
 Param/Value/91B75E77=<s val="GlueButton"><c val="F4D72B">An infested Marine...who is that?</c></s>
 Param/Value/91F0176F=Collect items scattered throughout the map. These help improve your chances of success in NOTD.<n/><n/>Item Classes:<n/>Weapons: Each weapon shines in different situations.<n/>Armor: Improves your armor<n/>Enhancements: Equip these to improve your stats<n/>Ammo: You require ammo to continue firing your weapons<n/>Supplies: These include medkits which keep you in top shape.<n/><n/>Sharing items with teammates will improve squad survivability.
+Param/Value/92459A55=<img path="Assets\Textures\tutorialmouserightbuttondown.dds"/><n/><s val="WaitingForUsersDialogTitle"><c val="FFDD1C">Right Click - Gauss Cannon</c><n/><c val="1CFFCC">Arrows/Mousewheel - Speed</c><n/><n/><c val="00FF40">Z - Zoom</c><n/><c val="00FFFF">X - Team UI Panel</c><n/><c val="FFFF80">C - Switch Camera</c><n/>M - End Gunship Mode</s>
 Param/Value/9263B5DE=+3 XP for Performance Bonus
 Param/Value/9279BE21=We're wasting ammunition. Destroy that Dome.
 Param/Value/92A2458A=Survive the incoming attack
@@ -4808,6 +4808,7 @@ Param/Value/A5E0FFE0=+3 XP for Performance Bonus
 Param/Value/A5F9B0D6=+3 XP for Mission Bonus
 Param/Value/A6224D82=Distress Call
 Param/Value/A62AD186=We've lost contact with Lt. Sheng.
+Param/Value/A6E77676=<s val="BriefingHanText">(Gunship leaving combat zone in 15 seconds...)</s>
 Param/Value/A6F1ECEA=I'm connected.
 Param/Value/A710D405=<s val="InfoPaneHeroRank">Colonists Rescued:  
 Param/Value/A72367D5=+3 XP for Performance Bonus
@@ -5222,7 +5223,6 @@ Param/Value/ED77EF38=We need to get out of here.
 Param/Value/ED78DA01=Flamethrowers are lethal against Cocoons.
 Param/Value/ED84D1E8=He's turning...
 Param/Value/EDB52871=Nice hunting.
-Param/Value/EDD297E3=Right Click - Gauss Cannon<n/><n/>C - Switch Camera<n/>Z - Zoom<n/>M - End Gunship Mode
 Param/Value/EE4F1DB0=I didn't say this would be easy.
 Param/Value/EED1DF6B=Before you go, take these weapons. They will easily bring down any armored targets that they shoot at.
 Param/Value/EEF19AF0=+2 XP for Mission Bonus. 10 civilians rescued.
@@ -5232,7 +5232,6 @@ Param/Value/EF2860EA=Our distress signal went through. UGC command intercepted i
 Param/Value/EF4B1F62=+10 XP for Nightmare Bonus
 Param/Value/EFBE02D4=Ogilvy
 Param/Value/F01780C4=Rounds
-Param/Value/F080EC08=<s val="BriefingHanText">(Gunship leaving combat zone in 15 seconds...)</s>
 Param/Value/F0B80E2D=</c>)
 Param/Value/F0CC8C89=Picking up a heavy life form. We should stay away from it.
 Param/Value/F11D8AEC=<s val="GlueButtonSmall">Commando/Psi Ops: 
@@ -5255,6 +5254,7 @@ Param/Value/F39DD32E=We're bringing you to a safe zone.
 Param/Value/F3A5AC8E=I'm sorry, I'm afraid I can't do that. You have been identified as a threat.
 Param/Value/F3E4787B=Head to the armory in the North East. Time to get some real firepower.
 Param/Value/F3EDB9C3=I'll bring your squad in for quarantine and run some diagnostics. Welcome back, Easy Company.
+Param/Value/F3EEFA64=<s val="BriefingHanText">Gunship Disengaged</s>
 Param/Value/F3FA7E20=Activate IVAX
 Param/Value/F403A291=I can't believe this. Is there a right choice?
 Param/Value/F4D87224=Situation looks bad. We're airdropping supplies to your sector.
