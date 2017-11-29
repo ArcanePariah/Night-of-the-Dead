@@ -942,6 +942,7 @@ text gv_creditsLeft;
 unitgroup[9] gv_boughtItems;
 gs_Shop[9] gv_shops;
 int[9] gv_shop;
+int[9] gv_shopClose;
 int[9] gv_classSelectionDialog;
 int[9][19] gv_classSelectionDialogItem;
 fixed gv_classLimitMultiplier;
@@ -1277,6 +1278,9 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_shop[init_i] = c_invalidDialogId;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_shopClose[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_classSelectionDialog[init_i] = c_invalidDialogId;
@@ -10557,8 +10561,6 @@ bool auto_gf_ShopCreation_TriggerFunc (bool testConds, bool runActions) {
 
     // Variable Declarations
     int lv_tempDialogItem;
-    int lv_tempDialogFrame;
-    int lv_tempDialogSubFrame;
 
     // Automatic Variable Declarations
     const int auto6E053C18_ae = gv_numberOfShopOptions;
@@ -10568,14 +10570,14 @@ bool auto_gf_ShopCreation_TriggerFunc (bool testConds, bool runActions) {
 
     // Variable Initialization
     lv_tempDialogItem = c_invalidDialogControlId;
-    lv_tempDialogFrame = c_invalidDialogControlId;
-    lv_tempDialogSubFrame = c_invalidDialogControlId;
 
     // Implementation
     gf_UIDialogCreation(370, 535, 270, 300, c_anchorBottomRight);
     gv_shop[lp_player] = DialogLastCreated();
     DialogControlCreateFromTemplate(gv_shop[lp_player], c_triggerControlTypePanel, "Shop/ShopTemplate");
     lv_tempDialogItem = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeButton, "CloseButton");
+    gv_shopClose[lp_player] = DialogControlLastCreated();
     auto6E053C18_var = 33;
     for ( ; auto6E053C18_var <= auto6E053C18_ae; auto6E053C18_var += 1 ) {
         gf_ShopButton(lv_tempDialogItem, lp_player, auto6E053C18_var, 1);
@@ -16368,6 +16370,7 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
         if (autoE737FD6A_var == null) { break; }
         UnitKill(autoE737FD6A_var);
     }
+    DialogSetVisible(gv_shop[lv_pNumber], PlayerGroupAll(), false);
     libNtve_gf_SetDialogItemImage(gv_teamStatusPortraitButton[lv_pNumber], "Assets\\Textures\\terranportraittransition_static.dds", PlayerGroupAll());
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lv_pNumber], c_triggerBlendModeAdd, PlayerGroupAll());
     DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lv_pNumber], PlayerGroupAll(), "MarineDeath", "MarineDied");
@@ -38649,19 +38652,24 @@ bool gt_ShopInteraction_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    lv_itemID = 1;
-    for ( ; ( (auto1B10A317_ai >= 0 && lv_itemID <= auto1B10A317_ae) || (auto1B10A317_ai < 0 && lv_itemID >= auto1B10A317_ae) ) ; lv_itemID += auto1B10A317_ai ) {
-        if ((lv_usedDialogItem == gv_shops[lv_triggPlayer].lv_shopButtons[lv_itemID].lv_button)) {
-            lv_itemType = UserDataGetString("ShopItems", "ShopItem"+IntToString(lv_itemID), "Type", 1);
-            if ((lv_itemType == "item")) {
-                gf_ShopBuyTemp(lv_itemID, lv_triggPlayer);
+    if ((lv_usedDialogItem == gv_shopClose[lv_triggPlayer])) {
+        DialogSetVisible(lv_usedDialog, PlayerGroupAll(), false);
+    }
+    else {
+        lv_itemID = 1;
+        for ( ; ( (auto1B10A317_ai >= 0 && lv_itemID <= auto1B10A317_ae) || (auto1B10A317_ai < 0 && lv_itemID >= auto1B10A317_ae) ) ; lv_itemID += auto1B10A317_ai ) {
+            if ((lv_usedDialogItem == gv_shops[lv_triggPlayer].lv_shopButtons[lv_itemID].lv_button)) {
+                lv_itemType = UserDataGetString("ShopItems", "ShopItem"+IntToString(lv_itemID), "Type", 1);
+                if ((lv_itemType == "item")) {
+                    gf_ShopBuyTemp(lv_itemID, lv_triggPlayer);
+                }
+                else {
+                    gf_ShopBuyPerm(lv_itemID, lv_triggPlayer, lv_itemType);
+                }
+                return true;
             }
-            else {
-                gf_ShopBuyPerm(lv_itemID, lv_triggPlayer, lv_itemType);
-            }
-            return true;
-        }
 
+        }
     }
     return true;
 }

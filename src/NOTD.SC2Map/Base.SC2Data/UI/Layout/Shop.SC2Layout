@@ -60,7 +60,7 @@
             <Height val="60"/>
             <Width val="60"/>
             <TextureType val="Normal"/>
-            <BlendMode val="Add"/>
+            <BlendMode val="Normal"/>
         </Frame>
     </Frame>
 
@@ -100,6 +100,27 @@
 			<Frame type="Label" name="ButtonLabel">
 				<Text val = "Modifications"/>
 			</Frame>
+        </Frame>        
+        <Frame type="Button" name="CloseButton">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="3"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Height val="40"/>
+            <Width val="40"/>
+            <Frame type="Image" name="ButtonImage">
+                <Anchor relative="$parent" offset="0"/>
+                <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
+                <TextureType val="HorizontalBorder"/>
+                <BlendMode val="Normal"/>
+                <Color val="175,175,175"/>
+            </Frame>
+            <Frame type="Label" name="ButtonLabel">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="7"/>
+                <Width val="30"/>
+                <Height val="30"/>
+                <Style val="ModCenterSize20"/>
+                <Text val = "X"/>
+            </Frame>
         </Frame>
 
         <Frame type="Frame" name="ShopPage1" template="Shop/ShopPageTemplate">
