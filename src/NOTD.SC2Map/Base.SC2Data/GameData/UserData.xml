@@ -2192,7 +2192,7 @@
             <Image Image="Assets\Textures\btn-white.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="1">
@@ -2212,7 +2212,7 @@
             <Image Image="Assets\Textures\btn-red.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="2">
@@ -2232,7 +2232,7 @@
             <Image Image="Assets\Textures\btn-blue.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="3">
@@ -2252,7 +2252,7 @@
             <Image Image="Assets\Textures\btn-teal.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="4">
@@ -2272,7 +2272,7 @@
             <Image Image="Assets\Textures\btn-purple.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="5">
@@ -2292,7 +2292,7 @@
             <Image Image="Assets\Textures\btn-yellow.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="6">
@@ -2312,7 +2312,7 @@
             <Image Image="Assets\Textures\btn-orange.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="7">
@@ -2332,7 +2332,7 @@
             <Image Image="Assets\Textures\btn-green.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="8">
@@ -2352,7 +2352,7 @@
             <Image Image="Assets\Textures\btn-pink.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="9">
@@ -2372,7 +2372,7 @@
             <Image Image="Assets\Textures\btn-violet.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="10">
@@ -2392,7 +2392,7 @@
             <Image Image="Assets\Textures\btn-lightgrey.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="11">
@@ -2412,7 +2412,7 @@
             <Image Image="Assets\Textures\btn-darkgreen.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="12">
@@ -2432,7 +2432,7 @@
             <Image Image="Assets\Textures\btn-brown.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="13">
@@ -2452,7 +2452,7 @@
             <Image Image="Assets\Textures\btn-lightgreen.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="14">
@@ -2472,7 +2472,7 @@
             <Image Image="Assets\Textures\btn-darkgrey.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="15">
@@ -2495,7 +2495,7 @@
             <Int Int="16">
                 <Field Id="ColorCode"/>
             </Int>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <String String="Buy LightPink">
@@ -2512,7 +2512,7 @@
             <Image Image="Assets\Textures\btn-unit-zerg-brutalisk.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="1">
@@ -2532,7 +2532,7 @@
             <Image Image="Assets\Textures\btn-unit-xelnaga-destroyer.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="2">
@@ -2552,7 +2552,7 @@
             <Image Image="Assets\Textures\btn-unit-xelnaga-viper.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="3">
@@ -2572,7 +2572,7 @@
             <Image Image="Assets\Textures\btn-unit-zerg-hydralisk.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="4">
@@ -2592,7 +2592,7 @@
             <Image Image="Assets\Textures\btn-unit-zerg-kerrigan.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="5">
@@ -2612,7 +2612,7 @@
             <Image Image="Assets\Textures\btn-unit-zerg-zergling.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="6">
@@ -2632,7 +2632,7 @@
             <Image Image="Assets\Textures\wireframe-terran-murlocmarine.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="7">
@@ -2669,7 +2669,7 @@
             <Image Image="Assets\Textures\btn-unit-protoss-tassadar.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="9">
@@ -2689,7 +2689,7 @@
             <Image Image="Assets\Textures\btn-unit-terran-taurenspacemarine.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="10">
@@ -2709,7 +2709,7 @@
             <Image Image="Assets\Textures\btn-lostvinking-terra-tron.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="11">
@@ -2729,7 +2729,7 @@
             <Image Image="Assets\Textures\btn-unit-protoss-zeratul.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="12">
@@ -2749,7 +2749,7 @@
             <Image Image="Assets\Textures\btn-unit-protoss-archon.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="5">
+            <Int Int="5000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="13">
@@ -2789,7 +2789,7 @@
             <Image Image="NOTD Rank Icons\Black Ops Insignia.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="8">
+            <Int Int="10000">
                 <Field Id="ShopCost"/>
             </Int>
             <Int Int="1000">
@@ -2809,7 +2809,7 @@
             <Image Image="Assets\Textures\btn-upgrade-terran-infantryweaponslevel3.dds">
                 <Field Id="ShopImage"/>
             </Image>
-            <Int Int="8">
+            <Int Int="10000">
                 <Field Id="ShopCost"/>
             </Int>
             <String String="Buy Weapon Mod">

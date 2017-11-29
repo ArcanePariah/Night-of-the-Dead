@@ -6029,20 +6029,20 @@ UserData/ShopItems/ShopItem13_ShopTooltip=Changes Marine color to <c val="4e2a04
 UserData/ShopItems/ShopItem14_ShopTooltip=Changes Marine color to <c val="96ff91">Light Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem15_ShopTooltip=Changes Marine color to <c val="232323">Dark Grey</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem16_ShopTooltip=Changes Marine color to <c val="cca6fc">Light Pink</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem17_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem18_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem19_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem17_ShopTooltip=Biological - can get hugged<n/>LifeMax:350  LifeRegen:10 RegenDelay: No<n/>Movement Speed:2.35 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem18_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay:Yes<n/>Movement Speed:3 EnergyMax:50 Shields:20<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem19_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: No<n/>Movement Speed:2.5 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem1_ShopTooltip=Changes Marine color to <c val="FFFFFF">White</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem20_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem21_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem22_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem23_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem24_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">Free</c>
-UserData/ShopItems/ShopItem25_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem26_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem27_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem28_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem29_ShopTooltip=<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem20_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:60 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem21_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:70 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem22_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem23_ShopTooltip=Biological - can get hugged<n/>LifeMax:275 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem24_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:7  RegenDelay: No<n/>Movement Speed:2.9 EnergyMax:70 Shields:10<n/><n/>Credits: <c val="71B8FF">Free</c>
+UserData/ShopItems/ShopItem25_ShopTooltip=Biological - can get hugged<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:75 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem26_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:12 RegenDelay: No<n/>Movement Speed:2.7 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem27_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:15<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem28_ShopTooltip=Biological - can get hugged<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:20<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem29_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:10 RegenDelay: Yes<n/>Movement Speed:2.5 EnergyMax:55 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem2_ShopTooltip=Changes Marine color to <c val="b4141e">Red</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem30_ShopTooltip=Since the Great Rat Plague of 2028, kittens have been a mainstay in every citizen's home - providing frontline defense against the next plague. Kittens are also cute. Be a responsible neighbour - order now.<n/><n/>Credits: <c val="71B8FF">1000</c>
 UserData/ShopItems/ShopItem31_ShopTooltip=Rank icon of Marine replaced with Black Ops Insignia.<n/><n/>Credits: <c val="71B8FF">10000</c>
