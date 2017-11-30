@@ -526,15 +526,6 @@ struct gs_SurvivalSpawnLocation {
     camerainfo lv_startCamera;
 };
 
-struct gs_ShopButton {
-    int lv_button;
-};
-
-struct gs_Shop {
-    int lv_shop;
-    gs_ShopButton[gv_numberOfShopOptions + 1] lv_shopButtons;
-};
-
 struct gs_TalentButton {
     int lv_talentText;
     int lv_borderIntital;
@@ -940,9 +931,9 @@ gs_SurvivalSpawnLocation[6] gv_survivalSpawnPoints;
 bool gv_equipmentOpen;
 text gv_creditsLeft;
 unitgroup[9] gv_boughtItems;
-gs_Shop[9] gv_shops;
-int[9] gv_shop;
-int[9] gv_shopClose;
+int[gv_numberofPlayers + 1] gv_shop;
+int[gv_numberofPlayers + 1] gv_shopClose;
+int[gv_numberofPlayers + 1][gv_numberOfShopOptions + 1] gv_shopButtons;
 int[9] gv_classSelectionDialog;
 int[9][19] gv_classSelectionDialogItem;
 fixed gv_classLimitMultiplier;
@@ -1270,17 +1261,16 @@ void InitGlobals () {
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_boughtItems[init_i] = UnitGroupEmpty();
     }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_shops[init_i].lv_shop = c_invalidDialogId;
-        for (init_i1 = 0; init_i1 <= gv_numberOfShopOptions; init_i1 += 1) {
-            gv_shops[init_i].lv_shopButtons[init_i1].lv_button = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
         gv_shop[init_i] = c_invalidDialogId;
     }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
         gv_shopClose[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        for (init_j = 0; init_j <= gv_numberOfShopOptions; init_j += 1) {
+            gv_shopButtons[init_i][init_j] = c_invalidDialogControlId;
+        }
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_classSelectionDialog[init_i] = c_invalidDialogId;
@@ -10608,7 +10598,7 @@ void gf_ShopButton (int lp_panel, int lp_player, int lp_itemNumber, int lp_page)
     }
     lv_tempPanel = DialogControlLastCreated();
     DialogControlHookup(lv_tempPanel, c_triggerControlTypeButton, "Button");
-    gv_shops[lp_player].lv_shopButtons[lp_itemNumber].lv_button = DialogControlLastCreated();
+    gv_shopButtons[lp_player][lp_itemNumber] = DialogControlLastCreated();
     libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), (StringToText(UserDataGetString("ShopItems", "ShopItem"+IntToString(lp_itemNumber), "Name", 1)) + StringExternal("Param/Value/6189CAD3") + UserDataGetText("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopTooltip", 1)), PlayerGroupAll());
     DialogControlHookup(lv_tempPanel, c_triggerControlTypeImage, "ShopImage");
     libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopImage", 1), PlayerGroupAll());
@@ -38660,7 +38650,7 @@ bool gt_ShopInteraction_Func (bool testConds, bool runActions) {
     else {
         lv_itemID = 1;
         for ( ; ( (auto1B10A317_ai >= 0 && lv_itemID <= auto1B10A317_ae) || (auto1B10A317_ai < 0 && lv_itemID >= auto1B10A317_ae) ) ; lv_itemID += auto1B10A317_ai ) {
-            if ((lv_usedDialogItem == gv_shops[lv_triggPlayer].lv_shopButtons[lv_itemID].lv_button)) {
+            if ((lv_usedDialogItem == gv_shopButtons[lv_triggPlayer][lv_itemID])) {
                 lv_itemType = UserDataGetString("ShopItems", "ShopItem"+IntToString(lv_itemID), "Type", 1);
                 if ((lv_itemType == "item")) {
                     gf_ShopBuyTemp(lv_itemID, lv_triggPlayer);
