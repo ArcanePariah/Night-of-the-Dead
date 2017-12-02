@@ -35293,7 +35293,7 @@ bool gt_STW15bBioDomeThreat_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/C24E98F7"));
     ObjectiveCreate(StringExternal("Param/Value/289F9ABF"), StringExternal("Param/Value/F5DDB35D"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
-    UnitIssueOrder(UnitFromId(829), Order(AbilityCommand("DestructibleGateStraightHorizontalLowered", 0)), c_orderQueueReplace);
+    UnitIssueOrder(UnitFromId(829), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
     auto13F4706D_g = UnitGroup("PathingBlocker1x1", 10, RegionFromId(89), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
     auto13F4706D_u = UnitGroupCount(auto13F4706D_g, c_unitCountAll);
     for (;; auto13F4706D_u -= 1) {
