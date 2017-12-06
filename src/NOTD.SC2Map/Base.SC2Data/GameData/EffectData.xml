@@ -326,9 +326,19 @@
         <SearchFilters value="Biological;Self,Air,Missile,Item,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="2.5" Effect="ApoptosisBloodWaveDamageSet"/>
     </CEffectEnumArea>
-    <CEffectApplyBehavior id="ApplyCriticalStrike">
+    <CEffectSet id="ApplyCriticalStrikeSet">
         <EditorCategories value=""/>
         <Chance value="0"/>
+        <EffectArray value="ApplyCriticalStrikeDealer"/>
+        <EffectArray value="ApplyCriticalStrike"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="ApplyCriticalStrikeDealer">
+        <EditorCategories value=""/>
+        <Behavior value="CriticalStrikeDealer"/>
+        <WhichUnit Value="Source"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ApplyCriticalStrike">
+        <EditorCategories value=""/>
         <Behavior value="CriticalStrikeDefender"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ApplyCriticalStrikeKnife">

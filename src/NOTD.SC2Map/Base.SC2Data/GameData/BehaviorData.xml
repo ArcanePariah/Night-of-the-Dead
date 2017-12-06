@@ -704,7 +704,7 @@
     </CBehaviorSpawn>
     <CBehaviorBuff id="CriticalStrikeAttacker">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="1" Handled="ApplyCriticalStrike" Location="Attacker"/>
+        <DamageResponse Chance="1" Handled="ApplyCriticalStrikeSet" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
         <Modification>
             <StateFlags index="SuppressXPSharing" value="1"/>
@@ -713,7 +713,11 @@
     <CBehaviorBuff id="CriticalStrikeAttackerKnife">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="1" Handled="ApplyCriticalStrike" Location="Attacker"/>
+        <DamageResponse Chance="1" Handled="ApplyCriticalStrikeSet" Location="Attacker"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CriticalStrikeDealer">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.0002"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CriticalStrikeDefender">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -743,9 +747,9 @@
             <RequireEffectArray value="PrecisionShotLevel2Damage"/>
             <RequireEffectArray value="RepulseDamage"/>
             <RequireEffectArray value="CombatKnifeDamage"/>
+            <ValidatorArray value="CritCheckDealer"/>
         </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
-        <MaxStackCountPerCaster value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CronusBeams">
         <EditorCategories value="AbilityorEffectType:Units"/>
