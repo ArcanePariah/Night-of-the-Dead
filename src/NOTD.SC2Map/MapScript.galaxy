@@ -2261,7 +2261,7 @@ bool gf_PlayerAutomaticBanCheck (int lp_player) {
     else if ((gf_StatsGetMaxModPoints(lp_player) > (gv_playerLifeTimeCreditsAcquired[lp_player] / 10000))) {
         return true;
     }
-    else if ((((gv_playerRank[lp_player] * 2) + gf_GetMedalStats(lp_player)) < gf_GetCurrentAllocatedStats(lp_player))) {
+    else if ((((gv_playerRank[lp_player] * 2) + gf_GetMedalStats(lp_player)) < (gf_GetCurrentAllocatedStats(lp_player) + 2))) {
         return true;
     }
     else if ((gf_BOInsigniaBought(lp_player) == true) && (gv_playerLifeTimeCreditsAcquired[lp_player] < 10000)) {
