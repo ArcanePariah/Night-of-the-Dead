@@ -17799,7 +17799,7 @@ bool gt_SethReinforcements_Func (bool testConds, bool runActions) {
     Wait(2.0, c_timeReal);
     autoBA69838F_n = lv_sCVCount;
     for (autoBA69838F_i = 1; autoBA69838F_i <= autoBA69838F_n; autoBA69838F_i += 1) {
-        libNtve_gf_UnitCreateFacingPoint(1, "SCV", 0, 13, lv_reinforcementDropPoint, UnitGetPosition(gv_boss));
+        libNtve_gf_UnitCreateFacingPoint(1, "SCV", 0, 13, lv_reinforcementDropPoint, UnitGetPosition(gv_zeus));
         UnitWeaponRemove(UnitLastCreated(), "FusionCutter");
         UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(gv_zeus)), c_orderQueueReplace);
         Wait(0.1, c_timeGame);
