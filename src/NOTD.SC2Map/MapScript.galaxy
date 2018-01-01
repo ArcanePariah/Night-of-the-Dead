@@ -5387,12 +5387,12 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
             }
 
             if ((RandomInt(0, 30) == 1) && (gv_squadRating >= 1600) && (gv_noNewbie == true) && (gv_cinematicMode == false)) {
-                libNtve_gf_UnitCreateFacingPoint(1, "BrainBug2", 0, 14, RegionRandomPoint(RegionPlayableMap()), RegionGetCenter(RegionFromId(1)));
+                libNtve_gf_UnitCreateFacingPoint(1, "BrainBug2", 0, 14, gf_RandomSpawnPointNOTD(RegionPlayableMap()), RegionGetCenter(RegionFromId(1)));
                 UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
                 UnitGroupAddUnitGroup(gv_brainBugs, UnitLastCreatedGroup());
             }
             else {
-                libNtve_gf_UnitCreateFacingPoint(1, "RoachBurrowed", 0, 14, RegionRandomPoint(RegionPlayableMap()), RegionGetCenter(RegionFromId(1)));
+                libNtve_gf_UnitCreateFacingPoint(1, "RoachBurrowed", 0, 14, gf_RandomSpawnPointNOTD(RegionPlayableMap()), RegionGetCenter(RegionFromId(1)));
                 UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowRoachUp", 0)), c_orderQueueReplace);
                 if ((gv_noNewbie == false)) {
                     libNtve_gf_AttachActorToUnit(UnitLastCreated(), "NewbieWarning", "Ref_Center");
@@ -5617,7 +5617,7 @@ bool auto_gf_SporelingWave_TriggerFunc (bool testConds, bool runActions) {
 
     // Implementation
     for (auto665562D3_i = 1; auto665562D3_i <= auto665562D3_n; auto665562D3_i += 1) {
-        UnitCreate(1, "ZergDropPod", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0)), libNtve_gf_RandomAngle());
+        UnitCreate(1, "ZergDropPod", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0)), libNtve_gf_RandomAngle());
         UnitGroupAdd(lv_sporelingGroup, UnitLastCreated());
         Wait(RandomFixed(0.0, 3.0), c_timeGame);
     }
