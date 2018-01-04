@@ -89,11 +89,6 @@
     <CModel id="MinerMale">
         <AttachProps Id="Ref_Center" SquibType="Shield" RadiusShield="0.500000"/>
     </CModel>
-    <CModel id="MutaliskDeath">
-        <VariationCount value="1"/>
-        <Variations index="0" removed="1"/>
-        <Variations index="1" removed="1"/>
-    </CModel>
     <CModel id="PickupPlasmaRounds">
         <Occlusion value="Show"/>
     </CModel>

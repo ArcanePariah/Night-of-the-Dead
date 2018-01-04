@@ -542,6 +542,12 @@
         <AreaArray MaxCount="1" Radius="500" Effect="BoomHeadshotX1Level2"/>
         <MaxCount value="1"/>
     </CEffectEnumArea>
+    <CEffectEnumArea id="X1GuardianLimit">
+        <EditorCategories value=""/>
+        <SearchFilters value="Armored,Mechanical;Ally,Neutral,Enemy,Psionic,Structure,Heroic,Dead"/>
+        <ExcludeArray Value="Source"/>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
+    </CEffectEnumArea>
     <CEffectCreatePersistent id="CannonSwapDelay">
         <EditorCategories value=""/>
         <WhichLocation Value="CasterUnit"/>
@@ -756,8 +762,8 @@
         <EditorCategories value=""/>
         <Amount value="300"/>
         <Death value="Impact"/>
-        <AreaArray Radius="3.5" Fraction="1" Validator="TargetIsEnemy"/>
-        <AreaArray Radius="3.5" Fraction="0.2" Validator="TargetIsAlly"/>
+        <AreaArray Radius="3.5" Fraction="1" Validator="TargetIsNotAlly"/>
+        <AreaArray Radius="3.5" Fraction="0.2" Validator="TargetIsNotEnemy"/>
         <SearchFilters value="-;Neutral,Item,Invulnerable"/>
     </CEffectDamage>
     <CEffectSet id="HellfireMissleImpactSet">
@@ -1144,6 +1150,11 @@
     </CEffectSet>
     <CEffectCreateUnit id="RoadFlareSpawn">
         <SpawnUnit value="RoadFlareFire"/>
+        <SpawnOwner Value="Neutral"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="SonicCreateRevealDummy">
+        <SpawnUnit value="SonicRevealDummy"/>
+        <SpawnOwner Value="Neutral"/>
     </CEffectCreateUnit>
     <CEffectModifyUnit id="SharedExperienceDefault">
         <EditorCategories value=""/>
@@ -1524,15 +1535,6 @@
         <EditorCategories value=""/>
         <Behavior value="Shocked"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="DestroyHammeroftheGods">
-        <EditorCategories value=""/>
-        <Flags index="Kill" value="1"/>
-    </CEffectDamage>
-    <CEffectDamage id="DestroyMaintenceDrone">
-        <EditorCategories value=""/>
-        <Marker Link="Effect/DestroyHammeroftheGods"/>
-        <Flags index="Kill" value="1"/>
-    </CEffectDamage>
     <CEffectApplyBehavior id="EnergyTransferApplyLevel1">
         <EditorCategories value="Race:Terran"/>
         <Behavior value="VenomEnergyTransferLevel1"/>
@@ -1674,10 +1676,13 @@
         <Abil value="FireUpGrenade"/>
         <AbilCmdIndex value="2"/>
     </CEffectIssueOrder>
-    <CEffectCreatePersistent id="Flare">
-        <RevealFlags index="Detect" value="1"/>
+    <CEffectCreateUnit id="FlareCreateRevealDummy">
+        <WhichLocation Value="TargetPoint"/>
+        <SpawnUnit value="FlareRevealDummy"/>
+        <SpawnOwner Value="Caster"/>
         <Alert value="Flare"/>
-    </CEffectCreatePersistent>
+        <CreateFlags index="Placement" value="0"/>
+    </CEffectCreateUnit>
     <CEffectApplyBehavior id="FocusedFire">
         <EditorCategories value="Race:Terran"/>
     </CEffectApplyBehavior>
@@ -1689,18 +1694,17 @@
         <EditorCategories value=""/>
         <PeriodicEffectArray index="0" value="HadesBloodWheelDamage"/>
     </CEffectCreatePersistent>
-    <CEffectEnumArea id="HammeroftheGodUnique">
+    <CEffectEnumArea id="BlackDogLimit">
         <EditorCategories value=""/>
         <ExcludeArray Value="Source"/>
         <SearchFilters value="Robotic,Mechanical,Structure;Ally,Neutral,Enemy"/>
-        <AreaArray Radius="500" Effect="DestroyHammeroftheGods"/>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
     </CEffectEnumArea>
-    <CEffectEnumArea id="HammeroftheGodUnique2">
+    <CEffectEnumArea id="MaintenanceDroneLimit">
         <EditorCategories value=""/>
-        <Marker Link="Effect/HammeroftheGodUnique"/>
         <ExcludeArray Value="Source"/>
         <SearchFilters value="Robotic,Mechanical;Ally,Neutral,Enemy,Light,Structure,Item,Invulnerable"/>
-        <AreaArray Radius="500" Effect="DestroyMaintenceDrone"/>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="HardenCaraspaceRecruitApplyBehavior">
         <ValidatorArray index="0" value="IsRecruit"/>
@@ -2112,7 +2116,23 @@
         <EditorCategories value=""/>
         <CaseArray/>
     </CEffectSwitch>
-    <CEffectSet id="RavagingPhantomSet">
+    <CEffectApplyBehavior id="RavagingPhantomControl">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="RavagingPhantomApplyTemp">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="RavagingPhantomSpawn">
+        <ValidatorArray value="KillerHasRavagingPhantom"/>
+        <EditorCategories value=""/>
+        <WhichLocation Value="SourceUnit"/>
+        <Origin Value="CasterPoint"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <SpawnEffect value="RavagingPhantomControl"/>
+        <SpawnRange value="30"/>
+        <TypeFallbackUnit Value="Source"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="RavagingPhantomExpireSet">
         <EditorCategories value=""/>
         <EffectArray value="RavagingPhantomExpire"/>
         <EffectArray value="Suicide"/>
@@ -2720,7 +2740,6 @@
     <CEffectDamage id="OSOKLevel2BarrettDamage" parent="DU_WEAP">
         <ValidatorArray value="HasBarrettEquipped"/>
         <EditorCategories value="Race:Terran"/>
-        <Marker Link="Effect/SnipeDamage"/>
         <ImpactLocation Value="TargetUnit"/>
         <ArmorReduction value="0"/>
         <Kind value="Ranged"/>
@@ -2729,7 +2748,6 @@
     </CEffectDamage>
     <CEffectDamage id="OSOKLevel3BarrettBossDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
-        <Marker Link="Effect/SnipeDamage2"/>
         <ImpactLocation Value="TargetUnit"/>
         <ArmorReduction value="0"/>
         <Kind value="Ranged"/>
@@ -2761,7 +2779,6 @@
     <CEffectDamage id="OSOKLevel3BarrettDamage" parent="DU_WEAP">
         <ValidatorArray value="HasBarrettEquipped"/>
         <EditorCategories value="Race:Terran"/>
-        <Marker Link="Effect/SnipeDamage"/>
         <ImpactLocation Value="TargetUnit"/>
         <ArmorReduction value="0"/>
         <Kind value="Ranged"/>
@@ -2797,7 +2814,6 @@
     <CEffectDamage id="OSOKLevel1BarrettDamage" parent="DU_WEAP">
         <ValidatorArray value="HasBarrettEquipped"/>
         <EditorCategories value="Race:Terran"/>
-        <Marker Link="Effect/SnipeDamage"/>
         <ImpactLocation Value="TargetUnit"/>
         <ArmorReduction value="0"/>
         <Kind value="Ranged"/>
@@ -2859,6 +2875,15 @@
         <EditorCategories value=""/>
         <SearchFilters value="Heroic;Self,Player,Ally,Neutral,Structure,Missile,Destructible,Item,Cloaked,UnderConstruction,Dead"/>
         <AreaArray Radius="5" Effect="SonicTrapLevel1SlowHeroic"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SonicTrapLimit">
+        <EditorCategories value=""/>
+        <SearchFilters value="Structure;Ally,Neutral,Enemy,Heroic,Dead"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSDistanceToTarget"/>
+        </TargetSorts>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
+        <MinCount value="5"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="SonicTrapLevel1Slow">
         <ValidatorArray index="0" removed="1"/>
@@ -3082,6 +3107,7 @@
         <WhichLocation Value="TargetPoint"/>
         <SpawnEffect value="KillsToCaster"/>
         <SpawnUnit value="ArmageddonBomb"/>
+        <ValidatorArray value="BuildPathing"/>
     </CEffectCreateUnit>
     <CEffectDamage id="ArmageddonDamage">
         <EditorCategories value=""/>
@@ -3127,6 +3153,15 @@
         <EditorCategories value=""/>
         <SearchFilters value="-;Neutral,Enemy,RawResource,HarvestableResource,Missile,Item,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="5" Effect="ArmageddonDamageFriendly"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="ArmageddonBombLimit">
+        <EditorCategories value=""/>
+        <SearchFilters value="Mechanical,Structure;Ally,Neutral,Enemy,Heroic,Dead"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSDistanceToTarget"/>
+        </TargetSorts>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
+        <MinCount value="3"/>
     </CEffectEnumArea>
     <CEffectSet id="ArmageddonSet">
         <EditorCategories value=""/>
@@ -9901,11 +9936,6 @@
         <Behavior value="FireVulnerabilityHEAmmo"/>
         <ValidatorArray index="0" value="TargetIsNotAlly"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="HEAmmoBurnDamage">
-        <EditorCategories value=""/>
-        <Death value="Fire"/>
-        <SearchFilters value="-;Item,Dead,Invulnerable"/>
-    </CEffectDamage>
     <CEffectSet id="HEAmmoSet">
         <EditorCategories value=""/>
         <EffectArray value="HEAmmoApplyBurn"/>
@@ -10038,9 +10068,18 @@
         <ResponseFlags index="Acquire" value="1"/>
         <ImpactLocation Value="TargetUnit"/>
         <SearchFilters value="Heroic;Player,Ally,Neutral,Cloaked"/>
-        <AreaArray Radius="30" Effect="NeuralParasiteIssueOrder"/>
+        <AreaArray Radius="30" Effect="NeuralParasiteIssueOrderSet"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
+    <CEffectSet id="NeuralParasiteIssueOrderSet">
+        <EffectArray value="NeuralParasiteCreateDummyReveal"/>
+        <EffectArray value="NeuralParasiteIssueOrder"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="NeuralParasiteCreateDummyReveal">
+        <WhichLocation Value="CasterPoint"/>
+        <SpawnUnit value="NeuralParasiteRevealDummy"/>
+        <SpawnOwner Value="Neutral"/>
+    </CEffectCreateUnit>
     <CEffectUseCalldown id="Nuke">
         <CalldownCount value="0"/>
     </CEffectUseCalldown>
@@ -10053,6 +10092,13 @@
         <AINotifyFlags index="HurtEnemy" value="1"/>
         <Alert value="TacticalNuke"/>
     </CEffectCreatePersistent>
+    <CEffectCreateUnit id="NukeCreateRevealDummy">
+        <WhichLocation Value="TargetPoint"/>
+        <SpawnUnit value="NukeRevealDummy"/>
+        <SpawnOwner Value="Neutral"/>
+        <SpawnEffect value="NukePersistent"/>
+        <CreateFlags index="Placement" value="0"/>
+    </CEffectCreateUnit>
     <CEffectDamage id="NukeSuicide">
         <ImpactLocation Value="TargetPoint"/>
     </CEffectDamage>
@@ -10118,14 +10164,13 @@
         <Count value="1"/>
         <Chance value="0.33"/>
     </CEffectRemoveBehavior>
-    <CEffectApplyBehavior id="SensoryConfusionApplyCloak">
-        <EditorCategories value=""/>
-        <Behavior value="SensoryConfusionCloak"/>
-        <WhichUnit Value="Caster"/>
-    </CEffectApplyBehavior>
-    <CEffectRemoveBehavior id="SensoryConfusionRemove">
+    <CEffectRemoveBehavior id="RavagingPhantomRemove">
         <EditorCategories value=""/>
         <BehaviorLink value="RavagingPhantomLevel1"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="RavagingPhantomTempestRemove">
+        <EditorCategories value=""/>
+        <BehaviorLink value="RavagingPhantomLevel1Tempest"/>
     </CEffectRemoveBehavior>
     <CEffectApplyBehavior id="ShockwaveBarrageApplyLevel1">
         <EditorCategories value=""/>
@@ -10457,12 +10502,14 @@
         <EditorCategories value=""/>
         <EffectArray value="SonicTrapLevel1Shockwave"/>
         <EffectArray value="SonicTrapApplyCount"/>
+        <EffectArray value="SonicCreateRevealDummy"/>
     </CEffectSet>
     <CEffectSet id="SonicTrapSetLevel2">
         <EditorCategories value=""/>
         <Marker Link="Effect/SonicTrapSetLevel1"/>
         <EffectArray value="SonicTrapLevel2Shockwave"/>
         <EffectArray value="SonicTrapApplyCount"/>
+        <EffectArray value="SonicCreateRevealDummy"/>
     </CEffectSet>
     <CEffectApplyBehavior id="SonicTrapLevel1Stun">
         <EditorCategories value=""/>
@@ -10684,6 +10731,12 @@
         <Marker Link="Effect/DefensiveMatrixModifyUnit"/>
         <VitalArray index="Shields" ChangeFraction="1"/>
     </CEffectModifyUnit>
+    <CEffectEnumArea id="ReaperMK13Limit">
+        <EditorCategories value=""/>
+        <SearchFilters value="Light,Mechanical;Ally,Neutral,Enemy,Heroic,Dead"/>
+        <ExcludeArray Value="Source"/>
+        <AreaArray Radius="500" Effect="SuicideOther"/>
+    </CEffectEnumArea>
     <CEffectCreateUnit id="DroneCreateUnit">
         <EditorCategories value=""/>
         <WhichLocation Value="CasterPoint"/>
@@ -11129,6 +11182,26 @@
         <BehaviorLink value="SadistLevel1"/>
         <Count value="1"/>
     </CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="SadistLv1HealingTemp">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="SadistLv1Healing">
+        <EditorCategories value=""/>
+        <ImpactUnit Value="Caster"/>
+        <VitalArray index="Life" Change="2"/>
+        <VitalArray index="Shields" Change="1"/>
+        <ValidatorArray value="KillerHasSadist1"/>
+    </CEffectModifyUnit>
+    <CEffectApplyBehavior id="SadistLv2HealingTemp">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="SadistLv2Healing">
+        <EditorCategories value=""/>
+        <ImpactUnit Value="Caster"/>
+        <VitalArray index="Life" Change="4"/>
+        <VitalArray index="Shields" Change="2"/>
+        <ValidatorArray value="KillerHasSadist2"/>
+    </CEffectModifyUnit>
     <CEffectDamage id="SatchelBeepDummy">
         <EditorCategories value=""/>
         <Kind value="Splash"/>

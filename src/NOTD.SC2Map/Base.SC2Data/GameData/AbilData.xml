@@ -547,7 +547,9 @@
     </CAbilMorph>
     <CAbilEffectTarget id="Flare">
         <EditorCategories value="AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Flare"/>
         <Flags index="RequireTargetVision" value="0"/>
+        <Effect index="0" value="FlareCreateRevealDummy"/>
         <Cost>
             <Vital index="Energy" value="20"/>
             <Cooldown TimeUse="3"/>
@@ -557,8 +559,6 @@
         <UninterruptibleArray index="Prep" value="1"/>
         <ValidatedArray index="Approach" value="0"/>
         <ValidatedArray index="Finish" value="1"/>
-        <CursorEffect value="Flare"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Flare"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="HurlBoulders">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -2749,10 +2749,11 @@
         <Flags index="ReExecutable" value="1"/>
         <Flags index="RequireTargetVision" value="0"/>
         <Arc value="360"/>
-        <AutoCastFilters value="Heroic;Ally,Enemy,Massive"/>
+        <AutoCastFilters value="Heroic;-"/>
         <AutoCastRange value="1"/>
         <Range value="1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
+        <AutoCastValidatorArray value="CanHaveShields"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="IonCannonBeam">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -2796,97 +2797,97 @@
         <ErrorAlert value=""/>
         <Range value="5"/>
         <InfoArray index="Train1">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Shotgun"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train2">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="XS4Armor"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train3">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="FlamethrowerMK3"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train4">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="UA420AssaultRifle"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train5">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="MP9A2SubMachineGun"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train6">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="M5PulseRifle"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train7">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="StingerMK3"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train8">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="OcularImplants2"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train9">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="APAmmo"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train10">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="HEAmmo"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train11">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="HPAmmo"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train12">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="FMJAmmo"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train13">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Medkit"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train14">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Bandage"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train15">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="AntiVenom"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train16">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Magazine"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train17">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="RoadFlare"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train18">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="AmmoBox"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train19">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="PersonnelArcReactor"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
@@ -2895,50 +2896,50 @@
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train21">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="BarrettM112"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train22">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="NanoHealthAugment"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train23">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="Chaingun"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train24">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="L3GrenadeLauncher2"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train25">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="HighCapacityClip"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train26">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="C2Armor"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train27">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Button DefaultButtonFace="C4Armor"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train28">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train29">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <InfoArray index="Train30">
-            <Cooldown TimeUse="0.5"/>
+            <Cooldown TimeUse="0.05"/>
             <Unit value="ItemDummy"/>
         </InfoArray>
         <Alert value=""/>
@@ -3309,6 +3310,8 @@
         </Cost>
         <AINotifyEffect value="GunshipSupport"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="TX179Asgard"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
     <CAbilBehavior id="Helium3Igniter">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -3794,6 +3797,8 @@
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <BehaviorArray value="RavagingPhantomLevel1"/>
         <BehaviorArray value="RavagingPhantomLevel2"/>
+        <BehaviorArray value="RavagingPhantomLevel1Tempest"/>
+        <BehaviorArray value="RavagingPhantomLevel2Tempest"/>
     </CAbilBehavior>
     <CAbilEffectTarget id="SpeedofThought">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -4138,6 +4143,7 @@
             <Charge CountMax="7" CountStart="7" CountUse="1"/>
             <Cooldown TimeUse="4"/>
         </Cost>
+        <AlertArray index="Cast" value="SonicTrapPing"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SonicTrapLevel1"/>
         <AbilSetId value="SonicTrap"/>
     </CAbilEffectInstant>
@@ -4155,6 +4161,7 @@
         </Cost>
         <Marker Link="Abil/SonicTrapLevel1"/>
         <AINotifyEffect value="SonicTrapLevel1"/>
+        <AlertArray index="Cast" value="SonicTrapPing"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SonicTrapLevel1"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="SurgicalStrike">
@@ -4181,7 +4188,7 @@
         <FinishTime index="0" removed="1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="TacticalNuke" Requirements=""/>
         <CmdButtonArray index="Cancel" DefaultButtonFace=""/>
-        <Effect index="0" value="NukePersistent"/>
+        <Effect index="0" value="NukeCreateRevealDummy"/>
         <Flags index="RequireTargetVision" value="0"/>
         <Cost>
             <Vital index="Energy" value="50"/>
@@ -5472,7 +5479,12 @@
         <Range index="0" value="9"/>
     </CAbilEffectTarget>
     <CAbilAttack id="attack2">
-        <OrderArray index="0" Color="255,255,0,0" Model="Assets\UI\Cursors\WayPointAttackSwarm\WayPointAttackSwarm.m3" LineTexture="Assets\Textures\WayPointLine.dds"/>
+        <OrderArray index="0">
+            <DisplayType value="Attack"/>
+            <Color value="255,255,0,0"/>
+            <Model value="Assets\UI\Cursors\WayPointAttackSwarm\WayPointAttackSwarm.m3"/>
+            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
+        </OrderArray>
         <TargetMessage value="Abil/TargetMessage/attack2"/>
         <MinAttackSpeedMultiplier value="0.25"/>
         <MaxAttackSpeedMultiplier value="128"/>
@@ -5527,8 +5539,18 @@
         <FollowRange value="1.5"/>
     </CAbilEffectTarget>
     <CAbilMove id="move2">
-        <OrderArray index="0" Color="255,0,255,0" Model="Assets\UI\Cursors\WayPointMoveSwarm\WayPointMoveSwarm.m3" LineTexture="Assets\Textures\WayPointLine.dds"/>
-        <OrderArray index="1" Color="255,35,125,255" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3" LineTexture="Assets\Textures\WayPointLine.dds"/>
+        <OrderArray index="0">
+            <DisplayType value="Move"/>
+            <Color value="255,0,255,0"/>
+            <Model value="Assets\UI\Cursors\WayPointMoveSwarm\WayPointMoveSwarm.m3"/>
+            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
+        </OrderArray>
+        <OrderArray index="1">
+            <DisplayType value="Move"/>
+            <Color value="255,35,125,255"/>
+            <Model value="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
+            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
+        </OrderArray>
         <FleeRange value="5"/>
         <FleeTime value="5"/>
         <FollowRangeSlop value="1"/>
@@ -5536,7 +5558,12 @@
         <MinPatrolDistance value="1"/>
     </CAbilMove>
     <CAbilStop id="stop2">
-        <OrderArray index="0" Color="255,0,255,0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3" LineTexture="Assets\Textures\WayPointLine.dds"/>
+        <OrderArray index="0">
+            <DisplayType value="Confirm"/>
+            <Color value="255,0,255,0"/>
+            <Model value="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
+            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
+        </OrderArray>
         <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFireSpecial"/>
     </CAbilStop>
 </Catalog>

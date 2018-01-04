@@ -49,6 +49,7 @@
             <ActionsPerMinute value="1100"/>
             <DefaultRebuildUnit value="14"/>
             <DefaultRebuildStructure value="14"/>
+            <Flags index="TrialAllowed" value="1"/>
         </DifficultyLevels>
         <DifficultyLevels index="5">
             <AttributeId value="Hard"/>
@@ -57,6 +58,7 @@
             <MenuTooltip value="UI/Difficulty05Tip"/>
             <Enabled value="0"/>
             <ActionsPerMinute value="1500"/>
+            <Flags index="TrialAllowed" value="1"/>
         </DifficultyLevels>
         <DifficultyLevels index="6">
             <AttributeId value="HdVH"/>
@@ -65,6 +67,7 @@
             <MenuTooltip value="UI/Difficulty06Tip"/>
             <Enabled value="0"/>
             <ActionsPerMinute value="2000"/>
+            <Flags index="TrialAllowed" value="1"/>
         </DifficultyLevels>
         <DifficultyLevels index="7">
             <AttributeId value="VyHd"/>
@@ -73,6 +76,7 @@
             <MenuTooltip value="UI/Difficulty07Tip"/>
             <Enabled value="0"/>
             <ActionsPerMinute value="2700"/>
+            <Flags index="TrialAllowed" value="1"/>
         </DifficultyLevels>
         <DifficultyLevels index="8">
             <AttributeId value="ChVi"/>
@@ -81,6 +85,7 @@
             <MenuTooltip value="UI/Difficulty08Tip"/>
             <Enabled value="0"/>
             <ActionsPerMinute value="2700"/>
+            <Flags index="TrialAllowed" value="1"/>
         </DifficultyLevels>
         <DifficultyLevels index="9">
             <AttributeId value="ChRe"/>
@@ -89,6 +94,7 @@
             <MenuTooltip value="UI/Difficulty09Tip"/>
             <Enabled value="0"/>
             <ActionsPerMinute value="2700"/>
+            <Flags index="TrialAllowed" value="1"/>
         </DifficultyLevels>
         <DifficultyLevels index="10">
             <AttributeId value="Insa"/>
@@ -97,6 +103,7 @@
             <MenuTooltip value="UI/Difficulty10Tip"/>
             <Enabled value="0"/>
             <ActionsPerMinute value="2700"/>
+            <Flags index="TrialAllowed" value="1"/>
         </DifficultyLevels>
         <VeterancySearchRadius value="500"/>
         <VeterancySearchMaxCount value="10"/>

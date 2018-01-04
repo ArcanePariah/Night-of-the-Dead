@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
+	<Constant name = "TooltipOffset" val = "-65" />
     <Frame type="GameUI" name="GameUI" file="GameUI">
         <ConsoleWorldBottomOffset val="0"/>
     </Frame>
@@ -98,55 +99,68 @@
             <Anchor side="Top" relative="$parent" pos="Min" offset="85"/>
         </Frame>
 		
-		<Frame type = "Frame" name = "Player1Data"  template="PlayerDetails/Medals">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
-			<Frame type="Button" name="MedalsButton">
-				<AcceptsMouse val = "false" />
-			</Frame>
+		<Frame type = "StandardTooltip" name = "Player1StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine1" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "1" />
+				</Frame>
 		</Frame>
 		
-		<Frame type = "Frame" name = "Player2Data"  template="PlayerDetails/DetailsUI">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
+		<Frame type = "StandardTooltip" name = "Player2StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine2" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "2" />
+				</Frame>
 		</Frame>
 		
-		<Frame type = "Frame" name = "Player3Data"  template="PlayerDetails/DetailsUI">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
+		<Frame type = "StandardTooltip" name = "Player3StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine3" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "3" />
+				</Frame>
 		</Frame>
 		
-		<Frame type = "Frame" name = "Player4Data"  template="PlayerDetails/DetailsUI">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
+		<Frame type = "StandardTooltip" name = "Player4StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine4" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "4" />
+				</Frame>
 		</Frame>
 		
-		<Frame type = "Frame" name = "Player5Data"  template="PlayerDetails/DetailsUI">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
+		<Frame type = "StandardTooltip" name = "Player5StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine5" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "5" />
+				</Frame>
 		</Frame>
 		
-		<Frame type = "Frame" name = "Player6Data"  template="PlayerDetails/DetailsUI">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
+		<Frame type = "StandardTooltip" name = "Player6StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine6" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "6" />
+				</Frame>
 		</Frame>
 		
-		<Frame type = "Frame" name = "Player7Data"  template="PlayerDetails/DetailsUI">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
+		<Frame type = "StandardTooltip" name = "Player7StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine7" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "7" />
+				</Frame>
 		</Frame>
 		
-		<Frame type = "Frame" name = "Player8Data"  template="PlayerDetails/DetailsUI">
-			<Anchor side="Right" relative="$parent" pos="Max" offset="-270" />
-			<Anchor side="Top" relative="$parent" pos="Min" offset="150" />
-			<Visible val = "False"/>
+		<Frame type = "StandardTooltip" name = "Player8StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine8" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "8" />
+				</Frame>
 		</Frame>
 
 	</Frame>

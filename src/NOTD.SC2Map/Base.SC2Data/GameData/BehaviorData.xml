@@ -113,6 +113,11 @@
         <Duration value="0.1"/>
         <FinalEffect value=""/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="NotMoving">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="NotMoving"/>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="PetVeterancy2">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <SharedXPMaxCount index="Kills" value="0"/>
@@ -1000,6 +1005,31 @@
         <Duration value="60"/>
         <ExpireEffect value="Suicide"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SonicRevealTimed">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <ExpireEffect value="Suicide"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NukeRevealTimed">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="12"/>
+        <ExpireEffect value="Suicide"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FlareRevealTimed">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="10"/>
+        <Player Value="Neutral"/>
+        <ExpireEffect value="Suicide"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NeuralParasiteRevealTimed">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <ExpireEffect value="Suicide"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="FlashFlareLevel1">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1074,10 +1104,10 @@
             <StateFlags index="Uncommandable" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HammeroftheGodsUnqiue">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <InitialEffect value="HammeroftheGodUnique"/>
+    <CBehaviorBuff id="BlackDogLimit">
         <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InitialEffect value="BlackDogLimit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KillstoCasterGrenade">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1087,10 +1117,10 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <KillCredit Value="CasterOuter"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MaintenenceDroneUnqiue">
+    <CBehaviorBuff id="MaintenanceDroneLimit">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <InitialEffect value="HammeroftheGodUnique2"/>
+        <InitialEffect value="MaintenanceDroneLimit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HardenCaraspace">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1246,42 +1276,6 @@
         <Modification>
             <StateFlags index="Cloak" value="1"/>
         </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RavagingPhantomDeathLevel1">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="0.25" Fatal="1">
-            <Kind index="Melee" value="0"/>
-            <Kind index="Ranged" value="0"/>
-            <Kind index="Splash" value="0"/>
-        </DamageResponse>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RavagingPhantomDeathLevel12">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="0.5" Fatal="1">
-            <Kind index="Melee" value="0"/>
-            <Kind index="Ranged" value="0"/>
-            <Kind index="Splash" value="0"/>
-        </DamageResponse>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RavagingPhantomDeathPsionicTempestLevel1">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="0.4" Fatal="1">
-            <Kind index="Melee" value="0"/>
-            <Kind index="Ranged" value="0"/>
-            <Kind index="Splash" value="0"/>
-        </DamageResponse>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RavagingPhantomDeathPsionicTempestLevel12">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="0.8" Fatal="1">
-            <Kind index="Melee" value="0"/>
-            <Kind index="Ranged" value="0"/>
-            <Kind index="Splash" value="0"/>
-        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="SatchelShieldEnergyDamage">
         <InfoFlags index="Hidden" value="1"/>
@@ -2212,16 +2206,6 @@
             </DeathResponse>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="PhantomSuicide">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <Duration value="11"/>
-        <ExpireEffect value="Suicide"/>
-        <Modification>
-            <StateFlags index="Uncommandable" value="1"/>
-            <VitalMaxFractionArray index="Life" value="0.5"/>
-        </Modification>
-    </CBehaviorBuff>
     <CBehaviorBuff id="HeroDetectorRadar2">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-status-radar.dds"/>
@@ -2280,6 +2264,11 @@
             <ModifyFlags index="SuppressMoving" value="1"/>
             <ModifyFlags index="SuppressTurning" value="1"/>
         </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ArmageddonBombLimit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="ArmageddonBombLimit"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Armageddon">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -2555,9 +2544,6 @@
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
             <AbilClassDisableArray index="CAbilInventory" value="1"/>
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
         </Modification>
         <DamageResponse Chance="1" ModifyFraction="1.2"/>
     </CBehaviorBuff>
@@ -2908,9 +2894,6 @@
             <StateFlags index="Stun" value="1"/>
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="TrickShotLevel4">
@@ -3251,6 +3234,9 @@
         <InfoIcon value="Assets/Textures/btn-ability-protoss-blink.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="FloodlightsLevel2"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="FloodlightsLevel1"/>
+        </Modification>
         <TimeScaleSource Value="Global"/>
         <Period value="1"/>
         <PeriodicEffect value="FloodlightsLevel2Reveal"/>
@@ -3261,6 +3247,9 @@
         <InfoIcon value="Assets/Textures/btn-ability-protoss-blink.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="FloodlightsLevel3"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="FloodlightsLevel2"/>
+        </Modification>
         <TimeScaleSource Value="Global"/>
         <Period value="1"/>
         <PeriodicEffect value="FloodlightsLevel3Reveal"/>
@@ -3648,6 +3637,11 @@
             </DeathResponse>
         </Modification>
     </CBehaviorAttribute>
+    <CBehaviorBuff id="X1GuardianLimit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="X1GuardianLimit"/>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="X1BotVeterancy">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <VeterancyLevelArray MinVeterancyXP="300">
@@ -3656,9 +3650,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="350">
@@ -3667,9 +3658,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="400">
@@ -3678,9 +3666,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="450">
@@ -3689,9 +3674,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="500">
@@ -3700,9 +3682,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="550">
@@ -3711,9 +3690,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="600">
@@ -3722,9 +3698,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="650">
@@ -3733,9 +3706,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="700">
@@ -3744,9 +3714,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="750">
@@ -3755,9 +3722,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
         <VeterancyLevelArray MinVeterancyXP="800">
@@ -3766,9 +3730,6 @@
                 <DamageDealtFraction index="Melee" value="0.05"/>
                 <DamageDealtFraction index="Ranged" value="0.05"/>
                 <DamageDealtFraction index="Splash" value="0.05"/>
-                <DeathResponse>
-                    <Type index="Remove" value="1"/>
-                </DeathResponse>
             </Modification>
         </VeterancyLevelArray>
     </CBehaviorVeterancy>
@@ -4376,9 +4337,6 @@
         <PeriodCount value="0"/>
         <Modification DetectArc="0" RadarArc="0">
             <VitalRegenArray index="Life" value="0.3984"/>
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
         </Modification>
         <MaxStackCountPerCaster value="2"/>
     </CBehaviorBuff>
@@ -4393,11 +4351,7 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <MaxStackCount value="0"/>
         <PeriodCount value="0"/>
-        <Modification LifeArmorBonus="1" DetectArc="0" RadarArc="0">
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
-        </Modification>
+        <Modification LifeArmorBonus="1" DetectArc="0" RadarArc="0"/>
         <DamageResponse>
             <Chance value="1"/>
             <ClampMaximum value="14"/>
@@ -4463,11 +4417,7 @@
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Modification LifeArmorBonus="1" DetectArc="0" RadarArc="0">
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
-        </Modification>
+        <Modification LifeArmorBonus="1" DetectArc="0" RadarArc="0"/>
         <DamageResponse>
             <Chance value="1"/>
             <ClampMaximum value="25"/>
@@ -4488,11 +4438,7 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <MaxStackCount value="0"/>
         <PeriodCount value="0"/>
-        <Modification LifeArmorBonus="6" DetectArc="0" RadarArc="0">
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
-        </Modification>
+        <Modification LifeArmorBonus="6" DetectArc="0" RadarArc="0"/>
         <DamageResponse>
             <Cost>
                 <Charge Link="Behavior/C2Armor"/>
@@ -4747,9 +4693,6 @@
             <StateFlags index="Stun" value="1"/>
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
         </Modification>
         <DamageResponse>
             <Cost>
@@ -5135,6 +5078,11 @@
         <PeriodCount value="1"/>
         <PeriodicEffect value="BurstFireDamageLevel3"/>
         <DamageResponse Chance="1" Fatal="1" Handled="FrenzyApplyBuffSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ReaperMK13Limit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="ReaperMK13Limit"/>
     </CBehaviorBuff>
     <CBehaviorVeterancy id="DroneVeterancy" parent="PetVeterancy">
         <Name value="Behavior/Name/DroneVeterancy"/>
@@ -5760,9 +5708,6 @@
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
             <AbilClassDisableArray index="CAbilInventory" value="1"/>
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShockwaveBarrageStunLevel22">
@@ -6059,23 +6004,37 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="1"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="SensoryConfusionCloak">
-        <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Duration value="10"/>
-        <Modification>
-            <StateFlags index="Cloak" value="1"/>
-        </Modification>
-    </CBehaviorBuff>
     <CBehaviorBuff id="RavagingPhantomLevel1">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="SensoryConfusionLevel1"/>
-        <DamageResponse Chance="1" Location="Attacker" TargetFilters="-;Player,Ally,Neutral,Structure,Heroic,Item,Invulnerable">
+        <DamageResponse>
+            <Chance value="0.4"/>
+            <Handled value="RavagingPhantomApplyTemp"/>
+            <Location value="Attacker"/>
+            <TargetFilters value="-;Player,Ally,Neutral,Structure,Item,Invulnerable"/>
             <Kind index="Melee" value="0"/>
             <Kind index="Ranged" value="0"/>
             <Kind index="Splash" value="0"/>
+            <ExcludeEffectArray value="PsionicTempestDamage"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavagingPhantomLevel1Tempest">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Requirements value="SensoryConfusionLevel1"/>
+        <DamageResponse>
+            <Chance value="0.25"/>
+            <Handled value="RavagingPhantomApplyTemp"/>
+            <Location value="Attacker"/>
+            <TargetFilters value="-;Player,Ally,Neutral,Structure,Item,Invulnerable"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <RequireEffectArray value="PsionicTempestDamage"/>
         </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
@@ -6084,11 +6043,54 @@
         <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="SensoryConfusionLevel2"/>
-        <Period value="0.002"/>
+        <Period value="0.1"/>
         <PeriodCount value="1"/>
-        <PeriodicEffect value="SensoryConfusionRemove"/>
-        <DamageResponse Handled="SensoryConfusionApplyCloak"/>
+        <PeriodicEffect value="RavagingPhantomRemove"/>
+        <DamageResponse>
+            <Chance value="0.8"/>
+            <Handled value="RavagingPhantomApplyTemp"/>
+            <Location value="Attacker"/>
+            <TargetFilters value="-;Player,Ally,Neutral,Structure,Item,Invulnerable"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <ExcludeEffectArray value="PsionicTempestDamage"/>
+        </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavagingPhantomLevel2Tempest">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-blink-zeratul.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Requirements value="SensoryConfusionLevel2"/>
+        <Period value="0.1"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffect value="RavagingPhantomTempestRemove"/>
+        <DamageResponse>
+            <Chance value="0.5"/>
+            <Handled value="RavagingPhantomApplyTemp"/>
+            <Location value="Attacker"/>
+            <TargetFilters value="-;Player,Ally,Neutral,Structure,Item,Invulnerable"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Ranged" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <RequireEffectArray value="PsionicTempestDamage"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavagingPhantomControl">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="11"/>
+        <ExpireEffect value="RavagingPhantomExpireSet"/>
+        <Modification>
+            <StateFlags index="Uncommandable" value="1"/>
+            <VitalMaxFractionArray index="Life" value="0.5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RavagingPhantomApplyTemp">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="RavagingPhantomSpawn"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Shriek">
         <Alignment value="Negative"/>
@@ -6207,6 +6209,11 @@
             <RequireEffectArray value="CriticalStrike"/>
         </DamageResponse>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SonicTrapLimit">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="SonicTrapLimit"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="SonicTrapCount">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -6237,9 +6244,6 @@
             <StateFlags index="Stun" value="1"/>
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="BloodFrenzyLevel2">
@@ -6590,11 +6594,7 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <MaxStackCount value="0"/>
         <PeriodCount value="0"/>
-        <Modification LifeArmorBonus="4" DetectArc="0" RadarArc="0">
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
-        </Modification>
+        <Modification LifeArmorBonus="4" DetectArc="0" RadarArc="0"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
@@ -6818,7 +6818,13 @@
         <InfoIcon value="Assets\Textures\btn-unit-terran-marauderkillsquad.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Requirements value="SadistLevel1"/>
+        <DamageResponse Chance="1" Handled="SadistLv1HealingTemp" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SadistLv1HealingTemp">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="SadistLv1Healing"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SadistLevel2">
         <Alignment value="Positive"/>
@@ -6828,7 +6834,13 @@
         <Modification>
             <BehaviorLinkDisableArray value="SadistLevel1"/>
         </Modification>
+        <DamageResponse Chance="1" Handled="SadistLv2HealingTemp" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SadistLv2HealingTemp">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="SadistLv2Healing"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SatchelLevel1">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -7149,9 +7161,6 @@
             <StateFlags index="Stun" value="1"/>
             <AbilClassEnableArray index="CAbilInventory" value="1"/>
             <AbilClassEnableArray index="CAbilLearn" value="1"/>
-            <DeathResponse>
-                <Type index="Remove" value="1"/>
-            </DeathResponse>
         </Modification>
         <MaxStackCountPerCaster value="10"/>
     </CBehaviorBuff>

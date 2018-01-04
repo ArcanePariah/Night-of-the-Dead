@@ -356,7 +356,7 @@
             <LayoutButtons Face="IronHand" Type="AbilCmd" AbilCmd="IronHand,On" Row="0" Column="4"/>
         </CardLayouts>
         <BehaviorArray index="0" Link="HEFRounds"/>
-        <BehaviorArray Link="HammeroftheGodsUnqiue"/>
+        <BehaviorArray Link="BlackDogLimit"/>
         <Attributes index="Robotic" value="1"/>
         <EnergyStart value="10"/>
         <EnergyMax value="15"/>
@@ -1332,6 +1332,7 @@
         <Collide index="ForceField" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Psionic" value="1"/>
         <LifeStart value="325"/>
         <LifeMax value="325"/>
         <LifeArmor value="1"/>
@@ -1522,7 +1523,7 @@
         <BehaviorArray Link="SurveillanceDroneHeight"/>
         <BehaviorArray Link="MaintenanceDroneCutterCount"/>
         <BehaviorArray Link="MaintenanceDroneCutterCount"/>
-        <BehaviorArray Link="MaintenenceDroneUnqiue"/>
+        <BehaviorArray Link="MaintenanceDroneLimit"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="PlasmaCutterOverchargeLevel2" Type="AbilCmd" AbilCmd="PlasmaCutterOvercharge2,Execute" Row="1" Column="0"/>
             <LayoutButtons index="7" removed="1"/>
@@ -1577,7 +1578,7 @@
         <BehaviorArray Link="SurveillanceDroneHeight"/>
         <BehaviorArray Link="MaintenanceDroneCutterCount"/>
         <BehaviorArray Link="MaintenanceDroneCutterCount"/>
-        <BehaviorArray Link="MaintenenceDroneUnqiue"/>
+        <BehaviorArray Link="MaintenanceDroneLimit"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="PlasmaCutterOverchargeLevel3" Type="AbilCmd" AbilCmd="PlasmaCutterOvercharge3,Execute" Row="1" Column="0"/>
             <LayoutButtons index="7" Face="FieldRetrofit" Type="AbilCmd" AbilCmd="FieldRetrofit,Execute" Row="2" Column="1"/>
@@ -1925,6 +1926,7 @@
         <Attributes index="Structure" value="1"/>
         <EditorCategories value=""/>
         <AbilArray Link="Detonate"/>
+        <BehaviorArray Link="ArmageddonBombLimit"/>
         <CardLayouts>
             <LayoutButtons Face="Detonate" Type="AbilCmd" AbilCmd="Detonate,On" Row="2" Column="0"/>
         </CardLayouts>
@@ -2012,10 +2014,10 @@
         <BehaviorArray index="1" Link="SharedExperience"/>
         <WeaponArray Link="VenomousFangs"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="Move" AbilCmd="move,Move"/>
-            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute"/>
-            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
-            <LayoutButtons index="3" removed="1"/>
+            <LayoutButtons index="0" Face="Move" AbilCmd="move,Move" Column="4"/>
+            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="1"/>
+            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="2"/>
+            <LayoutButtons index="3" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons index="4" removed="1"/>
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
@@ -2685,7 +2687,7 @@
         <BehaviorArray Link="MaintenanceDroneCutterCount"/>
         <BehaviorArray Link="SurveillanceDroneOverchargeSuicide"/>
         <BehaviorArray Link="SurveillanceDroneHeight"/>
-        <BehaviorArray Link="MaintenenceDroneUnqiue"/>
+        <BehaviorArray Link="MaintenanceDroneLimit"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="" Type="Undefined" AbilCmd="" Row="0" Column="0"/>
             <LayoutButtons index="7" Face="PlasmaCutterOverchargeLevel1" Type="AbilCmd" AbilCmd="PlasmaCutterOvercharge,Execute" Row="2" Column="3"/>
@@ -3385,6 +3387,7 @@
         <AbilArray Link="X1UpgradeLevel2"/>
         <BehaviorArray Link="X1BotVeterancy"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1GuardianLimit"/>
         <TurretArray value="Diamondback"/>
         <TurretArray value="Diamondback"/>
         <WeaponArray Link="QuadmountLasersLevel2" Turret="Diamondback"/>
@@ -6995,8 +6998,15 @@
         <BehaviorArray Link="SuicideBackup"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="AblativeScales" AbilCmd="255,0" Requirements="UseAblativeScales" Column="2"/>
-            <LayoutButtons index="6" Face="Stealth2" AbilCmd="StealthIvax,On"/>
+            <LayoutButtons index="5">
+                <Face value="AblativeScales"/>
+                <Type value="Passive"/>
+                <AbilCmd value="255,0"/>
+                <Requirements value="UseAblativeScales"/>
+                <Row value="2"/>
+                <Column value="2"/>
+            </LayoutButtons>
+            <LayoutButtons index="6" Face="Stealth2" Type="AbilCmd" AbilCmd="StealthIvax,On" Row="2" Column="0"/>
             <LayoutButtons>
                 <Face value="Bloodlust"/>
                 <Type value="AbilCmd"/>
@@ -7514,6 +7524,47 @@
         <Sight value="9"/>
         <BehaviorArray Link="ThermalSight"/>
         <BehaviorArray Link="FlareTimedLife"/>
+    </CUnit>
+    <CUnit id="SonicRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="10"/>
+        <BehaviorArray Link="SonicRevealTimed"/>
+    </CUnit>
+    <CUnit id="NukeRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="10"/>
+        <BehaviorArray Link="NukeRevealTimed"/>
+    </CUnit>
+    <CUnit id="FlareRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="6"/>
+        <BehaviorArray Link="ThermalSight"/>
+        <BehaviorArray Link="FlareRevealTimed"/>
+    </CUnit>
+    <CUnit id="NeuralParasiteRevealDummy">
+        <Race value="Terr"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="NoDraw" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <EditorCategories value=""/>
+        <Sight value="3"/>
+        <BehaviorArray Link="NeuralParasiteRevealTimed"/>
     </CUnit>
     <CUnit id="Shotgun" parent="ITEM">
         <Race value="Terr"/>
@@ -8395,6 +8446,8 @@
         <BehaviorArray Link="ForesightLevel2"/>
         <BehaviorArray Link="RavagingPhantomLevel1"/>
         <BehaviorArray Link="RavagingPhantomLevel2"/>
+        <BehaviorArray Link="RavagingPhantomLevel1Tempest"/>
+        <BehaviorArray Link="RavagingPhantomLevel2Tempest"/>
         <BehaviorArray Link="KittenBeacon"/>
         <BehaviorArray Link="RecruitDamageReduction"/>
         <BehaviorArray Link="Flashlight"/>
@@ -8497,10 +8550,10 @@
         <BehaviorArray index="1" Link="SharedExperience"/>
         <WeaponArray Link="NeedleClaws2"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="Move" AbilCmd="move,Move"/>
-            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute"/>
-            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
-            <LayoutButtons index="3" removed="1"/>
+            <LayoutButtons index="0" Face="Move" AbilCmd="move,Move" Column="4"/>
+            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="1"/>
+            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="2"/>
+            <LayoutButtons index="3" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
             <LayoutButtons index="4" removed="1"/>
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
@@ -8556,7 +8609,7 @@
         <LifeStart value="45"/>
         <LifeMax value="45"/>
         <KillXP value="6"/>
-        <AbilArray index="3" removed="1"/>
+        <AbilArray index="3" Link="move"/>
         <AbilArray index="4" removed="1"/>
         <AbilArray index="5" removed="1"/>
         <TacticalAI value="Parasite2"/>
@@ -8614,6 +8667,7 @@
         <BehaviorArray Link="DroneVeterancy"/>
         <BehaviorArray Link="Flashlight"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="ReaperMK13Limit"/>
         <WeaponArray Link="AutoTurret"/>
         <CardLayouts>
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
@@ -8998,6 +9052,7 @@
         <FlagArray index="Invulnerable" value="1"/>
         <AbilArray Link="SonicTrapLevel1"/>
         <BehaviorArray Link="SonicTrapLevel1IssueOrder"/>
+        <BehaviorArray Link="SonicTrapLimit"/>
         <CardLayouts/>
         <CardLayouts CardId="2">
             <LayoutButtons Face="SonicTrapLevel1" Type="AbilCmd" AbilCmd="SonicTrapLevel1,Execute" Row="2" Column="0"/>
@@ -9052,6 +9107,7 @@
         <FlagArray index="Invulnerable" value="1"/>
         <AbilArray Link="SonicTrapLevel2"/>
         <BehaviorArray Link="SonicTrapLevel2IssueOrder"/>
+        <BehaviorArray Link="SonicTrapLimit"/>
         <CardLayouts/>
         <CardLayouts CardId="2">
             <LayoutButtons Face="SonicTrapLevel1" Type="AbilCmd" AbilCmd="SonicTrapLevel2,Execute" Row="2" Column="0"/>
@@ -9718,6 +9774,7 @@
         <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <BehaviorArray Link="X1BotVeterancy"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1GuardianLimit"/>
         <HotkeyCategory value="Hotkey/Minis"/>
     </CUnit>
     <CUnit id="X1GuardianLevel3">
@@ -9791,6 +9848,7 @@
         <SeparationRadius value="0.3"/>
         <BehaviorArray Link="X1BotVeterancy"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1GuardianLimit"/>
         <HotkeyAlias value="X1GuardianLevel1"/>
         <HotkeyCategory value="Hotkey/Minis"/>
     </CUnit>

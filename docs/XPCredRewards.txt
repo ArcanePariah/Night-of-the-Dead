@@ -1,0 +1,146 @@
+XP AND CREDIT REWARDS
+
+1. XP and credits are multiplied by 0.6 if more than 2 players pick same class.
+2. Credits are divided by number of players.
+3. Credits are multiplied by an additional number if less than 5 players. 1 player -> 0.15, 2 players -> 0.35, 3-4 players -> 0.7.
+4. If a player is dead - credits are multiplied by 0.75 if kitty alive or 0.5 if kitty dead.
+5. If a player is dead - XP is multiplied by 0.5 if kitty is alive, no XP is given if kitty is dead.
+6. Credits are multiplied by a number based on player XP. 0 -> 0.5, 5000 -> 1, 10000 -> 1.3, 40000 -> 1.6, 80000 -> 1.9, 120000 -> 2.2
+7. Game caps credits at +500 per game. Anything above 500 is wasted. Its possible to buy an item for 100 credits, and if the game rewards 650, you still get 500. 
+
+Helium-3 canisters give 10 credits flat to everyone.
+
+The sequence casual/normal/hard/brutal is a number based on AI difficulty level. For NOTD its recruit/veteran/nightmare/[UNUSED].
+
+Easy company                  XP            Performance  Credits
+Mine terminal complete        1             1 
+Military base entered         1 
+Security cams complete        1
+Tissue sample complete        1             1/3/3/3
+  1) Incapacitate tart        3 
+  2) kill tart                2             1            15/15/30/30
+  3) Eli kill                 3             3            15/15/30/30 
+Airlock wave start            1
+Airlock wave end              1
+  1) save 25+ civs            3
+  2) save 20-25 civs          2
+5 or less cocoons left        1
+Erebos beaten                 3             1            15/15/30/30
+Menos killed                  2                          0/0/40/0
+Parrot killed                 2
+Zombie worms killed           3
+Dropship arrival              1
+Everyone alive at dropship    1/2/2/2 
+NM bonus                      0/0/10/0
+Erebos killed                 2                          25/25/50/0
+Dome A                        2
+Dome B                        2
+Dome C                        2
+Dome D                        2
+Dome D destroyed              2
+10 civs rescued               2
+20 civs rescued               2
+30 civs rescued               2
+40 civs rescued               3
+50 civs rescued               3
+60 civs rescued               3
+Black ops survived            3/4/4/0
+NM bonus                      0/0/10/0
+Truck evac success            5
+Wave 16 (more reinforcements) 1/2/2/0
+Wave 17 (tanks)               1/2/2/0
+Eos killed                    5/8/8/0                    50/50/100/0
+
+Alpha company                 XP            Performance  Credits     
+Armory defence start          2
+Charlie found                 2
+Demeter killed                3                          0/30/50/0
+2nd holdout survived          2
+Cronus spawned                3
+Cronus killed                 7                          0/50/150/0
+NM bonus                      0/0/10/0
+Tanaka runs around lab        3
+Tanaka almost complete        3
+Poison gas                    2
+Tanaka heading to transports  1
+Cerberus dies                 8                          0/50/100/0
+NM bonus                      0/0/10/0
+  1) anti-toxins done         4
+  2) 4 nexi dead              3
+10 civs rescued               2
+20 civs rescued               2
+30 civs rescued               2
+40 civs rescued               2
+50 civs rescued               2             3
+60 civs rescued               2
+Ivax dead                     25                         0/80/215/0
+Perses dead                   18                         0/100/200/0
+NM bonus                      0/0/10/0
+AC ending                     5
+
+Apollo security               XP            Performance  Credits    
+Team B survives until rescue  3
+Deimos spawns                 3
+Deimos killed                 4                          0/30/50/0
+Comm tower objective appears  3
+Lab entered                   3
+Nazara killed                 7                          0/50/110/0
+Laser code 66                 3
+HAL shutdown complete         5             3            20 
+NM bonus                      0/0/10/0
+Bergman found                 3
+Bergman survives              3
+Apoptosis killed              10                         0/50/160/0
+Choice presented              3
+NM bonus                      0/0/10/0
+   --- Choice A ---
+Comm tower triggered          3
+Reactor DL complete           7             3 
+Hephasteus killed             5                          60/60/130/0
+Evac reached                  22                         80/80/120/0
+NM bonus                      0/0/10/0
+   --- Choice B ---
+Generators complete           5                          30/30/50/30
+Athena killed                 7                          0/50/100/0
+Domes sealed                  3
+Hades killed                  0/80/135/0                 0/250/650/0
+Sec ending                    10                         80/80/120/80
+  1) 1 Devastator survives    5
+  2) 2 Devastators survive    10
+  3) 3 Devastators survive    15
+NM bonus                      0/0/10/0
+
+Survival                      XP            Performance  Credits
+5 Hammer Time                 5                          0/20/40/0 (2+ players)
+10 Boss 1 - Tartarus & Eile   5                          0/40/80/0 (2+ players)
+15 Stay awhile and listen     7                          0/40/80/0 (2+ players)
+20 Boss 2 - Seth & Ivax       10                         0/80/120/0 (2+ players)
+25 No Rest for the Wicked     15                         80
+30 Circle of Light            25                         0/80/160/0z
+35 Leave No Man Behind        30                         120
+40 Masters of the Universe    60/60/120/60               0/200/400/0
+
+Optional                     XP             Performance  Credits      Performance 
+Comms                        2              3 
+Chem leaks                   8/8/12/8       5            30/30/90/30  20
+Seth                         3 
+Mine Boss (Seth again too)   2
+Infestors killed             1/2/2/2
+
+
+Victory bonuses (2+ players)
+nightmare gives 30 xp, 80 credits
+veteran rating > 1800 gives 25 xp, 50 credits
+veteran rating > 1700 gives 20 xp, 40 credits
+veteran rating <= 1700 gives 15 xp, 30 credits
+recruit gives 10 xp, 20 credits
+speed recruit bonus 10 xp
+speed vet bonus 30 xp
+speed nightmare bonus 40 xp
+All players survive 5 xp, 40 credits
+Ivan/Ogi survives 3
+MOH gives 25 xp, 300 credits
+Player receives 1 xp for each 10000 xp already earned. Example - A player with 70000 gets +7 xp bonus.
+Player receives 1 xp for each 100 rating above 1500. Example - a player with 1850 gets +3 xp bonus.
+
+Speed bonus is awarded to survival games, only victory itself isnt tracked.

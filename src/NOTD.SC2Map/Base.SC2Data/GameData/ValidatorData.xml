@@ -116,6 +116,38 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="SlowRoast"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasBlind">
+        <Compare value="GT"/>
+        <Behavior value="Blind"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasCripple">
+        <Compare value="GT"/>
+        <Behavior value="Cripple"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasInfection">
+        <Compare value="GT"/>
+        <Behavior value="Infection"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasMadness">
+        <Compare value="GT"/>
+        <Behavior value="Madness"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasOpenWound">
+        <Compare value="GT"/>
+        <Behavior value="OpenWound"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasShortCircuit">
+        <Compare value="GT"/>
+        <Behavior value="ShortCircuit"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HasVenom">
+        <Compare value="GT"/>
+        <Behavior value="Venom"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="KillerHasRavagingPhantom">
+        <CombineArray value="CasterhasRavagingPhantomLevel1"/>
+        <CombineArray value="CasterhasRavagingPhantomLevel2"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="CasterhasRavagingPhantomLevel1">
         <Value value="1"/>
         <Behavior value="RavagingPhantomLevel1"/>
@@ -301,6 +333,14 @@
         <WhichUnit Value="Caster"/>
         <Value value="DominionKillTeam"/>
     </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="KillerHasSadist1">
+        <Value value="1"/>
+        <Behavior value="SadistLevel1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="KillerHasSadist2">
+        <Value value="1"/>
+        <Behavior value="SadistLevel2"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitBehaviorState id="CasterUnitnotStunned">
         <WhichUnit Value="Caster"/>
         <BehaviorState value="Stun"/>

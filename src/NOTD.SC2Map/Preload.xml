@@ -12,6 +12,7 @@
 <Actor id="LightOmniPurpleLarge"/>
 <Actor id="LightOmniRed"/>
 <Actor id="LightOmniRedLarge"/>
+<Actor id="GenericSpacePipes" Variations="10"/>
 <Actor id="AgriaDebrisLarge" Variations="0,1"/>
 <Actor id="AlarmLight" Variations="0,1"/>
 <Actor id="Antenna" Variations="0,1"/>
@@ -208,7 +209,6 @@
 <Actor id="TruckFlatbedConstruction"/>
 <Actor id="TRaynorDumpTruck"/>
 <Actor id="Cougher"/>
-<Actor id="GenericSpacePipes" Variations="10"/>
 <Sound id="Zerg_CreepGrow"/>
 <Terrain id="MeinhoffEx1"/>
 <TerrainObject id="AvernusSpectreChamberTO2"/>
