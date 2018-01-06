@@ -110,12 +110,16 @@
             <Classes value="Ammobox"/>
             <Classes value="Magazines"/>
             <Classes value="Supplies"/>
+            <Classes value="Armor"/>
+            <Classes value="Weapons"/>
         </Slots>
         <Slots EmptyFace="EmptySlot" Row="0" Column="2">
             <Classes value="Enhancements"/>
             <Classes value="Ammobox"/>
             <Classes value="Magazines"/>
             <Classes value="Supplies"/>
+            <Classes value="Armor"/>
+            <Classes value="Weapons"/>
         </Slots>
     </CItemContainer>
     <CItemContainer id="Equipment">
