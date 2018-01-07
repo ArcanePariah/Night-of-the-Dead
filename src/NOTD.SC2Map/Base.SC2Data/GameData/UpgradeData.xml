@@ -33,9 +33,8 @@
         <EffectArray Reference="Effect,ApplyCriticalStrike,Chance[0]" Value="0.05"/>
         <MaxLevel value="3"/>
     </CUpgrade>
-    <CUpgrade id="ConcentratedFireCriticalStrike2">
+    <CUpgrade id="HarvesterofSorrowBonusCrit">
         <EffectArray Reference="Effect,ApplyCriticalStrike,Chance[0]" Value="0.2"/>
-        <MaxLevel value="3"/>
     </CUpgrade>
     <CUpgrade id="CripplingFire">
         <Flags index="UpgradeCheat" value="0"/>
