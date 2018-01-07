@@ -9790,6 +9790,9 @@ bool auto_gf_SurvivalEnvironmentalChanges_TriggerFunc (bool testConds, bool runA
     unitgroup autoD93D4315_g;
     int autoD93D4315_u;
     unit autoD93D4315_var;
+    unitgroup auto1F9203DD_g;
+    int auto1F9203DD_u;
+    unit auto1F9203DD_var;
 
     // Implementation
     UnitGroupIssueOrder(UnitGroupFromId(4), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
@@ -9839,6 +9842,14 @@ bool auto_gf_SurvivalEnvironmentalChanges_TriggerFunc (bool testConds, bool runA
         autoD93D4315_var = UnitGroupUnitFromEnd(autoD93D4315_g, autoD93D4315_u);
         if (autoD93D4315_var == null) { break; }
         UnitRemove(autoD93D4315_var);
+    }
+    UnitIssueOrder(UnitFromId(29), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
+    auto1F9203DD_g = UnitGroup("PathingBlocker1x1", 10, RegionFromId(45), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
+    auto1F9203DD_u = UnitGroupCount(auto1F9203DD_g, c_unitCountAll);
+    for (;; auto1F9203DD_u -= 1) {
+        auto1F9203DD_var = UnitGroupUnitFromEnd(auto1F9203DD_g, auto1F9203DD_u);
+        if (auto1F9203DD_var == null) { break; }
+        UnitRemove(auto1F9203DD_var);
     }
     UnitKill(UnitFromId(1462));
     UnitKill(UnitFromId(2831));
@@ -35279,7 +35290,7 @@ bool gt_STW15bBioDomeThreat_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/C24E98F7"));
     ObjectiveCreate(StringExternal("Param/Value/289F9ABF"), StringExternal("Param/Value/F5DDB35D"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
-    UnitIssueOrder(UnitFromId(829), Order(AbilityCommand("DestructibleGateStraightHorizontalLowered", 0)), c_orderQueueReplace);
+    UnitIssueOrder(UnitFromId(829), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
     auto13F4706D_g = UnitGroup("PathingBlocker1x1", 10, RegionFromId(89), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
     auto13F4706D_u = UnitGroupCount(auto13F4706D_g, c_unitCountAll);
     for (;; auto13F4706D_u -= 1) {
@@ -39453,6 +39464,9 @@ void gt_CriticalStrike_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+    // Automatic Variable Declarations
+    // Automatic Variable Declarations
+    // Automatic Variable Declarations
     // Automatic Variable Declarations
     // Automatic Variable Declarations
     // Automatic Variable Declarations
