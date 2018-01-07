@@ -30,11 +30,11 @@
         <MaxLevel value="2"/>
     </CUpgrade>
     <CUpgrade id="ConcentratedFireCriticalStrike">
-        <EffectArray Reference="Effect,ApplyCriticalStrike,Chance[0]" Value="0.05"/>
+        <EffectArray Reference="Effect,ApplyCriticalStrikeSet,Chance[0]" Value="0.05"/>
         <MaxLevel value="3"/>
     </CUpgrade>
     <CUpgrade id="HarvesterofSorrowBonusCrit">
-        <EffectArray Reference="Effect,ApplyCriticalStrike,Chance[0]" Value="0.2"/>
+        <EffectArray Reference="Effect,ApplyCriticalStrikeSet,Chance[0]" Value="0.2"/>
     </CUpgrade>
     <CUpgrade id="CripplingFire">
         <Flags index="UpgradeCheat" value="0"/>
@@ -54,7 +54,7 @@
     </CUpgrade>
     <CUpgrade id="CriticalStrikeSkill">
         <Alert value=""/>
-        <EffectArray Reference="Effect,ApplyCriticalStrike,Chance[0]" Value="0.1"/>
+        <EffectArray Reference="Effect,ApplyCriticalStrikeSet,Chance[0]" Value="0.1"/>
         <MaxLevel value="3"/>
     </CUpgrade>
     <CUpgrade id="EnergyCapacitors">
@@ -180,7 +180,7 @@
     </CUpgrade>
     <CUpgrade id="PerceptionCriticalStrike">
         <Alert value=""/>
-        <EffectArray Reference="Effect,ApplyCriticalStrike,Chance[0]" Value="0.005"/>
+        <EffectArray Reference="Effect,ApplyCriticalStrikeSet,Chance[0]" Value="0.005"/>
         <MaxLevel value="9"/>
     </CUpgrade>
     <CUpgrade id="ProbeLimit">

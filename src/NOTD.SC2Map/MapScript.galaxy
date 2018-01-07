@@ -39423,6 +39423,10 @@ bool gt_CriticalStrike_Func (bool testConds, bool runActions) {
         if (!((UnitHasBehavior(EventUnit(), "CriticalStrikeDefender") == true))) {
             return false;
         }
+
+        if (!((UnitHasBehavior(lv_attackingUnit, "CriticalStrikeDealer") == true))) {
+            return false;
+        }
     }
 
     // Actions
@@ -39449,6 +39453,9 @@ void gt_CriticalStrike_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+    // Automatic Variable Declarations
+    // Automatic Variable Declarations
+    // Automatic Variable Declarations
     // Automatic Variable Declarations
     // Automatic Variable Declarations
     // Automatic Variable Declarations

@@ -397,6 +397,10 @@
         <Value value="1"/>
         <Behavior value="CriticalStrikeDefender"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CritCheckDealer">
+        <Value value="1"/>
+        <Behavior value="CriticalStrikeDealer"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="ErebosBlind">
         <CombineArray value="IsNightmare"/>
         <CombineArray value="SquadRatingCheck1750"/>
