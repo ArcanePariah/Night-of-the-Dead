@@ -397,6 +397,10 @@
         <Value value="1"/>
         <Behavior value="CriticalStrikeDefender"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CritCheckDealer">
+        <Value value="1"/>
+        <Behavior value="CriticalStrikeDealer"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="ErebosBlind">
         <CombineArray value="IsNightmare"/>
         <CombineArray value="SquadRatingCheck1750"/>
@@ -1461,4 +1465,20 @@
         <Value value="1"/>
         <Behavior value="RampageApplyBehaviorZuesLeto"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerRequirement id="HaveFireUp1">
+        <Find value="1"/>
+        <Value value="HaveFireUp1"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveFireUp2">
+        <Find value="1"/>
+        <Value value="HaveFireUp2"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveFireUp3">
+        <Find value="1"/>
+        <Value value="HaveFireUp3"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HaveCriticalStrike">
+        <Find value="1"/>
+        <Value value="HaveCriticalStrike"/>
+    </CValidatorPlayerRequirement>
 </Catalog>

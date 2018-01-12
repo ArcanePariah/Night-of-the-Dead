@@ -773,7 +773,6 @@ bool gv_distinguishedServiceMedalFailed;
 bool gv_navyCrossFailed;
 string[5][9] gv_medalsAwardedImages;
 text[5][9] gv_medalsAwardedText;
-bool[9] gv_iLikeItOpen;
 unitgroup gv_mineShaftMobs;
 bool gv_mineShaftReached;
 unit gv_zeus;
@@ -867,6 +866,7 @@ int gv_prowlerPing;
 point[7] gv_drTanakaLabWorkPoints;
 timer gv_bergmannEVACTimer;
 bool gv_bergmannIntercepted;
+bool gv_poisonGas;
 bool gv_tanakaDecisionMade;
 bool gv_tanakaParagonPath;
 int gv_antiToxinCount;
@@ -1026,6 +1026,11 @@ bool[9] gv_gunshipCameraSwitch;
 bool[9] gv_gunshipZoom;
 unit[9] gv_gunshipFollowedUnit;
 bool[9] gv_gunshipCinematicActive;
+int[9] gv_gunshipTeamUI;
+fixed[9] gv_gunshipSpeed;
+fixed[9] gv_gunshipRotation;
+fixed[9] gv_gunshipDistance;
+bool[9] gv_gunshipChangeSpeed;
 int[9] gv_gunshipBuddy;
 gs_TalentTree[gv_numberofPlayers + 1] gv_talentTrees;
 int[gv_numberofTalents + 1] gv_talentMax;
@@ -1481,6 +1486,15 @@ void InitGlobals () {
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_mobileInfantryGroup[init_i] = UnitGroupEmpty();
     }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_gunshipSpeed[init_i] = 40.0;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_gunshipRotation[init_i] = 40.0;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_gunshipDistance[init_i] = 20.0;
+    }
     for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
         gv_talentTrees[init_i].lv_talentTree = c_invalidDialogId;
         for (init_i1 = 0; init_i1 <= gv_numberofTalents; init_i1 += 1) {
@@ -1638,6 +1652,8 @@ void gf_ACAmbientSpawn ();
 void gf_ACSecTeamAI ();
 void gf_DemeterAI ();
 void gf_TanakaTerminalSpeech ();
+void gf_GasCameraPrep1 (int lp_player, unit lp_unittoFollow);
+void gf_GasCameraPrep2 (int lp_player);
 void gf_GasCameraCycle ();
 void gf_ACRescueSharedEventsAction (unit lp_radioUnit);
 void gf_ACClosingCinematic ();
@@ -1698,7 +1714,7 @@ void gf_ClassLimitCheck ();
 int gf_GetClassCP (int lp_player, string lp_class);
 int gf_GetClassColor (string lp_class);
 void gf_HideAllDialogsForPlayer (int lp_player);
-void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, int lp_playertoHideFrom);
+void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, playergroup lp_playerstoHideFrom);
 int gf_GetPreviousNextPlayer (int lp_currentPlayer, bool lp_isNext);
 void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, text lp_dialogTitle, int lp_highlightDialogFrame, int lp_dialogControlCategory);
 bool gf_UsedDialogIsMedal (int lp_usedDialog);
@@ -2137,9 +2153,6 @@ trigger gt_ModifyHeroStats;
 trigger gt_DisableStatAndModsModification;
 trigger gt_Backstab;
 trigger gt_CriticalStrike;
-trigger gt_ConcentratedFireCriticalStrike;
-trigger gt_HarvesterofSorrowCriticalStrike;
-trigger gt_GrenadeLauncherFireUpEnd;
 trigger gt_Anticipation;
 trigger gt_Concentration;
 trigger gt_ExecuteMovespeedBonus;
@@ -2165,6 +2178,7 @@ trigger gt_GunshipBuddy;
 trigger gt_GunshipSelection;
 trigger gt_GunshipSupport;
 trigger gt_GunshipOtherKeys;
+trigger gt_GunshipSpeedCtrl;
 trigger gt_GunshipImpactQuake;
 trigger gt_TalentSelection;
 trigger gt_TalentTreeToggle;
@@ -6407,6 +6421,7 @@ bool auto_gf_SetMedalVariables_TriggerFunc (bool testConds, bool runActions) {
 bool gf_PreCinematicProcessing () {
     // Variable Declarations
     int lv_index;
+    playergroup lv_cinematicPlayers;
 
     // Automatic Variable Declarations
     playergroup auto844882A6_g;
@@ -6428,12 +6443,11 @@ bool gf_PreCinematicProcessing () {
     unit autoE493B063_var;
     const int autoA044D35E_ae = 5;
     int autoA044D35E_var;
-    const int autoEB5AAE13_ae = gv_numberofPlayers;
-    int autoEB5AAE13_var;
     const int auto9A4033E6_ae = gv_numberofPlayers;
     int auto9A4033E6_var;
 
     // Variable Initialization
+    lv_cinematicPlayers = PlayerGroupAll();
 
     // Implementation
     gv_cinematicMode = true;
@@ -6442,8 +6456,14 @@ bool gf_PreCinematicProcessing () {
     while (true) {
         lv_index = PlayerGroupNextPlayer(auto844882A6_g, lv_index);
         if (lv_index < 0) { break; }
-        libNtve_gf_StoreUnitSelection(lv_index, libNtve_ge_UnitSelectionStoreOption_ClearUnitSelection);
-        auto50F7BEB9_g = UnitGroup(null, lv_index, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        if ((gv_gunshipCinematicActive[lv_index] == false)) {
+            libNtve_gf_StoreUnitSelection(lv_index, libNtve_ge_UnitSelectionStoreOption_ClearUnitSelection);
+            CameraLockInput(lv_index, true);
+        }
+        else {
+            PlayerGroupRemove(lv_cinematicPlayers, lv_index);
+        }
+        auto50F7BEB9_g = UnitGroup(null, lv_index, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
         auto50F7BEB9_u = UnitGroupCount(auto50F7BEB9_g, c_unitCountAll);
         for (;; auto50F7BEB9_u -= 1) {
             auto50F7BEB9_var = UnitGroupUnitFromEnd(auto50F7BEB9_g, auto50F7BEB9_u);
@@ -6451,7 +6471,6 @@ bool gf_PreCinematicProcessing () {
             libNtve_gf_MakeUnitInvulnerable(auto50F7BEB9_var, true);
             libNtve_gf_PauseUnit(auto50F7BEB9_var, true);
         }
-        CameraLockInput(lv_index, true);
     }
     auto3F8FF7D0_var = gv_indexBaseValue;
     for ( ; auto3F8FF7D0_var <= auto3F8FF7D0_ae; auto3F8FF7D0_var += 1 ) {
@@ -6465,23 +6484,12 @@ bool gf_PreCinematicProcessing () {
         libNtve_gf_MakeUnitInvulnerable(autoC48DD2C1_var, true);
         libNtve_gf_PauseUnit(autoC48DD2C1_var, true);
     }
-    DialogSetVisible(gv_equipment, PlayerGroupAll(), false);
+    DialogSetVisible(gv_equipment, lv_cinematicPlayers, false);
     autoAAAFB41A_var = 1;
     for ( ; autoAAAFB41A_var <= autoAAAFB41A_ae; autoAAAFB41A_var += 1 ) {
-        if ((gv_ammoCounterDialog[autoAAAFB41A_var] != c_invalidDialogId)) {
-            DialogSetVisible(gv_ammoCounterDialog[autoAAAFB41A_var], PlayerGroupAll(), false);
-        }
-
-        if ((gv_ammoBarDialog[autoAAAFB41A_var] != c_invalidDialogId)) {
-            DialogSetVisible(gv_ammoBarDialog[autoAAAFB41A_var], PlayerGroupAll(), false);
-        }
-
-        if ((gv_shellDialog[autoAAAFB41A_var] != c_invalidDialogId)) {
-            DialogSetVisible(gv_shellDialog[autoAAAFB41A_var], PlayerGroupAll(), false);
-        }
-
+        gf_ShowHideMarineDialog(false, autoAAAFB41A_var, lv_cinematicPlayers);
     }
-    UIClearBattleNetButtonOffset(PlayerGroupAll());
+    UIClearBattleNetButtonOffset(lv_cinematicPlayers);
     autoC44EBA38_g = gv_zombieWave;
     autoC44EBA38_u = UnitGroupCount(autoC44EBA38_g, c_unitCountAll);
     for (;; autoC44EBA38_u -= 1) {
@@ -6503,23 +6511,15 @@ bool gf_PreCinematicProcessing () {
         }
 
     }
-    autoEB5AAE13_var = gv_indexBaseValue;
-    for ( ; autoEB5AAE13_var <= autoEB5AAE13_ae; autoEB5AAE13_var += 1 ) {
-        if ((gv_gunshipCinematicActive[autoEB5AAE13_var] == true) && (gv_gameUIHidden[autoEB5AAE13_var] == true)) {
-            libNtve_gf_HideGameUI(true, PlayerGroupSingle(autoEB5AAE13_var));
-            gv_gameUIHidden[autoEB5AAE13_var] = false;
-        }
-
-    }
     auto9A4033E6_var = gv_indexBaseValue;
     for ( ; auto9A4033E6_var <= auto9A4033E6_ae; auto9A4033E6_var += 1 ) {
-        if ((gv_gameUIHidden[auto9A4033E6_var] == false)) {
+        if ((gv_gameUIHidden[auto9A4033E6_var] == false) && (gv_gunshipCinematicActive[auto9A4033E6_var] == false)) {
             libNtve_gf_HideGameUI(false, PlayerGroupSingle(auto9A4033E6_var));
             gv_gameUIHidden[auto9A4033E6_var] = true;
         }
 
     }
-    DialogControlSetVisible(gv_teamUI, PlayerGroupAll(), false);
+    DialogControlSetVisible(gv_teamUI, lv_cinematicPlayers, false);
     SoundChannelMute(PlayerGroupAll(), c_soundCategoryVoice, false);
     SoundChannelSetVolume(PlayerGroupAll(), c_soundCategoryVoice, 100.0, 0.0);
     Wait(0.5, c_timeGame);
@@ -6529,6 +6529,7 @@ bool gf_PreCinematicProcessing () {
 bool gf_PostCinematicProcessing () {
     // Variable Declarations
     int lv_index;
+    playergroup lv_cinematicPlayers;
 
     // Automatic Variable Declarations
     unitgroup auto94C0FEE8_g;
@@ -6539,18 +6540,19 @@ bool gf_PostCinematicProcessing () {
     unit auto5D1DFE08_var;
     const int autoCEE7A85E_ae = 5;
     int autoCEE7A85E_var;
-    const int autoBE0EF8D6_ae = gv_numberofPlayers;
-    int autoBE0EF8D6_var;
+    playergroup auto1B34E515_g;
+    int auto1B34E515_var;
     unitgroup auto88E408CE_g;
     int auto88E408CE_u;
     unit auto88E408CE_var;
     playergroup auto5200998B_g;
     int auto5200998B_var;
-    unitgroup autoFAE70074_g;
-    int autoFAE70074_u;
-    unit autoFAE70074_var;
+    unitgroup autoE3D2E958_g;
+    int autoE3D2E958_u;
+    unit autoE3D2E958_var;
 
     // Variable Initialization
+    lv_cinematicPlayers = PlayerGroupAll();
 
     // Implementation
     auto94C0FEE8_g = gv_zombieWave;
@@ -6575,14 +6577,17 @@ bool gf_PostCinematicProcessing () {
 
     }
     gv_cinematicMode = false;
-    autoBE0EF8D6_var = gv_indexBaseValue;
-    for ( ; autoBE0EF8D6_var <= autoBE0EF8D6_ae; autoBE0EF8D6_var += 1 ) {
-        if ((gv_gunshipCinematicActive[autoBE0EF8D6_var] == true) && (UIFrameVisible(autoBE0EF8D6_var, c_syncFrameTypeCommandPanel) == false)) {
-            libNtve_gf_HideGameUI(false, PlayerGroupSingle(autoBE0EF8D6_var));
+    auto1B34E515_g = gv_marineSquad;
+    auto1B34E515_var = -1;
+    while (true) {
+        auto1B34E515_var = PlayerGroupNextPlayer(auto1B34E515_g, auto1B34E515_var);
+        if (auto1B34E515_var < 0) { break; }
+        if ((gv_gunshipCinematicActive[auto1B34E515_var] == true)) {
+            PlayerGroupRemove(lv_cinematicPlayers, auto1B34E515_var);
         }
 
     }
-    UISetBattleNetButtonOffset(PlayerGroupAll(), 8, 253);
+    UISetBattleNetButtonOffset(lv_cinematicPlayers, 8, 253);
     auto88E408CE_g = UnitGroup(null, 9, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     auto88E408CE_u = UnitGroupCount(auto88E408CE_g, c_unitCountAll);
     for (;; auto88E408CE_u -= 1) {
@@ -6596,43 +6601,41 @@ bool gf_PostCinematicProcessing () {
     while (true) {
         auto5200998B_var = PlayerGroupNextPlayer(auto5200998B_g, auto5200998B_var);
         if (auto5200998B_var < 0) { break; }
-        CameraLockInput(auto5200998B_var, false);
-        if ((gv_gameUIHidden[auto5200998B_var] == true)) {
-            libNtve_gf_HideGameUI(true, PlayerGroupSingle(auto5200998B_var));
-            gv_gameUIHidden[auto5200998B_var] = false;
-        }
-
-        libNtve_gf_RestoreUnitSelection(auto5200998B_var);
-        autoFAE70074_g = UnitGroup(null, auto5200998B_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        autoFAE70074_u = UnitGroupCount(autoFAE70074_g, c_unitCountAll);
-        for (;; autoFAE70074_u -= 1) {
-            autoFAE70074_var = UnitGroupUnitFromEnd(autoFAE70074_g, autoFAE70074_u);
-            if (autoFAE70074_var == null) { break; }
-            if ((UnitGetType(autoFAE70074_var) != "Kitten")) {
-                libNtve_gf_MakeUnitInvulnerable(autoFAE70074_var, false);
+        if ((gv_gunshipCinematicActive[auto5200998B_var] == false)) {
+            CameraLockInput(auto5200998B_var, false);
+            if ((gv_gameUIHidden[auto5200998B_var] == true)) {
+                libNtve_gf_HideGameUI(true, PlayerGroupSingle(auto5200998B_var));
+                gv_gameUIHidden[auto5200998B_var] = false;
             }
 
-            libNtve_gf_PauseUnit(autoFAE70074_var, false);
-        }
-        if ((gv_shellDialog[auto5200998B_var] != c_invalidDialogId)) {
-            DialogSetVisible(gv_shellDialog[auto5200998B_var], PlayerGroupSingle(auto5200998B_var), true);
+            libNtve_gf_RestoreUnitSelection(auto5200998B_var);
+            gf_ShowHideMarineDialog(true, auto5200998B_var, lv_cinematicPlayers);
+            DialogSetVisible(gv_equipment, PlayerGroupSingle(auto5200998B_var), true);
+            CameraApplyInfo(auto5200998B_var, CameraInfoDefault(), 0.0, -1, 10, true);
+            if ((UnitIsAlive(gv_marineHero[auto5200998B_var]) == true)) {
+                CameraPan(auto5200998B_var, UnitGetPosition(gv_marineHero[auto5200998B_var]), 0.0, -1, 10, false);
+            }
+            else if ((UnitIsAlive(gv_playerPet[auto5200998B_var]) == true)) {
+                CameraPan(auto5200998B_var, UnitGetPosition(gv_playerPet[auto5200998B_var]), 0.0, -1, 10, false);
+            }
+            else if (true) {
+                CameraPan(auto5200998B_var, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 0.0, -1, 10, false);
+            }
         }
 
-        DialogSetVisible(gv_ammoCounterDialog[auto5200998B_var], PlayerGroupSingle(auto5200998B_var), true);
-        DialogSetVisible(gv_ammoBarDialog[auto5200998B_var], PlayerGroupSingle(auto5200998B_var), true);
-        DialogSetVisible(gv_equipment, PlayerGroupSingle(auto5200998B_var), true);
-        CameraApplyInfo(auto5200998B_var, CameraInfoDefault(), 0.0, -1, 10, true);
-        if ((UnitIsAlive(gv_marineHero[auto5200998B_var]) == true)) {
-            CameraPan(auto5200998B_var, UnitGetPosition(gv_marineHero[auto5200998B_var]), 0.0, -1, 10, false);
-        }
-        else if ((UnitIsAlive(gv_playerPet[auto5200998B_var]) == true)) {
-            CameraPan(auto5200998B_var, UnitGetPosition(gv_playerPet[auto5200998B_var]), 0.0, -1, 10, false);
-        }
-        else if (true) {
-            CameraPan(auto5200998B_var, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 0.0, -1, 10, false);
+        autoE3D2E958_g = UnitGroup(null, auto5200998B_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        autoE3D2E958_u = UnitGroupCount(autoE3D2E958_g, c_unitCountAll);
+        for (;; autoE3D2E958_u -= 1) {
+            autoE3D2E958_var = UnitGroupUnitFromEnd(autoE3D2E958_g, autoE3D2E958_u);
+            if (autoE3D2E958_var == null) { break; }
+            if ((UnitGetType(autoE3D2E958_var) != "Kitten")) {
+                libNtve_gf_MakeUnitInvulnerable(autoE3D2E958_var, false);
+            }
+
+            libNtve_gf_PauseUnit(autoE3D2E958_var, false);
         }
     }
-    DialogControlSetVisible(gv_teamUI, PlayerGroupAll(), true);
+    DialogControlSetVisible(gv_teamUI, lv_cinematicPlayers, true);
     return true;
 }
 
@@ -9129,6 +9132,40 @@ bool auto_gf_TanakaTerminalSpeech_TriggerFunc (bool testConds, bool runActions) 
     return true;
 }
 
+void gf_GasCameraPrep1 (int lp_player, unit lp_unittoFollow) {
+    // Automatic Variable Declarations
+    // Implementation
+    CameraFollowUnitGroup(lp_player, libNtve_gf_ConvertUnitToUnitGroup(lp_unittoFollow), true, false);
+    CameraLockInput(lp_player, true);
+    gv_fPS[lp_player] = true;
+    CameraShakeStart(lp_player, c_cameraPositionTarget, c_cameraDirectionXY, 0.03, 2.0, 100.0, 3.0);
+}
+
+void gf_GasCameraPrep2 (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((gv_fPS[lp_player] == true)) {
+        CameraSetValue(lp_player, c_cameraValueDistance, 7.8, 3.0, -1, 10);
+        CameraSetValue(lp_player, c_cameraValuePitch, 45.0, 3.0, -1, 10);
+        CameraSetValue(lp_player, c_cameraValueFieldOfView, 75.0, 3.0, -1, 10);
+        CameraSetValue(lp_player, c_cameraValueFarClip, 45.0, 0.0, -1, 10);
+        UnitSetState(gv_marineHero[lp_player], c_unitStateStatusBar, false);
+        if ((gv_x1Guardian[lp_player] != null)) {
+            UnitSetState(gv_x1Guardian[lp_player], c_unitStateStatusBar, false);
+        }
+
+        if ((gv_playerPet[lp_player] != null)) {
+            UnitSetState(gv_playerPet[lp_player], c_unitStateStatusBar, false);
+        }
+
+        if ((gv_reaperMK13[lp_player] != null)) {
+            UnitSetState(gv_reaperMK13[lp_player], c_unitStateStatusBar, false);
+        }
+
+    }
+
+}
+
 trigger auto_gf_GasCameraCycle_Trigger = null;
 
 void gf_GasCameraCycle () {
@@ -9155,7 +9192,9 @@ bool auto_gf_GasCameraCycle_TriggerFunc (bool testConds, bool runActions) {
         autoB77611C1_var = gv_indexBaseValue;
         for ( ; autoB77611C1_var <= autoB77611C1_ae; autoB77611C1_var += 1 ) {
             lv_index = autoB77611C1_var;
-            if ((UnitIsAlive(gv_marineHero[lv_index]) == true)) {
+            if ((gv_gunshipCinematicActive[lv_index] == true)) {
+            }
+            else if ((UnitIsAlive(gv_marineHero[lv_index]) == true)) {
                 CameraSetValue(autoB77611C1_var, c_cameraValueYaw, UnitGetFacing(gv_marineHero[lv_index]), 3.5, -1, 10);
             }
             else if ((UnitIsAlive(gv_playerPet[lv_index]) == true)) {
@@ -9816,6 +9855,9 @@ bool auto_gf_SurvivalEnvironmentalChanges_TriggerFunc (bool testConds, bool runA
     unitgroup autoD93D4315_g;
     int autoD93D4315_u;
     unit autoD93D4315_var;
+    unitgroup auto1F9203DD_g;
+    int auto1F9203DD_u;
+    unit auto1F9203DD_var;
 
     // Implementation
     UnitGroupIssueOrder(UnitGroupFromId(4), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
@@ -9865,6 +9907,14 @@ bool auto_gf_SurvivalEnvironmentalChanges_TriggerFunc (bool testConds, bool runA
         autoD93D4315_var = UnitGroupUnitFromEnd(autoD93D4315_g, autoD93D4315_u);
         if (autoD93D4315_var == null) { break; }
         UnitRemove(autoD93D4315_var);
+    }
+    UnitIssueOrder(UnitFromId(29), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
+    auto1F9203DD_g = UnitGroup("PathingBlocker1x1", 10, RegionFromId(45), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
+    auto1F9203DD_u = UnitGroupCount(auto1F9203DD_g, c_unitCountAll);
+    for (;; auto1F9203DD_u -= 1) {
+        auto1F9203DD_var = UnitGroupUnitFromEnd(auto1F9203DD_g, auto1F9203DD_u);
+        if (auto1F9203DD_var == null) { break; }
+        UnitRemove(auto1F9203DD_var);
     }
     UnitKill(UnitFromId(1462));
     UnitKill(UnitFromId(2831));
@@ -11637,14 +11687,19 @@ void gf_HideAllDialogsForPlayer (int lp_player) {
     }
 }
 
-void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, int lp_playertoHideFrom) {
+void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, playergroup lp_playerstoHideFrom) {
     // Automatic Variable Declarations
     // Implementation
-    DialogSetVisible(gv_equipment, PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
-    DialogSetVisible(gv_ammoCounterDialog[lp_dialogOwner], PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
-    DialogSetVisible(gv_ammoBarDialog[lp_dialogOwner], PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
-    if ((UserDataGetUnit("Classes", gv_playerClass[lp_dialogOwner], "Class Unit", 1) == "ForwardObserver") && (gv_talentLevel[1][lp_dialogOwner] > 0)) {
-        DialogSetVisible(gv_shellDialog[lp_dialogOwner], PlayerGroupSingle(lp_playertoHideFrom), lp_showHideOption);
+    if ((gv_ammoCounterDialog[lp_dialogOwner] != c_invalidDialogId)) {
+        DialogSetVisible(gv_ammoCounterDialog[lp_dialogOwner], lp_playerstoHideFrom, lp_showHideOption);
+    }
+
+    if ((gv_ammoBarDialog[lp_dialogOwner] != c_invalidDialogId)) {
+        DialogSetVisible(gv_ammoBarDialog[lp_dialogOwner], lp_playerstoHideFrom, lp_showHideOption);
+    }
+
+    if ((gv_shellDialog[lp_dialogOwner] != c_invalidDialogId)) {
+        DialogSetVisible(gv_shellDialog[lp_dialogOwner], lp_playerstoHideFrom, lp_showHideOption);
     }
 
 }
@@ -21233,12 +21288,13 @@ bool gt_Boss1OMIncapacitateSuccessful_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_Boss1bFightMobs, false);
     TriggerEnable(gt_Boss1TartarusKilled, false);
     TriggerEnable(gt_Boss1HardCarapace, false);
+    CameraSetBounds(PlayerGroupActive(), RegionPlayableMap(), true);
     libNtve_gf_ShowHideBossBar(false, 3);
     UnitSetOwner(gv_tartarus, 10, false);
     UnitIssueOrder(gv_tartarus, Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
     libNtve_gf_MakeUnitInvulnerable(gv_tartarus, true);
     gf_BossAfterAction();
-    SoundPlayOnUnit(SoundLink("LavaCritter_What", -1), PlayerGroupAll(), gv_boss, 15.0, 35.0, 0.0);
+    SoundPlayOnUnit(SoundLink("LavaCritter_What", -1), PlayerGroupAll(), gv_tartarus, 15.0, 35.0, 0.0);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/9D2C0E2F"));
     gf_UnifiedAwards(3, 225.0, 0, 0, 1);
     ObjectiveSetState(gv_tartarusCaptureObjective, c_objectiveStateCompleted);
@@ -21255,14 +21311,14 @@ bool gt_Boss1OMIncapacitateSuccessful_Func (bool testConds, bool runActions) {
     Wait(3.0, c_timeReal);
     UIClearMessages(PlayerGroupActive(), c_messageAreaDirective);
     Wait(3.0, c_timeReal);
-    libNtve_gf_UnitCreateFacingPoint(1, "Medivac", 0, 9, RegionRandomPoint(gv_reinforcementSpawn[RandomInt(1, 6)]), UnitGetPosition(gv_boss));
+    libNtve_gf_UnitCreateFacingPoint(1, "Medivac", 0, 9, RegionRandomPoint(gv_reinforcementSpawn[RandomInt(1, 6)]), UnitGetPosition(gv_tartarus));
     gv_dropship = UnitLastCreated();
     UnitIssueOrder(gv_dropship, OrderTargetingPoint(AbilityCommand("move", 0), UnitGetPosition(gv_tartarus)), c_orderQueueReplace);
     SoundPlayOnUnit(SoundLink("SpecialOpsDropship_FlyIn", -1), PlayerGroupAll(), gv_dropship, 15.0, 75.0, 0.0);
     UnitWaitUntilIdle(gv_dropship, true);
     Wait(1.5, c_timeReal);
     ObjectiveDestroy(gv_tartarusCaptureObjective);
-    SoundPlayOnUnit(SoundLink("SpecialOpsDropship_Load", -1), PlayerGroupAll(), gv_boss, 15.0, 75.0, 0.0);
+    SoundPlayOnUnit(SoundLink("SpecialOpsDropship_Load", -1), PlayerGroupAll(), gv_tartarus, 15.0, 75.0, 0.0);
     PingDestroyAll();
     UnitRemove(gv_tartarus);
     gf_RadioNOTD(StringExternal("Param/Value/CC852C44"), StringExternal("Param/Value/736406F9"));
@@ -21270,7 +21326,6 @@ bool gt_Boss1OMIncapacitateSuccessful_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/5BD11E6A"));
     UnitIssueOrder(gv_dropship, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(gv_reinforcementSpawn[RandomInt(1, 6)])), c_orderQueueReplace);
     SoundPlayOnUnit(SoundLink("SpecialOpsDropship_FlyOut", -1), PlayerGroupAll(), gv_dropship, 15.0, 75.0, 0.0);
-    CameraSetBounds(PlayerGroupActive(), RegionPlayableMap(), true);
     Wait(7.0, c_timeReal);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/1F337022"));
     UnitRemove(gv_dropship);
@@ -29035,6 +29090,7 @@ bool gt_ACW9ChaseDrTanakaPoisonGas_Func (bool testConds, bool runActions) {
     GameSetLighting("NOTDPoisonGas", 5.0);
     gf_ClearZombieWave();
     Wait(2.0, c_timeReal);
+    gv_poisonGas = true;
     auto322D4B75_var = gv_indexBaseValue;
     for ( ; auto322D4B75_var <= auto322D4B75_ae; auto322D4B75_var += 1 ) {
         if ((UnitIsAlive(gv_marineHero[auto322D4B75_var]) == true)) {
@@ -29055,34 +29111,18 @@ bool gt_ACW9ChaseDrTanakaPoisonGas_Func (bool testConds, bool runActions) {
             if (auto8A749A53_var == null) { break; }
             UnitSetPosition(auto8A749A53_var, RegionRandomPoint(RegionCircle(UnitGetPosition(lv_unittoFollow), 2.2)), false);
         }
-        CameraFollowUnitGroup(auto322D4B75_var, libNtve_gf_ConvertUnitToUnitGroup(lv_unittoFollow), true, false);
-        CameraLockInput(auto322D4B75_var, true);
-        gv_fPS[auto322D4B75_var] = true;
-        CameraShakeStart(auto322D4B75_var, c_cameraPositionTarget, c_cameraDirectionXY, 0.03, 2.0, 100.0, 3.0);
+        if ((gv_gunshipCinematicActive[auto322D4B75_var] == false)) {
+            gf_GasCameraPrep1(auto322D4B75_var, lv_unittoFollow);
+        }
+
     }
     SoundPlay(SoundLink("TScene11Warfield008", -1), PlayerGroupAll(), 100.0, 0.0);
     Wait(1.0, c_timeGame);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/12972B90"));
     auto63DD2A75_var = gv_indexBaseValue;
     for ( ; auto63DD2A75_var <= auto63DD2A75_ae; auto63DD2A75_var += 1 ) {
-        if ((gv_fPS[auto63DD2A75_var] == true)) {
-            CameraSetValue(auto63DD2A75_var, c_cameraValueDistance, 7.8, 3.0, -1, 10);
-            CameraSetValue(auto63DD2A75_var, c_cameraValuePitch, 45.0, 3.0, -1, 10);
-            CameraSetValue(auto63DD2A75_var, c_cameraValueFieldOfView, 75.0, 3.0, -1, 10);
-            CameraSetValue(auto63DD2A75_var, c_cameraValueFarClip, 45.0, 0.0, -1, 10);
-            UnitSetState(gv_marineHero[auto63DD2A75_var], c_unitStateStatusBar, false);
-            if ((gv_x1Guardian[auto63DD2A75_var] != null)) {
-                UnitSetState(gv_x1Guardian[auto63DD2A75_var], c_unitStateStatusBar, false);
-            }
-
-            if ((gv_playerPet[auto63DD2A75_var] != null)) {
-                UnitSetState(gv_playerPet[auto63DD2A75_var], c_unitStateStatusBar, false);
-            }
-
-            if ((gv_reaperMK13[auto63DD2A75_var] != null)) {
-                UnitSetState(gv_reaperMK13[auto63DD2A75_var], c_unitStateStatusBar, false);
-            }
-
+        if ((gv_gunshipCinematicActive[auto63DD2A75_var] == false)) {
+            gf_GasCameraPrep2(auto63DD2A75_var);
         }
 
     }
@@ -29440,6 +29480,7 @@ bool gt_ACBoss3Killed_Func (bool testConds, bool runActions) {
     gv_aCSpawnRespite = false;
     GameSetLighting(gv_defaultLighting, 3.0);
     Wait(2.0, c_timeGame);
+    gv_poisonGas = false;
     auto93C8ED24_var = gv_indexBaseValue;
     for ( ; auto93C8ED24_var <= auto93C8ED24_ae; auto93C8ED24_var += 1 ) {
         CameraLookAtUnit(auto93C8ED24_var, null);
@@ -35510,7 +35551,7 @@ bool gt_STW15bBioDomeThreat_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/C24E98F7"));
     ObjectiveCreate(StringExternal("Param/Value/289F9ABF"), StringExternal("Param/Value/F5DDB35D"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
-    UnitIssueOrder(UnitFromId(829), Order(AbilityCommand("DestructibleGateStraightHorizontalLowered", 0)), c_orderQueueReplace);
+    UnitIssueOrder(UnitFromId(829), Order(AbilityCommand("SecurityGateStraightHorizontalBFLowered", 0)), c_orderQueueReplace);
     auto13F4706D_g = UnitGroup("PathingBlocker1x1", 10, RegionFromId(89), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
     auto13F4706D_u = UnitGroupCount(auto13F4706D_g, c_unitCountAll);
     for (;; auto13F4706D_u -= 1) {
@@ -39803,6 +39844,10 @@ bool gt_CriticalStrike_Func (bool testConds, bool runActions) {
         if (!((UnitHasBehavior(EventUnit(), "CriticalStrikeDefender") == true))) {
             return false;
         }
+
+        if (!((UnitHasBehavior(lv_attackingUnit, "CriticalStrikeDealer") == true))) {
+            return false;
+        }
     }
 
     // Actions
@@ -39826,103 +39871,6 @@ void gt_CriticalStrike_Init () {
     TriggerAddEventUnitDamaged(gt_CriticalStrike, null, c_unitDamageTypeMelee, c_unitDamageNonFatal, null);
     TriggerAddEventUnitDamaged(gt_CriticalStrike, null, c_unitDamageTypeRanged, c_unitDamageNonFatal, null);
     TriggerAddEventUnitDamaged(gt_CriticalStrike, null, c_unitDamageTypeSplash, c_unitDamageNonFatal, null);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Concentrated Fire Critical Strike
-//--------------------------------------------------------------------------------------------------
-bool gt_ConcentratedFireCriticalStrike_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_player;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_player = UnitGetOwner(EventUnit());
-
-    // Conditions
-    if (testConds) {
-        if (!((gv_talentLevel[2][lv_player] > 0))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((EventUnitBehaviorChange() == c_unitBehaviorChangeCreate)) {
-        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike", gv_talentLevel[1][lv_player]);
-    }
-    else {
-        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike", 0);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ConcentratedFireCriticalStrike_Init () {
-    gt_ConcentratedFireCriticalStrike = TriggerCreate("gt_ConcentratedFireCriticalStrike_Func");
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel1", c_unitBehaviorChangeCreate);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel2", c_unitBehaviorChangeCreate);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel3", c_unitBehaviorChangeCreate);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel1", c_unitBehaviorChangeDestroy);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel2", c_unitBehaviorChangeDestroy);
-    TriggerAddEventUnitBehaviorChange(gt_ConcentratedFireCriticalStrike, null, "ConcentratedFireLevel3", c_unitBehaviorChangeDestroy);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Harvester of Sorrow Critical Strike
-//--------------------------------------------------------------------------------------------------
-bool gt_HarvesterofSorrowCriticalStrike_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_player;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_player = UnitGetOwner(EventUnit());
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((UnitHasBehavior(EventUnit(), "HarvesterofSorrow") == true)) {
-        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike2", 1);
-    }
-    else {
-        libNtve_gf_SetUpgradeLevelForPlayer(lv_player, "ConcentratedFireCriticalStrike2", 0);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_HarvesterofSorrowCriticalStrike_Init () {
-    gt_HarvesterofSorrowCriticalStrike = TriggerCreate("gt_HarvesterofSorrowCriticalStrike_Func");
-    TriggerAddEventUnitBehaviorChange(gt_HarvesterofSorrowCriticalStrike, null, "HarvesterofSorrow", c_unitBehaviorChangeCreate);
-    TriggerAddEventUnitBehaviorChange(gt_HarvesterofSorrowCriticalStrike, null, "HarvesterofSorrow", c_unitBehaviorChangeDestroy);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Grenade Launcher Fire Up End
-//--------------------------------------------------------------------------------------------------
-bool gt_GrenadeLauncherFireUpEnd_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    libNtve_gf_SetUpgradeLevelForPlayer(UnitGetOwner(EventUnit()), "FireUpGrenadesLevel1", 0);
-    libNtve_gf_SetUpgradeLevelForPlayer(UnitGetOwner(EventUnit()), "FireUpGrenadesLevel12", 0);
-    libNtve_gf_SetUpgradeLevelForPlayer(UnitGetOwner(EventUnit()), "FireUpGrenadesLevel13", 0);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_GrenadeLauncherFireUpEnd_Init () {
-    gt_GrenadeLauncherFireUpEnd = TriggerCreate("gt_GrenadeLauncherFireUpEnd_Func");
-    TriggerAddEventUnitBehaviorChange(gt_GrenadeLauncherFireUpEnd, null, "FocusedFire", c_unitBehaviorChangeDecrease);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -41284,11 +41232,7 @@ bool gt_GunshipSelection_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Conditions
     if (testConds) {
-        if (!((UnitGetType(EventUnit()) == "Hyperion"))) {
-            return false;
-        }
-
-        if (!((UnitGetOwner(EventUnit()) == EventPlayer()))) {
+        if (!((UnitGetType(EventUnit()) != "Hyperion"))) {
             return false;
         }
 
@@ -41303,7 +41247,7 @@ bool gt_GunshipSelection_Func (bool testConds, bool runActions) {
     }
 
     UnitClearSelection(EventPlayer());
-    UnitSelect(EventUnit(), EventPlayer(), true);
+    UnitSelect(gv_gunshipUnit[EventPlayer()], EventPlayer(), true);
     return true;
 }
 
@@ -41311,7 +41255,7 @@ bool gt_GunshipSelection_Func (bool testConds, bool runActions) {
 void gt_GunshipSelection_Init () {
     gt_GunshipSelection = TriggerCreate("gt_GunshipSelection_Func");
     TriggerEnable(gt_GunshipSelection, false);
-    TriggerAddEventUnitSelected(gt_GunshipSelection, null, c_playerAny, false);
+    TriggerAddEventUnitSelected(gt_GunshipSelection, null, c_playerAny, true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -41321,10 +41265,13 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     // Variable Declarations
     unit lv_forwardObserverHero;
     int lv_forwardObserverOwner;
+    point lv_forwardObserverPosition;
+    unit lv_unittoFollowPoisonGas;
     bool lv_gunshipModeOff;
     fixed lv_gunshipRotation;
     fixed lv_gunshipAngleofAttack;
     int lv_transperancyDialog;
+    int lv_instructions;
     int lv_gunshipCycle;
     point lv_gunshipUnitPoint;
     fixed lv_gunshipAngleHorizontal;
@@ -41339,21 +41286,17 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     unitgroup autoC2B210B7_g;
     int autoC2B210B7_u;
     unit autoC2B210B7_var;
-    unitgroup autoA61BAE65_g;
-    int autoA61BAE65_u;
-    unit autoA61BAE65_var;
-    playergroup auto88CA2F2E_g;
-    int auto88CA2F2E_var;
+    unitgroup auto9DE841DD_g;
+    int auto9DE841DD_u;
+    unit auto9DE841DD_var;
     const int auto48DA4600_ae = gv_numberofPlayers;
     int auto48DA4600_var;
-    const int autoCA2160B0_n = 120;
-    int autoCA2160B0_i;
-    unitgroup auto192354FE_g;
-    int auto192354FE_u;
-    unit auto192354FE_var;
-    unitgroup auto82698461_g;
-    int auto82698461_u;
-    unit auto82698461_var;
+    unitgroup autoD87BAE60_g;
+    int autoD87BAE60_u;
+    unit autoD87BAE60_var;
+    unitgroup auto64003874_g;
+    int auto64003874_u;
+    unit auto64003874_var;
     const int autoB35B4FAF_ae = 8;
     int autoB35B4FAF_var;
     const int auto5EB37BE9_ae = gv_numberofPlayers;
@@ -41369,6 +41312,7 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     lv_gunshipRotation = RandomFixed(-180.0, 180.0);
     lv_gunshipAngleofAttack = 37.0;
     lv_transperancyDialog = c_invalidDialogId;
+    lv_instructions = c_invalidDialogId;
     lv_gunshipUnitPoint = PointWithOffsetPolar(UnitGetPosition(lv_forwardObserverHero), 20.0, lv_gunshipRotation);
 
     // Actions
@@ -41401,26 +41345,29 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
         }
     }
     libNtve_gf_StoreUnitSelection(lv_forwardObserverOwner, libNtve_ge_UnitSelectionStoreOption_ClearUnitSelection);
-    autoA61BAE65_g = gv_mobileInfantryGroup[lv_forwardObserverOwner];
-    autoA61BAE65_u = UnitGroupCount(autoA61BAE65_g, c_unitCountAll);
-    for (;; autoA61BAE65_u -= 1) {
-        autoA61BAE65_var = UnitGroupUnitFromEnd(autoA61BAE65_g, autoA61BAE65_u);
-        if (autoA61BAE65_var == null) { break; }
-        UnitSetState(autoA61BAE65_var, c_unitStateSelectable, false);
+    UnitSetState(lv_forwardObserverHero, c_unitStateSelectable, false);
+    UnitAbilityEnable(lv_forwardObserverHero, "InventoryForwardObserver", false);
+    auto9DE841DD_g = gv_mobileInfantryGroup[lv_forwardObserverOwner];
+    auto9DE841DD_u = UnitGroupCount(auto9DE841DD_g, c_unitCountAll);
+    for (;; auto9DE841DD_u -= 1) {
+        auto9DE841DD_var = UnitGroupUnitFromEnd(auto9DE841DD_g, auto9DE841DD_u);
+        if (auto9DE841DD_var == null) { break; }
+        UnitSetState(auto9DE841DD_var, c_unitStateSelectable, false);
     }
-    auto88CA2F2E_g = gv_marineSquad;
-    auto88CA2F2E_var = -1;
-    while (true) {
-        auto88CA2F2E_var = PlayerGroupNextPlayer(auto88CA2F2E_g, auto88CA2F2E_var);
-        if (auto88CA2F2E_var < 0) { break; }
-        gf_ShowHideMarineDialog(false, lv_forwardObserverOwner, auto88CA2F2E_var);
-    }
+    DialogSetVisible(gv_equipment, PlayerGroupSingle(lv_forwardObserverOwner), false);
+    gf_ShowHideMarineDialog(false, lv_forwardObserverOwner, gv_marineSquad);
     libNtve_gf_HideGameUI(false, PlayerGroupSingle(lv_forwardObserverOwner));
     DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), false);
     gv_gunshipCinematicActive[lv_forwardObserverOwner] = true;
     gv_gameUIHidden[lv_forwardObserverOwner] = true;
-    UIDisplayMessage(PlayerGroupSingle(lv_forwardObserverOwner), c_messageAreaDebug, StringExternal("Param/Value/EDD297E3"));
+    UIClearMessages(PlayerGroupSingle(lv_forwardObserverOwner), c_messageAreaDebug);
+    DialogCreate(600, 400, c_anchorLeft, 0, 0, true);
+    lv_instructions = DialogLastCreated();
+    DialogSetVisible(lv_instructions, PlayerGroupSingle(lv_forwardObserverOwner), true);
+    DialogSetImageVisible(lv_instructions, false);
+    libNtve_gf_CreateDialogItemLabel(lv_instructions, 600, 400, c_anchorLeft, 25, 0, StringExternal("Param/Value/92459A55"), ColorWithAlpha(0,0,0,0), false, 2.0);
     TriggerEnable(gt_GunshipOtherKeys, true);
+    TriggerEnable(gt_GunshipSpeedCtrl, true);
     TriggerEnable(gt_GunshipImpactQuake, true);
     Wait(0.5, c_timeGame);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/F96D5DCB"));
@@ -41444,31 +41391,53 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     for ( ; auto48DA4600_var <= auto48DA4600_ae; auto48DA4600_var += 1 ) {
         CameraShakeStart(auto48DA4600_var, c_cameraPositionTarget, c_cameraDirectionZ, 0.05, 2.0, 100.0, 2.5);
     }
-    for (autoCA2160B0_i = 1; autoCA2160B0_i <= autoCA2160B0_n; autoCA2160B0_i += 1) {
+    while ((lv_gunshipCycle < 120)) {
         if ((lv_gunshipCycle == 4)) {
             gv_gunshipActive[lv_forwardObserverOwner] = true;
+            if ((UnitIsSelected(gv_gunshipUnit[lv_forwardObserverOwner], lv_forwardObserverOwner) == false)) {
+                UnitClearSelection(lv_forwardObserverOwner);
+                UnitSelect(gv_gunshipUnit[lv_forwardObserverOwner], lv_forwardObserverOwner, true);
+            }
+
+            if ((gv_gunshipTeamUI[lv_forwardObserverOwner] == 1)) {
+                DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), true);
+            }
+
         }
 
         if (((UnitIsAlive(lv_forwardObserverHero) == false) || ((gv_gunshipActive[lv_forwardObserverOwner] == false) && (lv_gunshipCycle > 3)))) {
-            UIDisplayMessage(PlayerGroupSingle(lv_forwardObserverOwner), c_messageAreaDebug, StringExternal("Param/Value/7D755BC0"));
+            UIDisplayMessage(PlayerGroupSingle(lv_forwardObserverOwner), c_messageAreaDebug, StringExternal("Param/Value/F3EEFA64"));
             SoundPlay(SoundLink("Raven_AutoTurretReleaseImpact", -1), PlayerGroupAll(), 100.0, 0.0);
             break;
         }
-
-        if ((lv_gunshipCycle == 84)) {
-            UIDisplayMessage(PlayerGroupSingle(lv_forwardObserverOwner), c_messageAreaDebug, StringExternal("Param/Value/F080EC08"));
+        else {
+            lv_forwardObserverPosition = UnitGetPosition(lv_forwardObserverHero);
+        }
+        if ((lv_gunshipCycle == 10)) {
+            DialogSetTransparency(lv_instructions, 50.0);
         }
 
-        if ((UnitIsAlive(gv_gunshipFollowedUnit[lv_forwardObserverOwner]) == true) && (DistanceBetweenPoints(UnitGetPosition(gv_gunshipFollowedUnit[lv_forwardObserverOwner]), UnitGetPosition(lv_forwardObserverHero)) > 1.2)) {
-            UnitIssueOrder(lv_forwardObserverHero, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionCircle(UnitGetPosition(gv_gunshipFollowedUnit[lv_forwardObserverOwner]), 1.2))), c_orderQueueReplace);
-            UnitIssueOrder(lv_forwardObserverHero, OrderTargetingUnit(AbilityCommand("move", 0), gv_gunshipFollowedUnit[lv_forwardObserverOwner]), c_orderQueueReplace);
-            auto192354FE_g = gv_mobileInfantryGroup[lv_forwardObserverOwner];
-            auto192354FE_u = UnitGroupCount(auto192354FE_g, c_unitCountAll);
-            for (;; auto192354FE_u -= 1) {
-                auto192354FE_var = UnitGroupUnitFromEnd(auto192354FE_g, auto192354FE_u);
-                if (auto192354FE_var == null) { break; }
-                UnitIssueOrder(auto192354FE_var, OrderTargetingUnit(AbilityCommand("move", 0), gv_gunshipFollowedUnit[lv_forwardObserverOwner]), c_orderQueueReplace);
-                UnitIssueOrder(auto192354FE_var, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionCircle(UnitGetPosition(gv_gunshipFollowedUnit[lv_forwardObserverOwner]), 1.2))), c_orderQueueReplace);
+        if ((lv_gunshipCycle == 84)) {
+            UIDisplayMessage(PlayerGroupSingle(lv_forwardObserverOwner), c_messageAreaDebug, StringExternal("Param/Value/A6E77676"));
+        }
+
+        if ((UnitIsAlive(gv_gunshipFollowedUnit[lv_forwardObserverOwner]) == true)) {
+            if ((DistanceBetweenPoints(UnitGetPosition(gv_gunshipFollowedUnit[lv_forwardObserverOwner]), lv_forwardObserverPosition) > 1.2)) {
+                UnitIssueOrder(lv_forwardObserverHero, OrderTargetingUnit(AbilityCommand("move", 0), gv_gunshipFollowedUnit[lv_forwardObserverOwner]), c_orderQueueReplace);
+            }
+
+            autoD87BAE60_g = gv_mobileInfantryGroup[lv_forwardObserverOwner];
+            autoD87BAE60_u = UnitGroupCount(autoD87BAE60_g, c_unitCountAll);
+            for (;; autoD87BAE60_u -= 1) {
+                autoD87BAE60_var = UnitGroupUnitFromEnd(autoD87BAE60_g, autoD87BAE60_u);
+                if (autoD87BAE60_var == null) { break; }
+                if ((DistanceBetweenPoints(UnitGetPosition(gv_gunshipFollowedUnit[lv_forwardObserverOwner]), UnitGetPosition(autoD87BAE60_var)) > 1.2)) {
+                    UnitIssueOrder(autoD87BAE60_var, Order(AbilityCommand("SpectreHoldFire", 0)), c_orderQueueReplace);
+                    UnitIssueOrder(autoD87BAE60_var, OrderTargetingUnit(AbilityCommand("move", 0), gv_gunshipFollowedUnit[lv_forwardObserverOwner]), c_orderQueueAddToEnd);
+                    UnitIssueOrder(autoD87BAE60_var, Order(AbilityCommand("stop", 0)), c_orderQueueAddToEnd);
+                    UnitIssueOrder(autoD87BAE60_var, Order(AbilityCommand("SpectreWeaponsFree", 0)), c_orderQueueAddToEnd);
+                }
+
             }
         }
 
@@ -41479,7 +41448,7 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
             gv_gunshipFollowedUnit[lv_forwardObserverOwner] = UnitGroupUnit(gv_marines, 1);
         }
         if ((ModI(lv_gunshipCycle, 4) == 0)) {
-            lv_gunshipRotation += 40.0;
+            lv_gunshipRotation += gv_gunshipRotation[lv_forwardObserverOwner];
             if ((lv_gunshipRotation > 180.0)) {
                 lv_gunshipRotation = (-360.0 + lv_gunshipRotation);
             }
@@ -41499,7 +41468,7 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
                 lv_angleChange = false;
             }
 
-            lv_gunshipUnitPoint = PointWithOffsetPolar(UnitGetPosition(lv_forwardObserverHero), 20.0, lv_gunshipRotation);
+            lv_gunshipUnitPoint = PointWithOffsetPolar(lv_forwardObserverPosition, gv_gunshipDistance[lv_forwardObserverOwner], lv_gunshipRotation);
             UnitSetPosition(gv_gunshipUnit[lv_forwardObserverOwner], lv_gunshipUnitPoint, false);
             lv_heightDifference = (34.0 * Sin(lv_gunshipAngleofAttack));
             if ((gv_gunshipCameraSwitch[lv_forwardObserverOwner] == false)) {
@@ -41525,17 +41494,17 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
 
             CameraSetValue(lv_forwardObserverOwner, c_cameraValueDistance, lv_distanceDifference, 2.5, -1, 0);
             CameraSetValue(lv_forwardObserverOwner, c_cameraValueYaw, lv_gunshipAngleHorizontal, 2.5, -1, 0);
-            CameraPan(lv_forwardObserverOwner, UnitGetPosition(lv_forwardObserverHero), 2.5, -1, 0, false);
+            CameraPan(lv_forwardObserverOwner, lv_forwardObserverPosition, 2.5, -1, 0, false);
         }
 
         if ((UnitIsAlive(gv_gunshipUnit[lv_forwardObserverOwner]) == false)) {
-            auto82698461_g = gv_marines;
-            auto82698461_u = UnitGroupCount(auto82698461_g, c_unitCountAll);
-            for (;; auto82698461_u -= 1) {
-                auto82698461_var = UnitGroupUnitFromEnd(auto82698461_g, auto82698461_u);
-                if (auto82698461_var == null) { break; }
-                if (((auto82698461_var != lv_forwardObserverHero) && (DistanceBetweenPoints(UnitGetPosition(auto82698461_var), UnitGetPosition(lv_forwardObserverHero)) < 5.0))) {
-                    gv_gunshipFollowedUnit[lv_forwardObserverOwner] = auto82698461_var;
+            auto64003874_g = gv_marines;
+            auto64003874_u = UnitGroupCount(auto64003874_g, c_unitCountAll);
+            for (;; auto64003874_u -= 1) {
+                auto64003874_var = UnitGroupUnitFromEnd(auto64003874_g, auto64003874_u);
+                if (auto64003874_var == null) { break; }
+                if (((auto64003874_var != lv_forwardObserverHero) && (DistanceBetweenPoints(UnitGetPosition(auto64003874_var), lv_forwardObserverPosition) < 5.0))) {
+                    gv_gunshipFollowedUnit[lv_forwardObserverOwner] = auto64003874_var;
                 }
 
             }
@@ -41543,6 +41512,25 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
 
         lv_gunshipCycle += 1;
         Wait(0.5, c_timeGame);
+        if ((gv_cinematicMode == true) && (gv_inceptionOn == false)) {
+            if ((gv_gunshipTeamUI[lv_forwardObserverOwner] == 1)) {
+                DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), false);
+            }
+
+            libNtve_gf_MakeUnitUncommandable(gv_gunshipUnit[lv_forwardObserverOwner], true);
+            while ((gv_cinematicMode == true) && (gv_inceptionOn == false)) {
+                Wait(0.5, c_timeGame);
+            }
+            libNtve_gf_MakeUnitUncommandable(gv_gunshipUnit[lv_forwardObserverOwner], false);
+            CameraSetData(PlayerGroupSingle(lv_forwardObserverOwner), "GunshipCamara");
+            CameraPan(lv_forwardObserverOwner, lv_forwardObserverPosition, 0.0, -1, 100.0, false);
+            CameraSetValue(lv_forwardObserverOwner, c_cameraValueFieldOfView, 75.0, 0.0, -1, 100.0);
+            if ((gv_gunshipTeamUI[lv_forwardObserverOwner] == 1)) {
+                DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), true);
+            }
+
+        }
+
     }
     gv_gunshipActive[lv_forwardObserverOwner] = false;
     UnitIssueOrder(gv_gunshipUnit[lv_forwardObserverOwner], OrderTargetingPoint(AbilityCommand("AsgardMove", 0), Point((PointGetX(UnitGetPosition(gv_gunshipUnit[lv_forwardObserverOwner])) + (1200.0 * Cos((UnitGetFacing(gv_gunshipUnit[lv_forwardObserverOwner]) + 90.0)))), (PointGetY(UnitGetPosition(gv_gunshipUnit[lv_forwardObserverOwner])) + (1200.0 * Sin((UnitGetFacing(gv_gunshipUnit[lv_forwardObserverOwner]) + 90.0)))))), c_orderQueueReplace);
@@ -41566,9 +41554,12 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
         TriggerEnable(gt_GunshipImpactQuake, false);
         TriggerEnable(gt_GunshipOtherKeys, false);
         TriggerEnable(gt_GunshipSelection, false);
+        TriggerEnable(gt_GunshipSpeedCtrl, false);
     }
 
     libNtve_gf_HideGameUI(true, PlayerGroupSingle(lv_forwardObserverOwner));
+    UnitSetState(lv_forwardObserverHero, c_unitStateSelectable, true);
+    UnitAbilityEnable(lv_forwardObserverHero, "InventoryForwardObserver", true);
     auto561BB938_g = gv_mobileInfantryGroup[lv_forwardObserverOwner];
     auto561BB938_u = UnitGroupCount(auto561BB938_g, c_unitCountAll);
     for (;; auto561BB938_u -= 1) {
@@ -41577,20 +41568,39 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
         libNtve_gf_MakeUnitUncommandable(auto561BB938_var, false);
         UnitSetState(auto561BB938_var, c_unitStateSelectable, true);
     }
-    CameraApplyInfo(lv_forwardObserverOwner, CameraInfoDefault(), 0.0, -1, 10, true);
-    CameraSetValue(lv_forwardObserverOwner, c_cameraValueDistance, 32.0, 0.0, -1, 10);
-    CameraPan(lv_forwardObserverOwner, UnitGetPosition(gv_marineHero[lv_forwardObserverOwner]), 0.0, -1, 10, false);
-    CameraLockInput(lv_forwardObserverOwner, false);
     DialogDestroy(lv_transperancyDialog);
+    DialogDestroy(lv_instructions);
+    if ((gv_poisonGas == false)) {
+        CameraApplyInfo(lv_forwardObserverOwner, CameraInfoDefault(), 0.0, -1, 10, true);
+        CameraSetValue(lv_forwardObserverOwner, c_cameraValueDistance, 32.0, 0.0, -1, 10);
+        CameraPan(lv_forwardObserverOwner, lv_forwardObserverPosition, 0.0, -1, 10, false);
+        CameraLockInput(lv_forwardObserverOwner, false);
+    }
+    else {
+        if ((UnitIsAlive(gv_marineHero[lv_forwardObserverOwner]) == true)) {
+            lv_unittoFollowPoisonGas = gv_marineHero[lv_forwardObserverOwner];
+        }
+        else if ((UnitIsAlive(gv_playerPet[lv_forwardObserverOwner]) == true)) {
+            lv_unittoFollowPoisonGas = gv_playerPet[lv_forwardObserverOwner];
+        }
+        gf_GasCameraPrep1(lv_forwardObserverOwner, lv_unittoFollowPoisonGas);
+        Wait(1.0, c_timeGame);
+        gf_GasCameraPrep2(lv_forwardObserverOwner);
+    }
     libNtve_gf_RestoreUnitSelection(lv_forwardObserverOwner);
-    gf_ShowHideMarineDialog(true, lv_forwardObserverOwner, lv_forwardObserverOwner);
-    Wait(3.0, c_timeGame);
+    if ((lv_forwardObserverHero != null)) {
+        DialogSetVisible(gv_equipment, PlayerGroupSingle(lv_forwardObserverOwner), true);
+        gf_ShowHideMarineDialog(true, lv_forwardObserverOwner, gv_marineSquad);
+    }
+
+    if ((gv_gunshipTeamUI[lv_forwardObserverOwner] == 0)) {
+        DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), true);
+    }
+
     gv_gunshipCinematicActive[lv_forwardObserverOwner] = false;
     gv_gameUIHidden[lv_forwardObserverOwner] = false;
+    Wait(3.0, c_timeGame);
     UnitRemove(gv_gunshipUnit[lv_forwardObserverOwner]);
-    gf_ShowHideMarineDialog(true, lv_forwardObserverOwner, lv_forwardObserverOwner);
-    DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), true);
-    CameraLockInput(lv_forwardObserverOwner, false);
     return true;
 }
 
@@ -41644,6 +41654,32 @@ bool gt_GunshipOtherKeys_Func (bool testConds, bool runActions) {
             gv_gunshipZoom[lv_index] = false;
         }
     }
+    else if ((EventKeyPressed() == c_keyX)) {
+        if ((gv_gunshipTeamUI[lv_index] == 1)) {
+            gv_gunshipTeamUI[lv_index] = 0;
+            DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_index), false);
+        }
+        else if ((gv_gunshipTeamUI[lv_index] == 0)) {
+            gv_gunshipTeamUI[lv_index] = 1;
+            DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_index), true);
+        }
+    }
+    else if (((EventKeyPressed() == c_keyUp) || (EventKeyPressed() == c_keyRight))) {
+        gv_gunshipChangeSpeed[lv_index] = true;
+        gv_gunshipSpeed[lv_index] = libNtve_gf_ArithmeticRealClamp((gv_gunshipSpeed[lv_index] + 10.0), 40.0, 70.0);
+    }
+    else if (((EventKeyPressed() == c_keyDown) || (EventKeyPressed() == c_keyLeft))) {
+        gv_gunshipChangeSpeed[lv_index] = true;
+        gv_gunshipSpeed[lv_index] = libNtve_gf_ArithmeticRealClamp((gv_gunshipSpeed[lv_index] - 10.0), 40.0, 70.0);
+    }
+    if ((gv_gunshipChangeSpeed[lv_index] == true)) {
+        gv_gunshipRotation[lv_index] = Pow((gv_gunshipSpeed[lv_index] * 3.42), 0.75);
+        gv_gunshipDistance[lv_index] = SquareRoot((gv_gunshipSpeed[lv_index] * 10.0));
+        UIClearMessages(PlayerGroupSingle(lv_index), c_messageAreaDebug);
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringToText(("<s val=\"BriefingHanText\">(" + FixedToString(Round((gv_gunshipSpeed[lv_index] / 0.4)), 0) + "% thrust...)</s>")));
+        gv_gunshipChangeSpeed[lv_index] = false;
+    }
+
     return true;
 }
 
@@ -41654,6 +41690,56 @@ void gt_GunshipOtherKeys_Init () {
     TriggerAddEventKeyPressed(gt_GunshipOtherKeys, c_playerAny, c_keyC, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
     TriggerAddEventKeyPressed(gt_GunshipOtherKeys, c_playerAny, c_keyZ, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
     TriggerAddEventKeyPressed(gt_GunshipOtherKeys, c_playerAny, c_keyM, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_GunshipOtherKeys, c_playerAny, c_keyX, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_GunshipOtherKeys, c_playerAny, c_keyUp, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_GunshipOtherKeys, c_playerAny, c_keyRight, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_GunshipOtherKeys, c_playerAny, c_keyDown, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_GunshipOtherKeys, c_playerAny, c_keyLeft, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Gunship Speed Ctrl
+//--------------------------------------------------------------------------------------------------
+bool gt_GunshipSpeedCtrl_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_index = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_gunshipActive[lv_index] == true))) {
+            return false;
+        }
+
+        if (!((gv_gunshipChangeSpeed[lv_index] == false))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_gunshipChangeSpeed[lv_index] = true;
+    gv_gunshipSpeed[lv_index] = libNtve_gf_ArithmeticRealClamp((gv_gunshipSpeed[lv_index] + (EventMouseWheelSpin() * 10.0)), 40.0, 70.0);
+    gv_gunshipRotation[lv_index] = Pow((gv_gunshipSpeed[lv_index] * 3.42), 0.75);
+    gv_gunshipDistance[lv_index] = SquareRoot((gv_gunshipSpeed[lv_index] * 10.0));
+    UIClearMessages(PlayerGroupSingle(lv_index), c_messageAreaDebug);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringToText(("<s val=\"BriefingHanText\">(" + FixedToString(Round((gv_gunshipSpeed[lv_index] / 0.4)), 0) + "% Thrust...)</s>")));
+    Wait(0.125, c_timeGame);
+    gv_gunshipChangeSpeed[lv_index] = false;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_GunshipSpeedCtrl_Init () {
+    gt_GunshipSpeedCtrl = TriggerCreate("gt_GunshipSpeedCtrl_Func");
+    TriggerEnable(gt_GunshipSpeedCtrl, false);
+    TriggerAddEventMouseWheel(gt_GunshipSpeedCtrl, c_playerAny);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -41664,6 +41750,7 @@ bool gt_GunshipImpactQuake_Func (bool testConds, bool runActions) {
 
     // Variable Declarations
     fixed[3] lv_duration;
+    int lv_forwardObserverOwner;
 
     // Automatic Variable Declarations
     unitgroup auto95E0FE93_g;
@@ -41687,8 +41774,12 @@ bool gt_GunshipImpactQuake_Func (bool testConds, bool runActions) {
     for (;; auto95E0FE93_u -= 1) {
         auto95E0FE93_var = UnitGroupUnitFromEnd(auto95E0FE93_g, auto95E0FE93_u);
         if (auto95E0FE93_var == null) { break; }
-        if ((DistanceBetweenPoints(UnitGetPosition(auto95E0FE93_var), EventPlayerEffectUsedPoint(c_effectLocationTargetPoint)) <= 3.0) && (gv_gunshipActive[UnitGetOwner(auto95E0FE93_var)] == false)) {
-            CameraShakeStart(UnitGetOwner(auto95E0FE93_var), c_cameraPositionTarget, c_cameraDirectionZ, 0.35, 2.0, 100.0, lv_duration[0]);
+        if ((DistanceBetweenPoints(UnitGetPosition(auto95E0FE93_var), EventPlayerEffectUsedPoint(c_effectLocationTargetPoint)) <= 3.0)) {
+            if ((gv_gunshipActive[UnitGetOwner(auto95E0FE93_var)] == false)) {
+                CameraShakeStart(UnitGetOwner(auto95E0FE93_var), c_cameraPositionTarget, c_cameraDirectionZ, 0.35, 2.0, 100.0, lv_duration[0]);
+            }
+
+            lv_forwardObserverOwner = EventPlayer();
         }
         else if ((DistanceBetweenPoints(UnitGetPosition(auto95E0FE93_var), EventPlayerEffectUsedPoint(c_effectLocationTargetPoint)) <= 5.0) && (gv_gunshipActive[UnitGetOwner(auto95E0FE93_var)] == false)) {
             CameraShakeStart(UnitGetOwner(auto95E0FE93_var), c_cameraPositionTarget, c_cameraDirectionZ, 0.2, 2.0, 100.0, lv_duration[1]);
@@ -41697,6 +41788,17 @@ bool gt_GunshipImpactQuake_Func (bool testConds, bool runActions) {
             CameraShakeStart(UnitGetOwner(auto95E0FE93_var), c_cameraPositionTarget, c_cameraDirectionZ, 0.1, 2.0, 100.0, lv_duration[2]);
         }
     }
+    if ((lv_forwardObserverOwner != 0) && (gv_gunshipTeamUI[lv_forwardObserverOwner] == 0)) {
+        gv_gunshipTeamUI[lv_forwardObserverOwner] = 2;
+        DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), true);
+        Wait(5.0, c_timeGame);
+        if ((gv_gunshipCinematicActive[lv_forwardObserverOwner] == true)) {
+            DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), false);
+        }
+
+        gv_gunshipTeamUI[lv_forwardObserverOwner] = 0;
+    }
+
     return true;
 }
 
@@ -42155,9 +42257,6 @@ void InitTriggers () {
     gt_DisableStatAndModsModification_Init();
     gt_Backstab_Init();
     gt_CriticalStrike_Init();
-    gt_ConcentratedFireCriticalStrike_Init();
-    gt_HarvesterofSorrowCriticalStrike_Init();
-    gt_GrenadeLauncherFireUpEnd_Init();
     gt_Anticipation_Init();
     gt_Concentration_Init();
     gt_ExecuteMovespeedBonus_Init();
@@ -42183,6 +42282,7 @@ void InitTriggers () {
     gt_GunshipSelection_Init();
     gt_GunshipSupport_Init();
     gt_GunshipOtherKeys_Init();
+    gt_GunshipSpeedCtrl_Init();
     gt_GunshipImpactQuake_Init();
     gt_TalentSelection_Init();
     gt_TalentTreeToggle_Init();

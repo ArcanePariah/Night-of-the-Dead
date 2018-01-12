@@ -704,7 +704,7 @@
     </CBehaviorSpawn>
     <CBehaviorBuff id="CriticalStrikeAttacker">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="1" Handled="ApplyCriticalStrike" Location="Attacker"/>
+        <DamageResponse Chance="1" Handled="ApplyCriticalStrikeSet" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
         <Modification>
             <StateFlags index="SuppressXPSharing" value="1"/>
@@ -713,7 +713,11 @@
     <CBehaviorBuff id="CriticalStrikeAttackerKnife">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <DamageResponse Chance="1" Handled="ApplyCriticalStrike" Location="Attacker"/>
+        <DamageResponse Chance="1" Handled="ApplyCriticalStrikeSet" Location="Attacker"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CriticalStrikeDealer">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="0.0002"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CriticalStrikeDefender">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -743,9 +747,9 @@
             <RequireEffectArray value="PrecisionShotLevel2Damage"/>
             <RequireEffectArray value="RepulseDamage"/>
             <RequireEffectArray value="CombatKnifeDamage"/>
+            <ValidatorArray value="CritCheckDealer"/>
         </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
-        <MaxStackCountPerCaster value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CronusBeams">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1061,7 +1065,8 @@
             <DamageDealtFraction index="Ranged" value="0.25"/>
             <DamageDealtFraction index="Splash" value="0.25"/>
         </Modification>
-        <InitialEffect value="FireUpGrenades"/>
+        <InitialEffect value="FireUpGrenadesOn"/>
+        <ExpireEffect value="FireUpGrenadesOff"/>
         <Tooltip value="Button/Tooltip/FocusedFire"/>
         <DamageResponse Chance="1" Location="Attacker"/>
     </CBehaviorBuff>
@@ -2027,6 +2032,8 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="20"/>
         <Modification SightBonus="1" SightMinimum="5" MoveSpeedMultiplier="0.9"/>
+        <InitialEffect value="HarvesterofSorrowBonusCritOn"/>
+        <ExpireEffect value="HarvesterofSorrowBonusCritOff"/>
         <DamageResponse>
             <RequireEffectArray value="SuppressiveFireLevel1"/>
             <RequireEffectArray value="SuppressiveFireLevel2"/>
@@ -7549,6 +7556,8 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="7"/>
         <Period value="7"/>
+        <InitialEffect value="ConcentratedFire1BonusCritOn"/>
+        <ExpireEffect value="ConcentratedFireBonusCritOff"/>
         <Modification>
             <SightBonus value="1"/>
             <SightMinimum value="5"/>
@@ -7625,6 +7634,8 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="7"/>
         <Period value="7"/>
+        <InitialEffect value="ConcentratedFire2BonusCritOn"/>
+        <ExpireEffect value="ConcentratedFireBonusCritOff"/>
         <Modification>
             <SightBonus value="2"/>
             <SightMinimum value="5"/>
@@ -7638,6 +7649,8 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="7"/>
         <Period value="7"/>
+        <InitialEffect value="ConcentratedFire3BonusCritOn"/>
+        <ExpireEffect value="ConcentratedFireBonusCritOff"/>
         <Modification>
             <SightBonus value="3"/>
             <SightMinimum value="5"/>
