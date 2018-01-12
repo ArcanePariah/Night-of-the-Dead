@@ -4439,6 +4439,7 @@ Param/Value/608D552D=Items
 Param/Value/60AE9014=+5 XP for Performance Bonus
 Param/Value/6187C54A=Watch out for huggers. Our scanners will pick them up.
 Param/Value/6189B259=Look! I see Marines!
+Param/Value/6189CAD3=<n/><n/>
 Param/Value/61BD8102=
 Param/Value/6211EBBF=Then let us begin. An infestor like Charlie here can attract hordes of zombies. Protect my lab.
 Param/Value/62889D26=That was a tough kill!
@@ -4524,6 +4525,7 @@ Param/Value/70F0CE92=Ammo modifiers like AP Ammo improve your weapon's potency.
 Param/Value/711360DA=Boys, we're attracting a lot of attention!
 Param/Value/71327501=<s val="ChatBar">HAL: <c val="F4D72B"></c><c val="FF0000"><Imminent system failure></s></c>
 Param/Value/713DE317=It all started wi-
+Param/Value/717B16A0=Buying failed
 Param/Value/71DA941A=<n/></c>Hits Taken: <c val="F4D72B">
 Param/Value/72189A49=Kill all zombies from Bio-Dome B
 Param/Value/723F3D0D=Sec Team B, do you read me?
@@ -4635,6 +4637,7 @@ Param/Value/8650EF40=<s val="InfoPaneHeroRank">
 Param/Value/86A2241A=Marine
 Param/Value/86D3CE3C=All Bio-Domes are disabled.
 Param/Value/86F7A4EE=46 hours after outbreak
+Param/Value/872F8077=Buying failed
 Param/Value/8742BCDB=Avoid the falling spores. They hurt you.
 Param/Value/875FB6A5= is a known hacker.</c></s>
 Param/Value/87732B84=<s val="GlueButton">Sec Team B: <c val="F4D72B">Defend our position until the other team arrives.</c></s>
@@ -4911,6 +4914,7 @@ Param/Value/B6028924=A Blueberry Production
 Param/Value/B6564F15=We lost miners in there. Whatever's down there, it's hostile.
 Param/Value/B663D3C1=Excellent work. We'll put those cameras to good use later.
 Param/Value/B66F724C=).</s></c>
+Param/Value/B690D429=Shop too far, disabling.
 Param/Value/B69E136F=Self-Destruct ETA
 Param/Value/B6A4B582=I've found some un-read transmissions on SatLink. Cover my back while I download them.
 Param/Value/B6BA3533=Lay down some traps. We'll strongpoint here.
@@ -6015,6 +6019,66 @@ UserData/Ranks/Sergeant_Title Brief=Sgt.
 UserData/Ranks/Sergeant_Title Full=Sergeant
 UserData/Ranks/Staff Sergeant_Title Brief=SSgt. 
 UserData/Ranks/Staff Sergeant_Title Full=Staff Sergeant
+UserData/ShopItems/ShopItem10_ShopTooltip=Changes Marine color to <c val="1f01c9">Violet</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem11_ShopTooltip=Changes Marine color to <c val="525494">Light Grey</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem12_ShopTooltip=Changes Marine color to <c val="106246">Dark Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem13_ShopTooltip=Changes Marine color to <c val="4e2a04">Brown</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem14_ShopTooltip=Changes Marine color to <c val="96ff91">Light Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem15_ShopTooltip=Changes Marine color to <c val="232323">Dark Grey</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem16_ShopTooltip=Changes Marine color to <c val="cca6fc">Light Pink</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem17_ShopTooltip=Biological - can get hugged<n/>LifeMax:350  LifeRegen:10 RegenDelay: No<n/>Movement Speed:2.35 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem18_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay:Yes<n/>Movement Speed:3 EnergyMax:50 Shields:20<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem19_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: No<n/>Movement Speed:2.5 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem1_ShopTooltip=Changes Marine color to <c val="FFFFFF">White</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem20_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:60 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem21_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:70 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem22_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem23_ShopTooltip=Biological - can get hugged<n/>LifeMax:275 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem24_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:7  RegenDelay: No<n/>Movement Speed:2.9 EnergyMax:70 Shields:10<n/><n/>Credits: <c val="71B8FF">Free</c>
+UserData/ShopItems/ShopItem25_ShopTooltip=Biological - can get hugged<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:75 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem26_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:12 RegenDelay: No<n/>Movement Speed:2.7 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem27_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:15<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem28_ShopTooltip=Biological - can get hugged<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:20<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem29_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:10 RegenDelay: Yes<n/>Movement Speed:2.5 EnergyMax:55 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem2_ShopTooltip=Changes Marine color to <c val="b4141e">Red</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem30_ShopTooltip=Since the Great Rat Plague of 2028, kittens have been a mainstay in every citizen's home - providing frontline defense against the next plague. Kittens are also cute. Be a responsible neighbour - order now.<n/><n/>Credits: <c val="71B8FF">1000</c>
+UserData/ShopItems/ShopItem31_ShopTooltip=Rank icon of Marine replaced with Black Ops Insignia.<n/><n/>Credits: <c val="71B8FF">10000</c>
+UserData/ShopItems/ShopItem32_ShopTooltip=Allows modification of weapons.<n/><n/>Credits: <c val="71B8FF">10000</c>
+UserData/ShopItems/ShopItem33_ShopTooltip=Heavy Sniper Rifle that is capable of inflicting massive damage. This powerful weapon also weighs down the Marine.<n/><n/>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem34_ShopTooltip=Launches high explosive grenades that detonate on contact with targets.<n/><n/>Credits: <c val="71B8FF">325</c>
+UserData/ShopItems/ShopItem35_ShopTooltip=Rocket Launcher that does significant splash damage. Consumes 10 rounds per attack. Use with extreme caution.<n/><n/>Credits: <c val="71B8FF">325</c>
+UserData/ShopItems/ShopItem36_ShopTooltip=This .50 caliber gun is great at mowing down masses. It's high impact rounds will penetrate armor completely.<n/><n/>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem37_ShopTooltip=Slower firing than the UA General Purpose Rifle but packs a bigger punch. Also penetrates deeper into armor.<n/><n/>Credits: <c val="71B8FF">200</c>
+UserData/ShopItems/ShopItem38_ShopTooltip=Deals damage to multiple units in a close distance. 30% chance to stun non-massive units for 0.1 seconds. Uses 2 rounds per shot. <n/>Deals both primary and splash damage to the initial target.<n/><n/>Credits: <c val="71B8FF">200</c>
+UserData/ShopItems/ShopItem39_ShopTooltip=Excellent close quarter combat weapon when mobility is needed. Makes quick work of lightly armored units. Depletes ammo rapidly.<n/><n/></c>Credits: <c val="71B8FF">100</c>
+UserData/ShopItems/ShopItem3_ShopTooltip=Changes Marine color to <c val="0042ff">Blue</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem40_ShopTooltip=Burns any living creature quickly.<n/><n/>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem41_ShopTooltip=Adds 4 shield armor and increases maximum shield capacity by 50%.<n/><n/>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem42_ShopTooltip=A durable polymer suit that has plate inserts to protect vital areas. While it doesn't offer the impact dampening that heavier armors do, the durable and flexible material that slides over the Marine's combat suit is extremely resistant to tearing and puncturing.<n/><n/>Adds 2 armor and 40% ailment resistance.<n/><n/>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem43_ShopTooltip=A series of interlocking attachable plates that lock on to the combat suit to provide protection from blunt trauma to vital areas, while joints are bolstered by armored pads.<n/><n/>Adds 4 armor and 20% ailment resistance.<n/><n/>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem44_ShopTooltip=Produced by United Arms Heavy Industries, this ammunition can punch through the hardiest of armor.<n/>Attack Modifier: <c val="FFFFFF">-1 armor (Does not stack)</c><n/>Damage Modfier: <c val="FFFFFF">+7%</c><n/>Maximum Stack: <c val="FFFFFF">3</c></n></n>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem45_ShopTooltip=The jacket allows for higher muzzle velocities than bare lead without depositing significant amounts of metal in the bore.<n/>Attack Modifier: <c val="FFFFFF">+15% attack speed. -1 attack range (Stacks 3x)</c></n></n>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem46_ShopTooltip=Produced by UGC Engineering Corps. This ammunition makes use of a high yield head which burns targets on impact.<n/>Damage Modifier: <c val="FFFFFF">+3% damage (Stacks 3x)</c><n/>Attack Modifier: Target takes 50% bonus damage from Fire for 5 seconds</c></n></c></n>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem47_ShopTooltip=Allows your marine to use an additional magazine per reload while equipped.<n/>Maximum Stack: <c val="FFFFFF">1</c><n/></n>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem48_ShopTooltip=Produced by UGC Ballistics this ammunition is designed to cause major damage to targets.<n/>Damage Modifier: <c val="FFFFFF">+12% damage (Stacks 3x)</c><n/><n/>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem49_ShopTooltip=+0.4 HP regeneration per second. Ideal for Marines in the front lines.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem4_ShopTooltip=Changes Marine color to <c val="1ca7ea">Teal</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem50_ShopTooltip=Increases Sight Radius by 3.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem51_ShopTooltip=Increases movespeed by 10%<n/>Maxiumum Stack: <c val="FFFFFF">1<n/><n/></c>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem52_ShopTooltip=Increases Energy & Shield regeneration by 0.33 per sec.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem53_ShopTooltip=Illuminates a 9 radius area for 60 seconds.<n/><n/>Credits: <c val="71B8FF">15</c>
+UserData/ShopItems/ShopItem54_ShopTooltip=Heals 125 HP over 15 seconds. Can be used on self only.<n/>Maximum Effect Stack: <c val="FFFFFF">3</c><n/><n/>Credits: <c val="71B8FF">15</c>
+UserData/ShopItems/ShopItem55_ShopTooltip=Instantly heals 50 HP. Also heals Open Wounds.<n/><n/>Credits: <c val="71B8FF">15</c>
+UserData/ShopItems/ShopItem56_ShopTooltip=Cures venom and restores 10 HP.<n/><n/>Credits: <c val="71B8FF">10</c>
+UserData/ShopItems/ShopItem57_ShopTooltip=Consume to add 3 magazines to your ammuniton pool.<n/><n/>Credits: <c val="71B8FF">10</c>
+UserData/ShopItems/ShopItem58_ShopTooltip=Stores magazines that provide rounds for your weapons. Higher magazine capacity frees up your inventory.<n/><n/>Credits: <c val="71B8FF">35</c>
+UserData/ShopItems/ShopItem5_ShopTooltip=Changes Marine color to <c val="331ac8">Purple</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem60_ShopTooltip=Since the Great Rat Plague of 2028, kittens have been a mainstay in every citizen's home - providing frontline defense against the next plague. Kittens are also cute. Be a responsible neighbour - order now.<n/><n/>Credits: <c val="71B8FF">1000</c>
+UserData/ShopItems/ShopItem6_ShopTooltip=Changes Marine color to <c val="ebe129">Yellow</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem70_ShopTooltip=Rank icon of Marine replaced with Black Ops Insignia.<n/><n/>Credits: <c val="71B8FF">10000</c>
+UserData/ShopItems/ShopItem7_ShopTooltip=Changes Marine color to <c val="fe8a0e">Orange</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem8_ShopTooltip=Changes Marine color to <c val="168000">Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem9_ShopTooltip=Changes Marine color to <c val="FF80FF">Pink</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/SquadInformation/Difficulty HP Scaling_Information=Difficulty HP Scaling: 
 UserData/SquadInformation/Spawn Factor_Information=Spawn Factor: 
 UserData/SquadInformation/Squad Rating_Information=Squad Rating: 

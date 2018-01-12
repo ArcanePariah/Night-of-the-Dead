@@ -492,6 +492,7 @@ const int gv_costofMagazine = 10;
 const int gv_costofHealingItems = 15;
 const int gv_costofAntiVenom = 10;
 const int gv_costofRoadFlares = 15;
+const int gv_numberOfShopOptions = 58;
 const fixed gv_gRIDDLG_GRID = 60.0;
 const fixed gv_gRIDDLG_GRIDGAP_X = 10.0;
 const fixed gv_gRIDDLG_GRIDGAP_Y = 10.0;
@@ -930,6 +931,9 @@ gs_SurvivalSpawnLocation[6] gv_survivalSpawnPoints;
 bool gv_equipmentOpen;
 text gv_creditsLeft;
 unitgroup[9] gv_boughtItems;
+int[gv_numberofPlayers + 1] gv_shop;
+int[gv_numberofPlayers + 1] gv_shopClose;
+int[gv_numberofPlayers + 1][gv_numberOfShopOptions + 1] gv_shopButtons;
 int[9] gv_classSelectionDialog;
 int[9][19] gv_classSelectionDialogItem;
 fixed gv_classLimitMultiplier;
@@ -1261,6 +1265,17 @@ void InitGlobals () {
     gv_creditsLeft = StringExternal("Param/Value/188383D6");
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_boughtItems[init_i] = UnitGroupEmpty();
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_shop[init_i] = c_invalidDialogId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_shopClose[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        for (init_j = 0; init_j <= gv_numberOfShopOptions; init_j += 1) {
+            gv_shopButtons[init_i][init_j] = c_invalidDialogControlId;
+        }
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_classSelectionDialog[init_i] = c_invalidDialogId;
@@ -1671,6 +1686,11 @@ void gf_CreateKittens (int lp_owner);
 bool gf_WeaponsModPointMax (int lp_playerNo);
 void gf_RemoveBoughtItems (int lp_playerNo);
 void gf_ShowCreditsLeft (int lp_player);
+void gf_ShopCreation (int lp_player);
+void gf_ShopButton (int lp_panel, int lp_player, int lp_itemNumber, int lp_page);
+void gf_ShopDisable ();
+void gf_ShopBuyTemp (int lp_itemID, int lp_player);
+void gf_ShopBuyPerm (int lp_itemID, int lp_player, string lp_itemType);
 fixed gf_GD_Gap (int lp_hV);
 fixed gf_GD_GridToReal2 (fixed lp_grid, int lp_hV, int lp_sizeOrPos);
 int gf_GD_GridToInteger (fixed lp_grid, int lp_hV, int lp_sizeOrPos);
@@ -2115,6 +2135,9 @@ trigger gt_StackMagsIntoBox;
 trigger gt_UseBandagewithAbility;
 trigger gt_BuyItem;
 trigger gt_BuyStandardItem;
+trigger gt_ShopDisplay;
+trigger gt_ShopForceClose;
+trigger gt_ShopInteraction;
 trigger gt_ClassCreation;
 trigger gt_AmmoUIButtonCallback;
 trigger gt_DialogButtonClicks;
@@ -6423,31 +6446,6 @@ bool gf_PreCinematicProcessing () {
     const int auto9A4033E6_ae = gv_numberofPlayers;
     int auto9A4033E6_var;
 
-    // Automatic Variable Declarations
-    playergroup auto844882A6_g;
-    unitgroup auto50F7BEB9_g;
-    int auto50F7BEB9_u;
-    unit auto50F7BEB9_var;
-    const int auto3F8FF7D0_ae = gv_numberofPlayers;
-    int auto3F8FF7D0_var;
-    unitgroup autoC48DD2C1_g;
-    int autoC48DD2C1_u;
-    unit autoC48DD2C1_var;
-    const int autoAAAFB41A_ae = 8;
-    int autoAAAFB41A_var;
-    unitgroup autoC44EBA38_g;
-    int autoC44EBA38_u;
-    unit autoC44EBA38_var;
-    unitgroup autoE493B063_g;
-    int autoE493B063_u;
-    unit autoE493B063_var;
-    const int autoA044D35E_ae = 5;
-    int autoA044D35E_var;
-    const int autoEB5AAE13_ae = gv_numberofPlayers;
-    int autoEB5AAE13_var;
-    const int auto9A4033E6_ae = gv_numberofPlayers;
-    int auto9A4033E6_var;
-
     // Variable Initialization
     lv_cinematicPlayers = PlayerGroupAll();
 
@@ -6460,25 +6458,10 @@ bool gf_PreCinematicProcessing () {
         if (lv_index < 0) { break; }
         if ((gv_gunshipCinematicActive[lv_index] == false)) {
             libNtve_gf_StoreUnitSelection(lv_index, libNtve_ge_UnitSelectionStoreOption_ClearUnitSelection);
-        auto50F7BEB9_g = UnitGroup(null, lv_index, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-        auto50F7BEB9_u = UnitGroupCount(auto50F7BEB9_g, c_unitCountAll);
-        for (;; auto50F7BEB9_u -= 1) {
-            auto50F7BEB9_var = UnitGroupUnitFromEnd(auto50F7BEB9_g, auto50F7BEB9_u);
-            if (auto50F7BEB9_var == null) { break; }
-            libNtve_gf_MakeUnitInvulnerable(auto50F7BEB9_var, true);
-            libNtve_gf_PauseUnit(auto50F7BEB9_var, true);
+            CameraLockInput(lv_index, true);
         }
-        CameraLockInput(lv_index, true);
-    }
         else {
             PlayerGroupRemove(lv_cinematicPlayers, lv_index);
-    autoC48DD2C1_g = UnitGroup(null, 9, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    autoC48DD2C1_u = UnitGroupCount(autoC48DD2C1_g, c_unitCountAll);
-    for (;; autoC48DD2C1_u -= 1) {
-        autoC48DD2C1_var = UnitGroupUnitFromEnd(autoC48DD2C1_g, autoC48DD2C1_u);
-        if (autoC48DD2C1_var == null) { break; }
-        libNtve_gf_MakeUnitInvulnerable(autoC48DD2C1_var, true);
-        libNtve_gf_PauseUnit(autoC48DD2C1_var, true);
         }
         auto50F7BEB9_g = UnitGroup(null, lv_index, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
         auto50F7BEB9_u = UnitGroupCount(auto50F7BEB9_g, c_unitCountAll);
@@ -6500,14 +6483,11 @@ bool gf_PreCinematicProcessing () {
         if (autoC48DD2C1_var == null) { break; }
         libNtve_gf_MakeUnitInvulnerable(autoC48DD2C1_var, true);
         libNtve_gf_PauseUnit(autoC48DD2C1_var, true);
-        libNtve_gf_PauseUnit(autoC44EBA38_var, true);
     }
     DialogSetVisible(gv_equipment, lv_cinematicPlayers, false);
     autoAAAFB41A_var = 1;
     for ( ; autoAAAFB41A_var <= autoAAAFB41A_ae; autoAAAFB41A_var += 1 ) {
         gf_ShowHideMarineDialog(false, autoAAAFB41A_var, lv_cinematicPlayers);
-        if (autoE493B063_var == null) { break; }
-        libNtve_gf_PauseUnit(autoE493B063_var, true);
     }
     UIClearBattleNetButtonOffset(lv_cinematicPlayers);
     autoC44EBA38_g = gv_zombieWave;
@@ -6571,26 +6551,6 @@ bool gf_PostCinematicProcessing () {
     int autoE3D2E958_u;
     unit autoE3D2E958_var;
 
-    // Automatic Variable Declarations
-    unitgroup auto94C0FEE8_g;
-    int auto94C0FEE8_u;
-    unit auto94C0FEE8_var;
-    unitgroup auto5D1DFE08_g;
-    int auto5D1DFE08_u;
-    unit auto5D1DFE08_var;
-    const int autoCEE7A85E_ae = 5;
-    int autoCEE7A85E_var;
-    const int autoBE0EF8D6_ae = gv_numberofPlayers;
-    int autoBE0EF8D6_var;
-    unitgroup auto88E408CE_g;
-    int auto88E408CE_u;
-    unit auto88E408CE_var;
-    playergroup auto5200998B_g;
-    int auto5200998B_var;
-    unitgroup autoFAE70074_g;
-    int autoFAE70074_u;
-    unit autoFAE70074_var;
-
     // Variable Initialization
     lv_cinematicPlayers = PlayerGroupAll();
 
@@ -6635,7 +6595,6 @@ bool gf_PostCinematicProcessing () {
         if (auto88E408CE_var == null) { break; }
         libNtve_gf_MakeUnitInvulnerable(auto88E408CE_var, false);
         libNtve_gf_PauseUnit(auto88E408CE_var, false);
-        libNtve_gf_PauseUnit(auto88E408CE_var, false);
     }
     auto5200998B_g = gv_marineSquad;
     auto5200998B_var = -1;
@@ -6655,8 +6614,6 @@ bool gf_PostCinematicProcessing () {
             CameraApplyInfo(auto5200998B_var, CameraInfoDefault(), 0.0, -1, 10, true);
             if ((UnitIsAlive(gv_marineHero[auto5200998B_var]) == true)) {
                 CameraPan(auto5200998B_var, UnitGetPosition(gv_marineHero[auto5200998B_var]), 0.0, -1, 10, false);
-            if ((UnitGetType(autoFAE70074_var) != "Kitten")) {
-                libNtve_gf_MakeUnitInvulnerable(autoFAE70074_var, false);
             }
             else if ((UnitIsAlive(gv_playerPet[auto5200998B_var]) == true)) {
                 CameraPan(auto5200998B_var, UnitGetPosition(gv_playerPet[auto5200998B_var]), 0.0, -1, 10, false);
@@ -9898,7 +9855,7 @@ bool auto_gf_SurvivalEnvironmentalChanges_TriggerFunc (bool testConds, bool runA
     unitgroup autoD93D4315_g;
     int autoD93D4315_u;
     unit autoD93D4315_var;
-
+    unitgroup auto1F9203DD_g;
     int auto1F9203DD_u;
     unit auto1F9203DD_var;
 
@@ -10475,6 +10432,9 @@ void gf_PlayerColorChange (int lp_buyingPlayer) {
     else if ((lv_colorCode == 15)) {
         PlayerSetColorIndex(lp_buyingPlayer, 14, true);
     }
+    else if ((lv_colorCode == 16)) {
+        PlayerSetColorIndex(lp_buyingPlayer, 8, true);
+    }
 }
 
 void gf_CreatePet (int lp_owner, point lp_point) {
@@ -10623,6 +10583,202 @@ bool auto_gf_ShowCreditsLeft_TriggerFunc (bool testConds, bool runActions) {
     Wait(5.0, c_timeGame);
     TextTagDestroy(TextTagLastCreated());
     return true;
+}
+
+trigger auto_gf_ShopCreation_Trigger = null;
+int auto_gf_ShopCreation_lp_player;
+
+void gf_ShopCreation (int lp_player) {
+    auto_gf_ShopCreation_lp_player = lp_player;
+
+    if (auto_gf_ShopCreation_Trigger == null) {
+        auto_gf_ShopCreation_Trigger = TriggerCreate("auto_gf_ShopCreation_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_ShopCreation_Trigger, false, false);
+}
+
+bool auto_gf_ShopCreation_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_gf_ShopCreation_lp_player;
+
+    // Variable Declarations
+    int lv_tempDialogItem;
+
+    // Automatic Variable Declarations
+    const int auto6E053C18_ae = gv_numberOfShopOptions;
+    int auto6E053C18_var;
+    const int auto14A42075_ae = 32;
+    int auto14A42075_var;
+
+    // Variable Initialization
+    lv_tempDialogItem = c_invalidDialogControlId;
+
+    // Implementation
+    gf_UIDialogCreation(370, 535, 270, 300, c_anchorBottomRight);
+    gv_shop[lp_player] = DialogLastCreated();
+    DialogControlCreateFromTemplate(gv_shop[lp_player], c_triggerControlTypePanel, "Shop/ShopTemplate");
+    lv_tempDialogItem = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogItem, c_triggerControlTypeButton, "CloseButton");
+    gv_shopClose[lp_player] = DialogControlLastCreated();
+    auto6E053C18_var = 33;
+    for ( ; auto6E053C18_var <= auto6E053C18_ae; auto6E053C18_var += 1 ) {
+        gf_ShopButton(lv_tempDialogItem, lp_player, auto6E053C18_var, 1);
+    }
+    auto14A42075_var = 1;
+    for ( ; auto14A42075_var <= auto14A42075_ae; auto14A42075_var += 1 ) {
+        gf_ShopButton(lv_tempDialogItem, lp_player, auto14A42075_var, 2);
+    }
+    return true;
+}
+
+void gf_ShopButton (int lp_panel, int lp_player, int lp_itemNumber, int lp_page) {
+    // Variable Declarations
+    int lv_tempPanel;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_tempPanel = c_invalidDialogControlId;
+
+    // Implementation
+    if ((lp_page == 1)) {
+        DialogControlHookup(lp_panel, c_triggerControlTypePanel, "ShopPage1/ShopItem" + IntToString(lp_itemNumber));
+    }
+    else {
+        DialogControlHookup(lp_panel, c_triggerControlTypePanel, "ShopPage2/ShopItem" + IntToString(lp_itemNumber));
+    }
+    lv_tempPanel = DialogControlLastCreated();
+    DialogControlHookup(lv_tempPanel, c_triggerControlTypeButton, "Button");
+    gv_shopButtons[lp_player][lp_itemNumber] = DialogControlLastCreated();
+    libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), (StringToText(UserDataGetString("ShopItems", "ShopItem"+IntToString(lp_itemNumber), "Name", 1)) + StringExternal("Param/Value/6189CAD3") + UserDataGetText("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopTooltip", 1)), PlayerGroupAll());
+    DialogControlHookup(lv_tempPanel, c_triggerControlTypeImage, "ShopImage");
+    libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopImage", 1), PlayerGroupAll());
+}
+
+void gf_ShopDisable () {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    playergroup auto15235B99_g;
+
+    // Variable Initialization
+    lv_index = 1;
+
+    // Implementation
+    TriggerEnable(gt_ShopDisplay, false);
+    TriggerEnable(gt_ShopForceClose, false);
+    TriggerEnable(gt_ShopInteraction, false);
+    auto15235B99_g = gv_marineSquad;
+    lv_index = -1;
+    while (true) {
+        lv_index = PlayerGroupNextPlayer(auto15235B99_g, lv_index);
+        if (lv_index < 0) { break; }
+        DialogSetVisible(gv_shop[lv_index], PlayerGroupAll(), false);
+    }
+}
+
+void gf_ShopBuyTemp (int lp_itemID, int lp_player) {
+    // Variable Declarations
+    bool lv_itemBought;
+    int lv_buyingPlayer;
+    int lv_itemID;
+    int lv_itemCost;
+    string lv_item;
+    unit lv_boughtItem;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_buyingPlayer = lp_player;
+    lv_itemID = lp_itemID;
+
+    // Implementation
+    if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000)) {
+        lv_itemCost = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopCost", 1);
+        lv_item = UserDataGetGameLink("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopUnit", 1);
+        if ((gv_playerCredits[lv_buyingPlayer] >= lv_itemCost)) {
+            gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
+            lv_itemBought = true;
+        }
+    }
+    if ((lv_itemBought == true)) {
+        lv_boughtItem = gf_GiveMarineItem(lv_buyingPlayer, lv_item);
+        UnitGroupAdd(gv_boughtItems[lv_buyingPlayer], lv_boughtItem);
+        gf_ShowCreditsLeft(lv_buyingPlayer);
+    }
+    else {
+        TextTagCreate(StringExternal("Param/Value/717B16A0"), 20, UnitGetPosition(gv_marineHero[lv_buyingPlayer]), 1.5, true, true, PlayerGroupActive());
+        TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(79.22, 58.43, 100.00));
+        TextTagAttachToUnit(TextTagLastCreated(), gv_marineHero[lv_buyingPlayer], 2.0);
+        TextTagSetVelocity(TextTagLastCreated(), 0.25, 90.0);
+        Wait(5.0, c_timeGame);
+        TextTagDestroy(TextTagLastCreated());
+    }
+}
+
+void gf_ShopBuyPerm (int lp_itemID, int lp_player, string lp_itemType) {
+    // Variable Declarations
+    bool lv_boughtItem;
+    int lv_itemID;
+    int lv_buyingPlayer;
+    string lv_itemType;
+    int lv_colorCode;
+    int lv_petCode;
+    int lv_itemCost;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_itemID = lp_itemID;
+    lv_buyingPlayer = lp_player;
+    lv_itemType = lp_itemType;
+
+    // Implementation
+    if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000)) {
+        lv_itemCost = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopCost", 1);
+        lv_petCode = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "PetCode", 1);
+        lv_colorCode = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "ColorCode", 1);
+        if ((gv_playerCredits[lv_buyingPlayer] >= lv_itemCost)) {
+            if ((lv_itemType == "pet") && (lv_petCode != ModI(gv_playerPetCode[lv_buyingPlayer], 100))) {
+                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
+                gv_playerPetCode[lv_buyingPlayer] -= (ModI(gv_playerPetCode[lv_buyingPlayer], 100) - lv_petCode);
+                lv_boughtItem = true;
+            }
+            else if ((lv_itemType == "mod") && (gf_WeaponsModPointMax(lv_buyingPlayer) == false)) {
+                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
+                gv_playerWeaponsMod2[lv_buyingPlayer] += 100;
+                gf_ModUpdateUnlockedModPointsText(lv_buyingPlayer);
+                lv_boughtItem = true;
+            }
+            else if ((lv_itemType == "kitten") && (gf_KittensBought(lv_buyingPlayer) == false)) {
+                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
+                gv_playerColorCode[lv_buyingPlayer] += lv_colorCode;
+                gf_CreateKittens(lv_buyingPlayer);
+                lv_boughtItem = true;
+            }
+            else if ((lv_itemType == "insignia") && (gf_BOInsigniaBought(lv_buyingPlayer) == false)) {
+                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
+                gv_playerColorCode[lv_buyingPlayer] += lv_colorCode;
+                gf_UpgradeBOInsigniaRank(lv_buyingPlayer);
+                lv_boughtItem = true;
+            }
+            if ((lv_itemType == "color") && (lv_colorCode != ModI(gv_playerColorCode[lv_buyingPlayer], 100))) {
+                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
+                gv_playerColorCode[lv_buyingPlayer] = ((gv_playerColorCode[lv_buyingPlayer] - ModI(gv_playerColorCode[lv_buyingPlayer], 100)) + lv_colorCode);
+                gf_PlayerColorChange(lv_buyingPlayer);
+                lv_boughtItem = true;
+            }
+        }
+    }
+    if ((lv_boughtItem == true)) {
+        gf_ShowCreditsLeft(lv_buyingPlayer);
+    }
+    else {
+        TextTagCreate(StringExternal("Param/Value/872F8077"), 20, UnitGetPosition(gv_marineHero[lv_buyingPlayer]), 1.5, true, true, PlayerGroupActive());
+        TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(79.22, 58.43, 100.00));
+        TextTagAttachToUnit(TextTagLastCreated(), gv_marineHero[lv_buyingPlayer], 2.0);
+        TextTagSetVelocity(TextTagLastCreated(), 0.25, 90.0);
+        Wait(5.0, c_timeGame);
+        TextTagDestroy(TextTagLastCreated());
+    }
 }
 
 fixed gf_GD_Gap (int lp_hV) {
@@ -11527,6 +11683,7 @@ void gf_HideAllDialogsForPlayer (int lp_player) {
         DialogSetVisible(gv_playerMedalsDialog[lv_index], PlayerGroupSingle(lp_player), false);
         DialogSetVisible(gv_statsPlayerStatsDialog[lv_index], PlayerGroupSingle(lp_player), false);
         DialogSetVisible(gv_talentTree[lv_index], PlayerGroupSingle(lp_player), false);
+        DialogSetVisible(gv_shop[lv_index], PlayerGroupSingle(lp_player), false);
     }
 }
 
@@ -14361,6 +14518,7 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
     while (true) {
         auto986D890A_var = PlayerGroupNextPlayer(auto986D890A_g, auto986D890A_var);
         if (auto986D890A_var < 0) { break; }
+        gf_ShopCreation(auto986D890A_var);
         if ((gv_playerXP[auto986D890A_var] < 500)) {
             gv_noNewbie = false;
             break;
@@ -16259,6 +16417,7 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
         if (autoE737FD6A_var == null) { break; }
         UnitKill(autoE737FD6A_var);
     }
+    DialogSetVisible(gv_shop[lv_pNumber], PlayerGroupAll(), false);
     libNtve_gf_SetDialogItemImage(gv_teamStatusPortraitButton[lv_pNumber], "Assets\\Textures\\terranportraittransition_static.dds", PlayerGroupAll());
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lv_pNumber], c_triggerBlendModeAdd, PlayerGroupAll());
     DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lv_pNumber], PlayerGroupAll(), "MarineDeath", "MarineDied");
@@ -19657,6 +19816,7 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
     UISetButtonHighlighted(PlayerGroupActive(), AbilityCommand("Talents", 0), false);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/DCCA4B69"));
     Wait(55.0, c_timeReal);
+    gf_ShopDisable();
     UnitAbilityEnable(UnitFromId(178), "move", true);
     UnitIssueOrder(UnitFromId(178), OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(2377)), c_orderQueueReplace);
     libNtve_gf_MakeUnitUncommandable(UnitFromId(178), true);
@@ -26576,10 +26736,12 @@ bool gt_ACInitialize_Func (bool testConds, bool runActions) {
 
     if ((gv_noNewbie == true)) {
         Wait(150.0, c_timeReal);
+        gf_ShopDisable();
         UnitSetState(UnitFromId(1857), c_unitStateSelectable, false);
         UnitSetState(UnitFromId(2505), c_unitStateSelectable, false);
     }
     else {
+        gf_ShopDisable();
         UnitSetState(UnitFromId(1857), c_unitStateSelectable, false);
         UnitSetState(UnitFromId(2505), c_unitStateSelectable, false);
     }
@@ -38403,6 +38565,155 @@ void gt_BuyStandardItem_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 002
+//--------------------------------------------------------------------------------------------------
+bool gt_ShopDisplay_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_selectingPlayer;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_selectingPlayer = EventPlayer();
+
+    // Conditions
+    if (testConds) {
+        if (!((lib09BE6BA8_gf_GroupNearPoint(UnitGroup(null, lv_selectingPlayer, RegionFromId(150), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(150)), 20.0) || lib09BE6BA8_gf_GroupNearPoint(UnitGroup(null, lv_selectingPlayer, RegionFromId(173), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(173)), 20.0) || lib09BE6BA8_gf_GroupNearPoint(UnitGroup(null, lv_selectingPlayer, RegionFromId(178), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(178)), 20.0)))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((DialogIsVisible(gv_shop[lv_selectingPlayer], lv_selectingPlayer) == false) && (UnitIsAlive(gv_marineHero[lv_selectingPlayer]) == true)) {
+        gf_HideAllDialogsForPlayer(lv_selectingPlayer);
+        DialogSetVisible(gv_shop[lv_selectingPlayer], PlayerGroupSingle(lv_selectingPlayer), true);
+    }
+    else {
+        DialogSetVisible(gv_shop[lv_selectingPlayer], PlayerGroupSingle(lv_selectingPlayer), false);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ShopDisplay_Init () {
+    gt_ShopDisplay = TriggerCreate("gt_ShopDisplay_Func");
+    TriggerAddEventUnitSelected(gt_ShopDisplay, UnitRefFromUnit(UnitFromId(178)), c_playerAny, true);
+    TriggerAddEventUnitSelected(gt_ShopDisplay, UnitRefFromUnit(UnitFromId(1857)), c_playerAny, true);
+    TriggerAddEventUnitSelected(gt_ShopDisplay, UnitRefFromUnit(UnitFromId(2502)), c_playerAny, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 002
+//--------------------------------------------------------------------------------------------------
+bool gt_ShopForceClose_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_eventPlayer;
+    unit lv_eventUnit;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_eventPlayer = EventPlayer();
+    lv_eventUnit = EventUnit();
+
+    // Conditions
+    if (testConds) {
+        if (!(((lv_eventPlayer >= 1) && (lv_eventPlayer <= 8)))) {
+            return false;
+        }
+
+        if (!((gv_marineHero[lv_eventPlayer] == lv_eventUnit))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogSetVisible(gv_shop[lv_eventPlayer], PlayerGroupSingle(lv_eventPlayer), false);
+    TextTagCreate(StringExternal("Param/Value/B690D429"), 20, UnitGetPosition(gv_marineHero[lv_eventPlayer]), 1.5, true, true, PlayerGroupActive());
+    TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(79.22, 58.43, 100.00));
+    TextTagAttachToUnit(TextTagLastCreated(), gv_marineHero[lv_eventPlayer], 2.0);
+    TextTagSetVelocity(TextTagLastCreated(), 0.25, 90.0);
+    Wait(5.0, c_timeGame);
+    TextTagDestroy(TextTagLastCreated());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ShopForceClose_Init () {
+    gt_ShopForceClose = TriggerCreate("gt_ShopForceClose_Func");
+    TriggerAddEventUnitRegion(gt_ShopForceClose, null, RegionFromName("ShopRegionA"), false);
+    TriggerAddEventUnitRegion(gt_ShopForceClose, null, RegionFromName("ShopRegionB"), false);
+    TriggerAddEventUnitRegion(gt_ShopForceClose, null, RegionFromName("ShopRegionC"), false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 003
+//--------------------------------------------------------------------------------------------------
+bool gt_ShopInteraction_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_itemID;
+    int lv_triggPlayer;
+    int lv_usedDialog;
+    int lv_usedDialogItem;
+    string lv_itemType;
+
+    // Automatic Variable Declarations
+    const int auto1B10A317_ae = gv_numberOfShopOptions;
+    const int auto1B10A317_ai = 1;
+
+    // Variable Initialization
+    lv_triggPlayer = EventPlayer();
+    lv_usedDialog = DialogControlGetDialog(EventDialogControl());
+    lv_usedDialogItem = EventDialogControl();
+    lv_itemType = "";
+
+    // Conditions
+    if (testConds) {
+        if (!(((lv_usedDialog == gv_shop[1]) || (lv_usedDialog == gv_shop[2]) || (lv_usedDialog == gv_shop[3]) || (lv_usedDialog == gv_shop[4]) || (lv_usedDialog == gv_shop[5]) || (lv_usedDialog == gv_shop[6]) || (lv_usedDialog == gv_shop[7]) || (lv_usedDialog == gv_shop[8])))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((lv_usedDialogItem == gv_shopClose[lv_triggPlayer])) {
+        DialogSetVisible(lv_usedDialog, PlayerGroupAll(), false);
+    }
+    else {
+        lv_itemID = 1;
+        for ( ; ( (auto1B10A317_ai >= 0 && lv_itemID <= auto1B10A317_ae) || (auto1B10A317_ai < 0 && lv_itemID >= auto1B10A317_ae) ) ; lv_itemID += auto1B10A317_ai ) {
+            if ((lv_usedDialogItem == gv_shopButtons[lv_triggPlayer][lv_itemID])) {
+                lv_itemType = UserDataGetString("ShopItems", "ShopItem"+IntToString(lv_itemID), "Type", 1);
+                if ((lv_itemType == "item")) {
+                    gf_ShopBuyTemp(lv_itemID, lv_triggPlayer);
+                }
+                else {
+                    gf_ShopBuyPerm(lv_itemID, lv_triggPlayer, lv_itemType);
+                }
+                return true;
+            }
+
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_ShopInteraction_Init () {
+    gt_ShopInteraction = TriggerCreate("gt_ShopInteraction_Func");
+    TriggerAddEventDialogControl(gt_ShopInteraction, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Class Creation
 //--------------------------------------------------------------------------------------------------
 bool gt_ClassCreation_Func (bool testConds, bool runActions) {
@@ -39563,17 +39874,6 @@ void gt_CriticalStrike_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
-    // Automatic Variable Declarations
 // Trigger: Anticipation
 //--------------------------------------------------------------------------------------------------
 bool gt_Anticipation_Func (bool testConds, bool runActions) {
@@ -41005,10 +41305,6 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     int auto561BB938_u;
     unit auto561BB938_var;
 
-    unitgroup auto561BB938_g;
-    int auto561BB938_u;
-    unit auto561BB938_var;
-
     // Variable Initialization
     lv_forwardObserverHero = EventUnit();
     lv_forwardObserverOwner = UnitGetOwner(lv_forwardObserverHero);
@@ -41057,8 +41353,6 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
         auto9DE841DD_var = UnitGroupUnitFromEnd(auto9DE841DD_g, auto9DE841DD_u);
         if (auto9DE841DD_var == null) { break; }
         UnitSetState(auto9DE841DD_var, c_unitStateSelectable, false);
-        if (auto88CA2F2E_var < 0) { break; }
-        gf_ShowHideMarineDialog(false, lv_forwardObserverOwner, auto88CA2F2E_var);
     }
     DialogSetVisible(gv_equipment, PlayerGroupSingle(lv_forwardObserverOwner), false);
     gf_ShowHideMarineDialog(false, lv_forwardObserverOwner, gv_marineSquad);
@@ -41130,9 +41424,6 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
         if ((UnitIsAlive(gv_gunshipFollowedUnit[lv_forwardObserverOwner]) == true)) {
             if ((DistanceBetweenPoints(UnitGetPosition(gv_gunshipFollowedUnit[lv_forwardObserverOwner]), lv_forwardObserverPosition) > 1.2)) {
                 UnitIssueOrder(lv_forwardObserverHero, OrderTargetingUnit(AbilityCommand("move", 0), gv_gunshipFollowedUnit[lv_forwardObserverOwner]), c_orderQueueReplace);
-                if (auto192354FE_var == null) { break; }
-                UnitIssueOrder(auto192354FE_var, OrderTargetingUnit(AbilityCommand("move", 0), gv_gunshipFollowedUnit[lv_forwardObserverOwner]), c_orderQueueReplace);
-                UnitIssueOrder(auto192354FE_var, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionCircle(UnitGetPosition(gv_gunshipFollowedUnit[lv_forwardObserverOwner]), 1.2))), c_orderQueueReplace);
             }
 
             autoD87BAE60_g = gv_mobileInfantryGroup[lv_forwardObserverOwner];
@@ -41460,11 +41751,6 @@ bool gt_GunshipImpactQuake_Func (bool testConds, bool runActions) {
     // Variable Declarations
     fixed[3] lv_duration;
     int lv_forwardObserverOwner;
-
-    // Automatic Variable Declarations
-    unitgroup auto95E0FE93_g;
-    int auto95E0FE93_u;
-    unit auto95E0FE93_var;
 
     // Automatic Variable Declarations
     unitgroup auto95E0FE93_g;
@@ -41953,6 +42239,9 @@ void InitTriggers () {
     gt_UseBandagewithAbility_Init();
     gt_BuyItem_Init();
     gt_BuyStandardItem_Init();
+    gt_ShopDisplay_Init();
+    gt_ShopForceClose_Init();
+    gt_ShopInteraction_Init();
     gt_ClassCreation_Init();
     gt_AmmoUIButtonCallback_Init();
     gt_DialogButtonClicks_Init();

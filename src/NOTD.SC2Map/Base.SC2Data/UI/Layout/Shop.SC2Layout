@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Constant name="Row1" val="10"/>
+    <Constant name="Row2" val="75"/>
+    <Constant name="Row3" val="140"/>
+    <Constant name="Row4" val="205"/>
+    <Constant name="Row5" val="270"/>
+    <Constant name="Column1" val="10"/>
+    <Constant name="Column2" val="75"/>
+    <Constant name="Column3" val="140"/>
+    <Constant name="Column4" val="205"/>
+    <Constant name="Column5" val="270"/>
+    <Constant name="Column6" val="335"/>
+    <Constant name="Column7" val="400"/>
+    <Constant name="Column8" val="465"/>
+	<Frame type="Button" name="TabButtonTemplate">
+        <Width val="210"/>
+        <Height val="40"/>
+
+        <Frame type="Image" name="ButtonImage">
+            <Anchor relative="$parent" offset="0"/>
+            <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
+            <TextureType val="HorizontalBorder"/>
+            <BlendMode val="Normal"/>
+            <Color val="175,175,175"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Width val="190"/>
+            <Height val="30"/>
+            <Style val="ModCenterSize20"/>
+        </Frame>
+    </Frame>
+    <Frame type="Frame" name="ShopButtonTemplate">
+        <Height val="60"/>
+        <Width val="60"/>
+        <Frame type="Button" name="Button">
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <ClickSound val="@UI_ActionButtonSelect"/>
+            <Height val="50"/>
+            <Width val="50"/>
+        </Frame>
+
+        <Frame type="Image" name="ShopImageFrame">
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Height val="66"/>
+            <Width val="66"/>
+            <Texture val="Assets\Textures\ui_techtree_iconframe_protoss.dds"/>
+            <TextureType val="Normal"/>
+            <BlendMode val="Normal"/>
+        </Frame>
+
+        <Frame type="Image" name="ShopImage">
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Height val="60"/>
+            <Width val="60"/>
+            <TextureType val="Normal"/>
+            <BlendMode val="Normal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Frame" name="ShopPageTemplate">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Height val="340"/>
+        <Width val="535"/>
+    </Frame>
+
+    <Frame type="TabControl" name="ShopTemplate">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Height val="370"/>
+        <Width val="535"/>
+        <TabListItem val="GoPage1"/>
+        <TabListItem val="GoPage2"/>
+        <PanelListItem val="ShopPage1"/>
+        <PanelListItem val="ShopPage2"/>
+        <Frame type="Image" name="ShopImage">
+            <Anchor relative="$parent" offset="0"/>
+            <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
+            <TextureType val="HorizontalBorder"/>
+            <BlendMode val="Normal"/>
+            <Color val="175,175,175"/>
+        </Frame>
+        <Frame type="Button" name="GoPage1" template="Shop/TabButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="3"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+			<Frame type="Label" name="ButtonLabel">
+				<Text val = "Consumables"/>
+			</Frame>
+        </Frame>
+        <Frame type="Button" name="GoPage2" template="Shop/TabButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="3"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="220"/>
+			<Frame type="Label" name="ButtonLabel">
+				<Text val = "Modifications"/>
+			</Frame>
+        </Frame>        
+        <Frame type="Button" name="CloseButton">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="3"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Height val="40"/>
+            <Width val="40"/>
+            <Frame type="Image" name="ButtonImage">
+                <Anchor relative="$parent" offset="0"/>
+                <Texture val="Assets\Textures\ui_research_frame_tooltip_protoss.dds"/>
+                <TextureType val="HorizontalBorder"/>
+                <BlendMode val="Normal"/>
+                <Color val="175,175,175"/>
+            </Frame>
+            <Frame type="Label" name="ButtonLabel">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="7"/>
+                <Width val="30"/>
+                <Height val="30"/>
+                <Style val="ModCenterSize20"/>
+                <Text val = "X"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="ShopPage1" template="Shop/ShopPageTemplate">
+            <Frame type="Frame" name="ShopItem33" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column1"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem34" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column2"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem35" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column3"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem36" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column4"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem37" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column5"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem38" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column6"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem39" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column7"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem40" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column8"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem41" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column1"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem42" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column2"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem43" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column3"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem44" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column4"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem45" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column5"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem46" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column6"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem47" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column7"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem48" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column8"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem49" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column1"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem50" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column2"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem51" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column3"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem52" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column4"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem53" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column5"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem54" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column6"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem55" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column7"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem56" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column8"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem57" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column1"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row4"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem58" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column2"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row4"/>
+            </Frame>
+                    <!--<Add buttons here for new items>-->
+        </Frame>
+        <Frame type="Frame" name="ShopPage2" template="Shop/ShopPageTemplate">
+            <Frame type="Frame" name="ShopItem1" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column1"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem2" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column2"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem3" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column3"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem4" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column4"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem5" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column5"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem6" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column6"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem7" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column7"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem8" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column8"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row1"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem9" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column1"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem10" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column2"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem11" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column3"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem12" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column4"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem13" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column5"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem14" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column6"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem15" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column7"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem16" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column8"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row2"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem17" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column4"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem18" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column5"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem19" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column6"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem20" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column7"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem21" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column1"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row4"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem22" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column2"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row4"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem23" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column3"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row4"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem24" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column4"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row4"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem25" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column5"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row4"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem26" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column6"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row4"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem27" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column1"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem28" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column2"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem29" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column3"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row3"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem30" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column1"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row5"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem31" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column2"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row5"/>
+            </Frame>
+            <Frame type="Frame" name="ShopItem32" template="Shop/ShopButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#Column3"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="#Row5"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

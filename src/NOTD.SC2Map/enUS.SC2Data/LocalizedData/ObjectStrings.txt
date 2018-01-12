@@ -14356,6 +14356,7 @@ User/Name/PrisonerAreaSpeech=Prisoner Area Speech
 User/Name/RamirezTaunts=Ramirez Taunts
 User/Name/Ranks=Ranks
 User/Name/ShockwaveBarrageEffects=Shockwave Barrage Effects
+User/Name/ShopItems=ShopItems
 User/Name/StatData=Stat Data
 User/Name/StoryClassAssignments=Story Class Assignments
 User/Name/StorylineSelection=Storyline Selection
