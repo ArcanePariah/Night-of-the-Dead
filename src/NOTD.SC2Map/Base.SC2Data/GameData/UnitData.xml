@@ -3200,6 +3200,7 @@
         <SubgroupPriority value="9"/>
         <MinimapRadius value="0.2"/>
         <HotkeyCategory value="Hotkey/Heros"/>
+        <SelectAlias value="Assault"/>
     </CUnit>
     <CUnit id="Assault" parent="BaseHero">
         <DeathRevealFilters value="Visible;Player,Ally,Neutral,Missile,Dead,Hidden"/>
