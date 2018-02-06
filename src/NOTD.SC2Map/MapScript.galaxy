@@ -4357,7 +4357,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_attempts;
+    int lv_gadtowmoxwecptgs;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -6484,31 +6484,6 @@ bool gf_PreCinematicProcessing () {
     const int auto9A4033E6_ae = gv_numberofPlayers;
     int auto9A4033E6_var;
 
-    // Automatic Variable Declarations
-    playergroup auto844882A6_g;
-    unitgroup auto50F7BEB9_g;
-    int auto50F7BEB9_u;
-    unit auto50F7BEB9_var;
-    const int auto3F8FF7D0_ae = gv_numberofPlayers;
-    int auto3F8FF7D0_var;
-    unitgroup autoC48DD2C1_g;
-    int autoC48DD2C1_u;
-    unit autoC48DD2C1_var;
-    const int autoAAAFB41A_ae = 8;
-    int autoAAAFB41A_var;
-    unitgroup autoC44EBA38_g;
-    int autoC44EBA38_u;
-    unit autoC44EBA38_var;
-    unitgroup autoE493B063_g;
-    int autoE493B063_u;
-    unit autoE493B063_var;
-    const int autoA044D35E_ae = 5;
-    int autoA044D35E_var;
-    const int autoEB5AAE13_ae = gv_numberofPlayers;
-    int autoEB5AAE13_var;
-    const int auto9A4033E6_ae = gv_numberofPlayers;
-    int auto9A4033E6_var;
-
     // Variable Initialization
     lv_cinematicPlayers = PlayerGroupAll();
 
@@ -6613,26 +6588,6 @@ bool gf_PostCinematicProcessing () {
     unitgroup autoE3D2E958_g;
     int autoE3D2E958_u;
     unit autoE3D2E958_var;
-
-    // Automatic Variable Declarations
-    unitgroup auto94C0FEE8_g;
-    int auto94C0FEE8_u;
-    unit auto94C0FEE8_var;
-    unitgroup auto5D1DFE08_g;
-    int auto5D1DFE08_u;
-    unit auto5D1DFE08_var;
-    const int autoCEE7A85E_ae = 5;
-    int autoCEE7A85E_var;
-    const int autoBE0EF8D6_ae = gv_numberofPlayers;
-    int autoBE0EF8D6_var;
-    unitgroup auto88E408CE_g;
-    int auto88E408CE_u;
-    unit auto88E408CE_var;
-    playergroup auto5200998B_g;
-    int auto5200998B_var;
-    unitgroup autoFAE70074_g;
-    int autoFAE70074_u;
-    unit autoFAE70074_var;
 
     // Variable Initialization
     lv_cinematicPlayers = PlayerGroupAll();
@@ -6905,7 +6860,7 @@ bool auto_gf_MineBossSeth_TriggerFunc (bool testConds, bool runActions) {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/0DA72546"));
             UnitBehaviorAddPlayer(gv_zeus, "SethCharging", 13, 1);
             Wait(6.0, c_timeGame);
-            SoundPlay(SoundLink("SS_LightningProjectorImpact", -1), PlayerGroupAll(), 100.0, 0.0);
+            SoundPlay(SoundLink("Amb_ZerusLightning_Arcs", -1), PlayerGroupAll(), 100.0, 0.0);
             autoECB699E0_var = 1;
             for ( ; autoECB699E0_var <= autoECB699E0_ae; autoECB699E0_var += 1 ) {
                 CameraShakeStart(autoECB699E0_var, c_cameraPositionTarget, c_cameraDirectionZ, 0.2, 2.0, 100.0, 0.5);
@@ -9810,7 +9765,7 @@ bool auto_gf_HadesSporeDrops_TriggerFunc (bool testConds, bool runActions) {
             Wait(18.0, c_timeReal);
         }
         for (autoC3A2937C_i = 1; autoC3A2937C_i <= autoC3A2937C_n; autoC3A2937C_i += 1) {
-            UnitCreate(1, "ZergDropPod", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 15.0)), libNtve_gf_RandomAngle());
+            UnitCreate(1, "ZergDropPod", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(UnitGroupCenterOfGroup(gv_marines), 15.0)), libNtve_gf_RandomAngle());
             UnitGroupAdd(lv_sporelingGroup, UnitLastCreated());
             Wait(RandomFixed(0.1, 3.0), c_timeGame);
         }
@@ -17871,7 +17826,7 @@ bool gt_SethReinforcements_Func (bool testConds, bool runActions) {
     int autoBA69838F_i;
 
     // Variable Initialization
-    lv_reinforcementDropPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(gv_zeus), 7.0));
+    lv_reinforcementDropPoint = gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(gv_zeus), 12.0));
     lv_sCVCount = 1;
 
     // Conditions
@@ -17899,9 +17854,11 @@ bool gt_SethReinforcements_Func (bool testConds, bool runActions) {
     Wait(2.0, c_timeReal);
     autoBA69838F_n = lv_sCVCount;
     for (autoBA69838F_i = 1; autoBA69838F_i <= autoBA69838F_n; autoBA69838F_i += 1) {
-        libNtve_gf_UnitCreateFacingPoint(1, "SCV", 0, 13, lv_reinforcementDropPoint, UnitGetPosition(gv_zeus));
-        UnitWeaponRemove(UnitLastCreated(), "FusionCutter");
-        UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(gv_zeus)), c_orderQueueReplace);
+        if ((UnitIsAlive(gv_zeus) == true)) {
+            libNtve_gf_UnitCreateFacingPoint(1, "SCV", 0, 13, lv_reinforcementDropPoint, UnitGetPosition(gv_zeus));
+            UnitWeaponRemove(UnitLastCreated(), "FusionCutter");
+            UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), UnitGetPosition(gv_zeus)), c_orderQueueReplace);
+        }
         Wait(0.1, c_timeGame);
     }
     Wait(2.0, c_timeGame);
@@ -29013,18 +28970,7 @@ bool gt_ACW9ChaseDrTanakaPoisonGas_Func (bool testConds, bool runActions) {
             UnitAbilityEnable(auto5B4523B7_var, "TX179Asgard", false);
         }
 
-        }
-
     }
-    IntLoopEnd();
-    UnitGroupLoopBegin(gv_marines);
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        if ((UnitGetType(UnitGroupLoopCurrent()) == "ForwardObserver")) {
-            UnitAbilityEnable(UnitGroupLoopCurrent(), "TX179Asgard", false);
-        }
-
-    }
-    UnitGroupLoopEnd();
     gf_GasCameraCycle();
     Wait(5.0, c_timeReal);
     gf_TipNOTD(5000, StringExternal("Param/Value/A3EF6D27"));
@@ -32175,6 +32121,7 @@ bool gt_STInfectedCiviliansPeriodic_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_numberOfCiviliansTurned;
     unit lv_poorCiv;
+    point lv_poorCivPosition;
 
     // Automatic Variable Declarations
     const int auto874B9744_n = 30;
@@ -32198,13 +32145,14 @@ bool gt_STInfectedCiviliansPeriodic_Func (bool testConds, bool runActions) {
             auto4F34FABF_n = lv_numberOfCiviliansTurned;
             for (auto4F34FABF_i = 1; auto4F34FABF_i <= auto4F34FABF_n; auto4F34FABF_i += 1) {
                 lv_poorCiv = UnitGroupRandomUnit(gv_infectedCivilians, c_unitCountAlive);
+                lv_poorCivPosition = UnitGetPosition(lv_poorCiv);
                 UnitKill(lv_poorCiv);
-                libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Small, libNtve_ge_ExplosionType_Zerg, UnitGetPosition(lv_poorCiv));
+                libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Small, libNtve_ge_ExplosionType_Zerg, lv_poorCivPosition);
                 if ((RandomInt(0, 5) == 1)) {
-                    UnitCreate(1, "Immortal2", 0, 14, UnitGetPosition(lv_poorCiv), libNtve_gf_RandomAngle());
+                    UnitCreate(1, "Immortal2", 0, 14, lv_poorCivPosition, libNtve_gf_RandomAngle());
                 }
                 else {
-                    UnitCreate(1, "ZombieLevel2", 0, 14, UnitGetPosition(lv_poorCiv), libNtve_gf_RandomAngle());
+                    UnitCreate(1, "ZombieLevel2", 0, 14, lv_poorCivPosition, libNtve_gf_RandomAngle());
                 }
                 UnitGroupAdd(gv_zombieWave, UnitLastCreated());
                 Wait(RandomFixed(0.01, 3.0), c_timeGame);
@@ -32747,13 +32695,15 @@ bool gt_STBoss2AI_Func (bool testConds, bool runActions) {
         else {
             Wait(7.0, c_timeReal);
         }
-        if ((gv_nightmare == true)) {
-            libNtve_gf_UnitCreateFacingPoint(1, "X1GuardianLevel2", 0, 13, UnitGetPosition(gv_nazara), RegionRandomPoint(RegionPlayableMap()));
+        if ((UnitIsAlive(gv_nazara) == true)) {
+            if ((gv_nightmare == true)) {
+                libNtve_gf_UnitCreateFacingPoint(1, "X1GuardianLevel2", 0, 13, UnitGetPosition(gv_nazara), RegionRandomPoint(RegionPlayableMap()));
+            }
+            else {
+                libNtve_gf_UnitCreateFacingPoint(1, "X1GuardianLevel1", 0, 13, UnitGetPosition(gv_nazara), RegionRandomPoint(RegionPlayableMap()));
+            }
+            UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         }
-        else {
-            libNtve_gf_UnitCreateFacingPoint(1, "X1GuardianLevel1", 0, 13, UnitGetPosition(gv_nazara), RegionRandomPoint(RegionPlayableMap()));
-        }
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         if ((RandomInt(1, 2) == 1)) {
             auto2755D6C3_g = gv_zombieWave;
             auto2755D6C3_u = UnitGroupCount(auto2755D6C3_g, c_unitCountAll);
@@ -33400,9 +33350,7 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_STW8ChaseBergmann, true, false);
     autoDDB5831C_n = gv_spawnFactor;
     for (autoDDB5831C_i = 1; autoDDB5831C_i <= autoDDB5831C_n; autoDDB5831C_i += 1) {
-        libNtve_gf_UnitCreateFacingPoint(1, "Slasher2", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 60.0)), RegionRandomPoint(RegionFromId(3)));
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowSlasher", 0)), c_orderQueueReplace);
-        libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
+        gf_SmartSpawnNOTD("Slasher2", 60.0);
         Wait(0.1, c_timeReal);
     }
     return true;
@@ -33795,7 +33743,7 @@ bool gt_STW10BossSpawnApoptosis_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/A811CC29"));
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/51ACBD60"));
-    libNtve_gf_UnitCreateFacingPoint(1, "Apoptosis", 0, 14, RegionRandomPoint(RegionPlayableMap()), UnitGetPosition(gv_drBergmann));
+    libNtve_gf_UnitCreateFacingPoint(1, "Apoptosis", 0, 14, gf_RandomSpawnPointNOTD(RegionPlayableMap()), UnitGroupCenterOfGroup(gv_marines));
     gv_apoptosis = UnitLastCreated();
     gv_currentBoss = "Apoptosis";
     if ((gv_alivePlayers < 5)) {
@@ -33966,7 +33914,6 @@ void gt_STW10ApoptosisKilled_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_STW10IVAXMission_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    point lv_iVAXPoint;
     unit lv_iVAXFriendly;
     unit lv_localUnitA;
     int lv_iVAXMissionPath;
@@ -33978,7 +33925,6 @@ bool gt_STW10IVAXMission_Func (bool testConds, bool runActions) {
     int autoBE1FEB56_i;
 
     // Variable Initialization
-    lv_iVAXPoint = UnitGetPosition(gv_incompleteIVAX);
     lv_iVAXMissionPath = RandomInt(1, 2);
 
     // Actions
@@ -34491,8 +34437,8 @@ bool gt_STW14BossAI_Func (bool testConds, bool runActions) {
     unitgroup auto89E61EE5_g;
     int auto89E61EE5_u;
     unit auto89E61EE5_var;
-    const int autoC8387F5E_ae = 8;
-    int autoC8387F5E_var;
+    playergroup auto80854B6B_g;
+    int auto80854B6B_var;
     unitgroup auto35CFEDD8_g;
     int auto35CFEDD8_u;
     unit auto35CFEDD8_var;
@@ -34512,9 +34458,12 @@ bool gt_STW14BossAI_Func (bool testConds, bool runActions) {
         auto89E61EE5_var = UnitGroupUnitFromEnd(auto89E61EE5_g, auto89E61EE5_u);
         if (auto89E61EE5_var == null) { break; }
         lv_loner = true;
-        autoC8387F5E_var = 1;
-        for ( ; autoC8387F5E_var <= autoC8387F5E_ae; autoC8387F5E_var += 1 ) {
-            if ((DistanceBetweenPoints(UnitGetPosition(auto89E61EE5_var), UnitGetPosition(gv_marineHero[autoC8387F5E_var])) <= 7.0) && (auto89E61EE5_var != gv_marineHero[autoC8387F5E_var])) {
+        auto80854B6B_g = gv_marineSquad;
+        auto80854B6B_var = -1;
+        while (true) {
+            auto80854B6B_var = PlayerGroupNextPlayer(auto80854B6B_g, auto80854B6B_var);
+            if (auto80854B6B_var < 0) { break; }
+            if ((DistanceBetweenPoints(UnitGetPosition(auto89E61EE5_var), UnitGetPosition(gv_marineHero[auto80854B6B_var])) <= 7.0) && (auto89E61EE5_var != gv_marineHero[auto80854B6B_var])) {
                 lv_loner = false;
             }
 
@@ -41426,11 +41375,6 @@ bool gt_GunshipImpactQuake_Func (bool testConds, bool runActions) {
     // Variable Declarations
     fixed[3] lv_duration;
     int lv_forwardObserverOwner;
-
-    // Automatic Variable Declarations
-    unitgroup auto95E0FE93_g;
-    int auto95E0FE93_u;
-    unit auto95E0FE93_var;
 
     // Automatic Variable Declarations
     unitgroup auto95E0FE93_g;
