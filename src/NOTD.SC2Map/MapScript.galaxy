@@ -40978,7 +40978,7 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
         UnitSetState(auto9DE841DD_var, c_unitStateSelectable, false);
     }
     DialogSetVisible(gv_equipment, PlayerGroupSingle(lv_forwardObserverOwner), false);
-    gf_ShowHideMarineDialog(false, lv_forwardObserverOwner, gv_marineSquad);
+    gf_ShowHideMarineDialog(false, lv_forwardObserverOwner, PlayerGroupSingle(lv_forwardObserverOwner));
     libNtve_gf_HideGameUI(false, PlayerGroupSingle(lv_forwardObserverOwner));
     DialogControlSetVisible(gv_teamUI, PlayerGroupSingle(lv_forwardObserverOwner), false);
     gv_gunshipCinematicActive[lv_forwardObserverOwner] = true;
@@ -41213,7 +41213,7 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     libNtve_gf_RestoreUnitSelection(lv_forwardObserverOwner);
     if ((lv_forwardObserverHero != null)) {
         DialogSetVisible(gv_equipment, PlayerGroupSingle(lv_forwardObserverOwner), true);
-        gf_ShowHideMarineDialog(true, lv_forwardObserverOwner, gv_marineSquad);
+        gf_ShowHideMarineDialog(true, lv_forwardObserverOwner, PlayerGroupSingle(lv_forwardObserverOwner));
     }
 
     if ((gv_gunshipTeamUI[lv_forwardObserverOwner] == 0)) {
