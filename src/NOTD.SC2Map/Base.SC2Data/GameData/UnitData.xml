@@ -1967,7 +1967,6 @@
         <Speed value="2.4765"/>
         <SpeedMultiplierCreep value="0.8"/>
         <TurningRate value="574.9804"/>
-        <AbilArray Link="FireUpGrenade"/>
         <AbilArray Link="XM35GrenadeLauncher"/>
         <AbilArray Link="SonicTrap"/>
         <AbilArray Link="PrecisionShot"/>
