@@ -4357,7 +4357,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_gadtowmoxwecptgs;
+    int lv_saskunhbbamhbefj;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -9261,7 +9261,7 @@ void gf_ACRescueSharedEventsAction (unit lp_radioUnit) {
     lv_localRegion = RegionCircle(UnitGetPosition(lp_radioUnit), 7.0);
 
     // Implementation
-    SoundPlayAtPoint(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupAll(), UnitGetPosition(gv_marineHero[gv_talentTreePlayer]), 1.5, 100.0, 0.0);
+    SoundPlayAtPoint(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupAll(), UnitGetPosition(gv_marineHero[UnitGetOwner(lp_radioUnit)]), 1.5, 100.0, 0.0);
     if ((RandomInt(0, 1) == 1)) {
         gf_MarineSpeechNOTD(lp_radioUnit, StringExternal("Param/Value/DB2B3493"));
     }
@@ -17857,7 +17857,7 @@ bool gt_SethReinforcements_Func (bool testConds, bool runActions) {
         if ((UnitIsAlive(gv_zeus) == true)) {
             libNtve_gf_UnitCreateFacingPoint(1, "SCV", 0, 13, lv_reinforcementDropPoint, UnitGetPosition(gv_zeus));
             UnitWeaponRemove(UnitLastCreated(), "FusionCutter");
-            UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 0), UnitGetPosition(gv_zeus)), c_orderQueueReplace);
+            UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(gv_zeus)), c_orderQueueReplace);
         }
         Wait(0.1, c_timeGame);
     }
@@ -30642,10 +30642,6 @@ void gt_ACW15HoldOut_Init () {
 // Trigger: ACW16 - Hold Out Part 2
 //--------------------------------------------------------------------------------------------------
 bool gt_ACW16HoldOutPart2_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    point lv_titanSpawnLoc;
-    unit lv_localTitan;
-
     // Automatic Variable Declarations
     int auto1432C07D_n;
     int auto1432C07D_i;
@@ -30653,8 +30649,6 @@ bool gt_ACW16HoldOutPart2_Func (bool testConds, bool runActions) {
     int auto889B66FC_i;
     int autoBDA534D5_n;
     int autoBDA534D5_i;
-
-    // Variable Initialization
 
     // Conditions
     if (testConds) {
@@ -30678,34 +30672,17 @@ bool gt_ACW16HoldOutPart2_Func (bool testConds, bool runActions) {
     auto1432C07D_n = (gv_spawnFactor - 1);
     for (auto1432C07D_i = 1; auto1432C07D_i <= auto1432C07D_n; auto1432C07D_i += 1) {
         Wait(RandomFixed(1.0, 5.0), c_timeReal);
-        lv_titanSpawnLoc = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 70.0));
-        while ((DistanceBetweenPoints(lv_titanSpawnLoc, UnitGroupCenterOfGroup(gv_marines)) < 15.0)) {
-            lv_titanSpawnLoc = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 70.0));
-        }
-        UnitCreate(1, "TitanBurrowed", 0, 14, lv_titanSpawnLoc, libNtve_gf_RandomAngle());
         if ((gv_nightmare == false)) {
-            UnitBehaviorAddPlayer(UnitLastCreated(), "Weakness", 9, 1);
+            gf_SmartSpawnWithBehaviorNOTD("TitanBurrowed", 70.0, "Weakness", null, null);
         }
-
-        lv_localTitan = UnitLastCreated();
+        else {
+            gf_SmartSpawnNOTD("TitanBurrowed", 70.0);
+        }
         Wait(1.5, c_timeGame);
-        UnitIssueOrder(lv_localTitan, Order(AbilityCommand("UnburrowTitan", 0)), c_orderQueueReplace);
-        UnitGroupAdd(gv_zombieWave, lv_localTitan);
     }
     auto889B66FC_n = (gv_spawnFactor * 5);
     for (auto889B66FC_i = 1; auto889B66FC_i <= auto889B66FC_n; auto889B66FC_i += 1) {
-        if ((gv_noNewbie == true)) {
-            Wait(RandomFixed(1.0, 5.0), c_timeGame);
-            UnitCreate(1, "SeekerBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 35.0)), libNtve_gf_RandomAngle());
-            UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowSeeker", 0)), c_orderQueueReplace);
-            UnitBehaviorAddPlayer(UnitLastCreated(), "PersonalCloakingFree", 14, 1);
-            UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        }
-        else {
-            UnitCreate(1, "SeekerBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 35.0)), libNtve_gf_RandomAngle());
-            UnitBehaviorAddPlayer(UnitLastCreated(), "PersonalCloakingFree", 14, 1);
-            UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        }
+        gf_SmartSpawnWithBehaviorNOTD("SeekerBurrowed", 35.0, "PersonalCloakingFree", null, null);
     }
     Wait(3.0, c_timeReal);
     SoundPlay(SoundLink("LabFidgetsAdjutantConfederateAdjutant00002", -1), PlayerGroupAll(), 100.0, 0.0);
@@ -30861,7 +30838,7 @@ bool gt_ACBoss4PersesAI_Func (bool testConds, bool runActions) {
         UnitGroupAdd(lv_energyFieldGroup, UnitLastCreated());
         auto248D9BBC_var = 1;
         for ( ; auto248D9BBC_var <= auto248D9BBC_ae; auto248D9BBC_var += 1 ) {
-            VisRevealArea(auto248D9BBC_var, RegionCircle(UnitGetPosition(UnitLastCreated()), 7.0), 5.0, false);
+            VisRevealArea(auto248D9BBC_var, RegionCircle(lv_energyFieldSpawnPoint, 7.0), 5.0, false);
         }
         Wait(0.01, c_timeGame);
     }
@@ -30876,7 +30853,7 @@ bool gt_ACBoss4PersesAI_Func (bool testConds, bool runActions) {
             CatalogFieldValueSet(c_gameCatalogEffect, "EnergyFieldSearch", "AreaArray[" + IntToString(0) + "].Radius", 10, FixedToString(lv_energyFieldRadius, c_fixedPrecisionAny));
         }
 
-        if ((gv_nightmare == true) && (ModI(lv_cycleCount, 7) == 1)) {
+        if ((gv_nightmare == true) && (ModI(lv_cycleCount, 7) == 1) && (UnitIsAlive(gv_perses) == true)) {
             auto9AD875E6_g = lv_energyFieldGroup;
             auto9AD875E6_u = UnitGroupCount(auto9AD875E6_g, c_unitCountAll);
             for (;; auto9AD875E6_u -= 1) {
