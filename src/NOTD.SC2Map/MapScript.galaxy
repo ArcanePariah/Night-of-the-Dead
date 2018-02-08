@@ -4357,7 +4357,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_saskunhbbamhbefj;
+    int lv_tvafsmjpksxlayuw;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -8130,9 +8130,9 @@ bool auto_gf_BlackOpsAIInitiative_TriggerFunc (bool testConds, bool runActions) 
     unitgroup auto8B234266_g;
     int auto8B234266_u;
     unit auto8B234266_var;
-    const int auto7CBCB6F4_n = 8;
+    const int auto7CBCB6F4_n = gv_numberofPlayers;
     int auto7CBCB6F4_i;
-    const int auto41D7D14B_n = 8;
+    const int auto41D7D14B_n = gv_numberofPlayers;
     int auto41D7D14B_i;
     unitgroup auto2CA52A0E_g;
     int auto2CA52A0E_u;
@@ -8153,33 +8153,37 @@ bool auto_gf_BlackOpsAIInitiative_TriggerFunc (bool testConds, bool runActions) 
         for (;; auto8B234266_u -= 1) {
             auto8B234266_var = UnitGroupUnitFromEnd(auto8B234266_g, auto8B234266_u);
             if (auto8B234266_var == null) { break; }
-            if ((RandomInt(0, 2) == 1) && (UnitHasBehavior(auto8B234266_var, "GhostCloak") == true) && (DistanceBetweenPoints(UnitGetPosition(auto8B234266_var), libNtve_gf_CenterOfUnitGroup(gv_marines)) > 12.0) && (UnitHasBehavior(auto8B234266_var, "ComplianceMatrix") == false) && (UnitHasBehavior(auto8B234266_var, "MindMeld") == false)) {
-                UnitIssueOrder(auto8B234266_var, OrderTargetingPoint(AbilityCommand("move", 0), PointWithOffsetPolar(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0, libNtve_gf_RandomAngle())), c_orderQueueReplace);
-            }
-            else if ((DistanceBetweenPoints(UnitGetPosition(auto8B234266_var), libNtve_gf_CenterOfUnitGroup(gv_marines)) > 15.0) && (UnitHasBehavior(auto8B234266_var, "ComplianceMatrix") == false) && (UnitHasBehavior(auto8B234266_var, "MindMeld") == false)) {
-                UnitIssueOrder(auto8B234266_var, OrderTargetingPoint(AbilityCommand("attack", 0), PointWithOffsetPolar(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0, libNtve_gf_RandomAngle())), c_orderQueueReplace);
-            }
             lv_localUnitA = auto8B234266_var;
             lv_orderGiven = false;
+            if ((RandomInt(0, 2) == 1) && (UnitHasBehavior(lv_localUnitA, "GhostCloak") == true) && (DistanceBetweenPoints(UnitGetPosition(lv_localUnitA), libNtve_gf_CenterOfUnitGroup(gv_marines)) > 12.0) && (UnitHasBehavior(lv_localUnitA, "ComplianceMatrix") == false) && (UnitHasBehavior(lv_localUnitA, "MindMeld") == false)) {
+                UnitIssueOrder(lv_localUnitA, OrderTargetingPoint(AbilityCommand("move", 0), PointWithOffsetPolar(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0, libNtve_gf_RandomAngle())), c_orderQueueReplace);
+            }
+            else if ((DistanceBetweenPoints(UnitGetPosition(lv_localUnitA), libNtve_gf_CenterOfUnitGroup(gv_marines)) > 15.0) && (UnitHasBehavior(lv_localUnitA, "ComplianceMatrix") == false) && (UnitHasBehavior(lv_localUnitA, "MindMeld") == false)) {
+                UnitIssueOrder(lv_localUnitA, OrderTargetingPoint(AbilityCommand("attack", 0), PointWithOffsetPolar(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0, libNtve_gf_RandomAngle())), c_orderQueueReplace);
+            }
             lv_localIntA = 1;
             for (auto7CBCB6F4_i = 1; auto7CBCB6F4_i <= auto7CBCB6F4_n; auto7CBCB6F4_i += 1) {
-                if ((libNtve_gf_UnitInRegion(gv_marineHero[lv_localIntA], RegionCircle(UnitGetPosition(auto8B234266_var), 17.0)) == true) && (RandomInt(0, 2) == 1) && (lv_orderGiven == false) && (UnitHasBehavior(auto8B234266_var, "ComplianceMatrix") == false) && (UnitHasBehavior(auto8B234266_var, "MindMeld") == false)) {
-                    lv_orderGiven = true;
-                    libNtve_gf_UnitCreateFacingPoint(1, "SpiderMine", 0, 13, RegionRandomPoint(RegionCircle(UnitGetPosition(auto8B234266_var), 4.0)), RegionGetCenter(RegionFromId(1)));
-                    UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-                    libNtve_gf_MakeUnitInvulnerable(UnitLastCreated(), false);
-                }
+                if ((UnitIsAlive(gv_marineHero[lv_localIntA]) == true)) {
+                    if ((libNtve_gf_UnitInRegion(gv_marineHero[lv_localIntA], RegionCircle(UnitGetPosition(lv_localUnitA), 17.0)) == true) && (RandomInt(0, 2) == 1) && (lv_orderGiven == false) && (UnitHasBehavior(lv_localUnitA, "ComplianceMatrix") == false) && (UnitHasBehavior(lv_localUnitA, "MindMeld") == false)) {
+                        lv_orderGiven = true;
+                        libNtve_gf_UnitCreateFacingPoint(1, "SpiderMine", 0, 13, RegionRandomPoint(RegionCircle(UnitGetPosition(lv_localUnitA), 4.0)), RegionGetCenter(RegionFromId(1)));
+                        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
+                        libNtve_gf_MakeUnitInvulnerable(UnitLastCreated(), false);
+                    }
 
+                }
                 lv_localIntA += 1;
             }
             lv_orderGiven = false;
             lv_localIntA = 1;
             for (auto41D7D14B_i = 1; auto41D7D14B_i <= auto41D7D14B_n; auto41D7D14B_i += 1) {
-                if ((libNtve_gf_UnitInRegion(gv_marineHero[lv_localIntA], RegionCircle(UnitGetPosition(auto8B234266_var), 11.0)) == true) && (UnitGetPropertyFixed(gv_marineHero[lv_localIntA], c_unitPropLife, c_unitPropCurrent) <= 75.0) && (libNtve_gf_UnitIsVisibleToPlayer(gv_marineHero[lv_localIntA], 13) == true) && (lv_orderGiven == false) && (UnitHasBehavior(auto8B234266_var, "ComplianceMatrix") == false) && (UnitHasBehavior(auto8B234266_var, "MindMeld") == false)) {
-                    lv_orderGiven = true;
-                    UnitIssueOrder(auto8B234266_var, OrderTargetingUnit(AbilityCommand("attack", 0), gv_marineHero[lv_localIntA]), c_orderQueueReplace);
-                }
+                if ((UnitIsAlive(gv_marineHero[lv_localIntA]) == true)) {
+                    if ((libNtve_gf_UnitInRegion(gv_marineHero[lv_localIntA], RegionCircle(UnitGetPosition(lv_localUnitA), 11.0)) == true) && (UnitGetPropertyFixed(gv_marineHero[lv_localIntA], c_unitPropLife, c_unitPropCurrent) <= 75.0) && (libNtve_gf_UnitIsVisibleToPlayer(gv_marineHero[lv_localIntA], 13) == true) && (lv_orderGiven == false) && (UnitHasBehavior(lv_localUnitA, "ComplianceMatrix") == false) && (UnitHasBehavior(lv_localUnitA, "MindMeld") == false)) {
+                        lv_orderGiven = true;
+                        UnitIssueOrder(lv_localUnitA, OrderTargetingUnit(AbilityCommand("attack", 0), gv_marineHero[lv_localIntA]), c_orderQueueReplace);
+                    }
 
+                }
                 lv_localIntA += 1;
             }
         }
@@ -22598,9 +22602,12 @@ bool gt_BroodMotherAmbush_Func (bool testConds, bool runActions) {
         while (!((gv_cinematicMode == false))) {
             Wait(1.0, c_timeGame);
         }
-        UnitIssueOrder(auto274BBC1F_var, Order(AbilityCommand("UnburrowBroodmother", 0)), c_orderQueueReplace);
-        libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Large, libNtve_ge_ExplosionType_Zerg, UnitGetPosition(auto274BBC1F_var));
+        if ((UnitIsAlive(auto274BBC1F_var) == true)) {
+            UnitIssueOrder(auto274BBC1F_var, Order(AbilityCommand("UnburrowBroodmother", 0)), c_orderQueueReplace);
+            libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Large, libNtve_ge_ExplosionType_Zerg, UnitGetPosition(auto274BBC1F_var));
+        }
     }
+    UnitGroupClear(gv_blackOps);
     return true;
 }
 
@@ -25314,7 +25321,7 @@ bool gt_BlackOpsAIGunshipSupport_Func (bool testConds, bool runActions) {
     autoD50F229F_var = 1;
     for ( ; autoD50F229F_var <= autoD50F229F_ae; autoD50F229F_var += 1 ) {
         Wait(1.0, c_timeReal);
-        libNtve_gf_UnitCreateFacingPoint(1, "Gunship", 0, 14, RegionRandomPoint(gv_gunshipAttackRegion), RegionGetCenter(RegionFromId(1)));
+        libNtve_gf_UnitCreateFacingPoint(1, "Gunship", c_unitCreateIgnorePlacement, 14, RegionRandomPoint(gv_gunshipAttackRegion), RegionGetCenter(RegionFromId(1)));
         lv_gunshipBeacon[autoD50F229F_var] = UnitLastCreated();
         if ((gv_noNewbie == false)) {
             libNtve_gf_AttachActorToUnit(UnitLastCreated(), "NewbieWarning", "Ref_Center");
@@ -25398,7 +25405,7 @@ bool gt_BlackOpsAIReactive_Func (bool testConds, bool runActions) {
         lv_localPointA = libNtve_gf_RandomPointBetweenPoints(UnitGetPosition(lv_bOAttacker), UnitGetPosition(lv_bODefender));
         libNtve_gf_UnitCreateFacingPoint(1, "SatchelLevel1", 0, lv_defenderOwner, lv_localPointA, RegionGetCenter(RegionFromId(1)));
         UnitBehaviorAdd(UnitLastCreated(), "SatchelLevel2", lv_bODefender, 1);
-        UnitSetTeamColorIndex(EventUnitCreatedUnit(), 5);
+        UnitSetTeamColorIndex(UnitLastCreated(), 5);
     }
     else {
         if ((RandomInt(0, 3) == 1) && ((UnitHasBehavior(lv_bOAttacker, "SpectreCloaking") == true) || (UnitHasBehavior(lv_bOAttacker, "SpectreCloaking2") == true)) && (UnitGroupHasUnit(gv_blackOps, lv_bODefender) == true)) {
@@ -25812,10 +25819,7 @@ bool gt_Wave15RandomMobs_Func (bool testConds, bool runActions) {
     for (autoDAFCCE5E_i = 1; autoDAFCCE5E_i <= autoDAFCCE5E_n; autoDAFCCE5E_i += 1) {
         auto3B939A56_n = gv_spawnFactor;
         for (auto3B939A56_i = 1; auto3B939A56_i <= auto3B939A56_n; auto3B939A56_i += 1) {
-            libNtve_gf_UnitCreateFacingPoint(1, "ZombieLevel22", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 80.0)), RegionGetCenter(RegionFromId(1)));
-            UnitGroupIssueOrder(UnitLastCreatedGroup(), Order(AbilityCommand("UnburrowZombieLevel2", 0)), c_orderQueueReplace);
-            UnitBehaviorAdd(UnitLastCreated(), "AdvancedMutation", UnitLastCreated(), 1);
-            libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
+            gf_SmartSpawnWithBehaviorNOTD("ZombieLevel22", 80.0, "AdvancedMutation", null, null);
             Wait(0.3, c_timeGame);
         }
         Wait(0.5, c_timeGame);
