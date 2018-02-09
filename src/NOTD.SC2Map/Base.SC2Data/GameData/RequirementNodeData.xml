@@ -3,7 +3,6 @@
     <CRequirementConst id="10">
         <Tooltip value=""/>
     </CRequirementConst>
-    <CRequirementConst id="3"/>
     <CRequirementAllowAbil id="AllowAbil180611996TechTreeCheat">
         <Flags index="TechTreeCheat" value="1"/>
         <Index value="1"/>
@@ -308,7 +307,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUpgrade id="CountUpgradeCriticalStrikeSkillCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="CriticalStrikeSkill" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeFireUpCompleteOnly">
@@ -344,6 +342,21 @@
         <Tooltip value=""/>
         <OperandArray index="0" value="CountAbilComingInHotCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat2">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat3">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="3"/>
     </CRequirementEq>
     <CRequirementEq id="EqCountAbilDisruptionTowerCompleteOnlyAtUnitTechTreeCheat1">
         <OperandArray index="0" value="CountAbilDisruptionTowerCompleteOnlyAtUnitTechTreeCheat"/>
@@ -535,18 +548,6 @@
     <CRequirementGTE id="GTECountAbilCohesionCompleteOnlyAtUnitTechTreeCheat2">
         <OperandArray index="0" value="CountAbilCohesionCompleteOnlyAtUnitTechTreeCheat"/>
         <OperandArray index="1" value="2"/>
-    </CRequirementGTE>
-    <CRequirementGTE id="GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat1">
-        <OperandArray index="0" value="CountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat"/>
-        <OperandArray index="1" value="1"/>
-    </CRequirementGTE>
-    <CRequirementGTE id="GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat2">
-        <OperandArray index="0" value="CountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat"/>
-        <OperandArray index="1" value="2"/>
-    </CRequirementGTE>
-    <CRequirementGTE id="GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat3">
-        <OperandArray index="0" value="CountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat"/>
-        <OperandArray index="1" value="3"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountAbilCriticalStrikeCompleteOnlyAtUnit1">
         <OperandArray index="0" value="CountAbilCriticalStrikeCompleteOnlyAtUnit"/>
@@ -792,7 +793,6 @@
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradeCriticalStrikeSkillCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeCriticalStrikeSkillCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
