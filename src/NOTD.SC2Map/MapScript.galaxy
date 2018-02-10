@@ -1556,6 +1556,7 @@ void gf_DeathRating (unit lp_deadMarine, int lp_playerNumber);
 void gf_DeathCamera (region lp_deathLocation, unit lp_deadMarine, int lp_playerNumber);
 void gf_DeathDialogDestruction (int lp_playerNumber);
 point gf_RandomSpawnPointNOTD (region lp_spawnRegion);
+point gf_RandomSpawnPointNOTDlite (region lp_spawnRegion);
 void gf_SmartSpawnNOTD (string lp_spawningUnit, fixed lp_spawnRange);
 void gf_SmartSpawnWithBehaviorNOTD (string lp_spawningUnit, fixed lp_spawnRange, string lp_behaviorA, string lp_behaviorB, string lp_behaviorC);
 void gf_WaveSpawnAroundMarines (string lp_spawningUnit, fixed lp_spawnRange, int lp_spawnAmount);
@@ -4286,6 +4287,73 @@ point gf_RandomSpawnPointNOTD (region lp_spawnRegion) {
     return lv_bestPoint;
 }
 
+point gf_RandomSpawnPointNOTDlite (region lp_spawnRegion) {
+    // Variable Declarations
+    point lv_bestPoint;
+    int lv_bestQuality;
+    point lv_point;
+    int lv_quality;
+
+    // Automatic Variable Declarations
+    const int auto3D412098_n = 30;
+    int auto3D412098_i;
+    const int autoC1B7AFFB_n = 10;
+    int autoC1B7AFFB_i;
+
+    // Variable Initialization
+
+    // Implementation
+    for (auto3D412098_i = 1; auto3D412098_i <= auto3D412098_n; auto3D412098_i += 1) {
+        lv_point = RegionRandomPoint(lp_spawnRegion);
+        lv_quality = 0;
+        if ((PointPathingPassable(lv_point) == true)) {
+            lv_quality = 1;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+        }
+        else {
+            continue;
+        }
+        if ((PointPathingIsConnected(lv_point, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == true)) {
+            lv_quality = 2;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+        }
+        else {
+            continue;
+        }
+        if ((UnitPathableToPoint(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), lv_point, 0.0, 0.0) == true)) {
+            lv_quality = 3;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+            break;
+        }
+        else {
+            continue;
+        }
+    }
+    if ((lv_bestPoint == null)) {
+        for (autoC1B7AFFB_i = 1; autoC1B7AFFB_i <= autoC1B7AFFB_n; autoC1B7AFFB_i += 1) {
+            lv_bestPoint = RegionRandomPoint(RegionPlayableMap());
+            if ((PointPathingPassable(lv_bestPoint) == true)) {
+                break;
+            }
+
+        }
+    }
+
+    return lv_bestPoint;
+}
+
 trigger auto_gf_SmartSpawnNOTD_Trigger = null;
 string auto_gf_SmartSpawnNOTD_lp_spawningUnit;
 fixed auto_gf_SmartSpawnNOTD_lp_spawnRange;
@@ -4357,7 +4425,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_tvafsmjpksxlayuw;
+    int lv_eerdqksuluujeadm;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -5631,7 +5699,7 @@ bool auto_gf_SporelingWave_TriggerFunc (bool testConds, bool runActions) {
 
     // Implementation
     for (auto665562D3_i = 1; auto665562D3_i <= auto665562D3_n; auto665562D3_i += 1) {
-        UnitCreate(1, "ZergDropPod", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0)), libNtve_gf_RandomAngle());
+        UnitCreate(1, "ZergDropPod", 0, 14, gf_RandomSpawnPointNOTDlite(RegionCircle(UnitGroupCenterOfGroup(gv_marines), 12.0)), libNtve_gf_RandomAngle());
         UnitGroupAdd(lv_sporelingGroup, UnitLastCreated());
         Wait(RandomFixed(0.0, 3.0), c_timeGame);
     }
@@ -10105,7 +10173,7 @@ bool auto_gf_SurvivalCreepDeposit_TriggerFunc (bool testConds, bool runActions) 
 
     // Implementation
     for (auto7CBB97CF_i = 1; auto7CBB97CF_i <= auto7CBB97CF_n; auto7CBB97CF_i += 1) {
-        UnitCreate(1, "ZergDropPod", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 12.0)), libNtve_gf_RandomAngle());
+        UnitCreate(1, "ZergDropPod", 0, 14, gf_RandomSpawnPointNOTDlite(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 12.0)), libNtve_gf_RandomAngle());
         UnitGroupAdd(lv_sporelingGroup, UnitLastCreated());
         Wait(RandomFixed(0.1, 2.5), c_timeGame);
     }
@@ -17830,7 +17898,7 @@ bool gt_SethReinforcements_Func (bool testConds, bool runActions) {
     int autoBA69838F_i;
 
     // Variable Initialization
-    lv_reinforcementDropPoint = gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(gv_zeus), 12.0));
+    lv_reinforcementDropPoint = gf_RandomSpawnPointNOTDlite(RegionCircle(UnitGetPosition(gv_zeus), 7.0));
     lv_sCVCount = 1;
 
     // Conditions
