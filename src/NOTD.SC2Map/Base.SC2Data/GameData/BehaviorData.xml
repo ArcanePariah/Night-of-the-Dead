@@ -717,11 +717,11 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="CriticalStrikeDealer">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Duration value="0.0002"/>
+        <Duration value="0.0627"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CriticalStrikeDefender">
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Duration value="0.0002"/>
+        <Duration value="0.0627"/>
         <InitialEffect value="AssaultCritEffects"/>
         <DamageResponse Chance="1" ModifyFraction="2">
             <Kind index="Spell" value="0"/>
