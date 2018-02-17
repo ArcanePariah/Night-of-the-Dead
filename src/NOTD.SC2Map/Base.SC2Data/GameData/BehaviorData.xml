@@ -7825,4 +7825,12 @@
     <CBehaviorCreepSource id="makeCreep2x2">
         <Period value="0.7"/>
     </CBehaviorCreepSource>
+    <CBehaviorBuff id="TanakaEmergencyHeal">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-chronoboost.dds"/>
+        <Duration value="6"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="15"/>
+        </Modification>
+    </CBehaviorBuff>
 </Catalog>

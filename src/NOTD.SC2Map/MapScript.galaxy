@@ -29017,13 +29017,12 @@ bool gt_TanakaInjured_Func (bool testConds, bool runActions) {
     gf_AwardKarmaNOTD(-2);
     TriggerExecute(gt_AutoSave, true, false);
     libNtve_gf_MakeUnitInvulnerable(gv_drTanaka, true);
-    UnitSetPropertyFixed(gv_drTanaka, c_unitPropLifeRegen, 15.0);
+    UnitBehaviorAddPlayer(gv_drTanaka, "TanakaEmergencyHeal", 10, 1);
     autoD1A292D0_var = gv_indexBaseValue;
     for ( ; autoD1A292D0_var <= autoD1A292D0_ae; autoD1A292D0_var += 1 ) {
         VisRevealArea(autoD1A292D0_var, RegionCircle(UnitGetPosition(gv_drTanaka), 3.5), 5.0, false);
     }
     Wait(5.9, c_timeReal);
-    UnitSetPropertyFixed(gv_drTanaka, c_unitPropLifeRegen, 0.3);
     libNtve_gf_MakeUnitInvulnerable(gv_drTanaka, false);
     TriggerEnable(TriggerGetCurrent(), true);
     return true;
