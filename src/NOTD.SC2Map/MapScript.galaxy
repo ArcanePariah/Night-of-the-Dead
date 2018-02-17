@@ -23711,7 +23711,6 @@ bool gt_Chapter2Initialize_Func (bool testConds, bool runActions) {
     UIClearMessages(PlayerGroupAll(), c_messageAreaDirective);
     TriggerEnable(gt_Wave8EnterScrapyardDoor, true);
     TriggerEnable(gt_Wave8BanelingSurprise, true);
-    TriggerEnable(gt_OptionalPowerGeneratorRestart, true);
     TriggerEnable(gt_Wave9DrBergmannEncounter, true);
     gf_ECChapter2ItemSpawn();
     gf_ErebosReturns();
@@ -23726,6 +23725,7 @@ bool gt_Chapter2Initialize_Func (bool testConds, bool runActions) {
     libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingObjective", RegionGetCenter(RegionFromId(85)), ColorWithAlpha(0.00, 50.20, 100.00, 0.00), 30.0, 270.0);
     libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingObjective", RegionGetCenter(RegionFromId(86)), ColorWithAlpha(0.00, 50.20, 100.00, 0.00), 30.0, 270.0);
     libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingObjective", RegionGetCenter(RegionFromId(87)), ColorWithAlpha(0.00, 50.20, 100.00, 0.00), 30.0, 270.0);
+    TriggerEnable(gt_OptionalPowerGeneratorRestart, true);
     Wait(5.0, c_timeReal);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/5AC82CF0"), StringExternal("Param/Value/E8977402"), 5.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     Wait(8.0, c_timeReal);
