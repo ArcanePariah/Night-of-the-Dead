@@ -4158,6 +4158,7 @@ Param/Value/2D25FC8C=Decision
 Param/Value/2D573AA9=Traps in place.
 Param/Value/2D9A3D5E=(Nazara releases an EMP shockwave upon its destruction...)
 Param/Value/2DCF8FF4=We're airdropping more supplies into your sector.
+Param/Value/2DD8D951=<c val="FF0000">(Disabled)</c>
 Param/Value/2DDFDE54=Lt. Sheng
 Param/Value/2E1900EB=Investigate the Communications Tower
 Param/Value/2E588F08=
@@ -4390,6 +4391,7 @@ Param/Value/541BADD6=+3 XP for Mission Bonus. 40 civilians rescued.
 Param/Value/541F9CD8=</c>) (<c val="49ABF3">
 Param/Value/54228DBB=<n/>   Games Played: 
 Param/Value/543109A7=Secure Security Cams (2/5)
+Param/Value/544D04BA=<s val="InfoPaneHeroRank">No Randoms activated</s><n/>- Random class selection disabled.
 Param/Value/54524404=Doctor, I heard you mention Bergmann. You said you didn't know him.
 Param/Value/546EB49A=+1
 Param/Value/5472209A=Our forces are stretched thin. Stay close.
@@ -5315,6 +5317,7 @@ Param/Value/F96D5DCB=<s val="BriefingHanText">(Gunship online...)</s>
 Param/Value/F96F7B86= (<c val="F4D72B">
 Param/Value/F99A2CE8=Black Ops have many deadly ranged attacks. Stay sharp!
 Param/Value/F9A1B8C3=I'll keep an eye out, Lieutenant. Now I must get back to work.
+Param/Value/F9A7E5EA=<s val="InfoPaneHeroRank">Random class already selected</s>
 Param/Value/F9C1DDDB=Take it down fast. That queen has hundreds of eggs in it. Many are ready to hatch.
 Param/Value/F9EE4AE7=<s val="GlueButton"><c val="F4D72B">Don't you... recognize me... Lt. Sheng?</c></s>
 Param/Value/FA56F8FC=+
