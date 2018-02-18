@@ -1556,7 +1556,9 @@ void gf_DeathRating (unit lp_deadMarine, int lp_playerNumber);
 void gf_DeathCamera (region lp_deathLocation, unit lp_deadMarine, int lp_playerNumber);
 void gf_DeathDialogDestruction (int lp_playerNumber);
 point gf_RandomSpawnPointNOTD (region lp_spawnRegion);
+point gf_RandomSpawnPointNOTDlite (region lp_spawnRegion);
 void gf_SmartSpawnNOTD (string lp_spawningUnit, fixed lp_spawnRange);
+void gf_SmartSpawnWithBehaviorNOTD (string lp_spawningUnit, fixed lp_spawnRange, string lp_behaviorA, string lp_behaviorB, string lp_behaviorC);
 void gf_WaveSpawnAroundMarines (string lp_spawningUnit, fixed lp_spawnRange, int lp_spawnAmount);
 void gf_WaveSpawnAtRegion (string lp_spawningUnit, region lp_spawnRegion, int lp_spawnAmount);
 void gf_ClearZombieWave ();
@@ -4285,6 +4287,73 @@ point gf_RandomSpawnPointNOTD (region lp_spawnRegion) {
     return lv_bestPoint;
 }
 
+point gf_RandomSpawnPointNOTDlite (region lp_spawnRegion) {
+    // Variable Declarations
+    point lv_bestPoint;
+    int lv_bestQuality;
+    point lv_point;
+    int lv_quality;
+
+    // Automatic Variable Declarations
+    const int auto3D412098_n = 30;
+    int auto3D412098_i;
+    const int autoC1B7AFFB_n = 10;
+    int autoC1B7AFFB_i;
+
+    // Variable Initialization
+
+    // Implementation
+    for (auto3D412098_i = 1; auto3D412098_i <= auto3D412098_n; auto3D412098_i += 1) {
+        lv_point = RegionRandomPoint(lp_spawnRegion);
+        lv_quality = 0;
+        if ((PointPathingPassable(lv_point) == true)) {
+            lv_quality = 1;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+        }
+        else {
+            continue;
+        }
+        if ((PointPathingIsConnected(lv_point, UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))) == true)) {
+            lv_quality = 2;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+        }
+        else {
+            continue;
+        }
+        if ((UnitPathableToPoint(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), lv_point, 0.0, 0.0) == true)) {
+            lv_quality = 3;
+            if ((lv_quality > lv_bestQuality)) {
+                lv_bestQuality = lv_quality;
+                lv_bestPoint = lv_point;
+            }
+
+            break;
+        }
+        else {
+            continue;
+        }
+    }
+    if ((lv_bestPoint == null)) {
+        for (autoC1B7AFFB_i = 1; autoC1B7AFFB_i <= autoC1B7AFFB_n; autoC1B7AFFB_i += 1) {
+            lv_bestPoint = RegionRandomPoint(RegionPlayableMap());
+            if ((PointPathingPassable(lv_bestPoint) == true)) {
+                break;
+            }
+
+        }
+    }
+
+    return lv_bestPoint;
+}
+
 trigger auto_gf_SmartSpawnNOTD_Trigger = null;
 string auto_gf_SmartSpawnNOTD_lp_spawningUnit;
 fixed auto_gf_SmartSpawnNOTD_lp_spawnRange;
@@ -4321,6 +4390,66 @@ bool auto_gf_SmartSpawnNOTD_TriggerFunc (bool testConds, bool runActions) {
 
     UnitCreate(1, lp_spawningUnit, 0, 14, lv_unitSpawnPoint, libNtve_gf_RandomAngle());
     lv_spawnUnit = UnitLastCreated();
+    UnitGroupAdd(gv_zombieWave, lv_spawnUnit);
+    Wait(0.25, c_timeGame);
+    UnitIssueOrder(lv_spawnUnit, Order(AbilityCommand("UnburrowZombieLevel1", 0)), c_orderQueueReplace);
+    return true;
+}
+
+trigger auto_gf_SmartSpawnWithBehaviorNOTD_Trigger = null;
+string auto_gf_SmartSpawnWithBehaviorNOTD_lp_spawningUnit;
+fixed auto_gf_SmartSpawnWithBehaviorNOTD_lp_spawnRange;
+string auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorA;
+string auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorB;
+string auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
+
+void gf_SmartSpawnWithBehaviorNOTD (string lp_spawningUnit, fixed lp_spawnRange, string lp_behaviorA, string lp_behaviorB, string lp_behaviorC) {
+    auto_gf_SmartSpawnWithBehaviorNOTD_lp_spawningUnit = lp_spawningUnit;
+    auto_gf_SmartSpawnWithBehaviorNOTD_lp_spawnRange = lp_spawnRange;
+    auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorA = lp_behaviorA;
+    auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorB = lp_behaviorB;
+    auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC = lp_behaviorC;
+
+    if (auto_gf_SmartSpawnWithBehaviorNOTD_Trigger == null) {
+        auto_gf_SmartSpawnWithBehaviorNOTD_Trigger = TriggerCreate("auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_SmartSpawnWithBehaviorNOTD_Trigger, false, false);
+}
+
+bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runActions) {
+    string lp_spawningUnit = auto_gf_SmartSpawnWithBehaviorNOTD_lp_spawningUnit;
+    fixed lp_spawnRange = auto_gf_SmartSpawnWithBehaviorNOTD_lp_spawnRange;
+    string lp_behaviorA = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorA;
+    string lp_behaviorB = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorB;
+    string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
+
+    // Variable Declarations
+    int lv_eerdqksuluujeadm;
+    point lv_unitSpawnPoint;
+    unit lv_spawnUnit;
+    bool lv_spawnPointReset;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_unitSpawnPoint = gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lp_spawnRange));
+
+    // Implementation
+    if ((UnitGroupCount(gv_marines, c_unitCountAlive) == 0)) {
+        return true;
+    }
+
+    UnitCreate(1, lp_spawningUnit, 0, 14, lv_unitSpawnPoint, libNtve_gf_RandomAngle());
+    lv_spawnUnit = UnitLastCreated();
+    if ((lp_behaviorA != null)) {
+        UnitBehaviorAddPlayer(lv_spawnUnit, lp_behaviorA, 14, 1);
+    }
+    if ((lp_behaviorB != null)) {
+        UnitBehaviorAddPlayer(lv_spawnUnit, lp_behaviorB, 14, 1);
+    }
+    if ((lp_behaviorC != null)) {
+        UnitBehaviorAddPlayer(lv_spawnUnit, lp_behaviorC, 14, 1);
+    }
     UnitGroupAdd(gv_zombieWave, lv_spawnUnit);
     Wait(0.25, c_timeGame);
     UnitIssueOrder(lv_spawnUnit, Order(AbilityCommand("UnburrowZombieLevel1", 0)), c_orderQueueReplace);
@@ -5340,12 +5469,12 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
             }
 
             if ((RandomInt(0, 30) == 1) && (gv_squadRating >= 1600) && (gv_noNewbie == true) && (gv_cinematicMode == false)) {
-                libNtve_gf_UnitCreateFacingPoint(1, "BrainBug2", 0, 14, RegionRandomPoint(RegionPlayableMap()), RegionGetCenter(RegionFromId(1)));
+                libNtve_gf_UnitCreateFacingPoint(1, "BrainBug2", 0, 14, gf_RandomSpawnPointNOTD(RegionPlayableMap()), RegionGetCenter(RegionFromId(1)));
                 UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
                 UnitGroupAddUnitGroup(gv_brainBugs, UnitLastCreatedGroup());
             }
             else {
-                libNtve_gf_UnitCreateFacingPoint(1, "RoachBurrowed", 0, 14, RegionRandomPoint(RegionPlayableMap()), RegionGetCenter(RegionFromId(1)));
+                libNtve_gf_UnitCreateFacingPoint(1, "RoachBurrowed", 0, 14, gf_RandomSpawnPointNOTD(RegionPlayableMap()), RegionGetCenter(RegionFromId(1)));
                 UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowRoachUp", 0)), c_orderQueueReplace);
                 if ((gv_noNewbie == false)) {
                     libNtve_gf_AttachActorToUnit(UnitLastCreated(), "NewbieWarning", "Ref_Center");
@@ -5570,7 +5699,7 @@ bool auto_gf_SporelingWave_TriggerFunc (bool testConds, bool runActions) {
 
     // Implementation
     for (auto665562D3_i = 1; auto665562D3_i <= auto665562D3_n; auto665562D3_i += 1) {
-        UnitCreate(1, "ZergDropPod", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0)), libNtve_gf_RandomAngle());
+        UnitCreate(1, "ZergDropPod", 0, 14, gf_RandomSpawnPointNOTDlite(RegionCircle(UnitGroupCenterOfGroup(gv_marines), 12.0)), libNtve_gf_RandomAngle());
         UnitGroupAdd(lv_sporelingGroup, UnitLastCreated());
         Wait(RandomFixed(0.0, 3.0), c_timeGame);
     }
@@ -6799,7 +6928,7 @@ bool auto_gf_MineBossSeth_TriggerFunc (bool testConds, bool runActions) {
             UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/0DA72546"));
             UnitBehaviorAddPlayer(gv_zeus, "SethCharging", 13, 1);
             Wait(6.0, c_timeGame);
-            SoundPlay(SoundLink("SS_LightningProjectorImpact", -1), PlayerGroupAll(), 100.0, 0.0);
+            SoundPlay(SoundLink("Amb_ZerusLightning_Arcs", -1), PlayerGroupAll(), 100.0, 0.0);
             autoECB699E0_var = 1;
             for ( ; autoECB699E0_var <= autoECB699E0_ae; autoECB699E0_var += 1 ) {
                 CameraShakeStart(autoECB699E0_var, c_cameraPositionTarget, c_cameraDirectionZ, 0.2, 2.0, 100.0, 0.5);
@@ -8069,9 +8198,9 @@ bool auto_gf_BlackOpsAIInitiative_TriggerFunc (bool testConds, bool runActions) 
     unitgroup auto8B234266_g;
     int auto8B234266_u;
     unit auto8B234266_var;
-    const int auto7CBCB6F4_n = 8;
+    const int auto7CBCB6F4_n = gv_numberofPlayers;
     int auto7CBCB6F4_i;
-    const int auto41D7D14B_n = 8;
+    const int auto41D7D14B_n = gv_numberofPlayers;
     int auto41D7D14B_i;
     unitgroup auto2CA52A0E_g;
     int auto2CA52A0E_u;
@@ -8092,33 +8221,37 @@ bool auto_gf_BlackOpsAIInitiative_TriggerFunc (bool testConds, bool runActions) 
         for (;; auto8B234266_u -= 1) {
             auto8B234266_var = UnitGroupUnitFromEnd(auto8B234266_g, auto8B234266_u);
             if (auto8B234266_var == null) { break; }
-            if ((RandomInt(0, 2) == 1) && (UnitHasBehavior(auto8B234266_var, "GhostCloak") == true) && (DistanceBetweenPoints(UnitGetPosition(auto8B234266_var), libNtve_gf_CenterOfUnitGroup(gv_marines)) > 12.0) && (UnitHasBehavior(auto8B234266_var, "ComplianceMatrix") == false) && (UnitHasBehavior(auto8B234266_var, "MindMeld") == false)) {
-                UnitIssueOrder(auto8B234266_var, OrderTargetingPoint(AbilityCommand("move", 0), PointWithOffsetPolar(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0, libNtve_gf_RandomAngle())), c_orderQueueReplace);
-            }
-            else if ((DistanceBetweenPoints(UnitGetPosition(auto8B234266_var), libNtve_gf_CenterOfUnitGroup(gv_marines)) > 15.0) && (UnitHasBehavior(auto8B234266_var, "ComplianceMatrix") == false) && (UnitHasBehavior(auto8B234266_var, "MindMeld") == false)) {
-                UnitIssueOrder(auto8B234266_var, OrderTargetingPoint(AbilityCommand("attack", 0), PointWithOffsetPolar(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0, libNtve_gf_RandomAngle())), c_orderQueueReplace);
-            }
             lv_localUnitA = auto8B234266_var;
             lv_orderGiven = false;
+            if ((RandomInt(0, 2) == 1) && (UnitHasBehavior(lv_localUnitA, "GhostCloak") == true) && (DistanceBetweenPoints(UnitGetPosition(lv_localUnitA), libNtve_gf_CenterOfUnitGroup(gv_marines)) > 12.0) && (UnitHasBehavior(lv_localUnitA, "ComplianceMatrix") == false) && (UnitHasBehavior(lv_localUnitA, "MindMeld") == false)) {
+                UnitIssueOrder(lv_localUnitA, OrderTargetingPoint(AbilityCommand("move", 0), PointWithOffsetPolar(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0, libNtve_gf_RandomAngle())), c_orderQueueReplace);
+            }
+            else if ((DistanceBetweenPoints(UnitGetPosition(lv_localUnitA), libNtve_gf_CenterOfUnitGroup(gv_marines)) > 15.0) && (UnitHasBehavior(lv_localUnitA, "ComplianceMatrix") == false) && (UnitHasBehavior(lv_localUnitA, "MindMeld") == false)) {
+                UnitIssueOrder(lv_localUnitA, OrderTargetingPoint(AbilityCommand("attack", 0), PointWithOffsetPolar(libNtve_gf_CenterOfUnitGroup(gv_marines), 12.0, libNtve_gf_RandomAngle())), c_orderQueueReplace);
+            }
             lv_localIntA = 1;
             for (auto7CBCB6F4_i = 1; auto7CBCB6F4_i <= auto7CBCB6F4_n; auto7CBCB6F4_i += 1) {
-                if ((libNtve_gf_UnitInRegion(gv_marineHero[lv_localIntA], RegionCircle(UnitGetPosition(auto8B234266_var), 17.0)) == true) && (RandomInt(0, 2) == 1) && (lv_orderGiven == false) && (UnitHasBehavior(auto8B234266_var, "ComplianceMatrix") == false) && (UnitHasBehavior(auto8B234266_var, "MindMeld") == false)) {
-                    lv_orderGiven = true;
-                    libNtve_gf_UnitCreateFacingPoint(1, "SpiderMine", 0, 13, RegionRandomPoint(RegionCircle(UnitGetPosition(auto8B234266_var), 4.0)), RegionGetCenter(RegionFromId(1)));
-                    UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-                    libNtve_gf_MakeUnitInvulnerable(UnitLastCreated(), false);
-                }
+                if ((UnitIsAlive(gv_marineHero[lv_localIntA]) == true)) {
+                    if ((libNtve_gf_UnitInRegion(gv_marineHero[lv_localIntA], RegionCircle(UnitGetPosition(lv_localUnitA), 17.0)) == true) && (RandomInt(0, 2) == 1) && (lv_orderGiven == false) && (UnitHasBehavior(lv_localUnitA, "ComplianceMatrix") == false) && (UnitHasBehavior(lv_localUnitA, "MindMeld") == false)) {
+                        lv_orderGiven = true;
+                        libNtve_gf_UnitCreateFacingPoint(1, "SpiderMine", 0, 13, RegionRandomPoint(RegionCircle(UnitGetPosition(lv_localUnitA), 4.0)), RegionGetCenter(RegionFromId(1)));
+                        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
+                        libNtve_gf_MakeUnitInvulnerable(UnitLastCreated(), false);
+                    }
 
+                }
                 lv_localIntA += 1;
             }
             lv_orderGiven = false;
             lv_localIntA = 1;
             for (auto41D7D14B_i = 1; auto41D7D14B_i <= auto41D7D14B_n; auto41D7D14B_i += 1) {
-                if ((libNtve_gf_UnitInRegion(gv_marineHero[lv_localIntA], RegionCircle(UnitGetPosition(auto8B234266_var), 11.0)) == true) && (UnitGetPropertyFixed(gv_marineHero[lv_localIntA], c_unitPropLife, c_unitPropCurrent) <= 75.0) && (libNtve_gf_UnitIsVisibleToPlayer(gv_marineHero[lv_localIntA], 13) == true) && (lv_orderGiven == false) && (UnitHasBehavior(auto8B234266_var, "ComplianceMatrix") == false) && (UnitHasBehavior(auto8B234266_var, "MindMeld") == false)) {
-                    lv_orderGiven = true;
-                    UnitIssueOrder(auto8B234266_var, OrderTargetingUnit(AbilityCommand("attack", 0), gv_marineHero[lv_localIntA]), c_orderQueueReplace);
-                }
+                if ((UnitIsAlive(gv_marineHero[lv_localIntA]) == true)) {
+                    if ((libNtve_gf_UnitInRegion(gv_marineHero[lv_localIntA], RegionCircle(UnitGetPosition(lv_localUnitA), 11.0)) == true) && (UnitGetPropertyFixed(gv_marineHero[lv_localIntA], c_unitPropLife, c_unitPropCurrent) <= 75.0) && (libNtve_gf_UnitIsVisibleToPlayer(gv_marineHero[lv_localIntA], 13) == true) && (lv_orderGiven == false) && (UnitHasBehavior(lv_localUnitA, "ComplianceMatrix") == false) && (UnitHasBehavior(lv_localUnitA, "MindMeld") == false)) {
+                        lv_orderGiven = true;
+                        UnitIssueOrder(lv_localUnitA, OrderTargetingUnit(AbilityCommand("attack", 0), gv_marineHero[lv_localIntA]), c_orderQueueReplace);
+                    }
 
+                }
                 lv_localIntA += 1;
             }
         }
@@ -9200,7 +9333,7 @@ void gf_ACRescueSharedEventsAction (unit lp_radioUnit) {
     lv_localRegion = RegionCircle(UnitGetPosition(lp_radioUnit), 7.0);
 
     // Implementation
-    SoundPlayAtPoint(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupAll(), UnitGetPosition(gv_marineHero[gv_talentTreePlayer]), 1.5, 100.0, 0.0);
+    SoundPlayAtPoint(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupAll(), UnitGetPosition(gv_marineHero[UnitGetOwner(lp_radioUnit)]), 1.5, 100.0, 0.0);
     if ((RandomInt(0, 1) == 1)) {
         gf_MarineSpeechNOTD(lp_radioUnit, StringExternal("Param/Value/DB2B3493"));
     }
@@ -9704,7 +9837,7 @@ bool auto_gf_HadesSporeDrops_TriggerFunc (bool testConds, bool runActions) {
             Wait(18.0, c_timeReal);
         }
         for (autoC3A2937C_i = 1; autoC3A2937C_i <= autoC3A2937C_n; autoC3A2937C_i += 1) {
-            UnitCreate(1, "ZergDropPod", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 15.0)), libNtve_gf_RandomAngle());
+            UnitCreate(1, "ZergDropPod", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(UnitGroupCenterOfGroup(gv_marines), 15.0)), libNtve_gf_RandomAngle());
             UnitGroupAdd(lv_sporelingGroup, UnitLastCreated());
             Wait(RandomFixed(0.1, 3.0), c_timeGame);
         }
@@ -10040,7 +10173,7 @@ bool auto_gf_SurvivalCreepDeposit_TriggerFunc (bool testConds, bool runActions) 
 
     // Implementation
     for (auto7CBB97CF_i = 1; auto7CBB97CF_i <= auto7CBB97CF_n; auto7CBB97CF_i += 1) {
-        UnitCreate(1, "ZergDropPod", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 12.0)), libNtve_gf_RandomAngle());
+        UnitCreate(1, "ZergDropPod", 0, 14, gf_RandomSpawnPointNOTDlite(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 12.0)), libNtve_gf_RandomAngle());
         UnitGroupAdd(lv_sporelingGroup, UnitLastCreated());
         Wait(RandomFixed(0.1, 2.5), c_timeGame);
     }
@@ -17765,7 +17898,7 @@ bool gt_SethReinforcements_Func (bool testConds, bool runActions) {
     int autoBA69838F_i;
 
     // Variable Initialization
-    lv_reinforcementDropPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(gv_zeus), 7.0));
+    lv_reinforcementDropPoint = gf_RandomSpawnPointNOTDlite(RegionCircle(UnitGetPosition(gv_zeus), 7.0));
     lv_sCVCount = 1;
 
     // Conditions
@@ -17793,9 +17926,11 @@ bool gt_SethReinforcements_Func (bool testConds, bool runActions) {
     Wait(2.0, c_timeReal);
     autoBA69838F_n = lv_sCVCount;
     for (autoBA69838F_i = 1; autoBA69838F_i <= autoBA69838F_n; autoBA69838F_i += 1) {
-        libNtve_gf_UnitCreateFacingPoint(1, "SCV", 0, 13, lv_reinforcementDropPoint, UnitGetPosition(gv_boss));
-        UnitWeaponRemove(UnitLastCreated(), "FusionCutter");
-        UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(gv_zeus)), c_orderQueueReplace);
+        if ((UnitIsAlive(gv_zeus) == true)) {
+            libNtve_gf_UnitCreateFacingPoint(1, "SCV", 0, 13, lv_reinforcementDropPoint, UnitGetPosition(gv_zeus));
+            UnitWeaponRemove(UnitLastCreated(), "FusionCutter");
+            UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(gv_zeus)), c_orderQueueReplace);
+        }
         Wait(0.1, c_timeGame);
     }
     Wait(2.0, c_timeGame);
@@ -22535,9 +22670,12 @@ bool gt_BroodMotherAmbush_Func (bool testConds, bool runActions) {
         while (!((gv_cinematicMode == false))) {
             Wait(1.0, c_timeGame);
         }
-        UnitIssueOrder(auto274BBC1F_var, Order(AbilityCommand("UnburrowBroodmother", 0)), c_orderQueueReplace);
-        libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Large, libNtve_ge_ExplosionType_Zerg, UnitGetPosition(auto274BBC1F_var));
+        if ((UnitIsAlive(auto274BBC1F_var) == true)) {
+            UnitIssueOrder(auto274BBC1F_var, Order(AbilityCommand("UnburrowBroodmother", 0)), c_orderQueueReplace);
+            libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Large, libNtve_ge_ExplosionType_Zerg, UnitGetPosition(auto274BBC1F_var));
+        }
     }
+    UnitGroupClear(gv_blackOps);
     return true;
 }
 
@@ -25251,7 +25389,7 @@ bool gt_BlackOpsAIGunshipSupport_Func (bool testConds, bool runActions) {
     autoD50F229F_var = 1;
     for ( ; autoD50F229F_var <= autoD50F229F_ae; autoD50F229F_var += 1 ) {
         Wait(1.0, c_timeReal);
-        libNtve_gf_UnitCreateFacingPoint(1, "Gunship", 0, 14, RegionRandomPoint(gv_gunshipAttackRegion), RegionGetCenter(RegionFromId(1)));
+        libNtve_gf_UnitCreateFacingPoint(1, "Gunship", c_unitCreateIgnorePlacement, 14, RegionRandomPoint(gv_gunshipAttackRegion), RegionGetCenter(RegionFromId(1)));
         lv_gunshipBeacon[autoD50F229F_var] = UnitLastCreated();
         if ((gv_noNewbie == false)) {
             libNtve_gf_AttachActorToUnit(UnitLastCreated(), "NewbieWarning", "Ref_Center");
@@ -25335,7 +25473,7 @@ bool gt_BlackOpsAIReactive_Func (bool testConds, bool runActions) {
         lv_localPointA = libNtve_gf_RandomPointBetweenPoints(UnitGetPosition(lv_bOAttacker), UnitGetPosition(lv_bODefender));
         libNtve_gf_UnitCreateFacingPoint(1, "SatchelLevel1", 0, lv_defenderOwner, lv_localPointA, RegionGetCenter(RegionFromId(1)));
         UnitBehaviorAdd(UnitLastCreated(), "SatchelLevel2", lv_bODefender, 1);
-        UnitSetTeamColorIndex(EventUnitCreatedUnit(), 5);
+        UnitSetTeamColorIndex(UnitLastCreated(), 5);
     }
     else {
         if ((RandomInt(0, 3) == 1) && ((UnitHasBehavior(lv_bOAttacker, "SpectreCloaking") == true) || (UnitHasBehavior(lv_bOAttacker, "SpectreCloaking2") == true)) && (UnitGroupHasUnit(gv_blackOps, lv_bODefender) == true)) {
@@ -25749,10 +25887,7 @@ bool gt_Wave15RandomMobs_Func (bool testConds, bool runActions) {
     for (autoDAFCCE5E_i = 1; autoDAFCCE5E_i <= autoDAFCCE5E_n; autoDAFCCE5E_i += 1) {
         auto3B939A56_n = gv_spawnFactor;
         for (auto3B939A56_i = 1; auto3B939A56_i <= auto3B939A56_n; auto3B939A56_i += 1) {
-            libNtve_gf_UnitCreateFacingPoint(1, "ZombieLevel22", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 80.0)), RegionGetCenter(RegionFromId(1)));
-            UnitGroupIssueOrder(UnitLastCreatedGroup(), Order(AbilityCommand("UnburrowZombieLevel2", 0)), c_orderQueueReplace);
-            UnitBehaviorAdd(UnitLastCreated(), "AdvancedMutation", UnitLastCreated(), 1);
-            libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
+            gf_SmartSpawnWithBehaviorNOTD("ZombieLevel22", 80.0, "AdvancedMutation", null, null);
             Wait(0.3, c_timeGame);
         }
         Wait(0.5, c_timeGame);
@@ -30579,10 +30714,6 @@ void gt_ACW15HoldOut_Init () {
 // Trigger: ACW16 - Hold Out Part 2
 //--------------------------------------------------------------------------------------------------
 bool gt_ACW16HoldOutPart2_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    point lv_titanSpawnLoc;
-    unit lv_localTitan;
-
     // Automatic Variable Declarations
     int auto1432C07D_n;
     int auto1432C07D_i;
@@ -30590,8 +30721,6 @@ bool gt_ACW16HoldOutPart2_Func (bool testConds, bool runActions) {
     int auto889B66FC_i;
     int autoBDA534D5_n;
     int autoBDA534D5_i;
-
-    // Variable Initialization
 
     // Conditions
     if (testConds) {
@@ -30615,34 +30744,17 @@ bool gt_ACW16HoldOutPart2_Func (bool testConds, bool runActions) {
     auto1432C07D_n = (gv_spawnFactor - 1);
     for (auto1432C07D_i = 1; auto1432C07D_i <= auto1432C07D_n; auto1432C07D_i += 1) {
         Wait(RandomFixed(1.0, 5.0), c_timeReal);
-        lv_titanSpawnLoc = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 70.0));
-        while ((DistanceBetweenPoints(lv_titanSpawnLoc, UnitGroupCenterOfGroup(gv_marines)) < 15.0)) {
-            lv_titanSpawnLoc = RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 70.0));
-        }
-        UnitCreate(1, "TitanBurrowed", 0, 14, lv_titanSpawnLoc, libNtve_gf_RandomAngle());
         if ((gv_nightmare == false)) {
-            UnitBehaviorAddPlayer(UnitLastCreated(), "Weakness", 9, 1);
+            gf_SmartSpawnWithBehaviorNOTD("TitanBurrowed", 70.0, "Weakness", null, null);
         }
-
-        lv_localTitan = UnitLastCreated();
+        else {
+            gf_SmartSpawnNOTD("TitanBurrowed", 70.0);
+        }
         Wait(1.5, c_timeGame);
-        UnitIssueOrder(lv_localTitan, Order(AbilityCommand("UnburrowTitan", 0)), c_orderQueueReplace);
-        UnitGroupAdd(gv_zombieWave, lv_localTitan);
     }
     auto889B66FC_n = (gv_spawnFactor * 5);
     for (auto889B66FC_i = 1; auto889B66FC_i <= auto889B66FC_n; auto889B66FC_i += 1) {
-        if ((gv_noNewbie == true)) {
-            Wait(RandomFixed(1.0, 5.0), c_timeGame);
-            UnitCreate(1, "SeekerBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 35.0)), libNtve_gf_RandomAngle());
-            UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowSeeker", 0)), c_orderQueueReplace);
-            UnitBehaviorAddPlayer(UnitLastCreated(), "PersonalCloakingFree", 14, 1);
-            UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        }
-        else {
-            UnitCreate(1, "SeekerBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 35.0)), libNtve_gf_RandomAngle());
-            UnitBehaviorAddPlayer(UnitLastCreated(), "PersonalCloakingFree", 14, 1);
-            UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        }
+        gf_SmartSpawnWithBehaviorNOTD("SeekerBurrowed", 35.0, "PersonalCloakingFree", null, null);
     }
     Wait(3.0, c_timeReal);
     SoundPlay(SoundLink("LabFidgetsAdjutantConfederateAdjutant00002", -1), PlayerGroupAll(), 100.0, 0.0);
@@ -30798,7 +30910,7 @@ bool gt_ACBoss4PersesAI_Func (bool testConds, bool runActions) {
         UnitGroupAdd(lv_energyFieldGroup, UnitLastCreated());
         auto248D9BBC_var = 1;
         for ( ; auto248D9BBC_var <= auto248D9BBC_ae; auto248D9BBC_var += 1 ) {
-            VisRevealArea(auto248D9BBC_var, RegionCircle(UnitGetPosition(UnitLastCreated()), 7.0), 5.0, false);
+            VisRevealArea(auto248D9BBC_var, RegionCircle(lv_energyFieldSpawnPoint, 7.0), 5.0, false);
         }
         Wait(0.01, c_timeGame);
     }
@@ -30813,7 +30925,7 @@ bool gt_ACBoss4PersesAI_Func (bool testConds, bool runActions) {
             CatalogFieldValueSet(c_gameCatalogEffect, "EnergyFieldSearch", "AreaArray[" + IntToString(0) + "].Radius", 10, FixedToString(lv_energyFieldRadius, c_fixedPrecisionAny));
         }
 
-        if ((gv_nightmare == true) && (ModI(lv_cycleCount, 7) == 1)) {
+        if ((gv_nightmare == true) && (ModI(lv_cycleCount, 7) == 1) && (UnitIsAlive(gv_perses) == true)) {
             auto9AD875E6_g = lv_energyFieldGroup;
             auto9AD875E6_u = UnitGroupCount(auto9AD875E6_g, c_unitCountAll);
             for (;; auto9AD875E6_u -= 1) {
@@ -32058,6 +32170,7 @@ bool gt_STInfectedCiviliansPeriodic_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_numberOfCiviliansTurned;
     unit lv_poorCiv;
+    point lv_poorCivPosition;
 
     // Automatic Variable Declarations
     const int auto874B9744_n = 30;
@@ -32081,13 +32194,14 @@ bool gt_STInfectedCiviliansPeriodic_Func (bool testConds, bool runActions) {
             auto4F34FABF_n = lv_numberOfCiviliansTurned;
             for (auto4F34FABF_i = 1; auto4F34FABF_i <= auto4F34FABF_n; auto4F34FABF_i += 1) {
                 lv_poorCiv = UnitGroupRandomUnit(gv_infectedCivilians, c_unitCountAlive);
+                lv_poorCivPosition = UnitGetPosition(lv_poorCiv);
                 UnitKill(lv_poorCiv);
-                libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Small, libNtve_ge_ExplosionType_Zerg, UnitGetPosition(lv_poorCiv));
+                libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Small, libNtve_ge_ExplosionType_Zerg, lv_poorCivPosition);
                 if ((RandomInt(0, 5) == 1)) {
-                    UnitCreate(1, "Immortal2", 0, 14, UnitGetPosition(lv_poorCiv), libNtve_gf_RandomAngle());
+                    UnitCreate(1, "Immortal2", 0, 14, lv_poorCivPosition, libNtve_gf_RandomAngle());
                 }
                 else {
-                    UnitCreate(1, "ZombieLevel2", 0, 14, UnitGetPosition(lv_poorCiv), libNtve_gf_RandomAngle());
+                    UnitCreate(1, "ZombieLevel2", 0, 14, lv_poorCivPosition, libNtve_gf_RandomAngle());
                 }
                 UnitGroupAdd(gv_zombieWave, UnitLastCreated());
                 Wait(RandomFixed(0.01, 3.0), c_timeGame);
@@ -32630,13 +32744,15 @@ bool gt_STBoss2AI_Func (bool testConds, bool runActions) {
         else {
             Wait(7.0, c_timeReal);
         }
-        if ((gv_nightmare == true)) {
-            libNtve_gf_UnitCreateFacingPoint(1, "X1GuardianLevel2", 0, 13, UnitGetPosition(gv_nazara), RegionRandomPoint(RegionPlayableMap()));
+        if ((UnitIsAlive(gv_nazara) == true)) {
+            if ((gv_nightmare == true)) {
+                libNtve_gf_UnitCreateFacingPoint(1, "X1GuardianLevel2", 0, 13, UnitGetPosition(gv_nazara), RegionRandomPoint(RegionPlayableMap()));
+            }
+            else {
+                libNtve_gf_UnitCreateFacingPoint(1, "X1GuardianLevel1", 0, 13, UnitGetPosition(gv_nazara), RegionRandomPoint(RegionPlayableMap()));
+            }
+            UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         }
-        else {
-            libNtve_gf_UnitCreateFacingPoint(1, "X1GuardianLevel1", 0, 13, UnitGetPosition(gv_nazara), RegionRandomPoint(RegionPlayableMap()));
-        }
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         if ((RandomInt(1, 2) == 1)) {
             auto2755D6C3_g = gv_zombieWave;
             auto2755D6C3_u = UnitGroupCount(auto2755D6C3_g, c_unitCountAll);
@@ -33283,9 +33399,7 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_STW8ChaseBergmann, true, false);
     autoDDB5831C_n = gv_spawnFactor;
     for (autoDDB5831C_i = 1; autoDDB5831C_i <= autoDDB5831C_n; autoDDB5831C_i += 1) {
-        libNtve_gf_UnitCreateFacingPoint(1, "Slasher2", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 60.0)), RegionRandomPoint(RegionFromId(3)));
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowSlasher", 0)), c_orderQueueReplace);
-        libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
+        gf_SmartSpawnNOTD("Slasher2", 60.0);
         Wait(0.1, c_timeReal);
     }
     return true;
@@ -33678,7 +33792,7 @@ bool gt_STW10BossSpawnApoptosis_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/A811CC29"));
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/51ACBD60"));
-    libNtve_gf_UnitCreateFacingPoint(1, "Apoptosis", 0, 14, RegionRandomPoint(RegionPlayableMap()), UnitGetPosition(gv_drBergmann));
+    libNtve_gf_UnitCreateFacingPoint(1, "Apoptosis", 0, 14, gf_RandomSpawnPointNOTD(RegionPlayableMap()), UnitGroupCenterOfGroup(gv_marines));
     gv_apoptosis = UnitLastCreated();
     gv_currentBoss = "Apoptosis";
     if ((gv_alivePlayers < 5)) {
@@ -33849,7 +33963,6 @@ void gt_STW10ApoptosisKilled_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_STW10IVAXMission_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    point lv_iVAXPoint;
     unit lv_iVAXFriendly;
     unit lv_localUnitA;
     int lv_iVAXMissionPath;
@@ -33861,7 +33974,6 @@ bool gt_STW10IVAXMission_Func (bool testConds, bool runActions) {
     int autoBE1FEB56_i;
 
     // Variable Initialization
-    lv_iVAXPoint = UnitGetPosition(gv_incompleteIVAX);
     lv_iVAXMissionPath = RandomInt(1, 2);
 
     // Actions
@@ -34374,8 +34486,8 @@ bool gt_STW14BossAI_Func (bool testConds, bool runActions) {
     unitgroup auto89E61EE5_g;
     int auto89E61EE5_u;
     unit auto89E61EE5_var;
-    const int autoC8387F5E_ae = 8;
-    int autoC8387F5E_var;
+    playergroup auto80854B6B_g;
+    int auto80854B6B_var;
     unitgroup auto35CFEDD8_g;
     int auto35CFEDD8_u;
     unit auto35CFEDD8_var;
@@ -34395,9 +34507,12 @@ bool gt_STW14BossAI_Func (bool testConds, bool runActions) {
         auto89E61EE5_var = UnitGroupUnitFromEnd(auto89E61EE5_g, auto89E61EE5_u);
         if (auto89E61EE5_var == null) { break; }
         lv_loner = true;
-        autoC8387F5E_var = 1;
-        for ( ; autoC8387F5E_var <= autoC8387F5E_ae; autoC8387F5E_var += 1 ) {
-            if ((DistanceBetweenPoints(UnitGetPosition(auto89E61EE5_var), UnitGetPosition(gv_marineHero[autoC8387F5E_var])) <= 7.0) && (auto89E61EE5_var != gv_marineHero[autoC8387F5E_var])) {
+        auto80854B6B_g = gv_marineSquad;
+        auto80854B6B_var = -1;
+        while (true) {
+            auto80854B6B_var = PlayerGroupNextPlayer(auto80854B6B_g, auto80854B6B_var);
+            if (auto80854B6B_var < 0) { break; }
+            if ((DistanceBetweenPoints(UnitGetPosition(auto89E61EE5_var), UnitGetPosition(gv_marineHero[auto80854B6B_var])) <= 7.0) && (auto89E61EE5_var != gv_marineHero[auto80854B6B_var])) {
                 lv_loner = false;
             }
 
@@ -36223,7 +36338,6 @@ bool gt_SurvivalW15_Func (bool testConds, bool runActions) {
         gf_SmartSpawnNOTD("ZombieLevel22", 18.0);
         if ((RandomInt(0, 5) == 1)) {
             gf_SmartSpawnNOTD("Hugger2", 45.0);
-            PingCreate(PlayerGroupActive(), "PingObjective", UnitGetPosition(UnitLastCreated()), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 3.0);
         }
 
         Wait(0.8, c_timeReal);
@@ -36313,10 +36427,7 @@ bool gt_SurvivalW610_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/1657D975"));
     auto07AED26A_n = (gv_spawnFactor * 5);
     for (auto07AED26A_i = 1; auto07AED26A_i <= auto07AED26A_n; auto07AED26A_i += 1) {
-        UnitCreate(1, "HulkBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 20.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowHulk", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("HulkBurrowed", 20.0, "AdvancedMutation", null, null);
         Wait(0.5, c_timeReal);
     }
     Wait(20.0, c_timeReal);
@@ -36337,7 +36448,7 @@ bool gt_SurvivalW610_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/97B832BE"));
     UnitCreate(1, "Tartarus", 0, 14, RegionRandomPoint(gv_reinforcementSpawn[RandomInt(2, 6)]), libNtve_gf_RandomAngle());
     UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-    UnitCreate(1, "Eileithyia", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 35.0)), libNtve_gf_RandomAngle());
+    UnitCreate(1, "Eileithyia", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 35.0)), libNtve_gf_RandomAngle());
     UnitGroupAdd(gv_zombieWave, UnitLastCreated());
     gv_eilethyia = UnitLastCreated();
     TriggerEnable(gt_Boss1bFightMobs, true);
@@ -36350,7 +36461,7 @@ bool gt_SurvivalW610_Func (bool testConds, bool runActions) {
     }
     TriggerEnable(gt_Boss1bFightMobs, false);
     if ((UnitIsAlive(gv_eilethyia) == true)) {
-        UnitCreate(1, "Eos", 0, 14, UnitGetPosition(gv_boss), libNtve_gf_RandomAngle());
+        UnitCreate(1, "Eos", 0, 14, UnitGetPosition(gv_eilethyia), libNtve_gf_RandomAngle());
         UnitBehaviorAddPlayer(UnitLastCreated(), "Frenzy2", 14, 1);
         UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         UnitKill(gv_eilethyia);
@@ -36412,10 +36523,7 @@ bool gt_SurvivalW1115_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_STC2ItemSpawn, true, false);
     auto8AB9B399_n = (gv_spawnFactor * 5);
     for (auto8AB9B399_i = 1; auto8AB9B399_i <= auto8AB9B399_n; auto8AB9B399_i += 1) {
-        UnitCreate(1, "BanelingBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 35.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowBanelingUp", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("BanelingBurrowed", 35.0, "AdvancedMutation", null, null);
         Wait(0.2, c_timeReal);
     }
     Wait(15.0, c_timeReal);
@@ -36424,16 +36532,16 @@ bool gt_SurvivalW1115_Func (bool testConds, bool runActions) {
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/3549F488"));
     SoundPlay(SoundLink("PerditionTurret_MorphOpen", -1), PlayerGroupAll(), 100.0, 0.0);
     Wait(3.0, c_timeReal);
-    libNtve_gf_UnitCreateFacingPoint(1, "IonCannon", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 30.0)), RegionRandomPoint(RegionPlayableMap()));
+    libNtve_gf_UnitCreateFacingPoint(1, "IonCannon", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 30.0)), RegionRandomPoint(RegionPlayableMap()));
     gv_ionCannonA = UnitLastCreated();
     libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/4F506EF4"));
     Wait(2.0, c_timeReal);
-    libNtve_gf_UnitCreateFacingPoint(1, "IonCannon", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 45.0)), RegionRandomPoint(RegionPlayableMap()));
+    libNtve_gf_UnitCreateFacingPoint(1, "IonCannon", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 30.0)), RegionRandomPoint(RegionPlayableMap()));
     gv_ionCannonB = UnitLastCreated();
     libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
     Wait(2.0, c_timeReal);
-    libNtve_gf_UnitCreateFacingPoint(1, "IonCannon", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 45.0)), RegionRandomPoint(RegionPlayableMap()));
+    libNtve_gf_UnitCreateFacingPoint(1, "IonCannon", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 30.0)), RegionRandomPoint(RegionPlayableMap()));
     gv_ionCannonC = UnitLastCreated();
     libNtve_gf_AddUnitGroupToUnitGroup(UnitLastCreatedGroup(), gv_zombieWave);
     auto0BABB158_n = (gv_spawnFactor * 2);
@@ -36461,12 +36569,7 @@ bool gt_SurvivalW1115_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/A86CF95E"));
     autoA418A838_n = (gv_spawnFactor * 2);
     for (autoA418A838_i = 1; autoA418A838_i <= autoA418A838_n; autoA418A838_i += 1) {
-        UnitCreate(1, "Lelantos", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 90.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        if ((gv_squadRating < 1800)) {
-            libNtve_gf_AttachActorToUnit(UnitLastCreated(), "NewbieWarning", "Ref_Center");
-        }
-
+        gf_SmartSpawnNOTD("Lelantos", 90.0);
         Wait(0.2, c_timeReal);
     }
     Wait(60.0, c_timeReal);
@@ -36483,10 +36586,7 @@ bool gt_SurvivalW1115_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     auto8E12658B_n = (gv_spawnFactor * 5);
     for (auto8E12658B_i = 1; auto8E12658B_i <= auto8E12658B_n; auto8E12658B_i += 1) {
-        UnitCreate(1, "Immortal22", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 30.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowImmortal", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("Immortal22", 30.0, "AdvancedMutation", null, null);
         Wait(0.2, c_timeReal);
     }
     Wait(30.0, c_timeReal);
@@ -36545,14 +36645,8 @@ bool gt_SurvivalW1620_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     auto44138A37_n = (gv_spawnFactor * 7);
     for (auto44138A37_i = 1; auto44138A37_i <= auto44138A37_n; auto44138A37_i += 1) {
-        UnitCreate(1, "Blindling2", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 20.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBlindling", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
-        UnitCreate(1, "Parasite", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 20.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitBehaviorAddPlayer(UnitLastCreated(), "Detector2", 14, 1);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("Blindling2", 20.0, "AdvancedMutation", null, null);
+        gf_SmartSpawnWithBehaviorNOTD("Parasite", 20.0, "AdvancedMutation", "Detector2", null);
         Wait(0.2, c_timeReal);
     }
     Wait(20.0, c_timeReal);
@@ -36689,10 +36783,7 @@ bool gt_SurvivalW2125_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     auto6DA4E8D0_n = (gv_spawnFactor * 10);
     for (auto6DA4E8D0_i = 1; auto6DA4E8D0_i <= auto6DA4E8D0_n; auto6DA4E8D0_i += 1) {
-        UnitCreate(1, "SeekerBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 35.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowSeeker", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("SeekerBurrowed", 35.0, "AdvancedMutation", null, null);
         Wait(0.35, c_timeReal);
     }
     Wait(20.0, c_timeReal);
@@ -36700,11 +36791,7 @@ bool gt_SurvivalW2125_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     auto6C27A6C4_n = (gv_spawnFactor * 2);
     for (auto6C27A6C4_i = 1; auto6C27A6C4_i <= auto6C27A6C4_n; auto6C27A6C4_i += 1) {
-        UnitCreate(1, "InfestedAbominationBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 55.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowInfestedAbominationUp", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "DetectorRange3", 14, 1);
-        UnitBehaviorAdd(UnitLastCreated(), "SpeedDebuff", UnitLastCreated(), 1);
+        gf_SmartSpawnWithBehaviorNOTD("InfestedAbominationBurrowed", 55.0, "SpeedDebuff", null, null);
         Wait(5.0, c_timeReal);
     }
     Wait(50.0, c_timeReal);
@@ -36721,10 +36808,7 @@ bool gt_SurvivalW2125_Func (bool testConds, bool runActions) {
     gf_SurvivalCreepDeposit();
     auto180808F6_n = (gv_spawnFactor * 7);
     for (auto180808F6_i = 1; auto180808F6_i <= auto180808F6_n; auto180808F6_i += 1) {
-        UnitCreate(1, "UltraliskBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 50.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowUltraliskUp", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "Rampage", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("UltraliskBurrowed", 50.0, "Rampage", null, null);
         Wait(0.5, c_timeReal);
     }
     Wait(20.0, c_timeReal);
@@ -36732,17 +36816,19 @@ bool gt_SurvivalW2125_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     auto10007FE5_n = (gv_spawnFactor * 8);
     for (auto10007FE5_i = 1; auto10007FE5_i <= auto10007FE5_n; auto10007FE5_i += 1) {
-        UnitCreate(1, "ZombieLevel22", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 35.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowZombieLevel2", 0)), c_orderQueueReplace);
         if ((RandomInt(0, 20) == 1)) {
+            UnitCreate(1, "ZombieLevel22", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 35.0)), libNtve_gf_RandomAngle());
+            UnitGroupAdd(gv_zombieWave, UnitLastCreated());
+            UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowZombieLevel2", 0)), c_orderQueueReplace);
             UnitBehaviorAddPlayer(UnitLastCreated(), "HeightenedSensesDebuff", 1, 1);
             UnitSetPropertyFixed(UnitLastCreated(), c_unitPropLifeMax, (UnitGetPropertyFixed(UnitLastCreated(), c_unitPropLifeMax, c_unitPropCurrent) + 2500.0));
             UnitSetPropertyFixed(UnitLastCreated(), c_unitPropLifePercent, 100.0);
             UnitBehaviorAddPlayer(UnitLastCreated(), "Rampage", 14, 1);
             UnitBehaviorAddPlayer(UnitLastCreated(), "Detector2", 14, 1);
         }
-
+        else {
+            gf_SmartSpawnNOTD("ZombieLevel22", 35.0);
+        }
         Wait(0.5, c_timeReal);
     }
     Wait(20.0, c_timeReal);
@@ -36800,9 +36886,7 @@ bool gt_SurvivalW2630_Func (bool testConds, bool runActions) {
         gf_SmartSpawnNOTD("Wraith2", 90.0);
         Wait(0.5, c_timeReal);
         if ((RandomInt(0, 3) == 1)) {
-            UnitCreate(1, "Strangler", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 90.0)), libNtve_gf_RandomAngle());
-            UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-            UnitBehaviorAddPlayer(UnitLastCreated(), "Detector2", 14, 1);
+            gf_SmartSpawnWithBehaviorNOTD("Strangler", 90.0, "Detector2", null, null);
         }
 
         Wait(0.5, c_timeReal);
@@ -36812,10 +36896,7 @@ bool gt_SurvivalW2630_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     auto788720E3_n = (gv_spawnFactor * 2);
     for (auto788720E3_i = 1; auto788720E3_i <= auto788720E3_n; auto788720E3_i += 1) {
-        UnitCreate(1, "ZombieBroodMother2", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 90.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBroodmother", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("ZombieBroodMother2", 90.0, "AdvancedMutation", null, null);
         Wait(1.5, c_timeReal);
     }
     for (autoE6AC8940_i = 1; autoE6AC8940_i <= autoE6AC8940_n; autoE6AC8940_i += 1) {
@@ -36832,10 +36913,7 @@ bool gt_SurvivalW2630_Func (bool testConds, bool runActions) {
     gf_SurvivalCreepDeposit();
     auto74324083_n = (gv_spawnFactor * 4);
     for (auto74324083_i = 1; auto74324083_i <= auto74324083_n; auto74324083_i += 1) {
-        UnitCreate(1, "SeekerBurrowed", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 90.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowSeeker", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("SeekerBurrowed", 90.0, "AdvancedMutation", null, null);
         Wait(1.0, c_timeReal);
     }
     Wait(20.0, c_timeReal);
@@ -36843,10 +36921,7 @@ bool gt_SurvivalW2630_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     auto4C709E04_n = (gv_spawnFactor * 5);
     for (auto4C709E04_i = 1; auto4C709E04_i <= auto4C709E04_n; auto4C709E04_i += 1) {
-        UnitCreate(1, "RoachBurrowed", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 90.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowRoachUp", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("RoachBurrowed", 90.0, "AdvancedMutation", null, null);
         Wait(0.5, c_timeReal);
     }
     Wait(25.0, c_timeReal);
@@ -36976,10 +37051,7 @@ bool gt_SurvivalW3135_Func (bool testConds, bool runActions) {
     gf_SurvivalCreepDeposit();
     autoF33E36B1_n = (gv_spawnFactor * 5);
     for (autoF33E36B1_i = 1; autoF33E36B1_i <= autoF33E36B1_n; autoF33E36B1_i += 1) {
-        UnitCreate(1, "Beastling2", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 70.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBeastling", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("Beastling2", 70.0, "AdvancedMutation", null, null);
         Wait(1.0, c_timeReal);
     }
     Wait(30.0, c_timeReal);
@@ -36988,14 +37060,9 @@ bool gt_SurvivalW3135_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/116239BA"));
     auto6BCA4EFB_n = (gv_spawnFactor * 5);
     for (auto6BCA4EFB_i = 1; auto6BCA4EFB_i <= auto6BCA4EFB_n; auto6BCA4EFB_i += 1) {
-        UnitCreate(1, "Marine", 0, 13, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 75.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 13, 1);
+        gf_SmartSpawnWithBehaviorNOTD("Marine", 75.0, "AdvancedMutation", null, null);
         Wait(0.35, c_timeReal);
-        UnitCreate(1, "Sniper", 0, 13, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 75.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 13, 1);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "Detector2", 13, 1);
+        gf_SmartSpawnWithBehaviorNOTD("Sniper", 75.0, "AdvancedMutation", "Detector2", null);
         Wait(0.35, c_timeReal);
     }
     Wait(30.0, c_timeReal);
@@ -37003,11 +37070,7 @@ bool gt_SurvivalW3135_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     autoE29E0B24_n = (gv_spawnFactor * 7);
     for (autoE29E0B24_i = 1; autoE29E0B24_i <= autoE29E0B24_n; autoE29E0B24_i += 1) {
-        UnitCreate(1, "ZombieLevel22", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 90.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitBehaviorAddPlayer(UnitLastCreated(), "Detector5", 14, 1);
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowZombieLevel2", 0)), c_orderQueueReplace);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("ZombieLevel22", 90.0, "AdvancedMutation", "Detector5", null);
         Wait(0.3, c_timeReal);
     }
     Wait(20.0, c_timeReal);
@@ -37021,10 +37084,7 @@ bool gt_SurvivalW3135_Func (bool testConds, bool runActions) {
         }
         autoA9D0332C_n = gv_spawnFactor;
         for (autoA9D0332C_i = 1; autoA9D0332C_i <= autoA9D0332C_n; autoA9D0332C_i += 1) {
-            UnitCreate(1, "UltraliskBurrowed", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 90.0)), libNtve_gf_RandomAngle());
-            UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-            UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowUltraliskUp", 0)), c_orderQueueReplace);
-            UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+            gf_SmartSpawnWithBehaviorNOTD("UltraliskBurrowed", 90.0, "AdvancedMutation", null, null);
             Wait(0.1, c_timeGame);
         }
         Wait(7.0, c_timeReal);
@@ -37086,7 +37146,7 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     gf_SurvivalCreepDeposit();
     gf_CreateItemNOTD("Magazine", 5);
-    UnitCreate(1, "Perses", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 125.0)), libNtve_gf_RandomAngle());
+    UnitCreate(1, "Perses", c_unitCreateConstruct, 14, gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 125.0)), libNtve_gf_RandomAngle());
     lv_localPerses = UnitLastCreated();
     UnitGroupAdd(gv_zombieWave, UnitLastCreated());
     UnitSetPropertyFixed(lv_localPerses, c_unitPropLifeMax, (UnitGetPropertyFixed(lv_localPerses, c_unitPropLifeMax, c_unitPropCurrent) * 0.3));
@@ -37098,10 +37158,7 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
     Wait(0.25, c_timeReal);
     auto0793144F_n = (gv_spawnFactor * 5);
     for (auto0793144F_i = 1; auto0793144F_i <= auto0793144F_n; auto0793144F_i += 1) {
-        UnitCreate(1, "Mutalisk", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 135.0)), libNtve_gf_RandomAngle());
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-        UnitBehaviorAddPlayer(UnitLastCreated(), "Detector5", 14, 1);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+        gf_SmartSpawnWithBehaviorNOTD("Mutalisk", 135.0, "AdvancedMutation", "Detector5", null);
         Wait(0.5, c_timeReal);
     }
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/EA2FA3C7"));
@@ -37110,7 +37167,7 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
     gf_SurvivalWaveTitleDisplay(gv_wave);
     autoC4BAA258_n = gv_spawnFactor;
     for (autoC4BAA258_i = 1; autoC4BAA258_i <= autoC4BAA258_n; autoC4BAA258_i += 1) {
-        UnitCreate(1, "Devastator", 0, 14, RegionRandomPoint(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 90.0)), libNtve_gf_RandomAngle());
+        UnitCreate(1, "Devastator", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(libNtve_gf_CenterOfUnitGroup(gv_marines), 90.0)), libNtve_gf_RandomAngle());
         lv_localDevastator = UnitLastCreated();
         UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         libNtve_gf_PauseUnit(lv_localDevastator, true);
@@ -37136,10 +37193,7 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
     for (auto9BC4682E_i = 1; auto9BC4682E_i <= auto9BC4682E_n; auto9BC4682E_i += 1) {
         gf_SmartSpawnNOTD("X1GuardianLevel2", 90.0);
         Wait(0.2, c_timeReal);
-        UnitCreate(1, "CrawlerDroneLevel2", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 90.0)), libNtve_gf_RandomAngle());
-        UnitBehaviorAddPlayer(UnitLastCreated(), "Detector5", 14, 1);
-        UnitBehaviorAdd(UnitLastCreated(), "PersonalCloakingFree", UnitLastCreated(), 1);
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
+        gf_SmartSpawnWithBehaviorNOTD("CrawlerDroneLevel2", 90.0, "Detector5", "PersonalCloakingFree", null);
         Wait(0.2, c_timeReal);
         gf_SmartSpawnNOTD("FieldProbe", 90.0);
         Wait(2.0, c_timeReal);
@@ -37153,14 +37207,10 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
         gf_SurvivalCreepDeposit();
     }
 
-    UnitCreate(1, "Demeter", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 110.0)), libNtve_gf_RandomAngle());
-    UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-    UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 1);
+    gf_SmartSpawnWithBehaviorNOTD("Demeter", 110.0, "AdvancedMutation", null, null);
     autoD0D79160_n = (gv_spawnFactor * 4);
     for (autoD0D79160_i = 1; autoD0D79160_i <= autoD0D79160_n; autoD0D79160_i += 1) {
-        UnitCreate(1, "DemetersCocoon", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 110.0)), libNtve_gf_RandomAngle());
-        UnitBehaviorAddPlayer(UnitLastCreated(), "Detector2", 14, 1);
-        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
+        gf_SmartSpawnWithBehaviorNOTD("DemetersCocoon", 110.0, "Detector2", null, null);
         Wait(3.0, c_timeReal);
     }
     Wait(20.0, c_timeReal);
@@ -37172,7 +37222,7 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
 
     autoBC9AEA32_n = (gv_spawnFactor * 2);
     for (autoBC9AEA32_i = 1; autoBC9AEA32_i <= autoBC9AEA32_n; autoBC9AEA32_i += 1) {
-        UnitCreate(1, "NydusCanal", 0, 14, RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 25.0)), libNtve_gf_RandomAngle());
+        UnitCreate(1, "NydusCanal", 0, 14, gf_RandomSpawnPointNOTD(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 25.0)), libNtve_gf_RandomAngle());
         UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         UnitGroupAdd(gv_survivalNydusGroup, UnitLastCreated());
         Wait(2.0, c_timeReal);
