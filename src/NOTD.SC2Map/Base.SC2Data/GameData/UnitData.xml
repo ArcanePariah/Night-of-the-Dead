@@ -9585,6 +9585,7 @@
     <CUnit id="SatchelLevel1">
         <Race value=""/>
         <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
         <EditorCategories value=""/>
         <LifeStart value="15"/>
         <LifeMax value="15"/>
@@ -9592,6 +9593,7 @@
     <CUnit id="SatchelLevel2">
         <Race value=""/>
         <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
         <EditorCategories value=""/>
         <LifeStart value="15"/>
         <LifeMax value="15"/>
