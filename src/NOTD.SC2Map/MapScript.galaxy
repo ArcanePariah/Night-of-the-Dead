@@ -4427,7 +4427,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_kiftadtexaiclfdc;
+    int lv_cctilssqjifvpdvn;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -11021,10 +11021,13 @@ void gf_SurvivalClassSelectionUI () {
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "Class14Label");
         gf_SetupClassSelection(lv_player, 14, DialogControlLastCreated());
         gf_ClassPointBarCreation(gv_classSelectionDialog[lv_player], gv_classSelectionDialogItem[lv_player][14], gv_playerCP[lv_player].lv_demoFOChem);
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "Random");
-        gv_classSelectionDialogItem[lv_player][15] = DialogControlLastCreated();
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "RandomLabel");
-        gf_SetupClassSelection(lv_player, 15, DialogControlLastCreated());
+        if ((gv_noRandoms != 1)) {
+            DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "Random");
+            gv_classSelectionDialogItem[lv_player][15] = DialogControlLastCreated();
+            DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "RandomLabel");
+            gf_SetupClassSelection(lv_player, 15, DialogControlLastCreated());
+        }
+
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "PlayerRankImage");
         libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("Ranks", UserDataInstance("Ranks", gv_playerRank[lv_player]), "Icon", 1), PlayerGroupAll());
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "PlayerRankLabel");
