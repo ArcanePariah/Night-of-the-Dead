@@ -120,8 +120,8 @@
     </CItemContainer>
     <CItemContainer id="Equipment">
         <Model value="Raynor"/>
-        <ModelHeight value="275"/>
-        <ModelWidth value="180"/>
+        <ModelHeight value="250"/>
+        <ModelWidth value="250"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -159,9 +159,9 @@
         </Slots>
     </CItemContainer>
     <CItemContainer id="EquipmentChemExpert">
-        <Model value="HammerSecurity"/>
-        <ModelHeight value="200"/>
-        <ModelWidth value="150"/>
+        <Model value="ChemicalExpert"/>
+        <ModelHeight value="250"/>
+        <ModelWidth value="165"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -200,7 +200,7 @@
     </CItemContainer>
     <CItemContainer id="EquipmentMedic">
         <Model value="Medic"/>
-        <ModelHeight value="360"/>
+        <ModelHeight value="250"/>
         <ModelWidth value="210"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
@@ -234,7 +234,7 @@
     <CItemContainer id="EquipmentPathfinder">
         <Model value="Reaper"/>
         <ModelHeight value="200"/>
-        <ModelWidth value="150"/>
+        <ModelWidth value="200"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -266,8 +266,8 @@
     </CItemContainer>
     <CItemContainer id="EquipmentTechnician">
         <Model value="Technician"/>
-        <ModelHeight value="140"/>
-        <ModelWidth value="115"/>
+        <ModelHeight value="200"/>
+        <ModelWidth value="130"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -306,8 +306,8 @@
     </CItemContainer>
     <CItemContainer id="EquipmentCommando">
         <Model value="WarPig"/>
-        <ModelHeight value="200"/>
-        <ModelWidth value="150"/>
+        <ModelHeight value="250"/>
+        <ModelWidth value="240"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -339,8 +339,8 @@
     </CItemContainer>
     <CItemContainer id="EquipmentForwardObserver">
         <Model value="RaynorCommando"/>
-        <ModelHeight value="580"/>
-        <ModelWidth value="435"/>
+        <ModelHeight value="200"/>
+        <ModelWidth value="235"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -405,8 +405,8 @@
     </CItemContainer>
     <CItemContainer id="EquipmentPsiOps">
         <Model value="Nova"/>
-        <ModelHeight value="580"/>
-        <ModelWidth value="435"/>
+        <ModelHeight value="250"/>
+        <ModelWidth value="320"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -438,8 +438,8 @@
     </CItemContainer>
     <CItemContainer id="EquipmentFlamethrower">
         <Model value="Firebat"/>
-        <ModelHeight value="200"/>
-        <ModelWidth value="150"/>
+        <ModelHeight value="250"/>
+        <ModelWidth value="175"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -478,8 +478,8 @@
     </CItemContainer>
     <CItemContainer id="EquipmentMarksman">
         <Model value="Ghost"/>
-        <ModelHeight value="175"/>
-        <ModelWidth value="133"/>
+        <ModelHeight value="195"/>
+        <ModelWidth value="200"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -518,8 +518,8 @@
     </CItemContainer>
     <CItemContainer id="Equipment222">
         <Model value="Marauder"/>
-        <ModelHeight value="200"/>
-        <ModelWidth value="150"/>
+        <ModelHeight value="250"/>
+        <ModelWidth value="180"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -558,8 +558,8 @@
     </CItemContainer>
     <CItemContainer id="EquipmentRecon">
         <Model value="Spectre"/>
-        <ModelHeight value="200"/>
-        <ModelWidth value="150"/>
+        <ModelHeight value="250"/>
+        <ModelWidth value="210"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -591,8 +591,8 @@
     </CItemContainer>
     <CItemContainer id="EquipmentAssault">
         <Model value="Assault"/>
-        <ModelHeight value="200"/>
-        <ModelWidth value="150"/>
+        <ModelHeight value="250"/>
+        <ModelWidth value="250"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
@@ -631,8 +631,8 @@
     </CItemContainer>
     <CItemContainer id="EquipmentEngineer">
         <Model value="Swann"/>
-        <ModelHeight value="580"/>
-        <ModelWidth value="435"/>
+        <ModelHeight value="250"/>
+        <ModelWidth value="175"/>
         <Slots>
             <EmptyFace value="EmptySlotWeapon"/>
             <Equip value="1"/>
