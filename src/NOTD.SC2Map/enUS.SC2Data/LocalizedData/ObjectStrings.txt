@@ -9921,6 +9921,9 @@ RequirementNode/Name/EqCountAbilChemicalPlatingCompleteOnlyAtUnitTechTreeCheat2=
 RequirementNode/Name/EqCountAbilChemicalPlatingCompleteOnlyAtUnitTechTreeCheat3=CountAbil(ChemicalPlating,CompleteOnlyAtUnit)[TechTreeCheat] == 3
 RequirementNode/Name/EqCountAbilComingInHotCompleteOnlyAtUnit1=CountAbil(ComingInHot,CompleteOnlyAtUnit) == 1
 RequirementNode/Name/EqCountAbilComingInHotCompleteOnlyAtUnit2=CountAbil(ComingInHot,CompleteOnlyAtUnit) == 2
+RequirementNode/Name/EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat1=CountAbil(Concentration,CompleteOnlyAtUnit)[TechTreeCheat] == 1
+RequirementNode/Name/EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat2=CountAbil(Concentration,CompleteOnlyAtUnit)[TechTreeCheat] == 2
+RequirementNode/Name/EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat3=CountAbil(Concentration,CompleteOnlyAtUnit)[TechTreeCheat] == 3
 RequirementNode/Name/EqCountAbilDisruptionTowerCompleteOnlyAtUnitTechTreeCheat1=CountAbil(DisruptionTower,CompleteOnlyAtUnit)[TechTreeCheat] == 1
 RequirementNode/Name/EqCountAbilDisruptionTowerCompleteOnlyAtUnitTechTreeCheat2=CountAbil(DisruptionTower,CompleteOnlyAtUnit)[TechTreeCheat] == 2
 RequirementNode/Name/EqCountAbilEnergyBatteryCompleteOnlyAtUnitTechTreeCheat1=CountAbil(EnergyBattery,CompleteOnlyAtUnit)[TechTreeCheat] == 1
@@ -9966,9 +9969,6 @@ RequirementNode/Name/GTECountAbilBuildTechnicianCompleteOnlyAtUnitTechTreeCheat1
 RequirementNode/Name/GTECountAbilBurrowUltraliskDownQueuedOnly2=CountAbil(BurrowUltraliskDown,QueuedOnly) >= 2
 RequirementNode/Name/GTECountAbilCohesionCompleteOnlyAtUnitTechTreeCheat1=CountAbil(Cohesion,CompleteOnlyAtUnit)[TechTreeCheat] >= 1
 RequirementNode/Name/GTECountAbilCohesionCompleteOnlyAtUnitTechTreeCheat2=CountAbil(Cohesion,CompleteOnlyAtUnit)[TechTreeCheat] >= 2
-RequirementNode/Name/GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat1=CountAbil(Concentration,CompleteOnlyAtUnit)[TechTreeCheat] >= 1
-RequirementNode/Name/GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat2=CountAbil(Concentration,CompleteOnlyAtUnit)[TechTreeCheat] >= 2
-RequirementNode/Name/GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat3=CountAbil(Concentration,CompleteOnlyAtUnit)[TechTreeCheat] >= 3
 RequirementNode/Name/GTECountAbilCriticalStrikeCompleteOnlyAtUnit1=CountAbil(CriticalStrike,CompleteOnlyAtUnit) >= 1
 RequirementNode/Name/GTECountAbilCriticalStrikeCompleteOnlyAtUnit2=CountAbil(CriticalStrike,CompleteOnlyAtUnit) >= 2
 RequirementNode/Name/GTECountAbilCriticalStrikeCompleteOnlyAtUnit3=CountAbil(CriticalStrike,CompleteOnlyAtUnit) >= 3

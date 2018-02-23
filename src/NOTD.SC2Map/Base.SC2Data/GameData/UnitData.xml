@@ -3200,6 +3200,7 @@
         <SubgroupPriority value="9"/>
         <MinimapRadius value="0.2"/>
         <HotkeyCategory value="Hotkey/Heros"/>
+        <SelectAlias value="Assault"/>
     </CUnit>
     <CUnit id="Assault" parent="BaseHero">
         <DeathRevealFilters value="Visible;Player,Ally,Neutral,Missile,Dead,Hidden"/>
@@ -9585,6 +9586,7 @@
     <CUnit id="SatchelLevel1">
         <Race value=""/>
         <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
         <EditorCategories value=""/>
         <LifeStart value="15"/>
         <LifeMax value="15"/>
@@ -9592,6 +9594,7 @@
     <CUnit id="SatchelLevel2">
         <Race value=""/>
         <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
         <EditorCategories value=""/>
         <LifeStart value="15"/>
         <LifeMax value="15"/>

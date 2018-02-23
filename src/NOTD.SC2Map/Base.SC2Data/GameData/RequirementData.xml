@@ -353,8 +353,8 @@
         <NodeArray index="Show" Link="GTECountAbilAmmoFeedDummyCompleteOnlyAtUnitTechTreeCheat2"/>
     </CRequirement>
     <CRequirement id="ConcentrationLevel1">
-        <NodeArray index="Use" Link="GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat1"/>
-        <NodeArray index="Show" Link="GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat1"/>
+        <NodeArray index="Use" Link="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat1"/>
+        <NodeArray index="Show" Link="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat1"/>
     </CRequirement>
     <CRequirement id="CohesionLevel1">
         <NodeArray index="Use" Link="GTECountAbilCohesionCompleteOnlyAtUnitTechTreeCheat1"/>
@@ -365,12 +365,12 @@
         <NodeArray index="Show" Link="GTECountAbilCohesionCompleteOnlyAtUnitTechTreeCheat2"/>
     </CRequirement>
     <CRequirement id="ConcentrationLevel2">
-        <NodeArray index="Use" Link="GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat2"/>
-        <NodeArray index="Show" Link="GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat2"/>
+        <NodeArray index="Use" Link="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat2"/>
+        <NodeArray index="Show" Link="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat2"/>
     </CRequirement>
     <CRequirement id="ConcentrationLevel3">
-        <NodeArray index="Use" Link="GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat3"/>
-        <NodeArray index="Show" Link="GTECountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat3"/>
+        <NodeArray index="Use" Link="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat3"/>
+        <NodeArray index="Show" Link="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat3"/>
     </CRequirement>
     <CRequirement id="CriticalStrikeLevel1">
         <NodeArray index="Use" Link="GTECountAbilCriticalStrikeCompleteOnlyAtUnit1"/>

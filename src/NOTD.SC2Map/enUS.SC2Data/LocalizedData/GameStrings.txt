@@ -2090,6 +2090,31 @@ DocInfo/PatchNote187=- Fixed issue of Nuke, Armageddon and Napalm Barrage telepo
 DocInfo/PatchNote188=- Corrected various trigger errors from patch 4.0 (Niktos)
 DocInfo/PatchNote189=- Optimized Recon flare (Niktos)
 DocInfo/PatchNote190=- Using Gunship Support no longer overwrites your last command (ThunderRazor)
+DocInfo/PatchNote191=- Fixed issues with capturing Tartarus (Niktos)
+DocInfo/PatchNote192=- Fixed various gates visuals (appearing closed when open) (Niktos)
+DocInfo/PatchNote193=- Minor optimizations (Niktos)
+DocInfo/PatchNote194=- Added missing warnings about friendly fire abilities (Niktos)
+DocInfo/PatchNote195=- Fixed marine icon disappearing after Asgard. (ThunderRazor)
+DocInfo/PatchNote196=- Fixed game UI disappearing when Asgard aborts during a cutscene. (ThunderRazor)
+DocInfo/PatchNote197=- Fixed a rare bug that could cause F.O. to be locked out of gunship use during Asgard. (ThunderRazor)
+DocInfo/PatchNote198=- Fixed conflicts between poison gas wave and Asgard cameras. (ThunderRazor)
+DocInfo/PatchNote199=- (Refactored poison gas camera triggers for compatibility with Asgard.) (ThunderRazor)
+DocInfo/PatchNote200=- Asgard now pauses during cutscenes and resumes after. (ThunderRazor)
+DocInfo/PatchNote201=- Added speed control to Asgard (allow up to 175% rotation speed). (ThunderRazor)
+DocInfo/PatchNote202=- Team UI appears to F.O. when Asgard does friendly fire to marines. (ThunderRazor)
+DocInfo/PatchNote203=- Added option to keep team UI visible during Asgard. (ThunderRazor)
+DocInfo/PatchNote204=- Slightly improved F.O. mobile infantry following-behavior during Asgard. (ThunderRazor)
+DocInfo/PatchNote205=- Hotkey instructions no longer disappear but acquire 50% transparency instead. (ThunderRazor)
+DocInfo/PatchNote206=- Ivax satchels can no longer be targeted by marine abilities (Niktos)
+DocInfo/PatchNote207=- Assault hotkeys can now be changed in Menu->Options->Hotkeys (Niktos)
+DocInfo/PatchNote208=- Fixed ammo & shell count glitch related to Asgard. (ThunderRazor)
+DocInfo/PatchNote209=- Marksman concentration can no longer generate wrong level of buff icon(Niktos)
+DocInfo/PatchNote210=- Survival wave 10 eilythia now correctly transforms into queen if left alive (Niktos)
+DocInfo/PatchNote211=- Survival enemies no longer can spawn directly on top of team (Niktos)
+DocInfo/PatchNote212=- SEC apopteosis no longer can spawn directly on top of team (Niktos)
+DocInfo/PatchNote213=- Removed various errors related to spawning of enemies in all storylines (Niktos)
+DocInfo/PatchNote214=- Fix to dealt critical damage failing to display since patch 2.176 (Niktos)
+DocInfo/PatchNote215=- Fixing rare situation of dr Tanaka dying after his invulnerability during his laboratory trip in AC (Niktos)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
@@ -4143,6 +4168,7 @@ Param/Value/2D25FC8C=Decision
 Param/Value/2D573AA9=Traps in place.
 Param/Value/2D9A3D5E=(Nazara releases an EMP shockwave upon its destruction...)
 Param/Value/2DCF8FF4=We're airdropping more supplies into your sector.
+Param/Value/2DD8D951=<c val="FF0000">(Disabled)</c>
 Param/Value/2DDFDE54=Lt. Sheng
 Param/Value/2E1900EB=Investigate the Communications Tower
 Param/Value/2E588F08=
@@ -4375,6 +4401,7 @@ Param/Value/541BADD6=+3 XP for Mission Bonus. 40 civilians rescued.
 Param/Value/541F9CD8=</c>) (<c val="49ABF3">
 Param/Value/54228DBB=<n/>   Games Played: 
 Param/Value/543109A7=Secure Security Cams (2/5)
+Param/Value/544D04BA=<s val="InfoPaneHeroRank">No Randoms activated</s><n/>- Random class selection disabled.
 Param/Value/54524404=Doctor, I heard you mention Bergmann. You said you didn't know him.
 Param/Value/546EB49A=+1
 Param/Value/5472209A=Our forces are stretched thin. Stay close.
@@ -4399,6 +4426,7 @@ Param/Value/586C0FCE=Open fire!
 Param/Value/58CFB917=<s val="HeaderExtendedTemplate">Medal of Honor</s>
 Param/Value/58DA23DB=
 Param/Value/5907AE6D=It's down. We destroyed it.
+Param/Value/590899E5=Buying failed
 Param/Value/594AAF09=We need to get to the airlock.
 Param/Value/59BA14F5=Select Storyline
 Param/Value/5AA04D5B=/60)</c>
@@ -4592,6 +4620,7 @@ Param/Value/7D24C342=I will melt your armor.
 Param/Value/7D30020D=If it's any consolation, whoever locked you up is probably dead now.
 Param/Value/7D40826F=<s val="GlueButton">Black Ops
 Param/Value/7D9EFC22=Deimos
+Param/Value/7DD26D35=<n/><n/>
 Param/Value/7DF35ACF=+
 Param/Value/7DFE6CBB=</c>.
 Param/Value/7E2DE1DC=Gentlemen, choose your course of action..
@@ -4865,6 +4894,7 @@ Param/Value/ACBFAED5=This is wrong. This is a date that will live in infamy.
 Param/Value/ACC6387D=I wonder how many more of those things are out there?
 Param/Value/AD6DE3C6=Our lines have been compromised! Broken arrow.
 Param/Value/AD923496=You're Short Circuited. An Engineer can repair your suit.
+Param/Value/AD9A3452=Buying failed
 Param/Value/ADA92E45=has been decimated by <c val="FF0000">
 Param/Value/ADEF0862=+1 XP for Performance Bonus
 Param/Value/AE4C8D7E=(Dr Bergmann equips his Laser Rifle...)
@@ -5290,6 +5320,7 @@ Param/Value/F6D31C38=<s val="InfoPaneHeroRank">
 Param/Value/F70ACB5B=We can take either one of these entrances into the lab.
 Param/Value/F77C7E37=Guardian of the Beta
 Param/Value/F7A04BFC=+3 XP for Mission Bonus. 50 civilians rescued.
+Param/Value/F7E1593E=Shop too far, disabling.
 Param/Value/F7E4F520=
 Param/Value/F80D8B6F=I thought we would have died here...or worse...
 Param/Value/F8130A42=Pending
@@ -5304,6 +5335,7 @@ Param/Value/F96D5DCB=<s val="BriefingHanText">(Gunship online...)</s>
 Param/Value/F96F7B86= (<c val="F4D72B">
 Param/Value/F99A2CE8=Black Ops have many deadly ranged attacks. Stay sharp!
 Param/Value/F9A1B8C3=I'll keep an eye out, Lieutenant. Now I must get back to work.
+Param/Value/F9A7E5EA=<s val="InfoPaneHeroRank">Random class already selected</s>
 Param/Value/F9C1DDDB=Take it down fast. That queen has hundreds of eggs in it. Many are ready to hatch.
 Param/Value/F9EE4AE7=<s val="GlueButton"><c val="F4D72B">Don't you... recognize me... Lt. Sheng?</c></s>
 Param/Value/FA56F8FC=+
