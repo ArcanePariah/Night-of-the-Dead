@@ -2285,7 +2285,7 @@ bool gf_PlayerAutomaticBanCheck (int lp_player) {
     else if ((gf_BOInsigniaBought(lp_player) == true) && (gv_playerLifeTimeCreditsAcquired[lp_player] < 10000)) {
         return true;
     }
-    else if ((gv_playerXP[lp_player] >= 600000)) {
+    else if ((gv_playerXP[lp_player] >= 650000)) {
         return true;
     }
     else if ((gv_combatActionRibbon[lp_player] > gv_playerGamesPlayed[lp_player])) {
@@ -4427,7 +4427,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_kiftadtexaiclfdc;
+    int lv_tddvuqhoqhnwpnyj;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
