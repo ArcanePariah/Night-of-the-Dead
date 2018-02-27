@@ -4427,7 +4427,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_kiftadtexaiclfdc;
+    int lv_pevuaueakqpohgac;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -14712,10 +14712,10 @@ bool gt_StorylineDialogCreation_Func (bool testConds, bool runActions) {
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "AlphaCompanySubtitle");
     libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Storyline", "Alpha Company", "Story Subtitle", 1), PlayerGroupAll());
     if ((gv_storylineUnlocked[2] == false)) {
-        DialogControlSetEnabled(gv_storylineSelection[2], PlayerGroupAll(), false);
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "AlphaCompanyUnlock");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Storyline", "Alpha Company", "Story Unlock Text", 1), PlayerGroupAll());
-        DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), true);
+        libNtve_gf_SetDialogItemColor(DialogControlLastCreated(), Color(100.00, 0.00, 0.00), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Storyline", "Alpha Company", "Story_Unlock_Text", 1), PlayerGroupAll());
+        DialogControlSetEnabled(gv_storylineSelection[2], PlayerGroupAll(), false);
     }
 
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "ApolloSecurityButton");
@@ -14726,20 +14726,22 @@ bool gt_StorylineDialogCreation_Func (bool testConds, bool runActions) {
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "ApolloSecuritySubtitle");
     libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Storyline", "Apollo Security Team", "Story Subtitle", 1), PlayerGroupAll());
     if ((gv_storylineUnlocked[3] == false)) {
-        DialogControlSetEnabled(gv_storylineSelection[3], PlayerGroupAll(), false);
         DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "ApolloSecurityUnlock");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Storyline", "Apollo Security Team", "Story Unlock Text", 1), PlayerGroupAll());
-        DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), true);
+        libNtve_gf_SetDialogItemColor(DialogControlLastCreated(), Color(100.00, 0.00, 0.00), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Storyline", "Apollo Security Team", "Story_Unlock_Text", 1), PlayerGroupAll());
+        DialogControlSetEnabled(gv_storylineSelection[3], PlayerGroupAll(), false);
     }
 
-    if ((gv_storylineUnlocked[4] == true)) {
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "SurvivalButton");
-        gv_storylineSelection[4] = DialogControlLastCreated();
-        libNtve_gf_SetDialogItemTooltip(gv_storylineSelection[4], UserDataGetText("Storyline", "Survival", "Story Tooltip", 1), PlayerGroupAll());
-        DialogControlSetVisible(gv_storylineSelection[4], PlayerGroupAll(), true);
-        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "SurvivalTitle");
-        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Storyline", "Survival", "Story Name", 1), PlayerGroupAll());
-        DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), true);
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "SurvivalButton");
+    gv_storylineSelection[4] = DialogControlLastCreated();
+    libNtve_gf_SetDialogItemTooltip(gv_storylineSelection[4], UserDataGetText("Storyline", "Survival", "Story Tooltip", 1), PlayerGroupAll());
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "SurvivalTitle");
+    libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Storyline", "Survival", "Story Name", 1), PlayerGroupAll());
+    if ((gv_storylineUnlocked[4] == false)) {
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "SurvivalUnlock");
+        libNtve_gf_SetDialogItemColor(DialogControlLastCreated(), Color(100.00, 0.00, 0.00), PlayerGroupAll());
+        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Storyline", "Survival", "Story_Unlock_Text", 1), PlayerGroupAll());
+        DialogControlSetEnabled(gv_storylineSelection[4], PlayerGroupAll(), false);
     }
 
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "NormalModeButton");

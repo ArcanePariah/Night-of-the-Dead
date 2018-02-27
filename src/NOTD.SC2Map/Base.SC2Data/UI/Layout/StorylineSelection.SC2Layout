@@ -93,12 +93,12 @@
 
         <Frame type="Label" name="AlphaCompanyUnlock">
             <Anchor side="Top" relative="$parent/AlphaCompanyButton" pos="Min" offset="40"/>
-            <Anchor side="Right" relative="$parent/AlphaCompanyButton" pos="Max" offset="-90"/>
-            <Color val="255,255,255"/>
+            <Anchor side="Right" relative="$parent/AlphaCompanyButton" pos="Max" offset="25"/>
+            <Color val="0,255,0"/>
+            <Text val="All Players > 1000xp requirement met."/>
             <Height val="250"/>
             <Width val="275"/>
             <Style val="HeaderExtendedTemplate"/>
-            <Visible val="false"/>
         </Frame>
 
         <!-- Apollo Security Team -->
@@ -135,12 +135,12 @@
 
         <Frame type="Label" name="ApolloSecurityUnlock">
             <Anchor side="Top" relative="$parent/ApolloSecurityButton" pos="Min" offset="40"/>
-            <Anchor side="Right" relative="$parent/ApolloSecurityButton" pos="Max" offset="-90"/>
-            <Color val="255,255,255"/>
+            <Anchor side="Right" relative="$parent/ApolloSecurityButton" pos="Max" offset="25"/>
+            <Color val="0,255,0"/>
+            <Text val="All Players > 3000xp requirement met."/>
             <Height val="250"/>
             <Width val="275"/>
             <Style val="HeaderExtendedTemplate"/>
-            <Visible val="false"/>
         </Frame>
 
         <!-- Survival Mode -->
@@ -148,11 +148,10 @@
             <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="-170"/>
             <Height val="56"/>
-            <Width val="200"/>
-            <Visible val="false"/>
+            <Width val="400"/>
             <Frame type="Image" name="SurvivalImage">
                 <Height val="56"/>
-                <Width val="200"/>
+                <Width val="400"/>
                 <Texture val="Assets\Textures\ui_techtree_buttonframe_disabled.dds"/>
                 <TextureType val="Normal"/>
                 <Anchor relative="$parent"/>
@@ -166,7 +165,16 @@
             <Height val="56"/>
             <Width val="200"/>
             <Style val="ModCenterSize32"/>
-            <Visible val="false"/>
+        </Frame>
+
+        <Frame type="Label" name="SurvivalUnlock">
+            <Anchor side="Top" relative="$parent/SurvivalButton" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/SurvivalButton" pos="Max" offset="-15"/>
+            <Color val="0,255,0"/>
+            <Text val="All Players > 1000xp requirement met."/>
+            <Height val="56"/>
+            <Width val="200"/>
+            <Style val="ModCenterSize12"/>
         </Frame>
 
         <!-- Mode Selection -->
