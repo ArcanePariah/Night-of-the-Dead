@@ -1812,6 +1812,7 @@ trigger gt_SpectatorModeClick;
 trigger gt_SpectatorModeOff;
 trigger gt_ManualReload;
 trigger gt_AmmoUsage;
+trigger gt_AmmoUsageStinger;
 trigger gt_AmmoUsageL3;
 trigger gt_ReceivesDamage;
 trigger gt_L3Kills;
@@ -4427,7 +4428,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_kiftadtexaiclfdc;
+    int lv_tmpcthmcqqlrmgwh;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -15856,6 +15857,10 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
         if (!((lv_attackingWeapon != "Crowbar"))) {
             return false;
         }
+
+        if (!((lv_attackingWeapon != "StingerMK3"))) {
+            return false;
+        }
     }
 
     // Actions
@@ -15869,19 +15874,10 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
     else if ((lv_attackingWeapon == "BarrettM112")) {
         gv_marineRounds[lv_attackingPlayer] = MaxI((gv_marineRounds[lv_attackingPlayer] - 3), 0);
     }
-    else if ((lv_attackingWeapon == "StingerMK3")) {
-        gv_marineRounds[lv_attackingPlayer] = MaxI((gv_marineRounds[lv_attackingPlayer] - 10), 0);
-    }
     else if (true) {
         gv_marineRounds[lv_attackingPlayer] = MaxI((gv_marineRounds[lv_attackingPlayer] - 1), 0);
     }
     gf_AmmoUsage(lv_attackingPlayer, lv_firingUnit, ge_ReloadType_Automatic, lv_attackingWeapon);
-    Wait(0.3, c_timeGame);
-    if ((lv_attackingWeapon == "StingerMK3") && (gv_marineRounds[lv_attackingPlayer] < 10)) {
-        Wait(0.7, c_timeGame);
-        UnitBehaviorAddPlayer(lv_firingUnit, "InsufficientAmmo", lv_attackingPlayer, 1);
-    }
-
     return true;
 }
 
@@ -15889,6 +15885,46 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
 void gt_AmmoUsage_Init () {
     gt_AmmoUsage = TriggerCreate("gt_AmmoUsage_Func");
     TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Ammo Usage Stinger
+//--------------------------------------------------------------------------------------------------
+bool gt_AmmoUsageStinger_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_firingUnit;
+    int lv_attackingPlayer;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_firingUnit = gv_marineHero[EventPlayer()];
+    lv_attackingPlayer = EventPlayer();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_marineRounds[lv_attackingPlayer] = MaxI((gv_marineRounds[lv_attackingPlayer] - 10), 0);
+    gf_AmmoUsage(lv_attackingPlayer, lv_firingUnit, ge_ReloadType_Automatic, "StingerMK3");
+    if ((gv_marineRounds[lv_attackingPlayer] < 10)) {
+        UnitBehaviorAddPlayer(lv_firingUnit, "InsufficientAmmo", lv_attackingPlayer, 1);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AmmoUsageStinger_Init () {
+    gt_AmmoUsageStinger = TriggerCreate("gt_AmmoUsageStinger_Func");
+    TriggerAddEventPlayerEffectUsed(gt_AmmoUsageStinger, 1, "StingerMK3LaunchMissile");
+    TriggerAddEventPlayerEffectUsed(gt_AmmoUsageStinger, 2, "StingerMK3LaunchMissile");
+    TriggerAddEventPlayerEffectUsed(gt_AmmoUsageStinger, 3, "StingerMK3LaunchMissile");
+    TriggerAddEventPlayerEffectUsed(gt_AmmoUsageStinger, 4, "StingerMK3LaunchMissile");
+    TriggerAddEventPlayerEffectUsed(gt_AmmoUsageStinger, 5, "StingerMK3LaunchMissile");
+    TriggerAddEventPlayerEffectUsed(gt_AmmoUsageStinger, 6, "StingerMK3LaunchMissile");
+    TriggerAddEventPlayerEffectUsed(gt_AmmoUsageStinger, 7, "StingerMK3LaunchMissile");
+    TriggerAddEventPlayerEffectUsed(gt_AmmoUsageStinger, 8, "StingerMK3LaunchMissile");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -41667,6 +41703,7 @@ void InitTriggers () {
     gt_SpectatorModeOff_Init();
     gt_ManualReload_Init();
     gt_AmmoUsage_Init();
+    gt_AmmoUsageStinger_Init();
     gt_AmmoUsageL3_Init();
     gt_ReceivesDamage_Init();
     gt_L3Kills_Init();
