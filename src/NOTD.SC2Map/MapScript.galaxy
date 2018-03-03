@@ -4427,7 +4427,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_kiftadtexaiclfdc;
+    int lv_ccrvyrwrbftfyfgf;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -15878,7 +15878,6 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
     gf_AmmoUsage(lv_attackingPlayer, lv_firingUnit, ge_ReloadType_Automatic, lv_attackingWeapon);
     Wait(0.3, c_timeGame);
     if ((lv_attackingWeapon == "StingerMK3") && (gv_marineRounds[lv_attackingPlayer] < 10)) {
-        Wait(0.7, c_timeGame);
         UnitBehaviorAddPlayer(lv_firingUnit, "InsufficientAmmo", lv_attackingPlayer, 1);
     }
 
