@@ -15897,8 +15897,8 @@ bool gt_AmmoUsageStinger_Func (bool testConds, bool runActions) {
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_firingUnit = gv_marineHero[EventPlayer()];
-    lv_attackingPlayer = EventPlayer();
+    lv_firingUnit = gv_marineHero[EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster)];
+    lv_attackingPlayer = EventPlayerEffectUsedUnitOwner(c_effectPlayerCaster);
 
     // Actions
     if (!runActions) {
