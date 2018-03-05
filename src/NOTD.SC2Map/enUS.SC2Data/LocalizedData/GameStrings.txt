@@ -3924,6 +3924,7 @@ Param/Value/00AD8F43=Are you seeing this?
 Param/Value/018D8BCF=Proceed to Epsilon Mining Site
 Param/Value/0193DE09=We've arrived at the source.
 Param/Value/02115397=Search the Airlock for clues
+Param/Value/02746C5B=<s val="BriefingHanText">Mine Site Epsilon</s>
 Param/Value/02779103=Ivan Plushenko
 Param/Value/0286289B=The civilians are escaping. There's no telling how many are infected.
 Param/Value/02B65806=Deimos' attacks deal greater damage to high armor units
@@ -3992,6 +3993,7 @@ Param/Value/0E448BB6=Stay frosty. The creatures are coming from multiple vectors
 Param/Value/0E5A2850=Scientist
 Param/Value/0E5EDA3D=    
 Param/Value/0EB0EFBD=<s val="GlueButtonSmall">Wins - 
+Param/Value/0EC7DFD6= 
 Param/Value/0EC88977=has committed suicide.
 Param/Value/0ED9301E=+1 XP for Performance Bonus
 Param/Value/0EDEDB03=Chapter 1
@@ -4019,6 +4021,7 @@ Param/Value/1311397C=
 Param/Value/1314AC76=We've got to kill Ivax.
 Param/Value/1318F7C5=Are you...releasing me?
 Param/Value/135D702F=
+Param/Value/1366F3ED=<n/>
 Param/Value/136BAE3A=<c val="FFFF00">Strength</c><n/>Adds +11.5 HP and increased Weight Tolerance per Stat Point.
 Param/Value/138747BD=Use Anti-Armor weapons for Dome C
 Param/Value/140AC869=The dead feed my life force!
@@ -4228,7 +4231,6 @@ Param/Value/36E0AE82=Items
 Param/Value/37082E92=There's a backup mainframe north of the Airlock perimeter. We'll shut HAL down there.
 Param/Value/372C3780=TANAKA! We can't let you leave.
 Param/Value/373E7CF8=Some of them may be infected. There's no way to tell.
-Param/Value/3778460A=</c></s>
 Param/Value/37825E7E=(Accelerating overdrive...)
 Param/Value/37E2D39D=
 Param/Value/386B4E98=Your team will set up an EVAC zone at a central location to consolidate and evacuate survivors.
@@ -4282,6 +4284,7 @@ Param/Value/41199A23= vote kicked by
 Param/Value/414A1DEB=</c></s>
 Param/Value/41AFE9EF=<s val="BriefingHanText">   Story/Concepts<n/>   Richard Lim (XaVi)</s>
 Param/Value/41CCC9EC= (<c val="F20000">
+Param/Value/41F8F972=<s val="GlueButton">
 Param/Value/42465C0C= (<c val="F20000">
 Param/Value/427249E1=
 Param/Value/42731D11=<c val="0080FF">.</c>
@@ -4445,7 +4448,6 @@ Param/Value/5D2EDD6C=<c val="FF0000">Nightmare Mode</c><n/>- Enemies gain HP and
 Param/Value/5D6CA469=Maintain tight formation.
 Param/Value/5D91964B=<s val="InfoPaneHeroRank">(Reactor Core activation requires 2 authorized personnel..)</s>
 Param/Value/5DABC5A9=<s val="GlueButton"><c val="F4D72B">Nobody will believe you.</c>
-Param/Value/5DDB7741=: <c val="F4D72B">
 Param/Value/5E300354=!
 Param/Value/5E6F0326=This, my friends, is not possible.
 Param/Value/5E7C397E=(Sensing her mortality, the Queen begins to withdraw..)
@@ -4464,6 +4466,7 @@ Param/Value/606A90B6=Attack Zeus & Leto from behind. They have thick frontal arm
 Param/Value/60837DF9=We've restarted the Mining facilities.
 Param/Value/608D552D=Items
 Param/Value/60AE9014=+5 XP for Performance Bonus
+Param/Value/60B6F5E1=: 
 Param/Value/6187C54A=Watch out for huggers. Our scanners will pick them up.
 Param/Value/6189B259=Look! I see Marines!
 Param/Value/61BD8102=
@@ -4650,6 +4653,7 @@ Param/Value/835B7760=<n/>XP:
 Param/Value/838A6F01=There's an incomplete IVAX unit in the military base.
 Param/Value/83EBF2B8=Survive the outbreak with Apollo Security Team
 Param/Value/8423EF3A=Survive the attack on Apollo Starport
+Param/Value/84300FE3=: 
 Param/Value/843B3A52=Destroy Bio-Dome D
 Param/Value/8505DA80=The infestation has taken hold at the airlock and your squad has riled their desire for blood. High ground will help you face the large hordes effectively.
 Param/Value/8569CB3E= -- (
@@ -4689,7 +4693,6 @@ Param/Value/8B17FA99=Re-activate Devastators from Airlock. They provide heavy su
 Param/Value/8B3790A4=Stats
 Param/Value/8B3F7459=Too many distractions. Must focus.
 Param/Value/8B5E5F28=Chapter 1
-Param/Value/8B8E11C0=<s val="ChatBar">Unknown Voice 2: <c val="F4D72B">If the colonies revolt, there will be civil war. Millions more will die.</c></s>
 Param/Value/8BD93954=<s val="BriefingHanText">   Designers<n/>   Daren Yoong (Ability)<n/>   Charles Passen (Kithrixx)</s>
 Param/Value/8BEB60C9=<n/>Games Played: 
 Param/Value/8BFF1855=Rescue Sec Team B from Apollo East
@@ -4759,7 +4762,6 @@ Param/Value/95FA0B91=<s val="CinematicLabel">  Ivan Plushenko: <c val="F4D72B">T
 Param/Value/9636C697=</c>)
 Param/Value/96BE079C=Your squad has been sent to the Apollo Mining Colony to respond to a distress signal. Follow mission orders and stay alive. Teamwork is key to survival. Once you die, you cannot revive.<n/><n/>Game Basics<n/>Inventory: You will pick up items along the way. These aid your survival.<n/>Ammunition: Your ammo counter is displayed near your Marine portrait. When you run out of ammo, you cannot fire.<n/>Talents: Press B to open your Talent tree. You gain 1 talent point every time your Marine levels up.<n/><n/>Chat Commands<n/>-ammo: Shows everyone's magazine count<n/>-nightmare: Increases game difficulty for good players<n/>-em: Activates Easy Mode. Players also gain shared vision. XP gain rate is reduced<n/><n/>Discuss at www.notdstarcraft.com
 Param/Value/96EBA0B6=Spawn Factor: 
-Param/Value/96EC434E=: 
 Param/Value/970215F7=Mod Points Unassigned: 
 Param/Value/970BB720=<s val="GlueButton"><c val="F4D72B">Deimos has released a swarm of Titans from containment!</c></s>
 Param/Value/972D5DD3=<s val="BriefingHanText">   Website<n/>   Tristan Stallans (Blaqk)<n/>   Gregory Hlavac (Mirage)<n/>   Colin Lim</s>
@@ -4839,7 +4841,6 @@ Param/Value/A3EF6D27=Regroup with your team and use the minimap to guide you
 Param/Value/A450A312=[<c val="FF0000">Priority Transmission</c>]<n/>General Koller: <n/>Perses is an airbourne threat to our space fleet and will ground our flight operations. Take it down ASAP, Marines!
 Param/Value/A4DCEB1A=Loud and clear. We were cut off but we've held together against the initial outbreak.
 Param/Value/A5023862=<s val="GlueButton"><c val="F4D72B">We're going to check the underground quarters for survivors. Stay safe.</c>
-Param/Value/A5117E49=<s val="GlueButton">
 Param/Value/A524C94A=Bergmann has betrayed Easy Company. Stay alert!
 Param/Value/A5C960A4=Epsilon Mine Site - located West of your drop off - has sent a distress signal several hours ago. UGC has lost contact with the facility since. Proceed with caution. Intel suggests that the rebels could be behind this incident. With 70% of the world's energy supply at stake, UGC Command keeping a close watch on this mission.<n/><n/><c val="FF0000">Lethal force authorized.</c>
 Param/Value/A5E0FFE0=+3 XP for Performance Bonus
@@ -4947,6 +4948,7 @@ Param/Value/B7286B3D=Erebos is resilient against Gauss Rifle attacks. Try other 
 Param/Value/B74F32C6=!
 Param/Value/B7E5D8DF=Re-active 5 power generators
 Param/Value/B7EB263B=Survive as many waves as you can
+Param/Value/B7ED1099=<s val="BriefingHanText">(Unlocking Security Gate..)</s>
 Param/Value/B85CDB8C=%
 Param/Value/B864C5C3=Use your Predator to aid the team. It gains new abilities as it levels.
 Param/Value/B88C671E=Keep firing!
@@ -5001,6 +5003,7 @@ Param/Value/C15230BC=Their numbers are dwindling. We've got through this.
 Param/Value/C1545F14=(Accessing communications log...)
 Param/Value/C16ADD41=Don't get hit! Tartarus will tear you a new one.
 Param/Value/C17E81A3=</c>) (<c val="F1D845">
+Param/Value/C18C8E32=: <c val="F4D72B">
 Param/Value/C21BD67D=<c val="0080FF">Saving Biometric ID for </c>
 Param/Value/C226EB8D=Retrieve Weapons & Ammo from Armory
 Param/Value/C22C6D9F=Bring the civilians to the Containment Facility east of here.
@@ -5026,10 +5029,10 @@ Param/Value/C53AFF68=We've killed all the Infestors.
 Param/Value/C5477355=<s val="GlueButtonSmall">Rifleman: 
 Param/Value/C54C6CDC=(Hephaestus is drawn to the fear of a lone Marine...)
 Param/Value/C559CDD3=Dropping energy fields. Haul ass and shield yourselves.
-Param/Value/C5735DA3=: 
 Param/Value/C5BD2B36=<s val="GlueButton"><c val="F4D72B">Apollo needs to be destroyed. It hides something that threatens our collective safety.</c></s>
 Param/Value/C5DB6F8C=Our sensors have picked up very strong readings of the infestation.
 Param/Value/C5E6DE57=Basics
+Param/Value/C5ED35FE=</c></s>
 Param/Value/C6017D1E=</s>
 Param/Value/C616C751=+
 Param/Value/C669D621=What is Seth doing here?
@@ -5067,6 +5070,7 @@ Param/Value/CBC10B72=It's at the military base. Let's go.
 Param/Value/CC0DFB19=<s val="GlueButtonSmall">Marksman: 
 Param/Value/CC1A343B=(You notice Dr Tanaka acting suspiciously...) 
 Param/Value/CC209D9A=)
+Param/Value/CC451A99=<s val="BriefingHanText">(Terminal: Retrieving Sec Tower locations...)</s>
 Param/Value/CC5FA379=Survive the attack on Apollo Starport
 Param/Value/CC834827=I'm Assistant Science Officer Tanaka.
 Param/Value/CC852C44=Dr. Omar
@@ -5223,6 +5227,7 @@ Param/Value/E6F00E7C=Those air bogeys are coming your way now.
 Param/Value/E6FB466C=
 Param/Value/E7B331C2=Ensure your team is ready before activating mission Hexes.
 Param/Value/E7C7632E=Earth will be plunged into darkness if this facility shuts down. You know it.
+Param/Value/E7F7908A=<s val="BriefingHanText">(Accessing Command Terminal...)</s>
 Param/Value/E820F84B=Almost everyone's dead, we're looking for answers and a way out.
 Param/Value/E8977402=Apollo
 Param/Value/E8B12632=This is it.

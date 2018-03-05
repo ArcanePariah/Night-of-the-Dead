@@ -936,6 +936,10 @@ int[9][19] gv_classSelectionDialogItem;
 fixed gv_classLimitMultiplier;
 bool gv_classLimitBroken;
 int[15] gv_classCount;
+int[gv_numberofPlayers + 1] gv_MissionLogClose;
+int[gv_numberofPlayers + 1] gv_MissionLogOpen;
+int[gv_numberofPlayers + 1] gv_MissionLog;
+int[gv_numberofPlayers + 1] gv_MissionLogContent;
 int[gv_numberofPlayers + 1] gv_playerNameLabel;
 int[gv_numberofPlayers + 1] gv_playerNameRankIcon;
 int[4][7][gv_numberofPlayers + 1] gv_dialogButtons;
@@ -1273,6 +1277,18 @@ void InitGlobals () {
     }
     gv_classLimitMultiplier = 1.0;
     for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_MissionLogClose[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_MissionLogOpen[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_MissionLog[init_i] = c_invalidDialogId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_MissionLogContent[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
         gv_playerNameLabel[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
@@ -1588,6 +1604,7 @@ void gf_RandomNydusPop ();
 point gf_RandomPointatGroundHeight (region lp_region, fixed lp_groundHeight);
 bool gf_CPDecayFactor ();
 void gf_MarineSpeechNOTD (unit lp_speechUnit, text lp_speech);
+void gf_StoryMessageNOTD (text lp_message);
 void gf_CoordinateTextNOTD (point lp_displayPoint, text lp_speech);
 void gf_RadioNOTD (text lp_speechUnit, text lp_speech);
 void gf_TipNOTD (int lp_tipThreshold, text lp_tipText);
@@ -1698,6 +1715,8 @@ int gf_GetClassCP (int lp_player, string lp_class);
 int gf_GetClassColor (string lp_class);
 void gf_HideAllDialogsForPlayer (int lp_player);
 void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, playergroup lp_playerstoHideFrom);
+void gf_MissionLogCreation (int lp_player);
+void gf_MissionLogAppend (text lp_textToAppend);
 int gf_GetPreviousNextPlayer (int lp_currentPlayer, bool lp_isNext);
 void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, text lp_dialogTitle, int lp_highlightDialogFrame, int lp_dialogControlCategory);
 bool gf_UsedDialogIsMedal (int lp_usedDialog);
@@ -2121,6 +2140,7 @@ trigger gt_BuyItem;
 trigger gt_BuyStandardItem;
 trigger gt_ClassCreation;
 trigger gt_AmmoUIButtonCallback;
+trigger gt_MissionLogToggle;
 trigger gt_DialogButtonClicks;
 trigger gt_CreateTeamStatusDialog;
 trigger gt_SaveButtonClick;
@@ -4427,7 +4447,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_kiftadtexaiclfdc;
+    int lv_lpofonqucbuvliff;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -5852,6 +5872,7 @@ bool auto_gf_MarineSpeechNOTD_TriggerFunc (bool testConds, bool runActions) {
     text lp_speech = auto_gf_MarineSpeechNOTD_lp_speech;
 
     // Variable Declarations
+    text lv_tempText;
     int lv_localTextTag;
 
     // Automatic Variable Declarations
@@ -5862,10 +5883,12 @@ bool auto_gf_MarineSpeechNOTD_TriggerFunc (bool testConds, bool runActions) {
     if ((UnitIsAlive(lp_speechUnit) == true)) {
         SoundPlayAtPoint(SoundLink("Transmission", -1), PlayerGroupAll(), UnitGetPosition(lp_speechUnit), 1.5, 31.0, 0.0);
         if ((UnitGroupHasUnit(gv_marines, lp_speechUnit) == true)) {
-            TextTagCreate((UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[UnitGetOwner(lp_speechUnit)]), "Title Brief", 1) + PlayerName(UnitGetOwner(lp_speechUnit)) + StringExternal("Param/Value/96EC434E") + lp_speech), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
+            lv_tempText = (UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[UnitGetOwner(lp_speechUnit)]), "Title Brief", 1) + PlayerName(UnitGetOwner(lp_speechUnit)) + StringExternal("Param/Value/60B6F5E1") + lp_speech);
+            TextTagCreate(lv_tempText, 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
         }
         else {
-            TextTagCreate((UnitTypeGetName(UnitGetType(lp_speechUnit)) + (StringExternal("Param/Value/C5735DA3") + lp_speech)), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
+            lv_tempText = (UnitTypeGetName(UnitGetType(lp_speechUnit)) + (StringExternal("Param/Value/84300FE3") + lp_speech));
+            TextTagCreate(lv_tempText, 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
         }
         lv_localTextTag = TextTagLastCreated();
         TextTagSetColor(lv_localTextTag, c_textTagColorText, Color(95.69, 84.31, 16.86));
@@ -5873,9 +5896,17 @@ bool auto_gf_MarineSpeechNOTD_TriggerFunc (bool testConds, bool runActions) {
         TextTagSetTime(lv_localTextTag, c_textTagTimeDuration, 5.0);
         TextTagSetTime(lv_localTextTag, c_textTagTimeFadeDuration, 0.0);
         TextTagSetTime(lv_localTextTag, c_textTagTimeFadeOut, 0.0);
+        gf_MissionLogAppend(lv_tempText);
     }
 
     return true;
+}
+
+void gf_StoryMessageNOTD (text lp_message) {
+    // Automatic Variable Declarations
+    // Implementation
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, lp_message);
+    gf_MissionLogAppend(lp_message);
 }
 
 trigger auto_gf_CoordinateTextNOTD_Trigger = null;
@@ -5932,10 +5963,17 @@ bool auto_gf_RadioNOTD_TriggerFunc (bool testConds, bool runActions) {
     text lp_speechUnit = auto_gf_RadioNOTD_lp_speechUnit;
     text lp_speech = auto_gf_RadioNOTD_lp_speech;
 
+    // Variable Declarations
+    text lv_tempText;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+
     // Implementation
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 75.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (StringExternal("Param/Value/A5117E49") + (lp_speechUnit + (StringExternal("Param/Value/5DDB7741") + (lp_speech + StringExternal("Param/Value/3778460A"))))));
+    lv_tempText = (StringExternal("Param/Value/41F8F972") + (lp_speechUnit + (StringExternal("Param/Value/C18C8E32") + (lp_speech + StringExternal("Param/Value/C5ED35FE")))));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, lv_tempText);
+    gf_MissionLogAppend(lv_tempText);
     return true;
 }
 
@@ -7364,10 +7402,17 @@ void gf_TerminalUpdate (unit lp_terminalUnit, fixed lp_experienceChange) {
 }
 
 void gf_LogEntryPlayback (int lp_logEntry) {
+    // Variable Declarations
+    text lv_tempText;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+
     // Implementation
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, UserDataGetText("MiningCampLogs", UserDataInstance("MiningCampLogs", lp_logEntry), "Log Entry", RandomInt(1, 3)));
+    lv_tempText = UserDataGetText("MiningCampLogs", UserDataInstance("MiningCampLogs", lp_logEntry), "Log Entry", RandomInt(1, 3));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, lv_tempText);
+    gf_MissionLogAppend(lv_tempText);
 }
 
 trigger auto_gf_TissueSampleComplete_Trigger = null;
@@ -11599,6 +11644,7 @@ void gf_HideAllDialogsForPlayer (int lp_player) {
         DialogSetVisible(gv_playerMedalsDialog[lv_index], PlayerGroupSingle(lp_player), false);
         DialogSetVisible(gv_statsPlayerStatsDialog[lv_index], PlayerGroupSingle(lp_player), false);
         DialogSetVisible(gv_talentTree[lv_index], PlayerGroupSingle(lp_player), false);
+        DialogSetVisible(gv_MissionLog[lv_index], PlayerGroupSingle(lp_player), false);
     }
 }
 
@@ -11617,6 +11663,89 @@ void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, player
         DialogSetVisible(gv_shellDialog[lp_dialogOwner], lp_playerstoHideFrom, lp_showHideOption);
     }
 
+}
+
+trigger auto_gf_MissionLogCreation_Trigger = null;
+int auto_gf_MissionLogCreation_lp_player;
+
+void gf_MissionLogCreation (int lp_player) {
+    auto_gf_MissionLogCreation_lp_player = lp_player;
+
+    if (auto_gf_MissionLogCreation_Trigger == null) {
+        auto_gf_MissionLogCreation_Trigger = TriggerCreate("auto_gf_MissionLogCreation_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_MissionLogCreation_Trigger, false, false);
+}
+
+bool auto_gf_MissionLogCreation_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_gf_MissionLogCreation_lp_player;
+
+    // Variable Declarations
+    int lv_tempDialogFrame;
+
+    // Automatic Variable Declarations
+    int auto51DE914D_val;
+
+    // Variable Initialization
+    lv_tempDialogFrame = c_invalidDialogControlId;
+
+    // Implementation
+    gf_UIDialogCreation(610, 690, 270, 150, c_anchorTopRight);
+    gv_MissionLog[lp_player] = DialogLastCreated();
+    DialogControlCreateFromTemplate(gv_MissionLog[lp_player], c_triggerControlTypePanel, "MissionLog/MissionLog");
+    lv_tempDialogFrame = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "CloseButton");
+    gv_MissionLogClose[lp_player] = DialogControlLastCreated();
+    DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "MissionLogOpen");
+    gv_MissionLogOpen[lp_player] = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "OffsetRelated");
+    lv_tempDialogFrame = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "ContainerFrame");
+    gv_MissionLogContent[lp_player] = DialogControlLastCreated();
+    auto51DE914D_val = gv_storyline;
+    if (auto51DE914D_val == 1) {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], UserDataGetText("Storyline", "Easy Company", "Story Name", 1), PlayerGroupSingle(lp_player));
+    }
+    else if (auto51DE914D_val == 2) {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], UserDataGetText("Storyline", "Alpha Company", "Story Name", 1), PlayerGroupSingle(lp_player));
+    }
+    else if (auto51DE914D_val == 3) {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], UserDataGetText("Storyline", "Apollo Security Team", "Story Name", 1), PlayerGroupSingle(lp_player));
+    }
+    else if (auto51DE914D_val == 4) {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], UserDataGetText("Storyline", "Survival", "Story Name", 1), PlayerGroupSingle(lp_player));
+    }
+    else {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], UserDataGetText("Storyline", "Easy Company", "Story Name", 1), PlayerGroupSingle(lp_player));
+    }
+    return true;
+}
+
+void gf_MissionLogAppend (text lp_textToAppend) {
+    // Variable Declarations
+    int lv_index;
+    text lv_tempText;
+    int lv_tempDialog;
+    int lv_missionTime;
+
+    // Automatic Variable Declarations
+    playergroup auto207CAF0B_g;
+
+    // Variable Initialization
+    lv_index = gv_indexBaseValue;
+    lv_tempDialog = c_invalidDialogControlId;
+    lv_missionTime = FixedToInt(GameGetMissionTime());
+
+    // Implementation
+    auto207CAF0B_g = gv_activePlayers;
+    lv_index = -1;
+    while (true) {
+        lv_index = PlayerGroupNextPlayer(auto207CAF0B_g, lv_index);
+        if (lv_index < 0) { break; }
+        lv_tempText = (libNtve_gf_DialogItemText(gv_MissionLogContent[lv_index], lv_index) + StringExternal("Param/Value/1366F3ED") + TextTimeFormat(StringToText("<hour2/>:<min2/>:<sec2/>"), lv_missionTime) + StringExternal("Param/Value/0EC7DFD6") + lp_textToAppend);
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lv_index], lv_tempText, PlayerGroupSingle(lv_index));
+    }
 }
 
 int gf_GetPreviousNextPlayer (int lp_currentPlayer, bool lp_isNext) {
@@ -19607,6 +19736,7 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
         UnitBehaviorAddPlayer(auto1391D07C_var, "LaserDesignatorLevel1", 10, 1);
     }
     Wait(1.5, c_timeReal);
+    gf_StoryMessageNOTD(StringExternal("Param/Value/B7ED1099"));
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/78FBB322"));
     SoundPlay(SoundLink("UI_TerranKlaxonAlert", -1), PlayerGroupActive(), 80.0, 0.0);
     Wait(2.0, c_timeReal);
@@ -19842,6 +19972,7 @@ bool gt_ECW1EnterMine_Func (bool testConds, bool runActions) {
     PingCreate(PlayerGroupActive(), "PingWarning", UnitGetPosition(EventUnit()), ColorWithAlpha(0.00, 50.20, 100.00, 0.00), 5.0);
     Wait(3.9, c_timeReal);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_episilonMinis, c_unitCountAlive), StringExternal("Param/Value/6189B259"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/02746C5B"));
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/0650FCD8"));
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(5.0, c_timeReal);
@@ -20572,6 +20703,7 @@ bool gt_ECOptionalCamMissionStart_Func (bool testConds, bool runActions) {
     UnitFlashSelection(EventUnit(), 2.5);
     Wait(2.0, c_timeReal);
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
+    gf_StoryMessageNOTD(StringExternal("Param/Value/E7F7908A"));
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/BB5E379E"));
     Wait(3.0, c_timeReal);
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(36), "DecalProtoss");
@@ -20579,6 +20711,7 @@ bool gt_ECOptionalCamMissionStart_Func (bool testConds, bool runActions) {
     Wait(10.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/6354C52B"));
     Wait(3.0, c_timeReal);
+    gf_StoryMessageNOTD(StringExternal("Param/Value/CC451A99"));
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/A0B4CB54"));
     Wait(3.0, c_timeReal);
     TriggerEnable(gt_OptionalSecurityCamerasCollection, true);
@@ -38645,6 +38778,7 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_DialogButtonClicks, true);
     gf_ClassCreationMaster(lv_selectingPlayer, lv_selectingPlayer);
     gf_TalentTreeCreation(lv_selectingPlayer);
+    gf_MissionLogCreation(lv_selectingPlayer);
     return true;
 }
 
@@ -38690,6 +38824,47 @@ bool gt_AmmoUIButtonCallback_Func (bool testConds, bool runActions) {
 void gt_AmmoUIButtonCallback_Init () {
     gt_AmmoUIButtonCallback = TriggerCreate("gt_AmmoUIButtonCallback_Func");
     TriggerAddEventDialogControl(gt_AmmoUIButtonCallback, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Mission Log Toggle
+//--------------------------------------------------------------------------------------------------
+bool gt_MissionLogToggle_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_triggeringPlayer;
+    int lv_usedDialog;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_triggeringPlayer = EventPlayer();
+    lv_usedDialog = EventDialogControl();
+
+    // Conditions
+    if (testConds) {
+        if (!(((lv_usedDialog == gv_MissionLogOpen[lv_triggeringPlayer]) || (lv_usedDialog == gv_MissionLogClose[lv_triggeringPlayer])))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((DialogIsVisible(gv_MissionLog[lv_triggeringPlayer], lv_triggeringPlayer) == true)) {
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+    }
+    else {
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+        DialogSetVisible(gv_MissionLog[lv_triggeringPlayer], PlayerGroupSingle(lv_triggeringPlayer), true);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MissionLogToggle_Init () {
+    gt_MissionLogToggle = TriggerCreate("gt_MissionLogToggle_Func");
+    TriggerAddEventDialogControl(gt_MissionLogToggle, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -41976,6 +42151,7 @@ void InitTriggers () {
     gt_BuyStandardItem_Init();
     gt_ClassCreation_Init();
     gt_AmmoUIButtonCallback_Init();
+    gt_MissionLogToggle_Init();
     gt_DialogButtonClicks_Init();
     gt_CreateTeamStatusDialog_Init();
     gt_SaveButtonClick_Init();
