@@ -2115,6 +2115,7 @@ DocInfo/PatchNote212=- SEC apopteosis no longer can spawn directly on top of tea
 DocInfo/PatchNote213=- Removed various errors related to spawning of enemies in all storylines (Niktos)
 DocInfo/PatchNote214=- Fix to dealt critical damage failing to display since patch 2.176 (Niktos)
 DocInfo/PatchNote215=- Fixing rare situation of dr Tanaka dying after his invulnerability during his laboratory trip in AC (Niktos)
+DocInfo/PatchNote216=- Revamped Shop with nicer UI, works alongside older shop for now (Niktos)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
@@ -6047,10 +6048,6 @@ UserData/Ranks/Sergeant_Title Brief=Sgt.
 UserData/Ranks/Sergeant_Title Full=Sergeant
 UserData/Ranks/Staff Sergeant_Title Brief=SSgt. 
 UserData/Ranks/Staff Sergeant_Title Full=Staff Sergeant
-UserData/SquadInformation/Difficulty HP Scaling_Information=Difficulty HP Scaling: 
-UserData/SquadInformation/Spawn Factor_Information=Spawn Factor: 
-UserData/SquadInformation/Squad Rating_Information=Squad Rating: 
-UserData/SquadInformation/Squad XP_Information=Squad XP: 
 UserData/ShopItems/ShopItem10_ShopTooltip=Changes Marine color to <c val="1f01c9">Violet</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem11_ShopTooltip=Changes Marine color to <c val="525494">Light Grey</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem12_ShopTooltip=Changes Marine color to <c val="106246">Dark Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
@@ -6111,6 +6108,10 @@ UserData/ShopItems/ShopItem70_ShopTooltip=Rank icon of Marine replaced with Blac
 UserData/ShopItems/ShopItem7_ShopTooltip=Changes Marine color to <c val="fe8a0e">Orange</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem8_ShopTooltip=Changes Marine color to <c val="168000">Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem9_ShopTooltip=Changes Marine color to <c val="FF80FF">Pink</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/SquadInformation/Difficulty HP Scaling_Information=Difficulty HP Scaling: 
+UserData/SquadInformation/Spawn Factor_Information=Spawn Factor: 
+UserData/SquadInformation/Squad Rating_Information=Squad Rating: 
+UserData/SquadInformation/Squad XP_Information=Squad XP: 
 UserData/StatData/Agility_Name=Agility
 UserData/StatData/Agility_Tooltip=<c val="FFFF00">Agility</c><n/>Adds movespeed, improved reload time
 UserData/StatData/Endurance_Name=Endurance
