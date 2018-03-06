@@ -1641,4 +1641,25 @@
             <radius value="18.347"/>
         </shape>
     </region>
+    <region id="150">
+        <name value="ShopRegionA"/>
+        <shape type="circle">
+            <center value="230,17"/>
+            <radius value="10"/>
+        </shape>
+    </region>
+    <region id="173">
+        <name value="ShopRegionB"/>
+        <shape type="circle">
+            <center value="237,222"/>
+            <radius value="10"/>
+        </shape>
+    </region>
+    <region id="178">
+        <name value="ShopRegionC"/>
+        <shape type="circle">
+            <center value="9,39"/>
+            <radius value="10"/>
+        </shape>
+    </region>
 </Regions>
