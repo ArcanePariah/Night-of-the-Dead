@@ -367,7 +367,7 @@
     <CUnit id="Baneling">
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="0"/>
-        <KillXP value="15"/>
+        <KillXP value="12"/>
         <TacticalAIThink value=""/>
         <AbilArray index="5" removed="1"/>
         <AbilArray index="6" removed="1"/>
@@ -388,8 +388,7 @@
         <KillXP value="12"/>
         <CostResource index="Minerals" value="0"/>
         <CostResource index="Vespene" value="0"/>
-        <BehaviorArray index="1" Link="SharedExperience"/>
-        <BehaviorArray Link="DifficultyScalingHP"/>
+        <BehaviorArray index="1" Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="BlackOps">
         <AbilArray Link="stop"/>
@@ -434,10 +433,9 @@
         <EnergyMax value="200"/>
         <Acceleration value="1000"/>
         <FlagArray index="UseLineOfSight" value="1"/>
-        <KillXP value="20"/>
+        <KillXP value="30"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Psionic" value="1"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="Blackhole">
@@ -484,12 +482,11 @@
         <AttackTargetPriority value="9"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="5"/>
+        <KillXP value="8"/>
         <AbilArray Link="BlindlingExplode"/>
         <AbilArray Link="UnburrowBlindling"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <CardLayouts>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
@@ -541,12 +538,11 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="10"/>
+        <KillXP value="12"/>
         <AbilArray Link="Explode"/>
         <AbilArray Link="BurrowBanelingUp"/>
         <AbilArray Link="BurrowBanelingDown"/>
         <BehaviorArray Link="BanelingExplode"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <CardLayouts>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
@@ -1062,7 +1058,7 @@
         <LifeMax value="150"/>
         <LifeArmor value="5"/>
         <LifeStart value="150"/>
-        <KillXP value="2"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="CrawlerDroneLevel1">
         <Race value="Terr"/>
@@ -1450,7 +1446,7 @@
         <CostResource index="Minerals" value="100"/>
         <CostResource index="Vespene" value="100"/>
         <AttackTargetPriority value="11"/>
-        <KillXP value="12"/>
+        <KillXP value="15"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <BehaviorArray Link="makeCreep2x2"/>
         <Radius value="0"/>
@@ -1857,7 +1853,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="50"/>
+        <KillXP value="55"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
@@ -2005,12 +2001,12 @@
         <Speed value="1.3984"/>
         <SpeedMultiplierCreep value="1.7"/>
         <AttackTargetPriority value="22"/>
-        <KillXP value="1"/>
+        <KillXP value="2"/>
         <AbilArray index="0" Link="attack"/>
         <AbilArray index="1" Link="stop"/>
         <AbilArray Link="move"/>
         <BehaviorArray index="0" Link="DifficultyScalingHP"/>
-        <BehaviorArray index="1" Link="SharedExperience"/>
+        <BehaviorArray index="1" removed="1"/>
         <WeaponArray Link="VenomousFangs"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="Move" AbilCmd="move,Move" Column="4"/>
@@ -2239,7 +2235,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="30"/>
+        <KillXP value="100"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="UnburrowTitan"/>
@@ -2261,7 +2257,6 @@
         <HotkeyAlias value="Titan"/>
         <KillDisplay value="Never"/>
         <AIEvaluateAlias value="InfestorTerran"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="Titan">
@@ -2321,7 +2316,6 @@
         <TacticalAI value="InfestorTerran"/>
         <KillDisplay value="Never"/>
         <AIEvaluateAlias value="InfestorTerran"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="TransportTruck">
@@ -3386,7 +3380,6 @@
         <AbilArray Link="Overdrive"/>
         <AbilArray Link="X1UpgradeLevel2"/>
         <BehaviorArray Link="X1BotVeterancy"/>
-        <BehaviorArray Link="XPShareSuppression"/>
         <BehaviorArray Link="X1GuardianLimit"/>
         <TurretArray value="Diamondback"/>
         <TurretArray value="Diamondback"/>
@@ -3428,7 +3421,6 @@
         <LifeStart value="850"/>
         <LifeMax value="850"/>
         <Speed value="1.8007"/>
-        <KillXP value="25"/>
         <TacticalAI value="ZombieBroodMother"/>
         <LeaderAlias value="ZombieBroodMother"/>
         <HotkeyAlias value="ZombieBroodMother"/>
@@ -3461,7 +3453,6 @@
         <EnergyRegenDelay value="5"/>
         <EnergyRegenRate value="3"/>
         <BehaviorArray Link="CommandAura"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <StationaryTurningRate value="199.8632"/>
         <TurningRate value="199.8632"/>
@@ -3668,14 +3659,13 @@
         <Speed value="1.25"/>
         <SpeedMultiplierCreep value="1.7"/>
         <AttackTargetPriority value="10"/>
-        <KillXP value="45"/>
+        <KillXP value="70"/>
         <AbilArray index="1" Link="move"/>
         <AbilArray index="2" Link="Rampage"/>
         <AbilArray index="3" Link="UnburrowBrainBug"/>
         <AbilArray index="4" removed="1"/>
         <BehaviorArray index="0" Link="BrainBugPeriodicRampageCast"/>
         <BehaviorArray index="1" Link="DetectorRange3"/>
-        <BehaviorArray Link="SharedExperience"/>
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
@@ -3828,6 +3818,7 @@
         <HotkeyAlias value="Hades"/>
         <VisionHeight value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <KillXP value="200"/>
     </CUnit>
     <CUnit id="Hatchery">
         <FlagArray index="Invulnerable" value="1"/>
@@ -4149,8 +4140,8 @@
         <AbilArray index="2" Link="UnburrowBeastling"/>
         <AbilArray index="3" removed="1"/>
         <AbilArray index="4" removed="1"/>
-        <BehaviorArray index="0" Link="SharedExperience"/>
-        <BehaviorArray index="1" Link="DifficultyScalingHP"/>
+        <BehaviorArray index="0" Link="DifficultyScalingHP"/>
+        <BehaviorArray index="1" removed="1"/>
         <BehaviorArray index="2" removed="1"/>
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
@@ -4176,6 +4167,7 @@
         <StationaryTurningRate value="299.8828"/>
         <TurningRate value="299.8828"/>
         <TacticalAIThink value="AIThinkBaneling"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="Devourer2">
         <DeathRevealRadius value="3"/>
@@ -4248,7 +4240,6 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="Hugger2">
@@ -4302,7 +4293,6 @@
         <AbilArray Link="InfestedTerrans"/>
         <AbilArray Link="UnburrowHugger"/>
         <BehaviorArray Link="HuggerGrab"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
@@ -4407,7 +4397,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="6"/>
+        <KillXP value="8"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="UnburrowImmortal"/>
@@ -4430,7 +4420,6 @@
         <HotkeyAlias value="Immortal2"/>
         <KillDisplay value="Never"/>
         <AIEvaluateAlias value="InfestorTerran"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="ItemDummy">
@@ -4630,6 +4619,7 @@
         <ShieldsMax value="15"/>
         <ShieldRegenRate value="1"/>
         <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="Brutalisk2" parent="PetTemplate">
         <Name value="Unit/Name/Brutalisk2"/>
@@ -4967,7 +4957,7 @@
         <AttackTargetPriority value="19"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="20"/>
+        <KillXP value="30"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="UnburrowSlasher"/>
@@ -5005,7 +4995,6 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="TaurenSpaceMarine2" parent="PetTemplate">
@@ -5054,8 +5043,9 @@
         <KillXP value="75"/>
         <LifeRegenRate value="1"/>
         <LifeArmor value="10"/>
-        <BehaviorArray index="0" Link="SharedExperience"/>
-        <BehaviorArray index="1" Link="DifficultyScalingHP"/>
+        <BehaviorArray index="0" Link="DifficultyScalingHP"/>
+        <BehaviorArray index="1" Link="CreepFrenzy13Crawler"/>
+        <BehaviorArray index="2" removed="1"/>
         <Attributes index="Structure" value="0"/>
         <Footprint value="Footprint2x2IgnoreCreepContour"/>
         <PlacementFootprint value="Footprint2x2IgnoreCreepContour"/>
@@ -5108,10 +5098,8 @@
         <LifeArmor value="2"/>
         <LifeRegenRate value="-1"/>
         <Food value="-2"/>
-        <KillXP value="35"/>
-        <BehaviorArray index="0" Link="DifficultyScalingHP"/>
+        <KillXP value="50"/>
         <BehaviorArray index="1" removed="1"/>
-        <BehaviorArray index="2" removed="1"/>
         <Footprint value="Footprint2x2Contour2"/>
         <PlacementFootprint value="Footprint2x2Creep2"/>
         <LeaderAlias value="HadesTentacle"/>
@@ -5122,9 +5110,8 @@
     <CUnit id="SpineCrawlerUprooted">
         <LifeStart value="500"/>
         <LifeMax value="500"/>
-        <KillXP value="100"/>
+        <KillXP value="75"/>
         <LifeRegenRate value="-1"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="Hyperion">
@@ -5318,9 +5305,7 @@
         <LifeMax value="250"/>
         <Speed value="1.1992"/>
         <Food value="-1"/>
-        <KillXP value="12"/>
         <SubgroupPriority value="1"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <LifeArmor value="4"/>
     </CUnit>
@@ -5405,7 +5390,7 @@
         <Speed value="2.3007"/>
         <VisionHeight value="3"/>
         <OccludeHeight value="2"/>
-        <KillXP value="50"/>
+        <KillXP value="70"/>
         <BehaviorArray Link="Detector5"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <WeaponArray index="0" Link="PunisherGrenadesSeth"/>
@@ -5626,7 +5611,6 @@
         <KillXP value="45"/>
         <BehaviorArray index="0" Link="DifficultyScalingHP"/>
         <BehaviorArray Link="Frenzy"/>
-        <BehaviorArray Link="SharedExperience"/>
         <Sight value="1"/>
         <Radius value="0.3125"/>
         <InnerRadius value="0.3125"/>
@@ -5646,7 +5630,6 @@
         <LifeStart value="1000"/>
         <LifeMax value="1000"/>
         <Speed value="0.8984"/>
-        <KillXP value="25"/>
         <AbilArray index="1" Link="UnburrowBroodmother"/>
         <AbilArray index="3" removed="1"/>
         <AbilArray index="4" removed="1"/>
@@ -5675,7 +5658,6 @@
         <SpeedBonusCreep value="1.1992"/>
         <EnergyStart value="100"/>
         <EnergyMax value="100"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="SeekerBurrowed">
@@ -5708,7 +5690,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="8"/>
+        <KillXP value="10"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="UnburrowSeeker"/>
@@ -5731,7 +5713,6 @@
         <HotkeyAlias value="Seeker"/>
         <KillDisplay value="Never"/>
         <AIEvaluateAlias value="InfestorTerran"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="NanoHealthAugment" parent="ITEM">
@@ -5833,7 +5814,7 @@
         <TurningRate value="199.8632"/>
         <Sight value="15"/>
         <AttackTargetPriority value="20"/>
-        <KillXP value="8"/>
+        <KillXP value="50"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -6223,11 +6204,10 @@
         <AIEvaluateAlias value="Strangler"/>
         <Speed value="2.5"/>
         <BehaviorArray Link="HuggerGrab"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <Attributes index="Psionic" value="1"/>
         <SubgroupPriority value="2"/>
-        <KillXP value="10"/>
+        <KillXP value="25"/>
     </CUnit>
     <CUnit id="Demeter">
         <DeathRevealRadius value="3"/>
@@ -6270,7 +6250,7 @@
         <AttackTargetPriority value="19"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="80"/>
+        <KillXP value="100"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="attack"/>
@@ -6349,6 +6329,9 @@
         <StationaryTurningRate value="299.8828"/>
         <TurningRate value="299.8828"/>
         <TacticalAIThink value="AIThinkBaneling"/>
+        <BehaviorArray index="1" Link="DifficultyScalingHP"/>
+        <BehaviorArray index="2" removed="1"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="Gunship">
         <Race value="Terr"/>
@@ -6379,8 +6362,8 @@
         <Name value="Unit/Name/Blindling"/>
         <Description value="Button/Tooltip/Blindling"/>
         <ReviveType value="Blindling"/>
-        <BehaviorArray index="0" Link="SharedExperience"/>
-        <BehaviorArray index="1" Link="DifficultyScalingHP"/>
+        <BehaviorArray index="0" Link="DifficultyScalingHP"/>
+        <BehaviorArray index="1" removed="1"/>
         <BehaviorArray index="2" removed="1"/>
         <WeaponArray index="0" Link="BlindlingBurst"/>
         <TacticalAI value="Blindling"/>
@@ -6399,7 +6382,7 @@
         <Speed value="2.8007"/>
         <AttackTargetPriority value="9"/>
         <SpeedMultiplierCreep value="1.7"/>
-        <KillXP value="5"/>
+        <KillXP value="8"/>
         <Food value="0"/>
         <EquipmentArray index="0" Weapon="BlindlingBurst"/>
         <StationaryTurningRate value="349.9804"/>
@@ -6417,7 +6400,6 @@
         <AbilArray Link="Charge"/>
         <BehaviorArray index="0" Link="BrainBugPeriodicRampageCast"/>
         <BehaviorArray index="1" Link="DetectorRange3"/>
-        <BehaviorArray Link="SharedExperience"/>
         <WeaponArray index="0" Link="HulkClaws"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="Rampage" Type="Undefined" AbilCmd="Rampage,Execute" Row="0" Column="0"/>
@@ -6433,7 +6415,7 @@
         <Attributes index="Massive" value="1"/>
         <SpeedMultiplierCreep value="1.7"/>
         <AttackTargetPriority value="10"/>
-        <KillXP value="45"/>
+        <KillXP value="70"/>
         <LifeArmor value="2"/>
         <EquipmentArray index="0" removed="1"/>
         <KillDisplay value="Never"/>
@@ -6867,7 +6849,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="40"/>
+        <KillXP value="50"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="UnburrowCharlie"/>
@@ -6927,7 +6909,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="150"/>
+        <KillXP value="200"/>
         <AbilArray Link="move"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="stop"/>
@@ -6984,7 +6966,7 @@
         <VisionHeight value="5"/>
         <OccludeHeight value="2"/>
         <AttackTargetPriority value="15"/>
-        <KillXP value="50"/>
+        <KillXP value="75"/>
         <AbilArray Link="Charge"/>
         <AbilArray Link="StealthIvax"/>
         <AbilArray Link="SwitchtoCannons"/>
@@ -7285,7 +7267,7 @@
         <AttackTargetPriority value="19"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="20"/>
+        <KillXP value="30"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -7325,7 +7307,6 @@
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
         <Speed value="1.8515"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="Flamethrower2">
@@ -7455,7 +7436,7 @@
         <AttackTargetPriority value="19"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="17"/>
+        <KillXP value="20"/>
         <AbilArray Link="BurrowDevourer"/>
         <WeaponArray index="0" Link="DevourerGround"/>
         <WeaponArray index="1" Link="DevourerClaws"/>
@@ -7495,7 +7476,6 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <Height value="0"/>
     </CUnit>
@@ -7587,7 +7567,7 @@
         <LifeRegenRate value="1"/>
         <Attributes index="Massive" value="1"/>
         <FlagArray index="Unselectable" value="1"/>
-        <KillXP value="1"/>
+        <KillXP value="2"/>
         <Sight value="1"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
@@ -7664,7 +7644,6 @@
         <BehaviorArray Link="Detector5"/>
         <BehaviorArray Link="SpawnCreeponDeathInstant"/>
         <BehaviorArray Link="InfestorNightmareSpeedBoost"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="Lelantos">
@@ -7733,7 +7712,6 @@
         <GlossaryWeakArray value="VoidRay"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <BehaviorArray Link="Detector5"/>
-        <BehaviorArray Link="SharedExperience"/>
         <StationaryTurningRate value="99.8437"/>
         <TurningRate value="99.8437"/>
     </CUnit>
@@ -8085,7 +8063,7 @@
         <Acceleration value="1000"/>
         <Sight value="9"/>
         <Height value="3.5"/>
-        <KillXP value="80"/>
+        <KillXP value="100"/>
         <AbilArray Link="move"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="SS_SwarmGuardianAttack"/>
@@ -8384,6 +8362,7 @@
         <LateralAcceleration value="46"/>
         <StationaryTurningRate value="149.9414"/>
         <TurningRate value="149.9414"/>
+        <KillXP value="100"/>
     </CUnit>
     <CUnit id="PsiOps">
         <DeathRevealRadius value="5"/>
@@ -8547,7 +8526,7 @@
         <AbilArray Link="move"/>
         <AbilArray Link="Charge"/>
         <BehaviorArray index="0" Link="DifficultyScalingHP"/>
-        <BehaviorArray index="1" Link="SharedExperience"/>
+        <BehaviorArray index="1" removed="1"/>
         <WeaponArray Link="NeedleClaws2"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="Move" AbilCmd="move,Move" Column="4"/>
@@ -8580,7 +8559,7 @@
         <SubgroupAlias value="Parasite"/>
         <AIEvaluateAlias value="Parasite"/>
         <SpeedMultiplierCreep value="1.7"/>
-        <KillXP value="7"/>
+        <KillXP value="8"/>
         <PushPriority value="9"/>
         <SubgroupPriority value="1"/>
         <LifeStart value="35"/>
@@ -8608,7 +8587,6 @@
     <CUnit id="Parasite2" parent="Parasite">
         <LifeStart value="45"/>
         <LifeMax value="45"/>
-        <KillXP value="6"/>
         <AbilArray index="3" Link="move"/>
         <AbilArray index="4" removed="1"/>
         <AbilArray index="5" removed="1"/>
@@ -8616,6 +8594,7 @@
         <SelectAlias value="Parasite2"/>
         <SubgroupAlias value="Parasite2"/>
         <AIEvaluateAlias value="Parasite2"/>
+        <BehaviorArray Link="SharedExperience"/>
     </CUnit>
     <CUnit id="ReaperMK13">
         <DeathRevealRadius value="3"/>
@@ -8666,7 +8645,6 @@
         <BehaviorArray Link="Detector2"/>
         <BehaviorArray Link="DroneVeterancy"/>
         <BehaviorArray Link="Flashlight"/>
-        <BehaviorArray Link="XPShareSuppression"/>
         <BehaviorArray Link="ReaperMK13Limit"/>
         <WeaponArray Link="AutoTurret"/>
         <CardLayouts>
@@ -8776,7 +8754,7 @@
             <ChanceArray index="Anim" value="33"/>
             <ChanceArray index="Idle" value="33"/>
         </Fidget>
-        <KillXP value="10"/>
+        <KillXP value="50"/>
     </CUnit>
     <CUnit id="DummyBlocker">
         <FlagArray index="Uncommandable" value="1"/>
@@ -8799,7 +8777,6 @@
         <Sight value="1"/>
         <Radius value="0.375"/>
         <SeparationRadius value="0.375"/>
-        <BehaviorArray Link="SharedExperience"/>
     </CUnit>
     <CUnit id="ExplodingBarrelLarge">
         <LifeStart value="10"/>
@@ -9261,7 +9238,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="35"/>
+        <KillXP value="40"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="BurrowInfestor"/>
@@ -9298,7 +9275,6 @@
         <BehaviorArray Link="Detector5"/>
         <BehaviorArray Link="SpawnCreeponDeathInstant"/>
         <BehaviorArray Link="InfestorNightmareSpeedBoost"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="Hugger">
@@ -9375,7 +9351,6 @@
         <GlossaryWeakArray value="Ghost"/>
         <KillDisplay value="Always"/>
         <BehaviorArray Link="HuggerGrab"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <Food value="-1"/>
     </CUnit>
@@ -9394,11 +9369,10 @@
             <LayoutButtons index="5" Face="BurrowDown" Type="AbilCmd" AbilCmd="BurrowInfestedMarine,Execute" Row="1" Column="4"/>
         </CardLayouts>
         <SpeedMultiplierCreep value="1.1"/>
-        <KillXP value="11"/>
+        <KillXP value="12"/>
         <Radius value="0.25"/>
         <InnerRadius value="0.25"/>
         <BehaviorArray Link="SpawnCreeponDeath"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <StationaryTurningRate value="349.9804"/>
         <TurningRate value="349.9804"/>
@@ -9453,12 +9427,12 @@
         <VisionHeight value="2"/>
         <Food value="-10"/>
         <AttackTargetPriority value="19"/>
-        <KillXP value="10"/>
+        <KillXP value="50"/>
         <AbilArray index="3" Link="BurrowInfestorTerranDown"/>
         <AbilArray Link="Charge"/>
         <BehaviorArray index="0" Link="DifficultyScalingHP"/>
         <BehaviorArray index="1" Link="Detector5"/>
-        <BehaviorArray index="2" Link="Charging"/>
+        <BehaviorArray Link="Charging"/>
         <BehaviorArray Link="DeimosShockRifle"/>
         <WeaponArray index="0" Link="DeimosAssaultRifle"/>
         <CardLayouts index="0">
@@ -9498,12 +9472,10 @@
         <LifeStart value="75"/>
         <LifeMax value="75"/>
         <SpeedMultiplierCreep value="1.3"/>
-        <KillXP value="10"/>
         <Radius value="0.375"/>
         <InnerRadius value="0.375"/>
-        <BehaviorArray index="0" Link="SharedExperience"/>
-        <BehaviorArray index="1" Link="DifficultyScalingHP"/>
-        <BehaviorArray index="2" removed="1"/>
+        <BehaviorArray index="0" Link="DifficultyScalingHP"/>
+        <BehaviorArray index="1" removed="1"/>
         <TacticalAI value="InfestorTerran"/>
         <AINotifyEffect value=""/>
     </CUnit>
@@ -9585,16 +9557,16 @@
     </CUnit>
     <CUnit id="SatchelLevel1">
         <Race value=""/>
-        <FlagArray index="Invulnerable" value="1"/>
         <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
         <EditorCategories value=""/>
         <LifeStart value="15"/>
         <LifeMax value="15"/>
     </CUnit>
     <CUnit id="SatchelLevel2">
         <Race value=""/>
-        <FlagArray index="Invulnerable" value="1"/>
         <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
         <EditorCategories value=""/>
         <LifeStart value="15"/>
         <LifeMax value="15"/>
@@ -9775,7 +9747,6 @@
         <TurretArray value="Diamondback"/>
         <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <BehaviorArray Link="X1BotVeterancy"/>
-        <BehaviorArray Link="XPShareSuppression"/>
         <BehaviorArray Link="X1GuardianLimit"/>
         <HotkeyCategory value="Hotkey/Minis"/>
     </CUnit>
@@ -9849,7 +9820,6 @@
         <Radius value="0.3125"/>
         <SeparationRadius value="0.3"/>
         <BehaviorArray Link="X1BotVeterancy"/>
-        <BehaviorArray Link="XPShareSuppression"/>
         <BehaviorArray Link="X1GuardianLimit"/>
         <HotkeyAlias value="X1GuardianLevel1"/>
         <HotkeyCategory value="Hotkey/Minis"/>
@@ -9881,7 +9851,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="9"/>
+        <KillXP value="10"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -9908,7 +9878,6 @@
         <AIEvaluateAlias value="InfestorTerran"/>
         <LifeArmor value="1"/>
         <PushPriority value="11"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="ZombieCreep">
@@ -9930,7 +9899,7 @@
         <SeparationRadius value="0"/>
         <MinimapRadius value="0"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
-        <KillXP value="2"/>
+        <KillXP value="5"/>
         <PlaneArray index="Ground" value="1"/>
         <TacticalAI value=""/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
@@ -9963,7 +9932,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="6"/>
+        <KillXP value="8"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -9989,7 +9958,6 @@
         <KillDisplay value="Never"/>
         <DeathTime value="20"/>
         <EffectArray index="Revive" value="ImmortalReviveHeal"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="HulkBurrowed">
@@ -10021,7 +9989,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="7"/>
+        <KillXP value="10"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="UnburrowHulk"/>
@@ -10043,7 +10011,6 @@
         <LeaderAlias value="Hulk"/>
         <HotkeyAlias value="Hulk"/>
         <KillDisplay value="Never"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="ZombieCreepLarge">
@@ -10064,7 +10031,7 @@
         <StationaryTurningRate value="0"/>
         <TurningRate value="0"/>
         <AttackTargetPriority value="1"/>
-        <KillXP value="2"/>
+        <KillXP value="5"/>
         <BehaviorArray Link="MakeCreep5x5NOTD"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <SeparationRadius value="0"/>
@@ -10098,7 +10065,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="4"/>
+        <KillXP value="5"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -10123,7 +10090,6 @@
         <KillDisplay value="Never"/>
         <AIEvaluateAlias value="InfestorTerran"/>
         <LifeArmor value="1"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="Hulk">
@@ -10153,7 +10119,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="7"/>
+        <KillXP value="10"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -10178,7 +10144,6 @@
         <TacticalAI value="InfestorTerran"/>
         <KillDisplay value="Never"/>
         <BehaviorArray Link="SpawnCreeponDeath"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="ZombieLevel12">
@@ -10210,7 +10175,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="4"/>
+        <KillXP value="5"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="UnburrowZombieLevel1"/>
@@ -10233,7 +10198,6 @@
         <HotkeyAlias value="ZombieLevel1"/>
         <KillDisplay value="Never"/>
         <AIEvaluateAlias value="InfestorTerran"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="ZombieLevel2">
@@ -10263,7 +10227,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="5"/>
+        <KillXP value="6"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -10287,7 +10251,6 @@
         <TacticalAI value="InfestorTerran"/>
         <KillDisplay value="Never"/>
         <AIEvaluateAlias value="InfestorTerran"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="LaserRifle" parent="ITEM">
@@ -10762,7 +10725,7 @@
     <CUnit id="Mutalisk">
         <LifeArmor value="1"/>
         <Speed value="2.6992"/>
-        <KillXP value="17"/>
+        <KillXP value="20"/>
         <Height value="1.5"/>
         <VisionHeight value="3"/>
         <WeaponArray index="0" Link="GlaiveWurm3"/>
@@ -10776,7 +10739,6 @@
         <StationaryTurningRate value="349.9804"/>
         <TurningRate value="349.9804"/>
         <TacticalAI value=""/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
     </CUnit>
@@ -10793,7 +10755,7 @@
         <Speed value="2.5"/>
         <StationaryTurningRate value="299.8828"/>
         <TurningRate value="299.8828"/>
-        <KillXP value="15"/>
+        <KillXP value="25"/>
         <AbilArray index="3" removed="1"/>
         <WeaponArray index="0" Link="GlaiveWurm"/>
         <TacticalAI value="Wraith2"/>
@@ -10950,7 +10912,7 @@
         <LifeStart value="1500"/>
         <LifeMax value="1500"/>
         <LifeArmor value="2"/>
-        <KillXP value="79"/>
+        <KillXP value="80"/>
         <DeathTime value="5"/>
         <AbilArray index="2" Link="stop"/>
         <AbilArray index="3" removed="1"/>
@@ -10960,7 +10922,6 @@
             <LayoutButtons index="3" removed="1"/>
         </CardLayouts>
         <BehaviorArray index="1" Link="DifficultyScalingHP"/>
-        <BehaviorArray Link="SharedExperience"/>
     </CUnit>
     <CUnit id="OccularImplants" parent="ITEM">
         <Race value="Terr"/>
@@ -11012,7 +10973,7 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="5"/>
+        <KillXP value="6"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="UnburrowZombieLevel2"/>
@@ -11035,7 +10996,6 @@
         <HotkeyAlias value="ZombieLevel2"/>
         <KillDisplay value="Never"/>
         <AIEvaluateAlias value="InfestorTerran"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="Eos">
@@ -11066,7 +11026,7 @@
         <Sight value="15"/>
         <Food value="-20"/>
         <AttackTargetPriority value="20"/>
-        <KillXP value="150"/>
+        <KillXP value="200"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
@@ -11251,7 +11211,6 @@
         <BehaviorArray Link="HardenCaraspace"/>
         <BehaviorArray Link="AccelerationNightmare"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
-        <BehaviorArray Link="SharedExperience"/>
         <PushPriority value="12"/>
     </CUnit>
     <CUnit id="Stalker2">
@@ -11285,13 +11244,12 @@
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
-        <KillXP value="10"/>
+        <KillXP value="15"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
         <AbilArray Link="BurrowRoachDown"/>
         <BehaviorArray Link="SpawnCreeponDeath"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <WeaponArray Link="StalkerClaws"/>
         <CardLayouts>
@@ -11499,7 +11457,6 @@
         <BehaviorArray Link="Charging"/>
         <BehaviorArray Link="DetectorRange3"/>
         <BehaviorArray Link="SpawnCreeponDeath"/>
-        <BehaviorArray Link="SharedExperience"/>
         <VisionHeight value="1"/>
         <LifeRegenRate value="2"/>
         <PushPriority value="11"/>
@@ -11536,8 +11493,7 @@
         <BehaviorArray index="4" Link="ZeusLetoHardenedArmor"/>
         <BehaviorArray index="5" removed="1"/>
         <BehaviorArray index="6" removed="1"/>
-        <BehaviorArray index="7" removed="1"/>
-        <KillXP value="25"/>
+        <KillXP value="30"/>
         <PushPriority value="10"/>
         <SubgroupPriority value="12"/>
         <Radius value="0.8125"/>
@@ -11569,8 +11525,7 @@
         <BehaviorArray index="4" Link="ZeusLetoHardenedArmor"/>
         <BehaviorArray index="5" removed="1"/>
         <BehaviorArray index="6" removed="1"/>
-        <BehaviorArray index="7" removed="1"/>
-        <KillXP value="25"/>
+        <KillXP value="30"/>
         <PushPriority value="10"/>
         <InnerRadius value="0.75"/>
         <Speed value="1.4492"/>
@@ -11751,6 +11706,7 @@
         <LifeArmor value="1"/>
         <Collide index="ForceField" value="0"/>
         <SubgroupPriority value="4"/>
+        <KillXP value="300"/>
     </CUnit>
     <CUnit id="GuardianoftheBeta" parent="Zealot">
         <Name value="Unit/Name/GuardianoftheBeta"/>
@@ -11807,7 +11763,7 @@
     </CUnit>
     <CUnit id="Zergling">
         <Food value="0"/>
-        <KillXP value="1"/>
+        <KillXP value="2"/>
         <DeathRevealRadius value="0"/>
         <LifeStart value="32"/>
         <LifeMax value="32"/>
@@ -11822,7 +11778,6 @@
         <StationaryTurningRate value="399.9023"/>
         <TurningRate value="399.9023"/>
         <TacticalAI value=""/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
     <CUnit id="ZerglingBurrowed">
@@ -11841,7 +11796,6 @@
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
         </CardLayouts>
         <SubgroupPriority value="1"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
     </CUnit>
 </Catalog>

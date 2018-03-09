@@ -582,7 +582,8 @@
         <VeterancyLevelArray MinVeterancyXP="35000">
             <Modification Detect="12" DetectFilters="-;Player,Neutral,Enemy"/>
         </VeterancyLevelArray>
-        <SharedXPMaxCount index="Kills" value="0"/>
+        <SharedXPRadius index="Kills" value="300"/>
+        <SharedXPFraction index="Kills" value="1"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="BlazeofGlory">
         <InfoFlags index="Hidden" value="1"/>
@@ -706,9 +707,6 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <DamageResponse Chance="1" Handled="ApplyCriticalStrikeSet" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
-        <Modification>
-            <StateFlags index="SuppressXPSharing" value="1"/>
-        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="CriticalStrikeAttackerKnife">
         <InfoFlags index="Hidden" value="1"/>
@@ -3743,9 +3741,6 @@
     <CBehaviorBuff id="XPShareSuppression">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Modification>
-            <StateFlags index="SuppressXPSharing" value="1"/>
-        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZEffect">
         <Alignment value="Negative"/>
