@@ -371,7 +371,6 @@
         <TacticalAIThink value=""/>
         <AbilArray index="5" removed="1"/>
         <AbilArray index="6" removed="1"/>
-        <BehaviorArray Link="SharedExperience"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <Attributes index="Light" value="1"/>
         <Speed value="2.5"/>
@@ -3666,6 +3665,7 @@
         <AbilArray index="4" removed="1"/>
         <BehaviorArray index="0" Link="BrainBugPeriodicRampageCast"/>
         <BehaviorArray index="1" Link="DetectorRange3"/>
+        <BehaviorArray Link="DifficultyScalingHP"/>
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
@@ -4142,7 +4142,6 @@
         <AbilArray index="4" removed="1"/>
         <BehaviorArray index="0" Link="DifficultyScalingHP"/>
         <BehaviorArray index="1" removed="1"/>
-        <BehaviorArray index="2" removed="1"/>
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
@@ -6329,8 +6328,6 @@
         <StationaryTurningRate value="299.8828"/>
         <TurningRate value="299.8828"/>
         <TacticalAIThink value="AIThinkBaneling"/>
-        <BehaviorArray index="1" Link="DifficultyScalingHP"/>
-        <BehaviorArray index="2" removed="1"/>
         <KillXP value="15"/>
     </CUnit>
     <CUnit id="Gunship">
@@ -6364,7 +6361,6 @@
         <ReviveType value="Blindling"/>
         <BehaviorArray index="0" Link="DifficultyScalingHP"/>
         <BehaviorArray index="1" removed="1"/>
-        <BehaviorArray index="2" removed="1"/>
         <WeaponArray index="0" Link="BlindlingBurst"/>
         <TacticalAI value="Blindling"/>
         <LeaderAlias value="Blindling"/>
@@ -6400,6 +6396,7 @@
         <AbilArray Link="Charge"/>
         <BehaviorArray index="0" Link="BrainBugPeriodicRampageCast"/>
         <BehaviorArray index="1" Link="DetectorRange3"/>
+        <BehaviorArray Link="DifficultyScalingHP"/>
         <WeaponArray index="0" Link="HulkClaws"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="Rampage" Type="Undefined" AbilCmd="Rampage,Execute" Row="0" Column="0"/>
@@ -8594,7 +8591,6 @@
         <SelectAlias value="Parasite2"/>
         <SubgroupAlias value="Parasite2"/>
         <AIEvaluateAlias value="Parasite2"/>
-        <BehaviorArray Link="SharedExperience"/>
     </CUnit>
     <CUnit id="ReaperMK13">
         <DeathRevealRadius value="3"/>
