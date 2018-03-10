@@ -3872,7 +3872,7 @@ Level 3 Surveillance Drone=Technician releases a retooled aerial repair drone wi
 Level 3 Surveillance Flares=Surveillance Flares - Fires 5 flares from a hovering support plane spread out randomly around target area of 15 radius.
 Level 3 Taunt=Forces enemies in 10 radius to attack you for 7 seconds. Taunted units deal 30% less damage.
 Level 3 X-1 Guardian=Summons a 225 HP battle bot. Deals 24 damage per attack (1.3 attack speed). Attacks penetrate armor.
-LoadingScreen/Tip=Find 'NOTD' on Facebook for regular updates
+LoadingScreen/Tip=Find 'NOTD Official' on Discord for regular updates
 MapInfo/Player00/Name=Neutral
 MapInfo/Player01/Name=Marine 1
 MapInfo/Player02/Name=Marine 2
@@ -4396,7 +4396,7 @@ Param/Value/53207B04=<s val="InfoPaneHeroRank">Supplies delivered into battlefie
 Param/Value/536BBA19=Argh!
 Param/Value/537C6F26=We don't have much time. The other team's trapped inside the living quarters.
 Param/Value/53829972=<s val="BriefingHanText">(IVAX assembly initiated...)</s>
-Param/Value/5395DC74=<s val="BriefingHanText">   www.notdstarcraft.com<n/>   www.facebook.com/notdstarcraft<n/>   www.twitter.com/#!/notdstarcraft</s>
+Param/Value/5395DC74=<s val="BriefingHanText">   www.notdstarcraft.com<n/>   https://discord.gg/cDWn9g<n/>
 Param/Value/53B8381E=I've been putting my head around it. I have a feeling all this is connected with the doctor who landed a few days ago.
 Param/Value/53C88C67= is now your Gunship buddy.</s>
 Param/Value/541BADD6=+3 XP for Mission Bonus. 40 civilians rescued.
@@ -5041,7 +5041,7 @@ Param/Value/C68BF08E=Activating Apollo defense systems...
 Param/Value/C6B04A5B=Fliers incoming. Switch to sniper rifles!
 Param/Value/C6CC2B17=(Charlie lets out a feral growl...)
 Param/Value/C6D3FF88=Keep moving. It's catching up.
-Param/Value/C6FDB822=Game Over. Find us on Facebook for regular updates. Search 'NOTD'.
+Param/Value/C6FDB822=Game Over. Find us on Discord for regular updates. Search 'NOTD Official'.
 Param/Value/C7373C86=
 Param/Value/C7813FD7=(Cronus prepares for <c val="FF0000">destruction</c>...)
 Param/Value/C79D92C1=You have 30 seconds to set up before I release the locks.
@@ -5968,7 +5968,7 @@ UserData/Mode/Veteran_Short=Veteran
 UserData/NewbieDeathTips/Standard Death Tips_Tips=Find more players in channel 'NOTD'
 UserData/NewbieDeathTips/Standard Death Tips_Tips_001=Get 500 XP to unlock a Predator after death
 UserData/NewbieDeathTips/Standard Death Tips_Tips_002=Learn everything about NOTD at notdstarcraft.wikia.com
-UserData/NewbieDeathTips/Standard Death Tips_Tips_003=Find 'NOTD' on Facebook for regular updates
+UserData/NewbieDeathTips/Standard Death Tips_Tips_003=Find 'NOTD Official' on Discord for regular updates
 UserData/NewbieDeathTips/Standard Death Tips_Tips_004=Your rating will increase as you play better. Good luck!
 UserData/OgiIntros/Ogi Intro 1_Speech=I know all about 'em. Put a bullet in them - they die!
 UserData/OgiIntros/Ogi Intro 2_Speech=Time to kick ass and chew bubble gum!
