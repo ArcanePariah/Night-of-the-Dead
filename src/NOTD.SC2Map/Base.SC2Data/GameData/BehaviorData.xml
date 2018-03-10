@@ -582,7 +582,7 @@
         <VeterancyLevelArray MinVeterancyXP="35000">
             <Modification Detect="12" DetectFilters="-;Player,Neutral,Enemy"/>
         </VeterancyLevelArray>
-        <SharedXPRadius index="Kills" value="300"/>
+        <SharedXPRadius index="Kills" value="400"/>
         <SharedXPFraction index="Kills" value="1"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="BlazeofGlory">
@@ -3737,6 +3737,8 @@
                 <DamageDealtFraction index="Splash" value="0.05"/>
             </Modification>
         </VeterancyLevelArray>
+        <SharedXPRadius index="Kills" value="400"/>
+        <SharedXPFraction index="Kills" value="1"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="XPShareSuppression">
         <InfoFlags index="Hidden" value="1"/>
@@ -4991,7 +4993,8 @@
                 <VitalMaxFractionArray index="Energy" value="0.314"/>
             </Modification>
         </VeterancyLevelArray>
-        <SharedXPMaxCount index="Kills" value="0"/>
+        <SharedXPRadius index="Kills" value="400"/>
+        <SharedXPFraction index="Kills" value="1"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="BlackoutLevel1">
         <Alignment value="Positive"/>
@@ -5231,7 +5234,6 @@
                 <DamageDealtFraction index="Splash" value="0.1"/>
             </Modification>
         </VeterancyLevelArray>
-        <SharedXPMaxCount index="Kills" value="4294967295"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="FrenzyBuffLevel1">
         <EditorCategories value="AbilityorEffectType:Units"/>
