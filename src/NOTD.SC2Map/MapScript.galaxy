@@ -4450,7 +4450,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_kiftadtexaiclfdc;
+    int lv_lcjcogpvrunritja;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -39018,6 +39018,7 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     if ((gv_playerXP[lv_selectingPlayer] <= 500)) {
         UnitInventoryCreate(gv_marineHero[lv_selectingPlayer], "Magazine");
         UnitInventoryCreate(gv_marineHero[lv_selectingPlayer], "Magazine");
+        UnitInventoryCreate(gv_marineHero[lv_selectingPlayer], "OccularImplants");
     }
 
     TriggerEnable(gt_ModifyHeroStats, true);
