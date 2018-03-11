@@ -33,6 +33,7 @@
                     <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Style val="ModLeftSize16"/>
                 </Frame>
                 <Frame type="ScrollBar" name="ScrollBar">
                     <Anchor side="Top" relative="$parent" pos="Min" offset="2"/>

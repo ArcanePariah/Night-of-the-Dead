@@ -4447,7 +4447,7 @@ bool auto_gf_SmartSpawnWithBehaviorNOTD_TriggerFunc (bool testConds, bool runAct
     string lp_behaviorC = auto_gf_SmartSpawnWithBehaviorNOTD_lp_behaviorC;
 
     // Variable Declarations
-    int lv_lpofonqucbuvliff;
+    int lv_hlphhtfexjamfcsd;
     point lv_unitSpawnPoint;
     unit lv_spawnUnit;
     bool lv_spawnPointReset;
@@ -7402,17 +7402,10 @@ void gf_TerminalUpdate (unit lp_terminalUnit, fixed lp_experienceChange) {
 }
 
 void gf_LogEntryPlayback (int lp_logEntry) {
-    // Variable Declarations
-    text lv_tempText;
-
     // Automatic Variable Declarations
-    // Variable Initialization
-
     // Implementation
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-    lv_tempText = UserDataGetText("MiningCampLogs", UserDataInstance("MiningCampLogs", lp_logEntry), "Log Entry", RandomInt(1, 3));
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, lv_tempText);
-    gf_MissionLogAppend(lv_tempText);
+    gf_StoryMessageNOTD(UserDataGetText("MiningCampLogs", UserDataInstance("MiningCampLogs", lp_logEntry), "Log Entry", RandomInt(1, 3)));
 }
 
 trigger auto_gf_TissueSampleComplete_Trigger = null;
@@ -9172,7 +9165,7 @@ bool auto_gf_DemeterAI_TriggerFunc (bool testConds, bool runActions) {
         if ((lv_stareCycle == 1)) {
             lv_stareCycle = 2;
             gf_TipNOTD(25000, StringExternal("Param/Value/7FD7EB19"));
-            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/F235544E"));
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/F235544E"));
             SoundPlay(SoundLink("Overseer_Pissed", -1), PlayerGroupAll(), 150.0, 0.0);
             if ((gv_nightmare == false)) {
                 UnitSetState(gv_boss, c_unitStateMoveSuppressed, false);
@@ -9211,7 +9204,7 @@ bool auto_gf_DemeterAI_TriggerFunc (bool testConds, bool runActions) {
         else {
             lv_stareCycle = 1;
             gf_TipNOTD(25000, StringExternal("Param/Value/E9F81BB4"));
-            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/299BF98C"));
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/299BF98C"));
             SoundPlay(SoundLink("Queen_Pissed", -1), PlayerGroupAll(), 115.0, 0.0);
             if ((gv_nightmare == false)) {
                 UnitSetState(gv_boss, c_unitStateMoveSuppressed, false);
@@ -18032,14 +18025,14 @@ bool gt_MineShaft_Func (bool testConds, bool runActions) {
 
     if (((GameIsTestMap(false) == true) || ((lv_terminal1Present == true) && (lv_terminal2Present == true)))) {
         TriggerEnable(TriggerGetCurrent(), false);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/530F5DED"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/776F872C"));
         gf_MarineSpeechNOTD(gv_sgtStallans, StringExternal("Param/Value/B6564F15"));
         Wait(3.5, c_timeReal);
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(156), "DecalProtoss");
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(157), "DecalProtoss");
         gf_TipNOTD(1000, StringExternal("Param/Value/FC9DE0D9"));
         Wait(1.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/36A521CC"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/8AFA7FB8"));
         SoundPlay(SoundLink("StoneZealot_Birth", -1), PlayerGroupAll(), 100.0, 0.0);
         gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/C7E4B053"));
         auto91C3E6D4_var = gv_indexBaseValue;
@@ -18144,7 +18137,7 @@ bool gt_ZeusLetoAI_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/E9ABE14F"));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/E9ABE14F"));
     SoundPlay(SoundLink("CastanarUltraliskShackled_Stand01", -1), PlayerGroupAll(), 100.0, 0.0);
     return true;
 }
@@ -18203,7 +18196,7 @@ bool gt_ZeusLetoRespawn_Func (bool testConds, bool runActions) {
             }
 
         }
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/76F1B733"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/76F1B733"));
         gf_TipNOTD(10000, StringExternal("Param/Value/7F7D63B3"));
         gv_zeusLetoRespawnCount += 1;
         TriggerEnable(TriggerGetCurrent(), true);
@@ -18226,7 +18219,7 @@ bool gt_ZeusLetoRespawn_Func (bool testConds, bool runActions) {
             }
 
         }
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/670FA8CE"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/670FA8CE"));
         gf_TipNOTD(10000, StringExternal("Param/Value/8A3E12C6"));
         gv_zeusLetoRespawnCount += 1;
         TriggerEnable(TriggerGetCurrent(), true);
@@ -18533,7 +18526,7 @@ bool gt_OM1DownloadCycle_Func (bool testConds, bool runActions) {
         }
         else if ((gv_oMCount == 3)) {
             SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/F87A2562"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/EF8ECD2F"));
         }
     }
 
@@ -18783,7 +18776,7 @@ bool gt_OM3ArmoryTurrets_Func (bool testConds, bool runActions) {
         Wait(3.0, c_timeGame);
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(186), "DecalProtoss");
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(187), "DecalProtoss");
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/CE007033"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/EA2FFB10"));
         SoundPlay(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupAll(), 100.0, 0.0);
         auto05A3AB68_g = UnitGroup("SentryGunUnderground", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
         auto05A3AB68_u = UnitGroupCount(auto05A3AB68_g, c_unitCountAll);
@@ -18981,7 +18974,7 @@ bool gt_OM4ScrapyardSalvageCycle_Func (bool testConds, bool runActions) {
         }
         else if ((gv_oMCount2 == 3)) {
             SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/A8527790"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/9A721CA8"));
         }
     }
 
@@ -19148,7 +19141,7 @@ bool gt_OM6CommTowerTransmission_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/C1545F14"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/1A6721DE"));
     SoundPlay(SoundLink("TVMovieStatic", -1), PlayerGroupActive(), 80.0, 0.0);
     Wait(5.0, c_timeGame);
     gf_RadioNOTD(gv_characterUnknownVoice1, StringExternal("Param/Value/18AC0827"));
@@ -19161,7 +19154,7 @@ bool gt_OM6CommTowerTransmission_Func (bool testConds, bool runActions) {
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(gv_characterUnknownVoice1, StringExternal("Param/Value/1BE7E05D"));
     Wait(5.0, c_timeGame);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/B9BE8668"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/FC0F456B"));
     SoundPlay(SoundLink("TVMovieStatic", -1), PlayerGroupActive(), 80.0, 0.0);
     return true;
 }
@@ -19265,31 +19258,27 @@ bool gt_OM8EnterBridgeTerminal_Func (bool testConds, bool runActions) {
     Wait(10.0, c_timeReal);
     CameraShakeStart(EventPlayer(), c_cameraPositionTarget, c_cameraDirectionZ, 0.2, 2.0, 100.0, 0.5);
     SoundPlay(SoundLink("Egg_Birth", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_StoryMessageNOTD(StringExternal("Param/Value/59E24A84"));
+    UnitCreate(1, "BrainBug2", 0, 13, RegionRandomPoint(RegionFromId(217)), libNtve_gf_RandomAngle());
+    gv_bBQ = UnitLastCreated();
+    TriggerEnable(gt_OM8BBQDead, true);
     if ((gv_noNewbie == true)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/2F911E26"));
-        UnitCreate(1, "BrainBug2", 0, 13, RegionRandomPoint(RegionFromId(217)), libNtve_gf_RandomAngle());
-        gv_bBQ = UnitLastCreated();
-        TriggerEnable(gt_OM8BBQDead, true);
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
-        libNtve_gf_ChangeUnitDamage(UnitLastCreated(), libNtve_ge_UnitDamageTakenDealt_Damage_Deal, libNtve_ge_UnitDamageChangeOption_Mega);
+        UnitIssueOrder(gv_bBQ, Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
+        libNtve_gf_ChangeUnitDamage(gv_bBQ, libNtve_ge_UnitDamageTakenDealt_Damage_Deal, libNtve_ge_UnitDamageChangeOption_Mega);
         if ((gv_nightmare == true)) {
-            UnitBehaviorAddPlayer(UnitLastCreated(), "Rampage", 14, 1);
+            UnitBehaviorAddPlayer(gv_bBQ, "Rampage", 14, 1);
         }
 
-        UnitBehaviorAddPlayer(UnitLastCreated(), "Frenzy35", 14, 1);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 2);
+        UnitBehaviorAddPlayer(gv_bBQ, "Frenzy35", 14, 1);
+        UnitBehaviorAddPlayer(gv_bBQ, "AdvancedMutation", 14, 2);
         UnitIssueOrder(gv_bBQ, OrderTargetingUnit(AbilityCommand("attack", 0), lv_crazyman), c_orderQueueReplace);
         Wait(3.0, c_timeReal);
         gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/4B3AA85B"));
     }
     else {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/1E217737"));
-        UnitCreate(1, "BrainBug2", 0, 13, RegionRandomPoint(RegionFromId(217)), libNtve_gf_RandomAngle());
-        gv_bBQ = UnitLastCreated();
         UnitSetPropertyFixed(gv_bBQ, c_unitPropLifeRegen, 0.0);
         UnitSetPropertyFixed(gv_bBQ, c_unitPropMovementSpeed, 2.0);
-        TriggerEnable(gt_OM8BBQDead, true);
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
+        UnitIssueOrder(gv_bBQ, Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
     }
     return true;
 }
@@ -19384,12 +19373,12 @@ bool gt_OM11Delta2_Func (bool testConds, bool runActions) {
     if ((lv_terminal1Present == true) && (lv_terminal2Present == true)) {
         TriggerEnable(TriggerGetCurrent(), false);
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(231), "DecalProtoss");
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/A731F8FB"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/9362870B"));
         Wait(1.5, c_timeReal);
         SoundPlay(SoundLink("TRaynor01Raynor00037", -1), PlayerGroupAll(), 200.0, 0.0);
         gf_RadioNOTD(PlayerName(lv_localPlayerA), StringExternal("Param/Value/F2DBA6CF"));
         Wait(1.5, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/933D376F"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/BF4FE9A7"));
         auto5FF2F29C_n = gv_spawnFactor;
         for (auto5FF2F29C_i = 1; auto5FF2F29C_i <= auto5FF2F29C_n; auto5FF2F29C_i += 1) {
             UnitCreate(1, "Slasher2", 0, 14, RegionRandomPoint(RegionFromId(127)), libNtve_gf_RandomAngle());
@@ -19737,7 +19726,6 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
     }
     Wait(1.5, c_timeReal);
     gf_StoryMessageNOTD(StringExternal("Param/Value/B7ED1099"));
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/78FBB322"));
     SoundPlay(SoundLink("UI_TerranKlaxonAlert", -1), PlayerGroupActive(), 80.0, 0.0);
     Wait(2.0, c_timeReal);
     libNtve_gf_MakeUnitInvulnerable(lv_warningCiv, false);
@@ -19973,10 +19961,9 @@ bool gt_ECW1EnterMine_Func (bool testConds, bool runActions) {
     Wait(3.9, c_timeReal);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_episilonMinis, c_unitCountAlive), StringExternal("Param/Value/6189B259"));
     gf_StoryMessageNOTD(StringExternal("Param/Value/02746C5B"));
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/0650FCD8"));
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/08715614"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/E845C07C"));
     Wait(3.0, c_timeReal);
     if ((UnitGroupCount(gv_episionCivilians, c_unitCountAlive) > 0)) {
         gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/AAD61ABF"));
@@ -20401,10 +20388,10 @@ bool gt_W2EnterMilitaryBase_Func (bool testConds, bool runActions) {
     Wait(7.0, c_timeReal);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/6B390343"));
     ObjectiveDestroy(gv_primaryObjective);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/400000D2"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/A49EACA3"));
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/D52852B1"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/317B23C0"));
     Wait(7.0, c_timeReal);
     gf_MarineSpeechNOTD(lv_localUnitA, StringExternal("Param/Value/DBEAB2D3"));
     Wait(7.0, c_timeReal);
@@ -20589,7 +20576,7 @@ bool gt_W2EnterMilitaryBase_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_Wave5AirlockBattle, true);
     TriggerEnable(gt_ClassCreation, false);
     SoundPlay(SoundLink("AirlockGatesUnlocked", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/77C447C6"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/DB2E4586"));
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
     Wait(3.9, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/12EB818D"));
@@ -20704,7 +20691,6 @@ bool gt_ECOptionalCamMissionStart_Func (bool testConds, bool runActions) {
     Wait(2.0, c_timeReal);
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
     gf_StoryMessageNOTD(StringExternal("Param/Value/E7F7908A"));
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/BB5E379E"));
     Wait(3.0, c_timeReal);
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(36), "DecalProtoss");
     SoundPlay(SoundLink("THorner05SAdjutant00040", -1), PlayerGroupActive(), 100.0, 0.0);
@@ -20712,7 +20698,6 @@ bool gt_ECOptionalCamMissionStart_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/6354C52B"));
     Wait(3.0, c_timeReal);
     gf_StoryMessageNOTD(StringExternal("Param/Value/CC451A99"));
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/A0B4CB54"));
     Wait(3.0, c_timeReal);
     TriggerEnable(gt_OptionalSecurityCamerasCollection, true);
     TriggerEnable(gt_OptionalSecurityCamerasMobs, true);
@@ -20786,7 +20771,7 @@ bool gt_OptionalSecurityCamerasCollection_Func (bool testConds, bool runActions)
     PingCreate(PlayerGroupActive(), "PingObjective", UnitGetPosition(EventUnit()), ColorWithAlpha(0.00, 100.00, 0.00, 0.00), 10.0);
     RegionSetCenter(EventUnitRegion(), libNtve_gf_PointWithZOffset(PointFromId(14), 30.0));
     SoundPlay(SoundLink("UI_TerranReminderPing", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/8A44C126"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/24C39421"));
     TextExpressionSetToken("Param/Expression/A91F7F6B", "A", StringExternal("Param/Value/575E2C34"));
     TextExpressionSetToken("Param/Expression/A91F7F6B", "B", IntToText(gv_securityCam));
     TextExpressionSetToken("Param/Expression/A91F7F6B", "C", StringExternal("Param/Value/B8A6D700"));
@@ -21265,7 +21250,7 @@ bool gt_Boss1CarapaceHardens33_Func (bool testConds, bool runActions) {
 
     TriggerEnable(gt_Boss1CarapaceHardens33, false);
     Wait(2.0, c_timeGame);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/283DECE1"));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/283DECE1"));
     UnitSetTeamColorIndex(EventUnit(), 5);
     SoundPlay(SoundLink("Zerg_PreExplosionSmall", -1), PlayerGroupAll(), 100.0, 0.0);
     gf_TipNOTD(1000, StringExternal("Param/Value/B1391452"));
@@ -22140,12 +22125,12 @@ bool gt_ECDelta1Transport_Func (bool testConds, bool runActions) {
         PingCreate(PlayerGroupActive(), "PingWarning", UnitGetPosition(lv_localUnitA), ColorWithAlpha(0.00, 50.20, 100.00, 0.00), 2.0);
         gf_MarineSpeechNOTD(lv_localUnitA, StringExternal("Param/Value/6D8042EE"));
         Wait(1.5, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/979A6593"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/870370DE"));
         SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
         Wait(3.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/209EFACE"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/01991E09"));
         Wait(3.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/437EEE0A"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/88F8A360"));
         SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
         Wait(3.5, c_timeReal);
         libNtve_gf_UnitCreateFacingPoint(1, "Priyanka", 0, 9, RegionRandomPoint(RegionFromId(39)), UnitGetPosition(lv_localUnitA));
@@ -22405,7 +22390,7 @@ bool gt_ECCivReward_Func (bool testConds, bool runActions) {
         gf_AwardPlayerXPNOTD(2);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/C2BC1258"));
     }
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((StringExternal("Param/Value/66F7C730") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/125DD36E")));
+    gf_StoryMessageNOTD(((StringExternal("Param/Value/A6D524C9") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/DBC40CC5")));
     autoDD63FF6A_g = gv_marineSquad;
     autoDD63FF6A_var = -1;
     while (true) {
@@ -22740,7 +22725,7 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
     }
     Wait(1.0, c_timeReal);
     SoundPlay(SoundLink("THanson02InfestedRefugee00005", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/57918D53"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/204C7319"));
     Wait(3.0, c_timeReal);
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/A779B0BC"));
     gf_TipNOTD(5000, StringExternal("Param/Value/ED78DA01"));
@@ -23481,7 +23466,7 @@ bool gt_Boss3SpawnMenoetes_Func (bool testConds, bool runActions) {
     libNtve_gf_AICast(gv_menoestes, OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())));
     gf_MenoEvasion(15);
     gv_prowlerPing = PingLastCreated();
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/D7491251"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/1BA21C68"));
     auto8309DC0E_var = gv_indexBaseValue;
     for ( ; auto8309DC0E_var <= auto8309DC0E_ae; auto8309DC0E_var += 1 ) {
         CameraShakeStart(auto8309DC0E_var, c_cameraPositionTarget, c_cameraDirectionZ, 1.0, 2.0, 100.0, 2.0);
@@ -23920,7 +23905,7 @@ bool gt_OptionalEnterLabChapter1DrBergmann_Func (bool testConds, bool runActions
     TriggerEnable(TriggerGetCurrent(), false);
     gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/C35F7AF8"));
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/AE4C8D7E"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/A66A54DB"));
     SoundPlay(SoundLink("Reload", -1), PlayerGroupAll(), 100.0, 0.0);
     UnitWeaponAdd(gv_drBergmann, "LaserRifle", null);
     UnitBehaviorAddPlayer(gv_drBergmann, "Run", 13, 1);
@@ -24374,14 +24359,14 @@ bool gt_OptionalPowerGeneratorRestart_Func (bool testConds, bool runActions) {
         TriggerEnable(TriggerGetCurrent(), false);
         TriggerEnable(gt_Wave8EnterScrapyardDoor, false);
         ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/32728280"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/F62312D5"));
         gf_RadioNOTD(PlayerName(UnitGetOwner(lv_localUnitA)), StringExternal("Param/Value/DF20B52C"));
         Wait(5.0, c_timeReal);
         ObjectiveDestroy(gv_primaryObjective);
         gf_PowerGeneratorsComplete();
     }
     else {
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, (StringExternal("Param/Value/80F676DE") + (IntToText((25 * gv_powerGenerators)) + StringExternal("Param/Value/54B63D99"))));
+        gf_StoryMessageNOTD((StringExternal("Param/Value/B02BD24D") + (IntToText((25 * gv_powerGenerators)) + StringExternal("Param/Value/5A362BF5"))));
     }
     return true;
 }
@@ -25305,7 +25290,7 @@ bool gt_Wave13BioDomeDDestroyed_Func (bool testConds, bool runActions) {
     gf_AwardPlayerXPNOTD(2);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/5907AE6D"));
     Wait(3.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((StringExternal("Param/Value/46979E56") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/4D6E3714")));
+    gf_StoryMessageNOTD(((StringExternal("Param/Value/E99CE20A") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/F79FB8D1")));
     ObjectiveDestroy(gv_primaryObjective);
     TriggerExecute(gt_Wave14Betrayal, true, false);
     return true;
@@ -25348,7 +25333,7 @@ bool gt_Wave14Betrayal_Func (bool testConds, bool runActions) {
     UnitGroupIssueOrder(libNtve_gf_ConvertUnitToUnitGroup(gv_drBergmann), OrderTargetingPoint(AbilityCommand("move", 0), RegionGetBoundsMax(RegionFromId(103))), c_orderQueueReplace);
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("Dialogue_TransmissionStart", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/495E5364"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/2B9437F2"));
     gf_TipNOTD(5000, StringExternal("Param/Value/A524C94A"));
     Wait(4.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/8C66BAE3"));
@@ -25577,7 +25562,7 @@ bool gt_BlackOpsAIGunshipSupport_Func (bool testConds, bool runActions) {
     lv_coordinatesX = PointGetX(lv_localPointA);
     lv_coordinatesY = PointGetY(lv_localPointA);
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (StringExternal("Param/Value/F516C1B9") + (FixedToText(lv_coordinatesX, 1) + (StringExternal("Param/Value/C3CF6659") + (FixedToText(lv_coordinatesY, 1) + StringExternal("Param/Value/B66F724C"))))));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, (StringExternal("Param/Value/F516C1B9") + (FixedToText(lv_coordinatesX, 1) + (StringExternal("Param/Value/C3CF6659") + (FixedToText(lv_coordinatesY, 1) + StringExternal("Param/Value/B66F724C"))))));
     autoD50F229F_ae = libNtve_gf_DifficultyValueInt(1, 3, 5, 0);
     autoD50F229F_var = 1;
     for ( ; autoD50F229F_var <= autoD50F229F_ae; autoD50F229F_var += 1 ) {
@@ -25854,7 +25839,7 @@ bool gt_ECOPTIONALTruckDestroyed_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     TriggerEnable(gt_ECOPTIONALTruckEvacSuccessful, false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/B9DF17AA"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/98AE5903"));
     SoundPlay(SoundLink("UI_TerranMissionFailed", -1), PlayerGroupAll(), 100.0, 0.0);
     return true;
 }
@@ -25877,7 +25862,7 @@ bool gt_ECOPTIONALTruckEvacSuccessful_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/82B6C1FA"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/02AB0A1A"));
     Wait(3.0, c_timeReal);
     SoundPlay(SoundLink("ColonyTransport_Load", -1), PlayerGroupAll(), 100.0, 0.0);
     Wait(10.0, c_timeReal);
@@ -25892,7 +25877,7 @@ bool gt_ECOPTIONALTruckEvacSuccessful_Func (bool testConds, bool runActions) {
         SoundPlay(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupActive(), 100.0, 0.0);
         gf_AwardRatingNOTD(2);
         gf_AwardKarmaNOTD(1);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((StringExternal("Param/Value/A710D405") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/2693D490")));
+        gf_StoryMessageNOTD(((StringExternal("Param/Value/D567F344") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/95753222")));
         Wait(5.0, c_timeReal);
         UIClearMessages(PlayerGroupActive(), c_messageAreaDirective);
     }
@@ -27639,7 +27624,7 @@ bool gt_ACW2DefendwithSecTeamArmory_Func (bool testConds, bool runActions) {
     UIClearMessages(PlayerGroupAll(), c_messageAreaSubtitle);
     gf_RadioNOTD(gv_characterLieutenantSheng, StringExternal("Param/Value/CF0F64B0"));
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/9E112488"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/95D5F6A7"));
     Wait(5.0, c_timeReal);
     ObjectiveDestroy(gv_primaryObjective);
     gf_RadioNOTD(gv_characterLieutenantSheng, StringExternal("Param/Value/298F1A5E"));
@@ -27648,7 +27633,7 @@ bool gt_ACW2DefendwithSecTeamArmory_Func (bool testConds, bool runActions) {
     ObjectiveCreate(StringExternal("Param/Value/BD12F8A1"), StringExternal("Param/Value/796A229D"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
     Wait(8.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/FD4C0073"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/8C590832"));
     UnitBehaviorAddPlayer(gv_charlie, "Rampage", 10, 1);
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(gv_characterLieutenantSheng, StringExternal("Param/Value/2CC7E08B"));
@@ -27769,7 +27754,7 @@ bool gt_ACW3CharlieFound_Func (bool testConds, bool runActions) {
     ObjectiveDestroy(gv_primaryObjective);
     Wait(3.0, c_timeReal);
     gv_aCSpawnRespite = true;
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/C6CC2B17"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/2AC69A4B"));
     SoundPlay(SoundLink("BroodLord_Pissed", -1), PlayerGroupAll(), 100.0, 0.0);
     auto6DF7E071_var = 1;
     for ( ; auto6DF7E071_var <= auto6DF7E071_ae; auto6DF7E071_var += 1 ) {
@@ -27907,7 +27892,7 @@ bool gt_DemeterEngaged_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/8EA89AFF"));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/8EA89AFF"));
     gf_DemeterAI();
     return true;
 }
@@ -28182,7 +28167,7 @@ bool gt_ACW5HeadtotheLab_Func (bool testConds, bool runActions) {
     Wait(8.0, c_timeReal);
     gf_RadioNOTD(gv_characterLieutenantSheng, StringExternal("Param/Value/E9CE8414"));
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/9E25ED5C"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/623407B7"));
     SoundPlay(SoundLink("UI_Horner05sTerminalButton", -1), PlayerGroupAll(), 250.0, 0.0);
     TriggerEnable(gt_ACEnterLabNorthGate, true);
     TriggerEnable(gt_ACEnterScrapyardGate, true);
@@ -28622,7 +28607,7 @@ bool gt_ACCronusKilled_Func (bool testConds, bool runActions) {
     while (!((DistanceBetweenPoints(libNtve_gf_CenterOfUnitGroup(gv_marines), RegionGetCenter(RegionFromId(164))) < 18.0))) {
         Wait(1.0, c_timeGame);
     }
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/5291F0C6"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/2D9718D5"));
     auto8DC3AC41_g = gv_ghostCompany;
     auto8DC3AC41_u = UnitGroupCount(auto8DC3AC41_g, c_unitCountAll);
     for (;; auto8DC3AC41_u -= 1) {
@@ -29168,16 +29153,16 @@ bool gt_ACW9ChaseDrTanakaPoisonGas_Func (bool testConds, bool runActions) {
     Wait(5.0, c_timeReal);
     gf_MarineSpeechNOTD(gv_drTanaka, StringExternal("Param/Value/05848868"));
     Wait(3.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/CC1A343B"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/7DD5A798"));
     Wait(2.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/B9AE8010"));
     Wait(5.5, c_timeReal);
     gf_TipNOTD(5000, StringExternal("Param/Value/7314D1E2"));
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/FD389ACD"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/E551D186"));
     SoundPlay(SoundLink("TUI_ArmoryConsolePurchase", -1), PlayerGroupActive(), 100.0, 0.0);
     UnitSetOwner(gv_drTanaka, 10, false);
     Wait(4.5, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/454C01B2"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/790C3BE0"));
     UnitBehaviorRemove(gv_drTanaka, "TalkAnimation", 1);
     Wait(1.0, c_timeReal);
     UnitIssueOrder(gv_drTanaka, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(gv_reinforcementSpawn[RandomInt(1, 6)])), c_orderQueueReplace);
@@ -29423,7 +29408,7 @@ bool gt_ACW10ShowdownatEvacPoint_Func (bool testConds, bool runActions) {
     if ((gv_bergmannIntercepted == false)) {
         gf_AwardRatingNOTD(-3);
         TriggerExecute(gt_AutoSave, true, false);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/6A18E0FE"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/990943B5"));
         ObjectiveSetState(gv_primaryObjective, c_objectiveStateFailed);
         Wait(5.0, c_timeReal);
         gf_RadioNOTD(gv_characterDrTanaka, StringExternal("Param/Value/354C27AF"));
@@ -29683,7 +29668,7 @@ bool gt_ACW11EntertheAirlock_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(gv_characterDrTanaka, StringExternal("Param/Value/2A6A71C1"));
     Wait(4.0, c_timeReal);
     SoundPlay(SoundLink("UI_ObjectiveUpdate", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/3CAC2690"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/9EEBBCDA"));
     TriggerEnable(gt_ACW11TanakaChoiceDialog, true);
     while (!((gv_tanakaDecisionMade == true))) {
         Wait(1.0, c_timeGame);
@@ -29721,7 +29706,7 @@ bool gt_ACW11EntertheAirlock_Func (bool testConds, bool runActions) {
         Wait(3.0, c_timeReal);
         UnitKill(gv_drTanaka);
         SoundPlay(SoundLink("Stetmann_Death", -1), PlayerGroupActive(), 100.0, 0.0);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/1063A4AB"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/EC3FECA5"));
         Wait(5.0, c_timeReal);
         gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/9E7BFF45"));
         Wait(5.0, c_timeReal);
@@ -29934,7 +29919,7 @@ bool gt_ACW12aVentControlCycle_Func (bool testConds, bool runActions) {
         if ((lv_messageE == false) && (gv_antiToxinCount == 3)) {
             lv_messageE = true;
             SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/665883B6"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/9637DE0E"));
         }
     }
 
@@ -30811,7 +30796,7 @@ bool gt_ACW15HoldOut_Func (bool testConds, bool runActions) {
     gv_hitPar = 75;
     Wait(5.0, c_timeReal);
     UISetFrameVisible(PlayerGroupAll(), c_syncFrameTypeMinimapPanel, true);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/F1A23B08"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/98459BD5"));
     Wait(5.0, c_timeReal);
     autoD1149E5A_n = (gv_spawnFactor * 3);
     for (autoD1149E5A_i = 1; autoD1149E5A_i <= autoD1149E5A_n; autoD1149E5A_i += 1) {
@@ -32220,14 +32205,14 @@ bool gt_STW1HereWeGo_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_STC1ItemSpawn, true, false);
     Wait(8.0, c_timeReal);
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(gv_secTeamA, c_messageAreaSubtitle, StringExternal("Param/Value/C32DFC91"));
-    UIDisplayMessage(gv_secTeamB, c_messageAreaSubtitle, StringExternal("Param/Value/87732B84"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/A2953986"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/CC518A95"));
     Wait(10.0, c_timeReal);
     SoundPlay(SoundLink("TUIWarningPing", -1), gv_secTeamB, 100.0, 0.0);
     PingCreate(gv_secTeamB, "PingWarning", RegionGetCenter(RegionFromId(119)), ColorWithAlpha(100.00, 100.00, 0.00, 0.00), 30.0);
     PingCreate(gv_secTeamB, "PingWarning", RegionGetCenter(RegionFromId(120)), ColorWithAlpha(100.00, 100.00, 0.00, 0.00), 30.0);
     PingCreate(gv_secTeamB, "PingWarning", RegionGetCenter(RegionFromId(121)), ColorWithAlpha(100.00, 100.00, 0.00, 0.00), 30.0);
-    UIDisplayMessage(gv_secTeamB, c_messageAreaSubtitle, StringExternal("Param/Value/E939CB1C"));
+    UIDisplayMessage(gv_secTeamB, c_messageAreaDebug, StringExternal("Param/Value/E939CB1C"));
     Wait(10.0, c_timeReal);
     if ((gv_totalPlayers > 1)) {
         gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_secTeamBMarines, c_unitCountAlive))), StringExternal("Param/Value/AB645118"));
@@ -32341,7 +32326,7 @@ bool gt_STW1EnterEastWingGateRESCUE_Func (bool testConds, bool runActions) {
     if ((gv_armoryFired == false)) {
         SoundPlay(SoundLink("UI_ObjectiveFailed", -1), PlayerGroupAll(), 100.0, 0.0);
         gf_AwardRatingNOTD(-1);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/BD76034D"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/BD76034D"));
     }
 
     return true;
@@ -33093,7 +33078,7 @@ bool gt_STBoss2Killed_Func (bool testConds, bool runActions) {
     }
     gf_UnifiedAwards(7, 275.0, libNtve_gf_DifficultyValueInt(0, 50, 110, 0), 0, 2);
     if ((gv_nightmare == true)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/2D9A3D5E"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/2D9A3D5E"));
         SoundPlay(SoundLink("EMPBurstSound", -1), PlayerGroupAll(), 100.0, 0.0);
         autoA3E5BA95_g = gv_marines;
         autoA3E5BA95_u = UnitGroupCount(autoA3E5BA95_g, c_unitCountAll);
@@ -33499,7 +33484,7 @@ bool gt_STW7HALShutdownComplete_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     gf_STC2AmbientSpawns();
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/71327501"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/FF39EBA6"));
     UnitSetScale(gv_tartarusCocoon, 220.0, 220.0, 220.0);
     SoundPlay(SoundLink("LabFidgetsAdjutantConfederateAdjutant00003", -1), PlayerGroupAll(), 100.0, 0.0);
     Wait(5.5, c_timeReal);
@@ -33575,13 +33560,13 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_ACEnterLabNorthGate, false, false);
     TriggerEnable(gt_ACEnterApolloDockGate, true);
     TriggerEnable(gt_ACEnterApolloReactorGate, true);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/C96DA3DC"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/3737E5CB"));
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/3943838A"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/9784B3C9"));
     Wait(3.5, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/EC92B6ED"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/F7AEF20F"));
     Wait(3.5, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/C38A84FC"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/7DFDE347"));
     Wait(3.0, c_timeReal);
     TriggerExecute(gt_ChapterEndMedicRatingBonus, true, false);
     TriggerExecute(gt_VetPugGameBonus, true, false);
@@ -33704,7 +33689,7 @@ bool gt_STW8ChaseBergmann_Func (bool testConds, bool runActions) {
     UnitSetPropertyFixed(gv_drBergmann, c_unitPropMovementSpeed, 3.5);
     UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(55))), c_orderQueueReplace);
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/0997B617"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/9E26F3BA"));
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/1655273D"));
     Wait(5.0, c_timeReal);
@@ -33941,7 +33926,7 @@ bool gt_STW9DrBergmannFound_Func (bool testConds, bool runActions) {
         gf_BergmannAI(lv_rescueMarine);
         gf_RadioNOTD(PlayerName(UnitGetOwner(lv_rescueMarine)), StringExternal("Param/Value/64FA8B5C"));
         Wait(3.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/4F006F2A"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/4F006F2A"));
         UnitWeaponAdd(gv_drBergmann, "Crowbar", null);
     }
     else {
@@ -34187,9 +34172,9 @@ bool gt_STW10IVAXMission_Func (bool testConds, bool runActions) {
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(199), "DecalProtoss");
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/6A1B8E3B"));
     libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(2933)), c_animNameDefault, "Stand Work End", c_animFlagFullMatch | c_animFlagNonLooping, c_animTimeDefault);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/53829972"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/1DA5C6DF"));
     Wait(7.0, c_timeGame);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/F65784AB"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/B8F873D9"));
     Wait(5.45, c_timeGame);
     libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(2933)), c_animNameDefault, "Stand", c_animFlagPlayForever, c_animTimeDefault);
     libNtve_gf_MakeUnitInvulnerable(UnitFromId(590), false);
@@ -34201,13 +34186,13 @@ bool gt_STW10IVAXMission_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(lv_iVAXFriendly, "SensorTowerRadar", 9, 1);
     UnitGroupAdd(gv_secTeamAMarines, lv_iVAXFriendly);
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/1F8DE977"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/1503C7F6"));
     Wait(3.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/3B326EDC"));
     UnitIssueOrder(lv_iVAXFriendly, OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(2000)), c_orderQueueReplace);
     SoundPlay(SoundLink("SensorTower_What", -1), PlayerGroupAll(), 50.0, 0.0);
     Wait(3.5, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/40784A13"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/4F6312C0"));
     SoundPlay(SoundLink("Tychus04BriefingAlarm", -1), PlayerGroupAll(), 100.0, 0.0);
     UnitIssueOrder(lv_iVAXFriendly, OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(2274)), c_orderQueueReplace);
     Wait(3.0, c_timeReal);
@@ -34334,7 +34319,7 @@ bool gt_STW11HiddenHandRevealed_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(gv_characterFieldMarshalLee, StringExternal("Param/Value/7E2DE1DC"));
     Wait(7.0, c_timeReal);
     SoundPlay(SoundLink("UI_ObjectiveUpdate", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/9A8995D6"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/ECA6DA89"));
     TriggerEnable(gt_SecTeamChoice, true);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/F403A291"));
     TimerStart(gv_chapterSelectionTimer, 30.0, false, c_timeReal);
@@ -34348,11 +34333,11 @@ bool gt_STW11HiddenHandRevealed_Func (bool testConds, bool runActions) {
         TriggerEnable(gt_SecTeamChoice, false);
         if ((lv_randomRoll == 1)) {
             TriggerExecute(gt_STC3aInitialize, true, false);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/B261101F"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/7FE27F29"));
         }
         else if ((lv_randomRoll == 2)) {
             TriggerExecute(gt_STC3bInitialize, true, false);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/F909DF9B"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/9903C46A"));
         }
     }
 
@@ -34400,11 +34385,11 @@ bool gt_SecTeamChoice_Func (bool testConds, bool runActions) {
     }
     if (((EventChatMessage(false) == "a") || (EventChatMessage(false) == "A"))) {
         TriggerExecute(gt_STC3aInitialize, true, false);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/16CA7FA0"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/6E2B3BF9"));
     }
     else if (((EventChatMessage(false) == "b") || (EventChatMessage(false) == "B"))) {
         TriggerExecute(gt_STC3bInitialize, true, false);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/4A0869ED"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/A883B797"));
     }
     TimerWindowShow(TimerWindowLastCreated(), PlayerGroupAll(), false);
     return true;
@@ -34634,7 +34619,7 @@ bool gt_STW14BossSpawnHephaestus_Func (bool testConds, bool runActions) {
 
     gv_wave = 14;
     gv_hitPar = 60;
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/2424A5F7"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/F8B5DD6A"));
     Wait(5.0, c_timeReal);
     TriggerExecute(gt_STW1EnterAirlockEastGate, false, false);
     TriggerExecute(gt_STW1EnterAirlockNorthGate, false, false);
@@ -34838,7 +34823,7 @@ bool gt_STC3aReactorCoreTerminalsReached_Func (bool testConds, bool runActions) 
         }
     }
     else {
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/5D91964B"));
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/5D91964B"));
     }
     return true;
 }
@@ -34896,7 +34881,7 @@ bool gt_STC3aReactorDLCycle_Func (bool testConds, bool runActions) {
         if ((gv_oMCount == 3) && (lv_messageE == false)) {
             lv_messageE = true;
             SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/EC4A31C7"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/DA86910D"));
         }
     }
 
@@ -34938,7 +34923,7 @@ bool gt_STC3aReactorDLComplete_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/A8828B40"));
     Wait(2.0, c_timeReal);
     gv_hitPar = 30;
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/21C5CF46"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/FB38A90F"));
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
     if ((gv_performanceTimer <= 100)) {
         gf_UnifiedAwards(10, 0.0, 0, 0, 3);
@@ -35052,7 +35037,7 @@ bool gt_STW16ReactorSelfDestructBeginsESCAPE_Func (bool testConds, bool runActio
     SoundPlay(SoundLink("TValerian02BRaynor00010", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(5.7, c_timeReal);
     SoundPlay(SoundLink("TValerian02ARaynor00047", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/6E4D72AD"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/D1EFF116"));
     TimerStart(gv_globalTimer, 240.0, false, c_timeReal);
     TimerWindowCreate(gv_globalTimer, StringExternal("Param/Value/B69E136F"), true, false);
     gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
@@ -35178,7 +35163,7 @@ bool gt_STW17EVAC_Func (bool testConds, bool runActions) {
     }
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("LabFidgetsAdjutantConfederateAdjutant00003", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/942A1A2C"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/9896D1D2"));
     TriggerEnable(gt_STW14BossKilled, false);
     UnitKill(gv_hephasteus);
     gf_ClearZombieWave();
@@ -35386,7 +35371,7 @@ bool gt_STC3bThorPilot_Func (bool testConds, bool runActions) {
         UnitRemove(lv_thor);
     }
     else {
-        UIDisplayMessage(PlayerGroupSingle(lv_rescuePlayer), c_messageAreaSubtitle, StringExternal("Param/Value/4DF03C45"));
+        UIDisplayMessage(PlayerGroupSingle(lv_rescuePlayer), c_messageAreaDebug, StringExternal("Param/Value/4DF03C45"));
     }
     return true;
 }
@@ -35467,7 +35452,7 @@ bool gt_STC3bPowerGeneratorRestart_Func (bool testConds, bool runActions) {
     }
     else {
         Wait(5.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, (StringExternal("Param/Value/9B6E03E9") + (IntToText((20 * gv_powerGenerators)) + StringExternal("Param/Value/1DFFC3EB"))));
+        gf_StoryMessageNOTD((StringExternal("Param/Value/45DB0870") + (IntToText((20 * gv_powerGenerators)) + StringExternal("Param/Value/6B844545"))));
     }
     return true;
 }
@@ -35685,14 +35670,14 @@ bool gt_STW15bBioDomeThreat_Func (bool testConds, bool runActions) {
     if ((gv_wave == 15)) {
         SoundPlay(SoundLink("UI_ObjectiveFailed", -1), PlayerGroupAll(), 100.0, 0.0);
         gf_AwardRatingNOTD(-1);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/FBBC0ECA"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/FBBC0ECA"));
     }
 
     Wait(60.0, c_timeReal);
     if ((gv_wave == 15)) {
         SoundPlay(SoundLink("UI_ObjectiveFailed", -1), PlayerGroupAll(), 100.0, 0.0);
         gf_AwardRatingNOTD(-2);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/50147A2B"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/50147A2B"));
     }
 
     return true;
@@ -35843,7 +35828,7 @@ bool gt_DomesSealedandHadesLocated_Func (bool testConds, bool runActions) {
     gv_bioDomesDestroyed += 1;
     ObjectiveSetName(gv_primaryObjective, (StringExternal("Param/Value/7527BA88") + (IntToText(gv_bioDomesDestroyed) + StringExternal("Param/Value/DE3D427B"))));
     SoundPlay(SoundLink("ColonistBiodome_Unload", -1), PlayerGroupAll(), 200.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/7C044AC0"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/E829401C"));
     if ((gv_bioDomesDestroyed >= 4) && (gv_wave != 16)) {
         ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
         gv_wave = 16;
@@ -35866,7 +35851,7 @@ bool gt_DomesSealedandHadesLocated_Func (bool testConds, bool runActions) {
         gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/0193DE09"));
         Wait(2.0, c_timeReal);
         ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/F6A30B5F"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/7FE24471"));
         autoD8EF882B_var = gv_indexBaseValue;
         for ( ; autoD8EF882B_var <= autoD8EF882B_ae; autoD8EF882B_var += 1 ) {
             CameraShakeStart(autoD8EF882B_var, c_cameraPositionTarget, c_cameraDirectionZ, 0.2, 2.0, 100.0, 3.5);
@@ -36431,7 +36416,7 @@ bool gt_SurvivalInit_Func (bool testConds, bool runActions) {
         if (auto1063972C_var == null) { break; }
         UnitKill(auto1063972C_var);
     }
-    gf_TipNOTD(10000, StringExternal("Param/Value/A7D911D8"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/404B0C5C"));
     Wait(5.0, c_timeReal);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/643656F9"), StringExternal("Param/Value/B7EB263B"), 10.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     gf_ZombieAIWorldEvents();
@@ -36439,13 +36424,13 @@ bool gt_SurvivalInit_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/1E2E9027"));
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("UI_ChatMessageReceived", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/9479BE0C"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/3542BD51"));
     TriggerExecute(gt_STC1ItemSpawn, true, false);
     gf_CreateItemNOTD("RoadFlare", 3);
     Wait(5.0, c_timeReal);
     UIHideTextCrawl(PlayerGroupAll());
     Wait(5.0, c_timeReal);
-    gf_TipNOTD(5000, StringExternal("Param/Value/2B3BC3C6"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/B97AE44A"));
     Wait(35.0, c_timeReal);
     ObjectiveCreate(StringExternal("Param/Value/BB6ABEBB"), StringToText(""), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
@@ -36486,7 +36471,7 @@ bool gt_SurvivalW15_Func (bool testConds, bool runActions) {
     Wait(2.0, c_timeReal);
     gv_wave = 1;
     TriggerEnable(gt_ManualSave, true);
-    gf_TipNOTD(5000, StringExternal("Param/Value/0D9EE0AB"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/0991CB7B"));
     gf_SurvivalWaveTitleDisplay(gv_wave);
     auto0E5B260F_n = (gv_spawnFactor * 8);
     for (auto0E5B260F_i = 1; auto0E5B260F_i <= auto0E5B260F_n; auto0E5B260F_i += 1) {
@@ -36496,7 +36481,7 @@ bool gt_SurvivalW15_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/CCAD1762"));
     Wait(25.0, c_timeReal);
     gv_wave += 1;
-    gf_TipNOTD(5000, StringExternal("Param/Value/D1E6E23E"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/C7F08836"));
     gf_SurvivalWaveTitleDisplay(gv_wave);
     autoB486C779_n = (gv_spawnFactor * 8);
     for (autoB486C779_i = 1; autoB486C779_i <= autoB486C779_n; autoB486C779_i += 1) {
@@ -36657,7 +36642,7 @@ bool gt_SurvivalW610_Func (bool testConds, bool runActions) {
         UnitBehaviorAddPlayer(UnitLastCreated(), "Frenzy2", 14, 1);
         UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         UnitKill(gv_eilethyia);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/6EF75B71"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/BDE3C18F"));
     }
     Wait(30.0, c_timeReal);
     gf_AwardPlayerXPNOTD(5);
@@ -36711,7 +36696,7 @@ bool gt_SurvivalW1115_Func (bool testConds, bool runActions) {
     gv_wave += 1;
     gf_SurvivalWaveTitleDisplay(gv_wave);
     SoundPlay(SoundLink("UI_ChatMessageReceived", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/94570FE3"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/C9B81C92"));
     TriggerExecute(gt_STC2ItemSpawn, true, false);
     auto8AB9B399_n = (gv_spawnFactor * 5);
     for (auto8AB9B399_i = 1; auto8AB9B399_i <= auto8AB9B399_n; auto8AB9B399_i += 1) {
@@ -36968,7 +36953,7 @@ bool gt_SurvivalW2125_Func (bool testConds, bool runActions) {
     gv_hitPar = 50;
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("UI_ChatMessageReceived", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/0F55C9CA"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/2BC9DA7A"));
     TriggerExecute(gt_STC1ItemSpawn, true, false);
     Wait(30.0, c_timeReal);
     gv_wave += 1;
@@ -37228,7 +37213,7 @@ bool gt_SurvivalW3135_Func (bool testConds, bool runActions) {
     SoundPlay(SoundLink("UI_ChatMessageReceived", -1), PlayerGroupAll(), 100.0, 0.0);
     gv_wave += 1;
     gf_SurvivalWaveTitleDisplay(gv_wave);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/53207B04"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/4201B763"));
     TriggerExecute(gt_STC2ItemSpawn, true, false);
     UIHideTextCrawl(PlayerGroupAll());
     auto61FD287A_n = (gv_spawnFactor * 7);

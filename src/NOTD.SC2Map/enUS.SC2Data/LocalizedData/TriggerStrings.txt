@@ -2214,7 +2214,6 @@ Variable/Name/99F3A514=Support Units
 Variable/Name/9A04943E=IAmLookingAtMedals
 Variable/Name/9A07BC1E=STWinNM
 Variable/Name/9A3DB7D0=Talent Max
-Variable/Name/9AB77564=tempText
 Variable/Name/9AC54C93=EggGroup
 Variable/Name/9AE0FBC0=AlliesAvailable
 Variable/Name/9B27BE8A=AntiToxinCount
