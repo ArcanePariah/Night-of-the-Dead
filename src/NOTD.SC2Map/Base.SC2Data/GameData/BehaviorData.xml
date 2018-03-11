@@ -582,7 +582,8 @@
         <VeterancyLevelArray MinVeterancyXP="35000">
             <Modification Detect="12" DetectFilters="-;Player,Neutral,Enemy"/>
         </VeterancyLevelArray>
-        <SharedXPMaxCount index="Kills" value="0"/>
+        <SharedXPRadius index="Kills" value="400"/>
+        <SharedXPFraction index="Kills" value="1"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="BlazeofGlory">
         <InfoFlags index="Hidden" value="1"/>
@@ -706,9 +707,6 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <DamageResponse Chance="1" Handled="ApplyCriticalStrikeSet" Location="Attacker"/>
         <InfoFlags index="Hidden" value="1"/>
-        <Modification>
-            <StateFlags index="SuppressXPSharing" value="1"/>
-        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="CriticalStrikeAttackerKnife">
         <InfoFlags index="Hidden" value="1"/>
@@ -3739,13 +3737,12 @@
                 <DamageDealtFraction index="Splash" value="0.05"/>
             </Modification>
         </VeterancyLevelArray>
+        <SharedXPRadius index="Kills" value="400"/>
+        <SharedXPFraction index="Kills" value="1"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="XPShareSuppression">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Modification>
-            <StateFlags index="SuppressXPSharing" value="1"/>
-        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZEffect">
         <Alignment value="Negative"/>
@@ -4996,7 +4993,8 @@
                 <VitalMaxFractionArray index="Energy" value="0.314"/>
             </Modification>
         </VeterancyLevelArray>
-        <SharedXPMaxCount index="Kills" value="0"/>
+        <SharedXPRadius index="Kills" value="400"/>
+        <SharedXPFraction index="Kills" value="1"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="BlackoutLevel1">
         <Alignment value="Positive"/>
@@ -5236,7 +5234,6 @@
                 <DamageDealtFraction index="Splash" value="0.1"/>
             </Modification>
         </VeterancyLevelArray>
-        <SharedXPMaxCount index="Kills" value="4294967295"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="FrenzyBuffLevel1">
         <EditorCategories value="AbilityorEffectType:Units"/>
