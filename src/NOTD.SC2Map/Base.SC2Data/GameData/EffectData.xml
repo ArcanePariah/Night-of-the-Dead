@@ -112,6 +112,16 @@
         <Death value="Eviscerate"/>
         <SearchFilters value="-;Item,Dead,Invulnerable"/>
     </CEffectDamage>
+    <CEffectModifyUnit id="Refresher">
+        <EditorCategories value=""/>
+        <Cost Abil="Escape,Execute" CooldownOperation="Set"/>
+        <Cost Abil="SupplyStation,Execute" CooldownOperation="Set"/>
+        <Cost Abil="Sprint,Execute" CooldownOperation="Set"/>
+        <Cost Abil="Flare,Execute" CooldownOperation="Set"/>
+        <Cost Abil="LaserDesignator,Execute" CooldownOperation="Set"/>
+        <Cost Abil="MassDesignate,Execute" CooldownOperation="Set"/>
+        <Cost Abil="ReaperMK13,Execute" CooldownOperation="Set"/>
+    </CEffectModifyUnit>
     <CEffectApplyBehavior id="Reinforce">
         <EditorCategories value="Race:Terran"/>
     </CEffectApplyBehavior>
@@ -5953,10 +5963,6 @@
     <CEffectApplyBehavior id="ApplyFocusedFireTarget">
         <EditorCategories value=""/>
         <Behavior value="FocusedFireTarget"/>
-    </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="ApplyRefresher">
-        <EditorCategories value=""/>
-        <Behavior value="RefresherDummy"/>
     </CEffectApplyBehavior>
     <CEffectSet id="ApplySapStunSet">
         <EditorCategories value=""/>

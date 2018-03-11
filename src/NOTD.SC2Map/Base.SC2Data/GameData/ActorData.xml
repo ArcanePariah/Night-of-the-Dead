@@ -6205,27 +6205,27 @@
         <Sound value="PersesBurst1"/>
     </CActorSound>
     <CActorModel id="RefresherAnimation2" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorModel id="RefresherAnimation3" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorModel id="RefresherAnimation4" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorModel id="RefresherAnimation5" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorModel id="RefresherAnimation6" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
@@ -14487,7 +14487,7 @@
         <Inherits index="Visibility" value="0"/>
     </CActorRange>
     <CActorModel id="RefresherAnimation" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Unit"/>
         <HostSiteOps Ops="SOpAttachCenter" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>

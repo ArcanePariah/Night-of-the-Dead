@@ -4084,11 +4084,6 @@
             <ModifyMinimumDamage value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="RefresherDummy">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Duration value="3"/>
-    </CBehaviorBuff>
     <CBehaviorBuff id="SpectreHoldFire">
         <Modification MoveSpeedMultiplier="1.1"/>
     </CBehaviorBuff>
