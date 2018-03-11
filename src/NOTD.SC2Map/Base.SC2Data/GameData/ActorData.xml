@@ -15529,6 +15529,8 @@
         <On Terms="Abil.L3LaunchGrenade.SourceFinishStop" Send="AnimBracketStop {Attack Superior}"/>
         <On Terms="Abil.Execute.SourceCastStart" Send="AnimPlay Execute Spell,A"/>
         <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <Macros value="Shrinker"/>
         <AbilSoundArray AbilCmd="Refresher,Execute" Sound="RefresherSound"/>
         <AbilSoundArray AbilCmd="Refresher,Execute" Sound="RefresherSound2"/>
