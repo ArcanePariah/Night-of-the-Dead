@@ -5521,13 +5521,13 @@
             <GameLink GameLink="UnknownLight">
                 <Field Id="Default Lighting"/>
             </GameLink>
-            <Text Text="UserData/Storyline/Easy_Company_Story_Name">
+            <Text Text="UserData/Storyline/Easy Company_Story Name">
                 <Field Id="Story Name"/>
             </Text>
-            <Text Text="UserData/Storyline/Easy_Company_Story_Tooltip">
+            <Text Text="UserData/Storyline/Easy Company_Story Tooltip">
                 <Field Id="Story Tooltip"/>
             </Text>
-            <Text Text="UserData/Storyline/Easy_Company_Story_Subtitle">
+            <Text Text="UserData/Storyline/Easy Company_Story Subtitle">
                 <Field Id="Story Subtitle"/>
             </Text>
         </Instances>
@@ -5535,16 +5535,16 @@
             <GameLink GameLink="NOTDAlphaCompanyLight">
                 <Field Id="Default Lighting"/>
             </GameLink>
-            <Text Text="UserData/Storyline/Alpha_Company_Story_Name">
+            <Text Text="UserData/Storyline/Alpha Company_Story Name">
                 <Field Id="Story Name"/>
             </Text>
-            <Text Text="UserData/Storyline/Alpha_Company_Story_Subtitle">
+            <Text Text="UserData/Storyline/Alpha Company_Story Subtitle">
                 <Field Id="Story Subtitle"/>
             </Text>
-            <Text Text="UserData/Storyline/Alpha_Company_Story_Unlock_Text">
+            <Text Text="UserData/Storyline/Alpha Company_Story_Unlock_Text">
                 <Field Id="Story_Unlock_Text"/>
             </Text>
-            <Text Text="UserData/Storyline/Alpha_Company_Story_Tooltip">
+            <Text Text="UserData/Storyline/Alpha Company_Story Tooltip">
                 <Field Id="Story Tooltip"/>
             </Text>
         </Instances>
@@ -5552,16 +5552,16 @@
             <GameLink GameLink="NOTDSecTeamLight">
                 <Field Id="Default Lighting"/>
             </GameLink>
-            <Text Text="UserData/Storyline/Apollo_Security_Team_Story_Name">
+            <Text Text="UserData/Storyline/Apollo Security Team_Story Name">
                 <Field Id="Story Name"/>
             </Text>
-            <Text Text="UserData/Storyline/Apollo_Security_Team_Story_Subtitle">
+            <Text Text="UserData/Storyline/Apollo Security Team_Story Subtitle">
                 <Field Id="Story Subtitle"/>
             </Text>
-            <Text Text="UserData/Storyline/Apollo_Security_Team_Story_Unlock_Text">
+            <Text Text="UserData/Storyline/Apollo Security Team_Story_Unlock_Text">
                 <Field Id="Story_Unlock_Text"/>
             </Text>
-            <Text Text="UserData/Storyline/Apollo_Security_Team_Story_Tooltip">
+            <Text Text="UserData/Storyline/Apollo Security Team_Story Tooltip">
                 <Field Id="Story Tooltip"/>
             </Text>
         </Instances>
@@ -5569,11 +5569,14 @@
             <GameLink GameLink="NOTDDarkness">
                 <Field Id="Default Lighting"/>
             </GameLink>
-            <Text Text="UserData/Storyline/Survival_Story_Name">
+            <Text Text="UserData/Storyline/Survival_Story Name">
                 <Field Id="Story Name"/>
             </Text>
-            <Text Text="UserData/Storyline/Survival_Story_Tooltip">
+            <Text Text="UserData/Storyline/Survival_Story Tooltip">
                 <Field Id="Story Tooltip"/>
+            </Text>
+            <Text Text="UserData/Storyline/Survival_Story_Unlock_Text">
+                <Field Id="Story_Unlock_Text"/>
             </Text>
         </Instances>
     </CUser>
