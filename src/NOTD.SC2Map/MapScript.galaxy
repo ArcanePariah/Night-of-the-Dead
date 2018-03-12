@@ -9020,17 +9020,28 @@ void gf_ACAmbientSpawn () {
 }
 
 bool auto_gf_ACAmbientSpawn_TriggerFunc (bool testConds, bool runActions) {
+    // Variable Declarations
+    fixed lv_spawnFactorMultiplier;
+
     // Automatic Variable Declarations
     int auto3EA867AD_n;
     int auto3EA867AD_i;
     const int auto8B975771_n = 3;
     int auto8B975771_i;
 
+    // Variable Initialization
+
     // Implementation
     while (true) {
         Wait(2.7, c_timeReal);
+        if ((TimerGetElapsed(gv_gameTime) >= 600.0)) {
+            lv_spawnFactorMultiplier = 1.4;
+        }
+        else {
+            lv_spawnFactorMultiplier = (1.4 * (TimerGetElapsed(gv_gameTime) / 600.0));
+        }
         if ((gv_aCSpawnHalt == false) && (PlayerGetPropertyInt(14, c_playerPropSuppliesUsed) < 100) && (gv_aCSpawnRespite == false) && (gv_gameOver == false)) {
-            auto3EA867AD_n = TruncI((1.5 * gv_spawnFactor));
+            auto3EA867AD_n = TruncI((lv_spawnFactorMultiplier * gv_spawnFactor));
             for (auto3EA867AD_i = 1; auto3EA867AD_i <= auto3EA867AD_n; auto3EA867AD_i += 1) {
                 if ((RandomInt(0, 15) == 1)) {
                     if ((RandomInt(0, 5) == 1) && (gv_alivePlayers >= 4) && (gv_noNewbie == true)) {
