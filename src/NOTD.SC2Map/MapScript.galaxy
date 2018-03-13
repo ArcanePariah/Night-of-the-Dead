@@ -21842,6 +21842,7 @@ bool gt_Boss1bSpawn_Func (bool testConds, bool runActions) {
     Wait(1.5, c_timeReal);
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaCinematic, StringExternal("Param/Value/BD3E0FCC"));
+    gf_MissionLogAppend(StringExternal("Param/Value/15B7932E"));
     Wait(5.0, c_timeReal);
     UIClearMessages(PlayerGroupAll(), c_messageAreaCinematic);
     UnitPauseAll(false);
@@ -23365,6 +23366,7 @@ bool gt_Boss2ErebosCinematic_Func (bool testConds, bool runActions) {
     lv_heroOwner = UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive));
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaCinematic, ((UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[lv_heroOwner]), "Title Brief", 1) + PlayerName(lv_heroOwner)) + StringExternal("Param/Value/C96062D1")));
+    gf_MissionLogAppend(((UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[lv_heroOwner]), "Title Brief", 1) + PlayerName(lv_heroOwner)) + StringExternal("Param/Value/4F854447")));
     SoundPlay(SoundLink("TZeratul02HybridProtoss00017", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(5.9, c_timeReal);
     auto481FD2EE_var = 1;
@@ -24260,6 +24262,7 @@ bool gt_Chapter2Initialize_Func (bool testConds, bool runActions) {
         Wait(1.0, c_timeReal);
         SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaCinematic, StringExternal("Param/Value/637E1EF6"));
+        gf_MissionLogAppend(StringExternal("Param/Value/53A7DF55"));
         Wait(4.0, c_timeReal);
         UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(2391)), c_orderQueueReplace);
         Wait(1.0, c_timeReal);
@@ -24272,6 +24275,7 @@ bool gt_Chapter2Initialize_Func (bool testConds, bool runActions) {
         Wait(1.0, c_timeReal);
         SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaCinematic, StringExternal("Param/Value/38903A5B"));
+        gf_MissionLogAppend(StringExternal("Param/Value/42B99D02"));
         Wait(4.9, c_timeReal);
         UnitSetPosition(gv_drBergmann, PointFromId(2392), false);
         UnitSetFacing(gv_drBergmann, 80.0, 0.0);
