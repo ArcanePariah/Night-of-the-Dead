@@ -2178,6 +2178,1171 @@
             </Text>
         </Instances>
     </CUser>
+    <CUser id="ShopItems">
+        <Fields Id="Name" Type="String"/>
+        <Fields Id="ShopTooltip" Type="Text"/>
+        <Fields Id="ShopImage" Type="Image"/>
+        <Fields Id="ShopCost" Type="Int"/>
+        <Fields Id="ShopUnit" Type="GameLink" GameLinkType="Unit"/>
+        <Fields Id="Type" Type="String"/>
+        <Fields Id="PetCode" Type="Int"/>
+        <Fields Id="ColorCode" Type="Int"/>
+        <Instances Id="[Default]"/>
+        <Instances Id="ShopItem1">
+            <Image Image="Assets\Textures\btn-white.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy White">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem1_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem2">
+            <Image Image="Assets\Textures\btn-red.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Red">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem2_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem3">
+            <Image Image="Assets\Textures\btn-blue.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Blue">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem3_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem4">
+            <Image Image="Assets\Textures\btn-teal.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="4">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Teal">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem4_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem5">
+            <Image Image="Assets\Textures\btn-purple.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Purple">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem5_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem6">
+            <Image Image="Assets\Textures\btn-yellow.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="6">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Yellow">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem6_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem7">
+            <Image Image="Assets\Textures\btn-orange.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="7">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Orange">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem7_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem8">
+            <Image Image="Assets\Textures\btn-green.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="8">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Green">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem8_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem9">
+            <Image Image="Assets\Textures\btn-pink.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="9">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Pink">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem9_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem10">
+            <Image Image="Assets\Textures\btn-violet.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="10">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Violet">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem10_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem11">
+            <Image Image="Assets\Textures\btn-lightgrey.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="11">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy LightGrey">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem11_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem12">
+            <Image Image="Assets\Textures\btn-darkgreen.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="12">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy DarkGreen">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem12_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem13">
+            <Image Image="Assets\Textures\btn-brown.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="13">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Brown">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem13_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem14">
+            <Image Image="Assets\Textures\btn-lightgreen.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="14">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy LightGreen">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem14_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem15">
+            <Image Image="Assets\Textures\btn-darkgrey.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="15">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy DarkGrey">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem15_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem16">
+            <Image Image="Assets\Textures\btn-lightpink.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="16">
+                <Field Id="ColorCode"/>
+            </Int>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy LightPink">
+                <Field Id="Name"/>
+            </String>
+            <String String="color">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem16_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem17">
+            <Image Image="Assets\Textures\btn-unit-zerg-brutalisk.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="1">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy Brutalisk">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem17_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem18">
+            <Image Image="Assets\Textures\btn-unit-xelnaga-destroyer.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="2">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy HybridProtoss">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem18_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem19">
+            <Image Image="Assets\Textures\btn-unit-xelnaga-viper.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="3">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy HybridZerg">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem19_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem20">
+            <Image Image="Assets\Textures\btn-unit-zerg-hydralisk.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="4">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy Hydralisk">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem20_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem21">
+            <Image Image="Assets\Textures\btn-unit-zerg-kerrigan.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="5">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy Kerrigan">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem21_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem22">
+            <Image Image="Assets\Textures\btn-unit-zerg-zergling.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="6">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy Zergling">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem22_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem23">
+            <Image Image="Assets\Textures\wireframe-terran-murlocmarine.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="7">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy MurlocMarine">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem23_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem24">
+            <Image Image="Assets\Textures\btn-unit-terran-predator.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="8">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy Predator">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem24_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem25">
+            <Image Image="Assets\Textures\btn-unit-protoss-tassadar.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="9">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy Tassadar">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem25_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem26">
+            <Image Image="Assets\Textures\btn-unit-terran-taurenspacemarine.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="10">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy TaurenMarine">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem26_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem27">
+            <Image Image="Assets\Textures\btn-lostvinking-terra-tron.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="11">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy TerraTron">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem27_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem28">
+            <Image Image="Assets\Textures\btn-unit-protoss-zeratul.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="12">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy Zeratul">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem28_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem29">
+            <Image Image="Assets\Textures\btn-unit-protoss-archon.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="5000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="13">
+                <Field Id="PetCode"/>
+            </Int>
+            <String String="Buy Archon">
+                <Field Id="Name"/>
+            </String>
+            <String String="pet">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem29_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem30">
+            <Image Image="Kitten.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="1000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="100">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Kittens">
+                <Field Id="Name"/>
+            </String>
+            <String String="kitten">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem30_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem31">
+            <Image Image="NOTD Rank Icons\Black Ops Insignia.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="10000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <Int Int="1000">
+                <Field Id="ColorCode"/>
+            </Int>
+            <String String="Buy Black Ops Insignia">
+                <Field Id="Name"/>
+            </String>
+            <String String="insignia">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem31_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem32">
+            <Image Image="Assets\Textures\btn-upgrade-terran-infantryweaponslevel3.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="10000">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy Weapon Mod">
+                <Field Id="Name"/>
+            </String>
+            <String String="mod">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem32_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem33">
+            <GameLink GameLink="BarrettM112">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="NOTD Generic Art\NOTD Sniper Rifle.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="250">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;972FFF&quot;&gt;Barrett M112&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem33_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem34">
+            <GameLink GameLink="L3GrenadeLauncher">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="NOTD Generic Art\NOTD L3 Grenade Launcher.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="325">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;972FFF&quot;&gt;L3 Grenade Launcher&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem34_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem35">
+            <GameLink GameLink="StingerMK3">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="NOTD Generic Art\NOTD Rocket Launcher.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="325">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;972FFF&quot;&gt;Stinger MK-3&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem35_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem36">
+            <GameLink GameLink="Chaingun">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="NOTD Generic Art\NOTD HMG 7.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="250">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;972FFF&quot;&gt;XM814 Heavy Machine Gun&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem36_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem37">
+            <GameLink GameLink="UA420AssaultRifle">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="NOTD Generic Art\NOTD Assault Rifle.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="200">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;F2D737&quot;&gt;UA420 Assault Rifle&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem37_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem38">
+            <GameLink GameLink="Shotgun">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="NOTD Generic Art\NOTD Grenade Launcher.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="200">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;F2D737&quot;&gt;590A5 Combat Shotgun&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem38_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem39">
+            <GameLink GameLink="MP9A2SubMachineGun">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="NOTD Generic Art\NOTD Sub Machine Gun.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="100">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;F2D737&quot;&gt;MP9A2 Sub-Machine Gun&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem39_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem40">
+            <GameLink GameLink="Flamethrower">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-techupgrade-terran-infernalpreigniter.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="50">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;Flamethrower MK-3&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem40_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem41">
+            <GameLink GameLink="XS4Armor">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-research-terran-ultracapacitors.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="250">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;00FFFF&quot;&gt;XS-4 Armor&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem41_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem42">
+            <GameLink GameLink="C2Armor">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="50">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;C2 Armor&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem42_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem43">
+            <GameLink GameLink="C4Armor">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="250">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;C4 Armor&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem43_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem44">
+            <GameLink GameLink="APAmmo">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-techupgrade-terran-impalerrounds.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="50">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;80FF80&quot;&gt;Armor Piercing Ammo&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem44_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem45">
+            <GameLink GameLink="FMJAmmo">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-techupgrade-terran-tenstenspikes.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="50">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;80FF80&quot;&gt;Full Metal Jacket Ammo&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem45_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem46">
+            <GameLink GameLink="HEAmmo">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-techupgrade-terran-jackhammerconcussion.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="50">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;80FF80&quot;&gt;High Explosive Ammo&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem46_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem47">
+            <GameLink GameLink="HighCapacityClip">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-upgrade-terran-behemothreactor.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="250">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;80FF80&quot;&gt;High- Capacity Magazine&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem47_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem48">
+            <GameLink GameLink="HPAmmo">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-techupgrade-terran-u238rounds.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="50">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;80FF80&quot;&gt;Hollow Point Ammo&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem48_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem49">
+            <GameLink GameLink="NanoHealthAugment">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-ability-terran-advancedhealingai.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="250">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;80FF80&quot;&gt;Nano-Health Augment&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem49_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem50">
+            <GameLink GameLink="OccularImplants">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-techupgrade-terran-ocularimplants.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="50">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;Ocular Implants&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem50_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem51">
+            <GameLink GameLink="CombatMobilityAugment">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-ability-protoss-charge-color.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="250">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;80FF80&quot;&gt;Combat Mobility Augment&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem51_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem52">
+            <GameLink GameLink="PersonnelArcReactor">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-upgrade-terran-moebiusreactor.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="250">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;80FF80&quot;&gt;Arc Reactor&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem52_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem53">
+            <GameLink GameLink="RoadFlare">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-ability-terran-weaponsfree.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="15">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;Road Flare&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem53_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem54">
+            <GameLink GameLink="Medpack">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-ability-terran-heal.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="15">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;Medkit&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem54_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem55">
+            <GameLink GameLink="Bandage">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-techupgrade-terran-stabilizermedpacks.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="15">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;Fibrin Bandage&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem55_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem56">
+            <GameLink GameLink="AntiVenom">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="10">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;Anti-Venom&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem56_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem57">
+            <GameLink GameLink="Magazine">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-techupgrade-terran-fullborecanisterammo.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="10">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;Magazine&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem57_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+        <Instances Id="ShopItem58">
+            <GameLink GameLink="AmmoBox">
+                <Field Id="ShopUnit"/>
+            </GameLink>
+            <Image Image="Assets\Textures\btn-techupgrade-terran-replenishablemagazine.dds">
+                <Field Id="ShopImage"/>
+            </Image>
+            <Int Int="35">
+                <Field Id="ShopCost"/>
+            </Int>
+            <String String="Buy &lt;c val=&quot;FFFF00&quot;&gt;Ammo Box&lt;/c&gt;">
+                <Field Id="Name"/>
+            </String>
+            <String String="item">
+                <Field Id="Type"/>
+            </String>
+            <Text Text="UserData/ShopItems/ShopItem58_ShopTooltip">
+                <Field Id="ShopTooltip"/>
+            </Text>
+        </Instances>
+    </CUser>
     <CUser id="Staff">
         <Fields Id="Player Handle" Type="String" Count="500"/>
         <Instances Id="[Default]"/>
@@ -4356,13 +5521,13 @@
             <GameLink GameLink="UnknownLight">
                 <Field Id="Default Lighting"/>
             </GameLink>
-            <Text Text="UserData/Storyline/Easy_Company_Story_Name">
+            <Text Text="UserData/Storyline/Easy Company_Story Name">
                 <Field Id="Story Name"/>
             </Text>
-            <Text Text="UserData/Storyline/Easy_Company_Story_Tooltip">
+            <Text Text="UserData/Storyline/Easy Company_Story Tooltip">
                 <Field Id="Story Tooltip"/>
             </Text>
-            <Text Text="UserData/Storyline/Easy_Company_Story_Subtitle">
+            <Text Text="UserData/Storyline/Easy Company_Story Subtitle">
                 <Field Id="Story Subtitle"/>
             </Text>
         </Instances>
@@ -4370,16 +5535,16 @@
             <GameLink GameLink="NOTDAlphaCompanyLight">
                 <Field Id="Default Lighting"/>
             </GameLink>
-            <Text Text="UserData/Storyline/Alpha_Company_Story_Name">
+            <Text Text="UserData/Storyline/Alpha Company_Story Name">
                 <Field Id="Story Name"/>
             </Text>
-            <Text Text="UserData/Storyline/Alpha_Company_Story_Subtitle">
+            <Text Text="UserData/Storyline/Alpha Company_Story Subtitle">
                 <Field Id="Story Subtitle"/>
             </Text>
-            <Text Text="UserData/Storyline/Alpha_Company_Story_Unlock_Text">
+            <Text Text="UserData/Storyline/Alpha Company_Story_Unlock_Text">
                 <Field Id="Story_Unlock_Text"/>
             </Text>
-            <Text Text="UserData/Storyline/Alpha_Company_Story_Tooltip">
+            <Text Text="UserData/Storyline/Alpha Company_Story Tooltip">
                 <Field Id="Story Tooltip"/>
             </Text>
         </Instances>
@@ -4387,16 +5552,16 @@
             <GameLink GameLink="NOTDSecTeamLight">
                 <Field Id="Default Lighting"/>
             </GameLink>
-            <Text Text="UserData/Storyline/Apollo_Security_Team_Story_Name">
+            <Text Text="UserData/Storyline/Apollo Security Team_Story Name">
                 <Field Id="Story Name"/>
             </Text>
-            <Text Text="UserData/Storyline/Apollo_Security_Team_Story_Subtitle">
+            <Text Text="UserData/Storyline/Apollo Security Team_Story Subtitle">
                 <Field Id="Story Subtitle"/>
             </Text>
-            <Text Text="UserData/Storyline/Apollo_Security_Team_Story_Unlock_Text">
+            <Text Text="UserData/Storyline/Apollo Security Team_Story_Unlock_Text">
                 <Field Id="Story_Unlock_Text"/>
             </Text>
-            <Text Text="UserData/Storyline/Apollo_Security_Team_Story_Tooltip">
+            <Text Text="UserData/Storyline/Apollo Security Team_Story Tooltip">
                 <Field Id="Story Tooltip"/>
             </Text>
         </Instances>
@@ -4404,11 +5569,14 @@
             <GameLink GameLink="NOTDDarkness">
                 <Field Id="Default Lighting"/>
             </GameLink>
-            <Text Text="UserData/Storyline/Survival_Story_Name">
+            <Text Text="UserData/Storyline/Survival_Story Name">
                 <Field Id="Story Name"/>
             </Text>
-            <Text Text="UserData/Storyline/Survival_Story_Tooltip">
+            <Text Text="UserData/Storyline/Survival_Story Tooltip">
                 <Field Id="Story Tooltip"/>
+            </Text>
+            <Text Text="UserData/Storyline/Survival_Story_Unlock_Text">
+                <Field Id="Story_Unlock_Text"/>
             </Text>
         </Instances>
     </CUser>

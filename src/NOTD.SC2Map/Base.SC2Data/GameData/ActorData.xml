@@ -6205,27 +6205,27 @@
         <Sound value="PersesBurst1"/>
     </CActorSound>
     <CActorModel id="RefresherAnimation2" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorModel id="RefresherAnimation3" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorModel id="RefresherAnimation4" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorModel id="RefresherAnimation5" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorModel id="RefresherAnimation6" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
@@ -14487,7 +14487,7 @@
         <Inherits index="Visibility" value="0"/>
     </CActorRange>
     <CActorModel id="RefresherAnimation" parent="ModelAnimationStyleOneShot">
-        <On Terms="Behavior.RefresherDummy.On" Send="Create"/>
+        <On Terms="Abil.Refresher.SourceCastStart" Send="Create"/>
         <Host Subject="_Unit"/>
         <HostSiteOps Ops="SOpAttachCenter" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
@@ -15529,6 +15529,8 @@
         <On Terms="Abil.L3LaunchGrenade.SourceFinishStop" Send="AnimBracketStop {Attack Superior}"/>
         <On Terms="Abil.Execute.SourceCastStart" Send="AnimPlay Execute Spell,A"/>
         <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <Macros value="Shrinker"/>
         <AbilSoundArray AbilCmd="Refresher,Execute" Sound="RefresherSound"/>
         <AbilSoundArray AbilCmd="Refresher,Execute" Sound="RefresherSound2"/>

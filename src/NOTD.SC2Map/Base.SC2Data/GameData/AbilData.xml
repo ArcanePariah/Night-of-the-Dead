@@ -4820,7 +4820,6 @@
             <Cooldown TimeUse="45"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="Refresher"/>
-        <Effect index="0" value="ApplyRefresher"/>
         <Flags index="AutoCast" value="1"/>
         <Flags index="Transient" value="1"/>
         <AutoCastAcquireLevel value="Defensive"/>

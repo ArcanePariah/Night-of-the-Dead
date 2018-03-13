@@ -2115,6 +2115,14 @@ DocInfo/PatchNote212=- SEC apopteosis no longer can spawn directly on top of tea
 DocInfo/PatchNote213=- Removed various errors related to spawning of enemies in all storylines (Niktos)
 DocInfo/PatchNote214=- Fix to dealt critical damage failing to display since patch 2.176 (Niktos)
 DocInfo/PatchNote215=- Fixing rare situation of dr Tanaka dying after his invulnerability during his laboratory trip in AC (Niktos)
+DocInfo/PatchNote216=- Revamped Shop with nicer UI, works alongside older shop for now (Niktos)
+DocInfo/PatchNote217=- Corrected shell count being displayed to all players. (2nd attempt) (ThunderRazor)
+DocInfo/PatchNote218=- Corrected Asgard rotation speed (% Thrust) being displayed to all players. (ThunderRazor)
+DocInfo/PatchNote219=- Removed redundancies and refactored F.O. mini following orders. (ThunderRazor)
+DocInfo/PatchNote220=- Optimized equipment portraits for all classes. (ThunderRazor)
+DocInfo/PatchNote221=- Fixed "No Randoms" option (-nr) not working in Survival mode. (ThunderRazor)
+DocInfo/PatchNote222=- Optimized stinger ammo usage. (ThunderRazor)
+DocInfo/PatchNote223=- Fixed Recon attack animation (Rockz)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
@@ -2184,7 +2192,6 @@ Effect/Name/ApplyFocusedFireTarget=Apply Focused Fire Target
 Effect/Name/ApplyHarvesterofSorrow=Apply Harvester of Sorrow (Target Impact)
 Effect/Name/ApplyIntimidation=Apply Intimidation
 Effect/Name/ApplyMadness=Apply Madness
-Effect/Name/ApplyRefresher=Apply Refresher
 Effect/Name/ApplySapStunSet=Apply Sap Stun Set
 Effect/Name/ApplyStealthMatrix=Apply Stealth Matrix Switch
 Effect/Name/ApplyStealthMatrixLevel1=Apply Stealth Matrix Level 1
@@ -3297,6 +3304,7 @@ Effect/Name/RaynorSnipeCreatePersistent=Monofilament Cartridge (Create Persisten
 Effect/Name/RaynorSnipeDamage=Monofilament Cartridge (Damage) Level 1
 Effect/Name/RaynorSnipeSearch=Monofilament Cartridge (Search Area)
 Effect/Name/ReaperHellfireMissleLaunch=Reaper Hellfire Missle Launch
+Effect/Name/Refresher=Refresher
 Effect/Name/Regenerate=Regenerate
 Effect/Name/RegeneratePersistant=Regenerate Persistant
 Effect/Name/RegenerationIntialSet=Regeneration Intial Set
@@ -3871,7 +3879,7 @@ Level 3 Surveillance Drone=Technician releases a retooled aerial repair drone wi
 Level 3 Surveillance Flares=Surveillance Flares - Fires 5 flares from a hovering support plane spread out randomly around target area of 15 radius.
 Level 3 Taunt=Forces enemies in 10 radius to attack you for 7 seconds. Taunted units deal 30% less damage.
 Level 3 X-1 Guardian=Summons a 225 HP battle bot. Deals 24 damage per attack (1.3 attack speed). Attacks penetrate armor.
-LoadingScreen/Tip=Find 'NOTD' on Facebook for regular updates
+LoadingScreen/Tip=Find 'NOTD Official' on Discord for regular updates
 MapInfo/Player00/Name=Neutral
 MapInfo/Player01/Name=Marine 1
 MapInfo/Player02/Name=Marine 2
@@ -3978,6 +3986,7 @@ Param/Value/0BFFA1DA=We've received your upload. Some of the data is disturbing,
 Param/Value/0C10B1B5=<s val="GlueButtonSmall">Assault/Flamer/Tech: 
 Param/Value/0C2F5667=We should investigate the airlock when the squad is ready. I'm picking up multiple heat signatures there.
 Param/Value/0C4AF719=Capt. Linh
+Param/Value/0C7265D3=Buying failed
 Param/Value/0CE405E2=Evasive maneuvers! Get away from those spores.
 Param/Value/0D23902A=<s val="InfoPaneHeroRank">Class limit exceeded - XP and Credit gain reduced by 40%!
 Param/Value/0D3A884E=Solid copy.
@@ -4384,7 +4393,7 @@ Param/Value/52EDF8C1=Use flamethrowers to kill Hulks
 Param/Value/52FFD027=It's charging up for a massive fire wave.
 Param/Value/536BBA19=Argh!
 Param/Value/537C6F26=We don't have much time. The other team's trapped inside the living quarters.
-Param/Value/5395DC74=<s val="BriefingHanText">   www.notdstarcraft.com<n/>   www.facebook.com/notdstarcraft<n/>   www.twitter.com/#!/notdstarcraft</s>
+Param/Value/5395DC74=<s val="BriefingHanText">   www.notdstarcraft.com<n/>   https://discord.gg/cDWn9g<n/>
 Param/Value/53B8381E=I've been putting my head around it. I have a feeling all this is connected with the doctor who landed a few days ago.
 Param/Value/53C88C67= is now your Gunship buddy.</s>
 Param/Value/541BADD6=+3 XP for Mission Bonus. 40 civilians rescued.
@@ -4416,6 +4425,7 @@ Param/Value/58DA23DB=
 Param/Value/5907AE6D=It's down. We destroyed it.
 Param/Value/594AAF09=We need to get to the airlock.
 Param/Value/59BA14F5=Select Storyline
+Param/Value/5A3D82DA=Shop too far, disabling.
 Param/Value/59E24A84=(You've awakened a fearsome Brain Bug!)
 Param/Value/5A362BF5=%</s>
 Param/Value/5AA04D5B=/60)</c>
@@ -4553,6 +4563,7 @@ Param/Value/73B68D3A=You cannot proceed beyond Wave 20 at Recruit difficulty!
 Param/Value/73EA90C2=You lost dozens capturing Athena. All in vain.
 Param/Value/73EE1705=<s val="GlueButtonSmall">Class Points - 
 Param/Value/747277A8=
+Param/Value/74B64B08=<n/><n/>
 Param/Value/74C8B185=<s val="GlueButton">
 Param/Value/7527BA88=Seal Bio-Domes (
 Param/Value/75315112=The lab is abandoned. Whoever sent the transmission must have fled.
@@ -5026,7 +5037,7 @@ Param/Value/C669D621=What is Seth doing here?
 Param/Value/C68BF08E=Activating Apollo defense systems...
 Param/Value/C6B04A5B=Fliers incoming. Switch to sniper rifles!
 Param/Value/C6D3FF88=Keep moving. It's catching up.
-Param/Value/C6FDB822=Game Over. Find us on Facebook for regular updates. Search 'NOTD'.
+Param/Value/C6FDB822=Game Over. Find us on Discord for regular updates. Search 'NOTD Official'.
 Param/Value/C7373C86=
 Param/Value/C7813FD7=(Cronus prepares for <c val="FF0000">destruction</c>...)
 Param/Value/C79D92C1=You have 30 seconds to set up before I release the locks.
@@ -5130,6 +5141,7 @@ Param/Value/D99EB192=<s val="InfoPaneHeroRank">(Airlock Terminals require 2 auth
 Param/Value/D9C4D665=Survive the incoming attack
 Param/Value/DA7A513D=The source of the infestation has been located. Proceed with caution. There is no turning back.
 Param/Value/DA815637=Our mission brief showed a Dr. Bergmann. Do you think he's related to all this?
+Param/Value/DA82A504=Buying failed
 Param/Value/DA86910D=<s val="InfoPaneHeroRank">- Overriding Security Protocols -</s>
 Param/Value/DAA0ACEF=<s val="InfoPaneHeroRank">Outbreak activated</s><n/>- Large groups of enemies attack periodically.<n/>- Number of enemies is increased over time.
 Param/Value/DAB8AD38=We're not coming. Return to base.
@@ -5586,6 +5598,7 @@ Unit/Name/InfestorKidneyHighlightTooltip=AP Ammo
 Unit/Name/InfestorTerran=Infested Marine
 Unit/Name/InfestorTerran2=Infested Marine
 Unit/Name/IonCannon=Orbital Laser
+Unit/Name/ItemDummy=Item Dummy
 Unit/Name/Ivan=Ogilvy
 Unit/Name/IvanPlushenko=Ivan Plushenko
 Unit/Name/Ivax=IVAX
@@ -5741,6 +5754,8 @@ Unit/Name/ZerglingPet=Zergling
 Unit/Name/Zeus=Zeus
 Unit/Name/ZombieBroodMother=Brood Mother
 Unit/Name/ZombieBroodMother2=Brood Mother
+Unit/Name/ZombieCreep=Zombie Creep
+Unit/Name/ZombieCreepLarge=Zombie Creep (Large)
 Unit/Name/ZombieLevel1=Zombie
 Unit/Name/ZombieLevel12=Zombie
 Unit/Name/ZombieLevel2=Zombie
@@ -5961,7 +5976,7 @@ UserData/Mode/Veteran_Short=Veteran
 UserData/NewbieDeathTips/Standard Death Tips_Tips=Find more players in channel 'NOTD'
 UserData/NewbieDeathTips/Standard Death Tips_Tips_001=Get 500 XP to unlock a Predator after death
 UserData/NewbieDeathTips/Standard Death Tips_Tips_002=Learn everything about NOTD at notdstarcraft.wikia.com
-UserData/NewbieDeathTips/Standard Death Tips_Tips_003=Find 'NOTD' on Facebook for regular updates
+UserData/NewbieDeathTips/Standard Death Tips_Tips_003=Find 'NOTD Official' on Discord for regular updates
 UserData/NewbieDeathTips/Standard Death Tips_Tips_004=Your rating will increase as you play better. Good luck!
 UserData/OgiIntros/Ogi Intro 1_Speech=I know all about 'em. Put a bullet in them - they die!
 UserData/OgiIntros/Ogi Intro 2_Speech=Time to kick ass and chew bubble gum!
@@ -6041,6 +6056,66 @@ UserData/Ranks/Sergeant_Title Brief=Sgt.
 UserData/Ranks/Sergeant_Title Full=Sergeant
 UserData/Ranks/Staff Sergeant_Title Brief=SSgt. 
 UserData/Ranks/Staff Sergeant_Title Full=Staff Sergeant
+UserData/ShopItems/ShopItem10_ShopTooltip=Changes Marine color to <c val="1f01c9">Violet</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem11_ShopTooltip=Changes Marine color to <c val="525494">Light Grey</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem12_ShopTooltip=Changes Marine color to <c val="106246">Dark Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem13_ShopTooltip=Changes Marine color to <c val="4e2a04">Brown</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem14_ShopTooltip=Changes Marine color to <c val="96ff91">Light Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem15_ShopTooltip=Changes Marine color to <c val="232323">Dark Grey</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem16_ShopTooltip=Changes Marine color to <c val="cca6fc">Light Pink</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem17_ShopTooltip=Biological - can get hugged<n/>LifeMax:350  LifeRegen:10 RegenDelay: No<n/>Movement Speed:2.35 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem18_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay:Yes<n/>Movement Speed:3 EnergyMax:50 Shields:20<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem19_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: No<n/>Movement Speed:2.5 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem1_ShopTooltip=Changes Marine color to <c val="FFFFFF">White</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem20_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:60 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem21_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:70 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem22_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem23_ShopTooltip=Biological - can get hugged<n/>LifeMax:275 LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem24_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:7  RegenDelay: No<n/>Movement Speed:2.9 EnergyMax:70 Shields:10<n/><n/>Credits: <c val="71B8FF">Free</c>
+UserData/ShopItems/ShopItem25_ShopTooltip=Biological - can get hugged<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:75 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem26_ShopTooltip=Biological - can get hugged<n/>LifeMax:300 LifeRegen:12 RegenDelay: No<n/>Movement Speed:2.7 EnergyMax:50 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem27_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:15<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem28_ShopTooltip=Biological - can get hugged<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:20<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem29_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:10 RegenDelay: Yes<n/>Movement Speed:2.5 EnergyMax:55 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem2_ShopTooltip=Changes Marine color to <c val="b4141e">Red</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem30_ShopTooltip=Since the Great Rat Plague of 2028, kittens have been a mainstay in every citizen's home - providing frontline defense against the next plague. Kittens are also cute. Be a responsible neighbour - order now.<n/><n/>Credits: <c val="71B8FF">1000</c>
+UserData/ShopItems/ShopItem31_ShopTooltip=Rank icon of Marine replaced with Black Ops Insignia.<n/><n/>Credits: <c val="71B8FF">10000</c>
+UserData/ShopItems/ShopItem32_ShopTooltip=Allows modification of weapons.<n/><n/>Credits: <c val="71B8FF">10000</c>
+UserData/ShopItems/ShopItem33_ShopTooltip=Heavy Sniper Rifle that is capable of inflicting massive damage. This powerful weapon also weighs down the Marine.<n/><n/>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem34_ShopTooltip=Launches high explosive grenades that detonate on contact with targets.<n/><n/>Credits: <c val="71B8FF">325</c>
+UserData/ShopItems/ShopItem35_ShopTooltip=Rocket Launcher that does significant splash damage. Consumes 10 rounds per attack. Use with extreme caution.<n/><n/>Credits: <c val="71B8FF">325</c>
+UserData/ShopItems/ShopItem36_ShopTooltip=This .50 caliber gun is great at mowing down masses. It's high impact rounds will penetrate armor completely.<n/><n/>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem37_ShopTooltip=Slower firing than the UA General Purpose Rifle but packs a bigger punch. Also penetrates deeper into armor.<n/><n/>Credits: <c val="71B8FF">200</c>
+UserData/ShopItems/ShopItem38_ShopTooltip=Deals damage to multiple units in a close distance. 30% chance to stun non-massive units for 0.1 seconds. Uses 2 rounds per shot. <n/>Deals both primary and splash damage to the initial target.<n/><n/>Credits: <c val="71B8FF">200</c>
+UserData/ShopItems/ShopItem39_ShopTooltip=Excellent close quarter combat weapon when mobility is needed. Makes quick work of lightly armored units. Depletes ammo rapidly.<n/><n/></c>Credits: <c val="71B8FF">100</c>
+UserData/ShopItems/ShopItem3_ShopTooltip=Changes Marine color to <c val="0042ff">Blue</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem40_ShopTooltip=Burns any living creature quickly.<n/><n/>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem41_ShopTooltip=Adds 4 shield armor and increases maximum shield capacity by 50%.<n/><n/>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem42_ShopTooltip=A durable polymer suit that has plate inserts to protect vital areas. While it doesn't offer the impact dampening that heavier armors do, the durable and flexible material that slides over the Marine's combat suit is extremely resistant to tearing and puncturing.<n/><n/>Adds 2 armor and 40% ailment resistance.<n/><n/>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem43_ShopTooltip=A series of interlocking attachable plates that lock on to the combat suit to provide protection from blunt trauma to vital areas, while joints are bolstered by armored pads.<n/><n/>Adds 4 armor and 20% ailment resistance.<n/><n/>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem44_ShopTooltip=Produced by United Arms Heavy Industries, this ammunition can punch through the hardiest of armor.<n/>Attack Modifier: <c val="FFFFFF">-1 armor (Does not stack)</c><n/>Damage Modfier: <c val="FFFFFF">+7%</c><n/>Maximum Stack: <c val="FFFFFF">3</c></n></n>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem45_ShopTooltip=The jacket allows for higher muzzle velocities than bare lead without depositing significant amounts of metal in the bore.<n/>Attack Modifier: <c val="FFFFFF">+15% attack speed. -1 attack range (Stacks 3x)</c></n></n>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem46_ShopTooltip=Produced by UGC Engineering Corps. This ammunition makes use of a high yield head which burns targets on impact.<n/>Damage Modifier: <c val="FFFFFF">+3% damage (Stacks 3x)</c><n/>Attack Modifier: Target takes 50% bonus damage from Fire for 5 seconds</c></n></c></n>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem47_ShopTooltip=Allows your marine to use an additional magazine per reload while equipped.<n/>Maximum Stack: <c val="FFFFFF">1</c><n/></n>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem48_ShopTooltip=Produced by UGC Ballistics this ammunition is designed to cause major damage to targets.<n/>Damage Modifier: <c val="FFFFFF">+12% damage (Stacks 3x)</c><n/><n/>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem49_ShopTooltip=+0.4 HP regeneration per second. Ideal for Marines in the front lines.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem4_ShopTooltip=Changes Marine color to <c val="1ca7ea">Teal</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem50_ShopTooltip=Increases Sight Radius by 3.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem51_ShopTooltip=Increases movespeed by 10%<n/>Maxiumum Stack: <c val="FFFFFF">1<n/><n/></c>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem52_ShopTooltip=Increases Energy & Shield regeneration by 0.33 per sec.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem53_ShopTooltip=Illuminates a 9 radius area for 60 seconds.<n/><n/>Credits: <c val="71B8FF">15</c>
+UserData/ShopItems/ShopItem54_ShopTooltip=Heals 125 HP over 15 seconds. Can be used on self only.<n/>Maximum Effect Stack: <c val="FFFFFF">3</c><n/><n/>Credits: <c val="71B8FF">15</c>
+UserData/ShopItems/ShopItem55_ShopTooltip=Instantly heals 50 HP. Also heals Open Wounds.<n/><n/>Credits: <c val="71B8FF">15</c>
+UserData/ShopItems/ShopItem56_ShopTooltip=Cures venom and restores 10 HP.<n/><n/>Credits: <c val="71B8FF">10</c>
+UserData/ShopItems/ShopItem57_ShopTooltip=Consume to add 3 magazines to your ammuniton pool.<n/><n/>Credits: <c val="71B8FF">10</c>
+UserData/ShopItems/ShopItem58_ShopTooltip=Stores magazines that provide rounds for your weapons. Higher magazine capacity frees up your inventory.<n/><n/>Credits: <c val="71B8FF">35</c>
+UserData/ShopItems/ShopItem5_ShopTooltip=Changes Marine color to <c val="331ac8">Purple</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem60_ShopTooltip=Since the Great Rat Plague of 2028, kittens have been a mainstay in every citizen's home - providing frontline defense against the next plague. Kittens are also cute. Be a responsible neighbour - order now.<n/><n/>Credits: <c val="71B8FF">1000</c>
+UserData/ShopItems/ShopItem6_ShopTooltip=Changes Marine color to <c val="ebe129">Yellow</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem70_ShopTooltip=Rank icon of Marine replaced with Black Ops Insignia.<n/><n/>Credits: <c val="71B8FF">10000</c>
+UserData/ShopItems/ShopItem7_ShopTooltip=Changes Marine color to <c val="fe8a0e">Orange</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem8_ShopTooltip=Changes Marine color to <c val="168000">Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
+UserData/ShopItems/ShopItem9_ShopTooltip=Changes Marine color to <c val="FF80FF">Pink</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/SquadInformation/Difficulty HP Scaling_Information=Difficulty HP Scaling: 
 UserData/SquadInformation/Spawn Factor_Information=Spawn Factor: 
 UserData/SquadInformation/Squad Rating_Information=Squad Rating: 
@@ -6055,19 +6130,33 @@ UserData/StatData/Perception_Name=Perception
 UserData/StatData/Perception_Tooltip=<c val="FFFF00">Perception</c><n/>Adds +0.5 Detection Radius and +1% Critical Strike Chance per Stat Point.
 UserData/StatData/Strength_Name=Strength
 UserData/StatData/Strength_Tooltip=<c val="FFFF00">Strength</c><n/>Adds +11.5 HP and increased Weight Tolerance per Stat Point.
+UserData/Storyline/Alpha Company_Story Name=Alpha Company
+UserData/Storyline/Alpha Company_Story Subtitle=Landing on the outer ring of the colony, Alpha -- oblivious to the danger -- must find their own way in...
+UserData/Storyline/Alpha Company_Story Tooltip=Hardened veterans only!
+UserData/Storyline/Alpha Company_Story_Unlock_Text=To Unlock: All Players > <n/>1000 XP required
 UserData/Storyline/Alpha_Company_Story_Name=Alpha Company
 UserData/Storyline/Alpha_Company_Story_Subtitle=Landing on the outer ring of the colony, Alpha -- oblivious to the danger -- must find their own way in...
 UserData/Storyline/Alpha_Company_Story_Tooltip=Hardened veterans only!
 UserData/Storyline/Alpha_Company_Story_Unlock_Text=Unlock: All Players > <n/>1000 XP
+UserData/Storyline/Apollo Security Team_Story Name=Apollo Security
+UserData/Storyline/Apollo Security Team_Story Subtitle=Holed up with their backs against the wall, the Apollo security team prepare to meet their fate head on...
+UserData/Storyline/Apollo Security Team_Story Tooltip=Danger! Heavy casualties expected...
+UserData/Storyline/Apollo Security Team_Story_Unlock_Text=To Unlock: All Players > <n/>3000 XP required
 UserData/Storyline/Apollo_Security_Team_Story_Name=Apollo Security
 UserData/Storyline/Apollo_Security_Team_Story_Subtitle=Holed up with their backs against the wall, the Apollo security team prepare to meet their fate head on...
 UserData/Storyline/Apollo_Security_Team_Story_Tooltip=Danger! Heavy casualties expected...
 UserData/Storyline/Apollo_Security_Team_Story_Unlock_Text=Unlock: All Players > <n/>3000 XP
+UserData/Storyline/Easy Company_Story Name=Easy Company
+UserData/Storyline/Easy Company_Story Subtitle=Assigned to investigate the distress call, Easy lands to find Apollo deserted and communications jammed. Something is terribly wrong...
+UserData/Storyline/Easy Company_Story Tooltip=Ready for mission launch...
 UserData/Storyline/Easy_Company_Story_Name=Easy Company
 UserData/Storyline/Easy_Company_Story_Subtitle=Assigned to investigate the distress call, Easy lands to find Apollo deserted and communications jammed. Something is terribly wrong...
 UserData/Storyline/Easy_Company_Story_Tooltip=Ready for mission launch...
+UserData/Storyline/Survival_Story Name=Survival
+UserData/Storyline/Survival_Story Tooltip=All 14 Classes Unlocked. 40 Waves of Enemies.<n/><n/>Survive As Long As Possible.
 UserData/Storyline/Survival_Story_Name=Survival
 UserData/Storyline/Survival_Story_Tooltip=All 14 Classes Unlocked. 40 Waves of Enemies.<n/><n/>Survive As Long As Possible.
+UserData/Storyline/Survival_Story_Unlock_Text=To Unlock: All Players > <n/>1000 XP required
 UserData/SurvivalWaveNames/Wave 10_Title=Wave 10
 UserData/SurvivalWaveNames/Wave 10_Wave Name=Boss 1 - Tartarus & Eileithyia
 UserData/SurvivalWaveNames/Wave 11_Title=Wave 11

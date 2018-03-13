@@ -22,4 +22,5 @@
     <Include path="UI/Layout/AmmoUI.SC2Layout"/>
     <Include path="UI/Layout/StorylineSelection.SC2Layout"/>
     <Include path="UI/Layout/MissionLog.SC2Layout"/>
+    <Include path="UI/Layout/Shop.SC2Layout"/>
 </Desc>
