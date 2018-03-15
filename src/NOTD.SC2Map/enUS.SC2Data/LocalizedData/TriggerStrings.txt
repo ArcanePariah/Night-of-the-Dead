@@ -2455,7 +2455,6 @@ Variable/Name/BB85BAD2=Hero Offset Y
 Variable/Name/BC2C807F=Host AFK?
 Variable/Name/BC56FC1B=BackstabTextHeightOffset
 Variable/Name/BC8736FD=CamsUnlocked
-Variable/Name/BC8C8CC8=tempDialog
 Variable/Name/BD00AC93=Used Dialog Item
 Variable/Name/BD2CD435=Engineer Owner
 Variable/Name/BD4D7481=MagazineSpawn

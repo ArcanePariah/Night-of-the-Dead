@@ -11950,7 +11950,6 @@ void gf_MissionLogAppend (text lp_textToAppend) {
     // Variable Declarations
     int lv_index;
     text lv_tempText;
-    int lv_tempDialog;
     int lv_missionTime;
 
     // Automatic Variable Declarations
@@ -11958,7 +11957,6 @@ void gf_MissionLogAppend (text lp_textToAppend) {
 
     // Variable Initialization
     lv_index = gv_indexBaseValue;
-    lv_tempDialog = c_invalidDialogControlId;
     lv_missionTime = FixedToInt(GameGetMissionTime());
 
     // Implementation
@@ -11967,8 +11965,10 @@ void gf_MissionLogAppend (text lp_textToAppend) {
     while (true) {
         lv_index = PlayerGroupNextPlayer(auto207CAF0B_g, lv_index);
         if (lv_index < 0) { break; }
-        lv_tempText = (libNtve_gf_DialogItemText(gv_MissionLogContent[lv_index], lv_index) + StringExternal("Param/Value/1366F3ED") + TextTimeFormat(StringToText("<hour2/>:<min2/>:<sec2/>"), lv_missionTime) + StringExternal("Param/Value/0EC7DFD6") + lp_textToAppend);
-        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lv_index], lv_tempText, PlayerGroupSingle(lv_index));
+        if ((gv_MissionLog[lv_index] != c_invalidDialogId)) {
+            lv_tempText = (libNtve_gf_DialogItemText(gv_MissionLogContent[lv_index], lv_index) + StringExternal("Param/Value/1366F3ED") + TextTimeFormat(StringToText("<hour2/>:<min2/>:<sec2/>"), lv_missionTime) + StringExternal("Param/Value/0EC7DFD6") + lp_textToAppend);
+            libNtve_gf_SetDialogItemText(gv_MissionLogContent[lv_index], lv_tempText, PlayerGroupSingle(lv_index));
+        }
     }
 }
 
