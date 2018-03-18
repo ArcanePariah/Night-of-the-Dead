@@ -10826,7 +10826,7 @@ void gf_ShopBuyTemp (int lp_itemID, int lp_player) {
     lv_itemID = lp_itemID;
 
     // Implementation
-    if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000)) {
+    if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000) && (gv_noNewbie == true)) {
         lv_itemCost = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopCost", 1);
         lv_item = UserDataGetGameLink("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopUnit", 1);
         if ((gv_playerCredits[lv_buyingPlayer] >= lv_itemCost)) {
@@ -38773,6 +38773,10 @@ bool gt_ShopForceClose_Func (bool testConds, bool runActions) {
         }
 
         if (!((gv_marineHero[lv_eventPlayer] == lv_eventUnit))) {
+            return false;
+        }
+
+        if (!((DialogIsVisible(gv_shop[lv_eventPlayer], lv_eventPlayer) == true))) {
             return false;
         }
     }
