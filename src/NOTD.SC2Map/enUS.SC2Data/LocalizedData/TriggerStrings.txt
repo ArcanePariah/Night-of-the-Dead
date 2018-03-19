@@ -1424,7 +1424,6 @@ Variable/Name/10665EB0=Barrage Time
 Variable/Name/106F5C7A=Random Integer
 Variable/Name/1086A761=InfestedParrot
 Variable/Name/1106FB1C=Item X
-Variable/Name/110A8043=Used Dialog Item
 Variable/Name/1123F825=shopClose
 Variable/Name/115283BB=SecTeam B
 Variable/Name/11B5EFCE=Anticipation Level

@@ -929,7 +929,7 @@ unit gv_survivalCronusB;
 unitgroup gv_survivalNydusGroup;
 int gv_survivalSpawn;
 gs_SurvivalSpawnLocation[6] gv_survivalSpawnPoints;
-bool gv_equipmentOpen;
+bool[9] gv_equipmentOpen;
 text gv_creditsLeft;
 unitgroup[9] gv_boughtItems;
 int[gv_numberofPlayers + 1] gv_shop;
@@ -11611,6 +11611,7 @@ void gf_EquipmentDialogCreation (int lp_player) {
     DialogControlCreateFromTemplate(gv_equipment, c_triggerControlTypeButton, "MarineEquipment/MarineEquipment/MarineEquipmentButton");
     libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("Classes", gv_playerClass[lp_player], "Class Image", 1), PlayerGroupAll());
     libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal("Param/Value/4713242D"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemEditorValue(DialogControlLastCreated(), "@equipment", PlayerGroupAll());
     gv_equipmentButton[lp_player] = DialogControlLastCreated();
     DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), false);
     DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupSingle(lp_player), true);
@@ -37660,16 +37661,14 @@ void gt_ShowInventory_Init () {
 // Trigger: Open Equipment
 //--------------------------------------------------------------------------------------------------
 bool gt_OpenEquipment_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_usedDialogItem;
-
     // Automatic Variable Declarations
-    // Variable Initialization
-    lv_usedDialogItem = EventDialogControl();
-
     // Conditions
     if (testConds) {
-        if (!(((lv_usedDialogItem == gv_equipmentButton[1]) || (lv_usedDialogItem == gv_equipmentButton[2]) || (lv_usedDialogItem == gv_equipmentButton[3]) || (lv_usedDialogItem == gv_equipmentButton[4]) || (lv_usedDialogItem == gv_equipmentButton[5]) || (lv_usedDialogItem == gv_equipmentButton[6]) || (lv_usedDialogItem == gv_equipmentButton[7]) || (lv_usedDialogItem == gv_equipmentButton[8])))) {
+        if (!((DialogControlGetDialog(EventDialogControl()) == gv_equipment))) {
+            return false;
+        }
+
+        if (!((libNtve_gf_DialogItemEditValue(EventDialogControl(), EventPlayer()) == "@equipment"))) {
             return false;
         }
     }
@@ -37679,12 +37678,12 @@ bool gt_OpenEquipment_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((gv_equipmentOpen == true)) {
-        gv_equipmentOpen = false;
+    if ((gv_equipmentOpen[EventPlayer()] == true)) {
+        gv_equipmentOpen[EventPlayer()] = false;
         UnitInventoryContainerOpen(PlayerGroupSingle(EventPlayer()), gv_marineHero[EventPlayer()], 2, false);
     }
     else {
-        gv_equipmentOpen = true;
+        gv_equipmentOpen[EventPlayer()] = true;
         UnitInventoryContainerOpen(PlayerGroupSingle(EventPlayer()), gv_marineHero[EventPlayer()], 2, true);
     }
     return true;
