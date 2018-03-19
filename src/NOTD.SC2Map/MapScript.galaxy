@@ -5928,7 +5928,8 @@ bool auto_gf_MarineSpeechNOTD_TriggerFunc (bool testConds, bool runActions) {
 void gf_SendTransmissionNOTD (unit lp_transmissionUnit, text lp_transmissionSender, text lp_transmissionContent, fixed lp_transmissionDuration) {
     // Automatic Variable Declarations
     // Implementation
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(lp_transmissionUnit, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, lp_transmissionSender, lp_transmissionContent, lp_transmissionDuration, c_transmissionDurationAdd, false);
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromUnit(lp_transmissionUnit, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), null, lp_transmissionDuration, c_transmissionDurationAdd, false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, (StringExternal("Param/Value/FC3FE213") + lp_transmissionSender + StringExternal("Param/Value/67472A7C") + lp_transmissionContent + StringExternal("Param/Value/5F562428")));
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
     gf_MissionLogAppend((StringExternal("Param/Value/675EE141") + lp_transmissionSender + StringExternal("Param/Value/69580F03") + lp_transmissionContent + StringExternal("Param/Value/77BEE196")));
 }

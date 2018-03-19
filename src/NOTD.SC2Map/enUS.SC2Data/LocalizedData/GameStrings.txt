@@ -4465,6 +4465,7 @@ Param/Value/5E7C397E=(Sensing her mortality, the Queen begins to withdraw..)
 Param/Value/5E9D241A=asasd
 Param/Value/5EDDC08C=We lost the starport too. Couldn't EVAC out of here.
 Param/Value/5F4DD8DA=ETA 2 Mikes. I see enemy movement. They're moving in on you.
+Param/Value/5F562428=</c></s>
 Param/Value/5FA0B4DE=(The Queen begins to lay eggs..)
 Param/Value/5FAE1461= randomed 
 Param/Value/5FFE221C=
@@ -4511,6 +4512,7 @@ Param/Value/66EDD69C=Proceed to EVAC
 Param/Value/670FA8CE=(Zeus summons the rebirth of Leto..!)
 Param/Value/672C2DC4=<n/><n/>Kills: <c val="F4D72B">
 Param/Value/6734436C=<n/>   Karma: 
+Param/Value/67472A7C=: <c val="F4D72B">
 Param/Value/675EE141=<s val="GlueButton">
 Param/Value/67897E79=<n/></c>Magazines: <c val="F4D72B">
 Param/Value/67AE4653=We can't kill that thing. Stay away from it.
@@ -5377,6 +5379,7 @@ Param/Value/FBAB4279=Chapter 3
 Param/Value/FBBC0ECA=<c val="FF0000">-1 Rating</c> for mission delay
 Param/Value/FBD0B825=<s val="HeaderExtendedTemplate">Stats</s>
 Param/Value/FC0F456B=(Log complete...)
+Param/Value/FC3FE213=<s val="GlueButton">
 Param/Value/FC9DE0D9=Be prepared. Unknown dangers lurk in the Mine Shaft.
 Param/Value/FD3063C2=Kill Deimos
 Param/Value/FD6E91D5=Inventory
