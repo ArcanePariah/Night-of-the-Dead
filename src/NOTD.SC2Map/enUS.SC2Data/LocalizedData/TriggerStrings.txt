@@ -1972,6 +1972,7 @@ Variable/Name/6B1BC66B=Player Bank Data
 Variable/Name/6B6C8156=OriginAmmo
 Variable/Name/6C04641D=Attack Wave Waypoint
 Variable/Name/6C0DAB15=SawSomethingChat
+Variable/Name/6C439D43=Control
 Variable/Name/6C6BE8CB=Player Name Text Y
 Variable/Name/6C8594C7=MessageC
 Variable/Name/6C8666B9=Starting Credits

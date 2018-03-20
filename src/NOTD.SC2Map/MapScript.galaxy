@@ -10310,6 +10310,7 @@ bool auto_gf_DisableAttackEquippingWeapons_TriggerFunc (bool testConds, bool run
 void gf_ShowInventory (unit lp_marine, int lp_player) {
     // Variable Declarations
     playergroup lv_players;
+    bool lv_control;
 
     // Automatic Variable Declarations
     playergroup auto5DF456A6_g;
@@ -10317,6 +10318,7 @@ void gf_ShowInventory (unit lp_marine, int lp_player) {
 
     // Variable Initialization
     lv_players = PlayerGroupSingle(lp_player);
+    lv_control = PlayerGetAlliance(UnitGetOwner(lp_marine), c_allianceIdControl, lp_player);
 
     // Implementation
     auto5DF456A6_g = gv_marineSquad;
@@ -10331,6 +10333,10 @@ void gf_ShowInventory (unit lp_marine, int lp_player) {
     DialogControlSetVisible(gv_equipmentButton[UnitGetOwner(lp_marine)], lv_players, true);
     DialogSetVisible(gv_ammoCounterDialog[UnitGetOwner(lp_marine)], lv_players, true);
     DialogSetVisible(gv_ammoBarDialog[UnitGetOwner(lp_marine)], lv_players, true);
+    if ((lv_control == false)) {
+        PlayerSetAlliance(UnitGetOwner(lp_marine), c_allianceIdControl, lp_player, true);
+    }
+
     if ((gv_inventoryOpen[lp_player] == true)) {
         UnitInventoryContainerOpen(lv_players, lp_marine, 1, true);
     }
@@ -10343,6 +10349,10 @@ void gf_ShowInventory (unit lp_marine, int lp_player) {
     else {
         UnitInventoryContainerOpen(lv_players, lp_marine, 2, false);
     }
+    if ((lv_control == false)) {
+        PlayerSetAlliance(UnitGetOwner(lp_marine), c_allianceIdControl, lp_player, false);
+    }
+
 }
 
 void gf_EquipmentUpdateMarineWeight (int lp_ownerOfEquipment) {
