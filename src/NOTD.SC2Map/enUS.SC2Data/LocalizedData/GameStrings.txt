@@ -4376,6 +4376,7 @@ Param/Value/4FEFEA27=We've received a distress beacon inside Central Square Towe
 Param/Value/5002828A=Marines, we're survivors from Apollo onboard the Delta 1 transport ship docked in the Airlock.
 Param/Value/50147A2B=<c val="FF0000">-2 Rating</c> for mission delay
 Param/Value/5026006B=</c>) (<c val="49ABF3">
+Param/Value/503D55D6=<c val="FF0000">Inventory Hidden..</c> <c val="FFFF00">(Press <c val="FFFFFF">Num Pad 1</c> to show inventory!)</c>
 Param/Value/50673B96=This is Alpha Company. Mission was successful, requesting immediate evac.
 Param/Value/50700109=</c>)
 Param/Value/507094E5=(The Queen lets out a horrific shriek..)
