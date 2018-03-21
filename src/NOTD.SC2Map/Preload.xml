@@ -3,15 +3,8 @@
 <Asset path="ui\layout\teamstatus.sc2layout" Type="Layout"/>
 <Asset path="notd models\ghoulred.m3" Type="Model"/>
 <Actor id="SYSTEM_ActorConfig"/>
-<Actor id="LightOmniBlueLarge"/>
-<Actor id="LightOmniCyan"/>
 <Actor id="LightOmniCyanLarge"/>
-<Actor id="LightOmniGreen"/>
-<Actor id="LightOmniGreenLarge"/>
 <Actor id="LightOmniPurple"/>
-<Actor id="LightOmniPurpleLarge"/>
-<Actor id="LightOmniRed"/>
-<Actor id="LightOmniRedLarge"/>
 <Actor id="GenericSpacePipes" Variations="10"/>
 <Actor id="AgriaDebrisLarge" Variations="0,1"/>
 <Actor id="AlarmLight" Variations="0,1"/>
@@ -24,7 +17,7 @@
 <Actor id="BraxisAlphaFloodLights" Variations="0,1,2,3"/>
 <Actor id="BunkerWrecked"/>
 <Actor id="CableLight"/>
-<Actor id="CastanarFloodlight" Variations="0,1,2"/>
+<Actor id="CastanarFloodlight" Variations="0,2"/>
 <Actor id="CastanarDissectionTable" Variations="2"/>
 <Actor id="CastanarGenerator" Variations="0,1"/>
 <Actor id="CastanarHoloProjector"/>
@@ -87,11 +80,10 @@
 <Actor id="PortZionScrapConveyorBelt" Variations="0"/>
 <Actor id="PortZionTires" Variations="0"/>
 <Actor id="PortZionTower" Variations="7"/>
-<Actor id="PowerCables" Variations="4,5,6,7"/>
-<Actor id="RedstoneFlameGeyser" Variations="1"/>
+<Actor id="PowerCables" Variations="3,4,5,7"/>
 <Actor id="RockTower" Variations="0,1,2"/>
 <Actor id="RockVolcanicGiant" Variations="0,1,2,3,4,5"/>
-<Actor id="RockFormationLarge" Variations="0,3,4,5"/>
+<Actor id="RockFormationLarge" Variations="0,4,5"/>
 <Actor id="Searchlight" Variations="0"/>
 <Actor id="SecurityFenceDiagonal" Variations="0"/>
 <Actor id="SpacePlatformArchwayLarge" Variations="0,1,2,3,4"/>
@@ -174,7 +166,6 @@
 <Actor id="GateControlCables" Variations="0"/>
 <Actor id="MarineCorpse" Variations="0,1,2,3,4,5,6,7,8,9"/>
 <Actor id="MengskStatueAloneCreep"/>
-<Actor id="PipeGroundBig" Variations="0,1,6"/>
 <Actor id="PortZionGridFloorCompactorDoodad"/>
 <Actor id="PortZionGridFloorDoodad"/>
 <Actor id="ScientistCorpseGory" Variations="0,1,2,3,4,5,6,7"/>
@@ -210,7 +201,7 @@
 <Actor id="TRaynorDumpTruck"/>
 <Actor id="Cougher"/>
 <Sound id="Zerg_CreepGrow"/>
-<Terrain id="MeinhoffEx1"/>
+<Terrain id="Meinhoff"/>
 <TerrainObject id="AvernusSpectreChamberTO2"/>
 <TerrainObject id="AvernusMiningChamberTO1"/>
 <TerrainObject id="AvernusGridFloorTO1"/>
