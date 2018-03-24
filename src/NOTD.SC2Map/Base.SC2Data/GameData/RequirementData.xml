@@ -64,8 +64,8 @@
         <NodeArray index="Use" Link="OrEqCountBehaviorBarretEquippedCompleteOnly1EqCountBehaviorMarksmanRifleEquippedCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="MasterofSubtlety">
-        <NodeArray index="Use" Link="AndEqCountAbilMasterofSubtletyCompleteOnlyAtUnit1GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnitCountUpgradeAnionPulseCrystalsCompleteOnly1"/>
-        <NodeArray index="Show" Link="AndEqCountAbilMasterofSubtletyCompleteOnlyAtUnit1GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnit1"/>
+        <NodeArray index="Use" Link="AndEqCountAbilMasterofSubtletyCompleteOnlyAtUnit1GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBeha180059109"/>
+        <NodeArray index="Show" Link="AndEqCountAbilMasterofSubtletyCompleteOnlyAtUnit1GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBeha180059109"/>
         <CanBeSuppressed index="Use" value="0"/>
     </CRequirement>
     <CRequirement id="MobileInfantryImprovedEquipment">
