@@ -14299,6 +14299,9 @@ void gf_UpdateTalentAbility (int lp_itemNo, int lp_triggPlayer) {
     lv_triggUnit = gv_marineHero[lp_triggPlayer];
 
     // Implementation
+    while ((libNtve_gf_UnitIsPaused(lv_triggUnit) == true) && (UnitHasBehavior2(lv_triggUnit, "ForcePushHeightLevel1") == true) && (UnitHasBehavior2(lv_triggUnit, "ForcePushHeightLevel2") == true) && (UnitHasBehavior2(lv_triggUnit, "ForcePushHeightLevel3") == true)) {
+        Wait(0.1, c_timeGame);
+    }
     UnitIssueOrder(lv_triggUnit, Order(AbilityCommand("GenericMarineLearn", (lp_itemNo - 1))), c_orderQueueAddToFront);
     auto4E346E50_val = lv_classOfPlayer;
     if (auto4E346E50_val == "Rifleman") {
