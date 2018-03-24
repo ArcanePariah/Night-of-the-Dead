@@ -9943,7 +9943,6 @@ RequirementNode/Name/EqCountBehaviorBarretEquippedCompleteOnly1=CountBehavior(Ba
 RequirementNode/Name/EqCountBehaviorHEFRoundsCompleteOnlyAtUnit1=CountBehavior(HEFRounds,CompleteOnlyAtUnit) == 1
 RequirementNode/Name/EqCountBehaviorL3EquippedCompleteOnly1=CountBehavior(L3Equipped,CompleteOnly) == 1
 RequirementNode/Name/EqCountBehaviorMarksmanRifleEquippedCompleteOnly1=CountBehavior(MarksmanRifleEquipped,CompleteOnly) == 1
-RequirementNode/Name/EqCountBehaviorPetVeterancyCompleteOnlyAtUnit10=CountBehavior(PetVeterancy,CompleteOnlyAtUnit) == 10
 RequirementNode/Name/EqCountBehaviorWeaponSwitchCompleteOnly0=CountBehavior(WeaponSwitch,CompleteOnly) == 0
 RequirementNode/Name/EqCountUnitCommentatorBot1CompleteOnlyAtUnit1=CountUnit(CommentatorBot1,CompleteOnlyAtUnit) == 1
 RequirementNode/Name/EqCountUnitT65SentinelCompleteOnlyAtUnit1=CountUnit(T65Sentinel,CompleteOnlyAtUnit) == 1
@@ -10025,6 +10024,7 @@ RequirementNode/Name/GTECountAbilWeaponExpertiseCompleteOnlyAtUnitTechTreeCheat2
 RequirementNode/Name/GTECountAbilWeaponsProficiencyCompleteOnlyAtUnit1=CountAbil(WeaponsProficiency,CompleteOnlyAtUnit) >= 1
 RequirementNode/Name/GTECountAbilWeaponsProficiencyCompleteOnlyAtUnit2=CountAbil(WeaponsProficiency,CompleteOnlyAtUnit) >= 2
 RequirementNode/Name/GTECountBehaviorFlamerEquippedCompleteOnly1=CountBehavior(FlamerEquipped,CompleteOnly) >= 1
+RequirementNode/Name/GTECountBehaviorPetVeterancyCompleteOnlyAtUnit10=CountBehavior(PetVeterancy,CompleteOnlyAtUnit) >= 10
 RequirementNode/Name/GTECountBehaviorPistolEquippedCompleteOnly1=CountBehavior(PistolEquipped,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradeCriticalStrikeSkillCompleteOnly1=CountUpgrade(CriticalStrikeSkill,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradeFireUpCompleteOnly1=CountUpgrade(FireUp,CompleteOnly) >= 1

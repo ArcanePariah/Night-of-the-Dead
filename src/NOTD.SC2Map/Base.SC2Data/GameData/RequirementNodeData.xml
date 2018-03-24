@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CRequirementConst id="10">
-        <Tooltip value=""/>
-    </CRequirementConst>
     <CRequirementAllowAbil id="AllowAbil180611996TechTreeCheat">
         <Flags index="TechTreeCheat" value="1"/>
         <Index value="1"/>
@@ -344,17 +341,14 @@
         <OperandArray index="1" value="2"/>
     </CRequirementEq>
     <CRequirementEq id="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat"/>
         <OperandArray index="1" value="1"/>
     </CRequirementEq>
     <CRequirementEq id="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat2">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat"/>
         <OperandArray index="1" value="2"/>
     </CRequirementEq>
     <CRequirementEq id="EqCountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat3">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountAbilConcentrationCompleteOnlyAtUnitTechTreeCheat"/>
         <OperandArray index="1" value="3"/>
     </CRequirementEq>
@@ -467,11 +461,6 @@
         <Tooltip value=""/>
         <OperandArray index="0" value="CountBehaviorMarksmanRifleEquippedCompleteOnly"/>
         <OperandArray index="1" value="1"/>
-    </CRequirementEq>
-    <CRequirementEq id="EqCountBehaviorPetVeterancyCompleteOnlyAtUnit10">
-        <Tooltip value=""/>
-        <OperandArray index="0" value="CountBehaviorPetVeterancyCompleteOnlyAtUnit"/>
-        <OperandArray index="1" value="10"/>
     </CRequirementEq>
     <CRequirementEq id="EqCountBehaviorWeaponSwitchCompleteOnly0">
         <Tooltip value=""/>
@@ -786,6 +775,11 @@
         <Tooltip value="Flamer Equipped"/>
         <OperandArray index="0" value="CountBehaviorFlamerEquippedCompleteOnly"/>
         <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorPetVeterancyCompleteOnlyAtUnit10">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorPetVeterancyCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="10"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountBehaviorPistolEquippedCompleteOnly1">
         <Tooltip value="Pistol Equipped"/>

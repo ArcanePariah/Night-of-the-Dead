@@ -80,8 +80,8 @@
         <NodeArray index="Use" Link="Eq4239871994CountAbilOverdriveCompleteOnly2"/>
     </CRequirement>
     <CRequirement id="PetBlink">
-        <NodeArray index="Use" Link="EqCountBehaviorPetVeterancyCompleteOnlyAtUnit10"/>
-        <NodeArray index="Show" Link="EqCountBehaviorPetVeterancyCompleteOnlyAtUnit10"/>
+        <NodeArray index="Use" Link="GTECountBehaviorPetVeterancyCompleteOnlyAtUnit10"/>
+        <NodeArray index="Show" Link="GTECountBehaviorPetVeterancyCompleteOnlyAtUnit10"/>
     </CRequirement>
     <CRequirement id="PistolEquipped">
         <CanBeSuppressed index="Use" value="0"/>
