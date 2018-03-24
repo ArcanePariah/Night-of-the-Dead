@@ -29285,9 +29285,6 @@ bool gt_ACW9ChaseDrTanakaPoisonGas_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    TriggerEnable(gt_TanakaInjured, false);
-    TriggerEnable(gt_ACDrTanakaDeath, false);
-    TriggerStop(gt_TanakaInjured);
     gv_wave = 9;
     gv_hitPar = 60;
     gf_AwardPlayerXPNOTD(2);
@@ -29299,6 +29296,9 @@ bool gt_ACW9ChaseDrTanakaPoisonGas_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(gv_ltSheng, StringExternal("Param/Value/54524404"));
     UnitIssueOrder(gv_drTanaka, OrderTargetingPoint(AbilityCommand("move", 0), gv_drTanakaLabWorkPoints[1]), c_orderQueueReplace);
     libNtve_gf_MakeUnitInvulnerable(gv_drTanaka, true);
+    TriggerEnable(gt_TanakaInjured, false);
+    TriggerEnable(gt_ACDrTanakaDeath, false);
+    TriggerStop(gt_TanakaInjured);
     Wait(5.0, c_timeReal);
     gf_MarineSpeechNOTD(gv_drTanaka, StringExternal("Param/Value/05848868"));
     Wait(3.0, c_timeReal);
