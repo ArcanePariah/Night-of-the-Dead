@@ -9481,7 +9481,6 @@
         <Kind value="Ranged"/>
         <KindSplash value="Splash"/>
         <Total value="Combine"/>
-        <ImpactLocation Value="TargetUnit"/>
         <ImpactUnitValidator value="TargetIsNotAlly"/>
         <AreaArray Radius="5" Fraction="1"/>
         <ExcludeArray Value="Target"/>
@@ -9493,7 +9492,6 @@
         <SearchFilters value="-;Neutral,Enemy,RawResource,HarvestableResource,Missile,Item,Dead,Hidden,Invulnerable"/>
         <Kind value="Ranged"/>
         <Total value="Combine"/>
-        <ImpactLocation Value="TargetUnit"/>
         <ImpactUnitValidator value="TargetIsAlly"/>
         <KindSplash value="Splash"/>
         <AreaArray Radius="5" Fraction="1"/>
