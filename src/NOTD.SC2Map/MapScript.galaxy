@@ -37256,12 +37256,12 @@ bool gt_SurvivalW2630_Func (bool testConds, bool runActions) {
     SoundPlay(SoundLink("TTychus05TaldarimExecutor00041", -1), PlayerGroupAll(), 100.0, 0.0);
     UnitCreate(1, "Cronus", 0, 14, RegionRandomPoint(gv_reinforcementSpawn[RandomInt(2, 6)]), libNtve_gf_RandomAngle());
     UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropMovementSpeed, (UnitGetPropertyFixed(UnitLastCreated(), c_unitPropMovementSpeed, c_unitPropCurrent) * 1.2));
+    UnitBehaviorAddPlayer(UnitLastCreated(), "UnstableMutation", 14, 1);
     gv_survivalCronusA = UnitLastCreated();
     Wait(0.1, c_timeReal);
     UnitCreate(1, "Cronus", 0, 14, RegionRandomPoint(gv_reinforcementSpawn[RandomInt(2, 6)]), libNtve_gf_RandomAngle());
     UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-    UnitSetPropertyFixed(UnitLastCreated(), c_unitPropMovementSpeed, (UnitGetPropertyFixed(UnitLastCreated(), c_unitPropMovementSpeed, c_unitPropCurrent) * 1.2));
+    UnitBehaviorAddPlayer(UnitLastCreated(), "UnstableMutation", 14, 1);
     gv_survivalCronusB = UnitLastCreated();
     Wait(1.0, c_timeReal);
     TriggerExecute(gt_SurvivalCronusAAI, true, false);
