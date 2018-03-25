@@ -11443,6 +11443,7 @@ void gf_RegisterMarineWithEvents (unit lp_marine) {
     TriggerAddEventUnitDied(gt_DeadMarine, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)));
     TriggerAddEventUnitDied(gt_PsiOpsDeath, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)));
     TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
+    TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), c_playerAny, true);
 }
 
 trigger auto_gf_AmmoUICreation_Trigger = null;
@@ -37615,13 +37616,6 @@ bool gt_ShowInventory_Func (bool testConds, bool runActions) {
     playergroup autoC28EEC7C_g;
     int autoC28EEC7C_var;
 
-    // Conditions
-    if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-    }
-
     // Actions
     if (!runActions) {
         return true;
@@ -37646,14 +37640,6 @@ bool gt_ShowInventory_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_ShowInventory_Init () {
     gt_ShowInventory = TriggerCreate("gt_ShowInventory_Func");
-    TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromVariable("gv_marineHero[1]"), c_playerAny, true);
-    TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromVariable("gv_marineHero[2]"), c_playerAny, true);
-    TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromVariable("gv_marineHero[3]"), c_playerAny, true);
-    TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromVariable("gv_marineHero[4]"), c_playerAny, true);
-    TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromVariable("gv_marineHero[5]"), c_playerAny, true);
-    TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromVariable("gv_marineHero[6]"), c_playerAny, true);
-    TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromVariable("gv_marineHero[7]"), c_playerAny, true);
-    TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromVariable("gv_marineHero[8]"), c_playerAny, true);
 }
 
 //--------------------------------------------------------------------------------------------------
