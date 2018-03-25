@@ -929,7 +929,8 @@ unit gv_survivalCronusB;
 unitgroup gv_survivalNydusGroup;
 int gv_survivalSpawn;
 gs_SurvivalSpawnLocation[6] gv_survivalSpawnPoints;
-bool gv_equipmentOpen;
+bool[9] gv_inventoryOpen;
+bool[9] gv_equipmentOpen;
 text gv_creditsLeft;
 unitgroup[9] gv_boughtItems;
 int[gv_numberofPlayers + 1] gv_shop;
@@ -1263,6 +1264,9 @@ void InitGlobals () {
     gv_laserDrones = UnitGroupEmpty();
     gv_survivalNydusGroup = UnitGroupEmpty();
     gv_survivalSpawn = RandomInt(1, 5);
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_inventoryOpen[init_i] = true;
+    }
     gv_creditsLeft = StringExternal("Param/Value/188383D6");
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_boughtItems[init_i] = UnitGroupEmpty();
@@ -1675,6 +1679,7 @@ void gf_SurvivalWaveTitleDisplay (int lp_wave);
 void gf_SurvivalNydusSpawn ();
 void gf_SurvivalCreepDeposit ();
 void gf_DisableAttackEquippingWeapons (int lp_inventoryOwner, string lp_equipment);
+void gf_ShowInventory (int lp_observer, bool lp_includeSelf);
 void gf_EquipmentUpdateMarineWeight (int lp_ownerOfEquipment);
 unit gf_GiveMarineItem (int lp_player, string lp_item);
 int gf_GetEnhancementSlots (unit lp_hero);
@@ -2125,6 +2130,7 @@ trigger gt_SurvivalCronusAAI;
 trigger gt_SurvivalCronusBAI;
 trigger gt_SurvivalW3135;
 trigger gt_SurvivalW3640;
+trigger gt_InventoryKeyPressed;
 trigger gt_ShowInventory;
 trigger gt_OpenEquipment;
 trigger gt_WeaponSwapDisable;
@@ -10301,6 +10307,66 @@ bool auto_gf_DisableAttackEquippingWeapons_TriggerFunc (bool testConds, bool run
     return true;
 }
 
+void gf_ShowInventory (int lp_observer, bool lp_includeSelf) {
+    // Variable Declarations
+    playergroup lv_observers;
+    bool lv_control;
+    int lv_inventoryOwner;
+    unit lv_inventoryUnit;
+
+    // Automatic Variable Declarations
+    playergroup auto253DE7B5_g;
+    int auto253DE7B5_var;
+
+    // Variable Initialization
+    lv_observers = PlayerGroupSingle(lp_observer);
+
+    // Implementation
+    Wait(0.0625, c_timeGame);
+    lv_inventoryUnit = UnitGroupUnit(UnitSubgroupSelected(lp_observer), 1);
+    auto253DE7B5_g = gv_marineSquad;
+    auto253DE7B5_var = -1;
+    while (true) {
+        auto253DE7B5_var = PlayerGroupNextPlayer(auto253DE7B5_g, auto253DE7B5_var);
+        if (auto253DE7B5_var < 0) { break; }
+        DialogControlSetVisible(gv_equipmentButton[auto253DE7B5_var], lv_observers, false);
+        gf_ShowHideMarineDialog(false, auto253DE7B5_var, lv_observers);
+    }
+    if (((UnitGroupHasUnit(gv_marines, lv_inventoryUnit) == true) || (UnitGetType(lv_inventoryUnit) == "ReaperMK13"))) {
+        lv_inventoryOwner = UnitGetOwner(lv_inventoryUnit);
+        lv_control = PlayerGetAlliance(lv_inventoryOwner, c_allianceIdControl, lp_observer);
+        DialogControlSetVisible(gv_equipmentButton[lv_inventoryOwner], lv_observers, true);
+        gf_ShowHideMarineDialog(true, lv_inventoryOwner, lv_observers);
+        if (((lp_includeSelf == true) || (lv_inventoryOwner != lp_observer))) {
+            if ((lv_control == false) && (lv_inventoryOwner != lp_observer)) {
+                PlayerSetAlliance(lv_inventoryOwner, c_allianceIdControl, lp_observer, true);
+            }
+
+            if ((gv_inventoryOpen[lp_observer] == true)) {
+                UnitInventoryContainerOpen(lv_observers, lv_inventoryUnit, 1, true);
+            }
+            else {
+                UnitInventoryContainerOpen(lv_observers, lv_inventoryUnit, 1, false);
+            }
+            if ((UnitGetType(lv_inventoryUnit) != "ReaperMK13")) {
+                if ((gv_equipmentOpen[lp_observer] == true)) {
+                    UnitInventoryContainerOpen(lv_observers, lv_inventoryUnit, 2, true);
+                }
+                else {
+                    UnitInventoryContainerOpen(lv_observers, lv_inventoryUnit, 2, false);
+                }
+            }
+
+            if ((lv_control == false) && (lv_inventoryOwner != lp_observer)) {
+                PlayerSetAlliance(lv_inventoryOwner, c_allianceIdControl, lp_observer, false);
+            }
+
+        }
+
+    }
+
+}
+
 void gf_EquipmentUpdateMarineWeight (int lp_ownerOfEquipment) {
     // Variable Declarations
     int lv_playerIndex;
@@ -11612,6 +11678,7 @@ void gf_EquipmentDialogCreation (int lp_player) {
     DialogControlCreateFromTemplate(gv_equipment, c_triggerControlTypeButton, "MarineEquipment/MarineEquipment/MarineEquipmentButton");
     libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("Classes", gv_playerClass[lp_player], "Class Image", 1), PlayerGroupAll());
     libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal("Param/Value/4713242D"), PlayerGroupAll());
+    libNtve_gf_SetDialogItemEditorValue(DialogControlLastCreated(), "@equipment", PlayerGroupAll());
     gv_equipmentButton[lp_player] = DialogControlLastCreated();
     DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupAll(), false);
     DialogControlSetVisible(DialogControlLastCreated(), PlayerGroupSingle(lp_player), true);
@@ -13637,21 +13704,21 @@ void gf_ForwardObserverCreateShellDialog (int lp_forwardObserverOwner) {
     gv_shellDialog[lp_forwardObserverOwner] = DialogLastCreated();
     libNtve_gf_CreateDialogItemImage(gv_shellDialog[lp_forwardObserverOwner], 30, 30, c_anchorTopLeft, 28, 28, StringExternal("Param/Value/C32F4DC4"), "Assets\\Textures\\btn-techupgrade-terran-extramines.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_CreateDialogItemLabel(gv_shellDialog[lp_forwardObserverOwner], 200, 50, c_anchorTopLeft, 70, 33, IntToText(CatalogFieldValueGetAsInt(c_gameCatalogAbil, "FireMission", "Cost[" + IntToString(0) + "].Charge.CountStart", lv_player)), Color(100,100,100), false, 2.0);
-    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "Kicker_Zerg", PlayerGroupSingle(lv_player));
+    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "Kicker_Zerg", PlayerGroupAll());
     gv_shellCounter[0][lp_forwardObserverOwner] = DialogControlLastCreated();
     autoF5828222_var = 1;
     for ( ; autoF5828222_var <= autoF5828222_ae; autoF5828222_var += 1 ) {
         libNtve_gf_CreateDialogItemImage(gv_shellDialog[lp_forwardObserverOwner], 30, 30, c_anchorTopLeft, UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Subtract Offsets", 1), UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Subtract Offsets", 2), StringToText(""), "Assets\\Textures\\ui_research_frame_available_arrow_left.dds", c_triggerImageTypeNormal, false, Color(50.20, 100.00, 100.00), c_triggerBlendModeNormal);
         libNtve_gf_CreateDialogItemButton(gv_shellDialog[lp_forwardObserverOwner], 30, 30, c_anchorTopLeft, UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Subtract Offsets", 1), UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Subtract Offsets", 2), StringExternal("Param/Value/0BC8506B"), StringToText(""), "");
-        DialogControlFadeTransparency(DialogControlLastCreated(), PlayerGroupSingle(lv_player), 0.0, 100.0);
+        DialogControlFadeTransparency(DialogControlLastCreated(), PlayerGroupAll(), 0.0, 100.0);
         gv_shellDecre[autoF5828222_var][lp_forwardObserverOwner] = DialogControlLastCreated();
         libNtve_gf_CreateDialogItemImage(gv_shellDialog[lp_forwardObserverOwner], 30, 30, c_anchorTopLeft, UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Image Offsets", 1), UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Image Offsets", 2), UserDataGetText("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Image Tooltip", 1), UserDataGetImagePath("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Image", 1), c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
         libNtve_gf_CreateDialogItemImage(gv_shellDialog[lp_forwardObserverOwner], 30, 30, c_anchorTopLeft, UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Add Offsets", 1), UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Add Offsets", 2), StringToText(""), "Assets\\Textures\\ui_research_frame_available_arrow_right.dds", c_triggerImageTypeNormal, false, Color(50.20, 100.00, 100.00), c_triggerBlendModeNormal);
         libNtve_gf_CreateDialogItemButton(gv_shellDialog[lp_forwardObserverOwner], 30, 30, c_anchorTopLeft, UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Add Offsets", 1), UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Add Offsets", 2), StringExternal("Param/Value/546EB49A"), StringToText(""), "");
-        DialogControlFadeTransparency(DialogControlLastCreated(), PlayerGroupSingle(lv_player), 0.0, 100.0);
+        DialogControlFadeTransparency(DialogControlLastCreated(), PlayerGroupAll(), 0.0, 100.0);
         gv_shellIncre[autoF5828222_var][lp_forwardObserverOwner] = DialogControlLastCreated();
         libNtve_gf_CreateDialogItemLabel(gv_shellDialog[lp_forwardObserverOwner], 200, 50, c_anchorTopLeft, UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Label Offsets", 1), UserDataGetInt("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Label Offsets", 2), IntToText(CatalogFieldValueGetAsInt(c_gameCatalogAbil, UserDataGetGameLink("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", autoF5828222_var), "Ability", 1), "Cost[" + IntToString(0) + "].Charge.CountUse", lv_player)), Color(100,100,100), false, 2.0);
-        libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "Kicker_Zerg", PlayerGroupSingle(lv_player));
+        libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "Kicker_Zerg", PlayerGroupAll());
         gv_shellCounter[autoF5828222_var][lp_forwardObserverOwner] = DialogControlLastCreated();
     }
     DialogSetVisible(gv_shellDialog[lv_player], PlayerGroupAll(), false);
@@ -37609,31 +37676,78 @@ void gt_SurvivalW3640_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Show Inventory
+// Trigger: Inventory (Key Pressed)
 //--------------------------------------------------------------------------------------------------
-bool gt_ShowInventory_Func (bool testConds, bool runActions) {
+bool gt_InventoryKeyPressed_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_key;
+    int lv_trigPlayer;
+
     // Automatic Variable Declarations
-    playergroup autoC28EEC7C_g;
-    int autoC28EEC7C_var;
+    // Variable Initialization
+    lv_key = EventKeyPressed();
+    lv_trigPlayer = EventPlayer();
 
     // Actions
     if (!runActions) {
         return true;
     }
 
-    autoC28EEC7C_g = gv_marineSquad;
-    autoC28EEC7C_var = -1;
-    while (true) {
-        autoC28EEC7C_var = PlayerGroupNextPlayer(autoC28EEC7C_g, autoC28EEC7C_var);
-        if (autoC28EEC7C_var < 0) { break; }
-        DialogSetVisible(gv_ammoCounterDialog[autoC28EEC7C_var], PlayerGroupSingle(EventPlayer()), false);
-        DialogSetVisible(gv_ammoBarDialog[autoC28EEC7C_var], PlayerGroupSingle(EventPlayer()), false);
-        DialogControlSetVisible(gv_equipmentButton[autoC28EEC7C_var], PlayerGroupSingle(EventPlayer()), false);
+    if ((lv_key == c_keyNumPad1)) {
+        if ((gv_inventoryOpen[lv_trigPlayer] == true)) {
+            UIDisplayMessage(PlayerGroupSingle(lv_trigPlayer), c_messageAreaSubtitle, StringExternal("Param/Value/DAECF587"));
+        }
+        else {
+            UIDisplayMessage(PlayerGroupSingle(lv_trigPlayer), c_messageAreaSubtitle, StringExternal("Param/Value/417765C1"));
+        }
+        gv_inventoryOpen[lv_trigPlayer] = !(gv_inventoryOpen[lv_trigPlayer]);
+        gf_ShowInventory(lv_trigPlayer, false);
     }
-    DialogControlSetVisible(gv_equipmentButton[UnitGetOwner(EventUnit())], PlayerGroupSingle(EventPlayer()), true);
-    DialogSetVisible(gv_ammoCounterDialog[UnitGetOwner(EventUnit())], PlayerGroupSingle(EventPlayer()), true);
-    DialogSetVisible(gv_ammoBarDialog[UnitGetOwner(EventUnit())], PlayerGroupSingle(EventPlayer()), true);
-    UnitInventoryContainerOpen(PlayerGroupActive(), EventUnit(), 1, true);
+    else if ((lv_key == c_keyNumPad2)) {
+        if ((gv_equipmentOpen[lv_trigPlayer] == true)) {
+            UIDisplayMessage(PlayerGroupSingle(lv_trigPlayer), c_messageAreaSubtitle, StringExternal("Param/Value/3399C292"));
+        }
+        else {
+            UIDisplayMessage(PlayerGroupSingle(lv_trigPlayer), c_messageAreaSubtitle, StringExternal("Param/Value/3E3025A5"));
+        }
+        gv_equipmentOpen[lv_trigPlayer] = !(gv_equipmentOpen[lv_trigPlayer]);
+        gf_ShowInventory(lv_trigPlayer, false);
+    }
+    else if (true) {
+        gf_ShowInventory(lv_trigPlayer, true);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InventoryKeyPressed_Init () {
+    gt_InventoryKeyPressed = TriggerCreate("gt_InventoryKeyPressed_Func");
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_keyTab, true, c_keyModifierStateIgnore, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_keyNumPad1, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_keyNumPad2, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key1, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key2, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key3, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key4, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key5, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key6, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key7, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key8, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key9, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+    TriggerAddEventKeyPressed(gt_InventoryKeyPressed, c_playerAny, c_key0, true, c_keyModifierStateExclude, c_keyModifierStateExclude, c_keyModifierStateExclude);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Show Inventory
+//--------------------------------------------------------------------------------------------------
+bool gt_ShowInventory_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_ShowInventory(EventPlayer(), true);
     return true;
 }
 
@@ -37646,16 +37760,14 @@ void gt_ShowInventory_Init () {
 // Trigger: Open Equipment
 //--------------------------------------------------------------------------------------------------
 bool gt_OpenEquipment_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_usedDialogItem;
-
     // Automatic Variable Declarations
-    // Variable Initialization
-    lv_usedDialogItem = EventDialogControl();
-
     // Conditions
     if (testConds) {
-        if (!(((lv_usedDialogItem == gv_equipmentButton[1]) || (lv_usedDialogItem == gv_equipmentButton[2]) || (lv_usedDialogItem == gv_equipmentButton[3]) || (lv_usedDialogItem == gv_equipmentButton[4]) || (lv_usedDialogItem == gv_equipmentButton[5]) || (lv_usedDialogItem == gv_equipmentButton[6]) || (lv_usedDialogItem == gv_equipmentButton[7]) || (lv_usedDialogItem == gv_equipmentButton[8])))) {
+        if (!((DialogControlGetDialog(EventDialogControl()) == gv_equipment))) {
+            return false;
+        }
+
+        if (!((libNtve_gf_DialogItemEditValue(EventDialogControl(), EventPlayer()) == "@equipment"))) {
             return false;
         }
     }
@@ -37665,14 +37777,8 @@ bool gt_OpenEquipment_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((gv_equipmentOpen == true)) {
-        gv_equipmentOpen = false;
-        UnitInventoryContainerOpen(PlayerGroupSingle(EventPlayer()), gv_marineHero[EventPlayer()], 2, false);
-    }
-    else {
-        gv_equipmentOpen = true;
-        UnitInventoryContainerOpen(PlayerGroupSingle(EventPlayer()), gv_marineHero[EventPlayer()], 2, true);
-    }
+    gv_equipmentOpen[EventPlayer()] = !(gv_equipmentOpen[EventPlayer()]);
+    gf_ShowInventory(EventPlayer(), true);
     return true;
 }
 
@@ -41044,7 +41150,7 @@ bool gt_ModifyShellLimit_Func (bool testConds, bool runActions) {
     }
 
     lv_player = lv_forwardObserverOwner;
-    if (((lv_player == lv_clickingPlayer) || ((lv_player != lv_clickingPlayer) && ((PlayerGetAlliance(lv_player, c_allianceIdControl, lv_clickingPlayer) == true))))) {
+    if (((lv_player == lv_clickingPlayer) || ((lv_player != lv_clickingPlayer) && (PlayerGetAlliance(lv_player, c_allianceIdControl, lv_clickingPlayer) == true)))) {
         lv_currentAbilityCost = CatalogFieldValueGetAsInt(c_gameCatalogAbil, UserDataGetGameLink("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", lv_shellType), "Ability", 1), "Cost[" + IntToString(0) + "].Charge.CountUse", lv_player);
         if (((lv_incre == true) && (lv_currentAbilityCost < 20))) {
             CatalogFieldValueSet(c_gameCatalogAbil, UserDataGetGameLink("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", lv_shellType), "Ability", 1), "Cost[" + IntToString(0) + "].Charge.CountUse", lv_player, IntToString((lv_currentAbilityCost + 1)));
@@ -42330,6 +42436,7 @@ void InitTriggers () {
     gt_SurvivalCronusBAI_Init();
     gt_SurvivalW3135_Init();
     gt_SurvivalW3640_Init();
+    gt_InventoryKeyPressed_Init();
     gt_ShowInventory_Init();
     gt_OpenEquipment_Init();
     gt_WeaponSwapDisable_Init();
