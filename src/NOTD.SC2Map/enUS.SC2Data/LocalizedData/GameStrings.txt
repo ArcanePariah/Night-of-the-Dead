@@ -4490,6 +4490,7 @@ Param/Value/63D10F1E=<s val="BriefingHanText">   Programmers<n/>   Tan Yik Boon 
 Param/Value/643423F9=The colonists have turned! Prepare to engage.
 Param/Value/643656F9=Survival Mode
 Param/Value/645466D6=Surround the perimeter with flares!
+Param/Value/6458F0E3=<s val="Warning"><c val="FFFF00"> !          !</c></s>
 Param/Value/64870BB9=<s val="BriefingHanText">HAL Shutdown Complete</s>
 Param/Value/648748AC=+
 Param/Value/6497D85A=We'll rendezvous at your location. Be advised we're picking up multiple heat signatures headed your direction.
@@ -4509,6 +4510,7 @@ Param/Value/66F7C730=<s val="InfoPaneHeroRank">Colonists Rescued:
 Param/Value/670FA8CE=(Zeus summons the rebirth of Leto..!)
 Param/Value/672C2DC4=<n/><n/>Kills: <c val="F4D72B">
 Param/Value/6734436C=<n/>   Karma: 
+Param/Value/6775B4D5=Stat Points Available: 
 Param/Value/67897E79=<n/></c>Magazines: <c val="F4D72B">
 Param/Value/67AE4653=We can't kill that thing. Stay away from it.
 Param/Value/67D0624B= selected 
@@ -4591,6 +4593,7 @@ Param/Value/7616B27D=+2 XP for Mission Bonus. 20 civilians rescued.
 Param/Value/76BF7456=Deploying Laser Drones to weaken its carapace.
 Param/Value/76C3D41C=Dome D is located South. I'm right with you.
 Param/Value/76F1B733=(Leto beckons the rebirth of Zeus..!)
+Param/Value/7753207C=
 Param/Value/775CC70B=I will break its secrets. Watch my back.
 Param/Value/77A56ECC=The leak's sealed but we shouldn't linger here long. My rad meter's going crazy.
 Param/Value/77C447C6=<s val="BriefingHanText">(Airlock gates unlocked..)</s>
@@ -5225,6 +5228,7 @@ Param/Value/E4DFE6B3=<s val="InfoPaneHeroRank">
 Param/Value/E51F85FC=Tanks have arrived. They will provide heavy support.
 Param/Value/E5BA10F6=Hold position at Mine until data transfer is complete.
 Param/Value/E6187E1A=The transport ship Delta-1 in airlock may hold survivors that need to be rescued.
+Param/Value/E62A0C52=</n><s val="Swarm_RegularXSmall"><c val="FF0000">Stats modification locked.</c></s>
 Param/Value/E658C7CF=Alright. We've unlocked Apollo's gates.
 Param/Value/E65AD898=<s val="GlueButton">
 Param/Value/E69CF360=...posthumously
