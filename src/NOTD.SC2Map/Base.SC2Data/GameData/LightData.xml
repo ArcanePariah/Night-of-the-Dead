@@ -1874,17 +1874,17 @@
             <DirectionalLight index="Back" Color="0.364706,0.513726,0.619608" ColorMultiplier="1.000000" Direction="-0.846915,0.494104,-0.196459"/>
             <LightRegions index="1">
                 <UseDefault value="0"/>
-                <AmbientColor value="0.313726,0.266667,0.294118"/>
+                <AmbientColor value="0.196078,0.027451,0.411765"/>
                 <AmbientEnvironmentMultiplier value="0.000000"/>
-                <SpecularColor value="0.901961,0.486275,0.074510"/>
-                <SpecularMultiplier value="0.100000"/>
+                <SpecularColor value="0.576471,0.000000,1.000000"/>
+                <SpecularMultiplier value="0.000000"/>
                 <FogColor value="0.003922,0.003922,0.003922"/>
-                <DiffuseColor index="Key" value="1.000000,1.000000,0.721569"/>
-                <DiffuseColor index="Fill" value="0.800000,0.713726,0.686275"/>
-                <DiffuseColor index="Back" value="0.827451,0.858824,0.403922"/>
-                <DiffuseMultiplier index="Key" value="0.400000"/>
-                <DiffuseMultiplier index="Fill" value="1.000000"/>
-                <DiffuseMultiplier index="Back" value="1.000000"/>
+                <DiffuseColor index="Key" value="0.207843,0.023529,0.423529"/>
+                <DiffuseColor index="Fill" value="0.227451,0.039216,0.443137"/>
+                <DiffuseColor index="Back" value="0.211765,0.054902,0.352941"/>
+                <DiffuseMultiplier index="Key" value="1.096000"/>
+                <DiffuseMultiplier index="Fill" value="2.188000"/>
+                <DiffuseMultiplier index="Back" value="1.698000"/>
             </LightRegions>
             <LightRegions index="2">
                 <UseDefault value="0"/>

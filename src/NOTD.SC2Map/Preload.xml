@@ -5,6 +5,7 @@
 <Actor id="SYSTEM_ActorConfig"/>
 <Actor id="LightOmniCyanLarge"/>
 <Actor id="LightOmniPurple"/>
+<Actor id="LightOmniYellow"/>
 <Actor id="GenericSpacePipes" Variations="10"/>
 <Actor id="AgriaDebrisLarge" Variations="0,1"/>
 <Actor id="AlarmLight" Variations="0,1"/>
@@ -46,9 +47,6 @@
 <Actor id="FanVentCliff" Variations="1"/>
 <Actor id="FireMedium"/>
 <Actor id="FloatingCreepPad"/>
-<Actor id="Floodlight" Variations="2"/>
-<Actor id="FogBlue"/>
-<Actor id="FogStormDeepWhite"/>
 <Actor id="Garage" Variations="1"/>
 <Actor id="GarageLarge" Variations="0"/>
 <Actor id="HavenDoodadsCrates" Variations="0,2,3,4"/>
@@ -61,12 +59,11 @@
 <Actor id="LabWeaponCase" Variations="0,1"/>
 <Actor id="LandingLights" Variations="0,3"/>
 <Actor id="LandingTower"/>
-<Actor id="MarSaraBridgeLong" Variations="1"/>
 <Actor id="BridgeCardinalFootprint"/>
 <Actor id="MarSaraCrack" Variations="1,2"/>
 <Actor id="MetalWall" Variations="1,2,3,4"/>
 <Actor id="MetalWallCorner" Variations="0,1,2,3"/>
-<Actor id="MineralCart" Variations="0,1,2,3"/>
+<Actor id="MineralCart" Variations="0,1,2"/>
 <Actor id="MiningBot"/>
 <Actor id="MonlythCrystals" Variations="0,1,2,3"/>
 <Actor id="NewFolsomPrisonTower"/>
@@ -80,12 +77,13 @@
 <Actor id="PortZionScrapConveyorBelt" Variations="0"/>
 <Actor id="PortZionTires" Variations="0"/>
 <Actor id="PortZionTower" Variations="7"/>
-<Actor id="PowerCables" Variations="3,4,5,7"/>
+<Actor id="PowerCables" Variations="3"/>
 <Actor id="RockTower" Variations="0,1,2"/>
 <Actor id="RockVolcanicGiant" Variations="0,1,2,3,4,5"/>
 <Actor id="RockFormationLarge" Variations="0,4,5"/>
-<Actor id="Searchlight" Variations="0"/>
+<Actor id="Searchlight" Variations="0,1"/>
 <Actor id="SecurityFenceDiagonal" Variations="0"/>
+<Actor id="SecurityFenceStraight"/>
 <Actor id="SpacePlatformArchwayLarge" Variations="0,1,2,3,4"/>
 <Actor id="SpacePlatformBillboard" Variations="0"/>
 <Actor id="SpacePlatformCablesLarge" Variations="2"/>
@@ -106,6 +104,7 @@
 <Actor id="SpacePlatformTower" Variations="0,1,2,3"/>
 <Actor id="SpacePlatformVents" Variations="0,1"/>
 <Actor id="SpacePlatformWallDebris" Variations="1,4,6,7"/>
+<Actor id="Streetlight" Variations="1"/>
 <Actor id="SuperCrane"/>
 <Actor id="SupplyTanks"/>
 <Actor id="TerranTarmac" Variations="0,1,2,3,5"/>
@@ -138,7 +137,6 @@
 <Actor id="PsiIndoctrinatorDoodad"/>
 <Actor id="AnimalCorpse" Variations="8"/>
 <Actor id="Bodybag" Variations="0,1,2"/>
-<Actor id="KorhalFlag" Variations="0"/>
 <Actor id="TarsonisArrow"/>
 <Actor id="TarsonisStation" Variations="0,1"/>
 <Actor id="ColonistHutDoodad" Variations="0,1,3,5,7"/>
@@ -158,7 +156,6 @@
 <Actor id="AvernusSpectreChamberDoodad"/>
 <Actor id="AvernusMiningChamberDoodadDeath"/>
 <Actor id="BillboardPropaganda" Variations="1,2"/>
-<Actor id="Bullhorn" Variations="6"/>
 <Actor id="CastanarBrutaliskCageWrecked"/>
 <Actor id="CastanarHoldingPen"/>
 <Actor id="ColonistCorpse" Variations="0,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19"/>
@@ -199,7 +196,6 @@
 <Actor id="TruckTanker"/>
 <Actor id="TruckFlatbedConstruction"/>
 <Actor id="TRaynorDumpTruck"/>
-<Actor id="Cougher"/>
 <Sound id="Zerg_CreepGrow"/>
 <Terrain id="Meinhoff"/>
 <TerrainObject id="AvernusSpectreChamberTO2"/>

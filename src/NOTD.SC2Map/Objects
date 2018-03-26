@@ -60,14 +60,14 @@
         <CameraValue Index="FalloffStart" Value="0.0085"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="2329" Position="123.0585,157.86,0" Rotation="0.0195" Scale="1,1,1" Name="Bergmann Death B" Color="0,0,0,0" CameraTarget="123.0585,157.86">
+    <ObjectCamera Id="2329" Position="123.0585,157.86,0" Rotation="0.0175" Scale="1,1,1" Name="Bergmann Death B" Color="0,0,0,0" CameraTarget="123.0585,157.86">
         <CameraValue Index="FieldOfView" Value="27.7998"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.3496"/>
         <CameraValue Index="Pitch" Value="21.4772"/>
-        <CameraValue Index="Yaw" Value="1.1328"/>
+        <CameraValue Index="Yaw" Value="1.021"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="165.9748"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
@@ -328,14 +328,14 @@
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="346" Position="140.7033,176.6752,0" Rotation="0.0952" Scale="1,1,1" Name="Power Generator Cam" Color="0,0,0,0" CameraTarget="140.7033,176.6752">
+    <ObjectCamera Id="346" Position="140.7033,176.6752,0" Rotation="0.0932" Scale="1,1,1" Name="Power Generator Cam" Color="0,0,0,0" CameraTarget="140.7033,176.6752">
         <CameraValue Index="FieldOfView" Value="27.7995"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="13.1352"/>
         <CameraValue Index="Pitch" Value="42.23"/>
-        <CameraValue Index="Yaw" Value="5.4692"/>
+        <CameraValue Index="Yaw" Value="5.3574"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
@@ -351,25 +351,25 @@
         <CameraValue Index="FalloffStart" Value="0.0002"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="1161" Position="140.7045,176.6647,0" Rotation="0.0415" Scale="1,1,1" Name="Power Generator Cam End" Color="0,0,0,0" CameraTarget="140.7045,176.6647">
+    <ObjectCamera Id="1161" Position="140.7045,176.6647,0" Rotation="0.0395" Scale="1,1,1" Name="Power Generator Cam End" Color="0,0,0,0" CameraTarget="140.7045,176.6647">
         <CameraValue Index="FieldOfView" Value="27.7995"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="9.8686"/>
         <CameraValue Index="Pitch" Value="31.19"/>
-        <CameraValue Index="Yaw" Value="2.3918"/>
+        <CameraValue Index="Yaw" Value="2.28"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="2327" Position="123.0585,157.86,0" Rotation="0.0195" Scale="1,1,1" Name="Bergmann Death A" Color="0,0,0,0" CameraTarget="123.0585,157.86">
+    <ObjectCamera Id="2327" Position="123.0585,157.86,0" Rotation="0.0175" Scale="1,1,1" Name="Bergmann Death A" Color="0,0,0,0" CameraTarget="123.0585,157.86">
         <CameraValue Index="FieldOfView" Value="27.7998"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="100"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="3.0451"/>
         <CameraValue Index="Pitch" Value="21.4772"/>
-        <CameraValue Index="Yaw" Value="1.1328"/>
+        <CameraValue Index="Yaw" Value="1.021"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffStart" Value="165.9748"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
@@ -520,7 +520,7 @@
     <ObjectUnit Id="971" Position="76.5,133.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="1063" Position="176,211,0" Rotation="2.0332" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1063" Position="205,233,0" Rotation="2.0332" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
     <ObjectUnit Id="2695" Position="56,192,0" Rotation="0.5893" Scale="0.9,0.9,0.9" UnitType="DestructibleDebris4x4" Player="10"/>
     <ObjectUnit Id="1033" Position="98.5,124.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
@@ -549,7 +549,6 @@
     <ObjectUnit Id="2431" Position="41.5,147.5,0" Rotation="5.243" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="2718" Position="187,232,0" Rotation="1.7905" Scale="1,1,1" Name="Fort Path Blocker Main Entrace" UnitType="DestructibleDebris4x4" Player="10"/>
     <ObjectUnit Id="29" Position="227.8432,21.7048,0" Rotation="1.5705" Scale="1.0998,1.0998,1.0998" UnitType="SecurityGateStraightHorizontalBF" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
@@ -597,7 +596,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="907" Position="66.5,97.5,0" Rotation="4.4238" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
-    <ObjectUnit Id="1053" Position="176,207,0" Rotation="6.0764" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="1053" Position="200,232,0" Rotation="6.0764" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
     <ObjectUnit Id="922" Position="193.5,97.5,0" Rotation="4.8652" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
     <ObjectUnit Id="948" Position="228.5,21.5,0" Rotation="4.8615" Scale="1,1,1" UnitType="PathingBlocker1x1" Player="10"/>
     <ObjectUnit Id="991" Position="33.5,93.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
@@ -635,7 +634,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1462" Position="207,135,0" Rotation="0.2473" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
-    <ObjectUnit Id="2226" Position="94,66,0" Rotation="3.3562" Scale="0.89,0.89,0.89" UnitType="DestructibleDebris4x4" Player="10"/>
     <ObjectUnit Id="1012" Position="226,112,0" Rotation="3.237" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
@@ -652,9 +650,6 @@
     </ObjectUnit>
     <ObjectUnit Id="80" Position="94.6735,124.4072,0" Rotation="5.415" Scale="1,1,1" UnitType="Egg" Player="14"/>
     <ObjectUnit Id="1035" Position="98.5,119.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
-        <Flag Index="ForcePlacement" Value="1"/>
-    </ObjectUnit>
-    <ObjectUnit Id="2798" Position="216,79,0" Rotation="0.0976" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1604" Position="152.5,130.5,0" Rotation="2.3532" Scale="1,1,1" UnitType="InfestedCocoon" Player="14">
@@ -676,7 +671,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="2716" Position="82,21,0" Rotation="0.4028" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
-    <ObjectUnit Id="2777" Position="123,75,0" Rotation="1.7897" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
     <ObjectUnit Id="976" Position="57.5,136.5,0" Rotation="5.2487" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
@@ -754,7 +748,9 @@
     </ObjectUnit>
     <ObjectUnit Id="325" Position="39.8945,125.3757,0" Scale="1,1,1" UnitType="SniperRifle" Player="10"/>
     <ObjectUnit Id="235" Position="13.8994,75.5708,0" Scale="1,1,1" UnitType="Flamethrower" Player="10"/>
-    <ObjectUnit Id="128" Variation="2" Position="223.0793,12.898,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="128" Variation="2" Position="234.143,12.9702,0" Scale="1,1,1" UnitType="Medpack" Player="10">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="197" Position="192.0771,98.2,0" Rotation="1.5705" Scale="1.7998,1.7998,1.7998" UnitType="SecurityGateStraightHorizontalBF" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
@@ -816,7 +812,7 @@
     </ObjectUnit>
     <ObjectUnit Id="275" Variation="1" Position="89.4958,108.6992,0" Rotation="4.8632" Scale="1,1,1" UnitType="Egg" Player="14"/>
     <ObjectUnit Id="665" Variation="1" Position="92.237,126.8217,0" Rotation="4.8632" Scale="1,1,1" UnitType="Egg" Player="14"/>
-    <ObjectUnit Id="1873" Position="193.5,227.5,0" Rotation="2.272" Scale="1,1,1" UnitType="SentryGun" Player="10">
+    <ObjectUnit Id="1873" Position="192.5,228.5,0" Rotation="2.272" Scale="1,1,1" UnitType="SentryGun" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1791" Position="74.5,230.5,0" Rotation="5.3522" Scale="1,1,1" UnitType="InfestedCocoon" Player="14"/>
@@ -831,7 +827,7 @@
     </ObjectUnit>
     <ObjectUnit Id="312" Position="92.3405,124.442,0" Scale="1,1,1" UnitType="C4Armor" Player="10"/>
     <ObjectUnit Id="278" Position="57.177,122.3554,0" Rotation="5.4191" Scale="1,1,1" UnitType="Egg" Player="14"/>
-    <ObjectUnit Id="1876" Position="167.5,223.5,0" Rotation="4.3925" Scale="1,1,1" UnitType="SentryGun" Player="10">
+    <ObjectUnit Id="1876" Position="168.5,222.5,0" Rotation="4.3925" Scale="1,1,1" UnitType="SentryGun" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1786" Position="88.5,212.5,0" Rotation="0.8818" Scale="1,1,1" UnitType="InfestedCocoon" Player="14"/>
@@ -1099,7 +1095,7 @@
     </ObjectUnit>
     <ObjectUnit Id="2478" Position="88.5,192.5,0" Rotation="0.421" Scale="1,1,1" UnitType="ComplianceNexus" Player="10"/>
     <ObjectUnit Id="2155" Position="92.1486,206.7343,0" Scale="1,1,1" UnitType="Shotgun" Player="10"/>
-    <ObjectUnit Id="2501" Position="187.5,203.5,0" Rotation="6.2353" Scale="1,1,1" UnitType="SentryGun" Player="10">
+    <ObjectUnit Id="2501" Position="186.5,204.5,0" Rotation="6.2353" Scale="1,1,1" UnitType="SentryGun" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="1824" Position="48.5,134.5,0" Rotation="3.5644" Scale="1,1,1" UnitType="InfestedCocoon" Player="14"/>
@@ -1309,7 +1305,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="2374" Position="90.5,240.5,0" Rotation="1.117" Scale="1,1,1" UnitType="InfestedCocoon" Player="14"/>
-    <ObjectUnit Id="79" Position="235.3388,11.8535,0" Scale="1,1,1" UnitType="GaussRifle" Player="10">
+    <ObjectUnit Id="79" Position="234.4143,14.3007,0" Scale="1,1,1" UnitType="GaussRifle" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="2825" Position="60.1672,120.1083,0" Rotation="5.4172" Scale="1,1,1" UnitType="Egg" Player="14"/>
@@ -1394,7 +1390,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="639" Variation="1" Position="70.169,124.9223,0" Rotation="4.8652" Scale="1,1,1" UnitType="Egg" Player="14"/>
-    <ObjectUnit Id="977" Position="172,210,0" Rotation="5.1093" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
+    <ObjectUnit Id="977" Position="203,231,0" Rotation="5.1093" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
     <ObjectUnit Id="2300" Position="36.5,92.5,0" Rotation="0.4013" Scale="1,1,1" UnitType="InfestedCocoon" Player="14">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
@@ -1417,7 +1413,9 @@
     <ObjectUnit Id="1049" Position="63.5,125.5,0" Rotation="5.2468" Scale="1,1,1" UnitType="ExplodingBarrelLarge" Player="10">
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectUnit>
-    <ObjectUnit Id="127" Position="223.8771,8.762,0" Scale="1,1,1" UnitType="Medpack" Player="10"/>
+    <ObjectUnit Id="127" Position="234.8728,11.7556,0" Scale="1,1,1" UnitType="Medpack" Player="10">
+        <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="58" Position="247.5646,99.048,0" Scale="1,1,1" UnitType="C2Armor" Player="10"/>
     <ObjectUnit Id="81" Position="94.7526,123.0664,0" Rotation="5.4172" Scale="1,1,1" UnitType="Egg" Player="14"/>
     <ObjectUnit Id="629" Variation="1" Position="71.458,126.5751,0" Rotation="4.8632" Scale="1,1,1" UnitType="Egg" Player="14"/>
@@ -1453,6 +1451,9 @@
     </ObjectUnit>
     <ObjectUnit Id="2351" Position="101,105,0" Rotation="2.0341" Scale="1,1,1" UnitType="DestructibleDebris4x4" Player="10"/>
     <ObjectUnit Id="2827" Position="56.8056,115.009,0" Rotation="5.4172" Scale="1,1,1" UnitType="Egg" Player="14"/>
+    <ObjectDoodad Id="1447563999" Position="204.0534,55.3977,19.9235" Rotation="5.8852" Scale="1.1318,1.1318,1.1318" Type="LightOmniYellow">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="1979" Variation="4" Position="114.141,105.044,21.8957" Scale="1,1,1" Type="CastanarStasisTubeWallDestroyed">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -1480,7 +1481,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1064" Variation="1" Position="118.9033,151.657,11.9682" Scale="1,1,1" Type="ZergInfestedCliff">
+    <ObjectDoodad Id="1064" Variation="1" Position="117.5136,153.5776,11.9682" Rotation="2.627" Scale="1,1,1" Type="ZergInfestedCliff">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -1517,11 +1518,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2893" Variation="2" Position="141,86,23.8837" Rotation="5.2932" Scale="0.8498,0.8498,0.8498" Type="SpacePlatformArchwayLarge">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2854" Variation="1" Position="203.5,97.5,19.9514" Scale="1,1,1" Type="SpacePlatformFan">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -1652,13 +1648,13 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2024" Variation="1" Position="201.3298,217.2697,21.8645" Rotation="3.884" Scale="1,1,1" Type="FanVentCliff">
-        <Flag Index="HeightOffset" Value="1"/>
+    <ObjectDoodad Id="2846" Position="51.8762,144.4665,11.9677" Rotation="0.794" Scale="0.75,0.75,0.75" Type="LabWeaponCase">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2846" Position="51.8762,144.4665,11.9677" Rotation="0.794" Scale="0.75,0.75,0.75" Type="LabWeaponCase">
+    <ObjectDoodad Id="1189583848" Variation="4" Position="151.927,28.2568,11.9836" Rotation="5.9536" Scale="1,1,1" Type="ScientistCorpseGory">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -1677,7 +1673,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2234" Variation="1" Position="117.3474,154.3935,11.993" Rotation="1.1838" Scale="1.0014,1.0014,1.0014" Type="InfestedHomeSmall">
+    <ObjectDoodad Id="2234" Variation="1" Position="117.6313,154.7873,11.993" Rotation="1.1838" Scale="1.0014,1.0014,1.0014" Type="InfestedHomeSmall">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -1698,7 +1694,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2928" Variation="1" Position="224.5,16.5,19.9672" Rotation="5.0856" Scale="1,1,1" Type="BraxisAlphaBarrels">
+    <ObjectDoodad Id="2928" Variation="1" Position="222.0756,15.0212,19.9672" Rotation="5.0856" Scale="1,1,1" Type="BraxisAlphaBarrels">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -1743,7 +1739,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="47" Variation="1" Position="168.382,28.4875,19.9997" Rotation="0.7497" Scale="1,1,1" Type="SpacePlatformCautionLights">
+    <ObjectDoodad Id="47" Variation="1" Position="168.38,28.49,20.0046" Rotation="0.7497" Scale="1,1,1" Type="SpacePlatformCautionLights" Pitch="4.7121">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -1786,11 +1783,6 @@
     </ObjectDoodad>
     <ObjectDoodad Id="2902" Variation="1" Position="217.974,126.6635,23.9294" Rotation="2.805" Scale="0.75,0.75,0.75" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2044" Position="202.8078,57.8151,20.0112" Rotation="0.5808" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -1841,6 +1833,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="136516127" Variation="5" Position="148.6977,27.1286,11.9836" Rotation="1.3156" Scale="1,1,1" Type="ScientistCorpseGory">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="2913" Variation="1" Position="40,205,23.937" Rotation="5.941" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -1878,7 +1876,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2916" Variation="1" Position="69,214,23.9436" Rotation="1.2268" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
+    <ObjectDoodad Id="2916" Variation="1" Position="68.9211,213.9831,23.9355" Rotation="3.84" Scale="1,1,1" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -1904,12 +1902,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2872" Position="138.9384,139.0546,19.9548" Rotation="5.4812" Scale="1,1,1" Type="CastanarGenerator">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2041" Position="186.2272,17.7883,19.9704" Rotation="3.374" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
+    <ObjectDoodad Id="2872" Position="137.393,140.5756,19.9592" Rotation="5.4812" Scale="1,1,1" Type="CastanarGenerator">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -1976,6 +1969,12 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1022" Variation="1" Position="175.0197,96.16,20.2143" Scale="1,1,1" Type="SpacePlatformCliffBillboard">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="1039209577" Variation="5" Position="176.6376,41.9631,19.9907" Rotation="2.6848" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2052,11 +2051,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="104" Position="150.44,60.1225,20.0002" Rotation="1.5737" Scale="1,1,1" Type="SecurityFenceDiagonal">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="1125" Position="172.7304,128.9057,21.9824" Rotation="0.4353" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2081,7 +2075,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2816" Variation="1" Position="148.5603,125.2434,19.9658" Rotation="0.0175" Scale="1,1,1" Type="SpacePlatformVentsZerged">
+    <ObjectDoodad Id="2816" Variation="1" Position="148.5603,120.1071,19.954" Rotation="0.0175" Scale="1,1,1" Type="SpacePlatformVentsZerged">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2106,11 +2100,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2107" Variation="3" Position="158,30,11.9941" Rotation="5.9475" Scale="0.9196,0.9196,0.9196" Type="MonlythCrystals">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="3126" Variation="1" Position="9.7331,13.9338,19.9763" Rotation="1.5705" Scale="1,1,1" Type="SpectrePodDoodad">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2121,7 +2110,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3165" Variation="4" Position="159.4931,251.2077,20.017" Rotation="3.2805" Scale="1,1.5898,1" Type="PowerCables">
+    <ObjectDoodad Id="3165" Variation="3" Position="158.267,254.718,19.9326" Rotation="3.2805" Scale="1,1.5898,1" Type="PowerCables">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2132,6 +2121,12 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="851" Variation="1" Position="177.5,127.5,21.9931" Rotation="4.5598" Scale="1.1555,1.1555,1.1555" Type="CocoonedColonists">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="614145486" Position="155.0832,25.6284,11.6955" Rotation="2.8657" Scale="0.9721,0.9721,0.9721" Type="TTosh01RockSpires">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2157,7 +2152,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="868" Position="155,117.5,21.9931" Rotation="5.2331" Scale="1.0378,1.0378,1.0378" Type="CocoonedColonists">
+    <ObjectDoodad Id="868" Position="155.177,106.2353,21.9931" Rotation="3.1318" Scale="1.0378,1.0378,1.0378" Type="CocoonedColonists">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2166,12 +2161,6 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="3011" Variation="6" Position="114.7204,163.0825,19.9821" Scale="1,1,1" Type="Bullhorn" TintColor="192,192,192">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-        <Flag Index="NoSoundEmitters" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2984" Variation="2" Position="231.6437,224.301,20.2731" Rotation="0.7814" Scale="0.5,0.18,0.5" Type="SpacePlatformCablesLarge">
         <Flag Index="HeightOffset" Value="1"/>
@@ -2185,7 +2174,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="192" Position="196.5,85.5,20.1254" Rotation="4.8195" Scale="1.1674,1.1674,1.1674" Type="PortZionTires">
+    <ObjectDoodad Id="192" Position="196.7946,85.5073,20.017" Rotation="4.8195" Scale="1.1674,1.1674,1.1674" Type="PortZionTires">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2283,7 +2272,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3160" Variation="3" Position="166.7055,248.6774,20.04" Rotation="3.6958" Scale="1,1,1" Type="HavenDoodadsCrates">
+    <ObjectDoodad Id="3160" Variation="3" Position="166.2751,248.9826,20.0214" Rotation="3.6958" Scale="1,1,1" Type="HavenDoodadsCrates">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2358,18 +2348,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3086" Variation="2" Position="173.8146,31.5295,19.757" Rotation="2.172" Scale="0.8842,0.8842,0.8842" Type="MonlythCrystals">
+    <ObjectDoodad Id="3086" Variation="2" Position="175.0195,29.5461,19.814" Rotation="2.172" Scale="0.8842,0.8842,0.8842" Type="MonlythCrystals">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="164" Position="86.8547,103.8283,19.9902" Rotation="1.8547" Scale="0.75,0.75,0.75" Type="CharIntestines">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1193" Position="92.296,104.5043,19.9816" Rotation="3.0834" Scale="0.9755,0.9755,0.9755" Type="LightOmniPurple">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2411,13 +2396,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="860" Variation="3" Position="224.5,11.5,19.9533" Rotation="2.2915" Scale="1,1,1" Type="HavenDoodadsCrates">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2097" Variation="5" Position="186.0686,1.5754,20.5825" Rotation="5.447" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
+    <ObjectDoodad Id="860" Variation="3" Position="223.8608,11.1784,19.9365" Rotation="3.1872" Scale="1,1,1" Type="HavenDoodadsCrates">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2434,7 +2413,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3159" Variation="2" Position="174.5,237.5,19.8906" Rotation="2.8693" Scale="1,1,1" Type="HavenDoodadsCrates">
+    <ObjectDoodad Id="3159" Variation="2" Position="171.0065,247.2336,19.9377" Rotation="2.8693" Scale="1,1,1" Type="HavenDoodadsCrates">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2466,7 +2446,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="818" Position="231.5927,40.2988,19.86" Rotation="5.7827" Scale="0.5498,0.5498,0.5498" Type="RockVolcanicGiant" TintColor="184,128,124">
+    <ObjectDoodad Id="818" Position="231.7624,40.1894,19.8713" Rotation="1.667" Scale="0.5498,0.5498,0.5498" Type="RockVolcanicGiant" TintColor="184,128,124">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2518,7 +2498,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="202" Variation="2" Position="221.5,12.5,19.9567" Rotation="5.0876" Scale="1,1,1" Type="BraxisAlphaBarrels">
+    <ObjectDoodad Id="202" Variation="2" Position="222.5593,11.8981,19.926" Rotation="0.6936" Scale="1,1,1" Type="BraxisAlphaBarrels">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2534,7 +2514,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2071" Variation="3" Position="204.5,59.5,19.767" Rotation="0.036" Scale="0.8178,0.8178,0.8178" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2071" Variation="3" Position="205.4785,65.9265,19.6904" Rotation="0.8288" Scale="0.8178,0.8178,0.8178" Type="CharCrystalHuge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2674,7 +2654,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2085" Position="202.9,64.2597,19.3562" Rotation="0.4248" Scale="0.7697,0.7697,0.7697" Type="RockVolcanicGiant" TintColor="184,128,124">
+    <ObjectDoodad Id="2085" Position="200.9003,64.1691,19.182" Rotation="1.0837" Scale="0.7697,0.7697,0.7697" Type="RockVolcanicGiant" TintColor="184,128,124">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2688,11 +2668,6 @@
     </ObjectDoodad>
     <ObjectDoodad Id="3139" Variation="2" Position="5.6616,15.4184,19.9536" Scale="1,1,1.0998" Type="MetalWall">
         <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="130" Position="38.1857,16.094,19.985" Rotation="0.3071" Scale="1.1752,1.1752,1.1752" Type="FogBlue">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2763,6 +2738,9 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="819719795" Position="223.4135,36.611,19.9235" Rotation="5.8852" Scale="1.1318,1.1318,1.1318" Type="LightOmniYellow">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="1911" Variation="1" Position="124,225,20.1413" Rotation="5.1938" Scale="0.909,0.909,0.909" Type="AgriaDebrisLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2794,12 +2772,18 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="2027302947" Variation="4" Position="150.076,20.3596,19.854" Rotation="0.722" Scale="1.0075,1.0075,1.0075" Type="TTosh01RockSpires" Pitch="6.1958" Roll="0.1791">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="1262" Variation="5" Position="182.8725,164.7375,21.982" Rotation="5.116" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2095" Variation="1" Position="195.457,6.3681,19.1997" Rotation="5.4494" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
+    <ObjectDoodad Id="2095" Variation="1" Position="193.8151,5.003,20.018" Rotation="2.6928" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2826,12 +2810,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2072" Position="196.5,57.5,20.0053" Rotation="4.0588" Scale="0.8017,0.8017,0.8017" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2072" Position="196.6765,57.1765,20.1594" Rotation="4.0588" Scale="0.8017,0.8017,0.8017" Type="CharCrystalHuge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3093" Variation="9" Position="108.0815,61.9733,19.9211" Rotation="1.5793" Scale="0.3098,0.3098,0.3698" Type="KorhalBuilding">
+    <ObjectDoodad Id="3093" Variation="9" Position="116.8527,61.8034,19.9211" Rotation="5.4882" Scale="0.3098,0.3098,0.3698" Type="KorhalBuilding">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2913,7 +2897,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3026" Variation="7" Position="196.42,212.2697,25.8342" Rotation="0.788" Scale="1,1,1" Type="SpacePlatformCliffDoodadLarge">
+    <ObjectDoodad Id="3026" Variation="7" Position="195.1047,213.2746,24.2963" Rotation="0.788" Scale="1,1,1" Type="SpacePlatformCliffDoodadLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -2924,7 +2908,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1871" Variation="7" Position="48,199.5,21.9716" Scale="1,1,1" Type="NewFolsomSandbags">
+    <ObjectDoodad Id="1871" Variation="7" Position="48.4213,199.4233,21.9716" Scale="1,1,1" Type="NewFolsomSandbags">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2939,7 +2923,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3045" Variation="6" Position="202.7636,211.537,11.865" Rotation="3.3544" Scale="1,1,1" Type="MarineCorpse">
+    <ObjectDoodad Id="3045" Variation="6" Position="202.7636,211.537,11.869" Rotation="3.3544" Scale="1,1,1" Type="MarineCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -2970,12 +2954,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2090" Variation="2" Position="228.5988,51.734,19.9995" Rotation="0.4245" Scale="0.5498,0.5498,0.5498" Type="RockVolcanicGiant" TintColor="184,128,124">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="3111" Variation="2" Position="17.793,245.7563,22.2492" Rotation="0.872" Scale="1,1,1" Type="CastanarFloodlight">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -3015,7 +2993,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2618" Variation="1" Position="185.1376,224.855,21.95" Rotation="2.903" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2618" Variation="1" Position="185.1376,224.855,21.9572" Rotation="2.903" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3025,7 +3003,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="705" Position="136.2663,136.5822,19.9733" Rotation="3.0847" Scale="2,2,2" Type="Decal">
+    <ObjectDoodad Id="705" Position="136.898,137.844,19.9826" Rotation="3.0847" Scale="2,2,2" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3035,7 +3013,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="682" Position="159.24,62.7998,19.687" Rotation="2.4143" Scale="1,1,1" Type="BridgeCardinalFootprint">
+    <ObjectDoodad Id="682" Position="159.7763,63.7736,19.687" Rotation="5.5002" Scale="1.0676,1,1" Type="BridgeCardinalFootprint">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3045,7 +3024,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2573" Position="167.2407,216.8984,19.981" Rotation="0.805" Scale="0.7897,0.7897,0.7897" Type="HomeSmallDoodad">
+    <ObjectDoodad Id="2573" Position="167.2407,216.8984,19.984" Rotation="0.805" Scale="0.7897,0.7897,0.7897" Type="HomeSmallDoodad">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -3068,7 +3047,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2498" Variation="1" Position="244.5,7.5,20.0957" Rotation="3.3786" Scale="1,1,1" Type="BraxisAlphaBarrels">
+    <ObjectDoodad Id="2498" Variation="1" Position="244.1174,7.8642,20.2553" Rotation="4.0002" Scale="1,1,1" Type="BraxisAlphaBarrels">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3093,24 +3073,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2568" Position="192.898,226.8085,19.9978" Rotation="1.5893" Scale="1.2995,1.2995,1.2995" Type="Decal">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1389" Variation="1" Position="107,79,19.39" Rotation="0.3327" Scale="1.1027,1.1027,1.1027" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="2568" Position="191.8713,227.8254,20.0014" Rotation="1.5893" Scale="1.2995,1.2995,1.2995" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1286" Position="13,161,19.862" Rotation="3.1403" Scale="0.8881,0.8881,0.8881" Type="TTosh01RockSpires">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="316" Position="170.6638,37.225,20.082" Rotation="3.687" Scale="1,1,1" Type="MineralCart">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3136,12 +3105,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2644" Position="197.664,131.1528,19.9321" Rotation="0.8791" Scale="1,1,1" Type="CastanarFloodlight">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2562" Position="168.0224,224.1848,23.9865" Rotation="4.7277" Scale="1.2998,1.2998,1.2998" Type="Decal">
+    <ObjectDoodad Id="2562" Position="169.2814,223.1892,23.9934" Rotation="4.7277" Scale="1.2998,1.2998,1.2998" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -3202,6 +3166,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1469899345" Variation="1" Position="100.911,112.7792,12.483" Rotation="1.5705" Scale="1.5,1.5,1.5" Type="CastanarGenerator">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -3223,7 +3188,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2613" Variation="1" Position="185.4877,215.7626,21.9667" Rotation="2.2968" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2613" Variation="1" Position="185.4877,215.7626,20.616" Rotation="2.2968" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3243,7 +3208,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2559" Position="188.1423,202.3857,24.1596" Rotation="3.1582" Scale="1.2998,1.2998,1.2998" Type="Decal">
+    <ObjectDoodad Id="2559" Position="187.2246,203.7006,24.1247" Rotation="3.1582" Scale="1.2998,1.2998,1.2998" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -3266,7 +3231,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2608" Variation="6" Position="191.7761,224.7507,19.9758" Rotation="3.018" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2608" Variation="6" Position="192.5117,223.7861,19.9885" Rotation="3.018" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3286,12 +3251,15 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="387945328" Variation="1" Position="186.5,18.5,19.9223" Rotation="4.9294" Scale="1,1,1" Type="Streetlight">
+        <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="2668" Position="69.92,178.0197,21.9492" Scale="1,1,1" Type="TerrainObjectBraxisAlphaZergHoleSmallDoodad">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2567" Position="194.4272,226.834,20.002" Rotation="3.157" Scale="1.2995,1.2995,1.2995" Type="Decal">
+    <ObjectDoodad Id="2567" Position="193.4006,227.8508,20.009" Rotation="3.157" Scale="1.2995,1.2995,1.2995" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -3423,7 +3391,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="290" Position="198.5,82.5,19.559" Scale="1,1,1" Type="PortZionJunkPile">
+    <ObjectDoodad Id="290" Position="197.8876,83.7668,19.362" Rotation="0.9658" Scale="1,1,1" Type="PortZionJunkPile">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3439,7 +3407,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2596" Variation="18" Position="196.855,224.713,19.9812" Rotation="2.3032" Scale="1,1,1" Type="ColonistCorpse">
+    <ObjectDoodad Id="2596" Variation="18" Position="196.855,224.713,19.9753" Rotation="2.3032" Scale="1,1,1" Type="ColonistCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3471,12 +3439,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1322" Variation="1" Position="92,232,19.3632" Rotation="1.3815" Scale="0.845,0.845,0.845" Type="TTosh01RockSpires">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1345" Variation="1" Position="117.0634,61.9548,19.8828" Rotation="4.5" Scale="0.75,0.75,1" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -3628,8 +3590,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="702" Position="134.029,139.0937,19.9807" Rotation="6.2358" Scale="2,2,2" Type="Decal">
+    <ObjectDoodad Id="702" Position="134.6606,140.3554,19.9902" Rotation="6.2358" Scale="2,2,2" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="143167606" Position="164.384,57.0593,19.6472" Rotation="5.331" Scale="1.0705,1.0705,1.0705" Type="TTosh01RockSpires">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -3645,11 +3612,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="372" Variation="1" Position="225.5,14.5,19.999" Rotation="1.5112" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="1401" Variation="1" Position="51.7363,72.4987,20.303" Rotation="5.9277" Scale="0.8366,0.8366,0.8366" Type="TTosh01RockSpires">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -3657,11 +3619,6 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1298" Variation="3" Position="47.7812,219.143,19.2402" Rotation="4.446" Scale="0.8737,0.8737,0.8737" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2515" Position="197.5437,115.5915,20.0024" Rotation="2.3552" Scale="1,1,1" Type="CastanarFloodlight">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3713,7 +3670,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2603" Variation="1" Position="186.934,230.1315,19.951" Rotation="0.2714" Scale="1,1,1" Type="MarineCorpse">
+    <ObjectDoodad Id="1241533681" Position="211.236,38.7717,22.056" Rotation="4.8146" Scale="0.8017,0.8017,0.8017" Type="CharCrystalHuge">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="2603" Variation="1" Position="186.934,230.1315,19.9606" Rotation="0.2714" Scale="1,1,1" Type="MarineCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3733,7 +3696,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="296" Position="199.5,85,19.414" Rotation="2.9848" Scale="0.9125,0.9125,0.9125" Type="PortZionDumpster">
+    <ObjectDoodad Id="296" Position="199.6267,85.4497,19.7153" Rotation="3.081" Scale="0.9125,0.9125,0.9125" Type="PortZionDumpster">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3743,7 +3707,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2532" Variation="2" Position="189.7875,225.7834,20.422" Rotation="2.3444" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
+    <ObjectDoodad Id="2532" Variation="2" Position="187.0783,223.3737,21.9575" Rotation="2.3444" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3758,7 +3723,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="531" Variation="5" Position="92.125,60.7756,12.6491" Rotation="0.968" Scale="0.8154,0.8154,0.8154" Type="RockVolcanicGiant">
+    <ObjectDoodad Id="531" Variation="5" Position="92.125,60.7756,12.653" Rotation="0.968" Scale="0.8154,0.8154,0.8154" Type="RockVolcanicGiant">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3921,6 +3886,9 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="1538096159" Position="227.433,24.441,19.9235" Rotation="5.8852" Scale="1.1318,1.1318,1.1318" Type="LightOmniYellow">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="1492" Variation="2" Position="68,158,12.0151" Rotation="5.2854" Scale="1.0895,1.0895,1.0895" Type="TTosh01RockSpires">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -3931,6 +3899,9 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="1402902065" Variation="1" Position="224.5,38.5,19.925" Rotation="0.9885" Scale="1,1,1" Type="Streetlight">
+        <Flag Index="HeightOffset" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2344" Variation="4" Position="2.73,87.1191,11.9921" Rotation="3.099" Scale="1.1181,1.1181,1.1181" Type="RockVolcanicGiant">
         <Flag Index="HeightOffset" Value="1"/>
@@ -3954,7 +3925,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2700" Position="122.2233,136.1796,21.9392" Rotation="3.167" Scale="0.7,0.7,0.7" Type="MengskStatueAloneCreep">
+    <ObjectDoodad Id="2700" Position="121.99,136.24,21.934" Rotation="3.1413" Scale="0.7,0.7,0.7" Type="MengskStatueAloneCreep">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -3983,6 +3955,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="695675420" Variation="3" Position="34.667,52.2272,20.0642" Rotation="3.3552" Scale="1,1.0498,1" Type="PowerCables">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -4013,6 +3986,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="366756990" Variation="1" Position="153.9042,114.8244,21.998" Rotation="4.2023" Scale="1.1208,1.1208,1.1208" Type="CocoonedColonists">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="2420" Variation="2" Position="97.5,243.5,19.9667" Rotation="0.6247" Scale="1,1,1" Type="HavenDoodadsCrates">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -4025,7 +4004,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="467" Position="128,5,20.2226" Rotation="0.2802" Scale="0.45,0.45,0.45" Type="RockTower">
+    <ObjectDoodad Id="467" Position="127.312,5,19.6435" Rotation="0.2214" Scale="0.45,0.45,0.45" Type="RockTower" Pitch="0.1728" Roll="0.6525">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4078,7 +4058,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1456" Variation="2" Position="237,37,20.0473" Rotation="5.2902" Scale="0.8666,0.8666,0.8666" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1456" Variation="2" Position="238.0837,38.0627,19.9013" Rotation="1.7346" Scale="0.8666,0.8666,0.8666" Type="TTosh01RockSpires">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4122,7 +4103,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2697" Variation="1" Position="122.5598,134.5498,18.9494" Rotation="2.059" Scale="0.7,0.7,0.75" Type="KorhalBuilding">
+    <ObjectDoodad Id="2697" Variation="1" Position="121.9814,133.9785,18.9387" Scale="0.7,0.7,0.75" Type="KorhalBuilding">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -4169,6 +4150,12 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="596" Variation="4" Position="40.584,13.8513,20.015" Rotation="2.3476" Scale="1,1,1" Type="DecalProtoss">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="236391982" Position="153.5993,25.0598,11.8325" Rotation="1.8027" Scale="1.1193,1.1193,1.1193" Type="TTosh01RockSpires">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4238,7 +4225,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="520" Position="102,55,12.0095" Rotation="0.2807" Scale="0.71,0.71,0.71" Type="RockTower">
+    <ObjectDoodad Id="520" Position="102,55,12.0134" Rotation="0.2807" Scale="0.71,0.71,0.71" Type="RockTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -4266,19 +4253,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1444" Variation="3" Position="185,42,19.9243" Rotation="2.9638" Scale="1.1784,1.1784,1.1784" Type="TTosh01RockSpires">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="450" Variation="1" Position="118.5041,7.8486,19.9956" Rotation="5.9912" Scale="2.5,2.5,2.5" Type="Decal">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1487" Position="63.4785,152.488,19.8398" Rotation="4.6074" Scale="1.012,1.012,1.012" Type="Cougher">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4299,7 +4274,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="614" Position="241.36,80.3366,20.023" Rotation="4.585" Scale="1,1,1" Type="PortZionJunkPile">
+    <ObjectDoodad Id="614" Position="240.7946,81.7568,20.023" Rotation="2.794" Scale="1,1,1" Type="PortZionJunkPile">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -4378,7 +4353,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1454" Variation="3" Position="235,33,19.9055" Rotation="5.413" Scale="0.9602,0.9602,0.9602" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1454" Variation="3" Position="235.2475,33.1164,19.9055" Rotation="5.413" Scale="0.9602,0.9602,0.9602" Type="TTosh01RockSpires">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4399,7 +4374,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2415" Variation="5" Position="242.64,8.69,19.8166" Rotation="0.0187" Scale="1.3498,1.3498,1.3498" Type="ColonistHutDoodad">
+    <ObjectDoodad Id="2415" Variation="5" Position="242.4296,8.6962,19.765" Rotation="0.0187" Scale="1.3498,1.3498,1.3498" Type="ColonistHutDoodad">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -4443,7 +4418,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2812" Variation="23" Position="127.3771,82.4504,21.9348" Scale="1.5,1.5,1.5" Type="Decal">
+    <ObjectDoodad Id="2812" Variation="23" Position="127.3771,82.4504,19.9375" Scale="1.5,1.5,1.5" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4495,7 +4470,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1527" Variation="3" Position="203.38,218.67,22.9311" Rotation="0.7705" Scale="1,1,1" Type="SpacePlatformCliffDoodadMedium">
+    <ObjectDoodad Id="1527" Variation="3" Position="201.2375,218.806,22.9636" Rotation="0.7705" Scale="1,1,1" Type="SpacePlatformCliffDoodadMedium">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -4506,7 +4481,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1436" Variation="4" Position="161,14,20.3547" Rotation="3.4445" Scale="1.1308,1.1308,1.1308" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1436" Position="160.0012,12.049,20.3093" Rotation="1.5615" Scale="1.1308,1.1308,1.1308" Type="TTosh01RockSpires" Pitch="6.282" Roll="0.1132">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4532,7 +4508,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1451" Variation="3" Position="217.1015,60.938,19.566" Rotation="1.4291" Scale="1.1662,1.1662,1.1662" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1451" Variation="3" Position="217.0622,60.918,19.564" Rotation="1.4291" Scale="1.1662,1.1662,1.1662" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -4607,7 +4583,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1457" Position="174.5,29.5,19.4018" Rotation="0.1516" Scale="1.1857,1.1857,1.1857" Type="CharCrystalHuge">
+    <ObjectDoodad Id="1457" Position="176.356,29.5,19.6474" Rotation="0.1516" Scale="1.1857,1.1857,1.1857" Type="CharCrystalHuge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -4653,7 +4629,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="480" Position="160.9833,39.5966,19.9936" Rotation="0.9096" Scale="1,1,1" Type="SecurityFenceDiagonal">
+    <ObjectDoodad Id="480" Position="160.863,40.1401,19.9936" Rotation="0.9096" Scale="0.751,0.7014,1" Type="SecurityFenceDiagonal">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="1320966044" Variation="7" Position="150.6271,25.974,12.0241" Rotation="4.1826" Scale="1,1,1" Type="ScientistCorpseGory">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4695,7 +4677,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="398" Position="229.5,80.5,19.7067" Rotation="2.0395" Scale="1,1,1" Type="PortZionJunkPile">
+    <ObjectDoodad Id="398" Position="230.72,81.0717,19.5424" Rotation="4.5493" Scale="1,1,1" Type="PortZionJunkPile">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4722,23 +4704,21 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2701" Position="118.079,129.9648,21.9211" Rotation="5.4228" Scale="1,1,1" Type="KorhalFlag">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="2790" Variation="10" Position="154.0493,102.5205,20.5786" Rotation="5.5041" Scale="1,1,1" Type="SpacePlatformCliffDoodadMedium">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="2018608800" Variation="1" Position="225.5,24.5,19.925" Rotation="3.086" Scale="1,1,1" Type="Streetlight">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="541" Variation="4" Position="92.2912,15.501,12.0373" Rotation="4.016" Scale="1.059,1.059,1.059" Type="RockVolcanicGiant">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1552" Variation="1" Position="169.3603,89.7431,19.695" Rotation="1.6103" Scale="0.935,0.935,0.935" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1552" Variation="1" Position="169.3012,89.4868,19.6955" Rotation="1.6103" Scale="0.935,0.935,0.935" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -4766,7 +4746,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="466" Variation="2" Position="139,5,20.1171" Rotation="0.2802" Scale="0.45,0.45,0.45" Type="RockTower">
+    <ObjectDoodad Id="466" Variation="2" Position="139,5,18.1604" Rotation="5.1457" Scale="0.45,0.45,0.45" Type="RockTower" Pitch="0.711" Roll="5.9897">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4778,6 +4759,12 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="441" Variation="3" Position="130.3161,31.9614,19.8784" Rotation="4.354" Scale="1.5,1.5,1.5" Type="Decal">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="264028381" Position="164.13,68.16,19.676" Rotation="5.5" Scale="1.0673,1,1" Type="BridgeCardinalFootprint">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4816,7 +4803,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="544" Variation="2" Position="94.2272,42.401,12.0012" Rotation="1.0937" Scale="1.0954,1.0954,1.0954" Type="RockVolcanicGiant">
+    <ObjectDoodad Id="544" Variation="2" Position="94.2272,42.401,12.003" Rotation="1.0937" Scale="1.0954,1.0954,1.0954" Type="RockVolcanicGiant">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4837,7 +4824,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2779" Position="127.0798,83.71,21.889" Scale="1,1,1" Type="SpacePlatformCliffDoor">
+    <ObjectDoodad Id="2779" Position="127.0798,83.71,19.8916" Scale="1,1,1" Type="SpacePlatformCliffDoor">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -4997,19 +4984,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2359" Variation="2" Position="63.0627,40.0976,11.994" Rotation="0.4255" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="1526" Variation="1" Position="196.189,196.3757,19.706" Rotation="5.6757" Scale="0.9606,0.9606,0.9606" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="507" Position="160.2375,38.6723,19.9924" Rotation="0.9436" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5031,7 +5007,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2304" Variation="13" Position="119.5688,167.3281,11.9682" Rotation="5.8183" Scale="1,1,1" Type="ZergedCliff">
+    <ObjectDoodad Id="2304" Variation="13" Position="119.5688,167.3281,11.9721" Rotation="5.8183" Scale="1,1,1" Type="ZergedCliff">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5047,7 +5023,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1450" Variation="2" Position="216.2204,59.8815,19.5163" Rotation="0.399" Scale="0.9096,0.9096,0.9096" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1450" Variation="2" Position="216.2485,60.1997,19.512" Rotation="0.399" Scale="0.9096,0.9096,0.9096" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5074,7 +5050,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1550" Variation="3" Position="170.324,90.3576,19.7946" Rotation="6.0852" Scale="0.8593,0.8593,0.8593" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1550" Variation="3" Position="170.107,90.1484,19.7946" Rotation="6.0852" Scale="0.8593,0.8593,0.8593" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5092,7 +5068,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2309" Variation="4" Position="118.9682,152.6618,11.9682" Rotation="1.178" Scale="1,1,1" Type="ZergedCliff">
+    <ObjectDoodad Id="2309" Variation="4" Position="116.4116,153.19,11.9682" Rotation="3.1015" Scale="1,1,1" Type="ZergedCliff">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5102,7 +5078,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1455" Variation="3" Position="233,38,19.7053" Rotation="5.0654" Scale="1.091,1.091,1.091" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1455" Variation="3" Position="233.07,39.0068,19.7072" Rotation="4.7043" Scale="1.091,1.091,1.091" Type="TTosh01RockSpires" Pitch="6.2583" Roll="0.0834">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5147,7 +5124,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2813" Variation="1" Position="130.1152,79.9682,20.9477" Rotation="3.1103" Scale="1.5,1.5,1.5" Type="Decal">
+    <ObjectDoodad Id="2813" Variation="1" Position="130.1152,79.9682,20.0056" Rotation="3.1103" Scale="1.5,1.5,1.5" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5191,12 +5168,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="510" Position="125,30.5,20.3496" Rotation="4.0571" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1445" Position="187.696,40,20.1967" Rotation="6.0822" Scale="1.1613,1.1613,1.1613" Type="TTosh01RockSpires">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5374,7 +5345,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1440" Position="182.2722,12.4572,19.757" Rotation="1.3171" Scale="0.9721,0.9721,0.9721" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1440" Position="187.917,12.7031,19.4897" Rotation="1.3171" Scale="0.9721,0.9721,0.9721" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5398,7 +5369,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="610" Variation="1" Position="214.5,84.5,19.44" Rotation="3.0583" Scale="2,2,2" Type="PortZionJunkPile">
+    <ObjectDoodad Id="610" Variation="1" Position="216.5336,85.5427,18.8666" Rotation="4.8735" Scale="2,2,2" Type="PortZionJunkPile">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5414,7 +5385,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="345" Variation="15" Position="122.957,147.691,19.98" Scale="2.5,2.5,2.5" Type="Decal" TintColor="244,215,43 1.500000">
+    <ObjectDoodad Id="345" Variation="15" Position="122.957,147.691,19.983" Scale="2.5,2.5,2.5" Type="Decal" TintColor="244,215,43 1.500000">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5425,7 +5396,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2558" Position="188.1354,203.861,24.113" Rotation="4.7297" Scale="1.2998,1.2998,1.2998" Type="Decal">
+    <ObjectDoodad Id="2558" Position="187.2177,205.176,24.105" Rotation="4.7297" Scale="1.2998,1.2998,1.2998" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5436,7 +5407,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2609" Variation="6" Position="186.223,231.0266,19.951" Rotation="1.605" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2609" Variation="6" Position="190.0295,233.5031,19.972" Rotation="1.605" Scale="1,1,1" Type="ScientistCorpseGory">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5461,7 +5433,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2566" Position="194.4204,228.3093,20.0454" Rotation="4.7277" Scale="1.2995,1.2995,1.2995" Type="Decal">
+    <ObjectDoodad Id="2566" Position="193.3937,229.3261,20.0483" Rotation="4.7277" Scale="1.2995,1.2995,1.2995" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5499,7 +5471,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2563" Position="168.0292,222.7094,23.9863" Rotation="3.157" Scale="1.2998,1.2998,1.2998" Type="Decal">
+    <ObjectDoodad Id="2563" Position="169.2883,221.7138,23.9926" Rotation="3.157" Scale="1.2998,1.2998,1.2998" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5560,12 +5532,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2612" Position="180.949,218.7583,23.551" Rotation="0.5485" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2612" Position="183.421,213.3974,21.968" Rotation="0.5485" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2569" Position="192.8754,228.314,20.015" Rotation="6.2543" Scale="1.2995,1.2995,1.2995" Type="Decal">
+    <ObjectDoodad Id="2569" Position="191.8488,229.3308,20.0146" Rotation="6.2543" Scale="1.2995,1.2995,1.2995" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -5605,7 +5577,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="266" Position="154.1765,33.5815,20.0314" Rotation="2.423" Scale="1,1,1" Type="SecurityFenceDiagonal">
+    <ObjectDoodad Id="266" Position="154.1765,33.5815,20.0312" Rotation="2.423" Scale="1,1,1" Type="SecurityFenceDiagonal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5638,7 +5610,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1374" Variation="3" Position="185,75,19.9228" Rotation="6.225" Scale="0.9538,0.9538,0.9538" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1374" Variation="3" Position="184.8457,75.1237,19.917" Rotation="6.225" Scale="0.9538,0.9538,0.9538" Type="TTosh01RockSpires">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5654,7 +5626,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2619" Variation="5" Position="192.5314,226.2541,19.9545" Rotation="2.689" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2619" Variation="5" Position="193.267,225.2895,19.9555" Rotation="2.689" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5675,13 +5647,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2572" Variation="1" Position="169.9345,214.346,19.9572" Rotation="0.8051" Scale="0.7897,0.7897,0.7897" Type="HomeSmallDoodad">
+    <ObjectDoodad Id="2572" Variation="1" Position="169.9345,214.346,19.9602" Rotation="0.8051" Scale="0.7897,0.7897,0.7897" Type="HomeSmallDoodad">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="704" Position="133.8996,136.716,19.957" Rotation="1.4934" Scale="2,2,2" Type="Decal">
+    <ObjectDoodad Id="704" Position="134.5312,137.9777,19.971" Rotation="1.4934" Scale="2,2,2" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5695,6 +5667,9 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="1688351117" Position="194.8605,48.1394,19.9235" Rotation="5.8852" Scale="1.1318,1.1318,1.1318" Type="LightOmniYellow">
+        <Flag Index="HeightOffset" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1702" Variation="7" Position="186,171.5,21.9768" Rotation="3.1242" Scale="1.1218,1.1218,1.1218" Type="HavenTree">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -5719,11 +5694,6 @@
     </ObjectDoodad>
     <ObjectDoodad Id="356" Variation="5" Position="247.9836,30.2846,12.1232" Rotation="0.9616" Scale="0.9616,0.9616,0.9616" Type="RockVolcanicGiant">
         <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2514" Variation="2" Position="210.2766,120.5375,21.9467" Rotation="4.7373" Scale="1,1,1" Type="CastanarFloodlight">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5777,7 +5747,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2602" Variation="18" Position="196.6418,221.7763,19.9963" Rotation="0.1992" Scale="1,1,1" Type="ColonistCorpse">
+    <ObjectDoodad Id="2602" Variation="18" Position="196.0351,218.7426,19.9946" Rotation="0.1992" Scale="1,1,1" Type="ColonistCorpse">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5814,7 +5785,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2607" Variation="1" Position="197.827,220.9118,19.9963" Rotation="0.2692" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2607" Variation="1" Position="197.2202,217.8781,19.9858" Rotation="0.2692" Scale="1,1,1" Type="ScientistCorpseGory">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5841,18 +5813,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1354" Variation="2" Position="134.5,49.5,20.0104" Rotation="6.2524" Scale="1,1,1" Type="Floodlight">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="327" Variation="5" Position="79.0844,123.681,19.995" Rotation="0.344" Scale="1,1,1" Type="ScientistCorpseGory">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2492" Position="238.814,2.118,20.4362" Rotation="3.7124" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5905,7 +5866,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="703" Position="136.4016,138.977,19.986" Rotation="4.6494" Scale="2,2,2" Type="Decal">
+    <ObjectDoodad Id="703" Position="137.0332,140.2387,20.003" Rotation="4.6494" Scale="2,2,2" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5936,7 +5897,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2597" Variation="13" Position="173.82,227.3417,19.9453" Rotation="3.2546" Scale="1,1,1" Type="ColonistCorpse">
+    <ObjectDoodad Id="2597" Variation="13" Position="173.82,227.3417,23.9436" Rotation="3.2546" Scale="1,1,1" Type="ColonistCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -5947,13 +5908,16 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1344" Variation="1" Position="125,52,19.956" Rotation="4.9992" Scale="0.823,0.823,0.823" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1734882971" Variation="1" Position="203.5,57.5,19.9316" Rotation="1.9191" Scale="1,1,1" Type="Streetlight">
         <Flag Index="HeightOffset" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="2538" Variation="5" Position="43.8198,136.17,19.9694" Scale="3.5,3.5,3.5" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2538" Variation="5" Position="43.8198,136.17,19.9694" Scale="3.5,3.5,3.5" Type="Decal">
+    <ObjectDoodad Id="304337027" Variation="3" Position="152.3095,26.8552,11.9763" Rotation="4.5141" Scale="1,1,1" Type="ScientistCorpseGory">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6019,7 +5983,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1394" Variation="2" Position="93,71,20.088" Rotation="2.5156" Scale="0.9035,0.9035,0.9035" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1394" Variation="2" Position="93,71,20.0908" Rotation="2.5156" Scale="0.9035,0.9035,0.9035" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -6098,12 +6062,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1349" Variation="1" Position="106.19,48.2597,19.888" Rotation="0.678" Scale="0.5898,0.5898,0.89" Type="SpacePlatformArchwayLarge">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="328" Variation="6" Position="82.0346,121.9606,19.995" Rotation="6.1413" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -6153,17 +6111,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3158" Variation="4" Position="165.901,246.5844,19.9743" Rotation="5.6423" Scale="1,1,1" Type="HavenDoodadsCrates">
+    <ObjectDoodad Id="3158" Variation="4" Position="165.5468,246.6457,20.0302" Rotation="5.6423" Scale="1,1,1" Type="HavenDoodadsCrates">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2139" Variation="2" Position="19.5,197.5,19.9633" Rotation="5.4936" Scale="0.915,0.915,0.915" Type="CharCrystal">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="856" Variation="3" Position="161.5,115.5,21.9931" Rotation="6.0014" Scale="0.9328,0.9328,0.9328" Type="CocoonedColonists">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6196,6 +6149,12 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2979" Variation="2" Position="252.2416,231.8615,21.9274" Rotation="4.7187" Scale="0.5898,0.5898,0.5898" Type="SpacePlatformCliffDoodadMedium">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="2078868275" Position="175.7714,27.893,19.82" Rotation="4.062" Scale="0.9704,0.9704,0.9704" Type="CharCrystalLarge">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6242,12 +6201,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2153" Variation="1" Position="67.5,189,21.9458" Rotation="1.5705" Scale="0.7998,0.7998,0.7998" Type="HomeSmallDoodad">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="3087" Variation="2" Position="186.1091,44.609,20.4807" Rotation="6.1767" Scale="1.0187,1.0187,1.0187" Type="MonlythCrystals">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6360,7 +6313,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3161" Variation="7" Position="162.814,246.4404,19.9726" Rotation="1.336" Scale="1,1.0297,1" Type="PowerCables">
+    <ObjectDoodad Id="3161" Variation="3" Position="162.2382,247.1113,19.9731" Rotation="1.0434" Scale="1,1.0297,1" Type="PowerCables">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6376,7 +6329,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2111" Variation="3" Position="176.1333,31.4018,19.8474" Rotation="3.8881" Scale="1.053,1.053,1.053" Type="MonlythCrystals">
+    <ObjectDoodad Id="2111" Variation="3" Position="176.2568,30.7426,19.8784" Rotation="1.7314" Scale="1.053,1.053,1.053" Type="MonlythCrystals">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -6397,7 +6350,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="152" Position="148.0895,21.7685,20.0852" Rotation="1.415" Scale="1,1,1" Type="SecurityFenceDiagonal">
+    <ObjectDoodad Id="152" Position="147.851,22.297,20.0632" Rotation="1.415" Scale="0.734,0.7924,1" Type="SecurityFenceDiagonal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6412,7 +6365,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="855" Position="165.1887,114.315,21.9931" Rotation="6.2578" Scale="0.9855,0.9855,0.9855" Type="CocoonedColonists">
+    <ObjectDoodad Id="855" Position="160.114,101.4672,21.9931" Rotation="2.589" Scale="0.9855,0.9855,0.9855" Type="CocoonedColonists">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6433,12 +6386,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3164" Variation="4" Position="171.9436,237.4245,19.819" Rotation="3.8574" Scale="1,1,1" Type="PowerCables">
+    <ObjectDoodad Id="3164" Variation="3" Position="172.0537,236.6035,19.7348" Rotation="3.8574" Scale="1,1,1" Type="PowerCables">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2129" Position="173,16,19.9672" Rotation="2.0222" Scale="0.897,0.897,0.897" Type="CharCrystalLarge">
+    <ObjectDoodad Id="2129" Position="172.2705,15.862,20.0156" Rotation="2.0104" Scale="0.897,0.897,0.897" Type="CharCrystalLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6507,18 +6460,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3179" Position="137.918,123.6093,20.0207" Rotation="4.7121" Scale="0.8498,0.8498,0.8498" Type="HomeSmallDoodad">
+    <ObjectDoodad Id="3179" Position="138.3215,123.6093,20.0207" Rotation="4.7121" Scale="0.8498,0.8498,0.8498" Type="HomeSmallDoodad">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2150" Variation="1" Position="13.5,176.5,19.801" Rotation="3.391" Scale="0.8254,0.8254,0.8254" Type="CharCrystalHuge">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1191" Position="58.6284,106.347,19.984" Rotation="5.096" Scale="1.064,1.064,1.064" Type="LightOmniPurple">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6533,7 +6481,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2076" Variation="2" Position="152.3112,27.071,11.9985" Rotation="3.802" Scale="1.5,1.5,1.5" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2076" Variation="2" Position="156.0444,30.4475,11.5747" Rotation="0.553" Scale="1.5,1.5,1.5" Type="CharCrystalHuge" Pitch="0.2421" Roll="5.7446">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -6555,13 +6503,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3000" Variation="1" Position="164.8095,219.4968,20.018" Rotation="0.8051" Scale="0.7897,0.7897,0.7897" Type="HomeSmallDoodad">
+    <ObjectDoodad Id="3000" Variation="1" Position="164.8095,219.4968,20.021" Rotation="0.8051" Scale="0.7897,0.7897,0.7897" Type="HomeSmallDoodad">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3027" Variation="1" Position="250,87.5,20.0915" Rotation="2.406" Scale="1,1,1" Type="WreckedCargoTruckCorpse">
+    <ObjectDoodad Id="3027" Variation="1" Position="249.7084,87.961,20.037" Rotation="2.406" Scale="1,1,1" Type="WreckedCargoTruckCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6576,7 +6524,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3044" Variation="1" Position="199.9184,208.2578,11.8676" Rotation="6.243" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="3044" Variation="1" Position="199.9184,208.2578,16.9184" Rotation="6.243" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6592,7 +6540,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1870" Variation="3" Position="49,200.5,21.9716" Scale="1,1,1" Type="NewFolsomSandbags">
+    <ObjectDoodad Id="1870" Variation="3" Position="49.1677,200.252,21.9716" Scale="1,1,1" Type="NewFolsomSandbags">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="27168979" Variation="1" Position="175.0666,42.3808,19.9975" Rotation="0.5932" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6650,12 +6604,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="813" Variation="1" Position="139.9074,143.4667,21.991" Rotation="3.9726" Scale="1,1,1" Type="HomeLargeDoodad">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2094" Variation="1" Position="185.6586,4.2817,20.686" Rotation="1.769" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -6745,7 +6693,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3051" Variation="1" Position="207,215,19.9033" Rotation="2.0266" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
+    <ObjectDoodad Id="3051" Variation="1" Position="205.7778,216.052,19.9204" Rotation="2.0266" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -6767,18 +6715,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="232" Variation="4" Position="66.3493,23.439,19.8281" Rotation="5.319" Scale="0.905,0.905,0.905" Type="BloodSplats">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="3113" Variation="2" Position="32.0998,248.0715,21.996" Rotation="1.129" Scale="1,1,1" Type="CastanarFloodlight">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2084" Variation="2" Position="184.9748,38.0166,20.0815" Rotation="6.179" Scale="1.0187,1.0187,1.0187" Type="MonlythCrystals">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6816,7 +6752,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2067" Position="189.5,13.5,19.842" Rotation="2.1562" Scale="0.9885,0.9885,0.9885" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2067" Position="189.4973,13.5615,19.8476" Rotation="1.851" Scale="0.9885,0.9885,0.9885" Type="CharCrystalHuge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6863,7 +6799,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2070" Position="222.5,49.5,20.0351" Rotation="4.3247" Scale="1.1225,1.1225,1.1225" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2070" Position="222.462,49.2734,18.735" Rotation="0.0842" Scale="1.1225,1.1225,1.1225" Type="CharCrystalHuge" Pitch="0.0417" Roll="6.0446">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -6966,7 +6903,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2238" Variation="1" Position="109.5197,160.89,20.9831" Rotation="1.5705" Scale="0.5898,0.5898,0.5898" Type="CastanarMonitorLarge">
+    <ObjectDoodad Id="2134381121" Position="148.9501,28.416,11.9904" Rotation="0.747" Scale="1,1,1" Type="ScientistCorpseGory">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="2238" Variation="1" Position="109.3732,161.0031,21.085" Rotation="1.5705" Scale="0.5898,0.5898,0.5898" Type="CastanarMonitorLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -6982,7 +6925,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="46" Variation="1" Position="165.023,25.708,20" Rotation="0.8054" Scale="1,1,1" Type="SpacePlatformCautionLights">
+    <ObjectDoodad Id="46" Variation="1" Position="165.0197,25.71,20.0046" Rotation="0.8054" Scale="1,1,1" Type="SpacePlatformCautionLights" Pitch="4.7121">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7052,12 +6996,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2025" Variation="1" Position="191.2224,206.8925,21.7885" Rotation="3.9282" Scale="1,1,1" Type="FanVentCliff">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="2856" Variation="1" Position="26,83,19.9394" Scale="1,1,1" Type="SpacePlatformFan">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -7089,11 +7027,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="119" Variation="6" Position="62.142,23.0305,19.9724" Rotation="5.6406" Scale="1,1,1" Type="ScientistCorpseGory">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="28" Variation="1" Position="175.0751,37.7211,19.9477" Rotation="1.9033" Scale="1,1,1" Type="MineralCart">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7186,8 +7119,15 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="6237409" Position="163.431,43.5393,20.045" Rotation="0.6916" Scale="1,1,1" Type="MineralCart">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="132655630" Position="148.3908,94.148,23.953" Rotation="5.7836" Scale="1,1,1.8344" Type="CastanarStasisTubeRising" TintColor="153,153,153">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -7218,16 +7158,6 @@
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2228" Variation="2" Position="101.5,66.5,19.9594" Rotation="6.136" Scale="1.001,1.001,1.001" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1054" Variation="1" Position="93.82,21.104,19.9226" Rotation="1.5705" Scale="1,1,1" Type="MarSaraBridgeLong">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1141" Variation="2" Position="196.0971,138.826,21.9824" Rotation="2.9311" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -7266,12 +7196,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2855" Variation="1" Position="199.5,97.5,19.9394" Scale="1,1,1" Type="SpacePlatformFan">
+    <ObjectDoodad Id="1933" Variation="1" Position="133.5253,248.7187,12.022" Rotation="3.444" Scale="1.1733,1.1733,1.1733" Type="RockVolcanicGiant">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1933" Variation="1" Position="133.5253,248.7187,12.022" Rotation="3.444" Scale="1.1733,1.1733,1.1733" Type="RockVolcanicGiant">
+    <ObjectDoodad Id="2090057145" Position="195.8918,22.7026,19.6945" Rotation="5.9785" Scale="0.9721,0.9721,0.9721" Type="TTosh01RockSpires">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7343,7 +7274,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2922" Variation="3" Position="237.5,11,19.8083" Rotation="0.109" Scale="1,1,1" Type="HavenDoodadsCrates">
+    <ObjectDoodad Id="2922" Variation="3" Position="237.2434,11.6086,19.834" Rotation="0.109" Scale="1,1,1" Type="HavenDoodadsCrates">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -7360,12 +7291,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2820" Variation="3" Position="247,117,19.6374" Rotation="2.8525" Scale="1,1,1" Type="SpacePlatformTower">
+    <ObjectDoodad Id="2820" Variation="3" Position="247.5273,117.9401,20.1591" Rotation="0.7631" Scale="1,1,1" Type="SpacePlatformTower">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1966" Variation="6" Position="48.5,204.5,21.9716" Scale="1,1,1" Type="NewFolsomSandbags">
+    <ObjectDoodad Id="1966" Variation="6" Position="48.5166,205.203,21.9716" Scale="1,1,1" Type="NewFolsomSandbags">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7380,7 +7312,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2034" Position="38,247,19.8937" Rotation="5.8732" Scale="1,1,1" Type="SupplyTanks">
+    <ObjectDoodad Id="2034" Position="35.9738,247.3205,20.0056" Rotation="0.0112" Scale="1,1,1" Type="SupplyTanks">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7390,7 +7322,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="48" Variation="1" Position="136,50,20.0063" Rotation="2.786" Scale="1,1,1" Type="SpacePlatformTower">
+    <ObjectDoodad Id="48" Variation="1" Position="136,50.996,20.0063" Rotation="2.786" Scale="1,1,1" Type="SpacePlatformTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -7496,11 +7428,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2045" Position="221.3415,47.0988,19.9797" Rotation="5.1467" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="2876" Variation="4" Position="74.0498,201.18,23.9392" Rotation="3.226" Scale="0.75,0.75,0.5" Type="SpacePlatformArchwayLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -7568,23 +7495,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2288" Variation="5" Position="116.91,151.7021,11.9775" Rotation="4.497" Scale="1,1,1" Type="ZergedCliff">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="1073" Variation="7" Position="158.0234,112.393,21.9824" Rotation="4.1828" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1114" Variation="5" Position="146.6328,145.1853,21.9824" Rotation="5.5612" Scale="1,1,1" Type="ScientistCorpseGory">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="87" Position="129.5097,40.96,20.27" Rotation="4.609" Scale="1.012,1.012,1.012" Type="Cougher">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7600,13 +7516,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1011" Position="145.546,29.3483,19.983" Rotation="0.388" Scale="0.75,0.75,0.75" Type="HighYieldStorage" TintColor="192,192,192">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2046" Position="228.94,35.66,19.9687" Rotation="5.731" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightOffset" Value="1"/>
+    <ObjectDoodad Id="1011" Position="145.546,29.6064,19.983" Rotation="0.388" Scale="0.75,0.75,0.75" Type="HighYieldStorage" TintColor="192,192,192">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7745,17 +7655,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2043" Position="192.378,48.4038,19.9934" Rotation="0.7448" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="928" Position="217.5,150.5,19.9611" Rotation="2.336" Scale="0.8996,0.8996,0.8996" Type="SpacePlatformGenerator">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1965" Variation="4" Position="49.5,203.5,21.9716" Scale="1,1,1" Type="NewFolsomSandbags">
+    <ObjectDoodad Id="1965" Variation="4" Position="48.371,204.075,21.9716" Scale="1,1,1" Type="NewFolsomSandbags">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7771,6 +7676,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="557306511" Variation="1" Position="110.9863,112.668,12.42" Rotation="1.5705" Scale="1.5,1.5,1.5" Type="CastanarGenerator">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -7895,13 +7801,13 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2921" Variation="3" Position="222.5,7.5,19.6083" Rotation="2.2905" Scale="1,1,1" Type="HavenDoodadsCrates">
+    <ObjectDoodad Id="2921" Variation="3" Position="222.6577,6.309,19.914" Rotation="2.2905" Scale="1,1,1" Type="HavenDoodadsCrates">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2818" Position="209,73,19.969" Rotation="3.5893" Scale="1,1,1" Type="SpacePlatformTower">
+    <ObjectDoodad Id="2818" Position="209.2114,72.6684,19.969" Rotation="3.5893" Scale="1,1,1" Type="SpacePlatformTower">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7911,12 +7817,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="106" Position="145.7927,61.4262,20.0305" Rotation="5.764" Scale="1,1,1" Type="SecurityFenceDiagonal">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2253" Position="116.446,165.2812,11.9677" Rotation="5.5222" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2253" Position="116.446,165.2812,11.9716" Rotation="5.5222" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -7967,7 +7868,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2021" Variation="2" Position="111.5,249.5,19.851" Rotation="5.824" Scale="1.5,1.5,1.5" Type="CargoTruckCreep">
+    <ObjectDoodad Id="2021" Variation="2" Position="104.012,253.3842,19.3872" Rotation="3.5517" Scale="1.5,1.5,1.5" Type="CargoTruckCreep">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -8162,11 +8063,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1042" Variation="1" Position="96.6518,21.2534,19.9226" Rotation="4.7121" Scale="1,1,1" Type="MarSaraBridgeLong">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="1145" Variation="6" Position="169.0051,103.0456,21.9824" Rotation="5.513" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -8234,7 +8130,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2031" Variation="1" Position="242.278,77.2541,20.1335" Rotation="1.728" Scale="1,1,1" Type="PortZionJunkPile">
+    <ObjectDoodad Id="2031" Variation="1" Position="239.1662,79.6372,20.0197" Rotation="4.2636" Scale="1,1,1" Type="PortZionJunkPile">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -8290,12 +8186,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2174" Variation="9" Position="20.616,31.7348,20.0715" Rotation="1.7094" Scale="1,1,1" Type="MarineCorpse">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1236" Variation="1" Position="101.7998,35.21,19.915" Rotation="4.7121" Scale="1,1,1" Type="MarSaraBridgeLong">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -8369,7 +8259,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3114" Variation="1" Position="8.743,238.8557,21.8557" Rotation="0.076" Scale="0.5,0.5,0.5" Type="Antenna">
+    <ObjectDoodad Id="3114" Variation="1" Position="8.74,239.16,21.8925" Scale="0.5,0.5,0.5" Type="Antenna">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -8429,6 +8320,11 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="434701170" Position="186.15,20.2,19.922" Rotation="5.8852" Scale="1.1315,1.1315,1.1315" Type="LightOmniYellow">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="1909" Position="125.8222,216.6137,21.302" Rotation="2.6291" Scale="0.9162,0.9162,0.9162" Type="MonlythCrystals">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -8456,7 +8352,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="225" Position="145.2131,26.7055,19.983" Rotation="0.3874" Scale="0.75,0.75,0.75" Type="HighYieldStorage" TintColor="192,192,192">
+    <ObjectDoodad Id="225" Position="145.4038,26.7055,19.983" Rotation="0.3874" Scale="0.75,0.75,0.75" Type="HighYieldStorage" TintColor="192,192,192">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -8473,12 +8369,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="3104" Variation="2" Position="35.5,173.5,19.8264" Rotation="4.7421" Scale="0.9316,0.9316,0.9316" Type="CharTendrils">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2093" Variation="1" Position="188.47,2.5898,21.3283" Rotation="3.8972" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -8593,7 +8483,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2079" Variation="3" Position="170.5,14.5,20.5034" Rotation="4.5625" Scale="1.1853,1.1853,1.1853" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2079" Variation="1" Position="170.4177,14.544,20.5046" Rotation="4.5625" Scale="1.1853,1.1853,1.1853" Type="CharCrystalHuge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -8630,7 +8520,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2115" Variation="1" Position="165.719,20.6401,19.9956" Rotation="1.4016" Scale="1.1618,1.1618,1.1618" Type="MonlythCrystals">
+    <ObjectDoodad Id="2115" Variation="1" Position="164.727,20.6062,19.996" Rotation="1.4016" Scale="1.1618,1.1618,1.1618" Type="MonlythCrystals">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -8683,6 +8573,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="2028517350" Variation="1" Position="165.0097,98.0397,23.9887" Scale="1,1,1" Type="SpacePlatformFan">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="1272" Variation="1" Position="70.4724,202.6057,18.94" Rotation="5.4277" Scale="1,1,1" Type="AlarmLight">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -8706,11 +8602,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="3167" Variation="1" Position="68.2866,238.1462,19.8381" Rotation="0.2622" Scale="0.5097,0.5097,0.5097" Type="BillboardPropaganda">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2130" Position="185,36,20.252" Rotation="1.589" Scale="0.9704,0.9704,0.9704" Type="CharCrystalLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -8782,11 +8673,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="867" Variation="2" Position="166.5,101.5,21.9931" Rotation="0.2353" Scale="0.8327,0.8327,0.8327" Type="CocoonedColonists">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="1902" Variation="1" Position="129,224,19.9885" Rotation="0.967" Scale="0.8823,0.8823,0.8823" Type="MonlythCrystals">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -8814,6 +8700,10 @@
     </ObjectDoodad>
     <ObjectDoodad Id="831" Variation="2" Position="94.413,203.265,23.9128" Scale="3,3,3" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="453897208" Position="150.8466,59.0034,19.9252" Rotation="2.4042" Scale="1,1,1" Type="SecurityFenceStraight">
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -8855,7 +8745,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3162" Variation="5" Position="166.0666,244.4692,19.5676" Rotation="3.96" Scale="1,1,1" Type="PowerCables">
+    <ObjectDoodad Id="3162" Variation="3" Position="167.6701,242.2343,19.7065" Rotation="0.6284" Scale="1,1,1" Type="PowerCables">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -8865,7 +8755,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3084" Variation="2" Position="171.069,16.2551,20.1613" Rotation="2.172" Scale="0.8842,0.8842,0.8842" Type="MonlythCrystals">
+    <ObjectDoodad Id="3084" Variation="2" Position="170.418,13.32,20.4787" Rotation="5.1716" Scale="0.8842,0.8842,0.8842" Type="MonlythCrystals">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -8883,11 +8773,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2154" Variation="1" Position="64,189,21.9458" Rotation="1.5705" Scale="0.7998,0.7998,0.7998" Type="HomeSmallDoodad">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1195" Position="74.4743,130.1376,19.9816" Rotation="1.7966" Scale="0.967,0.967,0.967" Type="LightOmniPurple">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -8938,12 +8823,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2102" Variation="2" Position="183.0915,35.7185,19.774" Rotation="2.4655" Scale="0.8886,0.8886,0.8886" Type="MonlythCrystals">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="3152" Position="4.8264,6.8176,20.348" Rotation="3.4858" Scale="1.1047,1.1047,1.1047" Type="BloodSplats">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -8974,7 +8853,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3157" Variation="4" Position="176.0634,237.1445,19.95" Rotation="3.4384" Scale="1,1,1" Type="HavenDoodadsCrates">
+    <ObjectDoodad Id="3157" Variation="4" Position="172.314,244.735,19.951" Rotation="3.4384" Scale="1,1,1" Type="HavenDoodadsCrates">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -8989,7 +8868,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2099" Variation="4" Position="247.5605,62.1936,19.9685" Rotation="1.2604" Scale="1,1,1" Type="SpacePlatformWallDebris">
+    <ObjectDoodad Id="2099" Variation="4" Position="246.5507,62.18,19.7866" Rotation="0.8942" Scale="1,1,1" Type="SpacePlatformWallDebris">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -9011,7 +8890,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3081" Position="113.5288,54.9218,19.8654" Rotation="0.8562" Scale="1.0913,1.0913,1.0913" Type="BraxisAlphaFloodLights">
+    <ObjectDoodad Id="3081" Position="113.5288,54.9218,19.8684" Rotation="0.8562" Scale="1.0913,1.0913,1.0913" Type="BraxisAlphaFloodLights">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -9129,7 +9008,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2595" Variation="9" Position="188.4855,228.4362,19.951" Rotation="3.3537" Scale="1,1,1" Type="ColonistCorpse">
+    <ObjectDoodad Id="2595" Variation="9" Position="188.4855,228.4362,19.9538" Rotation="3.3537" Scale="1,1,1" Type="ColonistCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -9173,7 +9052,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2598" Variation="4" Position="178.6875,229.433,19.9714" Rotation="0.2656" Scale="1,1,1" Type="ColonistCorpse">
+    <ObjectDoodad Id="2598" Variation="4" Position="178.6875,229.433,19.9763" Rotation="0.2656" Scale="1,1,1" Type="ColonistCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -9287,7 +9166,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2604" Variation="4" Position="198.674,222.124,19.9584" Rotation="4.125" Scale="1,1,1" Type="MarineCorpse">
+    <ObjectDoodad Id="2604" Variation="4" Position="199.341,223.4436,23.9611" Rotation="4.125" Scale="1,1,1" Type="MarineCorpse">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -9362,6 +9242,9 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="1516547086" Position="217.7446,49.94,19.9235" Rotation="5.8852" Scale="1.1318,1.1318,1.1318" Type="LightOmniYellow">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="697" Position="86.3381,179.595,19.9936" Rotation="6.2358" Scale="2,2,2" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -9406,11 +9289,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2513" Position="218.97,120.92,24.2834" Rotation="4.9645" Scale="1,1,1" Type="CastanarFloodlight">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="1319" Variation="3" Position="87.276,240.6486,19.6337" Rotation="0.1865" Scale="0.8598,0.8598,0.8598" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -9424,11 +9302,6 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1356" Variation="3" Position="219.5,191.5,19.5734" Rotation="3.0366" Scale="0.8842,0.8842,0.8842" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="321" Variation="3" Position="172.1967,39.4001,19.686" Rotation="2.7797" Scale="1,1,1" Type="MineralCart">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -9448,7 +9321,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2601" Variation="7" Position="193.361,225.2,19.9982" Rotation="4.2592" Scale="1,1,1" Type="ColonistCorpse">
+    <ObjectDoodad Id="2601" Variation="7" Position="194.0966,224.2353,19.9992" Rotation="4.2592" Scale="1,1,1" Type="ColonistCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -9463,7 +9336,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2616" Position="191.45,230.5817,19.962" Rotation="3.2751" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2616" Position="190.4233,231.5986,19.9577" Rotation="3.2751" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -9576,6 +9449,10 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="760147308" Position="190.154,36.8364,20.432" Rotation="5.885" Scale="1.1315,1.1315,1.1315" Type="LightOmniYellow">
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="685" Position="34.1071,151.7683,20.1484" Rotation="3.086" Scale="2,2,2" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -9605,11 +9482,6 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1687" Variation="4" Position="182.8281,102.5517,21.9726" Rotation="0.7553" Scale="1,1,1" Type="DecalProtoss" TintColor="128,255,0">
         <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2646" Position="237.7812,138.971,19.8508" Rotation="5.3493" Scale="1.0993,1.0993,1.0993" Type="FogStormDeepWhite">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -9659,7 +9531,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2560" Position="186.613,202.3603,24.1743" Rotation="1.59" Scale="1.2998,1.2998,1.2998" Type="Decal">
+    <ObjectDoodad Id="2560" Position="185.6953,203.6752,24.1691" Rotation="1.59" Scale="1.2998,1.2998,1.2998" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -9672,6 +9544,11 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1729" Variation="6" Position="57.8676,6.8867,19.9753" Rotation="5.6523" Scale="1,1,1" Type="MarineCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="1010073788" Variation="2" Position="161.327,76.0375,12.0031" Rotation="5.1333" Scale="0.5898,0.5898,0.3835" Type="RockTower">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -9707,7 +9584,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2610" Variation="4" Position="184.8083,235.9816,23.9785" Rotation="2.7976" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2610" Variation="4" Position="181.8347,233.0874,19.9731" Rotation="2.7976" Scale="1,1,1" Type="ScientistCorpseGory">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -9752,7 +9630,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="365" Position="110.6894,91.0861,23.931" Rotation="2.3781" Scale="0.89,0.89,0.89" Type="CastanarStasisTubeQuad">
+    <ObjectDoodad Id="365" Position="110.5388,91.1013,23.931" Rotation="2.3781" Scale="0.89,0.89,0.89" Type="CastanarStasisTubeQuad">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -9769,7 +9647,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2565" Position="166.4775,224.1894,23.9904" Rotation="6.2543" Scale="1.2998,1.2998,1.2998" Type="Decal">
+    <ObjectDoodad Id="2565" Position="167.7365,223.1938,23.993" Rotation="6.2543" Scale="1.2998,1.2998,1.2998" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -9871,11 +9749,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1443" Variation="3" Position="187,36,20.0573" Rotation="1.793" Scale="0.9804,0.9804,0.9804" Type="TTosh01RockSpires">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="430" Variation="4" Position="46.4082,106.2968,19.995" Rotation="0.2717" Scale="0.9,0.9,0.9" Type="BloodSplats">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -9915,6 +9788,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="938027803" Variation="1" Position="110.989,116.341,12.4892" Rotation="1.5705" Scale="1.5,1.5,1.5" Type="CastanarGenerator">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -9935,7 +9809,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1446" Variation="4" Position="185,48,19.9211" Rotation="5.7465" Scale="1.1835,1.1835,1.1835" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1446" Variation="4" Position="185.889,46.6921,20.1694" Rotation="0.214" Scale="1.1835,1.1835,1.1835" Type="TTosh01RockSpires" Pitch="6.1794" Roll="6.136">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10055,11 +9930,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1435" Variation="4" Position="154,27,12.0202" Rotation="5.1354" Scale="0.944,0.944,0.944" Type="TTosh01RockSpires">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="406" Position="126.6916,104.9113,20.013" Rotation="3.1401" Scale="1.15,1.15,1" Type="CastanarWindowLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -10096,6 +9966,9 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="806416316" Variation="1" Position="193.5,49.5,19.925" Rotation="2.3713" Scale="1,1,1" Type="Streetlight">
+        <Flag Index="HeightOffset" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2814" Variation="1" Position="123.8144,79.9213,21.028" Rotation="3.109" Scale="1.5,1.5,1.5" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
@@ -10149,7 +10022,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2811" Position="118.011,148.0375,21.9562" Rotation="0.8164" Scale="1,1,1" Type="Searchlight">
+    <ObjectDoodad Id="2811" Variation="1" Position="115.0998,151.0097,24.1462" Rotation="1.924" Scale="1,1,1" Type="Searchlight">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10171,7 +10044,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1549" Variation="4" Position="162,55,19.8562" Rotation="2.1967" Scale="1.0705,1.0705,1.0705" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1549" Variation="4" Position="162.908,58.6166,19.9765" Rotation="2.1967" Scale="1.0705,1.0705,1.0705" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10187,7 +10060,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1449" Variation="4" Position="216,62,19.5" Rotation="3.5634" Scale="0.9035,0.9035,0.9035" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1449" Variation="4" Position="216.2355,61.9475,19.5197" Rotation="3.5634" Scale="0.9035,0.9035,0.9035" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10263,7 +10136,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1579" Variation="4" Position="239.5598,29.7,20.513" Rotation="5.7805" Scale="0.5498,0.5498,0.5498" Type="RockVolcanicGiant" TintColor="184,128,124">
+    <ObjectDoodad Id="1579" Variation="4" Position="241.3395,31.7116,19.8447" Rotation="4.3906" Scale="0.5498,0.5498,0.5498" Type="RockVolcanicGiant" TintColor="184,128,124">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10290,7 +10163,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1508" Variation="3" Position="52.2868,228.3,19.3847" Rotation="2.1191" Scale="1.112,1.112,1.112" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1508" Variation="3" Position="52.84,228.3,19.3413" Rotation="2.1191" Scale="1.112,1.112,1.112" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10308,6 +10181,12 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="386" Variation="5" Position="38.9377,103.98,19.9963" Rotation="0.829" Scale="1,1,1" Type="MarineCorpse">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="1466982174" Position="162.3754,42.3664,20.0808" Rotation="0.8212" Scale="1,1,1" Type="MineralCart">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10522,6 +10401,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="1327702173" Variation="1" Position="115.088,145.2902,20.949" Rotation="5.6535" Scale="1.0556,1.0556,0.7312" Type="SpacePlatformFan" Pitch="1.371" Roll="6.082">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="468" Position="125.913,38.9948,20.037" Rotation="4.2238" Scale="1,1,1" Type="SecurityFenceDiagonal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10563,7 +10448,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2699" Position="124.0437,133.3183,21.9753" Rotation="0.9575" Scale="0.7,0.7,0.7" Type="MengskStatueAloneCreep">
+    <ObjectDoodad Id="2699" Position="123.6235,133.4821,21.9655" Rotation="1.0007" Scale="0.7,0.7,0.7" Type="MengskStatueAloneCreep">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10614,7 +10500,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1439" Position="184,13,19.9763" Rotation="1.803" Scale="1.1193,1.1193,1.1193" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1439" Position="187.5913,14.1354,19.7761" Rotation="1.803" Scale="1.1193,1.1193,1.1193" Type="TTosh01RockSpires">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10687,11 +10574,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="513" Variation="2" Position="122.2636,15.1962,19.635" Rotation="1.166" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="2306" Variation="1" Position="116.2355,168.3332,11.9667" Rotation="3.695" Scale="1,1,1" Type="ZergedCliff">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10708,7 +10590,11 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1448" Variation="3" Position="189,54,19.966" Rotation="2.6677" Scale="1.1657,1.1657,1.1657" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="246944528" Variation="1" Position="219.5,50.5,19.925" Rotation="0.4377" Scale="1,1,1" Type="Streetlight">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="1448" Variation="3" Position="188.5468,54.2011,19.8706" Rotation="1.5456" Scale="1.1657,1.1657,1.1657" Type="TTosh01RockSpires">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10758,12 +10644,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1453" Variation="3" Position="223,42,20.4372" Rotation="5.3942" Scale="1.0004,1.0004,1.0004" Type="TTosh01RockSpires">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="508" Position="155.5004,34.8652,19.9916" Rotation="0.276" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
+    <ObjectDoodad Id="1453" Variation="3" Position="223.7521,44.5947,19.7382" Rotation="5.69" Scale="1.0004,1.0004,1.0004" Type="TTosh01RockSpires">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -10780,17 +10661,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1434" Variation="2" Position="161,21,21.4394" Rotation="4.92" Scale="1.0075,1.0075,1.0075" Type="TTosh01RockSpires">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="2708" Variation="3" Position="121.9162,130.7434,21.943" Rotation="6.2731" Scale="1,1,1" Type="MarineCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2815" Position="127.0366,77.9125,22.0605" Rotation="0.8164" Scale="1,1,1" Type="Searchlight">
+    <ObjectDoodad Id="2815" Position="127.0366,77.9125,20.0585" Rotation="0.8164" Scale="1,1,1" Type="Searchlight">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -10985,7 +10861,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1442" Variation="2" Position="193,24,19.9797" Rotation="2.8837" Scale="0.895,0.895,0.895" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1442" Variation="2" Position="195.8937,25.3562,20.0012" Rotation="0.816" Scale="0.895,0.895,0.895" Type="TTosh01RockSpires">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11001,7 +10877,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2312" Variation="2" Position="224,16,19.9672" Rotation="5.0856" Scale="1,1,1" Type="BraxisAlphaBarrels">
+    <ObjectDoodad Id="2312" Variation="2" Position="221.5756,14.5212,19.9672" Rotation="5.0856" Scale="1,1,1" Type="BraxisAlphaBarrels">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11074,7 +10950,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2698" Position="120.1594,133.371,21.9272" Rotation="5.2414" Scale="0.7,0.7,0.7" Type="MengskStatueAloneCreep">
+    <ObjectDoodad Id="2698" Position="120.3691,133.475,21.9248" Rotation="5.2355" Scale="0.7,0.7,0.7" Type="MengskStatueAloneCreep">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11214,7 +11091,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="546" Position="94.638,54.6074,11.999" Rotation="0.1804" Scale="1,1,1" Type="RockVolcanicGiant">
+    <ObjectDoodad Id="546" Position="94.638,54.6074,12.003" Rotation="0.1804" Scale="1,1,1" Type="RockVolcanicGiant">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11237,6 +11114,12 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="493" Variation="3" Position="41.235,118.357,19.9968" Rotation="3.1115" Scale="1.5,1.5,1.5" Type="Decal">
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="206837327" Position="63.3657,39.9958,12.76" Rotation="5.6936" Scale="1,1,1" Type="RockVolcanicGiant">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11290,7 +11173,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="533" Variation="4" Position="100.701,41.4843,11.9343" Rotation="3.8747" Scale="0.8645,0.8645,0.8645" Type="RockVolcanicGiant">
+    <ObjectDoodad Id="533" Variation="4" Position="100.701,41.4843,11.9382" Rotation="3.8747" Scale="0.8645,0.8645,0.8645" Type="RockVolcanicGiant">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11322,7 +11205,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1465" Position="183.3613,36.9082,19.7272" Rotation="1.5932" Scale="0.8566,0.8566,0.8566" Type="CharCrystalHuge">
+    <ObjectDoodad Id="1465" Position="185.3681,44.964,20.5405" Rotation="5.6235" Scale="0.8566,0.8566,0.8566" Type="CharCrystalHuge" Pitch="0.0744" Roll="0.146">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11386,7 +11269,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1509" Position="52.9177,226.7272,19.256" Rotation="5.0227" Scale="0.9821,0.9821,0.9821" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1509" Position="52.9177,226.521,19.252" Rotation="5.0227" Scale="0.9821,0.9821,0.9821" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11419,6 +11302,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="1043373007" Variation="2" Position="152.125,14.3356,11.0502" Rotation="4.0805" Scale="0.3635,0.488,0.377" Type="RockTower" Pitch="5.8842" Roll="6.2111">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="723" Variation="21" Position="93.3608,168.8215,21.9943" Rotation="4.7082" Scale="2,2,2" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11430,12 +11319,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="696" Position="87.47,178.19,19.9726" Scale="1.3498,1.3498,2.25" Type="NewFolsomPrisonTower">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2491" Position="253,12,20.0305" Rotation="5.0747" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11455,6 +11338,10 @@
     </ObjectDoodad>
     <ObjectDoodad Id="375" Variation="2" Position="60.429,24.6955,19.9958" Rotation="1.633" Scale="1,1,1" Type="MarineCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="1269910339" Position="144.7641,60.1965,19.9223" Rotation="3.1306" Scale="0.8527,1,1" Type="SecurityFenceStraight">
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -11490,7 +11377,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2600" Variation="18" Position="185.3056,231.7102,19.9631" Rotation="2.4223" Scale="1,1,1" Type="ColonistCorpse">
+    <ObjectDoodad Id="2600" Variation="18" Position="197.4687,227.5058,19.9948" Rotation="2.4223" Scale="1,1,1" Type="ColonistCorpse">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11508,6 +11396,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="725241690" Position="149.445,107.8051,21.9948" Rotation="3.909" Scale="1,1,1" Type="CastanarGenerator">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -11516,13 +11405,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2530" Variation="2" Position="207.7053,219.0737,22.4687" Rotation="1.618" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
+    <ObjectDoodad Id="2530" Variation="2" Position="205.1484,219.0244,23.7304" Rotation="1.618" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
         <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1352" Variation="1" Position="69.1938,132.3447,20.4797" Scale="1,1,1" Type="SpacePlatformCautionLights">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11532,7 +11416,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1315" Variation="4" Position="139.035,65.1665,19.856" Rotation="0.7851" Scale="1.0341,1.0341,1.0341" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1315" Variation="4" Position="139.3815,67.6408,19.8425" Rotation="0.141" Scale="1.0341,1.0341,1.0341" Type="TTosh01RockSpires" Pitch="6.272" Roll="6.2053">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11569,7 +11453,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="701" Position="135.0898,137.92,19.9787" Scale="1.3498,1.3498,2.25" Type="NewFolsomPrisonTower">
+    <ObjectDoodad Id="701" Position="135.7214,139.1816,19.9895" Scale="1.3498,1.3498,2.25" Type="NewFolsomPrisonTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11646,11 +11530,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="747" Variation="21" Position="170.373,117.455,21.9943" Rotation="4.7102" Scale="2,2,2" Type="Decal">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2599" Variation="8" Position="188.1108,231.9404,19.9597" Rotation="1.9763" Scale="1,1,1" Type="ColonistCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11733,7 +11612,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2686" Position="159.4306,25.71,11.9985" Rotation="1.41" Scale="1.5,1.2998,3.0998" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2686" Position="160.7978,25.343,11.9995" Rotation="3.1745" Scale="1.5,1.2998,3.0998" Type="CharCrystalHuge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11772,7 +11651,8 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="289" Variation="1" Position="198.5,80.5,19.0634" Rotation="1.1113" Scale="1,1,1" Type="PortZionJunkPile">
+    <ObjectDoodad Id="289" Variation="1" Position="200.017,83.7731,19.6423" Rotation="1.1704" Scale="1,1,1" Type="PortZionJunkPile" Pitch="0.318" Roll="6.172">
+        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11788,7 +11668,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1351" Variation="1" Position="166,203,19.6816" Rotation="2.9455" Scale="0.9643,0.9643,0.9643" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1351" Variation="1" Position="166,203,19.6845" Rotation="2.9455" Scale="0.9643,0.9643,0.9643" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11819,7 +11699,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2594" Variation="16" Position="188.2202,229.7565,19.9506" Rotation="5.288" Scale="1,1,1" Type="ColonistCorpse">
+    <ObjectDoodad Id="2594" Variation="16" Position="188.2202,229.7565,19.9536" Rotation="5.288" Scale="1,1,1" Type="ColonistCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11834,7 +11714,11 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2611" Variation="4" Position="176.0634,228.8413,19.9733" Rotation="1.9772" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="434767916" Position="148.1643,60.1674,19.9223" Rotation="3.106" Scale="0.8527,1,1" Type="SecurityFenceStraight">
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="2611" Variation="4" Position="176.0634,228.8413,24.0715" Rotation="1.9772" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -11883,7 +11767,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2564" Position="166.5,222.684,23.9902" Rotation="1.5893" Scale="1.2998,1.2998,1.2998" Type="Decal">
+    <ObjectDoodad Id="2564" Position="167.759,221.6884,24.0107" Rotation="1.5893" Scale="1.2998,1.2998,1.2998" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11927,8 +11811,9 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1401325422" Variation="3" Position="32.2866,67.8305,20.1091" Rotation="0.075" Scale="1,1.0498,1" Type="PowerCables">
+    <ObjectDoodad Id="1401325422" Variation="3" Position="32.2897,67.8298,20.1044" Rotation="0.0747" Scale="1,1.0495,1" Type="PowerCables">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -11942,7 +11827,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2561" Position="186.5905,203.8657,24.1381" Rotation="6.2565" Scale="1.2998,1.2998,1.2998" Type="Decal">
+    <ObjectDoodad Id="2561" Position="185.6728,205.1806,24.1108" Rotation="6.2565" Scale="1.2998,1.2998,1.2998" Type="Decal">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -12051,7 +11936,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2617" Position="184.0202,225.8176,21.95" Rotation="0.119" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2617" Position="184.0202,225.8176,20.2807" Rotation="0.119" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12090,7 +11975,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1387" Variation="3" Position="112,72,19.6542" Rotation="5.368" Scale="1.078,1.078,1.078" Type="TTosh01RockSpires">
+    <ObjectDoodad Id="1387" Variation="3" Position="106.7673,78.7011,19.5454" Rotation="5.368" Scale="1.078,1.078,1.078" Type="TTosh01RockSpires">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -12115,11 +12000,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1700" Variation="1" Position="185.5,177.5,21.9768" Rotation="4.4274" Scale="1.0493,1.0493,1.0493" Type="HavenTree">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="681" Position="163.91,68.0397,19.6665" Rotation="2.41" Scale="1,1,1" Type="BridgeCardinalFootprint">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12151,7 +12031,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2078" Variation="3" Position="166.5,19.5,20.0351" Rotation="3.716" Scale="0.8242,0.8242,0.8242" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2078" Variation="3" Position="166.2072,19.6333,20.0227" Rotation="2.15" Scale="0.8242,0.8242,0.8242" Type="CharCrystalHuge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12183,7 +12063,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2114" Variation="4" Position="163.25,39.8498,19.8884" Rotation="0.5251" Scale="0.5495,0.5495,0.5495" Type="RockVolcanicGiant">
+    <ObjectDoodad Id="2114" Variation="4" Position="162.2504,40.0761,19.8962" Rotation="1.0795" Scale="0.5495,0.5495,0.5495" Type="RockVolcanicGiant" Pitch="0.185" Roll="0.0981">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12203,7 +12083,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3046" Variation="2" Position="203.6103,213.0922,11.8691" Rotation="2.664" Scale="1,1,1" Type="MarineCorpse">
+    <ObjectDoodad Id="3046" Variation="2" Position="203.6103,213.0922,11.8747" Rotation="2.664" Scale="1,1,1" Type="MarineCorpse">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12240,7 +12120,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2092" Position="194.6218,7.986,19.9875" Rotation="0.4248" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
+    <ObjectDoodad Id="2092" Position="194.147,6.5974,20.3666" Rotation="0.4248" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -12271,7 +12151,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3043" Variation="3" Position="201.2526,210.1018,11.8867" Rotation="0.0014" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="3043" Variation="3" Position="201.2526,210.1018,11.8781" Rotation="0.0014" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12312,7 +12192,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2075" Variation="3" Position="154.5,30.7797,11.9985" Rotation="5.764" Scale="1.1984,1.1984,1.1984" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2075" Variation="1" Position="150.471,22.283,15.2741" Rotation="1.5075" Scale="1.1984,1.1984,1.1984" Type="CharCrystalHuge" Pitch="6.241" Roll="6.061">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -12345,6 +12225,9 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="1400858754" Variation="1" Position="188.5,37.5,20.2607" Rotation="2.7924" Scale="1,1,1" Type="Streetlight">
+        <Flag Index="HeightOffset" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="1164" Position="198.8457,117.357,20.079" Rotation="5.7016" Scale="0.8312,0.8312,0.8312" Type="BloodSplats">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -12361,7 +12244,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2086" Variation="5" Position="201.5903,60.353,19.8308" Rotation="6.1967" Scale="0.5498,0.5498,0.5498" Type="RockVolcanicGiant" TintColor="184,128,124">
+    <ObjectDoodad Id="2086" Variation="5" Position="203.4873,64.505,19.891" Rotation="4.2355" Scale="0.5498,0.5498,0.5498" Type="RockVolcanicGiant" TintColor="184,128,124">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -12387,7 +12270,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3049" Variation="1" Position="210.5,205.5,19.8315" Rotation="1.4233" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
+    <ObjectDoodad Id="3049" Variation="1" Position="210.5,205.5,19.8344" Rotation="1.4233" Scale="1.25,1.25,1.25" Type="InfestedHomeLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12409,7 +12292,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="3038" Position="198.6486,205.1442,11.865" Rotation="0.7746" Scale="1,1,1" Type="LabWeaponCase">
+    <ObjectDoodad Id="3038" Position="198.6486,205.1442,11.869" Rotation="0.7746" Scale="1,1,1" Type="LabWeaponCase">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12460,7 +12343,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2068" Variation="3" Position="194.5,5.5,20.5102" Rotation="3.0034" Scale="0.8293,0.8293,0.8293" Type="CharCrystalHuge">
+    <ObjectDoodad Id="2068" Variation="3" Position="195.1022,4.7631,20.5366" Rotation="1.5683" Scale="0.8293,0.8293,0.8293" Type="CharCrystalHuge">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12641,17 +12524,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1194" Position="93.7934,125.6162,19.9802" Rotation="1.7692" Scale="1.0676,1.0676,1.0676" Type="LightOmniPurple">
+    <ObjectDoodad Id="2048" Position="46.3608,242.7937,19.941" Rotation="4.8896" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2048" Position="46.6171,242.525,20.0078" Rotation="4.8896" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="3085" Variation="1" Position="172.058,13.7556,20.3923" Rotation="2.1718" Scale="0.8842,0.8842,0.8842" Type="MonlythCrystals">
+    <ObjectDoodad Id="3085" Variation="1" Position="172.247,14.0053,20.317" Rotation="0.5725" Scale="0.8842,0.8842,0.8842" Type="MonlythCrystals">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -12693,19 +12571,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1181" Variation="1" Position="91.1198,35.21,19.8776" Rotation="1.5705" Scale="1,1,1" Type="MarSaraBridgeLong">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="251" Variation="4" Position="52.101,17.297,20.0031" Rotation="5.9453" Scale="1.043,1.043,1.043" Type="BloodSplats">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1270" Variation="4" Position="137,62,19.7617" Rotation="2.0922" Scale="0.8742,0.8742,0.8742" Type="TTosh01RockSpires">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12717,6 +12583,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1092279157" Variation="1" Position="100.9135,116.4526,12.4865" Rotation="1.5705" Scale="1.5,1.5,1.5" Type="CastanarGenerator">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -12774,11 +12641,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="866" Variation="2" Position="160.5,102.5,21.9931" Rotation="4.2822" Scale="0.9763,0.9763,0.9763" Type="CocoonedColonists">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="777" Variation="21" Position="157.1911,164.0751,21.9943" Rotation="4.7082" Scale="2,2,2" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -12814,7 +12676,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2109" Variation="1" Position="173.2026,29.3161,19.566" Rotation="4.7556" Scale="0.81,0.81,0.81" Type="MonlythCrystals">
+    <ObjectDoodad Id="2109" Variation="1" Position="176.1118,26.8581,19.7204" Rotation="4.7556" Scale="0.81,0.81,0.81" Type="MonlythCrystals">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -12827,11 +12689,6 @@
     </ObjectDoodad>
     <ObjectDoodad Id="2134" Variation="1" Position="34.5886,165.621,19.9987" Rotation="0.9033" Scale="1.1657,1.1657,1.1657" Type="CharCrystalLarge">
         <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="3163" Variation="7" Position="168.5915,241.4943,19.8647" Rotation="3.817" Scale="1,1,1" Type="PowerCables">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -12937,6 +12794,12 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="1726710172" Variation="1" Position="177.3764,43.691,20.0083" Rotation="5.2402" Scale="0.5,0.5,0.5" Type="RockVolcanicGiant" TintColor="184,128,124">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="780" Variation="21" Position="148.1127,164.167,21.9946" Rotation="4.7082" Scale="2,2,2" Type="Decal">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -13033,7 +12896,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2925" Position="223.5,6.5,19.9604" Rotation="3.5285" Scale="1,1,1" Type="BraxisAlphaBarrels">
+    <ObjectDoodad Id="2925" Position="223.6577,5.309,19.9912" Rotation="3.5285" Scale="1,1,1" Type="BraxisAlphaBarrels">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -13087,7 +12950,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="50" Variation="2" Position="158.3476,46.6523,19.9956" Rotation="2.7834" Scale="1.7998,1.7998,1.7998" Type="SpacePlatformTower">
+    <ObjectDoodad Id="50" Variation="2" Position="160.346,46.374,19.9956" Rotation="3.1035" Scale="1.7998,1.7998,1.7998" Type="SpacePlatformTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -13192,11 +13055,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2042" Position="187.2043,32.1496,20.016" Rotation="1.3256" Scale="1.046,1.046,1.046" Type="BraxisAlphaFloodLights">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
     <ObjectDoodad Id="1015" Position="226,104,19.6096" Rotation="1.5705" Scale="0.8295,0.8295,0.8295" Type="PortZionGridFloorDoodad">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -13272,7 +13130,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="2246" Variation="3" Position="118.0283,165.535,11.9692" Rotation="1.8466" Scale="1,1,1" Type="ScientistCorpseGory">
+    <ObjectDoodad Id="2246" Variation="3" Position="118.0283,165.535,11.9731" Rotation="1.8466" Scale="1,1,1" Type="ScientistCorpseGory">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -13356,6 +13214,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="703401399" Variation="3" Position="33.2045,59.9797,20.0666" Rotation="0.179" Scale="1,1.0498,1" Type="PowerCables">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
@@ -13480,11 +13339,6 @@
         <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1093" Position="164.407,138.2993,21.9824" Rotation="3.7353" Scale="1,1,1" Type="ScientistCorpseGory">
-        <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
-        <Flag Index="NoDoodadFootprint" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="2227" Position="95.9936,63.9897,19.9714" Rotation="2.3691" Scale="0.7897,0.7897,0.7897" Type="TarsonisArrow">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
         <Flag Index="NoDoodadFootprint" Value="1"/>
@@ -13848,5 +13702,64 @@
         <GroupObject Id="2477"/>
         <GroupObject Id="2478"/>
         <GroupObject Id="2479"/>
+    </Group>
+    <Group Type="ObjectDoodad" Name="Floodlights " Id="8">
+        <GroupObject Id="49"/>
+        <GroupObject Id="101"/>
+        <GroupObject Id="102"/>
+        <GroupObject Id="122"/>
+        <GroupObject Id="173"/>
+        <GroupObject Id="196"/>
+        <GroupObject Id="509"/>
+        <GroupObject Id="510"/>
+        <GroupObject Id="511"/>
+        <GroupObject Id="512"/>
+        <GroupObject Id="944"/>
+        <GroupObject Id="1025"/>
+        <GroupObject Id="1026"/>
+        <GroupObject Id="1027"/>
+        <GroupObject Id="1204"/>
+        <GroupObject Id="1205"/>
+        <GroupObject Id="1206"/>
+        <GroupObject Id="1207"/>
+        <GroupObject Id="1208"/>
+        <GroupObject Id="1209"/>
+        <GroupObject Id="1210"/>
+        <GroupObject Id="1211"/>
+        <GroupObject Id="1212"/>
+        <GroupObject Id="1213"/>
+        <GroupObject Id="1554"/>
+        <GroupObject Id="1555"/>
+        <GroupObject Id="1556"/>
+        <GroupObject Id="1557"/>
+        <GroupObject Id="1558"/>
+        <GroupObject Id="1559"/>
+        <GroupObject Id="1560"/>
+        <GroupObject Id="1561"/>
+        <GroupObject Id="1957"/>
+        <GroupObject Id="1993"/>
+        <GroupObject Id="2047"/>
+        <GroupObject Id="2048"/>
+        <GroupObject Id="2049"/>
+        <GroupObject Id="2050"/>
+        <GroupObject Id="2051"/>
+        <GroupObject Id="2224"/>
+        <GroupObject Id="2225"/>
+        <GroupObject Id="2328"/>
+        <GroupObject Id="2337"/>
+        <GroupObject Id="2340"/>
+        <GroupObject Id="2416"/>
+        <GroupObject Id="2453"/>
+        <GroupObject Id="2526"/>
+        <GroupObject Id="2527"/>
+        <GroupObject Id="2528"/>
+        <GroupObject Id="2529"/>
+        <GroupObject Id="2530"/>
+        <GroupObject Id="2532"/>
+        <GroupObject Id="2985"/>
+        <GroupObject Id="2986"/>
+        <GroupObject Id="3081"/>
+        <GroupObject Id="3112"/>
+        <GroupObject Id="3125"/>
     </Group>
 </PlacedObjects>
