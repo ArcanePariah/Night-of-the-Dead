@@ -108,21 +108,21 @@
     <region id="18">
         <name value="MineTerminal1"/>
         <shape type="circle">
-            <center value="135.1337,33.5437"/>
+            <center value="134.5693,35.0637"/>
             <radius value="0.7255"/>
         </shape>
     </region>
     <region id="19">
         <name value="MineTerminal2"/>
         <shape type="circle">
-            <center value="139.697,38.4665"/>
+            <center value="138.4023,38.794"/>
             <radius value="0.7368"/>
         </shape>
     </region>
     <region id="20">
         <name value="MineTerminal3"/>
         <shape type="circle">
-            <center value="138.3125,44.6123"/>
+            <center value="136.9326,43.6435"/>
             <radius value="0.7675"/>
         </shape>
     </region>
@@ -186,14 +186,14 @@
     <region id="30">
         <name value="SecurityCamS1"/>
         <shape type="circle">
-            <center value="62.9775,80.4633"/>
+            <center value="64.05,80.3828"/>
             <radius value="2.722"/>
         </shape>
     </region>
     <region id="31">
         <name value="SecurityCamS2"/>
         <shape type="circle">
-            <center value="135.2587,137.8444"/>
+            <center value="135.599,138.4846"/>
             <radius value="2.722"/>
         </shape>
     </region>
@@ -214,7 +214,7 @@
     <region id="34">
         <name value="SecurityCamN2"/>
         <shape type="circle">
-            <center value="87.4145,178.326"/>
+            <center value="87.5075,178.4892"/>
             <radius value="2.722"/>
         </shape>
     </region>
@@ -315,7 +315,7 @@
     <region id="52">
         <name value="SecurityCamMobsS1"/>
         <shape type="rect">
-            <quad value="53.7558,77.1252,70.1643,83.7954"/>
+            <quad value="53.7558,77.1252,65.6665,83.7954"/>
         </shape>
     </region>
     <region id="53">
@@ -328,7 +328,7 @@
     <region id="54">
         <name value="SecurityCamMobsS2"/>
         <shape type="circle">
-            <center value="134.0207,134.6726"/>
+            <center value="135.6196,139.8425"/>
             <radius value="6.6523"/>
         </shape>
     </region>
@@ -708,7 +708,7 @@
     <region id="108">
         <name value="CityRescue5"/>
         <shape type="circle">
-            <center value="176.915,142.391"/>
+            <center value="176.4235,142.8837"/>
             <radius value="0.7263"/>
         </shape>
     </region>
@@ -752,8 +752,8 @@
         <name value="Delta-1 Spawn"/>
         <color value="255,244,215,43"/>
         <shape type="circle">
-            <center value="32.6638,126.816"/>
-            <radius value="2.8803"/>
+            <center value="33.2043,125.3457"/>
+            <radius value="1.5468"/>
         </shape>
     </region>
     <region id="115">
@@ -1179,7 +1179,7 @@
     <region id="181">
         <name value="Ogilvy Terminal C"/>
         <shape type="circle">
-            <center value="239.973,249.5078"/>
+            <center value="177.7175,203.7998"/>
             <radius value="0.5378"/>
         </shape>
     </region>
@@ -1261,21 +1261,21 @@
     <region id="193">
         <name value="Airlock Mainframe Terminal A"/>
         <shape type="circle">
-            <center value="69.058,145.121"/>
+            <center value="68.6752,145.4826"/>
             <radius value="0.9672"/>
         </shape>
     </region>
     <region id="194">
         <name value="Airlock Mainframe Terminal B"/>
         <shape type="circle">
-            <center value="73.6611,149.9887"/>
+            <center value="72.5954,149.0895"/>
             <radius value="0.9672"/>
         </shape>
     </region>
     <region id="195">
         <name value="Airlock Mainframe Terminal C"/>
         <shape type="circle">
-            <center value="72.033,155.8352"/>
+            <center value="71.1687,153.9602"/>
             <radius value="0.9672"/>
         </shape>
     </region>
