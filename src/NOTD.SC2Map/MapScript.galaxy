@@ -16655,7 +16655,7 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lv_pNumber], c_triggerBlendModeAdd, PlayerGroupAll());
     DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lv_pNumber], PlayerGroupAll(), "MarineDeath", "MarineDied");
     gf_DeathDisplay(EventUnitDamageEffect(), lv_pNumber, libNtve_gf_KillingUnit());
-    auto15B9C099_n = (gv_marineMags[lv_pNumber] / 3);
+    auto15B9C099_n = (gv_marineMags[lv_pNumber] / 9);
     for (auto15B9C099_i = 1; auto15B9C099_i <= auto15B9C099_n; auto15B9C099_i += 1) {
         UnitCreate(1, "Magazine", 0, 10, RegionGetCenter(lv_deathArea), libNtve_gf_RandomAngle());
         Wait(0.1, c_timeGame);
