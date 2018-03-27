@@ -16618,6 +16618,7 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     int lv_pNumber;
     unit lv_deadMarine;
     region lv_deathArea;
+    point lv_randomPoint;
 
     // Automatic Variable Declarations
     unitgroup autoE737FD6A_g;
@@ -16628,6 +16629,8 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     unitgroup auto967BAC28_g;
     int auto967BAC28_u;
     unit auto967BAC28_var;
+    const int autoB4F42F6B_n = 30;
+    int autoB4F42F6B_i;
     unitgroup auto7F2D4C58_g;
     int auto7F2D4C58_u;
     unit auto7F2D4C58_var;
@@ -16665,7 +16668,13 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     for (;; auto967BAC28_u -= 1) {
         auto967BAC28_var = UnitGroupUnitFromEnd(auto967BAC28_g, auto967BAC28_u);
         if (auto967BAC28_var == null) { break; }
-        UnitSetPosition(auto967BAC28_var, RegionRandomPoint(lv_deathArea), true);
+        for (autoB4F42F6B_i = 1; autoB4F42F6B_i <= autoB4F42F6B_n; autoB4F42F6B_i += 1) {
+            lv_randomPoint = RegionRandomPoint(lv_deathArea);
+            if (((PointPathingPassable(lv_randomPoint) == true) && (PointPathingIsConnected(RegionGetCenter(lv_deathArea), lv_randomPoint) == true) && (PointPathingCost(RegionGetCenter(lv_deathArea), lv_randomPoint) <= 2))) {
+                UnitSetPosition(auto967BAC28_var, lv_randomPoint, true);
+                break;
+            }
+        }
     }
     if ((gv_playerRandom[lv_pNumber] == true)) {
         gv_playerKarma[lv_pNumber] += 5;
