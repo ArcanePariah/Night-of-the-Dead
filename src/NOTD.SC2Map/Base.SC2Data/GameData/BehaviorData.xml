@@ -7421,6 +7421,8 @@
         <PeriodicEffect value="NanoWeaveDummy"/>
         <Modification>
             <VitalRegenArray index="Life" value="8"/>
+            <VitalRegenArray index="Shields" value="-8"/>
+            <VitalRegenArray index="Energy" value="8"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="OpenWound">
