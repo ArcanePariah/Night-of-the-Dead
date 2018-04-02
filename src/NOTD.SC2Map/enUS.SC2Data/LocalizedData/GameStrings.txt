@@ -1888,7 +1888,7 @@ Charge Level 2=Charges forward up to 15 distance to target point, knocking back 
 DOCSTR_ArcanePariahMarksman=Hunter of Apollo
 DOCSTR_TestText=<info id="Rifleman" types="A,W"/>
 DocInfo/Author=Blueberry Entertainment
-DocInfo/DescLong=Night of the Dead is an 8 player cooperative zombie survival. 8 Marines. A Million Zombies. You Decide.<n/><n/>Find more players in channel 'NOTD'. Learn basics in Boot Camp:<n/>NA Server: starcraft://map/1/200666<n/>EU Server: starcraft://map/2/137782<n/><n/>Teamspeak Server: notd.teamspeak3.com:4889
+DocInfo/DescLong=Night of the Dead is an 8 player cooperative zombie survival. 8 Marines. A Million Zombies. You Decide.<n/><n/>Find more players in Discord  'NOTD Official': https://discord.gg/cDsWn9g<n/><n/><n/>
 DocInfo/DescShort=8
 DocInfo/HowToPlayAdvanced00=Once your Marine is dead, you cannot respawn. Be cautious.
 DocInfo/HowToPlayAdvanced01=You can earn XP that is stored and accumulated each time you play NOTD. XP unlocks new classes and storylines.
