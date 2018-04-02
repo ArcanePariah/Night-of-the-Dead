@@ -2181,6 +2181,7 @@ Variable/Name/90139769=Used Dialog
 Variable/Name/904E9094=Episilon Minis
 Variable/Name/909E52EF=Item Bar Position Y
 Variable/Name/90E7CD80=Charlie Found
+Variable/Name/913AEE3C=spawnFactorMultiplier
 Variable/Name/917BB46B=DropPods
 Variable/Name/9195029F=Height Difference
 Variable/Name/91AA9ECB=IVAX
