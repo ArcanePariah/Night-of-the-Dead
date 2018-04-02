@@ -7963,6 +7963,9 @@
         <On Terms="UnitBirth.Hyperion" Send="Create SoundEmitter GunshipSupportEntryAcknowledge"/>
         <On Terms="UnitBirth.Hyperion" Send="Create SoundEmitter Raven_AutoTurretReady"/>
         <SoundArray index="Birth" value="GunshipEntry"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
     </CActorUnit>
     <CActorAction id="HyperionYamatoSpecialAttack">
         <LaunchAttachQuery Methods="AMFilterLokiBattlecruiserHurricaneLeft AMRandomUniform"/>
