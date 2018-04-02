@@ -940,6 +940,10 @@ int[9][19] gv_classSelectionDialogItem;
 fixed gv_classLimitMultiplier;
 bool gv_classLimitBroken;
 int[15] gv_classCount;
+int[gv_numberofPlayers + 1] gv_MissionLogClose;
+int[gv_numberofPlayers + 1] gv_MissionLogOpen;
+int[gv_numberofPlayers + 1] gv_MissionLog;
+int[gv_numberofPlayers + 1] gv_MissionLogContent;
 int[gv_numberofPlayers + 1] gv_playerNameLabel;
 int[gv_numberofPlayers + 1] gv_playerNameRankIcon;
 int[4][7][gv_numberofPlayers + 1] gv_dialogButtons;
@@ -1288,6 +1292,18 @@ void InitGlobals () {
     }
     gv_classLimitMultiplier = 1.0;
     for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_MissionLogClose[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_MissionLogOpen[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_MissionLog[init_i] = c_invalidDialogId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
+        gv_MissionLogContent[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
         gv_playerNameLabel[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
@@ -1603,6 +1619,8 @@ void gf_RandomNydusPop ();
 point gf_RandomPointatGroundHeight (region lp_region, fixed lp_groundHeight);
 bool gf_CPDecayFactor ();
 void gf_MarineSpeechNOTD (unit lp_speechUnit, text lp_speech);
+void gf_SendTransmissionNOTD (unit lp_transmissionUnit, text lp_transmissionSender, text lp_transmissionContent, fixed lp_transmissionDuration);
+void gf_StoryMessageNOTD (text lp_message);
 void gf_CoordinateTextNOTD (point lp_displayPoint, text lp_speech);
 void gf_RadioNOTD (text lp_speechUnit, text lp_speech);
 void gf_TipNOTD (int lp_tipThreshold, text lp_tipText);
@@ -1718,6 +1736,8 @@ int gf_GetClassCP (int lp_player, string lp_class);
 int gf_GetClassColor (string lp_class);
 void gf_HideAllDialogsForPlayer (int lp_player);
 void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, playergroup lp_playerstoHideFrom);
+void gf_MissionLogCreation (int lp_player);
+void gf_MissionLogAppend (text lp_textToAppend);
 int gf_GetPreviousNextPlayer (int lp_currentPlayer, bool lp_isNext);
 void gf_SetupPlayerDetailsUI (int lp_player, int lp_playerDetailsDialogFrame, text lp_dialogTitle, int lp_highlightDialogFrame, int lp_dialogControlCategory);
 bool gf_UsedDialogIsMedal (int lp_usedDialog);
@@ -2145,6 +2165,7 @@ trigger gt_ShopForceClose;
 trigger gt_ShopInteraction;
 trigger gt_ClassCreation;
 trigger gt_AmmoUIButtonCallback;
+trigger gt_MissionLogToggle;
 trigger gt_DialogButtonClicks;
 trigger gt_CreateTeamStatusDialog;
 trigger gt_SaveButtonClick;
@@ -5874,6 +5895,7 @@ bool auto_gf_MarineSpeechNOTD_TriggerFunc (bool testConds, bool runActions) {
     text lp_speech = auto_gf_MarineSpeechNOTD_lp_speech;
 
     // Variable Declarations
+    text lv_tempText;
     int lv_localTextTag;
 
     // Automatic Variable Declarations
@@ -5884,10 +5906,12 @@ bool auto_gf_MarineSpeechNOTD_TriggerFunc (bool testConds, bool runActions) {
     if ((UnitIsAlive(lp_speechUnit) == true)) {
         SoundPlayAtPoint(SoundLink("Transmission", -1), PlayerGroupAll(), UnitGetPosition(lp_speechUnit), 1.5, 31.0, 0.0);
         if ((UnitGroupHasUnit(gv_marines, lp_speechUnit) == true)) {
-            TextTagCreate((UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[UnitGetOwner(lp_speechUnit)]), "Title Brief", 1) + PlayerName(UnitGetOwner(lp_speechUnit)) + StringExternal("Param/Value/96EC434E") + lp_speech), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
+            lv_tempText = (StringExternal("Param/Value/7FF99FC6") + PlayerName(UnitGetOwner(lp_speechUnit)) + StringExternal("Param/Value/CA015547") + lp_speech + StringExternal("Param/Value/1EDC887F"));
+            TextTagCreate((UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[UnitGetOwner(lp_speechUnit)]), "Title Brief", 1) + PlayerName(UnitGetOwner(lp_speechUnit)) + StringExternal("Param/Value/B113EC4F") + lp_speech), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
         }
         else {
-            TextTagCreate((UnitTypeGetName(UnitGetType(lp_speechUnit)) + (StringExternal("Param/Value/C5735DA3") + lp_speech)), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
+            lv_tempText = (StringExternal("Param/Value/87340679") + UnitTypeGetName(UnitGetType(lp_speechUnit)) + StringExternal("Param/Value/95077764") + lp_speech + StringExternal("Param/Value/F504C243"));
+            TextTagCreate((UnitTypeGetName(UnitGetType(lp_speechUnit)) + StringExternal("Param/Value/0577A641") + lp_speech), 24, UnitGetPosition(lp_speechUnit), 1.5, true, true, PlayerGroupActive());
         }
         lv_localTextTag = TextTagLastCreated();
         TextTagSetColor(lv_localTextTag, c_textTagColorText, Color(95.69, 84.31, 16.86));
@@ -5895,9 +5919,26 @@ bool auto_gf_MarineSpeechNOTD_TriggerFunc (bool testConds, bool runActions) {
         TextTagSetTime(lv_localTextTag, c_textTagTimeDuration, 5.0);
         TextTagSetTime(lv_localTextTag, c_textTagTimeFadeDuration, 0.0);
         TextTagSetTime(lv_localTextTag, c_textTagTimeFadeOut, 0.0);
+        gf_MissionLogAppend(lv_tempText);
     }
 
     return true;
+}
+
+void gf_SendTransmissionNOTD (unit lp_transmissionUnit, text lp_transmissionSender, text lp_transmissionContent, fixed lp_transmissionDuration) {
+    // Automatic Variable Declarations
+    // Implementation
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromUnit(lp_transmissionUnit, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), null, lp_transmissionDuration, c_transmissionDurationAdd, false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, (StringExternal("Param/Value/FC3FE213") + lp_transmissionSender + StringExternal("Param/Value/67472A7C") + lp_transmissionContent + StringExternal("Param/Value/5F562428")));
+    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_MissionLogAppend((StringExternal("Param/Value/675EE141") + lp_transmissionSender + StringExternal("Param/Value/69580F03") + lp_transmissionContent + StringExternal("Param/Value/77BEE196")));
+}
+
+void gf_StoryMessageNOTD (text lp_message) {
+    // Automatic Variable Declarations
+    // Implementation
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, lp_message);
+    gf_MissionLogAppend(lp_message);
 }
 
 trigger auto_gf_CoordinateTextNOTD_Trigger = null;
@@ -5954,10 +5995,17 @@ bool auto_gf_RadioNOTD_TriggerFunc (bool testConds, bool runActions) {
     text lp_speechUnit = auto_gf_RadioNOTD_lp_speechUnit;
     text lp_speech = auto_gf_RadioNOTD_lp_speech;
 
+    // Variable Declarations
+    text lv_tempText;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+
     // Implementation
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 75.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (StringExternal("Param/Value/A5117E49") + (lp_speechUnit + (StringExternal("Param/Value/5DDB7741") + (lp_speech + StringExternal("Param/Value/3778460A"))))));
+    lv_tempText = (StringExternal("Param/Value/CB61B932") + lp_speechUnit + StringExternal("Param/Value/E9845FDB") + lp_speech + StringExternal("Param/Value/DBA62FE1"));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, lv_tempText);
+    gf_MissionLogAppend(lv_tempText);
     return true;
 }
 
@@ -7389,7 +7437,7 @@ void gf_LogEntryPlayback (int lp_logEntry) {
     // Automatic Variable Declarations
     // Implementation
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, UserDataGetText("MiningCampLogs", UserDataInstance("MiningCampLogs", lp_logEntry), "Log Entry", RandomInt(1, 3)));
+    gf_StoryMessageNOTD(UserDataGetText("MiningCampLogs", UserDataInstance("MiningCampLogs", lp_logEntry), "Log Entry", RandomInt(1, 3)));
 }
 
 trigger auto_gf_TissueSampleComplete_Trigger = null;
@@ -7938,8 +7986,7 @@ bool auto_gf_ECNydusSpawn_TriggerFunc (bool testConds, bool runActions) {
     }
     Wait(2.0, c_timeReal);
     lv_concernedMarine = UnitGroupRandomUnit(gv_marines, c_unitCountAlive);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(lv_concernedMarine, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, (StringExternal("Param/Value/87B81A51") + PlayerName(UnitGetOwner(lv_concernedMarine))), StringExternal("Param/Value/73A03076"), 3.7, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(lv_concernedMarine, (StringExternal("Param/Value/FFA8E517") + PlayerName(UnitGetOwner(lv_concernedMarine))), StringExternal("Param/Value/DD58FFFD"), 3.7);
     Wait(8.0, c_timeReal);
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/E14D6B71"));
     gf_ECNydusMobs();
@@ -9160,7 +9207,7 @@ bool auto_gf_DemeterAI_TriggerFunc (bool testConds, bool runActions) {
         if ((lv_stareCycle == 1)) {
             lv_stareCycle = 2;
             gf_TipNOTD(25000, StringExternal("Param/Value/7FD7EB19"));
-            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/F235544E"));
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/F235544E"));
             SoundPlay(SoundLink("Overseer_Pissed", -1), PlayerGroupAll(), 150.0, 0.0);
             if ((gv_nightmare == false)) {
                 UnitSetState(gv_boss, c_unitStateMoveSuppressed, false);
@@ -9199,7 +9246,7 @@ bool auto_gf_DemeterAI_TriggerFunc (bool testConds, bool runActions) {
         else {
             lv_stareCycle = 1;
             gf_TipNOTD(25000, StringExternal("Param/Value/E9F81BB4"));
-            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/299BF98C"));
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/299BF98C"));
             SoundPlay(SoundLink("Queen_Pissed", -1), PlayerGroupAll(), 115.0, 0.0);
             if ((gv_nightmare == false)) {
                 UnitSetState(gv_boss, c_unitStateMoveSuppressed, false);
@@ -9483,11 +9530,9 @@ bool auto_gf_ACClosingCinematic_TriggerFunc (bool testConds, bool runActions) {
         UnitIssueOrder(auto8AA9E3A3_var, OrderTargetingPoint(AbilityCommand("move", 0), libNtve_gf_PointOffsetTowardsPoint(UnitGroupCenterOfGroup(gv_marines), 5.0, UnitGetPosition(auto8AA9E3A3_var))), c_orderQueueReplace);
         Wait(RandomFixed(0.3, 1.8), c_timeReal);
     }
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(UnitGroupRandomUnit(lv_blackOpsTeam, c_unitCountAlive), true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/7D40826F"), StringExternal("Param/Value/3E48A243"), 2.5, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(UnitGroupRandomUnit(lv_blackOpsTeam, c_unitCountAlive), StringExternal("Param/Value/0C5D5CC4"), StringExternal("Param/Value/D6AF6D94"), 2.5);
     Wait(3.3, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(UnitGroupRandomUnit(lv_blackOpsTeam, c_unitCountAlive), true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterBlackOpsOperator, StringExternal("Param/Value/1A466CFB"), 5.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(UnitGroupRandomUnit(lv_blackOpsTeam, c_unitCountAlive), gv_characterBlackOpsOperator, StringExternal("Param/Value/6CC62F53"), 5.0);
     if ((UnitGroupCount(gv_marines, c_unitCountAlive) >= 1)) {
         gv_victory = true;
     }
@@ -11836,6 +11881,7 @@ void gf_HideAllDialogsForPlayer (int lp_player) {
         DialogSetVisible(gv_statsPlayerStatsDialog[lv_index], PlayerGroupSingle(lp_player), false);
         DialogSetVisible(gv_talentTree[lv_index], PlayerGroupSingle(lp_player), false);
         DialogSetVisible(gv_shop[lv_index], PlayerGroupSingle(lp_player), false);
+        DialogSetVisible(gv_MissionLog[lv_index], PlayerGroupSingle(lp_player), false);
     }
 }
 
@@ -11854,6 +11900,89 @@ void gf_ShowHideMarineDialog (bool lp_showHideOption, int lp_dialogOwner, player
         DialogSetVisible(gv_shellDialog[lp_dialogOwner], lp_playerstoHideFrom, lp_showHideOption);
     }
 
+}
+
+trigger auto_gf_MissionLogCreation_Trigger = null;
+int auto_gf_MissionLogCreation_lp_player;
+
+void gf_MissionLogCreation (int lp_player) {
+    auto_gf_MissionLogCreation_lp_player = lp_player;
+
+    if (auto_gf_MissionLogCreation_Trigger == null) {
+        auto_gf_MissionLogCreation_Trigger = TriggerCreate("auto_gf_MissionLogCreation_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_MissionLogCreation_Trigger, false, false);
+}
+
+bool auto_gf_MissionLogCreation_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_gf_MissionLogCreation_lp_player;
+
+    // Variable Declarations
+    int lv_tempDialogFrame;
+
+    // Automatic Variable Declarations
+    int auto51DE914D_val;
+
+    // Variable Initialization
+    lv_tempDialogFrame = c_invalidDialogControlId;
+
+    // Implementation
+    gf_UIDialogCreation(610, 690, 270, 150, c_anchorTopRight);
+    gv_MissionLog[lp_player] = DialogLastCreated();
+    DialogControlCreateFromTemplate(gv_MissionLog[lp_player], c_triggerControlTypePanel, "MissionLog/MissionLog");
+    lv_tempDialogFrame = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "CloseButton");
+    gv_MissionLogClose[lp_player] = DialogControlLastCreated();
+    DialogControlHookup(gv_teamUI, c_triggerControlTypeButton, "MissionLogOpen");
+    gv_MissionLogOpen[lp_player] = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypePanel, "OffsetRelated");
+    lv_tempDialogFrame = DialogControlLastCreated();
+    DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "ContainerFrame");
+    gv_MissionLogContent[lp_player] = DialogControlLastCreated();
+    auto51DE914D_val = gv_storyline;
+    if (auto51DE914D_val == 1) {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/DF48C3E4") + UserDataGetText("Storyline", "Easy Company", "Story Name", 1) + StringExternal("Param/Value/308A4392")), PlayerGroupSingle(lp_player));
+    }
+    else if (auto51DE914D_val == 2) {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/2414A275") + UserDataGetText("Storyline", "Alpha Company", "Story Name", 1) + StringExternal("Param/Value/1254B2B9")), PlayerGroupSingle(lp_player));
+    }
+    else if (auto51DE914D_val == 3) {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/8F6E050F") + UserDataGetText("Storyline", "Apollo Security Team", "Story Name", 1) + StringExternal("Param/Value/BB45713C")), PlayerGroupSingle(lp_player));
+    }
+    else if (auto51DE914D_val == 4) {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/DB17F0AC") + UserDataGetText("Storyline", "Survival", "Story Name", 1) + StringExternal("Param/Value/4ED6B13C")), PlayerGroupSingle(lp_player));
+    }
+    else {
+        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/ADA3F763") + UserDataGetText("Storyline", "Easy Company", "Story Name", 1) + StringExternal("Param/Value/0688A2B2")), PlayerGroupSingle(lp_player));
+    }
+    return true;
+}
+
+void gf_MissionLogAppend (text lp_textToAppend) {
+    // Variable Declarations
+    int lv_index;
+    text lv_tempText;
+    int lv_missionTime;
+
+    // Automatic Variable Declarations
+    playergroup auto207CAF0B_g;
+
+    // Variable Initialization
+    lv_index = gv_indexBaseValue;
+    lv_missionTime = FixedToInt(GameGetMissionTime());
+
+    // Implementation
+    auto207CAF0B_g = gv_activePlayers;
+    lv_index = -1;
+    while (true) {
+        lv_index = PlayerGroupNextPlayer(auto207CAF0B_g, lv_index);
+        if (lv_index < 0) { break; }
+        if ((gv_MissionLog[lv_index] != c_invalidDialogId)) {
+            lv_tempText = (libNtve_gf_DialogItemText(gv_MissionLogContent[lv_index], lv_index) + StringExternal("Param/Value/1366F3ED") + TextTimeFormat(StringToText("<hour2/>:<min2/>:<sec2/>"), lv_missionTime) + StringExternal("Param/Value/0EC7DFD6") + lp_textToAppend);
+            libNtve_gf_SetDialogItemText(gv_MissionLogContent[lv_index], lv_tempText, PlayerGroupSingle(lv_index));
+        }
+    }
 }
 
 int gf_GetPreviousNextPlayer (int lp_currentPlayer, bool lp_isNext) {
@@ -18179,14 +18308,14 @@ bool gt_MineShaft_Func (bool testConds, bool runActions) {
 
     if (((GameIsTestMap(false) == true) || ((lv_terminal1Present == true) && (lv_terminal2Present == true)))) {
         TriggerEnable(TriggerGetCurrent(), false);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/530F5DED"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/776F872C"));
         gf_MarineSpeechNOTD(gv_sgtStallans, StringExternal("Param/Value/B6564F15"));
         Wait(3.5, c_timeReal);
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(156), "DecalProtoss");
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(157), "DecalProtoss");
         gf_TipNOTD(1000, StringExternal("Param/Value/FC9DE0D9"));
         Wait(1.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/36A521CC"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/8AFA7FB8"));
         SoundPlay(SoundLink("StoneZealot_Birth", -1), PlayerGroupAll(), 100.0, 0.0);
         gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/C7E4B053"));
         auto91C3E6D4_var = gv_indexBaseValue;
@@ -18291,7 +18420,7 @@ bool gt_ZeusLetoAI_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/E9ABE14F"));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/E9ABE14F"));
     SoundPlay(SoundLink("CastanarUltraliskShackled_Stand01", -1), PlayerGroupAll(), 100.0, 0.0);
     return true;
 }
@@ -18350,7 +18479,7 @@ bool gt_ZeusLetoRespawn_Func (bool testConds, bool runActions) {
             }
 
         }
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/76F1B733"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/76F1B733"));
         gf_TipNOTD(10000, StringExternal("Param/Value/7F7D63B3"));
         gv_zeusLetoRespawnCount += 1;
         TriggerEnable(TriggerGetCurrent(), true);
@@ -18373,7 +18502,7 @@ bool gt_ZeusLetoRespawn_Func (bool testConds, bool runActions) {
             }
 
         }
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/670FA8CE"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/670FA8CE"));
         gf_TipNOTD(10000, StringExternal("Param/Value/8A3E12C6"));
         gv_zeusLetoRespawnCount += 1;
         TriggerEnable(TriggerGetCurrent(), true);
@@ -18680,7 +18809,7 @@ bool gt_OM1DownloadCycle_Func (bool testConds, bool runActions) {
         }
         else if ((gv_oMCount == 3)) {
             SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/F87A2562"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/EF8ECD2F"));
         }
     }
 
@@ -18930,7 +19059,7 @@ bool gt_OM3ArmoryTurrets_Func (bool testConds, bool runActions) {
         Wait(3.0, c_timeGame);
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(186), "DecalProtoss");
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(187), "DecalProtoss");
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/CE007033"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/EA2FFB10"));
         SoundPlay(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupAll(), 100.0, 0.0);
         auto05A3AB68_g = UnitGroup("SentryGunUnderground", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
         auto05A3AB68_u = UnitGroupCount(auto05A3AB68_g, c_unitCountAll);
@@ -19128,7 +19257,7 @@ bool gt_OM4ScrapyardSalvageCycle_Func (bool testConds, bool runActions) {
         }
         else if ((gv_oMCount2 == 3)) {
             SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/A8527790"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/9A721CA8"));
         }
     }
 
@@ -19295,7 +19424,7 @@ bool gt_OM6CommTowerTransmission_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/C1545F14"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/1A6721DE"));
     SoundPlay(SoundLink("TVMovieStatic", -1), PlayerGroupActive(), 80.0, 0.0);
     Wait(5.0, c_timeGame);
     gf_RadioNOTD(gv_characterUnknownVoice1, StringExternal("Param/Value/18AC0827"));
@@ -19308,7 +19437,7 @@ bool gt_OM6CommTowerTransmission_Func (bool testConds, bool runActions) {
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(gv_characterUnknownVoice1, StringExternal("Param/Value/1BE7E05D"));
     Wait(5.0, c_timeGame);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/B9BE8668"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/FC0F456B"));
     SoundPlay(SoundLink("TVMovieStatic", -1), PlayerGroupActive(), 80.0, 0.0);
     return true;
 }
@@ -19346,14 +19475,11 @@ bool gt_OM7CharlieSecTeam_Func (bool testConds, bool runActions) {
     UnitSetPropertyFixed(gv_charlie, c_unitPropLifePercent, 100.0);
     gf_MarineSpeechNOTD(gv_charlie, StringExternal("Param/Value/85A69CBB"));
     Wait(2.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_charlie, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/2EAD96BB"), StringExternal("Param/Value/B4CE42F1"), 3.5, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_charlie, StringExternal("Param/Value/CFBDCD83"), StringExternal("Param/Value/1C394A88"), 3.5);
     Wait(5.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_charlie, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/BF6B226E"), StringExternal("Param/Value/90B04124"), 3.5, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_charlie, StringExternal("Param/Value/004D086A"), StringExternal("Param/Value/7AC57705"), 3.5);
     Wait(5.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_charlie, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/5C74CA8C"), StringExternal("Param/Value/C9002102"), 3.5, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_charlie, StringExternal("Param/Value/72864709"), StringExternal("Param/Value/A32067A4"), 3.5);
     Wait(3.0, c_timeReal);
     gf_AwardMarineXPNOTD(300.0);
     auto7AE45676_g = gv_marines;
@@ -19412,31 +19538,27 @@ bool gt_OM8EnterBridgeTerminal_Func (bool testConds, bool runActions) {
     Wait(10.0, c_timeReal);
     CameraShakeStart(EventPlayer(), c_cameraPositionTarget, c_cameraDirectionZ, 0.2, 2.0, 100.0, 0.5);
     SoundPlay(SoundLink("Egg_Birth", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_StoryMessageNOTD(StringExternal("Param/Value/59E24A84"));
+    UnitCreate(1, "BrainBug2", 0, 13, RegionRandomPoint(RegionFromId(217)), libNtve_gf_RandomAngle());
+    gv_bBQ = UnitLastCreated();
+    TriggerEnable(gt_OM8BBQDead, true);
     if ((gv_noNewbie == true)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/2F911E26"));
-        UnitCreate(1, "BrainBug2", 0, 13, RegionRandomPoint(RegionFromId(217)), libNtve_gf_RandomAngle());
-        gv_bBQ = UnitLastCreated();
-        TriggerEnable(gt_OM8BBQDead, true);
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
-        libNtve_gf_ChangeUnitDamage(UnitLastCreated(), libNtve_ge_UnitDamageTakenDealt_Damage_Deal, libNtve_ge_UnitDamageChangeOption_Mega);
+        UnitIssueOrder(gv_bBQ, Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
+        libNtve_gf_ChangeUnitDamage(gv_bBQ, libNtve_ge_UnitDamageTakenDealt_Damage_Deal, libNtve_ge_UnitDamageChangeOption_Mega);
         if ((gv_nightmare == true)) {
-            UnitBehaviorAddPlayer(UnitLastCreated(), "Rampage", 14, 1);
+            UnitBehaviorAddPlayer(gv_bBQ, "Rampage", 14, 1);
         }
 
-        UnitBehaviorAddPlayer(UnitLastCreated(), "Frenzy35", 14, 1);
-        UnitBehaviorAddPlayer(UnitLastCreated(), "AdvancedMutation", 14, 2);
+        UnitBehaviorAddPlayer(gv_bBQ, "Frenzy35", 14, 1);
+        UnitBehaviorAddPlayer(gv_bBQ, "AdvancedMutation", 14, 2);
         UnitIssueOrder(gv_bBQ, OrderTargetingUnit(AbilityCommand("attack", 0), lv_crazyman), c_orderQueueReplace);
         Wait(3.0, c_timeReal);
         gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/4B3AA85B"));
     }
     else {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/1E217737"));
-        UnitCreate(1, "BrainBug2", 0, 13, RegionRandomPoint(RegionFromId(217)), libNtve_gf_RandomAngle());
-        gv_bBQ = UnitLastCreated();
         UnitSetPropertyFixed(gv_bBQ, c_unitPropLifeRegen, 0.0);
         UnitSetPropertyFixed(gv_bBQ, c_unitPropMovementSpeed, 2.0);
-        TriggerEnable(gt_OM8BBQDead, true);
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
+        UnitIssueOrder(gv_bBQ, Order(AbilityCommand("UnburrowBrainBug", 0)), c_orderQueueReplace);
     }
     return true;
 }
@@ -19531,12 +19653,12 @@ bool gt_OM11Delta2_Func (bool testConds, bool runActions) {
     if ((lv_terminal1Present == true) && (lv_terminal2Present == true)) {
         TriggerEnable(TriggerGetCurrent(), false);
         libNtve_gf_RemoveDoodadsinRegion(RegionFromId(231), "DecalProtoss");
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/A731F8FB"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/9362870B"));
         Wait(1.5, c_timeReal);
         SoundPlay(SoundLink("TRaynor01Raynor00037", -1), PlayerGroupAll(), 200.0, 0.0);
         gf_RadioNOTD(PlayerName(lv_localPlayerA), StringExternal("Param/Value/F2DBA6CF"));
         Wait(1.5, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/933D376F"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/BF4FE9A7"));
         auto5FF2F29C_n = gv_spawnFactor;
         for (auto5FF2F29C_i = 1; auto5FF2F29C_i <= auto5FF2F29C_n; auto5FF2F29C_i += 1) {
             UnitCreate(1, "Slasher2", 0, 14, RegionRandomPoint(RegionFromId(127)), libNtve_gf_RandomAngle());
@@ -19665,8 +19787,7 @@ bool gt_OM12Prisoner1JohnAnderton_Func (bool testConds, bool runActions) {
     Wait(3.5, c_timeGame);
     gf_MarineSpeechNOTD(lv_rescuer, StringExternal("Param/Value/B596B021"));
     Wait(3.0, c_timeGame);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_john, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/1268688C"), StringExternal("Param/Value/E2F356E5"), 5.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_john, StringExternal("Param/Value/257268DD"), StringExternal("Param/Value/42D8E5E5"), 5.0);
     Wait(6.0, c_timeGame);
     gf_MarineSpeechNOTD(lv_rescuer, StringExternal("Param/Value/7D30020D"));
     Wait(6.0, c_timeGame);
@@ -19732,8 +19853,7 @@ bool gt_OM12Prisoner2FaricaAugustin_Func (bool testConds, bool runActions) {
     Wait(3.5, c_timeGame);
     gf_MarineSpeechNOTD(lv_localUnitA, StringExternal("Param/Value/4BE4FA98"));
     Wait(3.5, c_timeGame);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_farica, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/E4C92319"), StringExternal("Param/Value/9F8F350C"), 10.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_farica, StringExternal("Param/Value/845C5CB0"), StringExternal("Param/Value/DEC24BDA"), 10.0);
     Wait(10.0, c_timeGame);
     gf_MarineSpeechNOTD(lv_localUnitA, StringExternal("Param/Value/F866572F"));
     Wait(5.0, c_timeGame);
@@ -19883,7 +20003,7 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
         UnitBehaviorAddPlayer(auto1391D07C_var, "LaserDesignatorLevel1", 10, 1);
     }
     Wait(1.5, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/78FBB322"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/B7ED1099"));
     SoundPlay(SoundLink("UI_TerranKlaxonAlert", -1), PlayerGroupActive(), 80.0, 0.0);
     Wait(2.0, c_timeReal);
     libNtve_gf_MakeUnitInvulnerable(lv_warningCiv, false);
@@ -19970,8 +20090,7 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
 
     Wait(3.5, c_timeReal);
     lv_localUnitA = UnitGroupRandomUnit(gv_marines, c_unitCountAlive);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(lv_localUnitA, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, (StringExternal("Param/Value/B21AE36C") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/81403BCC"), 3.7, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(lv_localUnitA, (StringExternal("Param/Value/464199E8") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/1F428321"), 3.7);
     auto4F0C18FD_g = gv_marineSquad;
     auto4F0C18FD_var = -1;
     while (true) {
@@ -20119,10 +20238,10 @@ bool gt_ECW1EnterMine_Func (bool testConds, bool runActions) {
     PingCreate(PlayerGroupActive(), "PingWarning", UnitGetPosition(EventUnit()), ColorWithAlpha(0.00, 50.20, 100.00, 0.00), 5.0);
     Wait(3.9, c_timeReal);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_episilonMinis, c_unitCountAlive), StringExternal("Param/Value/6189B259"));
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/0650FCD8"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/02746C5B"));
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/08715614"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/E845C07C"));
     Wait(3.0, c_timeReal);
     if ((UnitGroupCount(gv_episionCivilians, c_unitCountAlive) > 0)) {
         gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/AAD61ABF"));
@@ -20547,10 +20666,10 @@ bool gt_W2EnterMilitaryBase_Func (bool testConds, bool runActions) {
     Wait(7.0, c_timeReal);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/6B390343"));
     ObjectiveDestroy(gv_primaryObjective);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/400000D2"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/A49EACA3"));
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/D52852B1"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/317B23C0"));
     Wait(7.0, c_timeReal);
     gf_MarineSpeechNOTD(lv_localUnitA, StringExternal("Param/Value/DBEAB2D3"));
     Wait(7.0, c_timeReal);
@@ -20735,7 +20854,7 @@ bool gt_W2EnterMilitaryBase_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_Wave5AirlockBattle, true);
     TriggerEnable(gt_ClassCreation, false);
     SoundPlay(SoundLink("AirlockGatesUnlocked", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/77C447C6"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/DB2E4586"));
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
     Wait(3.9, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/12EB818D"));
@@ -20849,14 +20968,14 @@ bool gt_ECOptionalCamMissionStart_Func (bool testConds, bool runActions) {
     UnitFlashSelection(EventUnit(), 2.5);
     Wait(2.0, c_timeReal);
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/BB5E379E"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/E7F7908A"));
     Wait(3.0, c_timeReal);
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(36), "DecalProtoss");
     SoundPlay(SoundLink("THorner05SAdjutant00040", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(10.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/6354C52B"));
     Wait(3.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/A0B4CB54"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/CC451A99"));
     Wait(3.0, c_timeReal);
     TriggerEnable(gt_OptionalSecurityCamerasCollection, true);
     TriggerEnable(gt_OptionalSecurityCamerasMobs, true);
@@ -20930,7 +21049,7 @@ bool gt_OptionalSecurityCamerasCollection_Func (bool testConds, bool runActions)
     PingCreate(PlayerGroupActive(), "PingObjective", UnitGetPosition(EventUnit()), ColorWithAlpha(0.00, 100.00, 0.00, 0.00), 10.0);
     RegionSetCenter(EventUnitRegion(), libNtve_gf_PointWithZOffset(PointFromId(14), 30.0));
     SoundPlay(SoundLink("UI_TerranReminderPing", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/8A44C126"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/24C39421"));
     TextExpressionSetToken("Param/Expression/A91F7F6B", "A", StringExternal("Param/Value/575E2C34"));
     TextExpressionSetToken("Param/Expression/A91F7F6B", "B", IntToText(gv_securityCam));
     TextExpressionSetToken("Param/Expression/A91F7F6B", "C", StringExternal("Param/Value/B8A6D700"));
@@ -21409,7 +21528,7 @@ bool gt_Boss1CarapaceHardens33_Func (bool testConds, bool runActions) {
 
     TriggerEnable(gt_Boss1CarapaceHardens33, false);
     Wait(2.0, c_timeGame);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/283DECE1"));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/283DECE1"));
     UnitSetTeamColorIndex(EventUnit(), 5);
     SoundPlay(SoundLink("Zerg_PreExplosionSmall", -1), PlayerGroupAll(), 100.0, 0.0);
     gf_TipNOTD(1000, StringExternal("Param/Value/B1391452"));
@@ -21736,6 +21855,7 @@ bool gt_Boss1bSpawn_Func (bool testConds, bool runActions) {
     Wait(1.5, c_timeReal);
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaCinematic, StringExternal("Param/Value/BD3E0FCC"));
+    gf_MissionLogAppend(StringExternal("Param/Value/15B7932E"));
     Wait(5.0, c_timeReal);
     UIClearMessages(PlayerGroupAll(), c_messageAreaCinematic);
     UnitPauseAll(false);
@@ -22284,19 +22404,18 @@ bool gt_ECDelta1Transport_Func (bool testConds, bool runActions) {
         PingCreate(PlayerGroupActive(), "PingWarning", UnitGetPosition(lv_localUnitA), ColorWithAlpha(0.00, 50.20, 100.00, 0.00), 2.0);
         gf_MarineSpeechNOTD(lv_localUnitA, StringExternal("Param/Value/6D8042EE"));
         Wait(1.5, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/979A6593"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/870370DE"));
         SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
         Wait(3.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/209EFACE"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/01991E09"));
         Wait(3.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/437EEE0A"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/88F8A360"));
         SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
         Wait(3.5, c_timeReal);
         libNtve_gf_UnitCreateFacingPoint(1, "Priyanka", 0, 9, RegionRandomPoint(RegionFromId(39)), UnitGetPosition(lv_localUnitA));
         gv_priyanka = UnitLastCreated();
         UnitGroupAdd(gv_colonists, UnitLastCreated());
-        TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_priyanka, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterPriyanka, StringExternal("Param/Value/499FD1F8"), 5.5, c_transmissionDurationAdd, false);
-        SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+        gf_SendTransmissionNOTD(gv_priyanka, gv_characterPriyanka, StringExternal("Param/Value/1CE1C2BB"), 5.5);
         ObjectiveCreate(StringExternal("Param/Value/790B2B1C"), StringExternal("Param/Value/45B6D98E"), c_objectiveStateActive, false);
         gv_secondaryObjective = ObjectiveLastCreated();
         if ((gv_truckRoute == 2)) {
@@ -22549,7 +22668,7 @@ bool gt_ECCivReward_Func (bool testConds, bool runActions) {
         gf_AwardPlayerXPNOTD(2);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/C2BC1258"));
     }
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((StringExternal("Param/Value/66F7C730") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/125DD36E")));
+    gf_StoryMessageNOTD(((StringExternal("Param/Value/A6D524C9") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/DBC40CC5")));
     autoDD63FF6A_g = gv_marineSquad;
     autoDD63FF6A_var = -1;
     while (true) {
@@ -22855,8 +22974,7 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/00AD8F43"));
     Wait(5.0, c_timeReal);
     lv_localUnitA = UnitGroupRandomUnit(gv_marines, c_unitCountAlive);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(lv_localUnitA, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, (StringExternal("Param/Value/74C8B185") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/1BF44CE6"), 3.7, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(lv_localUnitA, (StringExternal("Param/Value/AD49B184") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/38BFCA12"), 3.7);
     Wait(4.0, c_timeReal);
     UnitKill(UnitFromId(630));
     libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Large, libNtve_ge_ExplosionType_Zerg, lv_localPointA);
@@ -22884,7 +23002,7 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
     }
     Wait(1.0, c_timeReal);
     SoundPlay(SoundLink("THanson02InfestedRefugee00005", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/57918D53"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/204C7319"));
     Wait(3.0, c_timeReal);
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/A779B0BC"));
     gf_TipNOTD(5000, StringExternal("Param/Value/ED78DA01"));
@@ -22908,8 +23026,7 @@ bool gt_Wave6Cocoons_Func (bool testConds, bool runActions) {
 
     Wait(5.0, c_timeReal);
     lv_localUnitA = UnitGroupRandomUnit(gv_marines, c_unitCountAlive);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(lv_localUnitA, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, (StringExternal("Param/Value/6A4ED2AC") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/CEB6030A"), 3.7, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(lv_localUnitA, (StringExternal("Param/Value/A9BBE3D0") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/81A3546D"), 3.7);
     if ((gv_alivePlayers > 7)) {
         lv_cocoonTime = 35.0;
     }
@@ -23262,6 +23379,7 @@ bool gt_Boss2ErebosCinematic_Func (bool testConds, bool runActions) {
     lv_heroOwner = UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive));
     SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 100.0, 0.0);
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaCinematic, ((UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[lv_heroOwner]), "Title Brief", 1) + PlayerName(lv_heroOwner)) + StringExternal("Param/Value/C96062D1")));
+    gf_MissionLogAppend(((UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[lv_heroOwner]), "Title Brief", 1) + PlayerName(lv_heroOwner)) + StringExternal("Param/Value/4F854447")));
     SoundPlay(SoundLink("TZeratul02HybridProtoss00017", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(5.9, c_timeReal);
     auto481FD2EE_var = 1;
@@ -23625,7 +23743,7 @@ bool gt_Boss3SpawnMenoetes_Func (bool testConds, bool runActions) {
     libNtve_gf_AICast(gv_menoestes, OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())));
     gf_MenoEvasion(15);
     gv_prowlerPing = PingLastCreated();
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/D7491251"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/1BA21C68"));
     auto8309DC0E_var = gv_indexBaseValue;
     for ( ; auto8309DC0E_var <= auto8309DC0E_ae; auto8309DC0E_var += 1 ) {
         CameraShakeStart(auto8309DC0E_var, c_cameraPositionTarget, c_cameraDirectionZ, 1.0, 2.0, 100.0, 2.0);
@@ -24064,7 +24182,7 @@ bool gt_OptionalEnterLabChapter1DrBergmann_Func (bool testConds, bool runActions
     TriggerEnable(TriggerGetCurrent(), false);
     gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/C35F7AF8"));
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/AE4C8D7E"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/A66A54DB"));
     SoundPlay(SoundLink("Reload", -1), PlayerGroupAll(), 100.0, 0.0);
     UnitWeaponAdd(gv_drBergmann, "LaserRifle", null);
     UnitBehaviorAddPlayer(gv_drBergmann, "Run", 13, 1);
@@ -24157,6 +24275,7 @@ bool gt_Chapter2Initialize_Func (bool testConds, bool runActions) {
         Wait(1.0, c_timeReal);
         SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaCinematic, StringExternal("Param/Value/637E1EF6"));
+        gf_MissionLogAppend(StringExternal("Param/Value/53A7DF55"));
         Wait(4.0, c_timeReal);
         UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(2391)), c_orderQueueReplace);
         Wait(1.0, c_timeReal);
@@ -24169,6 +24288,7 @@ bool gt_Chapter2Initialize_Func (bool testConds, bool runActions) {
         Wait(1.0, c_timeReal);
         SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaCinematic, StringExternal("Param/Value/38903A5B"));
+        gf_MissionLogAppend(StringExternal("Param/Value/42B99D02"));
         Wait(4.9, c_timeReal);
         UnitSetPosition(gv_drBergmann, PointFromId(2392), false);
         UnitSetFacing(gv_drBergmann, 80.0, 0.0);
@@ -24518,14 +24638,14 @@ bool gt_OptionalPowerGeneratorRestart_Func (bool testConds, bool runActions) {
         TriggerEnable(TriggerGetCurrent(), false);
         TriggerEnable(gt_Wave8EnterScrapyardDoor, false);
         ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/32728280"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/F62312D5"));
         gf_RadioNOTD(PlayerName(UnitGetOwner(lv_localUnitA)), StringExternal("Param/Value/DF20B52C"));
         Wait(5.0, c_timeReal);
         ObjectiveDestroy(gv_primaryObjective);
         gf_PowerGeneratorsComplete();
     }
     else {
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, (StringExternal("Param/Value/80F676DE") + (IntToText((25 * gv_powerGenerators)) + StringExternal("Param/Value/54B63D99"))));
+        gf_StoryMessageNOTD((StringExternal("Param/Value/B02BD24D") + (IntToText((25 * gv_powerGenerators)) + StringExternal("Param/Value/5A362BF5"))));
     }
     return true;
 }
@@ -24682,8 +24802,7 @@ bool gt_Wave9DrBergmannEncounter_Func (bool testConds, bool runActions) {
     UIClearMessages(PlayerGroupAll(), c_messageAreaAll);
     SoundtrackStop(PlayerGroupActive(), c_soundtrackCategoryMusic, true);
     SoundtrackPlay(PlayerGroupActive(), c_soundtrackCategoryMusic, "TValerian02BMusicChoice", c_soundtrackCueAny, c_soundtrackIndexAny, false);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_drBergmann, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterDrBergmann, StringExternal("Param/Value/52DA736C"), 3.9, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_drBergmann, gv_characterDrBergmann, StringExternal("Param/Value/8A6A3A99"), 3.9);
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(gv_characterDrBergmann, StringExternal("Param/Value/ECDA2C2E"));
     Wait(3.5, c_timeReal);
@@ -24982,8 +25101,7 @@ bool gt_W10DomeA_Func (bool testConds, bool runActions) {
     gv_wave = 10;
     ObjectiveCreate(StringExternal("Param/Value/56E0E208"), StringExternal("Param/Value/395C9A4C"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_drBergmann, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterDrBergmann, StringExternal("Param/Value/F821802E"), 3.9, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_drBergmann, gv_characterDrBergmann, StringExternal("Param/Value/126EB08C"), 3.9);
     SoundPlay(SoundLink("UI_TerranReminderPing", -1), PlayerGroupActive(), 100.0, 0.0);
     PingCreate(PlayerGroupActive(), "PingWarning", RegionGetCenter(RegionFromId(79)), ColorWithAlpha(100.00, 100.00, 0.00, 0.00), 10.0);
     gf_TipNOTD(2500, StringExternal("Param/Value/55F8FC7E"));
@@ -25082,8 +25200,7 @@ bool gt_W11DomeB_Func (bool testConds, bool runActions) {
     gv_wave = 11;
     ObjectiveCreate(StringExternal("Param/Value/95E58F97"), StringExternal("Param/Value/72189A49"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_drBergmann, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterDrBergmann, StringExternal("Param/Value/1A68C4EF"), 3.9, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_drBergmann, gv_characterDrBergmann, StringExternal("Param/Value/344A57E7"), 3.9);
     gf_TipNOTD(2500, StringExternal("Param/Value/5B1491B3"));
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("UI_TerranReminderPing", -1), PlayerGroupActive(), 100.0, 0.0);
@@ -25199,8 +25316,7 @@ bool gt_W12DomeC_Func (bool testConds, bool runActions) {
     gv_wave = 12;
     ObjectiveCreate(StringExternal("Param/Value/6F85F77F"), StringExternal("Param/Value/D8269A91"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_drBergmann, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterDrBergmann, StringExternal("Param/Value/E4B97BCD"), 3.9, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_drBergmann, gv_characterDrBergmann, StringExternal("Param/Value/0B2C186A"), 3.9);
     gf_TipNOTD(2500, StringExternal("Param/Value/138747BD"));
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("UI_TerranReminderPing", -1), PlayerGroupActive(), 100.0, 0.0);
@@ -25291,8 +25407,7 @@ bool gt_W13DomeD_Func (bool testConds, bool runActions) {
     gv_hitPar = 75;
     ObjectiveCreate(StringExternal("Param/Value/E6AD569D"), StringExternal("Param/Value/8CEE61A4"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_drBergmann, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterDrBergmann, StringExternal("Param/Value/CD1C7D4C"), 5.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_drBergmann, gv_characterDrBergmann, StringExternal("Param/Value/8DA92150"), 5.0);
     gf_MarineSpeechNOTD(gv_sgtStallans, StringExternal("Param/Value/76C3D41C"));
     Wait(5.0, c_timeReal);
     libNtve_gf_AttachModelToUnit(gv_bioDome[3], "InfestationBiodome3", "Ref_Center");
@@ -25449,7 +25564,7 @@ bool gt_Wave13BioDomeDDestroyed_Func (bool testConds, bool runActions) {
     gf_AwardPlayerXPNOTD(2);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/5907AE6D"));
     Wait(3.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((StringExternal("Param/Value/46979E56") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/4D6E3714")));
+    gf_StoryMessageNOTD(((StringExternal("Param/Value/E99CE20A") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/F79FB8D1")));
     ObjectiveDestroy(gv_primaryObjective);
     TriggerExecute(gt_Wave14Betrayal, true, false);
     return true;
@@ -25492,7 +25607,7 @@ bool gt_Wave14Betrayal_Func (bool testConds, bool runActions) {
     UnitGroupIssueOrder(libNtve_gf_ConvertUnitToUnitGroup(gv_drBergmann), OrderTargetingPoint(AbilityCommand("move", 0), RegionGetBoundsMax(RegionFromId(103))), c_orderQueueReplace);
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("Dialogue_TransmissionStart", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/495E5364"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/2B9437F2"));
     gf_TipNOTD(5000, StringExternal("Param/Value/A524C94A"));
     Wait(4.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/8C66BAE3"));
@@ -25606,8 +25721,7 @@ bool gt_W14BlackOps_Func (bool testConds, bool runActions) {
         gv_blackOpsSentinel = UnitLastCreated();
     }
 
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(lv_blackOpsLeader, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterBlackOpsOperator, StringExternal("Param/Value/C5BD2B36"), 5.5, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(lv_blackOpsLeader, gv_characterBlackOpsOperator, StringExternal("Param/Value/34EBEAC5"), 5.5);
     Wait(7.0, c_timeReal);
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/2888B3DA"));
     Wait(7.0, c_timeReal);
@@ -25721,7 +25835,7 @@ bool gt_BlackOpsAIGunshipSupport_Func (bool testConds, bool runActions) {
     lv_coordinatesX = PointGetX(lv_localPointA);
     lv_coordinatesY = PointGetY(lv_localPointA);
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, (StringExternal("Param/Value/F516C1B9") + (FixedToText(lv_coordinatesX, 1) + (StringExternal("Param/Value/C3CF6659") + (FixedToText(lv_coordinatesY, 1) + StringExternal("Param/Value/B66F724C"))))));
+    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, (StringExternal("Param/Value/F516C1B9") + (FixedToText(lv_coordinatesX, 1) + (StringExternal("Param/Value/C3CF6659") + (FixedToText(lv_coordinatesY, 1) + StringExternal("Param/Value/B66F724C"))))));
     autoD50F229F_ae = libNtve_gf_DifficultyValueInt(1, 3, 5, 0);
     autoD50F229F_var = 1;
     for ( ; autoD50F229F_var <= autoD50F229F_ae; autoD50F229F_var += 1 ) {
@@ -25998,7 +26112,7 @@ bool gt_ECOPTIONALTruckDestroyed_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     TriggerEnable(gt_ECOPTIONALTruckEvacSuccessful, false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/B9DF17AA"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/98AE5903"));
     SoundPlay(SoundLink("UI_TerranMissionFailed", -1), PlayerGroupAll(), 100.0, 0.0);
     return true;
 }
@@ -26021,7 +26135,7 @@ bool gt_ECOPTIONALTruckEvacSuccessful_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/82B6C1FA"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/02AB0A1A"));
     Wait(3.0, c_timeReal);
     SoundPlay(SoundLink("ColonyTransport_Load", -1), PlayerGroupAll(), 100.0, 0.0);
     Wait(10.0, c_timeReal);
@@ -26036,7 +26150,7 @@ bool gt_ECOPTIONALTruckEvacSuccessful_Func (bool testConds, bool runActions) {
         SoundPlay(SoundLink("UI_TerranRescueUnit", -1), PlayerGroupActive(), 100.0, 0.0);
         gf_AwardRatingNOTD(2);
         gf_AwardKarmaNOTD(1);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((StringExternal("Param/Value/A710D405") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/2693D490")));
+        gf_StoryMessageNOTD(((StringExternal("Param/Value/D567F344") + IntToText(gv_legionOfMeritCivsRescued)) + StringExternal("Param/Value/95753222")));
         Wait(5.0, c_timeReal);
         UIClearMessages(PlayerGroupActive(), c_messageAreaDirective);
     }
@@ -27283,8 +27397,7 @@ bool gt_ACW1Landing_Func (bool testConds, bool runActions) {
     ObjectiveCreate(StringExternal("Param/Value/44C67D19"), StringExternal("Param/Value/83EBF2B8"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
     Wait(5.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/349C8407"), 5.5, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/D3200D80"), 5.5);
     Wait(5.0, c_timeReal);
     if ((RandomInt(0, 1) == 1)) {
         SoundPlay(SoundLink("TRaynor03Marine700004", -1), PlayerGroupActive(), 100.0, 0.0);
@@ -27388,8 +27501,7 @@ bool gt_ACW1Landing_Func (bool testConds, bool runActions) {
     UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/63100822"));
     CameraSetBounds(PlayerGroupActive(), RegionPlayableMap(), true);
     Wait(2.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/981280E9"), 5.5, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/6B3EB3B6"), 5.5);
     ObjectiveDestroy(gv_primaryObjective);
     ObjectiveCreate(StringExternal("Param/Value/E2C16EBA"), StringExternal("Param/Value/8E30F23B"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
@@ -27785,7 +27897,7 @@ bool gt_ACW2DefendwithSecTeamArmory_Func (bool testConds, bool runActions) {
     UIClearMessages(PlayerGroupAll(), c_messageAreaSubtitle);
     gf_RadioNOTD(gv_characterLieutenantSheng, StringExternal("Param/Value/CF0F64B0"));
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/9E112488"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/95D5F6A7"));
     Wait(5.0, c_timeReal);
     ObjectiveDestroy(gv_primaryObjective);
     gf_RadioNOTD(gv_characterLieutenantSheng, StringExternal("Param/Value/298F1A5E"));
@@ -27794,7 +27906,7 @@ bool gt_ACW2DefendwithSecTeamArmory_Func (bool testConds, bool runActions) {
     ObjectiveCreate(StringExternal("Param/Value/BD12F8A1"), StringExternal("Param/Value/796A229D"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
     Wait(8.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/FD4C0073"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/8C590832"));
     UnitBehaviorAddPlayer(gv_charlie, "Rampage", 10, 1);
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(gv_characterLieutenantSheng, StringExternal("Param/Value/2CC7E08B"));
@@ -27915,7 +28027,7 @@ bool gt_ACW3CharlieFound_Func (bool testConds, bool runActions) {
     ObjectiveDestroy(gv_primaryObjective);
     Wait(3.0, c_timeReal);
     gv_aCSpawnRespite = true;
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/C6CC2B17"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/2AC69A4B"));
     SoundPlay(SoundLink("BroodLord_Pissed", -1), PlayerGroupAll(), 100.0, 0.0);
     auto6DF7E071_var = 1;
     for ( ; auto6DF7E071_var <= auto6DF7E071_ae; auto6DF7E071_var += 1 ) {
@@ -28053,7 +28165,7 @@ bool gt_DemeterEngaged_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/8EA89AFF"));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/8EA89AFF"));
     gf_DemeterAI();
     return true;
 }
@@ -28328,7 +28440,7 @@ bool gt_ACW5HeadtotheLab_Func (bool testConds, bool runActions) {
     Wait(8.0, c_timeReal);
     gf_RadioNOTD(gv_characterLieutenantSheng, StringExternal("Param/Value/E9CE8414"));
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/9E25ED5C"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/623407B7"));
     SoundPlay(SoundLink("UI_Horner05sTerminalButton", -1), PlayerGroupAll(), 250.0, 0.0);
     TriggerEnable(gt_ACEnterLabNorthGate, true);
     TriggerEnable(gt_ACEnterScrapyardGate, true);
@@ -28613,8 +28725,7 @@ bool gt_ACBoss2SpawnCronus_Func (bool testConds, bool runActions) {
     gf_AwardPlayerXPNOTD(3);
     gv_aCSpawnHalt = true;
     UnitFlashSelection(EventUnit(), 0.5);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/A5023862"), 3.5, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/75487DBA"), 3.5);
     autoC8EA1A06_g = gv_secTeamAMarines;
     autoC8EA1A06_u = UnitGroupCount(autoC8EA1A06_g, c_unitCountAll);
     for (;; autoC8EA1A06_u -= 1) {
@@ -28635,11 +28746,9 @@ bool gt_ACBoss2SpawnCronus_Func (bool testConds, bool runActions) {
         libNtve_gf_PauseUnit(auto4CE024F7_var, true);
         libNtve_gf_ShowHideUnit(auto4CE024F7_var, false);
     }
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_drTanaka, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterDrTanaka, StringExternal("Param/Value/5DABC5A9"), 2.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_drTanaka, gv_characterDrTanaka, StringExternal("Param/Value/36552B48"), 2.0);
     Wait(2.5, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_drGunjan, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/7AC63ABC"), StringExternal("Param/Value/1E19C195"), 3.9, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_drGunjan, StringExternal("Param/Value/9B05BA1A"), StringExternal("Param/Value/881FFE80"), 3.9);
     UnitIssueOrder(gv_charlie, OrderTargetingPoint(AbilityCommand("move", 0), libNtve_gf_CenterOfUnitGroup(gv_marines)), c_orderQueueReplace);
     Wait(5.0, c_timeReal);
     gf_MarineSpeechNOTD(gv_drTanaka, StringExternal("Param/Value/D7FA3092"));
@@ -28768,7 +28877,7 @@ bool gt_ACCronusKilled_Func (bool testConds, bool runActions) {
     while (!((DistanceBetweenPoints(libNtve_gf_CenterOfUnitGroup(gv_marines), RegionGetCenter(RegionFromId(164))) < 18.0))) {
         Wait(1.0, c_timeGame);
     }
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/5291F0C6"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/2D9718D5"));
     auto8DC3AC41_g = gv_ghostCompany;
     auto8DC3AC41_u = UnitGroupCount(auto8DC3AC41_g, c_unitCountAll);
     for (;; auto8DC3AC41_u -= 1) {
@@ -29314,16 +29423,16 @@ bool gt_ACW9ChaseDrTanakaPoisonGas_Func (bool testConds, bool runActions) {
     Wait(5.0, c_timeReal);
     gf_MarineSpeechNOTD(gv_drTanaka, StringExternal("Param/Value/05848868"));
     Wait(3.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/CC1A343B"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/7DD5A798"));
     Wait(2.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/B9AE8010"));
     Wait(5.5, c_timeReal);
     gf_TipNOTD(5000, StringExternal("Param/Value/7314D1E2"));
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/FD389ACD"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/E551D186"));
     SoundPlay(SoundLink("TUI_ArmoryConsolePurchase", -1), PlayerGroupActive(), 100.0, 0.0);
     UnitSetOwner(gv_drTanaka, 10, false);
     Wait(4.5, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/454C01B2"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/790C3BE0"));
     UnitBehaviorRemove(gv_drTanaka, "TalkAnimation", 1);
     Wait(1.0, c_timeReal);
     UnitIssueOrder(gv_drTanaka, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(gv_reinforcementSpawn[RandomInt(1, 6)])), c_orderQueueReplace);
@@ -29569,7 +29678,7 @@ bool gt_ACW10ShowdownatEvacPoint_Func (bool testConds, bool runActions) {
     if ((gv_bergmannIntercepted == false)) {
         gf_AwardRatingNOTD(-3);
         TriggerExecute(gt_AutoSave, true, false);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/6A18E0FE"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/990943B5"));
         ObjectiveSetState(gv_primaryObjective, c_objectiveStateFailed);
         Wait(5.0, c_timeReal);
         gf_RadioNOTD(gv_characterDrTanaka, StringExternal("Param/Value/354C27AF"));
@@ -29829,7 +29938,7 @@ bool gt_ACW11EntertheAirlock_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(gv_characterDrTanaka, StringExternal("Param/Value/2A6A71C1"));
     Wait(4.0, c_timeReal);
     SoundPlay(SoundLink("UI_ObjectiveUpdate", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/3CAC2690"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/9EEBBCDA"));
     TriggerEnable(gt_ACW11TanakaChoiceDialog, true);
     while (!((gv_tanakaDecisionMade == true))) {
         Wait(1.0, c_timeGame);
@@ -29867,7 +29976,7 @@ bool gt_ACW11EntertheAirlock_Func (bool testConds, bool runActions) {
         Wait(3.0, c_timeReal);
         UnitKill(gv_drTanaka);
         SoundPlay(SoundLink("Stetmann_Death", -1), PlayerGroupActive(), 100.0, 0.0);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/1063A4AB"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/EC3FECA5"));
         Wait(5.0, c_timeReal);
         gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/9E7BFF45"));
         Wait(5.0, c_timeReal);
@@ -30080,7 +30189,7 @@ bool gt_ACW12aVentControlCycle_Func (bool testConds, bool runActions) {
         if ((lv_messageE == false) && (gv_antiToxinCount == 3)) {
             lv_messageE = true;
             SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/665883B6"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/9637DE0E"));
         }
     }
 
@@ -30957,7 +31066,7 @@ bool gt_ACW15HoldOut_Func (bool testConds, bool runActions) {
     gv_hitPar = 75;
     Wait(5.0, c_timeReal);
     UISetFrameVisible(PlayerGroupAll(), c_syncFrameTypeMinimapPanel, true);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/F1A23B08"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/98459BD5"));
     Wait(5.0, c_timeReal);
     autoD1149E5A_n = (gv_spawnFactor * 3);
     for (autoD1149E5A_i = 1; autoD1149E5A_i <= autoD1149E5A_n; autoD1149E5A_i += 1) {
@@ -31435,8 +31544,7 @@ bool gt_STInitialize_Func (bool testConds, bool runActions) {
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/0A295215"), StringExternal("Param/Value/A388A277"), 10.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     Wait(4.0, c_timeReal);
     SoundPlay(SoundLink("UI_TerranKlaxonAlert", -1), PlayerGroupAll(), 100.0, 0.0);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/3196E350"), 6.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/9AE62134"), 6.0);
     Wait(7.0, c_timeReal);
     UIHideTextCrawl(PlayerGroupAll());
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_secTeamAMarines, c_unitCountAlive))), StringExternal("Param/Value/6497D85A"));
@@ -31475,11 +31583,9 @@ bool gt_STInitialize_Func (bool testConds, bool runActions) {
     }
     gf_TipNOTD(8000, StringExternal("Param/Value/8BFF1855"));
     Wait(7.0, c_timeReal);
-    TransmissionSend(gv_secTeamB, TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/23F354E0"), 3.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/5D3AC51A"), 3.0);
     Wait(20.0, c_timeReal);
-    TransmissionSend(gv_secTeamB, TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/F33999D5"), 3.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/1B5403D2"), 3.0);
     Wait(33.0, c_timeReal);
     UnitIssueOrder(gv_charlie, OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())), c_orderQueueReplace);
     libNtve_gf_ChangeUnitDamage(gv_incompleteIVAX, libNtve_ge_UnitDamageTakenDealt_Damage_Take, libNtve_ge_UnitDamageChangeOption_No);
@@ -32241,23 +32347,19 @@ bool gt_STW2EnterArmoryDeimos_Func (bool testConds, bool runActions) {
     SoundPlay(SoundLink("Changeling_MarineReady", -1), PlayerGroupActive(), 100.0, 0.0);
     gv_deimosMission = RandomInt(1, 3);
     if ((gv_deimosMission == 1)) {
-        TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/C83FDCE3"), 5.0, c_transmissionDurationAdd, false);
-        SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+        gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/C548AEC1"), 5.0);
         UnitIssueOrder(gv_deimos, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(9))), c_orderQueueReplace);
     }
     else if ((gv_deimosMission == 2)) {
-        TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/02F43D30"), 5.0, c_transmissionDurationAdd, false);
-        SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+        gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/DA8B8A9B"), 5.0);
         UnitIssueOrder(gv_deimos, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(3))), c_orderQueueReplace);
     }
     else if ((gv_deimosMission == 3)) {
-        TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/A1B2CCD2"), 5.0, c_transmissionDurationAdd, false);
-        SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+        gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/5961FF6C"), 5.0);
         UnitIssueOrder(gv_deimos, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(219))), c_orderQueueReplace);
     }
     Wait(6.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/32F197EC"), 5.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/AA524583"), 5.0);
     Wait(6.0, c_timeReal);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/C2F1C418"));
     while (!(((gv_deimosEngaged == true) || ((gv_deimosMission == 1) && (libNtve_gf_UnitInRegion(gv_deimos, RegionFromId(9)) == true)) || ((gv_deimosMission == 2) && (libNtve_gf_UnitInRegion(gv_deimos, RegionFromId(3)) == true)) || ((gv_deimosMission == 3) && (libNtve_gf_UnitInRegion(gv_deimos, RegionFromId(219)) == true))))) {
@@ -32265,8 +32367,7 @@ bool gt_STW2EnterArmoryDeimos_Func (bool testConds, bool runActions) {
     }
     if ((gv_deimosEngaged == false) && (gv_gameOver == false)) {
         if ((gv_deimosMission == 1)) {
-            TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/7BA34065"), 5.0, c_transmissionDurationAdd, false);
-            SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+            gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/4E6B4398"), 5.0);
             UnitIssueOrder(gv_deimos, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(9))), c_orderQueueReplace);
             gv_devastatorsDestroyed = true;
             autoEBD1D51E_g = UnitGroup("InactiveDevastator", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
@@ -32280,14 +32381,12 @@ bool gt_STW2EnterArmoryDeimos_Func (bool testConds, bool runActions) {
             }
         }
         else if ((gv_deimosMission == 2)) {
-            TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/AF0709C0"), 5.0, c_transmissionDurationAdd, false);
-            SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+            gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/3885CC79"), 5.0);
             UnitIssueOrder(gv_deimos, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(3))), c_orderQueueReplace);
             UnitBehaviorAdd(UnitFromId(590), "DamagedIVAX", gv_boss, 1);
         }
         else if ((gv_deimosMission == 3)) {
-            TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/970BB720"), 5.0, c_transmissionDurationAdd, false);
-            SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+            gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/324269D7"), 5.0);
             UnitIssueOrder(gv_deimos, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(219))), c_orderQueueReplace);
             auto32AF6B59_n = gv_spawnFactor;
             for (auto32AF6B59_i = 1; auto32AF6B59_i <= auto32AF6B59_n; auto32AF6B59_i += 1) {
@@ -32366,14 +32465,14 @@ bool gt_STW1HereWeGo_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_STC1ItemSpawn, true, false);
     Wait(8.0, c_timeReal);
     SoundPlay(SoundLink("Transmission", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(gv_secTeamA, c_messageAreaSubtitle, StringExternal("Param/Value/C32DFC91"));
-    UIDisplayMessage(gv_secTeamB, c_messageAreaSubtitle, StringExternal("Param/Value/87732B84"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/A2953986"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/CC518A95"));
     Wait(10.0, c_timeReal);
     SoundPlay(SoundLink("TUIWarningPing", -1), gv_secTeamB, 100.0, 0.0);
     PingCreate(gv_secTeamB, "PingWarning", RegionGetCenter(RegionFromId(119)), ColorWithAlpha(100.00, 100.00, 0.00, 0.00), 30.0);
     PingCreate(gv_secTeamB, "PingWarning", RegionGetCenter(RegionFromId(120)), ColorWithAlpha(100.00, 100.00, 0.00, 0.00), 30.0);
     PingCreate(gv_secTeamB, "PingWarning", RegionGetCenter(RegionFromId(121)), ColorWithAlpha(100.00, 100.00, 0.00, 0.00), 30.0);
-    UIDisplayMessage(gv_secTeamB, c_messageAreaSubtitle, StringExternal("Param/Value/E939CB1C"));
+    UIDisplayMessage(gv_secTeamB, c_messageAreaDebug, StringExternal("Param/Value/E939CB1C"));
     Wait(10.0, c_timeReal);
     if ((gv_totalPlayers > 1)) {
         gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_secTeamBMarines, c_unitCountAlive))), StringExternal("Param/Value/AB645118"));
@@ -32445,8 +32544,7 @@ bool gt_STW1EnterEastWingGateRESCUE_Func (bool testConds, bool runActions) {
         }
     }
     CameraSetBounds(gv_secTeamB, RegionPlayableMap(), true);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/526A2347"), 7.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/5C5D8CF6"), 7.0);
     Wait(10.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/F3E4787B"));
     PingCreate(PlayerGroupActive(), "PingObjective", RegionGetCenter(RegionFromId(122)), ColorWithAlpha(0.00, 50.20, 100.00, 0.00), 30.0);
@@ -32487,7 +32585,7 @@ bool gt_STW1EnterEastWingGateRESCUE_Func (bool testConds, bool runActions) {
     if ((gv_armoryFired == false)) {
         SoundPlay(SoundLink("UI_ObjectiveFailed", -1), PlayerGroupAll(), 100.0, 0.0);
         gf_AwardRatingNOTD(-1);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/BD76034D"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/BD76034D"));
     }
 
     return true;
@@ -32612,11 +32710,9 @@ bool gt_STBoss1DeimosEngaged_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(StringExternal("Param/Value/7D9EFC22"), StringExternal("Param/Value/7D24C342"));
     gf_TipNOTD(10000, StringExternal("Param/Value/02B65806"));
     Wait(3.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/91B75E77"), 3.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/CFFF7DAC"), 3.0);
     Wait(5.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_boss, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/5C5E1120"), StringExternal("Param/Value/F9EE4AE7"), 3.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_boss, StringExternal("Param/Value/DC7154EE"), StringExternal("Param/Value/0BB1CCCF"), 7.0);
     gf_DeimosMinionAI();
     return true;
 }
@@ -32670,16 +32766,14 @@ bool gt_STBoss1DeimosKilled_Func (bool testConds, bool runActions) {
     Wait(1.0, c_timeGame);
     TriggerExecute(gt_AutoSave, true, false);
     Wait(3.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/2C2D4F03"), 3.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/A5C8AE5C"), 3.0);
     Wait(7.0, c_timeReal);
     ObjectiveDestroy(gv_primaryObjective);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/358DDE20"));
     Wait(5.9, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/831531A0"));
     Wait(3.0, c_timeReal);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(gv_ltSheng, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/FC238DA8"), 3.0, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/218306C4"), 3.0);
     Wait(1.0, c_timeReal);
     UnitIssueOrder(gv_ltSheng, Order(AbilityCommand("Sprint", 0)), c_orderQueueReplace);
     UnitIssueOrder(gv_ltSheng, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(80))), c_orderQueueReplace);
@@ -32837,8 +32931,7 @@ bool gt_STW4TotheScienceLab_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_STW4EnterLab, true);
     gv_wave = 4;
     if ((RandomInt(0, 10) == 1)) {
-        TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnitType("LtSheng", false), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, gv_characterLieutenantSheng, StringExternal("Param/Value/C2781048"), 10.0, c_transmissionDurationAdd, false);
-        SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+        gf_SendTransmissionNOTD(gv_ltSheng, gv_characterLieutenantSheng, StringExternal("Param/Value/CDB4532A"), 10.0);
         SoundPlay(SoundLink("TValerian02ATychus00020", -1), PlayerGroupAll(), 100.0, 0.0);
         lv_waveMobType = "SeekerBurrowed";
     }
@@ -33239,7 +33332,7 @@ bool gt_STBoss2Killed_Func (bool testConds, bool runActions) {
     }
     gf_UnifiedAwards(7, 275.0, libNtve_gf_DifficultyValueInt(0, 50, 110, 0), 0, 2);
     if ((gv_nightmare == true)) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/2D9A3D5E"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/2D9A3D5E"));
         SoundPlay(SoundLink("EMPBurstSound", -1), PlayerGroupAll(), 100.0, 0.0);
         autoA3E5BA95_g = gv_marines;
         autoA3E5BA95_u = UnitGroupCount(autoA3E5BA95_g, c_unitCountAll);
@@ -33645,7 +33738,7 @@ bool gt_STW7HALShutdownComplete_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     gf_STC2AmbientSpawns();
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/71327501"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/FF39EBA6"));
     UnitSetScale(gv_tartarusCocoon, 220.0, 220.0, 220.0);
     SoundPlay(SoundLink("LabFidgetsAdjutantConfederateAdjutant00003", -1), PlayerGroupAll(), 100.0, 0.0);
     Wait(5.5, c_timeReal);
@@ -33721,13 +33814,13 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_ACEnterLabNorthGate, false, false);
     TriggerEnable(gt_ACEnterApolloDockGate, true);
     TriggerEnable(gt_ACEnterApolloReactorGate, true);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/C96DA3DC"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/3737E5CB"));
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/3943838A"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/9784B3C9"));
     Wait(3.5, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/EC92B6ED"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/F7AEF20F"));
     Wait(3.5, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/C38A84FC"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/7DFDE347"));
     Wait(3.0, c_timeReal);
     TriggerExecute(gt_ChapterEndMedicRatingBonus, true, false);
     TriggerExecute(gt_VetPugGameBonus, true, false);
@@ -33850,7 +33943,7 @@ bool gt_STW8ChaseBergmann_Func (bool testConds, bool runActions) {
     UnitSetPropertyFixed(gv_drBergmann, c_unitPropMovementSpeed, 3.5);
     UnitIssueOrder(gv_drBergmann, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(55))), c_orderQueueReplace);
     Wait(5.0, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/0997B617"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/9E26F3BA"));
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/1655273D"));
     Wait(5.0, c_timeReal);
@@ -34087,7 +34180,7 @@ bool gt_STW9DrBergmannFound_Func (bool testConds, bool runActions) {
         gf_BergmannAI(lv_rescueMarine);
         gf_RadioNOTD(PlayerName(UnitGetOwner(lv_rescueMarine)), StringExternal("Param/Value/64FA8B5C"));
         Wait(3.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/4F006F2A"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/4F006F2A"));
         UnitWeaponAdd(gv_drBergmann, "Crowbar", null);
     }
     else {
@@ -34333,9 +34426,9 @@ bool gt_STW10IVAXMission_Func (bool testConds, bool runActions) {
     libNtve_gf_RemoveDoodadsinRegion(RegionFromId(199), "DecalProtoss");
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/6A1B8E3B"));
     libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(2933)), c_animNameDefault, "Stand Work End", c_animFlagFullMatch | c_animFlagNonLooping, c_animTimeDefault);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/53829972"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/1DA5C6DF"));
     Wait(7.0, c_timeGame);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/F65784AB"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/B8F873D9"));
     Wait(5.45, c_timeGame);
     libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(2933)), c_animNameDefault, "Stand", c_animFlagPlayForever, c_animTimeDefault);
     libNtve_gf_MakeUnitInvulnerable(UnitFromId(590), false);
@@ -34347,13 +34440,13 @@ bool gt_STW10IVAXMission_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(lv_iVAXFriendly, "SensorTowerRadar", 9, 1);
     UnitGroupAdd(gv_secTeamAMarines, lv_iVAXFriendly);
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/1F8DE977"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/1503C7F6"));
     Wait(3.0, c_timeReal);
     gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/3B326EDC"));
     UnitIssueOrder(lv_iVAXFriendly, OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(2000)), c_orderQueueReplace);
     SoundPlay(SoundLink("SensorTower_What", -1), PlayerGroupAll(), 50.0, 0.0);
     Wait(3.5, c_timeReal);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/40784A13"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/4F6312C0"));
     SoundPlay(SoundLink("Tychus04BriefingAlarm", -1), PlayerGroupAll(), 100.0, 0.0);
     UnitIssueOrder(lv_iVAXFriendly, OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(2274)), c_orderQueueReplace);
     Wait(3.0, c_timeReal);
@@ -34392,8 +34485,7 @@ bool gt_STW10IVAXMission_Func (bool testConds, bool runActions) {
     }
     Wait(3.0, c_timeReal);
     lv_localUnitA = UnitGroupRandomUnit(gv_marines, c_unitCountAlive);
-    TransmissionSend(PlayerGroupAll(), TransmissionSourceFromUnit(lv_localUnitA, true, true, "Talk"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, (StringExternal("Param/Value/E65AD898") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/296F9AA7"), 3.7, c_transmissionDurationAdd, false);
-    SoundPlay(SoundLink("Transmission", -1), PlayerGroupAll(), 100.0, 0.0);
+    gf_SendTransmissionNOTD(lv_localUnitA, (StringExternal("Param/Value/68AC1FF6") + PlayerName(UnitGetOwner(lv_localUnitA))), StringExternal("Param/Value/7B4DC8CD"), 3.7);
     autoBE1FEB56_n = (gv_spawnFactor * 3);
     for (autoBE1FEB56_i = 1; autoBE1FEB56_i <= autoBE1FEB56_n; autoBE1FEB56_i += 1) {
         gf_SmartSpawnNOTD("Slasher2", 30.0);
@@ -34480,7 +34572,7 @@ bool gt_STW11HiddenHandRevealed_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(gv_characterFieldMarshalLee, StringExternal("Param/Value/7E2DE1DC"));
     Wait(7.0, c_timeReal);
     SoundPlay(SoundLink("UI_ObjectiveUpdate", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/9A8995D6"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/ECA6DA89"));
     TriggerEnable(gt_SecTeamChoice, true);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/F403A291"));
     TimerStart(gv_chapterSelectionTimer, 30.0, false, c_timeReal);
@@ -34494,11 +34586,11 @@ bool gt_STW11HiddenHandRevealed_Func (bool testConds, bool runActions) {
         TriggerEnable(gt_SecTeamChoice, false);
         if ((lv_randomRoll == 1)) {
             TriggerExecute(gt_STC3aInitialize, true, false);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/B261101F"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/7FE27F29"));
         }
         else if ((lv_randomRoll == 2)) {
             TriggerExecute(gt_STC3bInitialize, true, false);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/F909DF9B"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/9903C46A"));
         }
     }
 
@@ -34546,11 +34638,11 @@ bool gt_SecTeamChoice_Func (bool testConds, bool runActions) {
     }
     if (((EventChatMessage(false) == "a") || (EventChatMessage(false) == "A"))) {
         TriggerExecute(gt_STC3aInitialize, true, false);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/16CA7FA0"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/6E2B3BF9"));
     }
     else if (((EventChatMessage(false) == "b") || (EventChatMessage(false) == "B"))) {
         TriggerExecute(gt_STC3bInitialize, true, false);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/4A0869ED"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/A883B797"));
     }
     TimerWindowShow(TimerWindowLastCreated(), PlayerGroupAll(), false);
     return true;
@@ -34780,7 +34872,7 @@ bool gt_STW14BossSpawnHephaestus_Func (bool testConds, bool runActions) {
 
     gv_wave = 14;
     gv_hitPar = 60;
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/2424A5F7"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/F8B5DD6A"));
     Wait(5.0, c_timeReal);
     TriggerExecute(gt_STW1EnterAirlockEastGate, false, false);
     TriggerExecute(gt_STW1EnterAirlockNorthGate, false, false);
@@ -34984,7 +35076,7 @@ bool gt_STC3aReactorCoreTerminalsReached_Func (bool testConds, bool runActions) 
         }
     }
     else {
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/5D91964B"));
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/5D91964B"));
     }
     return true;
 }
@@ -35042,7 +35134,7 @@ bool gt_STC3aReactorDLCycle_Func (bool testConds, bool runActions) {
         if ((gv_oMCount == 3) && (lv_messageE == false)) {
             lv_messageE = true;
             SoundPlay(SoundLink("UI_TextPrintout", -1), PlayerGroupActive(), 80.0, 0.0);
-            UIDisplayMessage(PlayerGroupActive(), c_messageAreaSubtitle, StringExternal("Param/Value/EC4A31C7"));
+            gf_StoryMessageNOTD(StringExternal("Param/Value/DA86910D"));
         }
     }
 
@@ -35084,7 +35176,7 @@ bool gt_STC3aReactorDLComplete_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/A8828B40"));
     Wait(2.0, c_timeReal);
     gv_hitPar = 30;
-    UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/21C5CF46"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/FB38A90F"));
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
     if ((gv_performanceTimer <= 100)) {
         gf_UnifiedAwards(10, 0.0, 0, 0, 3);
@@ -35198,7 +35290,7 @@ bool gt_STW16ReactorSelfDestructBeginsESCAPE_Func (bool testConds, bool runActio
     SoundPlay(SoundLink("TValerian02BRaynor00010", -1), PlayerGroupActive(), 100.0, 0.0);
     Wait(5.7, c_timeReal);
     SoundPlay(SoundLink("TValerian02ARaynor00047", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/6E4D72AD"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/D1EFF116"));
     TimerStart(gv_globalTimer, 240.0, false, c_timeReal);
     TimerWindowCreate(gv_globalTimer, StringExternal("Param/Value/B69E136F"), true, false);
     gf_NOTDFormatTimerWindow(TimerWindowLastCreated());
@@ -35324,7 +35416,7 @@ bool gt_STW17EVAC_Func (bool testConds, bool runActions) {
     }
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("LabFidgetsAdjutantConfederateAdjutant00003", -1), PlayerGroupActive(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/942A1A2C"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/9896D1D2"));
     TriggerEnable(gt_STW14BossKilled, false);
     UnitKill(gv_hephasteus);
     gf_ClearZombieWave();
@@ -35532,7 +35624,7 @@ bool gt_STC3bThorPilot_Func (bool testConds, bool runActions) {
         UnitRemove(lv_thor);
     }
     else {
-        UIDisplayMessage(PlayerGroupSingle(lv_rescuePlayer), c_messageAreaSubtitle, StringExternal("Param/Value/4DF03C45"));
+        UIDisplayMessage(PlayerGroupSingle(lv_rescuePlayer), c_messageAreaDebug, StringExternal("Param/Value/4DF03C45"));
     }
     return true;
 }
@@ -35613,7 +35705,7 @@ bool gt_STC3bPowerGeneratorRestart_Func (bool testConds, bool runActions) {
     }
     else {
         Wait(5.0, c_timeReal);
-        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, (StringExternal("Param/Value/9B6E03E9") + (IntToText((20 * gv_powerGenerators)) + StringExternal("Param/Value/1DFFC3EB"))));
+        gf_StoryMessageNOTD((StringExternal("Param/Value/45DB0870") + (IntToText((20 * gv_powerGenerators)) + StringExternal("Param/Value/6B844545"))));
     }
     return true;
 }
@@ -35831,14 +35923,14 @@ bool gt_STW15bBioDomeThreat_Func (bool testConds, bool runActions) {
     if ((gv_wave == 15)) {
         SoundPlay(SoundLink("UI_ObjectiveFailed", -1), PlayerGroupAll(), 100.0, 0.0);
         gf_AwardRatingNOTD(-1);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/FBBC0ECA"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/FBBC0ECA"));
     }
 
     Wait(60.0, c_timeReal);
     if ((gv_wave == 15)) {
         SoundPlay(SoundLink("UI_ObjectiveFailed", -1), PlayerGroupAll(), 100.0, 0.0);
         gf_AwardRatingNOTD(-2);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/50147A2B"));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/50147A2B"));
     }
 
     return true;
@@ -35989,7 +36081,7 @@ bool gt_DomesSealedandHadesLocated_Func (bool testConds, bool runActions) {
     gv_bioDomesDestroyed += 1;
     ObjectiveSetName(gv_primaryObjective, (StringExternal("Param/Value/7527BA88") + (IntToText(gv_bioDomesDestroyed) + StringExternal("Param/Value/DE3D427B"))));
     SoundPlay(SoundLink("ColonistBiodome_Unload", -1), PlayerGroupAll(), 200.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/7C044AC0"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/E829401C"));
     if ((gv_bioDomesDestroyed >= 4) && (gv_wave != 16)) {
         ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
         gv_wave = 16;
@@ -36012,7 +36104,7 @@ bool gt_DomesSealedandHadesLocated_Func (bool testConds, bool runActions) {
         gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/0193DE09"));
         Wait(2.0, c_timeReal);
         ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/F6A30B5F"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/7FE24471"));
         autoD8EF882B_var = gv_indexBaseValue;
         for ( ; autoD8EF882B_var <= autoD8EF882B_ae; autoD8EF882B_var += 1 ) {
             CameraShakeStart(autoD8EF882B_var, c_cameraPositionTarget, c_cameraDirectionZ, 0.2, 2.0, 100.0, 3.5);
@@ -36577,7 +36669,7 @@ bool gt_SurvivalInit_Func (bool testConds, bool runActions) {
         if (auto1063972C_var == null) { break; }
         UnitKill(auto1063972C_var);
     }
-    gf_TipNOTD(10000, StringExternal("Param/Value/A7D911D8"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/404B0C5C"));
     Wait(5.0, c_timeReal);
     UIShowTextCrawl(PlayerGroupAll(), StringExternal("Param/Value/643656F9"), StringExternal("Param/Value/B7EB263B"), 10.0, SoundLink("UI_BnetDropdownClose", -1), gv_dummySound);
     gf_ZombieAIWorldEvents();
@@ -36585,13 +36677,13 @@ bool gt_SurvivalInit_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/1E2E9027"));
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("UI_ChatMessageReceived", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/9479BE0C"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/3542BD51"));
     TriggerExecute(gt_STC1ItemSpawn, true, false);
     gf_CreateItemNOTD("RoadFlare", 3);
     Wait(5.0, c_timeReal);
     UIHideTextCrawl(PlayerGroupAll());
     Wait(5.0, c_timeReal);
-    gf_TipNOTD(5000, StringExternal("Param/Value/2B3BC3C6"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/B97AE44A"));
     Wait(35.0, c_timeReal);
     ObjectiveCreate(StringExternal("Param/Value/BB6ABEBB"), StringToText(""), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
@@ -36632,7 +36724,7 @@ bool gt_SurvivalW15_Func (bool testConds, bool runActions) {
     Wait(2.0, c_timeReal);
     gv_wave = 1;
     TriggerEnable(gt_ManualSave, true);
-    gf_TipNOTD(5000, StringExternal("Param/Value/0D9EE0AB"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/0991CB7B"));
     gf_SurvivalWaveTitleDisplay(gv_wave);
     auto0E5B260F_n = (gv_spawnFactor * 8);
     for (auto0E5B260F_i = 1; auto0E5B260F_i <= auto0E5B260F_n; auto0E5B260F_i += 1) {
@@ -36642,7 +36734,7 @@ bool gt_SurvivalW15_Func (bool testConds, bool runActions) {
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/CCAD1762"));
     Wait(25.0, c_timeReal);
     gv_wave += 1;
-    gf_TipNOTD(5000, StringExternal("Param/Value/D1E6E23E"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/C7F08836"));
     gf_SurvivalWaveTitleDisplay(gv_wave);
     autoB486C779_n = (gv_spawnFactor * 8);
     for (autoB486C779_i = 1; autoB486C779_i <= autoB486C779_n; autoB486C779_i += 1) {
@@ -36803,7 +36895,7 @@ bool gt_SurvivalW610_Func (bool testConds, bool runActions) {
         UnitBehaviorAddPlayer(UnitLastCreated(), "Frenzy2", 14, 1);
         UnitGroupAdd(gv_zombieWave, UnitLastCreated());
         UnitKill(gv_eilethyia);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/6EF75B71"));
+        gf_StoryMessageNOTD(StringExternal("Param/Value/BDE3C18F"));
     }
     Wait(30.0, c_timeReal);
     gf_AwardPlayerXPNOTD(5);
@@ -36857,7 +36949,7 @@ bool gt_SurvivalW1115_Func (bool testConds, bool runActions) {
     gv_wave += 1;
     gf_SurvivalWaveTitleDisplay(gv_wave);
     SoundPlay(SoundLink("UI_ChatMessageReceived", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/94570FE3"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/C9B81C92"));
     TriggerExecute(gt_STC2ItemSpawn, true, false);
     auto8AB9B399_n = (gv_spawnFactor * 5);
     for (auto8AB9B399_i = 1; auto8AB9B399_i <= auto8AB9B399_n; auto8AB9B399_i += 1) {
@@ -37114,7 +37206,7 @@ bool gt_SurvivalW2125_Func (bool testConds, bool runActions) {
     gv_hitPar = 50;
     Wait(5.0, c_timeReal);
     SoundPlay(SoundLink("UI_ChatMessageReceived", -1), PlayerGroupAll(), 100.0, 0.0);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/0F55C9CA"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/2BC9DA7A"));
     TriggerExecute(gt_STC1ItemSpawn, true, false);
     Wait(30.0, c_timeReal);
     gv_wave += 1;
@@ -37374,7 +37466,7 @@ bool gt_SurvivalW3135_Func (bool testConds, bool runActions) {
     SoundPlay(SoundLink("UI_ChatMessageReceived", -1), PlayerGroupAll(), 100.0, 0.0);
     gv_wave += 1;
     gf_SurvivalWaveTitleDisplay(gv_wave);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, StringExternal("Param/Value/53207B04"));
+    gf_StoryMessageNOTD(StringExternal("Param/Value/4201B763"));
     TriggerExecute(gt_STC2ItemSpawn, true, false);
     UIHideTextCrawl(PlayerGroupAll());
     auto61FD287A_n = (gv_spawnFactor * 7);
@@ -39059,6 +39151,7 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_DialogButtonClicks, true);
     gf_ClassCreationMaster(lv_selectingPlayer, lv_selectingPlayer);
     gf_TalentTreeCreation(lv_selectingPlayer);
+    gf_MissionLogCreation(lv_selectingPlayer);
     return true;
 }
 
@@ -39104,6 +39197,47 @@ bool gt_AmmoUIButtonCallback_Func (bool testConds, bool runActions) {
 void gt_AmmoUIButtonCallback_Init () {
     gt_AmmoUIButtonCallback = TriggerCreate("gt_AmmoUIButtonCallback_Func");
     TriggerAddEventDialogControl(gt_AmmoUIButtonCallback, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Mission Log Toggle
+//--------------------------------------------------------------------------------------------------
+bool gt_MissionLogToggle_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_triggeringPlayer;
+    int lv_usedDialog;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_triggeringPlayer = EventPlayer();
+    lv_usedDialog = EventDialogControl();
+
+    // Conditions
+    if (testConds) {
+        if (!(((lv_usedDialog == gv_MissionLogOpen[lv_triggeringPlayer]) || (lv_usedDialog == gv_MissionLogClose[lv_triggeringPlayer])))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((DialogIsVisible(gv_MissionLog[lv_triggeringPlayer], lv_triggeringPlayer) == true)) {
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+    }
+    else {
+        gf_HideAllDialogsForPlayer(lv_triggeringPlayer);
+        DialogSetVisible(gv_MissionLog[lv_triggeringPlayer], PlayerGroupSingle(lv_triggeringPlayer), true);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MissionLogToggle_Init () {
+    gt_MissionLogToggle = TriggerCreate("gt_MissionLogToggle_Func");
+    TriggerAddEventDialogControl(gt_MissionLogToggle, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -42361,6 +42495,7 @@ void InitTriggers () {
     gt_ShopInteraction_Init();
     gt_ClassCreation_Init();
     gt_AmmoUIButtonCallback_Init();
+    gt_MissionLogToggle_Init();
     gt_DialogButtonClicks_Init();
     gt_CreateTeamStatusDialog_Init();
     gt_SaveButtonClick_Init();

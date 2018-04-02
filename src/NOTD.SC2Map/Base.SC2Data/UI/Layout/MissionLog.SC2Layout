@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+        <Frame type="Frame" name="MissionLog">
+            <Width val="690"/>
+            <Height val="610"/>
+
+            <Frame type="Label" name="Title">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Color val="255,255,255"/>
+                <Text val="Mission log:"/>
+                <Height val="30"/>
+                <Width val="690"/>
+                <Style val="ModCenterSize24"/>
+            </Frame>
+
+            <Frame type="Image" name="Border">
+                <Anchor relative="$parent" offset="0"/>
+                <Texture val="Assets\Textures\ui_battlenet_glue_frame_bucket_long.dds"/>
+                <TextureType val="Normal"/>
+                <BlendMode val="Add"/>
+                <Color val="255,255,255"/>
+            </Frame>
+            
+            <Frame type="ScrollableFrame" name="OffsetRelated">
+                <Width val="570"/>
+                <Height val="490"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="70"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+                <AcceptsMouse val="true"/>
+                
+                <Frame type="Label" name="ContainerFrame">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Style val="ModLeftSize16"/>
+                </Frame>
+                <Frame type="ScrollBar" name="ScrollBar">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="2"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="2"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="5"/>
+                    <Orientation val="Vertical"/>
+                    <StepValue val="50"/>
+                    <Continuous val="true"/>
+                    <Width val="16"/>
+
+                    <Frame type="Image" name="Image">
+                        <Anchor relative="$parent"/>
+                        <Texture val="Assets/Textures/UI_Battlenet_Glue_ChatPanelScrollBarLine.dds"/>
+                        <TextureType val="NineSlice"/>
+                        <Tiled val="true"/>
+                        <Alpha val="0"/>
+                    </Frame>
+
+                    <Frame type="Button" name="Button">
+                        <Frame type="Image" name="NormalImage">
+                            <Anchor relative="$parent"/>
+                            <Texture val="@UI/ChatPanelScrollBarGrabber_Normal"/>
+                            <TextureType val="NineSlice"/>
+                            <StateCount val="2"/>
+                            <Tiled val="true"/>
+                        </Frame>
+
+                        <Frame type="Image" name="HoverImage">
+                            <Anchor relative="$parent"/>
+                            <Texture val="@UI/ChatPanelScrollBarGrabber_Hover"/>
+                            <TextureType val="NineSlice"/>
+                            <StateCount val="2"/>
+                            <Tiled val="true"/>
+                        </Frame>
+                    </Frame>
+                </Frame>
+            </Frame>
+
+            <Frame type="Image" name="CloseButtonImage">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
+                <BlendMode val="Normal"/>
+                <Color val="255,255,255"/>
+                <Texture val="Assets\Textures\ui_ingame_resourcesharing_closebutton_normalandpressed.dds"/>
+                <TextureType val="Normal"/>
+                <Tiled val="true"/>
+                <Height val="34"/>
+                <Width val="34"/>
+            </Frame>
+
+            <Frame type="Button" name="CloseButton">
+                <Anchor side="Top" relative="$parent/CloseButtonImage" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/CloseButtonImage" pos="Min" offset="0"/>
+                <Height val="34"/>
+                <Width val="34"/>
+            </Frame>
+        </Frame>
+</Desc>

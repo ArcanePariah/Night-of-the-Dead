@@ -77,6 +77,13 @@
             <Anchor side="Right" relative="$parent" pos="Max" offset="33"/>
         </Frame>
 
+        <Frame type="MessageDisplay" name="DebugDisplay">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-460"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="-200"/>
+        </Frame>
+
         <Frame type="TextCrawlPanel" name="TextCrawlPanel">
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-280"/>
         </Frame>
