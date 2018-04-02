@@ -11,15 +11,10 @@
         <Tooltip value=""/>
         <Link value="MassDesignate"/>
     </CRequirementAllowAbil>
-    <CRequirementAnd id="AndEqCountAbilMasterofSubtletyCompleteOnlyAtUnit1GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnit1">
-        <Tooltip value=""/>
+    <CRequirementAnd id="AndEqCountAbilMasterofSubtletyCompleteOnlyAtUnit1GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBeha180059109">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="EqCountAbilMasterofSubtletyCompleteOnlyAtUnit1"/>
-        <OperandArray value="GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnit1"/>
-    </CRequirementAnd>
-    <CRequirementAnd id="AndEqCountAbilMasterofSubtletyCompleteOnlyAtUnit1GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnitCountUpgradeAnionPulseCrystalsCompleteOnly1">
-        <Tooltip value=""/>
-        <OperandArray value="EqCountAbilMasterofSubtletyCompleteOnlyAtUnit1"/>
-        <OperandArray value="GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnitCountUpgradeAnionPulseCrystalsCompleteOnly1"/>
+        <OperandArray value="GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehav3917358420"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndEqCountBehaviorL3EquippedCompleteOnly1EqCountBehaviorWeaponSwitchCompleteOnly0">
         <Tooltip value=""/>
@@ -199,10 +194,10 @@
         <Tooltip value=""/>
         <Count Link="BarretEquipped" State="CompleteOnly"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorCloakFieldCompleteOnlyAtUnit">
+    <CRequirementCountBehavior id="CountBehaviorCloakFieldEffectCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value=""/>
-        <Count Link="CloakField" State="CompleteOnlyAtUnit"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CloakFieldEffect" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorEscapeCloakLevel1CompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -802,14 +797,9 @@
         <OperandArray index="0" value="CountUpgradeFireUpCompleteOnly"/>
         <OperandArray index="1" value="3"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnitCountUpgradeAnionPulseCrystalsCompleteOnly1">
-        <Tooltip value=""/>
-        <OperandArray index="0" value="SumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnitCountUpgradeAnionPulseCrystalsCompleteOnly"/>
-        <OperandArray index="1" value="1"/>
-    </CRequirementGTE>
-    <CRequirementGTE id="GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnit1">
-        <Tooltip value=""/>
-        <OperandArray index="0" value="SumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnit"/>
+    <CRequirementGTE id="GTESumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehav3917358420">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="SumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehavior2144766115"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementLT id="LT3507390604SumCountUnitMobileInfantryFlamethrowerCompleteOnlyCountUnitMobileInfantryMarksmanCompleteOnlyCountUnitMobileInfantryRiflemanCompleteOnlyCountAbilMobileInfantryCompleteOnlyAtUnit">
@@ -828,30 +818,20 @@
         <OperandArray index="0" value="CountAbilSalineIVCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="3"/>
     </CRequirementLTE>
-    <CRequirementSum id="SumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnitCountUpgradeAnionPulseCrystalsCompleteOnly">
-        <Tooltip value=""/>
+    <CRequirementSum id="SumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehavior2144766115">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountBehaviorStealthLevel1CompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorStealthLevel2CompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorEscapeCloakLevel1CompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorEscapeCloakLevel2CompleteOnlyAtUnit"/>
-        <OperandArray value="CountBehaviorCloakFieldCompleteOnlyAtUnit"/>
+        <OperandArray value="CountBehaviorCloakFieldEffectCompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorShadowstepCloakCompleteOnlyAtUnit"/>
-        <OperandArray value="CountUpgradeAnionPulseCrystalsCompleteOnly"/>
     </CRequirementSum>
     <CRequirementOr id="OrEqCountBehaviorBarretEquippedCompleteOnly1EqCountBehaviorMarksmanRifleEquippedCompleteOnly1">
         <Tooltip value="Barret/MMRifle Equipped"/>
         <OperandArray value="EqCountBehaviorBarretEquippedCompleteOnly1"/>
         <OperandArray value="EqCountBehaviorMarksmanRifleEquippedCompleteOnly1"/>
     </CRequirementOr>
-    <CRequirementSum id="SumCountBehaviorStealthLevel1CompleteOnlyAtUnitCountBehaviorStealthLevel2CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeCloakLevel2CompleteOnlyAtUnitCountBehaviorCloakFieldCompleteOnlyAtUnitCountBehaviorShadowstepCloakCompleteOnlyAtUnit">
-        <Tooltip value=""/>
-        <OperandArray value="CountBehaviorStealthLevel1CompleteOnlyAtUnit"/>
-        <OperandArray value="CountBehaviorStealthLevel2CompleteOnlyAtUnit"/>
-        <OperandArray value="CountBehaviorEscapeCloakLevel1CompleteOnlyAtUnit"/>
-        <OperandArray value="CountBehaviorEscapeCloakLevel2CompleteOnlyAtUnit"/>
-        <OperandArray value="CountBehaviorCloakFieldCompleteOnlyAtUnit"/>
-        <OperandArray value="CountBehaviorShadowstepCloakCompleteOnlyAtUnit"/>
-    </CRequirementSum>
     <CRequirementSum id="SumCountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnitCountBehaviorEscapeSelfCloakLevel1CompleteOnlyAtUnitCountBehaviorEscapeSelfCloa1319847820">
         <OperandArray value="CountBehaviorStealthMatrixSelfCloakLevel1CompleteOnlyAtUnit"/>
         <OperandArray value="CountBehaviorStealthMatrixSelfCloakLevel2CompleteOnlyAtUnit"/>
