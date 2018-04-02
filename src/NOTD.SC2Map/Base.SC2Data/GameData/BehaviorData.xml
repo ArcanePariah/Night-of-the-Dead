@@ -2733,9 +2733,7 @@
         <InfoIcon value="Assets\Textures\btn-upgrade-zerg-enduringcorruption.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <MaxStackCount value="3"/>
-        <Modification MoveSpeedMultiplier="1.2">
-            <VitalMaxFractionArray index="Life" value="-0.5"/>
-        </Modification>
+        <Modification MoveSpeedMultiplier="1.2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="FastFiveLevel4">
         <Cost>
