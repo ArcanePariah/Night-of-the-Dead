@@ -292,7 +292,7 @@
         <EditorCategories value="Race:Terran"/>
         <Tip value="Button/Tooltip/M45AMarksmanRifle"/>
         <Icon value="Assets\Textures\btn-ability-terran-penetratorround.dds"/>
-        <TargetFilters value="Visible;Player,Ally,Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Visible;Player,Ally,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="16"/>
         <Marker Link="Weapon/C10CanisterRifle"/>
         <Cost>
