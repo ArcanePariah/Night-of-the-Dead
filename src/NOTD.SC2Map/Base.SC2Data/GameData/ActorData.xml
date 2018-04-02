@@ -12827,8 +12827,6 @@
         <On index="4" Terms="Effect.Bogus.Start; At Caster" Send="Create"/>
         <On index="5" Terms="Effect.X1EvisceratorBeamLevel2.Start; At Caster; FromEffectTreeDescendant" Send="ActionDamage"/>
         <On index="6" Terms="Effect.X1EvisceratorBeamLevel3.Start; At Caster; FromEffectTreeDescendant" Send="ActionDamage"/>
-        <On Terms="Effect.X1EvisceratorBeamLevel2.Start; At Caster" Send="Create DiamondbackAttackImpact"/>
-        <On Terms="Effect.X1EvisceratorBeamLevel3.Start; At Caster" Send="Create DiamondbackAttackImpact"/>
         <On Terms="Effect.X1EvisceratorBeamLevel2.Start; At Caster" Send="Create"/>
         <On Terms="Effect.X1EvisceratorBeamLevel3.Start; At Caster" Send="Create"/>
     </CActorAction>
