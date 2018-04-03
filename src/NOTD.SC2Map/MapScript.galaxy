@@ -40459,7 +40459,7 @@ bool gt_LaserDesignator_Func (bool testConds, bool runActions) {
         SoundPlay(SoundLink("TUIWarningPing", -1), PlayerGroupAll(), 100.0, 0.0);
     }
 
-    PlayerCreateEffectUnit(9, "LaserDesignatorReveal", lv_designatedUnit);
+    PlayerCreateEffectUnit(0, "LaserDesignatorReveal", lv_designatedUnit);
     while (!((libNtve_gf_UnitIsHidden(lv_designatedUnit) || !(UnitIsAlive(lv_designatedUnit)) || (TimerGetRemaining(lv_lDDuration) <= 0.0)))) {
         Wait(0.5, c_timeGame);
     }
@@ -40471,8 +40471,11 @@ bool gt_LaserDesignator_Func (bool testConds, bool runActions) {
 void gt_LaserDesignator_Init () {
     gt_LaserDesignator = TriggerCreate("gt_LaserDesignator_Func");
     TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "LaserDesignatorLevel1", c_unitBehaviorChangeCreate);
+    TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "LaserDesignatorLevel1", c_unitBehaviorChangeRefresh);
     TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "LaserDesignatorLevel2", c_unitBehaviorChangeCreate);
+    TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "LaserDesignatorLevel2", c_unitBehaviorChangeRefresh);
     TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "LaserDesignatorLevel3", c_unitBehaviorChangeCreate);
+    TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "LaserDesignatorLevel3", c_unitBehaviorChangeRefresh);
 }
 
 //--------------------------------------------------------------------------------------------------
