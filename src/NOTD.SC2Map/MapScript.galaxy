@@ -16253,14 +16253,6 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
         if (!((UnitIsAlive(EventUnit()) == true))) {
             return false;
         }
-
-        if (!((lv_attackingWeapon != "Crowbar"))) {
-            return false;
-        }
-
-        if (!((lv_attackingWeapon != "StingerMK3"))) {
-            return false;
-        }
     }
 
     // Actions
@@ -16284,7 +16276,17 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_AmmoUsage_Init () {
     gt_AmmoUsage = TriggerCreate("gt_AmmoUsage_Func");
-    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, null);
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "BarrettM112");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "Chaingun");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "Shotgun");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "LaserRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "M5PulseRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "MP9A2SubMachineGun");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "UA420AssaultRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "Flamethrower");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "SniperRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "GuassRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "P38ScytheGuassPistol");
 }
 
 //--------------------------------------------------------------------------------------------------
