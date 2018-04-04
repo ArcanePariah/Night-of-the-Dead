@@ -11526,6 +11526,9 @@ void gf_RegisterMarineWithEvents (unit lp_marine) {
     TriggerAddEventUnitRegion(gt_OM12EnterPrisonerHoldingArea, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(49), true);
     TriggerAddEventUnitRegion(gt_OM12Prisoner1JohnAnderton, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(50), true);
     TriggerAddEventUnitRegion(gt_OM12Prisoner2FaricaAugustin, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(134), true);
+    TriggerAddEventUnitRegion(gt_ShopForceClose, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(150), false);
+    TriggerAddEventUnitRegion(gt_ShopForceClose, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(173), false);
+    TriggerAddEventUnitRegion(gt_ShopForceClose, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(178), false);
 }
 
 trigger auto_gf_AmmoUICreation_Trigger = null;
@@ -38787,14 +38790,6 @@ bool gt_ShopForceClose_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((lv_eventPlayer >= 1) && (lv_eventPlayer <= 8)))) {
-            return false;
-        }
-
-        if (!((gv_marineHero[lv_eventPlayer] == lv_eventUnit))) {
-            return false;
-        }
-
         if (!((DialogIsVisible(gv_shop[lv_eventPlayer], lv_eventPlayer) == true))) {
             return false;
         }
@@ -38818,9 +38813,6 @@ bool gt_ShopForceClose_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_ShopForceClose_Init () {
     gt_ShopForceClose = TriggerCreate("gt_ShopForceClose_Func");
-    TriggerAddEventUnitRegion(gt_ShopForceClose, null, RegionFromName("ShopRegionA"), false);
-    TriggerAddEventUnitRegion(gt_ShopForceClose, null, RegionFromName("ShopRegionB"), false);
-    TriggerAddEventUnitRegion(gt_ShopForceClose, null, RegionFromName("ShopRegionC"), false);
 }
 
 //--------------------------------------------------------------------------------------------------
