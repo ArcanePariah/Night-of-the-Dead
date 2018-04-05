@@ -6587,7 +6587,12 @@ bool auto_gf_SetMedalVariables_TriggerFunc (bool testConds, bool runActions) {
                 gv_medalsAwardedImages[autoAA17FB20_var][lp_playerNo] = UserDataGetImagePath("MedalLevels", UserDataInstance("MedalLevels", 6), "Medal Image", 1);
             }
             else {
-                gv_medalsAwardedImages[autoAA17FB20_var][lp_playerNo] = UserDataGetImagePath("MedalLevels", UserDataInstance("MedalLevels", lv_medalLevel), "Medal Image", 1);
+                if ((lv_medalLevel == 0)) {
+                    gv_medalsAwardedImages[autoAA17FB20_var][lp_playerNo] = "NOTD Medal Icons\\NOTD Medal T0.dds";
+                }
+                else {
+                    gv_medalsAwardedImages[autoAA17FB20_var][lp_playerNo] = UserDataGetImagePath("MedalLevels", UserDataInstance("MedalLevels", lv_medalLevel), "Medal Image", 1);
+                }
             }
             break;
         }
