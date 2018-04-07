@@ -2181,7 +2181,6 @@ trigger gt_Backstab;
 trigger gt_CriticalStrike;
 trigger gt_Anticipation;
 trigger gt_Concentration;
-trigger gt_ExecuteMovespeedBonus;
 trigger gt_SupplyStation;
 trigger gt_LaserDesignator;
 trigger gt_FieldNexusRevokeSharedVision;
@@ -40347,27 +40346,6 @@ void gt_Concentration_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Execute Movespeed Bonus
-//--------------------------------------------------------------------------------------------------
-bool gt_ExecuteMovespeedBonus_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitBehaviorAdd(EventUnitDamageSourceUnit(), "ExecuteMovespeedBonus", EventUnitDamageSourceUnit(), 1);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_ExecuteMovespeedBonus_Init () {
-    gt_ExecuteMovespeedBonus = TriggerCreate("gt_ExecuteMovespeedBonus_Func");
-    TriggerAddEventUnitDamaged(gt_ExecuteMovespeedBonus, null, c_unitDamageTypeAny, c_unitDamageFatal, "ExecuteHeroicMassiveDamage");
-    TriggerAddEventUnitDamaged(gt_ExecuteMovespeedBonus, null, c_unitDamageTypeAny, c_unitDamageFatal, "ExecuteNormalTargets");
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Supply Station
 //--------------------------------------------------------------------------------------------------
 bool gt_SupplyStation_Func (bool testConds, bool runActions) {
@@ -42518,7 +42496,6 @@ void InitTriggers () {
     gt_CriticalStrike_Init();
     gt_Anticipation_Init();
     gt_Concentration_Init();
-    gt_ExecuteMovespeedBonus_Init();
     gt_SupplyStation_Init();
     gt_LaserDesignator_Init();
     gt_FieldNexusRevokeSharedVision_Init();
