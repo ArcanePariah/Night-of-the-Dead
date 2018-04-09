@@ -1855,6 +1855,7 @@ trigger gt_AmmoUsage;
 trigger gt_AmmoUsageStinger;
 trigger gt_AmmoUsageL3;
 trigger gt_ReceivesDamage;
+trigger gt_BadlyInjuredListener;
 trigger gt_L3Kills;
 trigger gt_TeamKill;
 trigger gt_KarmaBite;
@@ -2877,6 +2878,7 @@ void gf_SetPlayerLives () {
         else if ((gv_playerXP[lv_index] < 100)) {
             gv_playerLives[lv_index] = 5;
         }
+        gv_playerLives[lv_index] = 5;
         libNtve_gf_SetDialogItemText(gv_statsPlayerLivesLeft[lv_index], IntToText(gv_playerLives[lv_index]), PlayerGroupAll());
     }
     gv_squadXP = (lv_experiencePool / gv_totalPlayers);
@@ -3869,9 +3871,6 @@ bool auto_gf_BadlyInjured_TriggerFunc (bool testConds, bool runActions) {
     int lv_injuredTextTag;
 
     // Automatic Variable Declarations
-    const int autoE9E3D706_n = 7;
-    int autoE9E3D706_i;
-
     // Variable Initialization
     lv_localUnitA = lp_injuredUnit;
     lv_localIntA = UnitGetOwner(lv_localUnitA);
@@ -3881,12 +3880,6 @@ bool auto_gf_BadlyInjured_TriggerFunc (bool testConds, bool runActions) {
 
     // Implementation
     gv_playerRecovery[lv_localIntA] = true;
-    libNtve_gf_MakeUnitInvulnerable(lv_localUnitA, true);
-    if ((gv_playerXP[lv_localIntA] > 500)) {
-        UnitAbilityEnable(lv_localUnitA, "attack", false);
-    }
-
-    UnitSetPropertyFixed(lv_localUnitA, c_unitPropMovementSpeed, 0.8);
     SoundChannelMute(lv_injuredPlayer, c_soundCategoryCombat, true);
     SoundChannelMute(lv_injuredPlayer, c_soundCategorySpell, true);
     SoundChannelMute(lv_injuredPlayer, c_soundCategoryAlert, true);
@@ -3894,7 +3887,6 @@ bool auto_gf_BadlyInjured_TriggerFunc (bool testConds, bool runActions) {
     SoundChannelMute(lv_injuredPlayer, c_soundCategoryDoodad, true);
     if ((gv_fPS[lv_localIntA] == false)) {
         CameraPan(lv_index, UnitGetPosition(gv_marineHero[lv_localIntA]), 0.0, -1, 10, false);
-        CameraSetValue(lv_index, c_cameraValueDistance, 22.0, 0.8, -1, 10);
     }
 
     SoundPlay(SoundLink("Heartbeat", -1), lv_injuredPlayer, 100.0, 0.0);
@@ -3923,34 +3915,19 @@ bool auto_gf_BadlyInjured_TriggerFunc (bool testConds, bool runActions) {
     lv_injuredTextTag = TextTagLastCreated();
     TextTagAttachToUnit(lv_injuredTextTag, lv_localUnitA, 1.5);
     libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Small, libNtve_ge_ExplosionType_Protoss, UnitGetPosition(lv_localUnitA));
-    CameraShakeStart(lv_index, c_cameraPositionTarget, c_cameraDirectionZ, 0.18, 1.0, 100.0, 1.1);
-    for (autoE9E3D706_i = 1; autoE9E3D706_i <= autoE9E3D706_n; autoE9E3D706_i += 1) {
-        if ((UnitIsAlive(lv_localUnitA) == true)) {
-            UnitSetPropertyFixed(lv_localUnitA, c_unitPropLife, (UnitGetPropertyFixed(lv_localUnitA, c_unitPropLife, c_unitPropCurrent) + 5.0));
-        }
-
-        Wait(0.2, c_timeGame);
-    }
-    if ((UnitIsAlive(lv_localUnitA) == true)) {
-    }
-    else {
-        UnitSetPropertyFixed(lv_localUnitA, c_unitPropMovementSpeed, 1.25);
-    }
-    Wait(2.0, c_timeGame);
-    if ((gv_fPS[lv_localIntA] == false)) {
-        CameraSetValue(lv_index, c_cameraValueDistance, 30.0, 1.0, -1, 10);
-    }
-
+    Wait(4.0, c_timeGame);
     SoundChannelMute(lv_injuredPlayer, c_soundCategoryCombat, false);
     SoundChannelMute(lv_injuredPlayer, c_soundCategorySpell, false);
     SoundChannelMute(lv_injuredPlayer, c_soundCategoryAlert, false);
     SoundChannelMute(lv_injuredPlayer, c_soundCategoryME, false);
     SoundChannelMute(lv_injuredPlayer, c_soundCategoryDoodad, false);
     TextTagDestroy(lv_injuredTextTag);
+    if ((gv_playerLives[lv_localIntA] == 0)) {
+        UnitBehaviorRemove(lv_localUnitA, "PlayerLives", 1);
+        UnitBehaviorRemove(lv_localUnitA, "PlayerLivesAntiDegen", 1);
+        UnitBehaviorRemove(lv_localUnitA, "PlayerLivesAntiOneShot", 1);
+    }
     if ((UnitIsAlive(lv_localUnitA) == true)) {
-        UnitResetSpeed(lv_localUnitA);
-        UnitAbilityEnable(lv_localUnitA, "attack", true);
-        libNtve_gf_MakeUnitInvulnerable(lv_localUnitA, false);
         gv_playerRecovery[lv_localIntA] = false;
     }
 
@@ -11411,6 +11388,12 @@ bool auto_gf_ClassCreationMaster_TriggerFunc (bool testConds, bool runActions) {
         UIDisplayMessage(PlayerGroupAlliance(c_playerGroupAlly, lp_player), c_messageAreaSubtitle, ((PlayerName(lp_player) + StringExternal("Param/Value/E8E46D7D")) + StringToText("")));
     }
 
+    if ((gv_playerLives[lp_playerIndex] != 0)) {
+        UnitBehaviorAddPlayer(gv_marineHero[lp_playerIndex], "PlayerLives", lp_playerIndex, 1);
+        UnitBehaviorAddPlayer(gv_marineHero[lp_playerIndex], "PlayerLivesAntiDegen", lp_playerIndex, 1);
+        UnitBehaviorAddPlayer(gv_marineHero[lp_playerIndex], "PlayerLivesAntiOneShot", lp_playerIndex, 1);
+    }
+
     if ((gv_playerBanned[lp_playerIndex] == true)) {
         libNtve_gf_AttachModelToUnit(gv_marineHero[lp_playerIndex], "BriefingUnitSelectRedSmall", "Ref_Center");
         UnitBehaviorAddPlayer(gv_marineHero[lp_playerIndex], "PenalLegion", 14, 1);
@@ -16420,16 +16403,38 @@ bool gt_ReceivesDamage_Func (bool testConds, bool runActions) {
 
     }
 
-    if ((UnitGetPropertyFixed(lv_marine, c_unitPropLifePercent, c_unitPropCurrent) <= 20.0) && (UnitGetPropertyFixed(lv_marine, c_unitPropShields, c_unitPropCurrent) <= 3.0) && (UnitIsAlive(lv_marine) == true) && (gv_playerLives[lv_playerIndex] > 0) && (gv_playerRecovery[lv_playerIndex] == false) && (EventUnitDamageEffect() != "FaithSelfDamage")) {
-        gf_BadlyInjured(lv_marine);
-    }
-
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_ReceivesDamage_Init () {
     gt_ReceivesDamage = TriggerCreate("gt_ReceivesDamage_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Badly Injured Listener
+//--------------------------------------------------------------------------------------------------
+bool gt_BadlyInjuredListener_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_marine;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_marine = EventUnit();
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_BadlyInjured(lv_marine);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_BadlyInjuredListener_Init () {
+    gt_BadlyInjuredListener = TriggerCreate("gt_BadlyInjuredListener_Func");
+    TriggerAddEventUnitBehaviorChange(gt_BadlyInjuredListener, null, "PlayerLivesEmergencyHeal", c_unitBehaviorChangeCreate);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -42192,6 +42197,7 @@ void InitTriggers () {
     gt_AmmoUsageStinger_Init();
     gt_AmmoUsageL3_Init();
     gt_ReceivesDamage_Init();
+    gt_BadlyInjuredListener_Init();
     gt_L3Kills_Init();
     gt_TeamKill_Init();
     gt_KarmaBite_Init();

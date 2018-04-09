@@ -101,6 +101,10 @@
     <CEffectApplyBehavior id="NeuralParasiteApplyTimedLife">
         <Behavior value=""/>
     </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ApplyPlayerLivesEmergencyHeal">
+        <Behavior value="PlayerLivesEmergencyHeal"/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
     <CEffectDamage id="Predator2">
         <EditorCategories value="Race:Terran"/>
         <AttributeBonus index="Armored" value="11"/>

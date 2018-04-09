@@ -14855,6 +14855,7 @@ Validator/Name/BloodFrenzy=Blood Frenzy
 Validator/Name/BloodFrenzyLevel1=Blood Frenzy Level 1
 Validator/Name/BloodFrenzyLevel2=Blood Frenzy Level 2
 Validator/Name/BuildPathing=Build Pathing
+Validator/Name/CasterDegensHP=CasterDegensHP
 Validator/Name/CasterHas5Energy=Caster Has 5 Energy
 Validator/Name/CasterIsChemicalExpert=Caster Is Chemical Expert
 Validator/Name/CasterIsDemolitions=Caster Is Demolitions
