@@ -1545,6 +1545,7 @@ Variable/Name/223E0ECF=sign
 Variable/Name/22599651=CivRescueObjective
 Variable/Name/225DCA16=Napalm Barrage Level
 Variable/Name/22642B0C=Cerberus
+Variable/Name/22C4144F=marineOwner
 Variable/Name/22DF2790=Stat Border Offset Y
 Variable/Name/22F37A5B=Player
 Variable/Name/22FBFBB3=Spectated Dialog
