@@ -1636,6 +1636,7 @@ Variable/Name/353E87EC=Index
 Variable/Name/3583DAE5=WMod - Weapon Points Labels
 Variable/Name/35DDEBAE=Priyanka
 Variable/Name/35E009F8=x
+Variable/Name/35F3D2D4=killerIndex
 Variable/Name/36620368=Ability Level Text
 Variable/Name/368B8716=Stats From Medals
 Variable/Name/36C72EBE=Synergy Target Unit
