@@ -41908,6 +41908,8 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
         if (auto561BB938_var == null) { break; }
         libNtve_gf_MakeUnitUncommandable(auto561BB938_var, false);
         UnitSetState(auto561BB938_var, c_unitStateSelectable, true);
+        UnitIssueOrder(auto561BB938_var, OrderTargetingUnit(AbilityCommand("move", 0), lv_forwardObserverHero), c_orderQueueReplace);
+        UnitIssueOrder(auto561BB938_var, Order(AbilityCommand("SpectreWeaponsFree", 0)), c_orderQueueReplace);
     }
     DialogDestroy(lv_transperancyDialog);
     DialogDestroy(lv_instructions);
