@@ -972,6 +972,10 @@
         <InitialEffect value="EscapeCloak"/>
         <Tooltip value="Button/Tooltip/Escape"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="ExecuteMovespeedBonusMassive">
+        <InfoFlags index="Hidden" value="1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="ExecuteMovespeedBonus"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="ExecuteMovespeedBonus">
         <Alignment value="Positive"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

@@ -1188,7 +1188,6 @@ Trigger/Name/930B0FF5=Laser Designator
 Trigger/Name/938AA198=Seal Dome D
 Trigger/Name/93E12B86=Item Drop Change to Neutral
 Trigger/Name/940B94C7=Infestor Killed
-Trigger/Name/945515E9=Execute Movespeed Bonus
 Trigger/Name/94D64A79=Zeus & Leto Hardened Carapace
 Trigger/Name/9512B39F=ECW1 - Enter Mine
 Trigger/Name/9547CC74=STW1 - Enter Airlock East Gate
