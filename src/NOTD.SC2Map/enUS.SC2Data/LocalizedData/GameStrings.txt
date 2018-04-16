@@ -1606,7 +1606,7 @@ Button/Tooltip/Inception=The universe around you slows down. You are free to act
 Button/Tooltip/IncompleteIvax=Heavy assault mech. Can use 250mm Strike Cannons.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfantrySpecializationLevel1=Allows Mobile Infantry to land Flamethrowers. You can customize your drop team in a sub-menu.
 Button/Tooltip/InfantrySpecializationLevel2=Allows Mobile Infantry to land Snipers. You can customize your drop team in a sub-menu.
-Button/Tooltip/Inferno=Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets will begin burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius.
+Button/Tooltip/Inferno=Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets suffer 60% movement speed while burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius. Non-heroic biological armored ground units that die to the blast burst into napalm that continues to burn all units in a small area for 10 seconds. Non-heroic biological armored units that survive the blast spread the effect, potentially creating a chain reaction.<n/><n/><c val="FF0000">Warning: Napalm explosion deals full friendly fire damage.</c>
 Button/Tooltip/InfestedAbomination=An abomination that is capable of ranged attacks.
 Button/Tooltip/InfestedCocoon=Zombie cocoon. Destroy it before it can hatch.
 Button/Tooltip/InfestedColonistShip=Colony Ship that has been Infested. Likely used as a massive nest and breeding ground.

@@ -4778,6 +4778,7 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="10"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-corvidreactor.dds"/>
+        <Modification MoveSpeedMultiplier="0.4"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ItemWeight1">
         <InfoFlags index="Hidden" value="1"/>
