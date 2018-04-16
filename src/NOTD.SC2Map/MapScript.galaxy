@@ -2025,7 +2025,6 @@ trigger gt_ACBoss2SpawnCronus;
 trigger gt_ACCronusKilled;
 trigger gt_ACC2Initialize;
 trigger gt_ACC2ItemSpawn;
-trigger gt_TanakaTerminalSpeech;
 trigger gt_ACW6GuardDrTanakaatLab;
 trigger gt_ACW7GuardDrTanakaatLabPart2;
 trigger gt_ACW8ZombieInvasion;
@@ -29188,51 +29187,6 @@ void gt_ACC2ItemSpawn_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Tanaka Terminal Speech
-//--------------------------------------------------------------------------------------------------
-bool gt_TanakaTerminalSpeech_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    int auto646BD0C5_val;
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitFlashSelection(gv_drTanaka, 12.0);
-    auto646BD0C5_val = RandomInt(1, 5);
-    if (auto646BD0C5_val == 1) {
-        gf_RadioNOTD(gv_characterDrTanaka, StringExternal("Param/Value/DFA29CF3"));
-
-    }
-    else if (auto646BD0C5_val == 2) {
-        gf_RadioNOTD(gv_characterDrTanaka, StringExternal("Param/Value/DBE3712C"));
-
-    }
-    else if (auto646BD0C5_val == 3) {
-        gf_RadioNOTD(gv_characterDrTanaka, StringExternal("Param/Value/3F4AD3BB"));
-
-    }
-    else if (auto646BD0C5_val == 4) {
-        gf_RadioNOTD(gv_characterDrTanaka, StringExternal("Param/Value/9EA748D6"));
-
-    }
-    else if (auto646BD0C5_val == 5) {
-        gf_RadioNOTD(gv_characterDrTanaka, StringExternal("Param/Value/65AAB098"));
-
-    }
-    else {
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_TanakaTerminalSpeech_Init () {
-    gt_TanakaTerminalSpeech = TriggerCreate("gt_TanakaTerminalSpeech_Func");
-    TriggerEnable(gt_TanakaTerminalSpeech, false);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: ACW6 - Guard Dr Tanaka at Lab
 //--------------------------------------------------------------------------------------------------
 bool gt_ACW6GuardDrTanakaatLab_Func (bool testConds, bool runActions) {
@@ -33948,7 +33902,6 @@ bool gt_STC2Initialize_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_ACEnterApolloDockGate, true);
     TriggerEnable(gt_ACEnterApolloReactorGate, true);
     gf_StatsModifyLock();
-    gf_StoryMessageNOTD(StringExternal("Param/Value/3737E5CB"));
     Wait(5.0, c_timeReal);
     gf_StoryMessageNOTD(StringExternal("Param/Value/9784B3C9"));
     Wait(3.5, c_timeReal);
@@ -42488,7 +42441,6 @@ void InitTriggers () {
     gt_ACCronusKilled_Init();
     gt_ACC2Initialize_Init();
     gt_ACC2ItemSpawn_Init();
-    gt_TanakaTerminalSpeech_Init();
     gt_ACW6GuardDrTanakaatLab_Init();
     gt_ACW7GuardDrTanakaatLabPart2_Init();
     gt_ACW8ZombieInvasion_Init();

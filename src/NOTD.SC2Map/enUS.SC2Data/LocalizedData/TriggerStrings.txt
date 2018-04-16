@@ -1323,7 +1323,6 @@ Trigger/Name/F03F10A9=ST - Infected Civilians Periodic
 Trigger/Name/F05C0013=Gunship Other Keys
 Trigger/Name/F1B7FB39=W12 - Dome C
 Trigger/Name/F1E52CF8=Boss 1 - Spawn (Cinematic)
-Trigger/Name/F25A0550=Tanaka Terminal Speech
 Trigger/Name/F28E5548=STC1 - Item Spawn
 Trigger/Name/F3AA68A0=Mode Selection
 Trigger/Name/F3D85684=Sec Team Choice

@@ -4246,7 +4246,6 @@ Param/Value/36CF9868=(Direct link established with IVAX unit...)
 Param/Value/36E0AE82=Items
 Param/Value/37082E92=There's a backup mainframe north of the Airlock perimeter. We'll shut HAL down there.
 Param/Value/372C3780=TANAKA! We can't let you leave.
-Param/Value/3737E5CB=<s val="BriefingHanText">(Retrieving SecNet updates...)</s>
 Param/Value/373E7CF8=Some of them may be infected. There's no way to tell.
 Param/Value/37825E7E=(Accelerating overdrive...)
 Param/Value/37E2D39D=
@@ -4291,7 +4290,6 @@ Param/Value/3EA0E930=Secure Airlock perimeter until decryption is complete
 Param/Value/3EC532D7=[Outbreak]
 Param/Value/3EF0EAF1=It doesn't end here. We'll find a way into Apollo.
 Param/Value/3F3D628D=+1 XP for Mission Bonus
-Param/Value/3F4AD3BB=Cover my back.
 Param/Value/3FAE88EC=<s val="GlueButton">TIP: <c val="BEE916">
 Param/Value/404B0C5C=Enemies come in Waves in Survival. There are no missions. Survive as long as you can.
 Param/Value/40865F64=[<c val="FF0000">Priority Transmission</c>]<n/>General Koller: <n/>Hades is the primary source of the infestation. It's not going to go down without a fight. You're going to have to throw everything at it. Good luck!
@@ -4505,7 +4503,6 @@ Param/Value/6497D85A=We'll rendezvous at your location. Be advised we're picking
 Param/Value/64F415B8=<n/>   Credits: 
 Param/Value/64FA8B5C=You're lucky to be alive Doctor. We need to get out of here.
 Param/Value/657E58AC=+1 XP for Performance Bonus
-Param/Value/65AAB098=I will break its secrets. Watch my back.
 Param/Value/65ED1170=Kill the boss' eggs with AOE damage or flamers
 Param/Value/6614EBF9=Vote Kick Target is 
 Param/Value/666A04DF=<n/><n/>ID: 
@@ -4517,8 +4514,8 @@ Param/Value/670FA8CE=(Zeus summons the rebirth of Leto..!)
 Param/Value/672C2DC4=<n/><n/>Kills: <c val="F4D72B">
 Param/Value/6734436C=<n/>   Karma: 
 Param/Value/67472A7C=: <c val="F4D72B">
-Param/Value/6775B4D5=Stat Points Available: 
 Param/Value/675EE141=<s val="GlueButton">
+Param/Value/6775B4D5=Stat Points Available: 
 Param/Value/67897E79=<n/></c>Magazines: <c val="F4D72B">
 Param/Value/67AE4653=We can't kill that thing. Stay away from it.
 Param/Value/67D0624B= selected 
@@ -4841,7 +4838,6 @@ Param/Value/9E26F3BA=(Dr. Bergmann disappears)
 Param/Value/9E7BFF45=Compliance Nexuses are supposed to help suppress violent behavior. What's a chip doing on him?
 Param/Value/9E86CEF8=Kill 'em all!
 Param/Value/9E94AC95= (
-Param/Value/9EA748D6=Most intriguing. I need to key my formulas in the next station.
 Param/Value/9EB6B8C4=It is important to assign talents everytime you Level Up. Stick to one tree.
 Param/Value/9EE1081C=+
 Param/Value/9EEBBCDA=<s val="InfoPaneHeroRank">Select Path<n/>A - "Tell us what you know"<n/>B - "You've betrayed us for the last time, Tanaka!"</s>
@@ -5190,7 +5186,6 @@ Param/Value/DB6F4B62=There's an inteference in our short range sensors. Somethin
 Param/Value/DBA28A6B=We have something on short-range sensors...
 Param/Value/DBA62FE1=</c></s>
 Param/Value/DBC40CC5=</s>
-Param/Value/DBE3712C=I've run the simulations here. Moving to the next terminal.
 Param/Value/DBEAB2D3=Everyone's dead...massacred by those zombies.
 Param/Value/DC7154EE=<s val="GlueButton">Deimos
 Param/Value/DC7774F5=You have my gratitude for killing him. He was...beyond redemption.
@@ -5219,7 +5214,6 @@ Param/Value/DF48C3E4=<s val="ModCenterSize24">
 Param/Value/DF554EA2=Hoo-ah!
 Param/Value/DF882DB6=Let's clear out. If there's someone in the lab, they may be at risk.
 Param/Value/DF96DC2A=Noises. More of those creatures.
-Param/Value/DFA29CF3=Got to move to another terminal. Cover me.
 Param/Value/DFDAC9AE=All these colonists died escaping..they never made it.
 Param/Value/DFDC255E=<c val="0080FF">.</c>
 Param/Value/DFDEDD0B=Clearance codes have been transmitted. Head to the Reactor Core now.
