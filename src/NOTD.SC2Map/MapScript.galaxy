@@ -18001,10 +18001,20 @@ void gt_Barrels_Init () {
 // Trigger: Barrel Kills
 //--------------------------------------------------------------------------------------------------
 bool gt_BarrelKills_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_killerIndex;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+    lv_killerIndex = EventUnitDamageSourcePlayer();
+
     // Conditions
     if (testConds) {
-        if (!((UnitGetType(libNtve_gf_KillingUnit()) == "ExplodingBarrelLarge"))) {
+        if (!(((lv_killerIndex >= 1) && (lv_killerIndex <= gv_numberofPlayers)))) {
+            return false;
+        }
+
+        if (!(((UnitIsAlive(gv_marineHero[lv_killerIndex]) == true) || (UnitIsAlive(gv_playerPet[lv_killerIndex]) == true)))) {
             return false;
         }
     }
@@ -18014,14 +18024,25 @@ bool gt_BarrelKills_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    PlayerScoreValueSetFromInt(libNtve_gf_KillingPlayer(), "UnitsKilledCount", (PlayerScoreValueGetAsInt(libNtve_gf_KillingPlayer(), "UnitsKilledCount") + 1));
+    if ((UnitIsAlive(gv_marineHero[lv_killerIndex]) == true)) {
+        UnitSetPropertyFixed(gv_marineHero[lv_killerIndex], c_unitPropKills, (libNtve_gf_UnitGetPropertyKills(gv_marineHero[lv_killerIndex], c_unitPropCurrent) + 1));
+        UnitSetPropertyFixed(gv_marineHero[lv_killerIndex], c_unitPropXP, (UnitGetPropertyFixed(gv_marineHero[lv_killerIndex], c_unitPropXP, c_unitPropCurrent) + StringToFixed(CatalogFieldValueGet(c_gameCatalogUnit, (UnitGetType(EventUnit())), "KillXP", 14))));
+        UnitCreateEffectUnit(EventUnit(), "SharedExperienceSearchSet", gv_marineHero[lv_killerIndex]);
+        PlayerScoreValueSetFromInt(lv_killerIndex, "UnitsKilledCount", (PlayerScoreValueGetAsInt(lv_killerIndex, "UnitsKilledCount") + 1));
+    }
+    else {
+        UnitSetPropertyFixed(gv_playerPet[lv_killerIndex], c_unitPropKills, (libNtve_gf_UnitGetPropertyKills(gv_playerPet[lv_killerIndex], c_unitPropCurrent) + 1));
+        UnitSetPropertyFixed(gv_playerPet[lv_killerIndex], c_unitPropXP, (UnitGetPropertyFixed(gv_playerPet[lv_killerIndex], c_unitPropXP, c_unitPropCurrent) + StringToFixed(CatalogFieldValueGet(c_gameCatalogUnit, (UnitGetType(EventUnit())), "KillXP", 14))));
+        UnitCreateEffectUnit(EventUnit(), "SharedExperienceSearchSet", gv_playerPet[lv_killerIndex]);
+        PlayerScoreValueSetFromInt(lv_killerIndex, "UnitsKilledCount", (PlayerScoreValueGetAsInt(lv_killerIndex, "UnitsKilledCount") + 1));
+    }
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_BarrelKills_Init () {
     gt_BarrelKills = TriggerCreate("gt_BarrelKills_Func");
-    TriggerAddEventUnitDied(gt_BarrelKills, null);
+    TriggerAddEventUnitDamaged(gt_BarrelKills, null, c_unitDamageTypeAny, c_unitDamageFatal, "ExplodingBarrelLargeExplosion");
 }
 
 //--------------------------------------------------------------------------------------------------
