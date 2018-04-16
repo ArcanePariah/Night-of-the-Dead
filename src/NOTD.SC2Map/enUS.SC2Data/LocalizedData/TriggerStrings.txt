@@ -2311,6 +2311,7 @@ Variable/Name/9F22A0D2=AC Spawn Halt
 Variable/Name/9F25ABE1=Magazine
 Variable/Name/9F582A1B=LocalRegionA
 Variable/Name/9F61E1A4=Concerned Marine
+Variable/Name/9F8CF911=randomPoint
 Variable/Name/9F97613C=Endurance
 Variable/Name/A05D79B1=Stats - Strength (1)
 Variable/Name/A0D2A645=Index

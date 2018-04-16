@@ -16855,6 +16855,7 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     int lv_pNumber;
     unit lv_deadMarine;
     region lv_deathArea;
+    point lv_randomPoint;
 
     // Automatic Variable Declarations
     unitgroup autoE737FD6A_g;
@@ -16865,6 +16866,8 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     unitgroup auto967BAC28_g;
     int auto967BAC28_u;
     unit auto967BAC28_var;
+    const int autoB4F42F6B_n = 30;
+    int autoB4F42F6B_i;
     unitgroup auto7F2D4C58_g;
     int auto7F2D4C58_u;
     unit auto7F2D4C58_var;
@@ -16892,7 +16895,7 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     libNtve_gf_SetDialogItemBlendMode(gv_teamStatusPortraitButton[lv_pNumber], c_triggerBlendModeAdd, PlayerGroupAll());
     DialogControlSetAnimationState(gv_teamStatusPlayerPanel[lv_pNumber], PlayerGroupAll(), "MarineDeath", "MarineDied");
     gf_DeathDisplay(EventUnitDamageEffect(), lv_pNumber, libNtve_gf_KillingUnit());
-    auto15B9C099_n = (gv_marineMags[lv_pNumber] / 3);
+    auto15B9C099_n = (gv_marineMags[lv_pNumber] / 9);
     for (auto15B9C099_i = 1; auto15B9C099_i <= auto15B9C099_n; auto15B9C099_i += 1) {
         UnitCreate(1, "Magazine", 0, 10, RegionGetCenter(lv_deathArea), libNtve_gf_RandomAngle());
         Wait(0.1, c_timeGame);
@@ -16902,7 +16905,13 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
     for (;; auto967BAC28_u -= 1) {
         auto967BAC28_var = UnitGroupUnitFromEnd(auto967BAC28_g, auto967BAC28_u);
         if (auto967BAC28_var == null) { break; }
-        UnitSetPosition(auto967BAC28_var, RegionRandomPoint(lv_deathArea), true);
+        for (autoB4F42F6B_i = 1; autoB4F42F6B_i <= autoB4F42F6B_n; autoB4F42F6B_i += 1) {
+            lv_randomPoint = RegionRandomPoint(lv_deathArea);
+            if (((PointPathingPassable(lv_randomPoint) == true) && (PointPathingIsConnected(RegionGetCenter(lv_deathArea), lv_randomPoint) == true) && (PointPathingCost(RegionGetCenter(lv_deathArea), lv_randomPoint) <= 2))) {
+                UnitSetPosition(auto967BAC28_var, lv_randomPoint, true);
+                break;
+            }
+        }
     }
     if ((gv_playerRandom[lv_pNumber] == true)) {
         gv_playerKarma[lv_pNumber] += 5;
