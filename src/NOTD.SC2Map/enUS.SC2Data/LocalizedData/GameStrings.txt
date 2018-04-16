@@ -4220,6 +4220,7 @@ Param/Value/3331F97F=has succumbed to serious injuries.
 Param/Value/333C00A9=<s val="BriefingHanText">   Balancing/Testers<n/>   HunterIZ, gruvious, Reaper, Yorick, FlintLckwood, Peerawatz, NiteShade, Ghost</s>
 Param/Value/335ED149=Nail all those Agrons down.
 Param/Value/338A4C58=We brought down that machine, but looks like we've got more ahead of us.
+Param/Value/3399C292=<c val="FF0000">Equipment Closed</c>
 Param/Value/339DA5E3=+20 XP for Victory Bonus
 Param/Value/33B6A5BE=Field Marshal, I don't think it's a good idea to ask them to destroy the facility. Earth will be in an energy crisis without Apollo.
 Param/Value/33E4DF99=</c>)
@@ -4284,6 +4285,7 @@ Param/Value/3DC4466E=<s val="HeaderExtendedTemplate">/</s>
 Param/Value/3DC9679C=We need to find a safe spot.
 Param/Value/3E1B8894=I'm your dropship pilot. We've located a suitable LZ. You need to clear the area for me.
 Param/Value/3E1C1E17=. Removal with 2 more votes.</s>
+Param/Value/3E3025A5=Equipment Open
 Param/Value/3E5FA299=Corpsman Kellen
 Param/Value/3EA0E930=Secure Airlock perimeter until decryption is complete
 Param/Value/3EC532D7=[Outbreak]
@@ -4296,6 +4298,7 @@ Param/Value/40865F64=[<c val="FF0000">Priority Transmission</c>]<n/>General Koll
 Param/Value/409F0FCD=She could be hosted anywhere if optic feeds were still live. Mars...or...even back on Earth.
 Param/Value/41199A23= vote kicked by 
 Param/Value/414A1DEB=</c></s>
+Param/Value/417765C1=Inventory Visible
 Param/Value/41AFE9EF=<s val="BriefingHanText">   Story/Concepts<n/>   Richard Lim (XaVi)</s>
 Param/Value/41CCC9EC= (<c val="F20000">
 Param/Value/4201B763=<s val="InfoPaneHeroRank">Supplies delivered into battlefield..</s>
@@ -5177,6 +5180,7 @@ Param/Value/DAA0ACEF=<s val="InfoPaneHeroRank">Outbreak activated</s><n/>- Large
 Param/Value/DAB8AD38=We're not coming. Return to base.
 Param/Value/DAD3C239=We're Oscar Mike to target location.
 Param/Value/DAEA2E45=Class: 
+Param/Value/DAECF587=<c val="FF0000">Inventory Hidden</c> <c val="FFFFFF">(Numpad 1)</c>
 Param/Value/DB17F0AC=<s val="ModCenterSize24">
 Param/Value/DB2B3493=You're safe. Follow us.
 Param/Value/DB2E4586=<s val="BriefingHanText">(Airlock gates unlocked..)</s>
