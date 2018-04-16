@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CUpgrade id="AssaultJumpLevel2">
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpImpactSetLevel1,PeriodicEffectArray[1]" Value="AssaultJumpApplyStunLevel2"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpImpactSetLevel2,PeriodicEffectArray[1]" Value="AssaultJumpApplyStunLevel2"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpImpactSetLevel3,PeriodicEffectArray[1]" Value="AssaultJumpApplyStunLevel2"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpDamageLevel1,Amount[0]" Value="250"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpDamageLevel2,Amount[0]" Value="400"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpDamageLevel3,Amount[0]" Value="550"/>
+    </CUpgrade>
+    <CUpgrade id="ChemicalSynthesisLevel1">
+        <EffectArray Operation="Set" Reference="Abil,Contaminate2,Cost[0].Vital[Energy]" Value="15"/>
+        <EffectArray Operation="Set" Reference="Abil,Desolation,Cost[0].Vital[Energy]" Value="15"/>
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
+    <CUpgrade id="ChemicalSynthesisLevel2">
+        <EffectArray Operation="Set" Reference="Abil,Contaminate2,Cost[0].Vital[Energy]" Value="10"/>
+        <EffectArray Operation="Set" Reference="Abil,Desolation,Cost[0].Vital[Energy]" Value="10"/>
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
+    <CUpgrade id="CripplingFire">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Alert value=""/>
+        <EffectArray Operation="Set" Reference="Behavior,FocusedFire,DamageResponse[0].Handled[0]" Value="ApplyFocusedFireTarget"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,FocusedFireTarget,Modification[0].AttackSpeedMultiplier[0]" Value="0.05"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,FocusedFireTarget,Modification[0].MoveSpeedMultiplier[0]" Value="0.05"/>
+        <EffectArray Reference="Behavior,PrecisionShotLevel1,Duration[0]" Value="0.500000"/>
+        <EffectArray Reference="Behavior,PrecisionShotLevel2,Duration[0]" Value="0.500000"/>
+        <EffectArray Reference="Behavior,PrecisionShotStun,Duration[0]" Value="0.500000"/>
+        <AffectedUnitArray value="Rifleman"/>
+        <MaxLevel value="3"/>
+    </CUpgrade>
+    <CUpgrade id="FireUp">
+        <Alert value=""/>
+        <EffectArray Reference="Behavior,FocusedFire,Modification[0].AttackSpeedMultiplier[0]" Value="0.15"/>
+        <EffectArray Reference="Behavior,FocusedFire,Modification[0].DamageDealtFraction[Melee]" Value="0.03"/>
+        <EffectArray Reference="Behavior,FocusedFire,Modification[0].DamageDealtFraction[Ranged]" Value="0.03"/>
+        <EffectArray Reference="Behavior,FocusedFire,Modification[0].DamageDealtFraction[Spell]" Value="0.03"/>
+        <EffectArray Reference="Behavior,FocusedFire,Modification[0].DamageDealtFraction[Splash]" Value="0.03"/>
+        <EffectArray Reference="Abil,FocusedFire,Cost[0].Vital[Energy]" Value="1"/>
+        <AffectedUnitArray value="Rifleman"/>
+        <MaxLevel value="3"/>
+    </CUpgrade>
+    <CUpgrade id="FireUpGrenadesLevel1">
+        <Alert value=""/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,AreaArray[0].Radius[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,AreaArray[1].Radius[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,AreaArray[2].Radius[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,AreaArray[0].Radius[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,AreaArray[1].Radius[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,AreaArray[2].Radius[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,GrenadeDamageSearchDummy,AreaArray[0].Radius[0]" Value="0.5"/>
+    </CUpgrade>
+    <CUpgrade id="FireUpGrenadesLevel12">
+        <Alert value=""/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,AreaArray[0].Radius[0]" Value="1"/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,AreaArray[1].Radius[0]" Value="1"/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,AreaArray[2].Radius[0]" Value="1"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,AreaArray[0].Radius[0]" Value="1"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,AreaArray[1].Radius[0]" Value="1"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,AreaArray[2].Radius[0]" Value="1"/>
+        <EffectArray Reference="Effect,GrenadeDamageSearchDummy,AreaArray[0].Radius[0]" Value="0.5"/>
+    </CUpgrade>
+    <CUpgrade id="FireUpGrenadesLevel13">
+        <Alert value=""/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,AreaArray[0].Radius[0]" Value="1.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,AreaArray[1].Radius[0]" Value="1.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,AreaArray[2].Radius[0]" Value="1.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,AreaArray[0].Radius[0]" Value="1.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,AreaArray[1].Radius[0]" Value="1.5"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,AreaArray[2].Radius[0]" Value="1.5"/>
+        <EffectArray Reference="Effect,GrenadeDamageSearchDummy,AreaArray[0].Radius[0]" Value="0.5"/>
+    </CUpgrade>
+    <CUpgrade id="ForcePushLevel2">
+        <EffectArray Operation="Set" Reference="Effect,ForcePushPersistent,PeriodCount" Value="150"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushHeight,Behavior" Value="ForcePushHeightLevel2"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushLift,HeightTime" Value="0.120000"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushDrop,HeightTime" Value="0.100000"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushLiftBoss,HeightTime" Value="0.120000"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushDropBoss,HeightTime" Value="0.100000"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushHeightBoss,Behavior" Value="ForcePushHeightLevel2Boss"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushPersistentBoss,PeriodCount" Value="75"/>
+    </CUpgrade>
+    <CUpgrade id="AnticipationLevel2">
+        <EffectArray Operation="Set" Reference="Effect,AnticipationApply,Behavior" Value="AnticipationLevel2"/>
+    </CUpgrade>
+    <CUpgrade id="ForcePushLevel3">
+        <EffectArray Operation="Set" Reference="Effect,ForcePushPersistent,PeriodCount" Value="260"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushHeight,Behavior" Value="ForcePushHeightLevel3"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushLift,HeightTime" Value="0.120000"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushDrop,HeightTime" Value="0.100000"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushLiftBoss,HeightTime" Value="0.120000"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushDropBoss,HeightTime" Value="0.100000"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushHeightBoss,Behavior" Value="ForcePushHeightLevel3Boss"/>
+        <EffectArray Operation="Set" Reference="Effect,ForcePushPersistentBoss,PeriodCount" Value="130"/>
+    </CUpgrade>
+    <CUpgrade id="ImprovedCoolantLinesLevel1">
+        <EffectArray Operation="Set" Reference="Unit,Pathfinder,EnergyRegenRate[0]" Value="1.351500"/>
+    </CUpgrade>
+    <CUpgrade id="ImprovedCoolantLinesLevel2">
+        <EffectArray Operation="Set" Reference="Unit,Pathfinder,EnergyRegenRate[0]" Value="1.699200"/>
+    </CUpgrade>
+    <CUpgrade id="GravityGrenade">
+        <EffectArray Operation="Set" Reference="Effect,GravityGrenadeCreatePersistent,PeriodCount[0]" Value="93"/>
+        <EffectArray Operation="Set" Reference="Effect,GravityGrenadeCreatePersistentInitial,PeriodCount[0]" Value="93"/>
+        <EffectArray Operation="Set" Reference="Effect,GravityGrenadeSearchArea,AreaArray[0].Radius[0]" Value="4"/>
+        <EffectArray Operation="Set" Reference="Effect,GravityGrenadeEventHorizonSearchArea,AreaArray[0].Radius[0]" Value="4"/>
+    </CUpgrade>
+    <CUpgrade id="JumpDisable">
+        <Alert value=""/>
+        <EffectArray Operation="Set" Reference="Unit,Reaper,Mover[0]" Value="Ground"/>
+    </CUpgrade>
+    <CUpgrade id="JumpEnable">
+        <Alert value=""/>
+        <EffectArray Operation="Set" Reference="Unit,Reaper,Mover[0]" Value="CliffJumper"/>
+    </CUpgrade>
+    <CUpgrade id="MobileInfantryImprovedEquipment">
+        <Alert value=""/>
+        <EffectArray Reference="Behavior,ImprovedEquipment,Modification[0].DamageDealtFraction[Melee]" Value="0.05"/>
+        <EffectArray Reference="Behavior,ImprovedEquipment,Modification[0].DamageDealtFraction[Ranged]" Value="0.05"/>
+        <EffectArray Reference="Behavior,ImprovedEquipment,Modification[0].DamageDealtFraction[Spell]" Value="0.05"/>
+        <EffectArray Reference="Behavior,ImprovedEquipment,Modification[0].DamageDealtFraction[Splash]" Value="0.05"/>
+        <EffectArray Reference="Behavior,ImprovedEquipment,Modification[0].VitalMaxFractionArray[Life]" Value="0.1"/>
+        <EffectArray Reference="Behavior,ImprovedEquipment,Modification[0].MoveSpeedMultiplier[0]" Value="0.05"/>
+        <AffectedUnitArray value="MobileInfantryMarksman"/>
+        <AffectedUnitArray value="MobileInfantryRifleman"/>
+        <AffectedUnitArray value="MobileInfantryFlamethrower"/>
+        <MaxLevel value="3"/>
+    </CUpgrade>
+    <CUpgrade id="ProbeLimit">
+        <EffectArray Reference="Effect,FieldProbeLimit,MinCount[0]" Value="1"/>
+        <MaxLevel value="3"/>
+        <Flags index="UpgradeCheat" value="0"/>
+    </CUpgrade>
+    <CUpgrade id="RiflemanGrenades">
+        <Alert value=""/>
+        <EffectArray Reference="Effect,GrenadeLevel1Damage,Amount[0]" Value="3"/>
+        <EffectArray Reference="Effect,GrenadeLevel2Damage,Amount[0]" Value="6"/>
+        <AffectedUnitArray value="Rifleman"/>
+        <MaxLevel value="23"/>
+        <Flags index="UpgradeCheat" value="0"/>
+    </CUpgrade>
+    <CUpgrade id="TrickShotLevel1">
+        <EffectArray Operation="Set" Reference="Effect,P38ScytheGuassPistolBurst,PeriodicEffectArray[0]" Value="TrickShotFirstSet"/>
+    </CUpgrade>
+    <CUpgrade id="HighCapacityBarrels">
+        <EffectArray index="0" Operation="Set" Reference="Effect,InfernalFlameThrowerCP,InitialEffect" Value="Helium3IgniterSet"/>
+        <EffectArray Operation="Set" Reference="Effect,InfernalFlameThrowerE,AreaArray[0].Effect" Value="Helium3IgniterSet"/>
+        <EffectArray Operation="Set" Reference="Effect,FlameThrowerLevel3,Amount" Value="10.4"/>
+        <EffectArray Operation="Set" Reference="Weapon,Flamethrower,Range" Value="7.65"/>
+        <EffectArray Operation="Set" Reference="Effect,InfernalFlameThrowerLevel32,AreaArray[0].Effect" Value="Helium3IgniterSet"/>
+        <EffectArray Operation="Set" Reference="Effect,InfernalFlameThrowerLevel22,AreaArray[0].Effect" Value="Helium3IgniterSet"/>
+        <EffectArray Operation="Set" Reference="Effect,InfernalFlameThrower,Amount" Value="10.4"/>
+    </CUpgrade>
+    <CUpgrade id="Helium3IgniterLevel2" parent="HighCapacityBarrels">
+        <Name value="Upgrade/Name/Helium3IgniterLevel2"/>
+        <EffectArray index="0" Operation="Set" Reference="Weapon,Flamethrower,Range" Value="6.65"/>
+        <EffectArray index="1" Operation="Set" Reference="Effect,FlameThrowerLevel2,Amount" Value="9.6"/>
+        <EffectArray index="2" Operation="Set" Reference="Effect,InfernalFlameThrower,Amount" Value="9.6"/>
+        <EffectArray index="3" removed="1"/>
+        <EffectArray index="4" removed="1"/>
+        <EffectArray index="5" removed="1"/>
+        <EffectArray index="6" removed="1"/>
+    </CUpgrade>
+    <CUpgrade id="Helium3IgniterLevel1" parent="HighCapacityBarrels">
+        <Name value="Upgrade/Name/Helium3IgniterLevel1"/>
+        <EffectArray index="0" Operation="Set" Reference="Weapon,Flamethrower,Range" Value="5.65"/>
+        <EffectArray index="1" Operation="Set" Reference="Effect,InfernalFlameThrower,Amount" Value="8.8"/>
+        <EffectArray index="2" removed="1"/>
+        <EffectArray index="3" removed="1"/>
+        <EffectArray index="4" removed="1"/>
+        <EffectArray index="5" removed="1"/>
+        <EffectArray index="6" removed="1"/>
+    </CUpgrade>
+    <CUpgrade id="LookLevel2">
+        <EffectArray Operation="Set" Reference="Effect,LookPersistentOrder,PeriodicPeriodArray[2]" Value="1.000000"/>
+    </CUpgrade>
+    <CUpgrade id="PlasmaDischargeLevel2">
+        <EffectArray Operation="Set" Reference="Effect,PlasmaDischargeDamageAllies,Amount" Value="10"/>
+        <EffectArray Operation="Set" Reference="Effect,PlasmaDischargeDamage,Amount" Value="40"/>
+        <EffectArray Operation="Set" Reference="Effect,PlasmaDischargeApplySlowArmor,Behavior" Value="PlasmaDischargeLevel2"/>
+    </CUpgrade>
+    <CUpgrade id="PlasmaDischargeLevel3">
+        <EffectArray Operation="Set" Reference="Effect,PlasmaDischargeDamageAllies,Amount" Value="15"/>
+        <EffectArray Operation="Set" Reference="Effect,PlasmaDischargeDamage,Amount" Value="80"/>
+        <EffectArray Operation="Set" Reference="Effect,PlasmaDischargeApplySlowArmor,Behavior" Value="PlasmaDischargeLevel3"/>
+    </CUpgrade>
+    <CUpgrade id="PunchLevel2">
+        <EffectArray Operation="Set" Reference="Effect,PunchDamage,Amount" Value="60"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchPersistentPush,PeriodCount" Value="32"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchApplyTarget,Behavior" Value="PunchTargetLevel2"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchLift,HeightTime" Value="0.600000"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchDrop,HeightTime" Value="0.600000"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchPersistentDamage,PeriodicPeriodArray[0]" Value="0.600000"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchDamage,AttributeBonus[Massive]" Value="60"/>
+    </CUpgrade>
+    <CUpgrade id="PunchLevel3">
+        <EffectArray Operation="Set" Reference="Effect,PunchDamage,Amount" Value="90"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchPersistentPush,PeriodCount" Value="44"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchApplyTarget,Behavior" Value="PunchTargetLevel3"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchLift,HeightTime" Value="0.900000"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchDrop,HeightTime" Value="0.900000"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchPersistentDamage,PeriodicPeriodArray[0]" Value="0.900000"/>
+        <EffectArray Operation="Set" Reference="Effect,PunchDamage,AttributeBonus[Massive]" Value="90"/>
+    </CUpgrade>
+    <CUpgrade id="RighteousnessLevel2">
+        <EffectArray Operation="Set" Reference="Behavior,Righteousness,Duration" Value="16.000000"/>
+    </CUpgrade>
+    <CUpgrade id="ShatterLevel2">
+        <EffectArray Reference="Effect,ShatterDamage,Amount[0]" Value="150"/>
+        <EffectArray Reference="Effect,ShatterModifyHero,VitalArray[Life].Change" Value="70"/>
+        <EffectArray Reference="Effect,ShatterDamage,AttributeBonus[Heroic]" Value="150"/>
+    </CUpgrade>
+    <CUpgrade id="Stimpack">
+        <InfoTooltipPriority value="0"/>
+        <Alert value="UpgradeComplete"/>
+        <Flags index="TechTreeCheat" value="1"/>
+        <AffectedUnitArray index="0" removed="1"/>
+        <AffectedUnitArray index="1" removed="1"/>
+    </CUpgrade>
+    <CUpgrade id="AssaultJumpLevel1">
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpImpactSetLevel1,PeriodicEffectArray[1]" Value="AssaultJumpApplyStunLevel1"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpImpactSetLevel2,PeriodicEffectArray[1]" Value="AssaultJumpApplyStunLevel1"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpImpactSetLevel3,PeriodicEffectArray[1]" Value="AssaultJumpApplyStunLevel1"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpImpactSetLevel3,PeriodicEffectArray[2]" Value="AssaultJumpApplyDOT"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpImpactSetLevel2,PeriodicEffectArray[2]" Value="AssaultJumpApplyDOT"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpImpactSetLevel1,PeriodicEffectArray[2]" Value="AssaultJumpApplyDOT"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpDamageLevel1,Amount[0]" Value="225"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpDamageLevel2,Amount[0]" Value="375"/>
+        <EffectArray Operation="Set" Reference="Effect,AssaultJumpDamageLevel3,Amount[0]" Value="525"/>
+    </CUpgrade>
+    <CUpgrade id="TrickShotLevel2">
+        <EffectArray Operation="Set" Reference="Effect,TrickShotFirstBounceLaunch,ImpactEffect[0]" Value="TrickShotSecondSet"/>
+    </CUpgrade>
+    <CUpgrade id="TrickShotLevel3">
+        <EffectArray Operation="Set" Reference="Effect,TrickShotSecondBounceLaunch,ImpactEffect[0]" Value="TrickShotThirdSet"/>
+    </CUpgrade>
+    <CUpgrade id="TrickShotLevel4">
+        <EffectArray Operation="Set" Reference="Effect,TrickShotThirdBounceLaunch,ImpactEffect[0]" Value="TrickShotFourthSet"/>
+    </CUpgrade>
+    <CUpgrade id="UnknownUpgrade2">
+        <EffectArray Operation="Set" Reference="Weapon,Flamethrower,TargetFilters[0]" Value="-;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CUpgrade>
+</Catalog>

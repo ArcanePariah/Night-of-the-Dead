@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CGameUI id="Dflt">
+        <AlertPanMaxDuration value="0.000000"/>
+        <AlertPanMinDuration value="0.000000"/>
+        <WorldConsoleBottom value="0"/>
+        <DefaultUIRace value="Prot"/>
+        <CustomLayoutFileArray value="TriggerWindowPanel Override.SC2Layout"/>
+        <CustomLayoutFileArray value="ObjectivePanel Override.SC2Layout"/>
+        <CustomLayoutFileArray value="MissionTimePanel Override.SC2Layout"/>
+        <CustomLayoutFileArray value="MinimapPanel Override.SC2Layout"/>
+        <CustomLayoutFileArray value="MenuBar Override.SC2Layout"/>
+        <CustomLayoutFileArray value="InfoPanel Override.SC2Layout"/>
+        <CustomLayoutFileArray value="GameUI Override.SC2Layout"/>
+        <CustomLayoutFileArray value="ConsolePanel Override.SC2Layout"/>
+        <CustomLayoutFileArray value="CommandPanel Override.SC2Layout"/>
+        <CustomLayoutFileArray value="ChatBar Override.SC2Layout"/>
+        <CustomLayoutFileArray value="UI\Layout\Inventory.SC2Layout"/>
+        <GameCategories index="15">
+            <Modes index="0">
+                <Id value="1"/>
+                <CanOverrideText value="1"/>
+                <Name value="GameCategory/Survival_Custom/Name"/>
+                <Description value="GameCategory/Survival/Desc"/>
+            </Modes>
+            <Modes index="3" Id="4" Name="GameCategory/Arcade_Coop/Name" Description=""/>
+        </GameCategories>
+    </CGameUI>
+</Catalog>

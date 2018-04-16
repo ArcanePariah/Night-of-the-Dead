@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Preload>
+<Asset path="assets\textures\ui_battlereports_charbattlefieldend.dds" Type="Image"/>
+<Asset path="assets\textures\stimboltorange.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-fallenheroes.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlereports_hansonendb.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-combatshield-color.dds" Type="Image"/>
+<Asset path="notd generic art\notd pistol.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-blink-zeratul.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-chronoriftdevice.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-experiencedplasmagun.dds" Type="Image"/>
+<Asset path="notd medal icons\notd medal t4.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-explode.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-chronorift.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-chronoboost.dds" Type="Image"/>
+<Asset path="endurance.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-banelingspooge.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitforwardobserverb.dds" Type="Image"/>
+<Asset path="life bar.dds" Type="Image"/>
+<Asset path="assets\textures\ui_research_button_protoss_researched.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitcommandoa.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitmedicb.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitforwardobservera.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-prismaticbeam.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitassaultc.dds" Type="Image"/>
+<Asset path="assets\textures\ui_techtree_buttonframe_disabled.dds" Type="Image"/>
+<Asset path="assets\textures\terranportraittransition_static.dds" Type="Image"/>
+<Asset path="assets\textures\decal_terran_0001_01.lvl0" Type="Image"/>
+<Asset path="assets\textures\white32.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-feedback-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-rapiddeployment.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-spectre.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-spidermine.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-extramines.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-protoss-probe-dark.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-criussuit.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-emp-color.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitreconb.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlenet_challenge_frame_bucket_long_left.dds" Type="Image"/>
+<Asset path="assets\textures\terranportraittransition_noise.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraittechniciana.dds" Type="Image"/>
+<Asset path="assets\textures\buildingplane_green1.lvl0" Type="Image"/>
+<Asset path="notd marine portraits\portraitassaulta.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-nuclearstrike-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-tosh-mindblast.dds" Type="Image"/>
+<Asset path="assets\textures\ui_loadingbar_bar_highlighted_terran.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-haleoflead.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-raynortossgrenade.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-zerg-enduringcorruption.dds" Type="Image"/>
+<Asset path="assets\textures\ui_research_frame_tooltip_protoss.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-plague.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-terran-penetrator.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-leech.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitrecona.dds" Type="Image"/>
+<Asset path="assets\textures\ui_replay_frame_detail_protoss.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-vikingmercenary-assault.dds" Type="Image"/>
+<Asset path="perception.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-hardenedshields-color.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlenet_challenge_frame_bucket_long_middle.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlereports_charbattlefield.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitmedica.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-jetpack-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-ocularimplants.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitpsiopsa.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-zerg-buildingarmor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-research-zerg-shriketurret.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-timebomb.dds" Type="Image"/>
+<Asset path="assets\textures\ui_mercenary_lockicon.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-d8charge.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-charonboosters.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-planetcracker.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-zerg-airattacks-level1.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-advancedhealingai.dds" Type="Image"/>
+<Asset path="assets\textures\black.dds" Type="Image"/>
+<Asset path="assets\textures\buildingplane_green1.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-moebiusreactor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-domination.dds" Type="Image"/>
+<Asset path="assets\textures\btn-research-terran-techreactor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-infantryarmorlevel2.dds" Type="Image"/>
+<Asset path="assets\textures\campaign_decal_0001_01.lvl0" Type="Image"/>
+<Asset path="notd marine portraits\portraitmarineb.dds" Type="Image"/>
+<Asset path="assets\textures\btn-research-terran-orbitalstrikerally.dds" Type="Image"/>
+<Asset path="notd medal icons\notd medal t2.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-clusterwarheads.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitengyc.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-frenzied-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-terran-energynova.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-marinemercenary.dds" Type="Image"/>
+<Asset path="assets\textures\stimboltorange.lvl0" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-blink-color.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitcommandoc.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-forcefield-color.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitpsiopsc.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-gather.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-predator.dds" Type="Image"/>
+<Asset path="notd medal icons\notd medal t3.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-blackhole-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-walloffire.dds" Type="Image"/>
+<Asset path="assets\textures\wireframe-terran-thor.dds" Type="Image"/>
+<Asset path="assets\textures\ui_techtree_iconframe_protoss.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-phasemine-zeratul.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-neosteelbunker.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-zerg-airattacks-level3.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitdemoa.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitmedicc.dds" Type="Image"/>
+<Asset path="assets\textures\btn-research-terran-commandcenterreactor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-crystal.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-gravitonbeam-color.dds" Type="Image"/>
+<Asset path="black.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-marauderkillsquad.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-jotunboosters.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitreconc.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-computerterminals.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitmarinea.dds" Type="Image"/>
+<Asset path="assets\textures\terranportraittransition_noise.lvl0" Type="Image"/>
+<Asset path="intelligence.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitdemob.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitassaultb.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitmarksmana.dds" Type="Image"/>
+<Asset path="assets\textures\campaign_decal_0001_01.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-disguise.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-caduceusreactor.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitdemoc.dds" Type="Image"/>
+<Asset path="assets\textures\btn-behavior-incapacitated.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-reapernitropacks.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitmarinec.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-generatecreep-color.dds" Type="Image"/>
+<Asset path="life bar - yellow.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-zerg-airattacks-level0.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitflamerb.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-psioniclash.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-reaper.dds" Type="Image"/>
+<Asset path="assets\textures\ui_research_frame_available_arrow_right.dds" Type="Image"/>
+<Asset path="black.tga" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-infestation.dds" Type="Image"/>
+<Asset path="agility.dds" Type="Image"/>
+<Asset path="notd medal icons\notd medal t6.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-marinetychus.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitmarksmanc.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-fireonthemove.dds" Type="Image"/>
+<Asset path="assets\textures\btn-research-terran-raven.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-corvidreactor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-marineraynor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-protoss-airweaponslevel2.dds" Type="Image"/>
+<Asset path="assets\textures\btn-research-terran-ultracapacitors.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitcommandob.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-nova-permacloak.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-defierbones.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlereports_toshendb.dds" Type="Image"/>
+<Asset path="assets\textures\btn-research-zerg-psidisruptor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-flamingbetty.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-protoss-immortal-dark.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitflamerc.dds" Type="Image"/>
+<Asset path="assets\textures\wireframe-terran-spectreprisoner.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-microfiltering.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-fullborecanisterammo.dds" Type="Image"/>
+<Asset path="assets\textures\campaign_decal_0001_03.lvl0" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-nano-botinjectors.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-hyperion.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-challengecounter.dds" Type="Image"/>
+<Asset path="assets\textures\ui_ingame_resourcesharing_closebutton_normalandpressed.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-psistorm-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-tosh-consumption.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-consumption.dds" Type="Image"/>
+<Asset path="assets\textures\archonstatue_diffuse.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-maraudermercenary.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-infernalpreigniter.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-infantryweaponslevel3.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-infantryarmorlevel3.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-creepmove.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-wraith.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-maelstromrounds.dds" Type="Image"/>
+<Asset path="notd medal icons\notd medal t1.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitpathfinderb.dds" Type="Image"/>
+<Asset path="notd medal icons\notd medal t5.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-terran-infantryweaponslevel2.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-antistructureweapon.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitmarksmanb.dds" Type="Image"/>
+<Asset path="assets\textures\btn-command-returncargo.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-firebat.dds" Type="Image"/>
+<Asset path="assets\textures\archonstatue_diffuse.lvl0" Type="Image"/>
+<Asset path="notd marine portraits\portraitengyb.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitforwardobserverc.dds" Type="Image"/>
+<Asset path="assets\textures\ui_loadingbar_bar_backdrop_zerg.dds" Type="Image"/>
+<Asset path="assets\textures\ui_research_frame_available_arrow_left.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-stimpack.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitflamera.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-selfixarmor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-research-terran-sciencevessel.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-zerg-rapidregeneration.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-nyxcloakingclassmodule.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-missioncase.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-bombardmentstrike-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-stimpack-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-nova.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-hallucination-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-vikingassault.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-scannersweep-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-psidisruption.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-tomahawkpowercell.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-tychustossgrenade.dds" Type="Image"/>
+<Asset path="notd rank icons\black ops insignia.dds" Type="Image"/>
+<Asset path="assets\textures\btn-tips-sellzergbiosamples.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-huntermissile-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-marauderswann.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-snipe.dds" Type="Image"/>
+<Asset path="assets\textures\btn-minimap-ping.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-ghost.dds" Type="Image"/>
+<Asset path="strength.dds" Type="Image"/>
+<Asset path="assets\textures\campaign_decal_0001_03.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-scannersweep.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-firebatmercenary.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-ares.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitengya.dds" Type="Image"/>
+<Asset path="assets\textures\btn-research-zerg-cellularreactor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-u238rounds.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitchemexperta.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-voidprison.dds" Type="Image"/>
+<Asset path="life bar - red.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlenet_glue_textfield.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-snipe-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-cloakfield-color.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-charge.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-penetratorround.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-heal.dds" Type="Image"/>
+<Asset path="assets\textures\decal_terran_0001_01.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-ripwavemissiles.dds" Type="Image"/>
+<Asset path="assets\textures\btn-techupgrade-terran-330mmbarragecannon.dds" Type="Image"/>
+<Asset path="assets\textures\btn-building-terran-techreactor.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-terran-ultrasonicpulse.dds" Type="Image"/>
+<Asset path="notd marine portraits\portraitpsiopsb.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlenet_glue_frame_bucket_long.dds" Type="Image"/>
+<Asset path="assets\textures\btn-ability-protoss-blink.dds" Type="Image"/>
+<Asset path="assets\textures\ui_loadingbar_bar_highlighted_protoss.dds" Type="Image"/>
+<Asset path="assets\textures\btn-building-terran-ghostacademy.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-marineraynorhev.dds" Type="Image"/>
+<Asset path="assets\textures\ui-editoricon-previewer_reload.dds" Type="Image"/>
+<Asset path="assets\textures\btn-building-terran-surveillancestation.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-nukepack.dds" Type="Image"/>
+<Asset path="assets\textures\ui_ingame_help_techtree_questionmark.dds" Type="Image"/>
+<Asset path="assets\textures\btn-upgrade-zerg-missileattacks-level3.dds" Type="Image"/>
+<Asset path="assets\textures\btn-unit-terran-medic.dds" Type="Image"/>
+<Actor id="SYSTEM_ActorConfig"/>
+<Actor id="LightOmniBlueLarge"/>
+<Actor id="LightOmniRedLarge"/>
+<Actor id="Antenna" Variations="0,1"/>
+<Actor id="TerranCliffGapFiller" Variations="1"/>
+<Actor id="BloodSplats" Variations="1,5"/>
+<Actor id="BraxisAlphaBarrels" Variations="0,1,2"/>
+<Actor id="BraxisAlphaBioDome" Variations="1,4"/>
+<Actor id="BraxisAlphaFloodLights" Variations="0,1"/>
+<Actor id="CastanarFloodlight" Variations="0,2"/>
+<Actor id="CastanarMonitorFloor" Variations="0,1,2"/>
+<Actor id="Decal" Variations="0,1,2,5,6,7,8,23,26"/>
+<Actor id="DecalProtoss" Variations="4"/>
+<Actor id="Fish"/>
+<Actor id="FogStormDeepWhite"/>
+<Actor id="GarageLarge" Variations="0"/>
+<Actor id="HavenDoodadsCrates" Variations="2,3,4"/>
+<Actor id="HavenTree" Variations="0,1,2,3,4,5,6,7"/>
+<Actor id="HavenTreeDeath" Variations="4,7"/>
+<Actor id="JunkPileSpaceShips" Variations="0"/>
+<Actor id="KorhalBuilding" Variations="2,5,7"/>
+<Actor id="LabWeaponCase" Variations="1"/>
+<Actor id="LandingTower"/>
+<Actor id="BridgeCardinalFootprint"/>
+<Actor id="MetalWall" Variations="4"/>
+<Actor id="MetalWallCorner" Variations="2"/>
+<Actor id="PortZionCrane"/>
+<Actor id="PortZionDumpster"/>
+<Actor id="PortZionJunkPile" Variations="0,1"/>
+<Actor id="PortZionTower" Variations="7"/>
+<Actor id="PowerCables" Variations="4,7"/>
+<Actor id="RockTower" Variations="0,1,2"/>
+<Actor id="RockVolcanicGiant" Variations="3,4,5"/>
+<Actor id="SpacePlatformArchwayLarge" Variations="1,2,3,4"/>
+<Actor id="SpacePlatformCablesLarge" Variations="2"/>
+<Actor id="SpacePlatformCautionLights" Variations="1"/>
+<Actor id="SpacePlatformCliffDoodadMedium" Variations="2"/>
+<Actor id="SpacePlatformCliffDoor" Variations="0,1"/>
+<Actor id="SpacePlatformSign" Variations="9"/>
+<Actor id="SpacePlatformTower" Variations="0,1,3"/>
+<Actor id="SpacePlatformWallDebris" Variations="1,6"/>
+<Actor id="SupplyTanks"/>
+<Actor id="WreckedCargoTruckCorpse" Variations="1,2"/>
+<Actor id="SpacePlatformCurtain" Variations="0"/>
+<Actor id="SpacePlatformCreepedDoodads" Variations="3"/>
+<Actor id="ValhallaThorConstruction" Variations="0,1"/>
+<Actor id="TarsonisArrow"/>
+<Actor id="TarsonisStation" Variations="0,1"/>
+<Actor id="ColonistHutDoodad" Variations="0,1,3,5,6,7"/>
+<Actor id="ColonistHutBurntOut" Variations="1"/>
+<Actor id="ColonistHutHalfBuilt" Variations="0,1"/>
+<Actor id="HomeSmallDoodad" Variations="0,1"/>
+<Actor id="HomeLargeDoodad" Variations="0"/>
+<Actor id="AvernusMeshFloorDoodad"/>
+<Actor id="CastanarHoldingPen"/>
+<Actor id="ColonistCorpse" Variations="3,4,10,13,14"/>
+<Actor id="MarineCorpse" Variations="2,4,5,6,9"/>
+<Actor id="ScientistCorpseGory" Variations="0,2,4,5,6"/>
+<Actor id="TerrainObjectCoolantPipesDoodad" Variations="0,1"/>
+<Actor id="TRaynor01RadarDish"/>
+<Actor id="TRaynor02MineLift"/>
+<Actor id="TTosh01RockSpires" Variations="0,1,2,3,4"/>
+<Actor id="ZergedCliff" Variations="3,4,8"/>
+<Actor id="CastanarMonitorFloorDestroyed" Variations="2"/>
+<Actor id="TRaynorDumpTruck"/>
+<Behavior id="SensorTowerRadar"/>
+<Behavior id="CloakField"/>
+<Behavior id="BloodFrenzySlow"/>
+<Behavior id="PerceptionStat"/>
+<Behavior id="RatingSpeedBonus6"/>
+<Behavior id="RatingSpeedBonus7"/>
+<Behavior id="HarvesterofSorrowTarget"/>
+<Behavior id="RatingSpeedBonus2"/>
+<Behavior id="RatingSpeedBonus3"/>
+<Behavior id="RatingSpeedBonus4"/>
+<Behavior id="RatingSpeedBonus5"/>
+<Behavior id="ShieldBonus"/>
+<Behavior id="SightBonus"/>
+<Behavior id="PhantomSuicide"/>
+<Behavior id="AssaultJumpShieldArmor"/>
+<Behavior id="CutsceneFreeze"/>
+<Behavior id="CutsceneRegen"/>
+<Behavior id="Rampage30movespeed"/>
+<Behavior id="ShopItem"/>
+<Behavior id="ReaperCannonUpgrade"/>
+<Behavior id="Backstab"/>
+<Behavior id="GunshipSupportRoll"/>
+<Behavior id="GunshipSupportSpeed"/>
+<Behavior id="GunshipHellfireMissileLockedOn"/>
+<Behavior id="C6Armor"/>
+<Behavior id="ConcentrationLevel2"/>
+<Behavior id="ConcentrationLevel3"/>
+<Behavior id="Rampage"/>
+<Behavior id="GunshipSupport"/>
+<Behavior id="ItemWeight1"/>
+<Behavior id="ItemWeight100"/>
+<Behavior id="ItemWeight1000"/>
+<Behavior id="ItemWeight2"/>
+<Behavior id="ItemWeight20"/>
+<Behavior id="ItemWeight200"/>
+<Behavior id="ItemWeight2000"/>
+<Behavior id="ItemWeight5"/>
+<Behavior id="ItemWeight10"/>
+<Behavior id="ItemWeight50"/>
+<Behavior id="ItemWeight500"/>
+<Behavior id="MindLinkLevel1"/>
+<Behavior id="MindLinkLevel2"/>
+<Behavior id="MindLinkLevel3"/>
+<Behavior id="ShortCircuit"/>
+<Behavior id="Blind"/>
+<Behavior id="ConcentrationLevel1"/>
+<Behavior id="Cripple"/>
+<Behavior id="C4Armor"/>
+<Behavior id="C2Armor"/>
+<Behavior id="Detector5"/>
+<Behavior id="AgilityStat"/>
+<Behavior id="StrengthStat"/>
+<Behavior id="IntelligenceStat"/>
+<Behavior id="EnduranceStat"/>
+<Behavior id="LaserDesignatorLevel3"/>
+<Behavior id="LaserDesignatorReveal"/>
+<Behavior id="OpenWound"/>
+<Behavior id="Venom"/>
+<Behavior id="OccularImplants"/>
+<Behavior id="Reload"/>
+<Behavior id="Madness"/>
+<Behavior id="WeaponSwitch"/>
+<Effect id="DevastatorMissilesLaunchMissile"/>
+<Effect id="YamatoGunSpecialLaunchMissile"/>
+<Effect id="Initial"/>
+<Effect id="FireMissionLevel1CreatePersistent"/>
+<Effect id="LaserDesignatorLevel1Set"/>
+<Effect id="MindLinkDamage"/>
+<Effect id="OSOKLevel3BarrettBossDamage"/>
+<Effect id="OSOKLevel3MarksmanBossDamage"/>
+<Effect id="AnticipationDamage"/>
+<Effect id="ApplyCriticalStrikeDummy"/>
+<Effect id="Backstab"/>
+<Effect id="GunshipSupportHellfireMissileIndicatorPersistent"/>
+<Effect id="GunshipHeight"/>
+<Effect id="GunshipSupportGaussCannonIndicatorPersistent"/>
+<Effect id="GunshipSupportHellfireMissileLaserSightDummy"/>
+<Effect id="MentalProjectionSearchDummy2"/>
+<Effect id="FireMissionLevel1DamageVar1"/>
+<Effect id="FireMissionLevel1DamageVar2"/>
+<Effect id="FireMissionLevel1DamageVar3"/>
+<Effect id="FireMissionLevel2DamageVar1"/>
+<Effect id="FireMissionLevel2DamageVar2"/>
+<Effect id="FireMissionLevel2DamageVar3"/>
+<Effect id="FireMissionLevel3DamageVar1"/>
+<Effect id="FireMissionLevel3DamageVar2"/>
+<Effect id="FireMissionLevel3DamageVar3"/>
+<Effect id="ForwardObserverLaunch"/>
+<Effect id="ForwardObserverShellFlight"/>
+<Effect id="Concentration"/>
+<Effect id="ShockwaveBarrageSearchLevel1Var1"/>
+<Effect id="ShockwaveBarrageSearchLevel1Var2"/>
+<Effect id="ShockwaveBarrageSearchLevel2Var1"/>
+<Effect id="ShockwaveBarrageSearchLevel2Var12"/>
+<Effect id="TX179AsgardHellfireMissileLaunchGuided"/>
+<Effect id="SynergyDamage"/>
+<Effect id="FireVulnerabilityDamage"/>
+<Effect id="ReplenishMines2"/>
+<Effect id="ReplenishMines3"/>
+<Effect id="CriticalStrike"/>
+<Light id="NOTDAlphaCompanyLight"/>
+<Light id="NOTDSecTeamLight"/>
+<Light id="NOTDDarkness"/>
+<Light id="NOTDInception"/>
+<Light id="NOTDApoptosisLighting"/>
+<Light id="NOTDGameOverLight"/>
+<Light id="UnknownLight"/>
+<Model id="PingArrow"/>
+<Model id="PingBoss"/>
+<Model id="PingObjective"/>
+<Model id="PingWarning"/>
+<Model id="BriefingUnitSelectRedSmall"/>
+<Model id="LevelUp"/>
+<Model id="RankUp"/>
+<Model id="GunshipSupportInactiveFO"/>
+<Sound id="Transmission"/>
+<Sound id="TUIWarning"/>
+<Sound id="Marine_Stimpack"/>
+<Sound id="Raven_AutoTurretReady"/>
+<Sound id="Raven_AutoTurretReleaseImpact"/>
+<Sound id="Marine_Yes"/>
+<Sound id="UI_BnetDropdownClose"/>
+<Sound id="UI_BnetSearchOpen"/>
+<Sound id="Ping"/>
+<Sound id="UI_Achievement"/>
+<Sound id="UI_ScreenWipe"/>
+<Sound id="UI_ScoreScreenMissionSummary"/>
+<Sound id="UI_ScoreScreenMissionTime"/>
+<Sound id="UI_TipButtonAppear"/>
+<Sound id="UI_ObjectiveFailed"/>
+<Sound id="UI_TextPrintout"/>
+<Sound id="Dialogue_TransmissionStart"/>
+<Sound id="UI_TerranNewUnitAcquired"/>
+<Sound id="UI_TerranRescueUnit"/>
+<Sound id="UI_TerranKlaxonAlert"/>
+<Sound id="TUIWarningPing"/>
+<Sound id="TValerian02ADominionMarine600039"/>
+<Sound id="TScene11Warfield017"/>
+<Sound id="THorner03DominionMarine100029"/>
+<Sound id="THorner03Adjutant00053"/>
+<Sound id="BoltPull"/>
+<Sound id="GunshipSupportHellfireMissileLockOn"/>
+<Sound id="GunshipEntry"/>
+<Sound id="GunshipLiftOff"/>
+<Sound id="GunshipSupportLeavingAcknowledge"/>
+<Sound id="GunshipSupportGaussCannonAcknowledge"/>
+<Sound id="GunshipSupportHellfireMissileAcknowledge"/>
+<Sound id="GunshipSupportEntryAcknowledge"/>
+<Sound id="HeartBeatSensorPing"/>
+<Sound id="InceptionStart"/>
+<Sound id="InceptionEnd"/>
+<Sound id="ShotgunPump"/>
+<Sound id="ClipOut"/>
+<Sound id="ClipIn"/>
+<Sound id="Heartbeat"/>
+<Soundtrack id="Music_EndCreditsO"/>
+<Soundtrack id="BootCampSoundtrack"/>
+<Soundtrack id="VictoryMusic"/>
+<Soundtrack id="NOTDCredits"/>
+<Terrain id="Haven"/>
+<TerrainObject id="AvernusGridFloorTO1"/>
+<TerrainObject id="TRaynor02DigSite"/>
+<TerrainObject id="TerrainObjectCoolantPipes2_2"/>
+<Unit id="Baneling"/>
+<Unit id="Factory"/>
+<Unit id="Armory"/>
+<Unit id="Marine"/>
+<Unit id="Egg"/>
+<Unit id="Zergling"/>
+<Unit id="Cow"/>
+<Unit id="DestructibleDebris4x4"/>
+<Unit id="PathingBlocker1x1"/>
+<Unit id="ShapeArrowPointer"/>
+<Unit id="SentryGun"/>
+<Unit id="SecurityGateStraightHorizontalBF"/>
+<Unit id="Spectre"/>
+<Unit id="DominionKillTeam"/>
+<Unit id="InfestedCocoon"/>
+<Unit id="TychusChaingun"/>
+<Unit id="GhostLaserLines"/>
+<Unit id="TransportTruck"/>
+<Unit id="ExplodingBarrelLarge"/>
+<Unit id="Hyperion"/>
+<Unit id="TRaynor01SignsDestructible1" Variations="1,2"/>
+<Unit id="TerranDropPod"/>
+<Unit id="Medic"/>
+<Unit id="PortJunker"/>
+<Unit id="MobileInfantryRifleman"/>
+<Unit id="Immortal2"/>
+<Unit id="Blindling"/>
+<Unit id="Technician"/>
+<Unit id="Parasite"/>
+<Unit id="ZombieCreep"/>
+<Unit id="NapalmFire"/>
+<Unit id="AmmoBox"/>
+<Unit id="BarrettM112"/>
+<Unit id="Chaingun"/>
+<Unit id="L3GrenadeLauncher"/>
+<Unit id="Magazine"/>
+<Unit id="StingerMK3"/>
+<Unit id="APAmmo" Variations="0"/>
+<Unit id="AntiVenom"/>
+<Unit id="ChemicalExpert"/>
+<Unit id="RiotShield" Variations="0,1"/>
+<Unit id="Pathfinder"/>
+<Unit id="Flare"/>
+<Unit id="RoadFlareFire"/>
+<Unit id="XS4Armor"/>
+<Unit id="ZerglingPet"/>
+<Unit id="ComplianceNexus"/>
+<Unit id="Hydralisk2"/>
+<Unit id="Kerrigan2"/>
+<Unit id="Brutalisk2"/>
+<Unit id="PipedreamsEmporium"/>
+<Unit id="Kitten"/>
+<Unit id="TerraTron"/>
+<Unit id="TaurenSpaceMarine2"/>
+<Unit id="Tassadar2"/>
+<Unit id="HybridProtoss"/>
+<Unit id="MurlocMarine2"/>
+<Unit id="HybridZerg"/>
+<Unit id="Zeratul2"/>
+<Unit id="KineticArmor"/>
+<Unit id="HighCapacityClip" Variations="0"/>
+<Unit id="ReactiveArmor"/>
+<Unit id="C6Armor"/>
+<Unit id="Crowbar7"/>
+<Unit id="UA420AssaultRifle"/>
+<Unit id="M5PulseRifle"/>
+<Unit id="MP9A2SubMachineGun"/>
+<Unit id="Flamethrower3"/>
+<Unit id="Ivax"/>
+<Unit id="Predator2"/>
+<Unit id="PsiOps"/>
+<Unit id="SurveillanceFlare"/>
+<Unit id="Sheep2"/>
+<Unit id="RoadFlare" Variations="0"/>
+<Unit id="Shotgun"/>
+<Unit id="C2Armor"/>
+<Unit id="C4Armor"/>
+<Unit id="CombatMobilityAugment" Variations="0"/>
+<Unit id="P45GaussPistol"/>
+<Unit id="Drone3"/>
+<Unit id="DummyItemCarrier"/>
+<Unit id="FMJAmmo" Variations="0"/>
+<Unit id="Flamethrower"/>
+<Unit id="GaussRifle"/>
+<Unit id="HEAmmo" Variations="0"/>
+<Unit id="HPAmmo" Variations="0"/>
+<Unit id="PersonnelArcReactor" Variations="0"/>
+<Unit id="ThermalSight" Variations="0"/>
+<Unit id="ArchonPet"/>
+<Unit id="LaserRifle"/>
+<Unit id="Rifleman"/>
+<Unit id="ForwardObserver"/>
+<Unit id="Medpack"/>
+<Unit id="Bandage"/>
+<Unit id="OccularImplants" Variations="0"/>
+<Unit id="Engineer"/>
+<Unit id="SniperRifle"/>
+<Unit id="Commando"/>
+<Weapon id="LongboltMissile"/>
+</Preload>

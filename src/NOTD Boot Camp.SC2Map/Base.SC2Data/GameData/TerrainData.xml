@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CTerrain id="Meinhoff">
+        <Lighting value="CustomLight"/>
+        <BlendTextures index="4" value="AvernusRock"/>
+        <CliffSets value="ValhallaCliff1"/>
+        <CliffSets value="ValhallaCliff0"/>
+        <FogDensity value="0.300000"/>
+    </CTerrain>
+</Catalog>
