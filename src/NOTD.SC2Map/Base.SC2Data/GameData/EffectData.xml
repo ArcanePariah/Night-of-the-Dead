@@ -729,7 +729,7 @@
     </CEffectApplyBehavior>
     <CEffectSet id="ExecuteNormalTargetsSet">
         <EditorCategories value=""/>
-        <EffectArray value="ExecuteNormalTartgets"/>
+        <EffectArray value="ExecuteNormalTargets"/>
         <EffectArray value="ExecuteMovespeedBonus"/>
     </CEffectSet>
     <CEffectApplyBehavior id="ExecuteMovespeedBonus">
