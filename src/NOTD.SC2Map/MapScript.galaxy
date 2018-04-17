@@ -11569,6 +11569,35 @@ void gf_RegisterMarineWithEvents (unit lp_marine) {
     TriggerAddEventUnitDied(gt_PsiOpsDeath, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)));
     TriggerAddEventUnitDamaged(gt_ReceivesDamage, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), c_unitDamageTypeAny, c_unitDamageNonFatal, null);
     TriggerAddEventUnitSelected(gt_ShowInventory, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), c_playerAny, true);
+    TriggerAddEventUnitGainLevel(gt_LevelUp, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)));
+    TriggerAddEventUnitRegion(gt_MineShaft, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(156), true);
+    TriggerAddEventUnitRegion(gt_MineShaft, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(156), false);
+    TriggerAddEventUnitRegion(gt_MineShaft, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(157), true);
+    TriggerAddEventUnitRegion(gt_MineShaft, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(157), false);
+    TriggerAddEventUnitRegion(gt_OM1EnterCommTower, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(126), true);
+    TriggerAddEventUnitRegion(gt_OM6CommTowerTransmission, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(126), true);
+    TriggerAddEventUnitRegion(gt_OM2aOgilvyFound, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(179), true);
+    TriggerAddEventUnitRegion(gt_OM2aOgilvyFound, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(180), true);
+    TriggerAddEventUnitRegion(gt_OM2aOgilvyFound, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(181), true);
+    TriggerAddEventUnitRegion(gt_OM2bIvanFound, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(179), true);
+    TriggerAddEventUnitRegion(gt_OM2bIvanFound, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(180), true);
+    TriggerAddEventUnitRegion(gt_OM2bIvanFound, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(181), true);
+    TriggerAddEventUnitRegion(gt_OM3ArmoryTurrets, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(186), true);
+    TriggerAddEventUnitRegion(gt_OM3ArmoryTurrets, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(186), false);
+    TriggerAddEventUnitRegion(gt_OM3ArmoryTurrets, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(187), true);
+    TriggerAddEventUnitRegion(gt_OM3ArmoryTurrets, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(187), false);
+    TriggerAddEventUnitRegion(gt_OM5RamirezsTaunts, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(197), true);
+    TriggerAddEventUnitRegion(gt_OM8EnterBridgeTerminal, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(207), true);
+    TriggerAddEventUnitRegion(gt_OM11Delta2, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(229), true);
+    TriggerAddEventUnitRegion(gt_OM11Delta2, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(229), false);
+    TriggerAddEventUnitRegion(gt_OM11Delta2, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(230), true);
+    TriggerAddEventUnitRegion(gt_OM11Delta2, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(230), false);
+    TriggerAddEventUnitRegion(gt_OM12EnterPrisonerHoldingArea, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(49), true);
+    TriggerAddEventUnitRegion(gt_OM12Prisoner1JohnAnderton, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(50), true);
+    TriggerAddEventUnitRegion(gt_OM12Prisoner2FaricaAugustin, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(134), true);
+    TriggerAddEventUnitRegion(gt_ShopForceClose, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(150), false);
+    TriggerAddEventUnitRegion(gt_ShopForceClose, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(173), false);
+    TriggerAddEventUnitRegion(gt_ShopForceClose, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(178), false);
 }
 
 trigger auto_gf_AmmoUICreation_Trigger = null;
@@ -16321,14 +16350,6 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
         if (!((UnitIsAlive(EventUnit()) == true))) {
             return false;
         }
-
-        if (!((lv_attackingWeapon != "Crowbar"))) {
-            return false;
-        }
-
-        if (!((lv_attackingWeapon != "StingerMK3"))) {
-            return false;
-        }
     }
 
     // Actions
@@ -16352,7 +16373,17 @@ bool gt_AmmoUsage_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_AmmoUsage_Init () {
     gt_AmmoUsage = TriggerCreate("gt_AmmoUsage_Func");
-    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, null);
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "BarrettM112");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "Chaingun");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "Shotgun");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "LaserRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "M5PulseRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "MP9A2SubMachineGun");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "UA420AssaultRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "Flamethrower");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "SniperRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "GuassRifle");
+    TriggerAddEventUnitStartedAttack2(gt_AmmoUsage, null, "P38ScytheGuassPistol");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -16710,7 +16741,6 @@ bool gt_LevelUp_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_LevelUp_Init () {
     gt_LevelUp = TriggerCreate("gt_LevelUp_Func");
-    TriggerAddEventUnitGainLevel(gt_LevelUp, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -17227,10 +17257,6 @@ bool gt_InfestorKilled_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((UnitGetType(EventUnit()) == "Infestor2") || (UnitGetType(EventUnit()) == "InfestorBurrowed2")))) {
-            return false;
-        }
-
         if (!((UnitHasBehavior(EventUnit(), "PhantomSuicide") == false))) {
             return false;
         }
@@ -17391,13 +17417,6 @@ bool gt_InfestorAI_Func (bool testConds, bool runActions) {
     lv_infestorOwner = UnitGetOwner(EventUnit());
     lv_banelingEggs = UnitGroupEmpty();
 
-    // Conditions
-    if (testConds) {
-        if (!(((UnitGetType(EventUnit()) == "Infestor2") || (UnitGetType(EventUnit()) == "InfestorBurrowed2")))) {
-            return false;
-        }
-    }
-
     // Actions
     if (!runActions) {
         return true;
@@ -17475,7 +17494,11 @@ bool gt_InfestorAI_Func (bool testConds, bool runActions) {
 void gt_InfestorAI_Init () {
     gt_InfestorAI = TriggerCreate("gt_InfestorAI_Func");
     TriggerEnable(gt_InfestorAI, false);
-    TriggerAddEventUnitAttacked2(gt_InfestorAI, null, null);
+    TriggerAddEventUnitAttacked2(gt_InfestorAI, UnitRefFromVariable("gv_infestor[1]"), null);
+    TriggerAddEventUnitAttacked2(gt_InfestorAI, UnitRefFromVariable("gv_infestor[2]"), null);
+    TriggerAddEventUnitAttacked2(gt_InfestorAI, UnitRefFromVariable("gv_infestor[3]"), null);
+    TriggerAddEventUnitAttacked2(gt_InfestorAI, UnitRefFromVariable("gv_infestor[4]"), null);
+    TriggerAddEventUnitAttacked2(gt_InfestorAI, UnitRefFromVariable("gv_infestor[5]"), null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -18414,13 +18437,6 @@ bool gt_MineShaft_Func (bool testConds, bool runActions) {
 
     // Variable Initialization
 
-    // Conditions
-    if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-    }
-
     // Actions
     if (!runActions) {
         return true;
@@ -18473,10 +18489,6 @@ bool gt_MineShaft_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_MineShaft_Init () {
     gt_MineShaft = TriggerCreate("gt_MineShaft_Func");
-    TriggerAddEventUnitRegion(gt_MineShaft, null, RegionFromId(156), true);
-    TriggerAddEventUnitRegion(gt_MineShaft, null, RegionFromId(156), false);
-    TriggerAddEventUnitRegion(gt_MineShaft, null, RegionFromId(157), true);
-    TriggerAddEventUnitRegion(gt_MineShaft, null, RegionFromId(157), false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -18728,7 +18740,8 @@ bool gt_MineBossKill_Func (bool testConds, bool runActions) {
 void gt_MineBossKill_Init () {
     gt_MineBossKill = TriggerCreate("gt_MineBossKill_Func");
     TriggerEnable(gt_MineBossKill, false);
-    TriggerAddEventUnitDied(gt_MineBossKill, null);
+    TriggerAddEventUnitDied(gt_MineBossKill, UnitRefFromVariable("gv_zeus"));
+    TriggerAddEventUnitDied(gt_MineBossKill, UnitRefFromVariable("gv_leto"));
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -18757,10 +18770,6 @@ bool gt_OM1EnterCommTower_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-
         if (!((gv_gameOver == false))) {
             return false;
         }
@@ -18870,8 +18879,6 @@ bool gt_OM1EnterCommTower_Func (bool testConds, bool runActions) {
 void gt_OM1EnterCommTower_Init () {
     gt_OM1EnterCommTower = TriggerCreate("gt_OM1EnterCommTower_Func");
     TriggerEnable(gt_OM1EnterCommTower, false);
-    TriggerAddEventUnitRegion(gt_OM1EnterCommTower, null, RegionFromId(126), true);
-    TriggerAddEventUnitRegion(gt_OM1EnterCommTower, null, RegionFromId(126), false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19031,10 +19038,6 @@ bool gt_OM2aOgilvyFound_Func (bool testConds, bool runActions) {
         if (!((EventUnitRegion() == gv_ogilvysHideout))) {
             return false;
         }
-
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
     }
 
     // Actions
@@ -19076,9 +19079,6 @@ bool gt_OM2aOgilvyFound_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_OM2aOgilvyFound_Init () {
     gt_OM2aOgilvyFound = TriggerCreate("gt_OM2aOgilvyFound_Func");
-    TriggerAddEventUnitRegion(gt_OM2aOgilvyFound, null, RegionFromId(179), true);
-    TriggerAddEventUnitRegion(gt_OM2aOgilvyFound, null, RegionFromId(180), true);
-    TriggerAddEventUnitRegion(gt_OM2aOgilvyFound, null, RegionFromId(181), true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19098,10 +19098,6 @@ bool gt_OM2bIvanFound_Func (bool testConds, bool runActions) {
     // Conditions
     if (testConds) {
         if (!((EventUnitRegion() == gv_ogilvysHideout))) {
-            return false;
-        }
-
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
             return false;
         }
     }
@@ -19139,9 +19135,6 @@ bool gt_OM2bIvanFound_Func (bool testConds, bool runActions) {
 void gt_OM2bIvanFound_Init () {
     gt_OM2bIvanFound = TriggerCreate("gt_OM2bIvanFound_Func");
     TriggerEnable(gt_OM2bIvanFound, false);
-    TriggerAddEventUnitRegion(gt_OM2bIvanFound, null, RegionFromId(179), true);
-    TriggerAddEventUnitRegion(gt_OM2bIvanFound, null, RegionFromId(180), true);
-    TriggerAddEventUnitRegion(gt_OM2bIvanFound, null, RegionFromId(181), true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19160,13 +19153,6 @@ bool gt_OM3ArmoryTurrets_Func (bool testConds, bool runActions) {
     unit auto7029B692_var;
 
     // Variable Initialization
-
-    // Conditions
-    if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-    }
 
     // Actions
     if (!runActions) {
@@ -19215,8 +19201,6 @@ bool gt_OM3ArmoryTurrets_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_OM3ArmoryTurrets_Init () {
     gt_OM3ArmoryTurrets = TriggerCreate("gt_OM3ArmoryTurrets_Func");
-    TriggerAddEventUnitRegion(gt_OM3ArmoryTurrets, null, RegionFromId(186), true);
-    TriggerAddEventUnitRegion(gt_OM3ArmoryTurrets, null, RegionFromId(187), true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19510,10 +19494,6 @@ bool gt_OM5RamirezsTaunts_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     // Conditions
     if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-
         if (!((UnitIsAlive(UnitFromId(824)) == true))) {
             return false;
         }
@@ -19533,7 +19513,6 @@ bool gt_OM5RamirezsTaunts_Func (bool testConds, bool runActions) {
 void gt_OM5RamirezsTaunts_Init () {
     gt_OM5RamirezsTaunts = TriggerCreate("gt_OM5RamirezsTaunts_Func");
     TriggerEnable(gt_OM5RamirezsTaunts, false);
-    TriggerAddEventUnitRegion(gt_OM5RamirezsTaunts, null, RegionFromId(197), true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19541,13 +19520,6 @@ void gt_OM5RamirezsTaunts_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_OM6CommTowerTransmission_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
-    // Conditions
-    if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-    }
-
     // Actions
     if (!runActions) {
         return true;
@@ -19575,8 +19547,6 @@ bool gt_OM6CommTowerTransmission_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_OM6CommTowerTransmission_Init () {
     gt_OM6CommTowerTransmission = TriggerCreate("gt_OM6CommTowerTransmission_Func");
-    TriggerAddEventUnitRegion(gt_OM6CommTowerTransmission, null, RegionFromId(126), true);
-    TriggerAddEventUnitRegion(gt_OM6CommTowerTransmission, null, RegionFromId(126), false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19641,13 +19611,6 @@ bool gt_OM8EnterBridgeTerminal_Func (bool testConds, bool runActions) {
     // Variable Initialization
     lv_crazyman = EventUnit();
 
-    // Conditions
-    if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-    }
-
     // Actions
     if (!runActions) {
         return true;
@@ -19696,8 +19659,6 @@ bool gt_OM8EnterBridgeTerminal_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_OM8EnterBridgeTerminal_Init () {
     gt_OM8EnterBridgeTerminal = TriggerCreate("gt_OM8EnterBridgeTerminal_Func");
-    TriggerAddEventUnitRegion(gt_OM8EnterBridgeTerminal, null, RegionFromId(207), true);
-    TriggerAddEventUnitRegion(gt_OM8EnterBridgeTerminal, null, RegionFromId(207), false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19753,13 +19714,6 @@ bool gt_OM11Delta2_Func (bool testConds, bool runActions) {
     unit auto20D6E7CE_var;
 
     // Variable Initialization
-
-    // Conditions
-    if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-    }
 
     // Actions
     if (!runActions) {
@@ -19832,10 +19786,6 @@ bool gt_OM11Delta2_Func (bool testConds, bool runActions) {
 void gt_OM11Delta2_Init () {
     gt_OM11Delta2 = TriggerCreate("gt_OM11Delta2_Func");
     TriggerEnable(gt_OM11Delta2, false);
-    TriggerAddEventUnitRegion(gt_OM11Delta2, null, RegionFromId(229), true);
-    TriggerAddEventUnitRegion(gt_OM11Delta2, null, RegionFromId(229), false);
-    TriggerAddEventUnitRegion(gt_OM11Delta2, null, RegionFromId(230), true);
-    TriggerAddEventUnitRegion(gt_OM11Delta2, null, RegionFromId(230), false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19851,10 +19801,6 @@ bool gt_OM12EnterPrisonerHoldingArea_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-
         if (!((gv_gameOver == false))) {
             return false;
         }
@@ -19875,8 +19821,6 @@ bool gt_OM12EnterPrisonerHoldingArea_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_OM12EnterPrisonerHoldingArea_Init () {
     gt_OM12EnterPrisonerHoldingArea = TriggerCreate("gt_OM12EnterPrisonerHoldingArea_Func");
-    TriggerAddEventUnitRegion(gt_OM12EnterPrisonerHoldingArea, null, RegionFromId(49), true);
-    TriggerAddEventUnitRegion(gt_OM12EnterPrisonerHoldingArea, null, RegionFromId(49), false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19892,10 +19836,6 @@ bool gt_OM12Prisoner1JohnAnderton_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-
         if (!((gv_gameOver == false))) {
             return false;
         }
@@ -19941,8 +19881,6 @@ bool gt_OM12Prisoner1JohnAnderton_Func (bool testConds, bool runActions) {
 void gt_OM12Prisoner1JohnAnderton_Init () {
     gt_OM12Prisoner1JohnAnderton = TriggerCreate("gt_OM12Prisoner1JohnAnderton_Func");
     TriggerEnable(gt_OM12Prisoner1JohnAnderton, false);
-    TriggerAddEventUnitRegion(gt_OM12Prisoner1JohnAnderton, null, RegionFromId(50), true);
-    TriggerAddEventUnitRegion(gt_OM12Prisoner1JohnAnderton, null, RegionFromId(50), false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -19958,10 +19896,6 @@ bool gt_OM12Prisoner2FaricaAugustin_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!((UnitGroupHasUnit(gv_marines, EventUnit()) == true))) {
-            return false;
-        }
-
         if (!((gv_gameOver == false))) {
             return false;
         }
@@ -20007,8 +19941,6 @@ bool gt_OM12Prisoner2FaricaAugustin_Func (bool testConds, bool runActions) {
 void gt_OM12Prisoner2FaricaAugustin_Init () {
     gt_OM12Prisoner2FaricaAugustin = TriggerCreate("gt_OM12Prisoner2FaricaAugustin_Func");
     TriggerEnable(gt_OM12Prisoner2FaricaAugustin, false);
-    TriggerAddEventUnitRegion(gt_OM12Prisoner2FaricaAugustin, null, RegionFromId(134), true);
-    TriggerAddEventUnitRegion(gt_OM12Prisoner2FaricaAugustin, null, RegionFromId(134), false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -38984,14 +38916,6 @@ bool gt_ShopForceClose_Func (bool testConds, bool runActions) {
 
     // Conditions
     if (testConds) {
-        if (!(((lv_eventPlayer >= 1) && (lv_eventPlayer <= 8)))) {
-            return false;
-        }
-
-        if (!((gv_marineHero[lv_eventPlayer] == lv_eventUnit))) {
-            return false;
-        }
-
         if (!((DialogIsVisible(gv_shop[lv_eventPlayer], lv_eventPlayer) == true))) {
             return false;
         }
@@ -39015,9 +38939,6 @@ bool gt_ShopForceClose_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_ShopForceClose_Init () {
     gt_ShopForceClose = TriggerCreate("gt_ShopForceClose_Func");
-    TriggerAddEventUnitRegion(gt_ShopForceClose, null, RegionFromName("ShopRegionA"), false);
-    TriggerAddEventUnitRegion(gt_ShopForceClose, null, RegionFromName("ShopRegionB"), false);
-    TriggerAddEventUnitRegion(gt_ShopForceClose, null, RegionFromName("ShopRegionC"), false);
 }
 
 //--------------------------------------------------------------------------------------------------
