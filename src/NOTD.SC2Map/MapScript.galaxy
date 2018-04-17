@@ -473,6 +473,7 @@ const int gv_numberofPlayers = 8;
 const int gv_indexBaseValue = 1;
 const int gv_numberofTalents = 10;
 const int gv_numberofMedals = 10;
+const int gv_infestorsCount = 5;
 const string gv_dialogIntialization = "Initialize Dialogs";
 const int gv_stories = 4;
 const int gv_costofWeaponMod = 10000;
@@ -689,7 +690,6 @@ timer gv_globalTimer;
 int gv_globalTimerWindow;
 int gv_securityCam;
 unit[6] gv_infestor;
-int gv_infestorsAlive;
 unitgroup gv_colonists;
 int gv_colonistsRescued;
 bool gv_nightmare;
@@ -751,6 +751,7 @@ bool[9] gv_victimOfTK;
 int gv_tKedPlayer;
 int gv_griefingPlayer;
 bool[9] gv_playerHasRankedUp;
+unitgroup gv_infestors;
 bool gv_infestorLock;
 bool gv_infestorAggroMode;
 int gv_outbreakCounter;
@@ -1121,7 +1122,6 @@ void InitGlobals () {
     gv_hexCycle = 0.5;
     gv_globalTimer = TimerCreate();
     gv_globalTimerWindow = c_timerWindowNone;
-    gv_infestorsAlive = 5;
     gv_colonists = UnitGroupEmpty();
     gv_dummySound = SoundLink("EditorDefaultSound", -1);
     for (init_i = 0; init_i <= 8; init_i += 1) {
@@ -1176,6 +1176,7 @@ void InitGlobals () {
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_marineRounds[init_i] = 30;
     }
+    gv_infestors = UnitGroupEmpty();
     gv_outbreakCounter = 100;
     gv_victoryButton1 = c_invalidDialogControlId;
     gv_victoryButton2 = c_invalidDialogControlId;
@@ -15020,7 +15021,7 @@ bool gt_Environment_Func (bool testConds, bool runActions) {
     unitgroup auto72EDAB35_g;
     int auto72EDAB35_u;
     unit auto72EDAB35_var;
-    int auto83606DB6_ae;
+    const int auto83606DB6_ae = gv_infestorsCount;
     int auto83606DB6_var;
 
     // Variable Initialization
@@ -15111,11 +15112,11 @@ bool gt_Environment_Func (bool testConds, bool runActions) {
     }
     Wait(10.0, c_timeReal);
     Wait(80.0, c_timeReal);
-    auto83606DB6_ae = gv_infestorsAlive;
     auto83606DB6_var = gv_indexBaseValue;
     for ( ; auto83606DB6_var <= auto83606DB6_ae; auto83606DB6_var += 1 ) {
         UnitCreate(1, "InfestorBurrowed2", 0, 14, RegionRandomPoint(RegionPlayableMap()), libNtve_gf_RandomAngle());
         gv_infestor[auto83606DB6_var] = UnitLastCreated();
+        UnitGroupAdd(gv_infestors, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowInfestor", 0)), c_orderQueueReplace);
         UnitIssueOrder(UnitLastCreated(), OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionCircle(UnitGetPosition(UnitLastCreated()), 50.0))), c_orderQueueReplace);
         Wait(0.3, c_timeGame);
@@ -17271,7 +17272,7 @@ bool gt_InfestorKilled_Func (bool testConds, bool runActions) {
         Wait(1.0, c_timeGame);
     }
     gv_infestorLock = true;
-    gv_infestorsAlive -= 1;
+    UnitGroupRemove(gv_infestors, EventUnit());
     libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Small, libNtve_ge_ExplosionType_Zerg, lv_localPointA);
     libNtve_gf_UnitCreateFacingPoint(1, "ZombieCreepLarge", 0, 14, lv_localPointA, RegionRandomPoint(RegionPlayableMap()));
     if ((gv_nightmare == true)) {
@@ -17300,14 +17301,14 @@ bool gt_InfestorKilled_Func (bool testConds, bool runActions) {
         }
     }
     SoundPlay(SoundLink("Dialogue_TransmissionStart", -1), PlayerGroupActive(), 100.0, 0.0);
-    ObjectiveSetName(gv_infestorObjective, (StringExternal("Param/Value/B54DE278") + (IntToText((5 - gv_infestorsAlive)) + StringExternal("Param/Value/7616303C"))));
-    if ((gv_infestorsAlive == 4)) {
+    ObjectiveSetName(gv_infestorObjective, (StringExternal("Param/Value/B54DE278") + (IntToText((5 - UnitGroupCount(gv_infestors, c_unitCountAlive))) + StringExternal("Param/Value/7616303C"))));
+    if ((UnitGroupCount(gv_infestors, c_unitCountAlive) == 4)) {
         ObjectiveCreate(StringExternal("Param/Value/7029D8C6"), StringExternal("Param/Value/BEC11F18"), c_objectiveStateActive, false);
         gv_infestorObjective = ObjectiveLastCreated();
         gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/E12BC6D4"));
         gf_TipNOTD(500, StringExternal("Param/Value/80F76E70"));
     }
-    else if ((gv_infestorsAlive == 0)) {
+    else if ((UnitGroupCount(gv_infestors, c_unitCountAlive) == 0)) {
         TriggerEnable(TriggerGetCurrent(), false);
         TriggerEnable(gt_InfestorAI, false);
         gf_RadioNOTD(PlayerName(UnitGetOwner(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), StringExternal("Param/Value/C53AFF68"));
@@ -17331,8 +17332,8 @@ bool gt_InfestorKilled_Func (bool testConds, bool runActions) {
         ObjectiveDestroy(gv_infestorObjective);
         UIClearMessages(PlayerGroupActive(), c_messageAreaDirective);
     }
-    else if ((gv_infestorsAlive > 1)) {
-        TextExpressionSetToken("Param/Expression/FC24AE7C", "A", IntToText(gv_infestorsAlive));
+    else if ((UnitGroupCount(gv_infestors, c_unitCountAlive) > 1)) {
+        TextExpressionSetToken("Param/Expression/FC24AE7C", "A", IntToText(UnitGroupCount(gv_infestors, c_unitCountAlive)));
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, TextExpressionAssemble("Param/Expression/FC24AE7C"));
     }
     else if (true) {
@@ -17358,30 +17359,27 @@ void gt_InfestorKilled_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_InfestorAmbientSpawns_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
-    const int auto595367E0_ae = 5;
-    int auto595367E0_var;
-    const int auto00261A0A_n = 2;
-    int auto00261A0A_i;
-
-    // Conditions
-    if (testConds) {
-        if (!((gv_infestorsAlive > 0))) {
-            return false;
-        }
-    }
+    unitgroup auto497F828B_g;
+    int auto497F828B_u;
+    unit auto497F828B_var;
+    const int auto6EEE0464_n = 2;
+    int auto6EEE0464_i;
 
     // Actions
     if (!runActions) {
         return true;
     }
 
-    auto595367E0_var = gv_indexBaseValue;
-    for ( ; auto595367E0_var <= auto595367E0_ae; auto595367E0_var += 1 ) {
-        if ((UnitIsAlive(gv_infestor[auto595367E0_var]) == true) && (gv_cinematicMode == false) && (UnitGetOwner(gv_infestor[auto595367E0_var]) == 14)) {
-            for (auto00261A0A_i = 1; auto00261A0A_i <= auto00261A0A_n; auto00261A0A_i += 1) {
+    auto497F828B_g = gv_infestors;
+    auto497F828B_u = UnitGroupCount(auto497F828B_g, c_unitCountAll);
+    for (;; auto497F828B_u -= 1) {
+        auto497F828B_var = UnitGroupUnitFromEnd(auto497F828B_g, auto497F828B_u);
+        if (auto497F828B_var == null) { break; }
+        if ((gv_cinematicMode == false) && (UnitGetOwner(auto497F828B_var) == 14)) {
+            for (auto6EEE0464_i = 1; auto6EEE0464_i <= auto6EEE0464_n; auto6EEE0464_i += 1) {
                 gf_SmartSpawnNOTD(libNtve_gf_DifficultyValueUnitType("ZombieLevel12", "ZombieLevel22", "ZombieLevel22", "ZombieLevel22"), 80.0);
             }
-            UnitIssueOrder(gv_infestor[auto595367E0_var], OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())), c_orderQueueReplace);
+            UnitIssueOrder(auto497F828B_var, OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())), c_orderQueueReplace);
         }
 
     }
@@ -22429,7 +22427,7 @@ bool gt_ECDelta1Transport_Func (bool testConds, bool runActions) {
 
     // Variable Initialization
     lv_localUnitA = EventUnit();
-    lv_infestedCivCount = (gv_spawnFactor * (gv_infestorsAlive + 1));
+    lv_infestedCivCount = (gv_spawnFactor * (UnitGroupCount(gv_infestors, c_unitCountAlive) + 1));
 
     // Conditions
     if (testConds) {
