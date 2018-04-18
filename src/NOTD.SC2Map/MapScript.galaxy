@@ -2210,6 +2210,8 @@ trigger gt_GunshipSupport;
 trigger gt_GunshipOtherKeys;
 trigger gt_GunshipSpeedCtrl;
 trigger gt_GunshipImpactQuake;
+trigger gt_InfernoEffect;
+trigger gt_InfernoDeath;
 trigger gt_TalentSelection;
 trigger gt_TalentTreeToggle;
 
@@ -42072,6 +42074,85 @@ void gt_GunshipImpactQuake_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Inferno Effect
+//--------------------------------------------------------------------------------------------------
+bool gt_InfernoEffect_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_caster;
+    fixed lv_cv;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_caster = UnitGetOwner(EventPlayerEffectUsedUnit(c_effectUnitCaster));
+    lv_cv = UnitGetCustomValue(EventPlayerEffectUsedUnit(c_effectUnitCaster), 1);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if (((lv_caster >= 1) && (lv_caster <= 8))) {
+        lv_cv = lv_caster;
+    }
+
+    if (((lv_cv >= 1) && (lv_cv <= 8))) {
+        UnitSetCustomValue(EventPlayerEffectUsedUnit(c_effectUnitTarget), 1, lv_cv);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InfernoEffect_Init () {
+    gt_InfernoEffect = TriggerCreate("gt_InfernoEffect_Func");
+    TriggerAddEventPlayerEffectUsed(gt_InfernoEffect, c_playerAny, "InfernoApply");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Inferno Death
+//--------------------------------------------------------------------------------------------------
+bool gt_InfernoDeath_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_caster;
+    fixed lv_cv;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_caster = UnitGetOwner(EventUnitDamageSourceUnit());
+    lv_cv = UnitGetCustomValue(EventUnitDamageSourceUnit(), 1);
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterGround) | (1 << c_targetFilterArmored) | (1 << c_targetFilterBiological), 0, (1 << c_targetFilterHeroic) | (1 << c_targetFilterMissile), (1 << (c_targetFilterHidden - 32)))) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if (((lv_caster >= 1) && (lv_caster <= 8))) {
+        lv_cv = lv_caster;
+    }
+
+    if (((lv_cv >= 1) && (lv_cv <= 8))) {
+        UnitCreate(1, "NapalmFire", c_unitCreateIgnorePlacement, FixedToInt(lv_cv), UnitGetPosition(EventUnit()), libNtve_gf_RandomAngle());
+        UnitBehaviorAddPlayer(UnitLastCreated(), "InfernoChainReaction", FixedToInt(lv_cv), 1);
+        UnitSetCustomValue(UnitLastCreated(), 1, lv_cv);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_InfernoDeath_Init () {
+    gt_InfernoDeath = TriggerCreate("gt_InfernoDeath_Func");
+    TriggerAddEventUnitDamaged(gt_InfernoDeath, null, c_unitDamageTypeAny, c_unitDamageFatal, "InfernoDamage");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Talent Selection
 //--------------------------------------------------------------------------------------------------
 bool gt_TalentSelection_Func (bool testConds, bool runActions) {
@@ -42546,6 +42627,8 @@ void InitTriggers () {
     gt_GunshipOtherKeys_Init();
     gt_GunshipSpeedCtrl_Init();
     gt_GunshipImpactQuake_Init();
+    gt_InfernoEffect_Init();
+    gt_InfernoDeath_Init();
     gt_TalentSelection_Init();
     gt_TalentTreeToggle_Init();
 }

@@ -92,6 +92,13 @@
         <MaxStackCount value="3"/>
         <DamageResponse Chance="1" Handled="APAmmoApplyArmorDebuff" Location="Attacker"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="InfernoChainReaction">
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-corvidreactor.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Period value="1"/>
+        <PeriodicEffect value="InfernoSearchTargetChain"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InsufficientAmmoTimed">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -4782,6 +4789,7 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="10"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-corvidreactor.dds"/>
+        <Modification MoveSpeedMultiplier="0.4"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ItemWeight1">
         <InfoFlags index="Hidden" value="1"/>
