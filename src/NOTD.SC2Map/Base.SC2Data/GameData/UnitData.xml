@@ -3387,6 +3387,7 @@
         <AbilArray Link="X1UpgradeLevel2"/>
         <BehaviorArray Link="X1BotVeterancy"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1Holdfire"/>
         <BehaviorArray Link="X1GuardianLimit"/>
         <TurretArray value="Diamondback"/>
         <TurretArray value="Diamondback"/>
@@ -9776,6 +9777,7 @@
         <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <BehaviorArray Link="X1BotVeterancy"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1Holdfire"/>
         <BehaviorArray Link="X1GuardianLimit"/>
         <HotkeyCategory value="Hotkey/Minis"/>
     </CUnit>
@@ -9850,6 +9852,7 @@
         <SeparationRadius value="0.3"/>
         <BehaviorArray Link="X1BotVeterancy"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1Holdfire"/>
         <BehaviorArray Link="X1GuardianLimit"/>
         <HotkeyAlias value="X1GuardianLevel1"/>
         <HotkeyCategory value="Hotkey/Minis"/>
