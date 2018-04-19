@@ -102,7 +102,7 @@
         <EditorCategories value=""/>
         <Chance value="0.4"/>
         <SearchFilters value="Ground,Armored,Biological;Player,Ally,Neutral,Structure,Heroic,RawResource,HarvestableResource,Missile,Item,UnderConstruction,Dead,Invulnerable"/>
-        <AreaArray MaxCount="6" Radius="1" Effect="InfernoApply"/>
+        <AreaArray Radius="1" Effect="InfernoApply"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="NeuralParasiteApplyTimedLife">
