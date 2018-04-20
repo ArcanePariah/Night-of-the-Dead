@@ -95,15 +95,43 @@
         <EditorCategories value=""/>
         <Behavior value="Detector5"/>
     </CEffectApplyBehavior>
+    <CEffectCreateUnit id="CreateNapalmFireInfernoChain">
+        <EditorCategories value=""/>
+        <WhichLocation Value="SourceUnit"/>
+        <Origin Value="SourceUnit"/>
+        <SpawnEffect value="InfernoApplyChainNapalm"/>
+        <SpawnUnit value="NapalmFire"/>
+        <TypeFallbackUnit Value="Source"/>
+    </CEffectCreateUnit>
     <CEffectDamage id="HotSBanelingExplodeLargeSearchDamage">
         <Amount value="60"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="InfernoApplyChainNapalm">
+        <EditorCategories value=""/>
+        <Behavior value="InfernoChainNapalm"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="InfernoApplyChainTarget">
+        <EditorCategories value=""/>
+        <Behavior value="InfernoChainTarget"/>
+    </CEffectApplyBehavior>
     <CEffectEnumArea id="InfernoSearchTargetChain">
         <EditorCategories value=""/>
         <Chance value="0.4"/>
         <SearchFilters value="Ground,Armored,Biological;Player,Ally,Neutral,Structure,Heroic,RawResource,HarvestableResource,Missile,Item,UnderConstruction,Dead,Invulnerable"/>
         <AreaArray Radius="1" Effect="InfernoApply"/>
-        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <SearchFlags index="OffsetAreaByAngle" value="0"/>
+    </CEffectEnumArea>
+    <CEffectSet id="InfernoDamageSet">
+        <EditorCategories value=""/>
+        <EffectArray value="InfernoSearchTargetCreateNapalm"/>
+        <EffectArray value="InfernoDamage"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSet>
+    <CEffectEnumArea id="InfernoSearchTargetCreateNapalm">
+        <EditorCategories value=""/>
+        <SearchFilters value="Ground,Armored,Biological;Player,Ally,Neutral,Structure,Heroic,RawResource,HarvestableResource,Missile,Item,UnderConstruction,Dead,Invulnerable"/>
+        <AreaArray Radius="3" Effect="InfernoApplyChainTarget"/>
+        <SearchFlags index="OffsetAreaByAngle" value="0"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="NeuralParasiteApplyTimedLife">
         <Behavior value=""/>
