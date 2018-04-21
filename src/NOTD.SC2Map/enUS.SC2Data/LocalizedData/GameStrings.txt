@@ -4080,6 +4080,7 @@ Param/Value/16FE1446=Roger. A quarantine unit is en route to pick it up.
 Param/Value/170B2CA0=They're lethal and highly trained. But they're still only human.
 Param/Value/17187F2B=Let's get somewhere safe. Motion sensors are still picking things up.
 Param/Value/174CE2FA=XP: 
+Param/Value/17AD8B74=<s val="WaitingForUsersDialogTitle"><c val="00FF40">Z - Zoom</c><n/><c val="00FFFF">X - Team UI Panel</c><n/><c val="FFFF80">C - Switch Camera</c><n/>M - End Gunship Mode</s>
 Param/Value/17CD3B24=Release anti-toxin into ventilation control
 Param/Value/184B235F=Squad XP: 
 Param/Value/185E43B0=Rifleman
@@ -4779,7 +4780,7 @@ Param/Value/918A8106=It's in a dormant state now.
 Param/Value/9190998C=Protect Dr. Tanaka until his research is complete
 Param/Value/91A0BD6A=(Cronus prepares for <c val="FF0000">destruction</c>...)
 Param/Value/91F0176F=Collect items scattered throughout the map. These help improve your chances of success in NOTD.<n/><n/>Item Classes:<n/>Weapons: Each weapon shines in different situations.<n/>Armor: Improves your armor<n/>Enhancements: Equip these to improve your stats<n/>Ammo: You require ammo to continue firing your weapons<n/>Supplies: These include medkits which keep you in top shape.<n/><n/>Sharing items with teammates will improve squad survivability.
-Param/Value/92459A55=<img path="Assets\Textures\tutorialmouserightbuttondown.dds"/><n/><s val="WaitingForUsersDialogTitle"><c val="FFDD1C">Right Click - Gauss Cannon</c><n/><c val="1CFFCC">Arrows/Mousewheel - Speed</c><n/><n/><c val="00FF40">Z - Zoom</c><n/><c val="00FFFF">X - Team UI Panel</c><n/><c val="FFFF80">C - Switch Camera</c><n/>M - End Gunship Mode</s>
+Param/Value/92459A55=<img path="Assets\Textures\tutorialmouserightbuttondown.dds"/><n/><s val="WaitingForUsersDialogTitle"><c val="FFDD1C">Right Click - Gauss Cannon</c><n/><c val="1CFFCC">Arrows/Mousewheel - Speed</c></s>
 Param/Value/9263B5DE=+3 XP for Performance Bonus
 Param/Value/9279BE21=We're wasting ammunition. Destroy that Dome.
 Param/Value/92A2458A=Survive the incoming attack
