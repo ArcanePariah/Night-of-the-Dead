@@ -41625,8 +41625,8 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     lv_instructions = DialogLastCreated();
     DialogSetVisible(lv_instructions, PlayerGroupSingle(lv_forwardObserverOwner), true);
     DialogSetImageVisible(lv_instructions, false);
-    libNtve_gf_CreateDialogItemLabel(lv_instructions, 400, 200, c_anchorBottomLeft, 25, 0, StringExternal("Param/Value/17AD8B74"), ColorWithAlpha(0,0,0,0), false, 2.0);
-    libNtve_gf_CreateDialogItemLabel(lv_instructions, 500, 200, c_anchorBottomRight, 25, 0, StringExternal("Param/Value/92459A55"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    libNtve_gf_CreateDialogItemLabel(lv_instructions, 400, 200, c_anchorBottomLeft, 0, 0, StringExternal("Param/Value/17AD8B74"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    libNtve_gf_CreateDialogItemLabel(lv_instructions, 500, 200, c_anchorBottomRight, 0, -3, StringExternal("Param/Value/92459A55"), ColorWithAlpha(0,0,0,0), false, 2.0);
     TriggerEnable(gt_GunshipOtherKeys, true);
     TriggerEnable(gt_GunshipSpeedCtrl, true);
     TriggerEnable(gt_GunshipImpactQuake, true);
