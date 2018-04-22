@@ -40477,6 +40477,7 @@ void gt_LaserDesignator_Init () {
     TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "LaserDesignatorLevel2", c_unitBehaviorChangeRefresh);
     TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "LaserDesignatorLevel3", c_unitBehaviorChangeCreate);
     TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "LaserDesignatorLevel3", c_unitBehaviorChangeRefresh);
+    TriggerAddEventUnitBehaviorChange(gt_LaserDesignator, null, "GunshipDesignator", c_unitBehaviorChangeCreate);
 }
 
 //--------------------------------------------------------------------------------------------------
