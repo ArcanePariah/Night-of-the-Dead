@@ -41621,7 +41621,7 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     gv_gunshipCinematicActive[lv_forwardObserverOwner] = true;
     gv_gameUIHidden[lv_forwardObserverOwner] = true;
     UIClearMessages(PlayerGroupSingle(lv_forwardObserverOwner), c_messageAreaDebug);
-    DialogCreate(900, 200, c_anchorBottom, 0, 50, true);
+    DialogCreate(900, 200, c_anchorBottom, 0, 0, true);
     lv_instructions = DialogLastCreated();
     DialogSetVisible(lv_instructions, PlayerGroupSingle(lv_forwardObserverOwner), true);
     DialogSetImageVisible(lv_instructions, false);
