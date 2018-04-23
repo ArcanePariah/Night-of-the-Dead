@@ -41621,11 +41621,11 @@ bool gt_GunshipSupport_Func (bool testConds, bool runActions) {
     gv_gunshipCinematicActive[lv_forwardObserverOwner] = true;
     gv_gameUIHidden[lv_forwardObserverOwner] = true;
     UIClearMessages(PlayerGroupSingle(lv_forwardObserverOwner), c_messageAreaDebug);
-    DialogCreate(600, 400, c_anchorBottom, 0, 0, true);
+    DialogCreate(500, 350, c_anchorBottom, 0, 0, true);
     lv_instructions = DialogLastCreated();
     DialogSetVisible(lv_instructions, PlayerGroupSingle(lv_forwardObserverOwner), true);
     DialogSetImageVisible(lv_instructions, false);
-    libNtve_gf_CreateDialogItemLabel(lv_instructions, 600, 400, c_anchorLeft, 25, 0, StringExternal("Param/Value/92459A55"), ColorWithAlpha(0,0,0,0), false, 2.0);
+    libNtve_gf_CreateDialogItemLabel(lv_instructions, 500, 350, c_anchorBottom, 0, 0, StringExternal("Param/Value/92459A55"), ColorWithAlpha(0,0,0,0), false, 2.0);
     TriggerEnable(gt_GunshipOtherKeys, true);
     TriggerEnable(gt_GunshipSpeedCtrl, true);
     TriggerEnable(gt_GunshipImpactQuake, true);
