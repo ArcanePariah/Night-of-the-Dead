@@ -15889,10 +15889,6 @@ void gt_AmmoCheck_Init () {
 // Trigger: Navy Cross
 //--------------------------------------------------------------------------------------------------
 bool gt_NavyCross_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv_marine;
-    unit lv_inventoryItem;
-
     // Automatic Variable Declarations
     unitgroup auto04DEC3AB_g;
     int auto04DEC3AB_u;
@@ -15900,8 +15896,6 @@ bool gt_NavyCross_Func (bool testConds, bool runActions) {
     unitgroup auto4435235F_g;
     int auto4435235F_u;
     unit auto4435235F_var;
-
-    // Variable Initialization
 
     // Conditions
     if (testConds) {
