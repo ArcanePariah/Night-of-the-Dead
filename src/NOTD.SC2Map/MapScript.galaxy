@@ -15894,11 +15894,6 @@ bool gt_NavyCross_Func (bool testConds, bool runActions) {
     unit lv_inventoryItem;
 
     // Automatic Variable Declarations
-    unitgroup autoACC841C2_g;
-    int autoACC841C2_u;
-    unitgroup auto0282F220_g;
-    int auto0282F220_u;
-    unit auto0282F220_var;
     unitgroup auto04DEC3AB_g;
     int auto04DEC3AB_u;
     unit auto04DEC3AB_var;
@@ -15922,34 +15917,17 @@ bool gt_NavyCross_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     if ((gv_navyCrossFailed == false) && (gv_totalPlayers >= 3)) {
-        TriggerEnable(gt_NavyCrossCheck, false);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/AA0161B7"));
         SoundPlay(SoundLink("TUISecret", -1), PlayerGroupAll(), 100.0, 0.0);
         gv_navyCrossMode = true;
-        autoACC841C2_g = gv_marines;
-        autoACC841C2_u = UnitGroupCount(autoACC841C2_g, c_unitCountAll);
-        for (;; autoACC841C2_u -= 1) {
-            lv_marine = UnitGroupUnitFromEnd(autoACC841C2_g, autoACC841C2_u);
-            if (lv_marine == null) { break; }
-            auto0282F220_g = UnitInventoryGroup(lv_marine);
-            auto0282F220_u = UnitGroupCount(auto0282F220_g, c_unitCountAll);
-            for (;; auto0282F220_u -= 1) {
-                auto0282F220_var = UnitGroupUnitFromEnd(auto0282F220_g, auto0282F220_u);
-                if (auto0282F220_var == null) { break; }
-                if (((UnitGetType(auto0282F220_var) == "Medpack") || (UnitGetType(auto0282F220_var) == "Bandage"))) {
-                    UnitInventoryRemove(auto0282F220_var);
-                }
-
-            }
-        }
-        auto04DEC3AB_g = UnitGroup("Medpack", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto04DEC3AB_g = UnitGroup("Medpack", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
         auto04DEC3AB_u = UnitGroupCount(auto04DEC3AB_g, c_unitCountAll);
         for (;; auto04DEC3AB_u -= 1) {
             auto04DEC3AB_var = UnitGroupUnitFromEnd(auto04DEC3AB_g, auto04DEC3AB_u);
             if (auto04DEC3AB_var == null) { break; }
             UnitRemove(auto04DEC3AB_var);
         }
-        auto4435235F_g = UnitGroup("Bandage", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+        auto4435235F_g = UnitGroup("Bandage", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
         auto4435235F_u = UnitGroupCount(auto4435235F_g, c_unitCountAll);
         for (;; auto4435235F_u -= 1) {
             auto4435235F_var = UnitGroupUnitFromEnd(auto4435235F_g, auto4435235F_u);
