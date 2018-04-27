@@ -39217,7 +39217,7 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
         gv_playerClass[lv_selectingPlayer] = UserDataGetUserInstance("StoryClassAssignments", UserDataInstance("StoryClassAssignments", gv_storyline), "Class", lv_index);
     }
     else {
-        if (((lv_index == 15) || (lv_usedDialogItem == gv_classSelectionDialogItem[lv_selectingPlayer][15]))) {
+        if ((lv_usedDialogItem == gv_classSelectionDialogItem[lv_selectingPlayer][15])) {
             gv_noRandoms = 2;
             lv_randomRange = gf_GetRandomRange(lv_selectingPlayer);
             auto986BF5E4_val = PlayerHandle(lv_selectingPlayer);
