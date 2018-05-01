@@ -1,3 +1,4 @@
-DocInfo/DescLong=Shared Data for Night of the Dead.<n/><n/>www.notdstarcraft.com<n/><n/>Last Update: 24 August 2014
+﻿DocInfo/DescLong=Shared Data for Night of the Dead.<n/><n/>www.notdstarcraft.com<n/><n/>Last Update: 24 August 2014
 DocInfo/DescShort=Any
 DocInfo/Name=Night of the Dead Asset Data
+DocInfo/PatchNote001=Updated with new medal for Tier 0
