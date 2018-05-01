@@ -24,11 +24,11 @@
             <Value>4</Value>
         </CaptionId>
         <Flags>
-            <Value> </Value>
-            <Value> </Value>
-            <Value> </Value>
-            <Value> </Value>
-            <Value> </Value>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
         </Flags>
     </Screenshot>
     <ScreenshotHowToPlay>
