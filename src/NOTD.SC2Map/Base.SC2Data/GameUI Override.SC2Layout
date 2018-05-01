@@ -114,7 +114,23 @@
 				</Frame>
 		</Frame>
 		
+		<Frame type = "StandardTooltip" name = "Player1InformationTooltip" template = "TeamStatus/PlayerInformationTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine1" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "1" />
+				</Frame>
+		</Frame>
+		
 		<Frame type = "StandardTooltip" name = "Player2StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine2" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "2" />
+				</Frame>
+		</Frame>
+		
+		<Frame type = "StandardTooltip" name = "Player2InformationTooltip" template = "TeamStatus/PlayerInformationTooltip">
 			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine2" />
 			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
 				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
@@ -130,7 +146,23 @@
 				</Frame>
 		</Frame>
 		
+		<Frame type = "StandardTooltip" name = "Player3InformationTooltip" template = "TeamStatus/PlayerInformationTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine3" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "3" />
+				</Frame>
+		</Frame>
+		
 		<Frame type = "StandardTooltip" name = "Player4StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine4" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "4" />
+				</Frame>
+		</Frame>
+		
+		<Frame type = "StandardTooltip" name = "Player4InformationTooltip" template = "TeamStatus/PlayerInformationTooltip">
 			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine4" />
 			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
 				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
@@ -146,7 +178,23 @@
 				</Frame>
 		</Frame>
 		
+		<Frame type = "StandardTooltip" name = "Player5InformationTooltip" template = "TeamStatus/PlayerInformationTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine5" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "5" />
+				</Frame>
+		</Frame>
+		
 		<Frame type = "StandardTooltip" name = "Player6StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine6" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "6" />
+				</Frame>
+		</Frame>
+		
+		<Frame type = "StandardTooltip" name = "Player6InformationTooltip" template = "TeamStatus/PlayerInformationTooltip">
 			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine6" />
 			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
 				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
@@ -162,7 +210,23 @@
 				</Frame>
 		</Frame>
 		
+		<Frame type = "StandardTooltip" name = "Player7InformationTooltip" template = "TeamStatus/PlayerInformationTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine7" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "7" />
+				</Frame>
+		</Frame>
+		
 		<Frame type = "StandardTooltip" name = "Player8StatsTooltip" template = "TeamStatus/StatsTooltip">
+			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine8" />
+			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
+					<PlayerId val = "8" />
+				</Frame>
+		</Frame>
+		
+		<Frame type = "StandardTooltip" name = "Player8InformationTooltip" template = "TeamStatus/PlayerInformationTooltip">
 			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine8" />
 			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
 				<Frame type="PlayerScoreValueFrame" name="PlayerStats">

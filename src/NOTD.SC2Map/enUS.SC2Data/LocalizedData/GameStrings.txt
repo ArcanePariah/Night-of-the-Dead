@@ -5440,10 +5440,23 @@ RequirementNode/Tooltip/LT3507390604SumCountUnitMobileInfantryFlamethrowerComple
 Righteousness Level 2=+1 armor for each unit damaged by Smite. Lasts 16 seconds.<n/><n/>"I shall walk down the road of shadow, the path of the wicked, the trail of damnation but I fear not for I stand as an unfaltering beacon to the lost for all those who have been cast down."
 Saline IV Level 2=Level 2 - Heals 40 HP instantly. Also removes 1 stack of Venom.
 Saline IV Level 3=Level 3 - Heals 60 HP instantly. Remove 1 stack of Venom and Open Wounds. Also heals Cripple when Repulse is active.
+ScoreValue/Name/AverageXPPerGame=Average XP Per Game
+ScoreValue/Name/Credits=Credits
+ScoreValue/Name/CreditsChange=Credits Change
 ScoreValue/Name/DamageTaken=Damage Taken
+ScoreValue/Name/GamesPlayed=Games Played
 ScoreValue/Name/HitsTaken=Hits Taken
+ScoreValue/Name/Karma=Karma
+ScoreValue/Name/KarmaChange=Karma Change
 ScoreValue/Name/MagazineCount=Magazine Count
 ScoreValue/Name/PlayerXP=Player XP
+ScoreValue/Name/PlayerXPChange=Player XP Change
+ScoreValue/Name/Rating=Rating
+ScoreValue/Name/RatingChange=Rating Change
+ScoreValue/Name/StartingCredits=Starting Credits
+ScoreValue/Name/StartingKarma=Starting Karma
+ScoreValue/Name/StartingPlayerXP=Starting Player XP
+ScoreValue/Name/StartingRating=Starting Rating
 SethPolarityNegative= <IMG path = "NOTD Generic Art/NOTD Negative Polarity.dds" height = "64" width = "64"/>
 SethPolarityPositive= <IMG path = "NOTD Generic Art/NOTD Positive Polarity.dds" height = "64" width = "64"/>
 Shoot To Maim Level 2=The Pathfinder uses precise aim in his attacks to cripple enemy targets, but in doing so, he no longer aims to ricochet his shots.<n/><n/>Level 2 - +20% damage, each Maim stack slows by 7.5%, maximum stack of 3

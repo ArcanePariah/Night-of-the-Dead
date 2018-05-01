@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CScoreValueCustom id="Credits" parent="BaseScoreValue"/>
+    <CScoreValueCombine id="CreditsChange" parent="BaseScoreValue">
+        <Operation value="Subtract"/>
+        <ValueTable value="Credits"/>
+        <ValueTable value="StartingCredits"/>
+    </CScoreValueCombine>
     <CScoreValueCustom id="DamageTaken" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="GamesPlayed" parent="BaseScoreValue"/>
     <CScoreValueCustom id="HitsTaken" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="Karma" parent="BaseScoreValue"/>
+    <CScoreValueCombine id="KarmaChange" parent="BaseScoreValue">
+        <Operation value="Subtract"/>
+        <ValueTable value="Karma"/>
+        <ValueTable value="StartingKarma"/>
+    </CScoreValueCombine>
     <CScoreValueCustom id="MagazineCount" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="StartingPlayerXP" parent="BaseScoreValue"/>
     <CScoreValueCustom id="PlayerXP" parent="BaseScoreValue">
         <Flags index="DisplayAsSigned" value="1"/>
     </CScoreValueCustom>
+    <CScoreValueCombine id="PlayerXPChange" parent="BaseScoreValue">
+        <Operation value="Subtract"/>
+        <ValueTable value="PlayerXP"/>
+        <ValueTable value="StartingPlayerXP"/>
+    </CScoreValueCombine>
+    <CScoreValueCustom id="Rating" parent="BaseScoreValue"/>
+    <CScoreValueCombine id="AverageXPPerGame" parent="BaseScoreValue">
+        <Operation value="Divide"/>
+        <ValueTable value="PlayerXP"/>
+        <ValueTable value="GamesPlayed"/>
+    </CScoreValueCombine>
+    <CScoreValueCombine id="RatingChange" parent="BaseScoreValue">
+        <Operation value="Subtract"/>
+        <ValueTable value="Rating"/>
+        <ValueTable value="StartingRating"/>
+    </CScoreValueCombine>
+    <CScoreValueCustom id="StartingCredits" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="StartingKarma" parent="BaseScoreValue"/>
+    <CScoreValueCustom id="StartingRating" parent="BaseScoreValue"/>
 </Catalog>
