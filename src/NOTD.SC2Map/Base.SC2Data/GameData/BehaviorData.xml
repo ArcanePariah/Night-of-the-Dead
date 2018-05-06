@@ -644,15 +644,21 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="PlayerLives">
         <InfoFlags index="Hidden" value="1"/>
-        <DamageResponse Chance="1" Handled="ApplyPlayerLivesEmergencyHeal">
+        <DamageResponse>
+            <Chance value="1"/>
+            <ClampMaximum value="0"/>
+            <Handled value="ApplyPlayerLivesEmergencyHeal"/>
+            <ModifyFraction value="0"/>
+            <ModifyMinimumDamage value="1"/>
             <ExcludeEffectArray value="FaithSelfDamage"/>
         </DamageResponse>
         <DisableValidatorArray value="CasterShieldsLT10"/>
         <DisableValidatorArray value="CasterLifeLT20Percent"/>
+        <DisableValidatorArray value="CasterHasPlayerLivesEmergencyHeal"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PlayerLivesAntiDegen">
         <InfoFlags index="Hidden" value="1"/>
-        <Period value="0.5"/>
+        <Period value="0.1"/>
         <PeriodicEffect value="ApplyPlayerLivesEmergencyHeal"/>
         <DisableValidatorArray value="CasterHasPlayerLivesEmergencyHeal"/>
         <DisableValidatorArray value="CasterLifeLT3Percent"/>
@@ -671,6 +677,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="PlayerLivesEmergencyHeal">
         <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="PlayerLivesModifyHp"/>
         <Duration value="5"/>
         <DamageResponse>
             <Chance value="1"/>

@@ -8258,6 +8258,25 @@
         <KindSplash value="Melee"/>
         <SearchFilters value="-;Item,Dead,Invulnerable"/>
     </CEffectDamage>
+    <CEffectSet id="PlayerLivesModifyHp">
+        <EffectArray value="PlayerLivesSetHpToFull"/>
+        <EffectArray value="PlayerLivesSetHpToQuarter"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="PlayerLivesSetHpToFull">
+        <EditorCategories value=""/>
+        <VitalArray index="Life" Change="450"/>
+    </CEffectModifyUnit>
+    <CEffectDamage id="PlayerLivesSetHpToQuarter">
+        <EditorCategories value=""/>
+        <ImpactLocation Value="CasterUnit"/>
+        <VitalFractionCurrent index="Life" value="0.75"/>
+        <VitalFractionCurrent index="Shields" value="1"/>
+        <Flags index="Live" value="1"/>
+        <Flags index="NoScaledDealtBonus" value="1"/>
+        <Flags index="NoFractionDealtBonus" value="1"/>
+        <Flags index="NoUnscaledDealtBonus" value="1"/>
+        <Flags index="NoBehaviorResponse" value="1"/>
+    </CEffectDamage>
     <CEffectModifyUnit id="FaithHeal">
         <EditorCategories value=""/>
         <VitalArray index="Life" Change="35"/>

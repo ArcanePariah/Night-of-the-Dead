@@ -16434,7 +16434,6 @@ bool gt_BadlyInjuredListener_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitSetPropertyFixed(lv_marine, c_unitPropLifePercent, 25.0);
     gf_BadlyInjured(lv_marine);
     return true;
 }
