@@ -2877,7 +2877,6 @@ void gf_SetPlayerLives () {
         else if ((gv_playerXP[lv_index] < 100)) {
             gv_playerLives[lv_index] = 5;
         }
-        gv_playerLives[lv_index] = 25;
         libNtve_gf_SetDialogItemText(gv_statsPlayerLivesLeft[lv_index], IntToText(gv_playerLives[lv_index]), PlayerGroupAll());
     }
     gv_squadXP = (lv_experiencePool / gv_totalPlayers);
@@ -3144,6 +3143,7 @@ bool auto_gf_Save_TriggerFunc (bool testConds, bool runActions) {
         BankValueSetFromString(BankLastCreated(), IntToString(lv_iLocal), IntToString(lv_iLocal), lv_tempString[lv_iLocal]);
         Wait(0.05, c_timeGame);
     }
+    BankSave(lv_activeBank);
     Wait(1.0, c_timeGame);
     BankLoad("NOTDBackup", lp_playerNo);
     lv_activeBank = BankLastCreated();
@@ -3151,6 +3151,7 @@ bool auto_gf_Save_TriggerFunc (bool testConds, bool runActions) {
     for ( ; auto1118FEEF_var <= auto1118FEEF_ae; auto1118FEEF_var += 1 ) {
         BankValueSetFromString(BankLastCreated(), IntToString(auto1118FEEF_var), IntToString(auto1118FEEF_var), lv_tempString[auto1118FEEF_var]);
     }
+    BankSave(lv_activeBank);
     return true;
 }
 
