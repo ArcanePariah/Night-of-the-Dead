@@ -433,7 +433,7 @@
 				<Frame type="Label" name="AvailableStatsLabel">
 					<Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
 					<Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-					<Height val="34"/>
+					<Height val="50"/>
 					<Width val="500"/>
 					<Style val="HelpPanelListBoxItemTitle"/>
 				</Frame>

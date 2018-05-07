@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DocInfo>
+    <Flags>
+        <Value>ArcadeShowLobby</Value>
+    </Flags>
+    <Icon>
+        <Value>Boot Camp Preview.jpg</Value>
+    </Icon>
+    <Tutorial>
+        <Type>
+            <Value>Self</Value>
+        </Type>
+        <VariantCategory>
+            <Value>16</Value>
+        </VariantCategory>
+        <VariantMode>
+            <Value>2</Value>
+        </VariantMode>
+        <GameSpeed>
+            <Value>Faster</Value>
+        </GameSpeed>
+    </Tutorial>
+    <Dependencies>
+        <Value>bnet:Liberty Story (Campaign)/0.0/999,file:Campaigns/LibertyStory.SC2Campaign</Value>
+        <Value>bnet:Liberty (Campaign)/0.0/999,file:Campaigns/Liberty.SC2Campaign</Value>
+        <Value>bnet:Liberty (Mod)/0.0/999,file:Mods/Liberty.SC2Mod</Value>
+        <Value>bnet:Liberty Multi (Mod)/0.0/999,file:Mods/LibertyMulti.SC2Mod</Value>
+    </Dependencies>
+    <Screenshot>
+        <File>
+            <Value>Screenshots\Boot Camp Screenshot.jpg</Value>
+            <Value>NOTD Item Crates.jpg</Value>
+        </File>
+        <CaptionId>
+            <Value>1</Value>
+            <Value>2</Value>
+        </CaptionId>
+        <Flags>
+            <Value> </Value>
+            <Value> </Value>
+        </Flags>
+    </Screenshot>
+    <ScreenshotHowToPlay>
+        <File>
+            <Value>NOTD Tutorial Ghost A.jpg</Value>
+            <Value>NOTD Tutorial Ghost B.jpg</Value>
+        </File>
+        <CaptionId>
+            <Value>5</Value>
+            <Value>1</Value>
+        </CaptionId>
+        <Flags>
+            <Value> </Value>
+            <Value> </Value>
+        </Flags>
+    </ScreenshotHowToPlay>
+    <PatchNote>
+        <Version>
+            <Value>1.0</Value>
+            <Value>1.1</Value>
+            <Value>1.2</Value>
+        </Version>
+        <Date>
+            <Value>2/17/2013</Value>
+            <Value>3/9/2013</Value>
+            <Value>3/16/2013</Value>
+        </Date>
+        <Notes>
+            <Value>1,2</Value>
+            <Value>3,4,5</Value>
+            <Value>6,7,8</Value>
+        </Notes>
+    </PatchNote>
+</DocInfo>

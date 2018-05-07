@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Label" name="GameUI/UIContainer/ConsoleUIContainer/MissionTimePanel/TimeLabel" file="GameUI">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+        <Style val="@@MenuBarButton"/>
+    </Frame>
+
+    <Frame type="Image" name="GameUI/UIContainer/ConsoleUIContainer/MissionTimePanel/BackgroundImage" file="GameUI">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Min" offset="112"/>
+        <Width val="112"/>
+        <Height val="44"/>
+        <Texture val="@@UI/StandardGameTooltip_Prot"/>
+        <TextureType val="Border"/>
+        <Tiled val="true"/>
+        <LayerColor val="175,175,175"/>
+        <RenderPriority val="500"/>
+        <Color val="175,175,175"/>
+        <BlendMode val="Add"/>
+    </Frame>
+</Desc>

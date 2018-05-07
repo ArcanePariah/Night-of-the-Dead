@@ -713,7 +713,6 @@
         <Flags index="NoScaledDealtBonus" value="1"/>
         <Flags index="NoFractionDealtBonus" value="1"/>
         <Flags index="NoUnscaledDealtBonus" value="1"/>
-        <Flags index="NoBehaviorResponse" value="1"/>
         <Amount value="400"/>
         <Death value="Eviscerate"/>
     </CEffectDamage>
@@ -724,12 +723,25 @@
     </CEffectApplyBehavior>
     <CEffectSet id="ExecuteHeroicMassiveTargets">
         <EditorCategories value=""/>
+        <EffectArray value="ExecuteMovespeedBonusMassive"/>
         <EffectArray value="ExecuteHeroicMassiveOpenWounds"/>
         <EffectArray value="ExecuteHeroicMassiveDamage"/>
     </CEffectSet>
     <CEffectApplyBehavior id="ExecuteNoCollsion">
         <EditorCategories value=""/>
         <Behavior value="ExecuteNoCollision"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="ExecuteNormalTargetsSet">
+        <EditorCategories value=""/>
+        <EffectArray value="ExecuteNormalTargets"/>
+        <EffectArray value="ExecuteMovespeedBonus"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="ExecuteMovespeedBonus">
+        <EditorCategories value=""/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ExecuteMovespeedBonusMassive">
+        <EditorCategories value=""/>
     </CEffectApplyBehavior>
     <CEffectDamage id="ExecuteNormalTargets">
         <EditorCategories value=""/>
@@ -739,7 +751,7 @@
     <CEffectSwitch id="ExecuteSwitch">
         <EditorCategories value=""/>
         <CaseArray Validator="ExecuteTargetFilters" Effect="ExecuteHeroicMassiveTargets"/>
-        <CaseDefault value="ExecuteNormalTargets"/>
+        <CaseDefault value="ExecuteNormalTargetsSet"/>
     </CEffectSwitch>
     <CEffectApplyBehavior id="FlashFlareLevel1">
         <EditorCategories value=""/>

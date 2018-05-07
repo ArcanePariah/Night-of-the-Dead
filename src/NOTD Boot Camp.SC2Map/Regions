@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Regions>
+    <region id="139">
+        <name value="Null Area"/>
+        <color value="255,255,128,0"/>
+        <shape type="rect">
+            <quad value="239.1535,29.0673,255.974,64.4233"/>
+        </shape>
+    </region>
+    <region id="2">
+        <name value="Boot Camp Start Zone"/>
+        <color value="255,255,255,0"/>
+        <invisible/>
+        <shape type="rect">
+            <quad value="12.1477,13.8288,97.173,76.0002"/>
+        </shape>
+    </region>
+    <region id="3">
+        <name value="BootCampTerminal A"/>
+        <shape type="circle">
+            <center value="28.8056,61.0981"/>
+            <radius value="1.0007"/>
+        </shape>
+    </region>
+    <region id="4">
+        <name value="BootCampTerminal B"/>
+        <shape type="circle">
+            <center value="31.5698,31.2392"/>
+            <radius value="1.0007"/>
+        </shape>
+    </region>
+    <region id="5">
+        <name value="BootCampTerminal C"/>
+        <shape type="circle">
+            <center value="77.56,59.4833"/>
+            <radius value="1.0007"/>
+        </shape>
+    </region>
+    <region id="6">
+        <name value="BootCampTerminal D"/>
+        <shape type="circle">
+            <center value="76.8276,30.1503"/>
+            <radius value="1.0007"/>
+        </shape>
+    </region>
+    <region id="8">
+        <name value="Boot Camp Start Circle"/>
+        <shape type="circle">
+            <center value="53.9921,47.7275"/>
+            <radius value="2.3122"/>
+        </shape>
+    </region>
+    <region id="9">
+        <name value="Forest West"/>
+        <shape type="rect">
+            <quad value="22.6027,33.0424,24.7072,59.1604"/>
+        </shape>
+    </region>
+    <region id="13">
+        <name value="Forest East"/>
+        <shape type="rect">
+            <quad value="80.3847,32.008,82.4892,58.126"/>
+        </shape>
+    </region>
+    <region id="25">
+        <name value="Chokepoint"/>
+        <shape type="rect">
+            <quad value="43.5122,88.8427,46.3422,92.0085"/>
+        </shape>
+    </region>
+    <region id="26">
+        <name value="Predator Chokepoint Demo"/>
+        <shape type="rect">
+            <quad value="41.6572,114.1154,47.666,117.7456"/>
+        </shape>
+    </region>
+    <region id="10">
+        <name value="Boot Camp Tactical Area"/>
+        <color value="255,255,255,0"/>
+        <shape type="rect">
+            <quad value="14.819,87.0085,79.1503,139.6445"/>
+        </shape>
+    </region>
+    <region id="15">
+        <name value="Boot Camp Full Zone"/>
+        <color value="255,255,255,0"/>
+        <invisible/>
+        <shape type="rect">
+            <quad value="12.067,13.7526,96.9643,119.6877"/>
+        </shape>
+    </region>
+    <region id="23">
+        <name value="Tactical Zone Entry"/>
+        <shape type="rect">
+            <quad value="37.6496,96.416,51.8486,105.1533"/>
+        </shape>
+    </region>
+    <region id="11">
+        <name value="TacticalZoneTerminalA"/>
+        <shape type="circle">
+            <center value="73.8947,99.7414"/>
+            <radius value="0.8395"/>
+        </shape>
+    </region>
+    <region id="27">
+        <name value="TacticalZoneTerminalB"/>
+        <shape type="circle">
+            <center value="22.0634,134.7907"/>
+            <radius value="0.8757"/>
+        </shape>
+    </region>
+    <region id="28">
+        <name value="BootCampObstacles"/>
+        <shape type="rect">
+            <quad value="39.8955,80.0446,50.0397,84.693"/>
+        </shape>
+    </region>
+    <region id="30">
+        <name value="Arena Spawn 1"/>
+        <shape type="rect">
+            <quad value="39.6882,136.2766,50.2614,142.1682"/>
+        </shape>
+    </region>
+    <region id="33">
+        <name value="Arena Spawn 2"/>
+        <shape type="rect">
+            <quad value="80.778,101.8903,84.4396,121.3444"/>
+        </shape>
+    </region>
+    <region id="36">
+        <name value="Arena Spawn 4"/>
+        <shape type="rect">
+            <quad value="39.185,75.542,50.5056,79.6564"/>
+        </shape>
+    </region>
+    <region id="38">
+        <name value="Arena Spawn 5"/>
+        <shape type="rect">
+            <quad value="11.6757,99.9948,19.1096,104.2102"/>
+        </shape>
+    </region>
+    <region id="39">
+        <name value="Arena Spawn 6"/>
+        <shape type="rect">
+            <quad value="10.1594,124.1054,17.5932,128.3208"/>
+        </shape>
+    </region>
+    <region id="40">
+        <name value="Arena Spawn 3"/>
+        <shape type="rect">
+            <quad value="79.9575,90.0112,87.3913,94.2265"/>
+        </shape>
+    </region>
+    <region id="31">
+        <name value="Training Field Area"/>
+        <color value="255,255,255,0"/>
+        <invisible/>
+        <shape type="rect">
+            <quad value="92.3161,90.3845,161.727,182.4262"/>
+        </shape>
+    </region>
+    <region id="37">
+        <name value="Main Zone North"/>
+        <shape type="rect">
+            <quad value="122.6943,164.6755,126.4211,165.3754"/>
+        </shape>
+    </region>
+    <region id="42">
+        <name value="Urban Combat Zone"/>
+        <color value="255,255,255,0"/>
+        <invisible/>
+        <shape type="rect">
+            <quad value="79.829,165.959,167.7033,233.142"/>
+        </shape>
+    </region>
+    <region id="24">
+        <name value="Jungle Combat Zone"/>
+        <color value="255,255,255,0"/>
+        <invisible/>
+        <shape type="rect">
+            <quad value="97.8706,75.018,186.1181,112.1228"/>
+        </shape>
+    </region>
+    <region id="32">
+        <name value="Trench Combat Zone"/>
+        <color value="255,255,255,0"/>
+        <invisible/>
+        <shape type="rect">
+            <quad value="147.2534,106.8586,228.3337,172.013"/>
+        </shape>
+    </region>
+    <region id="43">
+        <name value="Main Zone East"/>
+        <shape type="rect">
+            <quad value="153.6491,104.185,154.868,167.116"/>
+        </shape>
+    </region>
+    <region id="47">
+        <name value="Main Zone South"/>
+        <shape type="rect">
+            <quad value="99.147,102.7468,172.5234,104.1821"/>
+        </shape>
+    </region>
+</Regions>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CAlert id="AttackTownAlly_Prot">
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackTownAlly_Terr">
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackTownAlly_Zerg">
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackTown_Prot">
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackTown_Terr">
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackTown_Zerg">
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackUnitAlly">
+        <PrimaryActions index="Select" value="0"/>
+        <PrimaryActions index="View" value="0"/>
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackUnitAlly_Prot">
+        <PrimaryActions index="Select" value="0"/>
+        <PrimaryActions index="View" value="0"/>
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackUnitAlly_Terr">
+        <PrimaryActions index="Select" value="0"/>
+        <PrimaryActions index="View" value="0"/>
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackUnitAlly_Zerg">
+        <PrimaryActions index="Select" value="0"/>
+        <PrimaryActions index="View" value="0"/>
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackUnit_Prot">
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackUnit_Terr">
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="AttackUnit_Zerg">
+        <Flags index="Combine" value="0"/>
+        <Flags index="Hide" value="1"/>
+        <Flags index="Ping" value="0"/>
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="CalldownLaunch_Prot">
+        <Sound value=""/>
+    </CAlert>
+    <CAlert id="CalldownLaunch_Zerg">
+        <Sound value=""/>
+    </CAlert>
+</Catalog>

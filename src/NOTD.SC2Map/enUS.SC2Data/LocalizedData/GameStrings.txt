@@ -2123,6 +2123,32 @@ DocInfo/PatchNote220=- Optimized equipment portraits for all classes. (ThunderRa
 DocInfo/PatchNote221=- Fixed "No Randoms" option (-nr) not working in Survival mode. (ThunderRazor)
 DocInfo/PatchNote222=- Optimized stinger ammo usage. (ThunderRazor)
 DocInfo/PatchNote223=- Fixed Recon attack animation (Rockz)
+DocInfo/PatchNote224=Alpha company ambient spawns reduced slightly (stanK)
+DocInfo/PatchNote225=Alpha company ambient spawns increase gradually for first 10 minutes of game (stanK)
+DocInfo/PatchNote226=Alpha company ambient spawns are slightly closer (stanK)
+DocInfo/PatchNote227=Fixed issue with Cronus lasers persisting after death in Survival (ThunderRazor)
+DocInfo/PatchNote228=Moving of story related messages from being directly displayed in chat (Niktos)
+DocInfo/PatchNote229=Fixed FO snipers being unable to attack rocks (Niktos)
+DocInfo/PatchNote230=Fixed Actor error with X1 attacks (Niktos)
+DocInfo/PatchNote231=Fixed bug with Refresher not refreshing Execute (Niktos)
+DocInfo/PatchNote232=Fixed bugs with new shop (Niktos)
+DocInfo/PatchNote233=Fixed rare bug where skill fails to be learned (Niktos)
+DocInfo/PatchNote234=Fixed Dr. Tanaka dying after lab escort (Niktos)
+DocInfo/PatchNote235=Fixed predators losing Blink at level 11 (Niktos)
+DocInfo/PatchNote236=Fixed predator cloak field not granting Master of Subtlety bonus damage. (Niktos)
+DocInfo/PatchNote237=Updated social media contacts (pickles)
+DocInfo/PatchNote238=Stinger missile deals splash damage on impact even if its original target died before impact. (ThunderRazor)
+DocInfo/PatchNote239=Cycling thru unit selections, control groups or subgroups will keep the inventory/equipment open/closed as chosen by the player. 
+DocInfo/PatchNote240=Pressing NumPad1 or NumPad2 will toggle the visibility of inventory containers of any unit, regardless if a unit is selected. (ThunderRazor)
+DocInfo/PatchNote241=Fixed an issue where one player's unit selection affected the inventory visibility for all other players. (ThunderRazor)
+DocInfo/PatchNote242=Dead players can now see the inventory of all inventory containers. (ThunderRazor)
+DocInfo/PatchNote243=Players granted with shared control can now modify Forward Observer's shell limit (as originally intended). (ThunderRazor)
+DocInfo/PatchNote244=Fixed amount of ammo dropped on death (stanK)
+DocInfo/PatchNote245=Fixed death drops spawning in unpathable terrain (stanK)
+DocInfo/PatchNote246=Asgard status bar is now hidden. (ThunderRazor)
+DocInfo/PatchNote247=Laser Designator should now work correctly always. (Niktos)
+DocInfo/PatchNote248=Fixed Level 0 Medal image in final scrore screen (Niktos)
+DocInfo/PatchNote249=FO minis follow FO on abort/end Asgard. (ThunderRazor)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
@@ -4219,6 +4245,7 @@ Param/Value/3331F97F=has succumbed to serious injuries.
 Param/Value/333C00A9=<s val="BriefingHanText">   Balancing/Testers<n/>   HunterIZ, gruvious, Reaper, Yorick, FlintLckwood, Peerawatz, NiteShade, Ghost</s>
 Param/Value/335ED149=Nail all those Agrons down.
 Param/Value/338A4C58=We brought down that machine, but looks like we've got more ahead of us.
+Param/Value/3399C292=<c val="FF0000">Equipment Closed</c>
 Param/Value/339DA5E3=+20 XP for Victory Bonus
 Param/Value/33B6A5BE=Field Marshal, I don't think it's a good idea to ask them to destroy the facility. Earth will be in an energy crisis without Apollo.
 Param/Value/33E4DF99=</c>)
@@ -4244,7 +4271,6 @@ Param/Value/36CF9868=(Direct link established with IVAX unit...)
 Param/Value/36E0AE82=Items
 Param/Value/37082E92=There's a backup mainframe north of the Airlock perimeter. We'll shut HAL down there.
 Param/Value/372C3780=TANAKA! We can't let you leave.
-Param/Value/3737E5CB=<s val="BriefingHanText">(Retrieving SecNet updates...)</s>
 Param/Value/373E7CF8=Some of them may be infected. There's no way to tell.
 Param/Value/37825E7E=(Accelerating overdrive...)
 Param/Value/37E2D39D=
@@ -4283,18 +4309,19 @@ Param/Value/3DC4466E=<s val="HeaderExtendedTemplate">/</s>
 Param/Value/3DC9679C=We need to find a safe spot.
 Param/Value/3E1B8894=I'm your dropship pilot. We've located a suitable LZ. You need to clear the area for me.
 Param/Value/3E1C1E17=. Removal with 2 more votes.</s>
+Param/Value/3E3025A5=Equipment Open
 Param/Value/3E5FA299=Corpsman Kellen
 Param/Value/3EA0E930=Secure Airlock perimeter until decryption is complete
 Param/Value/3EC532D7=[Outbreak]
 Param/Value/3EF0EAF1=It doesn't end here. We'll find a way into Apollo.
 Param/Value/3F3D628D=+1 XP for Mission Bonus
-Param/Value/3F4AD3BB=Cover my back.
 Param/Value/3FAE88EC=<s val="GlueButton">TIP: <c val="BEE916">
 Param/Value/404B0C5C=Enemies come in Waves in Survival. There are no missions. Survive as long as you can.
 Param/Value/40865F64=[<c val="FF0000">Priority Transmission</c>]<n/>General Koller: <n/>Hades is the primary source of the infestation. It's not going to go down without a fight. You're going to have to throw everything at it. Good luck!
 Param/Value/409F0FCD=She could be hosted anywhere if optic feeds were still live. Mars...or...even back on Earth.
 Param/Value/41199A23= vote kicked by 
 Param/Value/414A1DEB=</c></s>
+Param/Value/417765C1=Inventory Visible
 Param/Value/41AFE9EF=<s val="BriefingHanText">   Story/Concepts<n/>   Richard Lim (XaVi)</s>
 Param/Value/41CCC9EC= (<c val="F20000">
 Param/Value/4201B763=<s val="InfoPaneHeroRank">Supplies delivered into battlefield..</s>
@@ -4494,13 +4521,13 @@ Param/Value/63D10F1E=<s val="BriefingHanText">   Programmers<n/>   Tan Yik Boon 
 Param/Value/643423F9=The colonists have turned! Prepare to engage.
 Param/Value/643656F9=Survival Mode
 Param/Value/645466D6=Surround the perimeter with flares!
+Param/Value/6458F0E3=<s val="Warning"><c val="FFFF00"> !          !</c></s>
 Param/Value/64870BB9=<s val="BriefingHanText">HAL Shutdown Complete</s>
 Param/Value/648748AC=+
 Param/Value/6497D85A=We'll rendezvous at your location. Be advised we're picking up multiple heat signatures headed your direction.
 Param/Value/64F415B8=<n/>   Credits: 
 Param/Value/64FA8B5C=You're lucky to be alive Doctor. We need to get out of here.
 Param/Value/657E58AC=+1 XP for Performance Bonus
-Param/Value/65AAB098=I will break its secrets. Watch my back.
 Param/Value/65ED1170=Kill the boss' eggs with AOE damage or flamers
 Param/Value/6614EBF9=Vote Kick Target is 
 Param/Value/666A04DF=<n/><n/>ID: 
@@ -4513,6 +4540,7 @@ Param/Value/672C2DC4=<n/><n/>Kills: <c val="F4D72B">
 Param/Value/6734436C=<n/>   Karma: 
 Param/Value/67472A7C=: <c val="F4D72B">
 Param/Value/675EE141=<s val="GlueButton">
+Param/Value/6775B4D5=Stat Points Available: 
 Param/Value/67897E79=<n/></c>Magazines: <c val="F4D72B">
 Param/Value/67AE4653=We can't kill that thing. Stay away from it.
 Param/Value/67D0624B= selected 
@@ -4596,6 +4624,7 @@ Param/Value/7616B27D=+2 XP for Mission Bonus. 20 civilians rescued.
 Param/Value/76BF7456=Deploying Laser Drones to weaken its carapace.
 Param/Value/76C3D41C=Dome D is located South. I'm right with you.
 Param/Value/76F1B733=(Leto beckons the rebirth of Zeus..!)
+Param/Value/7753207C=
 Param/Value/775CC70B=I will break its secrets. Watch my back.
 Param/Value/776F872C=<s val="BriefingHanText">Abandoned Mine Shaft</s>
 Param/Value/77A56ECC=The leak's sealed but we shouldn't linger here long. My rad meter's going crazy.
@@ -4837,7 +4866,6 @@ Param/Value/9E26F3BA=(Dr. Bergmann disappears)
 Param/Value/9E7BFF45=Compliance Nexuses are supposed to help suppress violent behavior. What's a chip doing on him?
 Param/Value/9E86CEF8=Kill 'em all!
 Param/Value/9E94AC95= (
-Param/Value/9EA748D6=Most intriguing. I need to key my formulas in the next station.
 Param/Value/9EB6B8C4=It is important to assign talents everytime you Level Up. Stick to one tree.
 Param/Value/9EE1081C=+
 Param/Value/9EEBBCDA=<s val="InfoPaneHeroRank">Select Path<n/>A - "Tell us what you know"<n/>B - "You've betrayed us for the last time, Tanaka!"</s>
@@ -5175,6 +5203,7 @@ Param/Value/DAA0ACEF=<s val="InfoPaneHeroRank">Outbreak activated</s><n/>- Large
 Param/Value/DAB8AD38=We're not coming. Return to base.
 Param/Value/DAD3C239=We're Oscar Mike to target location.
 Param/Value/DAEA2E45=Class: 
+Param/Value/DAECF587=<c val="FF0000">Inventory Hidden</c> <c val="FFFFFF">(Numpad 1)</c>
 Param/Value/DB17F0AC=<s val="ModCenterSize24">
 Param/Value/DB2B3493=You're safe. Follow us.
 Param/Value/DB2E4586=<s val="BriefingHanText">(Airlock gates unlocked..)</s>
@@ -5184,7 +5213,6 @@ Param/Value/DB6F4B62=There's an inteference in our short range sensors. Somethin
 Param/Value/DBA28A6B=We have something on short-range sensors...
 Param/Value/DBA62FE1=</c></s>
 Param/Value/DBC40CC5=</s>
-Param/Value/DBE3712C=I've run the simulations here. Moving to the next terminal.
 Param/Value/DBEAB2D3=Everyone's dead...massacred by those zombies.
 Param/Value/DC7154EE=<s val="GlueButton">Deimos
 Param/Value/DC7774F5=You have my gratitude for killing him. He was...beyond redemption.
@@ -5213,7 +5241,6 @@ Param/Value/DF48C3E4=<s val="ModCenterSize24">
 Param/Value/DF554EA2=Hoo-ah!
 Param/Value/DF882DB6=Let's clear out. If there's someone in the lab, they may be at risk.
 Param/Value/DF96DC2A=Noises. More of those creatures.
-Param/Value/DFA29CF3=Got to move to another terminal. Cover me.
 Param/Value/DFDAC9AE=All these colonists died escaping..they never made it.
 Param/Value/DFDC255E=<c val="0080FF">.</c>
 Param/Value/DFDEDD0B=Clearance codes have been transmitted. Head to the Reactor Core now.
@@ -5247,6 +5274,7 @@ Param/Value/E51F85FC=Tanks have arrived. They will provide heavy support.
 Param/Value/E551D186=<s val="InfoPaneHeroRank">(Dr. Tanaka activates his console...)</s>
 Param/Value/E5BA10F6=Hold position at Mine until data transfer is complete.
 Param/Value/E6187E1A=The transport ship Delta-1 in airlock may hold survivors that need to be rescued.
+Param/Value/E62A0C52=</n><s val="Swarm_RegularXSmall"><c val="FF0000">Stats modification locked.</c></s>
 Param/Value/E658C7CF=Alright. We've unlocked Apollo's gates.
 Param/Value/E69CF360=...posthumously
 Param/Value/E6AD569D=Kill all zombies from Bio-Dome D

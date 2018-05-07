@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="CommandPanel" name="GameUI/UIContainer/ConsoleUIContainer/CommandPanel" file="GameUI">
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-14"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="299"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="628"/>
+        <Width val="329"/>
+        <Height val="199"/>
+        <Frame type="CommandTooltip" name="CommandTooltip">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-220"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="290"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton00" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton01" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton02" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton03" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton04" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton05" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton06" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton07" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton08" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton09" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton10" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton11" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton12" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton13" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="CommandButton" name="CommandButton14" template="CommandButton/CommandButtonTemplate">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="Image" name="CommandTargetImage">
+            <Width val="65"/>
+            <Height val="65"/>
+        </Frame>
+
+        <Frame type="Label" name="CommandTargetName">
+            <Anchor side="Left" relative="$parent/CommandTargetImage" pos="Max" offset="16"/>
+        </Frame>
+    </Frame>
+</Desc>

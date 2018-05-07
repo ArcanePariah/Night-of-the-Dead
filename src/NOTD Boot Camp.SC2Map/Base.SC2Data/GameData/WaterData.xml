@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CWater id="Haven">
+        <State index="0">
+            <Name value="[Default]"/>
+            <Height value="18.900000"/>
+            <Color value="0.117647,0.349020,0.858824,0.256000"/>
+            <ColorFallOff value="0.075000"/>
+            <Specularity value="100.000000"/>
+            <SpecularScaler value="2.450000"/>
+            <UvRate value="-0.000000,-0.001000,0.000000,0.000000"/>
+            <MeshRoughness value="0.015000"/>
+            <TextureRoughness value="0.009000"/>
+            <ReflectionDistortion value="0.012000"/>
+            <RefractionDistortion value="0.020000"/>
+            <MinReflection value="0.300000"/>
+            <ReflectivityPower value="8.000000"/>
+        </State>
+    </CWater>
+    <CWater id="PortZion">
+        <State index="0">
+            <Name value="[Default]"/>
+            <Height value="16.250000"/>
+            <Color value="0.600000,0.992157,0.000000,0.621000"/>
+            <ColorFallOff value="0.027000"/>
+            <Specularity value="1000.000000"/>
+            <SpecularScaler value="0.300000"/>
+            <UvRate value="-0.000000,-0.001000,0.000000,0.000000"/>
+            <TextureRoughness value="0.536000"/>
+            <ReflectionDistortion value="0.290000"/>
+            <RefractionDistortion value="0.001300"/>
+            <MinReflection value="0.000000"/>
+            <ReflectivityPower value="8.000000"/>
+        </State>
+    </CWater>
+</Catalog>
