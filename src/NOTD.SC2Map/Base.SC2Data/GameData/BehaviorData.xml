@@ -687,6 +687,7 @@
         </DamageResponse>
         <Modification>
             <StateFlags index="SuppressCollision" value="1"/>
+            <StateFlags index="SuppressThreat" value="1"/>
             <VitalRegenArray index="Life" value="8"/>
         </Modification>
     </CBehaviorBuff>

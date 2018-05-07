@@ -1577,7 +1577,6 @@ void gf_LowAmmoMessage (unit lp_reloadingUnit);
 void gf_ReloadCleanup (int lp_player, unit lp_reloadingUnit);
 fixed gf_GetWeaponReload (int lp_player, unit lp_reloadingUnit, int lp_reload, string lp_weapon);
 void gf_UpdateAmmoDialog (int lp_playerNumber);
-void gf_BadlyInjured (unit lp_injuredUnit);
 bool gf_AilmentResistanceCheck (unit lp_localUnitA);
 void gf_RankUp (int lp_player);
 void gf_UpdateHitCount (int lp_player);
@@ -1855,7 +1854,7 @@ trigger gt_AmmoUsage;
 trigger gt_AmmoUsageStinger;
 trigger gt_AmmoUsageL3;
 trigger gt_ReceivesDamage;
-trigger gt_BadlyInjuredListener;
+trigger gt_BadlyInjured;
 trigger gt_L3Kills;
 trigger gt_TeamKill;
 trigger gt_KarmaBite;
@@ -3843,93 +3842,6 @@ void gf_UpdateAmmoDialog (int lp_playerNumber) {
         libNtve_gf_SetDialogItemDesaturationColor(gv_ammoBarDialogRoundsBorder[lp_playerNumber], Color(28*100/255,167*100/255,234*100/255), PlayerGroupActive());
         DialogControlFadeTransparency(gv_ammoBarDialogRoundsBorder[lp_playerNumber], PlayerGroupActive(), 0.0, 75.0);
     }
-}
-
-trigger auto_gf_BadlyInjured_Trigger = null;
-unit auto_gf_BadlyInjured_lp_injuredUnit;
-
-void gf_BadlyInjured (unit lp_injuredUnit) {
-    auto_gf_BadlyInjured_lp_injuredUnit = lp_injuredUnit;
-
-    if (auto_gf_BadlyInjured_Trigger == null) {
-        auto_gf_BadlyInjured_Trigger = TriggerCreate("auto_gf_BadlyInjured_TriggerFunc");
-    }
-
-    TriggerExecute(auto_gf_BadlyInjured_Trigger, false, false);
-}
-
-bool auto_gf_BadlyInjured_TriggerFunc (bool testConds, bool runActions) {
-    unit lp_injuredUnit = auto_gf_BadlyInjured_lp_injuredUnit;
-
-    // Variable Declarations
-    unit lv_localUnitA;
-    int lv_localIntA;
-    int lv_index;
-    playergroup lv_injuredPlayer;
-    int lv_injuredTextTag;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_localUnitA = lp_injuredUnit;
-    lv_localIntA = UnitGetOwner(lv_localUnitA);
-    lv_index = UnitGetOwner(lv_localUnitA);
-    lv_injuredPlayer = PlayerGroupSingle(lv_index);
-    lv_injuredTextTag = c_textTagNone;
-
-    // Implementation
-    gv_playerRecovery[lv_localIntA] = true;
-    SoundChannelMute(lv_injuredPlayer, c_soundCategoryCombat, true);
-    SoundChannelMute(lv_injuredPlayer, c_soundCategorySpell, true);
-    SoundChannelMute(lv_injuredPlayer, c_soundCategoryAlert, true);
-    SoundChannelMute(lv_injuredPlayer, c_soundCategoryME, true);
-    SoundChannelMute(lv_injuredPlayer, c_soundCategoryDoodad, true);
-    if ((gv_fPS[lv_localIntA] == false)) {
-        CameraPan(lv_index, UnitGetPosition(gv_marineHero[lv_localIntA]), 0.0, -1, 10, false);
-    }
-
-    SoundPlay(SoundLink("Heartbeat", -1), lv_injuredPlayer, 100.0, 0.0);
-    if ((gv_playerRating[lv_localIntA] > 2200)) {
-        gv_playerRating[lv_localIntA] -= 5;
-    }
-    else if ((gv_playerRating[lv_localIntA] > 1800)) {
-        gv_playerRating[lv_localIntA] -= 3;
-    }
-    else if (true) {
-        gv_playerRating[lv_localIntA] -= 1;
-    }
-    gv_playerLives[lv_localIntA] -= 1;
-    gf_Save(lv_localIntA, gv_bankSize);
-    libNtve_gf_SetDialogItemText(gv_statsPlayerLivesLeft[lv_localIntA], IntToText(gv_playerLives[lv_localIntA]), PlayerGroupAll());
-    if ((gv_playerLives[lv_localIntA] == 1)) {
-        TextTagCreate((StringExternal("Param/Value/431FEC2D") + (IntToText(gv_playerLives[lv_localIntA]) + StringExternal("Param/Value/B93CD477"))), 24, UnitGetPosition(lv_localUnitA), 1.5, true, false, PlayerGroupActive());
-    }
-    else {
-        TextTagCreate((StringExternal("Param/Value/EADB924C") + (IntToText(gv_playerLives[lv_localIntA]) + StringExternal("Param/Value/10CB3A8D"))), 24, UnitGetPosition(lv_localUnitA), 1.5, true, false, PlayerGroupActive());
-    }
-    if ((gv_playerXP[lv_localIntA] <= 500) && (RandomInt(0, 2) == 1)) {
-        UIDisplayMessage(PlayerGroupSingle(lv_localIntA), c_messageAreaSubtitle, StringExternal("Param/Value/E2FE4ACA"));
-    }
-
-    lv_injuredTextTag = TextTagLastCreated();
-    TextTagAttachToUnit(lv_injuredTextTag, lv_localUnitA, 1.5);
-    libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Small, libNtve_ge_ExplosionType_Protoss, UnitGetPosition(lv_localUnitA));
-    Wait(4.0, c_timeGame);
-    SoundChannelMute(lv_injuredPlayer, c_soundCategoryCombat, false);
-    SoundChannelMute(lv_injuredPlayer, c_soundCategorySpell, false);
-    SoundChannelMute(lv_injuredPlayer, c_soundCategoryAlert, false);
-    SoundChannelMute(lv_injuredPlayer, c_soundCategoryME, false);
-    SoundChannelMute(lv_injuredPlayer, c_soundCategoryDoodad, false);
-    TextTagDestroy(lv_injuredTextTag);
-    if ((gv_playerLives[lv_localIntA] == 0)) {
-        UnitBehaviorRemove(lv_localUnitA, "PlayerLives", 1);
-        UnitBehaviorRemove(lv_localUnitA, "PlayerLivesAntiDegen", 1);
-        UnitBehaviorRemove(lv_localUnitA, "PlayerLivesAntiOneShot", 1);
-    }
-    if ((UnitIsAlive(lv_localUnitA) == true)) {
-        gv_playerRecovery[lv_localIntA] = false;
-    }
-
-    return true;
 }
 
 bool gf_AilmentResistanceCheck (unit lp_localUnitA) {
@@ -16410,21 +16322,27 @@ void gt_ReceivesDamage_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Badly Injured Listener
+// Trigger: Badly Injured
 //--------------------------------------------------------------------------------------------------
-bool gt_BadlyInjuredListener_Func (bool testConds, bool runActions) {
+bool gt_BadlyInjured_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    unit lv_marine;
-    int lv_marineOwner;
+    unit lv_localUnitA;
+    int lv_localIntA;
+    int lv_index;
+    playergroup lv_injuredPlayer;
+    int lv_injuredTextTag;
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_marine = EventUnit();
-    lv_marineOwner = UnitGetOwner(EventUnit());
+    lv_localUnitA = EventUnit();
+    lv_localIntA = UnitGetOwner(lv_localUnitA);
+    lv_index = UnitGetOwner(lv_localUnitA);
+    lv_injuredPlayer = PlayerGroupSingle(lv_index);
+    lv_injuredTextTag = c_textTagNone;
 
     // Conditions
     if (testConds) {
-        if (!((gv_playerRecovery[lv_marineOwner] == false))) {
+        if (!((gv_playerRecovery[lv_index] == false))) {
             return false;
         }
     }
@@ -16434,14 +16352,65 @@ bool gt_BadlyInjuredListener_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_BadlyInjured(lv_marine);
+    gv_playerRecovery[lv_localIntA] = true;
+    SoundChannelMute(lv_injuredPlayer, c_soundCategoryCombat, true);
+    SoundChannelMute(lv_injuredPlayer, c_soundCategorySpell, true);
+    SoundChannelMute(lv_injuredPlayer, c_soundCategoryAlert, true);
+    SoundChannelMute(lv_injuredPlayer, c_soundCategoryME, true);
+    SoundChannelMute(lv_injuredPlayer, c_soundCategoryDoodad, true);
+    if ((gv_fPS[lv_localIntA] == false)) {
+        CameraPan(lv_index, UnitGetPosition(gv_marineHero[lv_localIntA]), 0.0, -1, 10, false);
+    }
+
+    SoundPlay(SoundLink("Heartbeat", -1), lv_injuredPlayer, 100.0, 0.0);
+    if ((gv_playerRating[lv_localIntA] > 2200)) {
+        gv_playerRating[lv_localIntA] -= 5;
+    }
+    else if ((gv_playerRating[lv_localIntA] > 1800)) {
+        gv_playerRating[lv_localIntA] -= 3;
+    }
+    else if (true) {
+        gv_playerRating[lv_localIntA] -= 1;
+    }
+    gv_playerLives[lv_localIntA] -= 1;
+    gf_Save(lv_localIntA, gv_bankSize);
+    libNtve_gf_SetDialogItemText(gv_statsPlayerLivesLeft[lv_localIntA], IntToText(gv_playerLives[lv_localIntA]), PlayerGroupAll());
+    if ((gv_playerLives[lv_localIntA] == 1)) {
+        TextTagCreate((StringExternal("Param/Value/796AFF60") + (IntToText(gv_playerLives[lv_localIntA]) + StringExternal("Param/Value/7C001D62"))), 24, UnitGetPosition(lv_localUnitA), 1.5, true, false, PlayerGroupActive());
+    }
+    else {
+        TextTagCreate((StringExternal("Param/Value/8C2B2CD8") + (IntToText(gv_playerLives[lv_localIntA]) + StringExternal("Param/Value/2777278B"))), 24, UnitGetPosition(lv_localUnitA), 1.5, true, false, PlayerGroupActive());
+    }
+    if ((gv_playerXP[lv_localIntA] <= 500) && (RandomInt(0, 2) == 1)) {
+        UIDisplayMessage(PlayerGroupSingle(lv_localIntA), c_messageAreaSubtitle, StringExternal("Param/Value/5D490B11"));
+    }
+
+    lv_injuredTextTag = TextTagLastCreated();
+    TextTagAttachToUnit(lv_injuredTextTag, lv_localUnitA, 1.5);
+    libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Small, libNtve_ge_ExplosionType_Protoss, UnitGetPosition(lv_localUnitA));
+    Wait(4.0, c_timeGame);
+    SoundChannelMute(lv_injuredPlayer, c_soundCategoryCombat, false);
+    SoundChannelMute(lv_injuredPlayer, c_soundCategorySpell, false);
+    SoundChannelMute(lv_injuredPlayer, c_soundCategoryAlert, false);
+    SoundChannelMute(lv_injuredPlayer, c_soundCategoryME, false);
+    SoundChannelMute(lv_injuredPlayer, c_soundCategoryDoodad, false);
+    TextTagDestroy(lv_injuredTextTag);
+    if ((gv_playerLives[lv_localIntA] == 0)) {
+        UnitBehaviorRemove(lv_localUnitA, "PlayerLives", 1);
+        UnitBehaviorRemove(lv_localUnitA, "PlayerLivesAntiDegen", 1);
+        UnitBehaviorRemove(lv_localUnitA, "PlayerLivesAntiOneShot", 1);
+    }
+    if ((UnitIsAlive(lv_localUnitA) == true)) {
+        gv_playerRecovery[lv_localIntA] = false;
+    }
+
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_BadlyInjuredListener_Init () {
-    gt_BadlyInjuredListener = TriggerCreate("gt_BadlyInjuredListener_Func");
-    TriggerAddEventUnitBehaviorChange(gt_BadlyInjuredListener, null, "PlayerLivesEmergencyHeal", c_unitBehaviorChangeCreate);
+void gt_BadlyInjured_Init () {
+    gt_BadlyInjured = TriggerCreate("gt_BadlyInjured_Func");
+    TriggerAddEventUnitBehaviorChange(gt_BadlyInjured, null, "PlayerLivesEmergencyHeal", c_unitBehaviorChangeCreate);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -42204,7 +42173,7 @@ void InitTriggers () {
     gt_AmmoUsageStinger_Init();
     gt_AmmoUsageL3_Init();
     gt_ReceivesDamage_Init();
-    gt_BadlyInjuredListener_Init();
+    gt_BadlyInjured_Init();
     gt_L3Kills_Init();
     gt_TeamKill_Init();
     gt_KarmaBite_Init();
