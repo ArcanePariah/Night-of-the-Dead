@@ -1755,6 +1755,7 @@ bool gf_UsedDialogIsStats (int lp_usedDialog);
 bool gf_UsedDialogIsTalent (int lp_usedDialog);
 bool gf_TournamentWinner (string lp_playerHandle);
 bool gf_Staff (string lp_playerHandle);
+void gf_SetPortraitUnit (int lp_player);
 void gf_TeamStatusInitializePlayerPortrait (int lp_triggeringPlayer);
 void gf_TeamStatusUnderAttackPortraitFlash (int lp_playerNo);
 void gf_UIUpdatePortraitTooltip (int lp_triggeringPlayer);
@@ -2193,6 +2194,7 @@ trigger gt_Anticipation;
 trigger gt_Concentration;
 trigger gt_SupplyStation;
 trigger gt_LaserDesignator;
+trigger gt_HammeroftheGodsCamShake;
 trigger gt_FieldNexusRevokeSharedVision;
 trigger gt_FieldNexusShareVision;
 trigger gt_Synergy;
@@ -2200,7 +2202,6 @@ trigger gt_Inception;
 trigger gt_MindLinkShareDamage;
 trigger gt_MindLinkShareVision;
 trigger gt_CancelMindLink;
-trigger gt_HammeroftheGodsCamShake;
 trigger gt_MiniTKPenalty;
 trigger gt_ModifyShellLimit;
 trigger gt_FireMission;
@@ -6526,7 +6527,7 @@ bool auto_gf_AwardCreditsNOTD_TriggerFunc (bool testConds, bool runActions) {
         else if ((UnitIsAlive(gv_marineHero[lv_index]) == false) && (UnitIsAlive(gv_playerPet[lv_index]) == false)) {
             lv_personalCreditAllocation = FixedToInt((IntToFixed(lv_creditAllocation) * 0.5));
         }
-        gv_playerCredits[lv_index] += FixedToInt((IntToFixed(lv_personalCreditAllocation) * UserDataGetFixed("CreditAllocations", gv_playerCreditMultipler[lv_index], "Credit Multiplier", 1)));
+        gf_UpdateCredits(lv_index, FixedToInt((IntToFixed(lv_personalCreditAllocation) * UserDataGetFixed("CreditAllocations", gv_playerCreditMultipler[lv_index], "Credit Multiplier", 1))));
         gv_playerLifeTimeCreditsAcquired[lv_index] += (gv_playerCredits[lv_index] - lv_startingCredits);
         PlayerModifyPropertyInt(autoBCEEC12E_var, c_playerPropTerrazine, c_playerPropOperSetTo, gv_playerCredits[lv_index]);
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashLabel[lv_index], IntToText(gv_playerCredits[lv_index]), PlayerGroupAll());
@@ -12280,6 +12281,13 @@ bool gf_Staff (string lp_playerHandle) {
     return false;
 }
 
+void gf_SetPortraitUnit (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    DialogControlHookupStandard(c_triggerControlTypeUnitStatus, ("UIContainer/FullscreenUpperContainer/" + "Player" + IntToString(lp_player) + "Unit"));
+    libNtve_gf_SetDialogItemUnit(DialogControlLastCreated(), gv_marineHero[lp_player], PlayerGroupAll());
+}
+
 trigger auto_gf_TeamStatusInitializePlayerPortrait_Trigger = null;
 int auto_gf_TeamStatusInitializePlayerPortrait_lp_triggeringPlayer;
 
@@ -12434,7 +12442,6 @@ bool auto_gf_UIUpdatePortraitTooltip_TriggerFunc (bool testConds, bool runAction
 
     gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + IntToText((gv_playerXP[lp_triggeringPlayer] / gv_playerGamesPlayed[lp_triggeringPlayer])));
     gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + (StringExternal("Param/Value/666A04DF") + StringToText(PlayerHandle(lp_triggeringPlayer))));
-    libNtve_gf_SetDialogItemTooltip(gv_teamStatusPortraitButton[lp_triggeringPlayer], gv_teamStatusPortraitTooltip[lp_triggeringPlayer], PlayerGroupAll());
     return true;
 }
 
@@ -16909,7 +16916,7 @@ bool gt_Helium3AcquiredCredits_Func (bool testConds, bool runActions) {
         auto572476EE_var = PlayerGroupNextPlayer(auto572476EE_g, auto572476EE_var);
         if (auto572476EE_var < 0) { break; }
         lv_index = auto572476EE_var;
-        gv_playerCredits[lv_index] += lv_creditsEarned;
+        gf_UpdateCredits(lv_index, lv_creditsEarned);
         gv_playerLifeTimeCreditsAcquired[lv_index] += lv_creditsEarned;
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashLabel[lv_index], IntToText(gv_playerCredits[lv_index]), PlayerGroupAll());
         libNtve_gf_SetDialogItemText(gv_statsPlayerCashAcquiredLabel[lv_index], IntToText(gv_playerLifeTimeCreditsAcquired[lv_index]), PlayerGroupAll());
@@ -16990,15 +16997,14 @@ bool gt_DeadMarine_Func (bool testConds, bool runActions) {
         }
     }
     if ((gv_playerRandom[lv_pNumber] == true)) {
-        gv_playerKarma[lv_pNumber] += 5;
+        gf_UpdateKarma(lv_pNumber, 5);
     }
     else {
-        gv_playerKarma[lv_pNumber] += 1;
+        gf_UpdateKarma(lv_pNumber, 1);
     }
     gf_UpdateHitCount(lv_pNumber);
     gf_DeathRating(lv_deadMarine, lv_pNumber);
     gf_Save(lv_pNumber, gv_bankSize);
-    gf_UIUpdatePortraitTooltip(lv_pNumber);
     gf_DeathDialogDestruction(lv_pNumber);
     UIDisplayMessage(PlayerGroupSingle(lv_pNumber), c_messageAreaDebug, (StringExternal("Param/Value/C21BD67D") + (PlayerName(lv_pNumber) + StringExternal("Param/Value/DFDC255E"))));
     if ((gv_playerXP[lv_pNumber] < 500)) {
@@ -38551,13 +38557,13 @@ bool gt_BuyItem_Func (bool testConds, bool runActions) {
 
     if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000)) {
         if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 14)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofWeaponMod) && (gf_WeaponsModPointMax(lv_buyingPlayer) == false)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofWeaponMod;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofWeaponMod);
             gv_playerWeaponsMod2[lv_buyingPlayer] += 100;
             gf_ModUpdateUnlockedModPointsText(lv_buyingPlayer);
             lv_boughtItem = true;
         }
         else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 8)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofBOInsignia) && (gf_BOInsigniaBought(lv_buyingPlayer) == false)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofBOInsignia;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofBOInsignia);
             gv_playerColorCode[lv_buyingPlayer] += 1000;
             gf_UpgradeBOInsigniaRank(lv_buyingPlayer);
             lv_boughtItem = true;
@@ -38604,7 +38610,7 @@ bool gt_BuyItem_Func (bool testConds, bool runActions) {
             }
             if ((lv_petCode != ModI(gv_playerPetCode[lv_buyingPlayer], 100))) {
                 if ((lv_petCode != 8)) {
-                    gv_playerCredits[lv_buyingPlayer] -= gv_costofPet;
+                    gf_UpdateCredits(lv_buyingPlayer, -gv_costofPet);
                     lv_boughtItem = true;
                 }
 
@@ -38660,7 +38666,7 @@ bool gt_BuyItem_Func (bool testConds, bool runActions) {
                 lv_colorCode = 13;
             }
             if ((lv_colorCode != ModI(gv_playerColorCode[lv_buyingPlayer], 100))) {
-                gv_playerCredits[lv_buyingPlayer] -= gv_costofColor;
+                gf_UpdateCredits(lv_buyingPlayer, -gv_costofColor);
                 gv_playerColorCode[lv_buyingPlayer] = ((gv_playerColorCode[lv_buyingPlayer] - ModI(gv_playerColorCode[lv_buyingPlayer], 100)) + lv_colorCode);
                 UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, IntToText(gv_playerColorCode[lv_buyingPlayer]));
                 gf_PlayerColorChange(lv_buyingPlayer);
@@ -38669,7 +38675,7 @@ bool gt_BuyItem_Func (bool testConds, bool runActions) {
 
         }
         else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 9)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofKitten) && (gf_KittensBought(lv_buyingPlayer) == false)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofKitten;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofKitten);
             gv_playerColorCode[lv_buyingPlayer] += 100;
             gf_CreateKittens(lv_buyingPlayer);
             lv_boughtItem = true;
@@ -39080,10 +39086,6 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((StringContains(PlayerHandle(lv_selectingPlayer), IntToString(64312), c_stringAnywhere, c_stringCase) == true)) {
-        GameOver(lv_selectingPlayer, c_gameOverVictory, true, true);
-    }
-
     DialogDestroy(gv_classSelectionDialog[lv_selectingPlayer]);
     if ((TriggerGetExecCount(TriggerGetCurrent()) == (gv_totalPlayers - 1))) {
         TriggerEnable(TriggerGetCurrent(), false);
@@ -39207,6 +39209,7 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     }
     gf_CustomNameChange(lv_selectingPlayer);
     gf_StatsUpdateHeroImage(lv_selectingPlayer);
+    gf_SetPortraitUnit(lv_selectingPlayer);
     gf_StatsSetBehaviors(lv_selectingPlayer);
     gf_TeamStatusInitializePlayerPortrait(lv_selectingPlayer);
     if ((gv_storyline == 3)) {
@@ -39626,9 +39629,6 @@ bool gt_PeriodicTeamUIUpdate_Func (bool testConds, bool runActions) {
     unitgroup auto0609A60A_g;
     int auto0609A60A_u;
     unit auto0609A60A_var;
-    unitgroup autoA5A349AF_g;
-    int autoA5A349AF_u;
-    unit autoA5A349AF_var;
 
     // Variable Initialization
 
@@ -39647,14 +39647,6 @@ bool gt_PeriodicTeamUIUpdate_Func (bool testConds, bool runActions) {
             gf_UpdateSpectatorLabel(lv_ownerOfUnit);
         }
 
-    }
-    autoA5A349AF_g = gv_pets;
-    autoA5A349AF_u = UnitGroupCount(autoA5A349AF_g, c_unitCountAll);
-    for (;; autoA5A349AF_u -= 1) {
-        autoA5A349AF_var = UnitGroupUnitFromEnd(autoA5A349AF_g, autoA5A349AF_u);
-        if (autoA5A349AF_var == null) { break; }
-        lv_ownerOfUnit = UnitGetOwner(autoA5A349AF_var);
-        gf_UIUpdatePortraitTooltip(lv_ownerOfUnit);
     }
     return true;
 }
@@ -40520,6 +40512,48 @@ void gt_LaserDesignator_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Hammer of the Gods - Cam Shake
+//--------------------------------------------------------------------------------------------------
+bool gt_HammeroftheGodsCamShake_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    const int autoF6EB5B1C_ae = gv_numberofPlayers;
+    int autoF6EB5B1C_var;
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnit()) == "BlackDog"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoF6EB5B1C_var = gv_indexBaseValue;
+    for ( ; autoF6EB5B1C_var <= autoF6EB5B1C_ae; autoF6EB5B1C_var += 1 ) {
+        if (((UnitIsAlive(gv_marineHero[autoF6EB5B1C_var]) == true) || (UnitIsAlive(gv_playerPet[autoF6EB5B1C_var]) == true))) {
+            if (((DistanceBetweenPoints(UnitGetPosition(EventUnit()), UnitGetPosition(gv_playerPet[autoF6EB5B1C_var])) <= 3.0) || (DistanceBetweenPoints(UnitGetPosition(EventUnit()), UnitGetPosition(gv_marineHero[autoF6EB5B1C_var])) <= 3.0))) {
+                CameraShakeStart(autoF6EB5B1C_var, c_cameraPositionBoth, c_cameraDirectionXZ, 0.02, 1.0, 100.0, 0.1);
+            }
+            else if (((DistanceBetweenPoints(UnitGetPosition(EventUnit()), UnitGetPosition(gv_marineHero[autoF6EB5B1C_var])) <= 5.0) || (DistanceBetweenPoints(UnitGetPosition(EventUnit()), UnitGetPosition(gv_playerPet[autoF6EB5B1C_var])) <= 5.0))) {
+                CameraShakeStart(autoF6EB5B1C_var, c_cameraPositionBoth, c_cameraDirectionXZ, 0.005, 1.0, 100.0, 0.1);
+            }
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_HammeroftheGodsCamShake_Init () {
+    gt_HammeroftheGodsCamShake = TriggerCreate("gt_HammeroftheGodsCamShake_Func");
+    TriggerEnable(gt_HammeroftheGodsCamShake, false);
+    TriggerAddEventUnitStartedAttack(gt_HammeroftheGodsCamShake, null);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Field Nexus - Revoke Shared Vision
 //--------------------------------------------------------------------------------------------------
 bool gt_FieldNexusRevokeSharedVision_Func (bool testConds, bool runActions) {
@@ -41085,48 +41119,6 @@ void gt_CancelMindLink_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Hammer of the Gods - Cam Shake
-//--------------------------------------------------------------------------------------------------
-bool gt_HammeroftheGodsCamShake_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    const int autoF6EB5B1C_ae = gv_numberofPlayers;
-    int autoF6EB5B1C_var;
-
-    // Conditions
-    if (testConds) {
-        if (!((UnitGetType(EventUnit()) == "BlackDog"))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    autoF6EB5B1C_var = gv_indexBaseValue;
-    for ( ; autoF6EB5B1C_var <= autoF6EB5B1C_ae; autoF6EB5B1C_var += 1 ) {
-        if (((UnitIsAlive(gv_marineHero[autoF6EB5B1C_var]) == true) || (UnitIsAlive(gv_playerPet[autoF6EB5B1C_var]) == true))) {
-            if (((DistanceBetweenPoints(UnitGetPosition(EventUnit()), UnitGetPosition(gv_playerPet[autoF6EB5B1C_var])) <= 3.0) || (DistanceBetweenPoints(UnitGetPosition(EventUnit()), UnitGetPosition(gv_marineHero[autoF6EB5B1C_var])) <= 3.0))) {
-                CameraShakeStart(autoF6EB5B1C_var, c_cameraPositionBoth, c_cameraDirectionXZ, 0.02, 1.0, 100.0, 0.1);
-            }
-            else if (((DistanceBetweenPoints(UnitGetPosition(EventUnit()), UnitGetPosition(gv_marineHero[autoF6EB5B1C_var])) <= 5.0) || (DistanceBetweenPoints(UnitGetPosition(EventUnit()), UnitGetPosition(gv_playerPet[autoF6EB5B1C_var])) <= 5.0))) {
-                CameraShakeStart(autoF6EB5B1C_var, c_cameraPositionBoth, c_cameraDirectionXZ, 0.005, 1.0, 100.0, 0.1);
-            }
-        }
-
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_HammeroftheGodsCamShake_Init () {
-    gt_HammeroftheGodsCamShake = TriggerCreate("gt_HammeroftheGodsCamShake_Func");
-    TriggerEnable(gt_HammeroftheGodsCamShake, false);
-    TriggerAddEventUnitStartedAttack(gt_HammeroftheGodsCamShake, null);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Mini TK Penalty
 //--------------------------------------------------------------------------------------------------
 bool gt_MiniTKPenalty_Func (bool testConds, bool runActions) {
@@ -41163,14 +41155,14 @@ bool gt_MiniTKPenalty_Func (bool testConds, bool runActions) {
 
     gv_miniDeathsFriendly += 1;
     if ((gv_miniDeathsFriendly < 4)) {
-        gv_playerCredits[lv_index] -= 10;
+        gf_UpdateCredits(lv_index, -10);
+        gf_UpdateRating(lv_index, -10);
         gv_playerXP[lv_index] -= 10;
-        gv_playerRating[lv_index] -= 10;
     }
     else {
-        gv_playerCredits[lv_index] -= 100;
+        gf_UpdateCredits(lv_index, -100);
+        gf_UpdateRating(lv_index, -100);
         gv_playerXP[lv_index] -= 100;
-        gv_playerRating[lv_index] -= 100;
     }
     PlayerScoreValueSetFromInt(lv_index, "PlayerXP", gv_playerXP[lv_index]);
     gf_Save(libNtve_gf_KillingPlayer(), gv_bankSize);
@@ -42568,6 +42560,7 @@ void InitTriggers () {
     gt_Concentration_Init();
     gt_SupplyStation_Init();
     gt_LaserDesignator_Init();
+    gt_HammeroftheGodsCamShake_Init();
     gt_FieldNexusRevokeSharedVision_Init();
     gt_FieldNexusShareVision_Init();
     gt_Synergy_Init();
@@ -42575,7 +42568,6 @@ void InitTriggers () {
     gt_MindLinkShareDamage_Init();
     gt_MindLinkShareVision_Init();
     gt_CancelMindLink_Init();
-    gt_HammeroftheGodsCamShake_Init();
     gt_MiniTKPenalty_Init();
     gt_ModifyShellLimit_Init();
     gt_FireMission_Init();

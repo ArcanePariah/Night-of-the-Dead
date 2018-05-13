@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
 	<Constant name = "StatusOffset" val = "-10"/>
-	
+	<Constant name = "WHITE" val = "255,255,255" />
 	<Frame type="Label" name="PlusLabelTemplate">
 		<Style val="@@StandardTooltip"/>
 		<ScaleText val= "True"/>
@@ -394,9 +394,9 @@
 	
 	<Frame type="StandardTooltip" name="PlayerInformationTooltip">
 			
-		<MinHeight val = "300" />
-		<MaxWidth val="250"/>
-		<MinWidth val="300"/>
+		<MinHeight val = "220" />
+		<MaxWidth val="280"/>
+		<MinWidth val="220"/>
 		<Insets top="15" left="15" bottom="15" right="15"/>
 		
 		<Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardBorderTooltipGame">
@@ -407,19 +407,35 @@
 			<Anchor relative="$parent"/>
 		</Frame>
 		
+		<Frame type="Label" name="ClassLabel">
+			<Anchor side="Top" pos="Min" offset="15" relative="$parent" />
+			<Anchor side="Left" pos="Min" offset="15" relative="$parent" />
+			<Width val = "60" />
+			<Height val = "25"/>
+			<Text val = "Class: "/>
+			<Style val="@StandardTooltip"/>
+		</Frame>
+		
 		<Frame type = "UnitStatusFrame" name = "PlayerClassName">
-			<Anchor relative="$parent" offset = "-15"/>
+			<Anchor side="Top" pos="Min" offset="15" relative="$parent" />
+			<Anchor side="Left" pos="Max" offset="0" relative="$parent/ClassLabel" />
+			<Anchor side="Right" pos="Max" offset="-15" relative="$parent" />
+			<Height val = "25"/>
 			<Frame type = "UnitStatusUnitName" name = "UnitName">
 				<Anchor relative="$parent"/>
 				<Frame type = "Label" name = "Label">
+					<Style val="@StandardTooltip"/>
 					<Anchor relative="$parent"/>
 				</Frame>
 			</Frame>
 		</Frame>
 		
 		<Frame type="PlayerScoreValueFrame" name="PlayerStats">
-			<Anchor relative="$parent" offset = "-15"/>
-
+			<Anchor side="Top" pos="Max" offset="0" relative="$parent/PlayerClassName" />
+			<Anchor side="Left" pos="Min" offset="0" relative="$parent/ClassLabel" />
+			<Anchor side="Right" pos="Max" offset="0" relative="$parent/PlayerClassName" />
+			<Anchor side="Bottom" pos="Max" offset="-15" relative="$parent" />
+			
 			<!-- Rating -->
 			<Frame type="Label" name="Rating">
 				<Anchor side="Top" pos="Min" offset="0" relative="$parent" />
@@ -427,6 +443,7 @@
 				<Width val = "200" />
 				<Height val = "26" />
 				<Style val="@StandardTooltip"/>
+				<IgnoreParentColor val = "true" />
 				<Text val = "{$parent/RatingTextFormat/@Text}" />
 			</Frame>
 			
@@ -435,7 +452,7 @@
 				<Anchor side="Left" pos="Max" offset="0" relative="$parent/Rating" />
 				<Height val="1"/>
 				<Width val="1"/>
-				<FormatText val="Rating: %0% (%1%%2%)"/>
+				<FormatText val="Rating: %0% (&lt;c val=&quot;F4D72B&quot;&gt;%1%%2%&lt;/c&gt;)"/>
 				<Replacement index="0" val="{$parent/RatingValue/@StringValue}"/>
 				<Replacement index="1" val="{$parent/RatingPlusLabel/@Text}"/>
 				<Replacement index="2" val="{$parent/RatingValueChange/@StringValue}"/>
@@ -444,17 +461,21 @@
 			<Frame type="DataRefFrame" name="RatingValue">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="Rating"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 			
 			<Frame type="DataRefFrame" name="RatingValueChange">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="RatingChange"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 			
 			<Frame type="Label" name="RatingPlusLabel" template = "TeamStatus/PlusLabelTemplate">
 				<Anchor side="Top" pos="Min" offset="0" relative="$parent/Rating" />
 				<Anchor side="Left" pos="Max" offset="0" relative="$parent" />
-				<Visible val = "false"/>
+				<Text val = ""/>
+				<Height val = "1"/>
+				<Width val = "1"/>
 			</Frame>
 			
 			<StateGroup name = "RatingPlus">
@@ -477,6 +498,7 @@
 				<Width val = "200" />
 				<Height val = "26" />
 				<Style val="@StandardTooltip"/>
+				<IgnoreParentColor val = "true" />
 				<Text val = "{$parent/KarmaTextFormat/@Text}" />
 			</Frame>
 			
@@ -485,7 +507,7 @@
 				<Anchor side="Left" pos="Max" offset="0" relative="$parent/Karma" />
 				<Height val="1"/>
 				<Width val="1"/>
-				<FormatText val="Karma: %0% (%1%%2%)"/>
+				<FormatText val="Karma: %0% (&lt;c val=&quot;F4D72B&quot;&gt;%1%%2%&lt;/c&gt;)"/>
 				<Replacement index="0" val="{$parent/KarmaValue/@StringValue}"/>
 				<Replacement index="1" val="{$parent/KarmaPlusLabel/@Text}"/>
 				<Replacement index="2" val="{$parent/KarmaValueChange/@StringValue}"/>
@@ -494,28 +516,32 @@
 			<Frame type="DataRefFrame" name="KarmaValue">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="Karma"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 			
 			<Frame type="DataRefFrame" name="KarmaValueChange">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="KarmaChange"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 			
 			<Frame type="Label" name="KarmaPlusLabel" template = "TeamStatus/PlusLabelTemplate">
 				<Anchor side="Top" pos="Min" offset="0" relative="$parent/Karma" />
 				<Anchor side="Left" pos="Max" offset="0" relative="$parent/" />
-				<Visible val = "False" />
+				<Text val = ""/>
+				<Height val = "1"/>
+				<Width val = "1"/>
 			</Frame>
 			
-			<StateGroup name = "Karma">
+			<StateGroup name = "KarmaPlus">
 				<DefaultState val = "NotPositive"/>
                 <State name = "Positive">
                     <When frame="$this/KarmaValueChange" type="Property" operator="GreaterThan" StringValue="0"/>
-					<Action type="SetProperty" frame = "$parent/KarmaPlusLabel" text="+"/>
+					<Action type="SetProperty" frame = "$this/KarmaPlusLabel" text="+"/>
                 </State>
 				
 				<State name = "NotPositive">
-                    <Action type="SetProperty" frame = "$parent/KarmaPlusLabel" text=""/>
+                    <Action type="SetProperty" frame = "$this/KarmaPlusLabel" text=""/>
                 </State>
             </StateGroup>
 			
@@ -527,6 +553,7 @@
 				<Width val = "200" />
 				<Height val = "26" />
 				<Style val="@StandardTooltip"/>
+				<IgnoreParentColor val = "true" />
 				<Text val = "{$parent/XPTextFormat/@Text}" />
 			</Frame>
 			
@@ -535,7 +562,7 @@
 				<Anchor side="Left" pos="Max" offset="0" relative="$parent/XP" />
 				<Height val="1"/>
 				<Width val="1"/>
-				<FormatText val="XP: %0% (%1%%2%)"/>
+				<FormatText val="XP: %0% (&lt;c val=&quot;F4D72B&quot;&gt;%1%%2%&lt;/c&gt;)"/>
 				<Replacement index="0" val="{$parent/XPValue/@StringValue}"/>
 				<Replacement index="1" val="{$parent/XPPlusLabel/@Text}"/>
 				<Replacement index="2" val="{$parent/XPValueChange/@StringValue}"/>
@@ -544,28 +571,32 @@
 			<Frame type="DataRefFrame" name="XPValue">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="PlayerXP"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 			
 			<Frame type="DataRefFrame" name="XPValueChange">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="PlayerXPChange"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 			
 			<Frame type="Label" name="XPPlusLabel" template = "TeamStatus/PlusLabelTemplate">
 				<Anchor side="Top" pos="Min" offset="0" relative="$parent/XP" />
 				<Anchor side="Left" pos="Max" offset="0" relative="$parent" />
-				<Visible val = "False" />
+				<Text val = ""/>
+				<Height val = "1"/>
+				<Width val = "1"/>
 			</Frame>
 			
-			<StateGroup name = "XP">
+			<StateGroup name = "XPPlus">
 				<DefaultState val = "NotPositive"/>
                 <State name = "Positive">
                     <When frame="$this/XPValueChange" type="Property" operator="GreaterThan" StringValue="0"/>
-					<Action type="SetProperty" frame = "$parent/XPPlusLabel" text="+"/>
+					<Action type="SetProperty" frame = "$this/XPPlusLabel" text="+"/>
                 </State>
 				
 				<State name = "NotPositive">
-                    <Action type="SetProperty" frame = "$parent/XPPlusLabel" text=""/>
+                    <Action type="SetProperty" frame = "$this/XPPlusLabel" text=""/>
                 </State>
             </StateGroup>
 			
@@ -577,6 +608,7 @@
 				<Width val = "200" />
 				<Height val = "26" />
 				<Style val="@StandardTooltip"/>
+				<IgnoreParentColor val = "true" />
 				<Text val = "{$parent/CreditsTextFormat/@Text}" />
 			</Frame>
 			
@@ -585,7 +617,7 @@
 				<Anchor side="Left" pos="Max" offset="0" relative="$parent/Credits" />
 				<Height val="1"/>
 				<Width val="1"/>
-				<FormatText val="Credits: %0% (%1%%2%)"/>
+				<FormatText val="Credits: %0% (&lt;c val=&quot;F4D72B&quot;&gt;%1%%2%&lt;/c&gt;)"/>
 				<Replacement index="0" val="{$parent/CreditsValue/@StringValue}"/>
 				<Replacement index="1" val="{$parent/CreditsPlusLabel/@Text}"/>
 				<Replacement index="2" val="{$parent/CreditsValueChange/@StringValue}"/>
@@ -594,28 +626,32 @@
 			<Frame type="DataRefFrame" name="CreditsValue">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="Credits"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 			
 			<Frame type="DataRefFrame" name="CreditsValueChange">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="CreditsChange"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 			
 			<Frame type="Label" name="CreditsPlusLabel" template = "TeamStatus/PlusLabelTemplate">
 				<Anchor side="Top" pos="Min" offset="0" relative="$parent/Credits" />
 				<Anchor side="Left" pos="Max" offset="0" relative="$parent" />
-				<Visible val = "False" />
+				<Text val = ""/>
+				<Height val = "1"/>
+				<Width val = "1"/>
 			</Frame>
 			
-			<StateGroup name = "Credits">
+			<StateGroup name = "CreditsPlus">
 				<DefaultState val = "NotPositive"/>
                 <State name = "Positive">
                     <When frame="$this/CreditsValueChange" type="Property" operator="GreaterThan" StringValue="0"/>
-					<Action type="SetProperty" frame = "$parent/CreditsPlusLabel" text="+"/>
+					<Action type="SetProperty" frame = "$this/CreditsPlusLabel" text="+"/>
                 </State>
 				
 				<State name = "NotPositive">
-                    <Action type="SetProperty" frame = "$parent/CreditsPlusLabel" text=""/>
+                    <Action type="SetProperty" frame = "$this/CreditsPlusLabel" text=""/>
                 </State>
             </StateGroup>
 			
@@ -626,6 +662,7 @@
 				<Width val = "200" />
 				<Height val = "26" />
 				<Style val="@StandardTooltip"/>
+				<IgnoreParentColor val = "true" />
 				<Text val = "{$parent/GamesPlayedTextFormat/@Text}" />
 			</Frame>
 			
@@ -641,6 +678,7 @@
 			<Frame type="DataRefFrame" name="GamesPlayedValue">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="GamesPlayed"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 			
 			<!-- AverageXPPerGame -->
@@ -650,6 +688,7 @@
 				<Width val = "200" />
 				<Height val = "26" />
 				<Style val="@StandardTooltip"/>
+				<IgnoreParentColor val = "true" />
 				<Text val = "{$parent/AverageXPPerGameTextFormat/@Text}" />
 			</Frame>
 			
@@ -665,6 +704,7 @@
 			<Frame type="DataRefFrame" name="AverageXPPerGameValue">
 				<Anchor relative="$parent"/>
 				<Argument name="score" val="AverageXPPerGame"/>
+				<PlayerId val = "{$parent/@PlayerId}" />
 			</Frame>
 
 		</Frame>

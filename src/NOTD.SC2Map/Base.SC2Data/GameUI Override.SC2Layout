@@ -106,6 +106,28 @@
             <Anchor side="Top" relative="$parent" pos="Min" offset="85"/>
         </Frame>
 		
+		<Frame type="UnitStatusFrame" name = "Player1Unit">
+		</Frame>
+		
+		<Frame type="UnitStatusFrame" name = "Player2Unit">
+		</Frame>
+		<Frame type="UnitStatusFrame" name = "Player3Unit">
+		</Frame>
+		
+		<Frame type="UnitStatusFrame" name = "Player4Unit">
+		</Frame>
+		
+		<Frame type="UnitStatusFrame" name = "Player5Unit">
+		</Frame>
+		
+		<Frame type="UnitStatusFrame" name = "Player6Unit">
+		</Frame>
+		
+		<Frame type="UnitStatusFrame" name = "Player7Unit">
+		</Frame>
+		
+		<Frame type="UnitStatusFrame" name = "Player8Unit">
+		</Frame>
 		<Frame type = "StandardTooltip" name = "Player1StatsTooltip" template = "TeamStatus/StatsTooltip">
 			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine1" />
 			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
@@ -117,6 +139,9 @@
 		<Frame type = "StandardTooltip" name = "Player1InformationTooltip" template = "TeamStatus/PlayerInformationTooltip">
 			<Anchor side="Top" pos="Mid" offset="#TooltipOffset" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI/Marine1" />
 			<Anchor side="Right" pos="Min" offset="0" relative="$parent/GameUI/UIContainer/FullscreenUpperContainer/TeamUI" />
+				<Frame type = "UnitStatusFrame" name = "PlayerClassName">
+					<UnitTag val = "{$parent/$parent/GameUI/UIContainer/FullscreenUpperContainer/Player1Unit/@UnitTag}"/>
+				</Frame>
 				<Frame type="PlayerScoreValueFrame" name="PlayerStats">
 					<PlayerId val = "1" />
 				</Frame>
