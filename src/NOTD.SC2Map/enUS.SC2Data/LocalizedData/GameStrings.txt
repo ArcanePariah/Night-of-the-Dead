@@ -336,6 +336,14 @@ Attribute002/Value001/Desc=Game will start with Navy Cross, all Medkits/Bandages
 Attribute002/Value001/Name=Navy Cross Enabled
 Attribute002/Value002/Desc=Game will start as normal
 Attribute002/Value002/Name=Navy Cross Disabled
+Attribute003/Desc=Defines how classes are selected in game
+Attribute003/Name=Class Selection
+Attribute003/Value001/Desc=Selecting classes normal.
+Attribute003/Value001/Name=Standard
+Attribute003/Value002/Desc=Random class selection disabled.
+Attribute003/Value002/Name=No Random
+Attribute003/Value003/Desc=Forced random selection.
+Attribute003/Value003/Name=All Random
 Barret/MMRifle Equipped=M45 Marksman Rifle or Barret M112 Equipped
 Behavior/Name/AMRounds=AM Rounds
 Behavior/Name/APAmmo=<c val="80FF80">AP Ammo</c>
@@ -5098,6 +5106,7 @@ Param/Value/CA7A62A2=You're being misled by your superiors. Think this through.
 Param/Value/CB4C0097=There's too many. You need to destroy the Dome itself.
 Param/Value/CB61B932=<s val="GlueButton">
 Param/Value/CB734693=My research is almost complete.
+Param/Value/CBBE284F=Next Promotion:
 Param/Value/CBC10B72=It's at the military base. Let's go.
 Param/Value/CC0DFB19=<s val="GlueButtonSmall">Marksman: 
 Param/Value/CC209D9A=)
@@ -5238,6 +5247,7 @@ Param/Value/E13A28B5=Once we begin, there will be no turning back.
 Param/Value/E14D6B71=Take them out or your position will be overwhelmed.
 Param/Value/E1703520=I don't see any better options. Tell us what to do.
 Param/Value/E19DF915=+2 XP: Transmission Download Complete
+Param/Value/E1A199CA=<s val="InfoPaneHeroRank">Command Failed</s></n>All random requires enabling before selecting story.
 Param/Value/E1B2888D=Secure Security Cams (0/5)
 Param/Value/E25FCAD9=Military EVAC is underway. Stay safe and watch out for danger until rescue arrives.
 Param/Value/E298D78F= (<c val="E10000">
@@ -5249,6 +5259,7 @@ Param/Value/E32A665D=Deimos
 Param/Value/E3864FB9=Kill the Zombie Queen
 Param/Value/E3A8B054=Maybe. I'd like to question him myself when I get the chance.
 Param/Value/E3BD112F=You squad needs to investigate the airlock for clues. If anybody was trying to get out, they'd head to the airlock.
+Param/Value/E3E8800E=<s val="InfoPaneHeroRank">All Randoms mode activated</s><n/>- Good luck.
 Param/Value/E405D451=Your progress will automatically load each game.
 Param/Value/E461E750=Situation under control. We've got this.
 Param/Value/E4DFE6B3=<s val="InfoPaneHeroRank">
@@ -5365,6 +5376,7 @@ Param/Value/F79FB8D1=</s>
 Param/Value/F7A04BFC=+3 XP for Mission Bonus. 50 civilians rescued.
 Param/Value/F7AEF20F=<s val="BriefingHanText">Infestation Level: 89% (Probable)</s>
 Param/Value/F7E4F520=
+Param/Value/F80A3847=Class Selection
 Param/Value/F80D8B6F=I thought we would have died here...or worse...
 Param/Value/F8130A42=Pending
 Param/Value/F866572F=Politics can wait. We have a critical situation here in Apollo.

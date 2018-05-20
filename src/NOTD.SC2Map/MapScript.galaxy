@@ -1728,6 +1728,7 @@ int gf_GD_GridToInteger (fixed lp_grid, int lp_hV, int lp_sizeOrPos);
 fixed gf_GD_RealToGrid (fixed lp_value, int lp_hV, int lp_sizeOrPos);
 fixed gf_GD_IntegerToGrid (int lp_value, int lp_hV, int lp_sizeOrPos);
 void gf_MoveDialogItemInGridRelative (int lp_item, playergroup lp_players, int lp_anchor, int lp_relativeItem, int lp_relativeAnchor, fixed lp_offsetX, fixed lp_offsetY);
+void gf_AllRandomSelectionUI ();
 void gf_ClassSelectionUI ();
 void gf_SurvivalClassSelectionUI ();
 void gf_SetupClassSelection (int lp_player, int lp_classSlot, int lp_classLabel);
@@ -1856,6 +1857,7 @@ trigger gt_WinsCheck;
 trigger gt_AmmoCheck;
 trigger gt_NavyCross;
 trigger gt_NoRandoms;
+trigger gt_AllRandom;
 trigger gt_NightmareMode;
 trigger gt_OutbreakCommand;
 trigger gt_SpectatorModeType;
@@ -11171,6 +11173,68 @@ void gf_MoveDialogItemInGridRelative (int lp_item, playergroup lp_players, int l
     DialogControlSetPositionRelative(lp_item, PlayerGroupAll(), lp_anchor, lp_relativeItem, lp_relativeAnchor, FixedToInt(lp_offsetX), FixedToInt(lp_offsetY));
 }
 
+trigger auto_gf_AllRandomSelectionUI_Trigger = null;
+
+void gf_AllRandomSelectionUI () {
+    if (auto_gf_AllRandomSelectionUI_Trigger == null) {
+        auto_gf_AllRandomSelectionUI_Trigger = TriggerCreate("auto_gf_AllRandomSelectionUI_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_AllRandomSelectionUI_Trigger, false, false);
+}
+
+bool auto_gf_AllRandomSelectionUI_TriggerFunc (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_index;
+    int lv_tempDialogFrame;
+
+    // Automatic Variable Declarations
+    playergroup auto8CD6B792_g;
+    int auto8CD6B792_var;
+
+    // Variable Initialization
+    lv_index = 1;
+    lv_tempDialogFrame = c_invalidDialogControlId;
+
+    // Implementation
+    auto8CD6B792_g = gv_marineSquad;
+    auto8CD6B792_var = -1;
+    while (true) {
+        auto8CD6B792_var = PlayerGroupNextPlayer(auto8CD6B792_g, auto8CD6B792_var);
+        if (auto8CD6B792_var < 0) { break; }
+        lv_index = auto8CD6B792_var;
+        gf_UIDialogCreation(730, 575, 30, 100, c_anchorTopLeft);
+        gv_classSelectionDialog[lv_index] = DialogLastCreated();
+        DialogControlCreateFromTemplate(gv_classSelectionDialog[lv_index], c_triggerControlTypePanel, "ClassSelection/ClassSelectionAllRandom");
+        lv_tempDialogFrame = DialogControlLastCreated();
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "Title");
+        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/F80A3847"), PlayerGroupAll());
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeButton, "Random");
+        gv_classSelectionDialogItem[lv_index][15] = DialogControlLastCreated();
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "RandomLabel");
+        gf_SetupClassSelection(lv_index, 15, DialogControlLastCreated());
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeImage, "PlayerRankImage");
+        libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("Ranks", UserDataInstance("Ranks", gv_playerRank[lv_index]), "Icon", 1), PlayerGroupAll());
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "PlayerRankLabel");
+        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), (UserDataGetText("Ranks", UserDataInstance("Ranks", gv_playerRank[lv_index]), "Title Brief", 1) + PlayerName(lv_index)), PlayerGroupAll());
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "NextPromotionLabel");
+        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), StringExternal("Param/Value/CBBE284F"), PlayerGroupAll());
+        DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "NextPromotion");
+        libNtve_gf_SetDialogItemText(DialogControlLastCreated(), UserDataGetText("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "Title Full", 1), PlayerGroupAll());
+        DialogControlCreate(gv_classSelectionDialog[lv_index], c_triggerControlTypeProgressBar);
+        DialogControlSetSize(DialogControlLastCreated(), PlayerGroupAll(), 475, 37);
+        DialogControlSetPosition(DialogControlLastCreated(), PlayerGroupAll(), c_anchorTopLeft, 50, 640);
+        libNtve_gf_SetDialogItemMaximumValue(DialogControlLastCreated(), IntToFixed(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)), PlayerGroupAll());
+        libNtve_gf_SetDialogItemMinimumValue(DialogControlLastCreated(), 0.0, PlayerGroupAll());
+        libNtve_gf_SetDialogItemCurrentValue(DialogControlLastCreated(), IntToFixed(gv_playerXP[lv_index]), PlayerGroupAll());
+        libNtve_gf_CreateDialogItemLabel(gv_classSelectionDialog[lv_index], 475, 37, c_anchorTopLeft, 50, 640, (IntToText(gv_playerXP[lv_index]) + (gv_forwardSlash + IntToText(UserDataGetInt("Ranks", UserDataInstance("Ranks", (gv_playerRank[lv_index] + 1)), "XP Required", 1)))), Color(100,100,100), false, 2.0);
+        libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "ModCenterSize20", PlayerGroupAll());
+        DialogSetVisible(gv_classSelectionDialog[lv_index], PlayerGroupSingle(auto8CD6B792_var), true);
+    }
+    DialogControlSetVisible(gv_teamUI, PlayerGroupAll(), true);
+    return true;
+}
+
 trigger auto_gf_ClassSelectionUI_Trigger = null;
 
 void gf_ClassSelectionUI () {
@@ -14899,6 +14963,12 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
         TriggerEnable(gt_OM2bIvanFound, true);
     }
 
+    if ((GameAttributeGameValue("3") == "0002")) {
+        TriggerExecute(gt_NoRandoms, true, false);
+    }
+    if ((GameAttributeGameValue("3") == "0003")) {
+        TriggerExecute(gt_AllRandom, true, false);
+    }
     return true;
 }
 
@@ -15275,11 +15345,16 @@ bool gt_StorylineSelection_Func (bool testConds, bool runActions) {
         if (auto3497B89E_var < 0) { break; }
         PlayerModifyPropertyInt(auto3497B89E_var, c_playerPropVespene, c_playerPropOperSetTo, gv_storyline);
     }
-    if ((gv_storyline != 4)) {
-        gf_ClassSelectionUI();
+    if ((gv_noRandoms == 3) && (gv_noNewbie == true)) {
+        gf_AllRandomSelectionUI();
     }
     else {
-        gf_SurvivalClassSelectionUI();
+        if ((gv_storyline != 4)) {
+            gf_ClassSelectionUI();
+        }
+        else {
+            gf_SurvivalClassSelectionUI();
+        }
     }
     gf_SetDifficulty();
     return true;
@@ -15370,7 +15445,12 @@ bool gt_FinaliseStorylineandMode_Func (bool testConds, bool runActions) {
     gv_defaultLighting = UserDataGetGameLink("Storyline", UserDataInstance("Storyline", gv_storyline), "Default Lighting", 1);
     GameSetLighting(gv_defaultLighting, 3.9);
     TriggerExecute(gv_storyIntializationTriggers[gv_storyline], true, false);
-    gf_ClassSelectionUI();
+    if ((gv_noRandoms == 3) && (gv_noNewbie == true)) {
+        gf_AllRandomSelectionUI();
+    }
+    else {
+        gf_ClassSelectionUI();
+    }
     gf_SetDifficulty();
     return true;
 }
@@ -15923,6 +16003,7 @@ bool gt_NoRandoms_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
+    TriggerEnable(gt_AllRandom, false);
     if ((gv_noRandoms == 0)) {
         gv_noRandoms = 1;
         auto200DEF1A_g = gv_marineSquad;
@@ -15954,6 +16035,46 @@ void gt_NoRandoms_Init () {
     TriggerAddEventChatMessage(gt_NoRandoms, 1, "-nr", true);
     TriggerAddEventChatMessage(gt_NoRandoms, 2, "-norand", false);
     TriggerAddEventChatMessage(gt_NoRandoms, 2, "-nr", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: AllRandom
+//--------------------------------------------------------------------------------------------------
+bool gt_AllRandom_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((gv_noNewbie == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(TriggerGetCurrent(), false);
+    TriggerEnable(gt_NoRandoms, false);
+    if ((DialogIsVisible(gv_storylineDialog, 1) == true)) {
+        gv_noRandoms = 3;
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/E3E8800E"));
+        SoundPlay(SoundLink("TUISecret", -1), PlayerGroupAll(), 100.0, 0.0);
+    }
+    else {
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/E1A199CA"));
+        SoundPlay(SoundLink("Alert_UniObjectiveFailed", -1), PlayerGroupAll(), 100.0, 0.0);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AllRandom_Init () {
+    gt_AllRandom = TriggerCreate("gt_AllRandom_Func");
+    TriggerAddEventChatMessage(gt_AllRandom, 1, "-allrand", false);
+    TriggerAddEventChatMessage(gt_AllRandom, 1, "-ar", true);
+    TriggerAddEventChatMessage(gt_AllRandom, 2, "-allrand", false);
+    TriggerAddEventChatMessage(gt_AllRandom, 2, "-ar", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -42062,6 +42183,7 @@ void InitTriggers () {
     gt_AmmoCheck_Init();
     gt_NavyCross_Init();
     gt_NoRandoms_Init();
+    gt_AllRandom_Init();
     gt_NightmareMode_Init();
     gt_OutbreakCommand_Init();
     gt_SpectatorModeType_Init();
