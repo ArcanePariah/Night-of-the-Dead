@@ -32799,7 +32799,9 @@ bool gt_STBoss1DeimosAttackShock_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    CameraShakeStart(UnitGetOwner(EventUnit()), c_cameraPositionTarget, c_cameraDirectionZ, 0.3, 2.0, 100.0, 0.2);
+    if ((UnitIsSelected(EventUnit(), UnitGetOwner(EventUnit())) == true)) {
+        CameraShakeStart(UnitGetOwner(EventUnit()), c_cameraPositionTarget, c_cameraDirectionZ, 0.3, 2.0, 100.0, 0.2);
+    }
     return true;
 }
 
