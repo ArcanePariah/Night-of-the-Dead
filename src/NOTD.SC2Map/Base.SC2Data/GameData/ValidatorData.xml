@@ -29,6 +29,11 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="Turbo"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterNotHoldfire">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="SpectreHoldFireB"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterNotTargetingComputer">
         <WhichUnit Value="Caster"/>
         <Behavior value="TargetingComputer"/>

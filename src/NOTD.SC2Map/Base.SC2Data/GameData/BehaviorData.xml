@@ -3651,6 +3651,14 @@
         <InfoFlags index="Hidden" value="1"/>
         <InitialEffect value="X1GuardianLimit"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="X1Holdfire">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CasterNotHoldfire"/>
+        <Modification>
+            <StateFlags index="SuppressAttack" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="X1BotVeterancy">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <VeterancyLevelArray MinVeterancyXP="300">
