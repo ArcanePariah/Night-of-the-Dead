@@ -2337,9 +2337,6 @@ bool gf_PlayerAutomaticBanCheck (int lp_player) {
     else if ((gf_BOInsigniaBought(lp_player) == true) && (gv_playerLifeTimeCreditsAcquired[lp_player] < 10000)) {
         return true;
     }
-    else if ((gv_playerXP[lp_player] >= 650000)) {
-        return true;
-    }
     else if ((gv_combatActionRibbon[lp_player] > gv_playerGamesPlayed[lp_player])) {
         return true;
     }
