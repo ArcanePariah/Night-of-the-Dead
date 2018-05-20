@@ -396,7 +396,7 @@
 			
 		<MinHeight val = "215" />
 		<MaxWidth val="280"/>
-		<MinWidth val="220"/>
+		<MinWidth val="250"/>
 		<Insets top="15" left="15" bottom="15" right="15"/>
 		
 		<Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardBorderTooltipGame">
@@ -410,7 +410,7 @@
 		<Frame type="Label" name="ClassLabel">
 			<Anchor side="Top" pos="Min" offset="15" relative="$parent" />
 			<Anchor side="Left" pos="Min" offset="15" relative="$parent" />
-			<Width val = "60" />
+			<Width val = "58" />
 			<Height val = "25"/>
 			<Text val = "Class: "/>
 			<Style val="@StandardTooltip"/>
@@ -430,9 +430,18 @@
 			</Frame>
 		</Frame>
 		
+		<Frame type="Label" name="CareerStatsHeader">
+			<Anchor side="Top" pos="max" offset="0" relative="$parent/ClassLabel" />
+			<Anchor side="Left" pos="Min" offset="15" relative="$parent" />
+			<Width val = "120" />
+			<Height val = "25"/>
+			<Text val = "Career Stats"/>
+			<Style val="@StandardTooltip"/>
+		</Frame>
+		
 		<Frame type="PlayerScoreValueFrame" name="PlayerStats">
-			<Anchor side="Top" pos="Max" offset="0" relative="$parent/PlayerClassName" />
-			<Anchor side="Left" pos="Min" offset="0" relative="$parent/ClassLabel" />
+			<Anchor side="Top" pos="Max" offset="0" relative="$parent/CareerStatsHeader" />
+			<Anchor side="Left" pos="Min" offset="15" relative="$parent/ClassLabel" />
 			<Anchor side="Right" pos="Max" offset="0" relative="$parent/PlayerClassName" />
 			<Anchor side="Bottom" pos="Max" offset="-15" relative="$parent" />
 			

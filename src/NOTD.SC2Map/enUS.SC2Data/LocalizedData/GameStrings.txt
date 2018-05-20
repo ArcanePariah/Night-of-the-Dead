@@ -3939,7 +3939,6 @@ Param/Expression/1B9D6FE5=~A~~B~~C~
 Param/Expression/2FE78331=<s val="InfoPaneHeroRank">(~A~ awarded...)</s>
 Param/Expression/444E0DF8= ~A~ Class Point awarded</s>
 Param/Expression/4D6170D4=<s val="InfoPaneHeroRank"><c val="FBC442">(~A~ awarded...)</s></c>
-Param/Expression/4EEAFF4E=~A~<n/>
 Param/Expression/4FB8FD67=~A~<n/>
 Param/Expression/710E94FC=<s val="InfoPaneHeroRank">(~A~ awarded...)</s>
 Param/Expression/72793672=<s val="InfoPaneHeroRank">(~A~ awarded...)</s>
@@ -4194,7 +4193,6 @@ Param/Value/2B103DA8=</c>
 Param/Value/2B3C2461=Shutdown HAL from the mainframe
 Param/Value/2B55F506=
 Param/Value/2B56DCCE=+1 XP for Mission Bonus
-Param/Value/2B8E1854=</c>)
 Param/Value/2B9437F2=<s val="BriefingHanText">(Contact with Dr. Bergmann lost...)</s>
 Param/Value/2BAB2E60=Magazines
 Param/Value/2BAC080B=We're in position. Secure the area.
@@ -4361,7 +4359,6 @@ Param/Value/490BB556=<s val="InfoPaneUnitInfo">[Magazines Equipped] -- (Used)
 Param/Value/4928D541=The containers are underneath those cranes. You'll need to spread your team tactically and respond to threats that come.
 Param/Value/49319E6D=We've destroyed all the zombie worms.
 Param/Value/49791ACC=Investigate the Communications Tower
-Param/Value/497C825E=<n/>   Average XP per Game: 
 Param/Value/4990863D=If the colonies revolt, there will be civil war. Millions more will die.
 Param/Value/49C90A50=+3 XP for Mission Bonus. 50 civilians rescued.
 Param/Value/4A4CFC07=Say hello to my little friend.
@@ -4416,7 +4413,6 @@ Param/Value/50673B96=This is Alpha Company. Mission was successful, requesting i
 Param/Value/50700109=</c>)
 Param/Value/507094E5=(The Queen lets out a horrific shriek..)
 Param/Value/50837EF6=We need to find out what the doctor knows.
-Param/Value/50865FA9=+
 Param/Value/50F2D583=Some of us tried to hide in here. But the zombies found us. They always do.
 Param/Value/51092044=Reactor Override
 Param/Value/510E7564=If you die in a dream...do you really die?
@@ -4439,7 +4435,6 @@ Param/Value/53B8381E=I've been putting my head around it. I have a feeling all t
 Param/Value/53C88C67= is now your Gunship buddy.</s>
 Param/Value/541BADD6=+3 XP for Mission Bonus. 40 civilians rescued.
 Param/Value/541F9CD8=</c>) (<c val="49ABF3">
-Param/Value/54228DBB=<n/>   Games Played: 
 Param/Value/543109A7=Secure Security Cams (2/5)
 Param/Value/544D04BA=<s val="InfoPaneHeroRank">No Randoms activated</s><n/>- Random class selection disabled.
 Param/Value/54524404=Doctor, I heard you mention Bergmann. You said you didn't know him.
@@ -4500,7 +4495,6 @@ Param/Value/6015481C=Proceed to Central Square
 Param/Value/6022681D=Chase her! She's almost dead.
 Param/Value/60438EA0=Phantom 1, do you read us? We need a dropship evac now. We have some of the mineral samples from the mine.
 Param/Value/604C0CF6=Roger. There's a walled installation nearby.
-Param/Value/6064B540= (<c val="F4D72B">
 Param/Value/606A90B6=Attack Zeus & Leto from behind. They have thick frontal armor.
 Param/Value/60837DF9=We've restarted the Mining facilities.
 Param/Value/608D552D=Items
@@ -4524,21 +4518,17 @@ Param/Value/643656F9=Survival Mode
 Param/Value/645466D6=Surround the perimeter with flares!
 Param/Value/6458F0E3=<s val="Warning"><c val="FFFF00"> !          !</c></s>
 Param/Value/64870BB9=<s val="BriefingHanText">HAL Shutdown Complete</s>
-Param/Value/648748AC=+
 Param/Value/6497D85A=We'll rendezvous at your location. Be advised we're picking up multiple heat signatures headed your direction.
-Param/Value/64F415B8=<n/>   Credits: 
 Param/Value/64FA8B5C=You're lucky to be alive Doctor. We need to get out of here.
 Param/Value/657E58AC=+1 XP for Performance Bonus
 Param/Value/65ED1170=Kill the boss' eggs with AOE damage or flamers
 Param/Value/6614EBF9=Vote Kick Target is 
-Param/Value/666A04DF=<n/><n/>ID: 
 Param/Value/66776210=There appears to be traces of infected tissues in the Command Tower. Collect them for analysis to help determine the source of the outbreak.
 Param/Value/667F6B4A=You need to save us. We have women and children with us.Take us back to Earth with you!
 Param/Value/66D10A6E=I've had enough space assignments to last me a lifetime.
 Param/Value/66EDD69C=Proceed to EVAC
 Param/Value/670FA8CE=(Zeus summons the rebirth of Leto..!)
 Param/Value/672C2DC4=<n/><n/>Kills: <c val="F4D72B">
-Param/Value/6734436C=<n/>   Karma: 
 Param/Value/67472A7C=: <c val="F4D72B">
 Param/Value/675EE141=<s val="GlueButton">
 Param/Value/6775B4D5=Stat Points Available: 
@@ -4556,7 +4546,6 @@ Param/Value/694F4581=Turn the Power Generators around Apollo back on.
 Param/Value/69580F03=: <c val="F4D72B">
 Param/Value/699F1ACC=Reaching LZ..
 Param/Value/6A1B8E3B=There's the assembly. Starting up.
-Param/Value/6A470478=Class: 
 Param/Value/6A4ECC86=<s val="InfoPaneUnitInfo">
 Param/Value/6A64E79E=We can use it. What about HAL?
 Param/Value/6AB43B51=You survive better when you are with other Marines. This is because they will:<n/>- Cover you while you're reloading<n/>- Help attack Zombies that are too powerful against a single Marine<n/>- Help divert Zombies if needed
@@ -4618,7 +4607,6 @@ Param/Value/75805F30=<n/></c>Damage Taken: <c val="F4D72B">
 Param/Value/758D5CB1=I'm detecting multiple air bogeys. We need to haul ass.
 Param/Value/75B4E619=<c val="0080FF">
 Param/Value/75B54346=You will find items throughout the mission.
-Param/Value/75D0FAFD=Career Stats<n/>   Rating: 
 Param/Value/75E3312B=Take these Ocular Implants. My customers...won't need them anymore.
 Param/Value/7616303C=/5)
 Param/Value/7616B27D=+2 XP for Mission Bonus. 20 civilians rescued.
@@ -4668,7 +4656,6 @@ Param/Value/7DFDE347=<s val="BriefingHanText">Directive: Lockdown Apollo</s>
 Param/Value/7DFE6CBB=</c>.
 Param/Value/7E2DE1DC=Gentlemen, choose your course of action..
 Param/Value/7E413997=<s val="GlueButtonSmall">Security Team: 
-Param/Value/7E5D1603=<n/>   XP: 
 Param/Value/7EBDCF5E=Enter the Colony Airlock
 Param/Value/7ED7EB38=We've got bigger problems on our hands, mate.
 Param/Value/7F3B5C2C=We're bringing you out.
@@ -4705,7 +4692,6 @@ Param/Value/8569CB3E= -- (
 Param/Value/859D24C4=Dr. Bergmann
 Param/Value/85A69CBB=Stop!
 Param/Value/860157CA=Get the hell out of here. Go go!
-Param/Value/86182C3C=</c>)
 Param/Value/862ECA66=Why would they - ... someone wants Apollo to burn. We're on our own here.
 Param/Value/8650EF40=<s val="InfoPaneHeroRank">
 Param/Value/86A2241A=Marine
@@ -4808,7 +4794,6 @@ Param/Value/95E7C9F4=Movement. Coming from Apollo.
 Param/Value/95F385B4=Senator
 Param/Value/95F734B9=Boss Approaching
 Param/Value/95FA0B91=<s val="CinematicLabel">  Ivan Plushenko: <c val="F4D72B">This is for everyone you've killed, Bergmann...</c></s>
-Param/Value/9636C697=</c>)
 Param/Value/9637DE0E=<s val="ChatBar">- Releasing anti-toxins -</c></s>
 Param/Value/96BE079C=Your squad has been sent to the Apollo Mining Colony to respond to a distress signal. Follow mission orders and stay alive. Teamwork is key to survival. Once you die, you cannot revive.<n/><n/>Game Basics<n/>Inventory: You will pick up items along the way. These aid your survival.<n/>Ammunition: Your ammo counter is displayed near your Marine portrait. When you run out of ammo, you cannot fire.<n/>Talents: Press B to open your Talent tree. You gain 1 talent point every time your Marine levels up.<n/><n/>Chat Commands<n/>-ammo: Shows everyone's magazine count<n/>-nightmare: Increases game difficulty for good players<n/>-em: Activates Easy Mode. Players also gain shared vision. XP gain rate is reduced<n/><n/>Discuss at www.notdstarcraft.com
 Param/Value/96EBA0B6=Spawn Factor: 
@@ -4907,7 +4892,6 @@ Param/Value/A6E77676=<s val="BriefingHanText">(Gunship leaving combat zone in 15
 Param/Value/A6F1ECEA=I'm connected.
 Param/Value/A72367D5=+3 XP for Performance Bonus
 Param/Value/A779B0BC=This confirms our suspicions the past few days.
-Param/Value/A7EAAC9B= (<c val="F4D72B">
 Param/Value/A8040132=It's too late - kill him!
 Param/Value/A811CC29=With HAL and its security systems down, most of the zombies will be coming at us.
 Param/Value/A83A325D=
@@ -4915,7 +4899,6 @@ Param/Value/A86AA5D2=(Erebos' psionic energy builds up...)
 Param/Value/A86CF95E=We need heavy weapons here.
 Param/Value/A8828B40=It's done. No turning back now.
 Param/Value/A883B797=<s val="InfoPaneHeroRank">SELECTION: B - Reactivate Mining controls to restore Helium-3 processing</s>
-Param/Value/A89F0CC4=</c>)
 Param/Value/A8D3B993=Seal chemical leaks in scrapyard
 Param/Value/A91914B9=I'm unlocking the Bio-Domes. Clear the zombies and you'll cleanse Apollo of the infestation.
 Param/Value/A94A1617=Destroy Cellular Structures when Athena is near one to weaken her.
@@ -4985,7 +4968,6 @@ Param/Value/B54DE278=Kill all Infestors (
 Param/Value/B562184C=We've got work to do, if we want to save this facility.
 Param/Value/B595B3C6=Maintain tight formation around the civies.
 Param/Value/B596B021=We're in the middle of an outbreak. You need to come with us.
-Param/Value/B5DC7FB9=+
 Param/Value/B5E0AFBC=We're airdropping more supplies into your sector.
 Param/Value/B5F23A49=Rising Tide
 Param/Value/B6028924=A Blueberry Production
@@ -5029,7 +5011,6 @@ Param/Value/BBBC11D8=We're too late. All the colonists are dead.
 Param/Value/BC194400=Difficulty: 
 Param/Value/BC806C13=The security cameras you've accessed earlier will now give you short-range surveillance.
 Param/Value/BCA5739D=We read you. Dropship ETA 6 Mikes.
-Param/Value/BCE6D27B= (<c val="F4D72B">
 Param/Value/BCE70FC0=<s val="InfoPaneHeroRank">Colonists Rescued:  
 Param/Value/BD12F8A1=Find Charlie
 Param/Value/BD3E0FCC=Marine: <c val="F4D72B">It's loaded with eggs. Get your flamethrowers ready.</c></s>
@@ -5264,10 +5245,8 @@ Param/Value/E2FE4ACA=You become badly injured when your HP is below 20%. Critica
 Param/Value/E32A665D=Deimos
 Param/Value/E3864FB9=Kill the Zombie Queen
 Param/Value/E3A8B054=Maybe. I'd like to question him myself when I get the chance.
-Param/Value/E3AC9800=<n/>   Average XP per Game: 
 Param/Value/E3BD112F=You squad needs to investigate the airlock for clues. If anybody was trying to get out, they'd head to the airlock.
 Param/Value/E405D451=Your progress will automatically load each game.
-Param/Value/E44F499A=+
 Param/Value/E461E750=Situation under control. We've got this.
 Param/Value/E4DFE6B3=<s val="InfoPaneHeroRank">
 Param/Value/E51F85FC=Tanks have arrived. They will provide heavy support.
@@ -5391,7 +5370,6 @@ Param/Value/F8B5DD6A=(A terrifying creature emerges from the depths of Apollo...
 Param/Value/F8D7F114=Huddle close to your team. Covering fire keeps you safe.
 Param/Value/F8F51936=Decrypting Airlock Security
 Param/Value/F96D5DCB=<s val="BriefingHanText">(Gunship online...)</s>
-Param/Value/F96F7B86= (<c val="F4D72B">
 Param/Value/F99A2CE8=Black Ops have many deadly ranged attacks. Stay sharp!
 Param/Value/F9A1B8C3=I'll keep an eye out, Lieutenant. Now I must get back to work.
 Param/Value/F9A7E5EA=<s val="InfoPaneHeroRank">Random class already selected</s>
@@ -5414,7 +5392,6 @@ Param/Value/FD6E91D5=Inventory
 Param/Value/FD7B4E49=<s val="InfoPaneHeroRank">(2 XP awarded for colonist rescue)</s>
 Param/Value/FDC4E24A=The generators are spread out across the colony.
 Param/Value/FDC983B7=<s val="HeaderExtendedTemplate">/</s>
-Param/Value/FDF2EF7E= (
 Param/Value/FE378CE9=We've reached the truck. Let's move. Keep a tight formation.
 Param/Value/FE4BD6DD=I sense a link between them. Bring them down together.
 Param/Value/FE4E7695=You've seen how horrifying this infestation is. We MUST wipe it out..

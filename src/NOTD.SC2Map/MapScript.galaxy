@@ -1758,7 +1758,6 @@ bool gf_Staff (string lp_playerHandle);
 void gf_SetPortraitUnit (int lp_player);
 void gf_TeamStatusInitializePlayerPortrait (int lp_triggeringPlayer);
 void gf_TeamStatusUnderAttackPortraitFlash (int lp_playerNo);
-void gf_UIUpdatePortraitTooltip (int lp_triggeringPlayer);
 void gf_UIUpdateXP (int lp_triggeringPlayer);
 void gf_UISetPlayerRankNameIconXP (int lp_triggeringPlayer);
 void gf_UISetDoctorTitle (int lp_triggeringPlayer);
@@ -2182,7 +2181,6 @@ trigger gt_DialogButtonClicks;
 trigger gt_CreateTeamStatusDialog;
 trigger gt_SaveButtonClick;
 trigger gt_TeamStatusClickedTalentTree;
-trigger gt_PeriodicTeamUIUpdate;
 trigger gt_CreateMedalsDialog;
 trigger gt_ToggleMedalsDialog;
 trigger gt_CreateStatsDialog;
@@ -2660,7 +2658,9 @@ void gf_MemoryLoad (int lp_player) {
     if (((gv_totalPlayers > 1) || (!(GameIsOnline())))) {
         gf_UpdateGamesPlayed(lp_player, 1);
     }
-
+    else {
+        gf_UpdateGamesPlayed(lp_player, 0);
+    }
     gv_playerMedicPlayed[lp_player] = gv_playerBankData[4][lp_player];
     gv_playerKarma[lp_player] = gv_playerBankData[5][lp_player];
     PlayerScoreValueSetFromInt(lp_player, "Karma", gv_playerKarma[lp_player]);
@@ -12356,93 +12356,6 @@ bool auto_gf_TeamStatusUnderAttackPortraitFlash_TriggerFunc (bool testConds, boo
     return true;
 }
 
-trigger auto_gf_UIUpdatePortraitTooltip_Trigger = null;
-int auto_gf_UIUpdatePortraitTooltip_lp_triggeringPlayer;
-
-void gf_UIUpdatePortraitTooltip (int lp_triggeringPlayer) {
-    auto_gf_UIUpdatePortraitTooltip_lp_triggeringPlayer = lp_triggeringPlayer;
-
-    if (auto_gf_UIUpdatePortraitTooltip_Trigger == null) {
-        auto_gf_UIUpdatePortraitTooltip_Trigger = TriggerCreate("auto_gf_UIUpdatePortraitTooltip_TriggerFunc");
-    }
-
-    TriggerExecute(auto_gf_UIUpdatePortraitTooltip_Trigger, false, false);
-}
-
-bool auto_gf_UIUpdatePortraitTooltip_TriggerFunc (bool testConds, bool runActions) {
-    int lp_triggeringPlayer = auto_gf_UIUpdatePortraitTooltip_lp_triggeringPlayer;
-
-    // Variable Declarations
-    text lv_temp;
-    int lv_ratingInt;
-    text lv_ratingText;
-    int lv_karmaInt;
-    text lv_karmaText;
-    int lv_xPInt;
-    text lv_xPText;
-    int lv_creditInt;
-    text lv_creditText;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_ratingInt = (gv_playerRating[lp_triggeringPlayer] - gv_startingRating[lp_triggeringPlayer]);
-    lv_karmaInt = (gv_playerKarma[lp_triggeringPlayer] - gv_startingKarma[lp_triggeringPlayer]);
-    lv_xPInt = (gv_playerXP[lp_triggeringPlayer] - gv_startingXP[lp_triggeringPlayer]);
-    lv_creditInt = (gv_playerCredits[lp_triggeringPlayer] - gv_startingCredits[lp_triggeringPlayer]);
-
-    // Implementation
-    if ((lv_ratingInt > 0)) {
-        lv_ratingText = (StringExternal("Param/Value/648748AC") + IntToText(lv_ratingInt));
-    }
-    else {
-        lv_ratingText = IntToText(lv_ratingInt);
-    }
-    if ((lv_karmaInt > 0)) {
-        lv_karmaText = (StringExternal("Param/Value/B5DC7FB9") + IntToText(lv_karmaInt));
-    }
-    else {
-        lv_karmaText = IntToText(lv_karmaInt);
-    }
-    if ((lv_xPInt > 0)) {
-        lv_xPText = (StringExternal("Param/Value/50865FA9") + IntToText(lv_xPInt));
-    }
-    else {
-        lv_xPText = IntToText(lv_xPInt);
-    }
-    if ((lv_creditInt > 0)) {
-        lv_creditText = (StringExternal("Param/Value/E44F499A") + IntToText(lv_creditInt));
-    }
-    else {
-        lv_creditText = IntToText(lv_creditInt);
-    }
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = StringExternal("Param/Value/6A470478");
-    TextExpressionSetToken("Param/Expression/4EEAFF4E", "A", UnitTypeGetName(UnitGetType(gv_marineHero[lp_triggeringPlayer])));
-    lv_temp = TextExpressionAssemble("Param/Expression/4EEAFF4E");
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + lv_temp);
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/75D0FAFD"));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + IntToText(gv_playerRating[lp_triggeringPlayer]));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + (StringExternal("Param/Value/BCE6D27B") + (lv_ratingText + StringExternal("Param/Value/9636C697"))));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/6734436C"));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + IntToText(gv_playerKarma[lp_triggeringPlayer]));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + (StringExternal("Param/Value/F96F7B86") + (lv_karmaText + StringExternal("Param/Value/86182C3C"))));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/7E5D1603"));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + IntToText(gv_playerXP[lp_triggeringPlayer]));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + (StringExternal("Param/Value/6064B540") + (lv_xPText + StringExternal("Param/Value/2B8E1854"))));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/64F415B8"));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + IntToText(gv_playerCredits[lp_triggeringPlayer]));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + (StringExternal("Param/Value/A7EAAC9B") + (lv_creditText + StringExternal("Param/Value/A89F0CC4"))));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/54228DBB"));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + IntToText(gv_playerGamesPlayed[lp_triggeringPlayer]));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + StringExternal("Param/Value/497C825E"));
-    if ((gv_playerGamesPlayed[lp_triggeringPlayer] <= 0)) {
-        gv_playerGamesPlayed[lp_triggeringPlayer] = 1;
-    }
-
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + IntToText((gv_playerXP[lp_triggeringPlayer] / gv_playerGamesPlayed[lp_triggeringPlayer])));
-    gv_teamStatusPortraitTooltip[lp_triggeringPlayer] = (gv_teamStatusPortraitTooltip[lp_triggeringPlayer] + (StringExternal("Param/Value/666A04DF") + StringToText(PlayerHandle(lp_triggeringPlayer))));
-    return true;
-}
-
 trigger auto_gf_UIUpdateXP_Trigger = null;
 int auto_gf_UIUpdateXP_lp_triggeringPlayer;
 
@@ -17909,8 +17822,6 @@ bool gt_GameOverCheck_Func (bool testConds, bool runActions) {
 
     TriggerEnable(gt_ReceivesDamage, false);
     TriggerEnable(gt_DeadMarine, false);
-    TriggerStop(gt_PeriodicTeamUIUpdate);
-    TriggerEnable(gt_PeriodicTeamUIUpdate, false);
     ObjectiveDestroyAll(PlayerGroupAll());
     if ((gv_storyline != 3)) {
         auto4E14C190_g = gv_marines;
@@ -39131,7 +39042,6 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     }
     else {
     }
-    TriggerEnable(gt_PeriodicTeamUIUpdate, true);
     libNtve_gf_SwooshCamera(lv_selectingPlayer, ((CameraInfoGetValue(CameraInfoDefault(), c_cameraValueDistance)) + 8.0), CameraInfoGetValue(CameraInfoDefault(), c_cameraValueDistance), RegionGetCenter(lv_spawnArea), 0.0);
     if ((((gv_storyline != 4) && (lv_index < 9)) || ((gv_storyline == 4) && (lv_index < 15)))) {
         gv_playerClass[lv_selectingPlayer] = UserDataGetUserInstance("StoryClassAssignments", UserDataInstance("StoryClassAssignments", gv_storyline), "Class", lv_index);
@@ -39614,46 +39524,6 @@ void gt_TeamStatusClickedTalentTree_Init () {
     gt_TeamStatusClickedTalentTree = TriggerCreate("gt_TeamStatusClickedTalentTree_Func");
     TriggerEnable(gt_TeamStatusClickedTalentTree, false);
     TriggerAddEventDialogControl(gt_TeamStatusClickedTalentTree, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Periodic Team UI Update
-//--------------------------------------------------------------------------------------------------
-bool gt_PeriodicTeamUIUpdate_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    int lv_ownerOfUnit;
-
-    // Automatic Variable Declarations
-    unitgroup auto0609A60A_g;
-    int auto0609A60A_u;
-    unit auto0609A60A_var;
-
-    // Variable Initialization
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    auto0609A60A_g = gv_marines;
-    auto0609A60A_u = UnitGroupCount(auto0609A60A_g, c_unitCountAll);
-    for (;; auto0609A60A_u -= 1) {
-        auto0609A60A_var = UnitGroupUnitFromEnd(auto0609A60A_g, auto0609A60A_u);
-        if (auto0609A60A_var == null) { break; }
-        lv_ownerOfUnit = UnitGetOwner(auto0609A60A_var);
-        if ((gv_spectated[lv_ownerOfUnit] == true)) {
-            gf_UpdateSpectatorLabel(lv_ownerOfUnit);
-        }
-
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_PeriodicTeamUIUpdate_Init () {
-    gt_PeriodicTeamUIUpdate = TriggerCreate("gt_PeriodicTeamUIUpdate_Func");
-    TriggerEnable(gt_PeriodicTeamUIUpdate, false);
-    TriggerAddEventTimePeriodic(gt_PeriodicTeamUIUpdate, 0.35, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -42546,7 +42416,6 @@ void InitTriggers () {
     gt_CreateTeamStatusDialog_Init();
     gt_SaveButtonClick_Init();
     gt_TeamStatusClickedTalentTree_Init();
-    gt_PeriodicTeamUIUpdate_Init();
     gt_CreateMedalsDialog_Init();
     gt_ToggleMedalsDialog_Init();
     gt_CreateStatsDialog_Init();
