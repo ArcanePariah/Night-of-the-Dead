@@ -280,7 +280,7 @@
 
 	<Frame type="StandardTooltip" name="StatsTooltip">
 			
-		<MinHeight val = "130" />
+		<MinHeight val = "135" />
 		<MaxWidth val="300"/>
 		<MinWidth val="220"/>
 		<Insets top="15" left="15" bottom="15" right="15"/>
@@ -394,7 +394,7 @@
 	
 	<Frame type="StandardTooltip" name="PlayerInformationTooltip">
 			
-		<MinHeight val = "220" />
+		<MinHeight val = "215" />
 		<MaxWidth val="280"/>
 		<MinWidth val="220"/>
 		<Insets top="15" left="15" bottom="15" right="15"/>

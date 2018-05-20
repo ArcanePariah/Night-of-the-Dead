@@ -1451,7 +1451,6 @@ Variable/Name/0ECB5F0C=Escort Unit
 Variable/Name/0ED3C844=InceptionOn
 Variable/Name/0ED74F15=Raid UI - Size Y
 Variable/Name/0EDD0489=Index
-Variable/Name/0F367242=Untitled Variable 002
 Variable/Name/0F44E101=Ion Cannon B
 Variable/Name/0F9EE1EA=Bought Item?
 Variable/Name/0FA07BB1=LocalPointA

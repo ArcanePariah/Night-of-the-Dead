@@ -4823,10 +4823,10 @@ void gf_CombatActionAward (int lp_medalNumber) {
             UIDisplayMessage(PlayerGroupSingle(auto0E4C99AF_var), c_messageAreaDebug, TextExpressionAssemble("Param/Expression/FEC5EBF1"));
             gf_SetMedalVariables(auto0E4C99AF_var, lp_medalNumber);
             if ((gv_playerXP[auto0E4C99AF_var] <= 500)) {
-                gv_playerKarma[auto0E4C99AF_var] += 2;
+                gf_UpdateKarma(auto0E4C99AF_var, 2);
             }
             else {
-                gv_playerKarma[auto0E4C99AF_var] += 1;
+                gf_UpdateKarma(auto0E4C99AF_var, 1);
             }
         }
 
@@ -5015,10 +5015,10 @@ bool auto_gf_GameOverInit_TriggerFunc (bool testConds, bool runActions) {
     auto99D74A07_var = gv_indexBaseValue;
     for ( ; auto99D74A07_var <= auto99D74A07_ae; auto99D74A07_var += 1 ) {
         if ((gv_playerRandom[auto99D74A07_var] == true)) {
-            gv_playerKarma[auto99D74A07_var] += 5;
+            gf_UpdateKarma(auto99D74A07_var, 5);
         }
         else {
-            gv_playerKarma[auto99D74A07_var] += 1;
+            gf_UpdateKarma(auto99D74A07_var, 1);
         }
     }
     SoundtrackStop(PlayerGroupActive(), c_soundtrackCategoryMusic, true);
@@ -6628,7 +6628,7 @@ void gf_UpdateCredits (int lp_player, int lp_creditsAmount) {
     // Automatic Variable Declarations
     // Implementation
     gv_playerCredits[lp_player] += lp_creditsAmount;
-    PlayerScoreValueSetFromInt(lp_player, "Credits", gv_playerKarma[lp_player]);
+    PlayerScoreValueSetFromInt(lp_player, "Credits", gv_playerCredits[lp_player]);
 }
 
 void gf_UpdateGamesPlayed (int lp_player, int lp_gamesCount) {
@@ -10995,7 +10995,7 @@ void gf_ShopBuyTemp (int lp_itemID, int lp_player) {
         lv_itemCost = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopCost", 1);
         lv_item = UserDataGetGameLink("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopUnit", 1);
         if ((gv_playerCredits[lv_buyingPlayer] >= lv_itemCost)) {
-            gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
+            gf_UpdateCredits(lv_buyingPlayer, -lv_itemCost);
             lv_itemBought = true;
         }
     }
@@ -11018,7 +11018,6 @@ void gf_ShopBuyPerm (int lp_itemID, int lp_player, string lp_itemType) {
     // Variable Declarations
     bool lv_boughtItem;
     int lv_itemID;
-    int lv_buyingPlayer;
     string lv_itemType;
     int lv_colorCode;
     int lv_petCode;
@@ -11027,53 +11026,52 @@ void gf_ShopBuyPerm (int lp_itemID, int lp_player, string lp_itemType) {
     // Automatic Variable Declarations
     // Variable Initialization
     lv_itemID = lp_itemID;
-    lv_buyingPlayer = lp_player;
     lv_itemType = lp_itemType;
 
     // Implementation
-    if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000)) {
+    if ((PlayerGetPropertyInt(lp_player, c_playerPropCustom) >= 5000)) {
         lv_itemCost = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopCost", 1);
         lv_petCode = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "PetCode", 1);
         lv_colorCode = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "ColorCode", 1);
-        if ((gv_playerCredits[lv_buyingPlayer] >= lv_itemCost)) {
-            if ((lv_itemType == "pet") && (lv_petCode != ModI(gv_playerPetCode[lv_buyingPlayer], 100))) {
-                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
-                gv_playerPetCode[lv_buyingPlayer] -= (ModI(gv_playerPetCode[lv_buyingPlayer], 100) - lv_petCode);
+        if ((gv_playerCredits[lp_player] >= lv_itemCost)) {
+            if ((lv_itemType == "pet") && (lv_petCode != ModI(gv_playerPetCode[lp_player], 100))) {
+                gf_UpdateCredits(lp_player, -lv_itemCost);
+                gv_playerPetCode[lp_player] -= (ModI(gv_playerPetCode[lp_player], 100) - lv_petCode);
                 lv_boughtItem = true;
             }
-            else if ((lv_itemType == "mod") && (gf_WeaponsModPointMax(lv_buyingPlayer) == false)) {
-                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
-                gv_playerWeaponsMod2[lv_buyingPlayer] += 100;
-                gf_ModUpdateUnlockedModPointsText(lv_buyingPlayer);
+            else if ((lv_itemType == "mod") && (gf_WeaponsModPointMax(lp_player) == false)) {
+                gf_UpdateCredits(lp_player, -lv_itemCost);
+                gv_playerWeaponsMod2[lp_player] += 100;
+                gf_ModUpdateUnlockedModPointsText(lp_player);
                 lv_boughtItem = true;
             }
-            else if ((lv_itemType == "kitten") && (gf_KittensBought(lv_buyingPlayer) == false)) {
-                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
-                gv_playerColorCode[lv_buyingPlayer] += lv_colorCode;
-                gf_CreateKittens(lv_buyingPlayer);
+            else if ((lv_itemType == "kitten") && (gf_KittensBought(lp_player) == false)) {
+                gf_UpdateCredits(lp_player, -lv_itemCost);
+                gv_playerColorCode[lp_player] += lv_colorCode;
+                gf_CreateKittens(lp_player);
                 lv_boughtItem = true;
             }
-            else if ((lv_itemType == "insignia") && (gf_BOInsigniaBought(lv_buyingPlayer) == false)) {
-                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
-                gv_playerColorCode[lv_buyingPlayer] += lv_colorCode;
-                gf_UpgradeBOInsigniaRank(lv_buyingPlayer);
+            else if ((lv_itemType == "insignia") && (gf_BOInsigniaBought(lp_player) == false)) {
+                gf_UpdateCredits(lp_player, -lv_itemCost);
+                gv_playerColorCode[lp_player] += lv_colorCode;
+                gf_UpgradeBOInsigniaRank(lp_player);
                 lv_boughtItem = true;
             }
-            if ((lv_itemType == "color") && (lv_colorCode != ModI(gv_playerColorCode[lv_buyingPlayer], 100))) {
-                gv_playerCredits[lv_buyingPlayer] -= lv_itemCost;
-                gv_playerColorCode[lv_buyingPlayer] = ((gv_playerColorCode[lv_buyingPlayer] - ModI(gv_playerColorCode[lv_buyingPlayer], 100)) + lv_colorCode);
-                gf_PlayerColorChange(lv_buyingPlayer);
+            if ((lv_itemType == "color") && (lv_colorCode != ModI(gv_playerColorCode[lp_player], 100))) {
+                gf_UpdateCredits(lp_player, -lv_itemCost);
+                gv_playerColorCode[lp_player] = ((gv_playerColorCode[lp_player] - ModI(gv_playerColorCode[lp_player], 100)) + lv_colorCode);
+                gf_PlayerColorChange(lp_player);
                 lv_boughtItem = true;
             }
         }
     }
     if ((lv_boughtItem == true)) {
-        gf_ShowCreditsLeft(lv_buyingPlayer);
+        gf_ShowCreditsLeft(lp_player);
     }
     else {
-        TextTagCreate(StringExternal("Param/Value/0C7265D3"), 20, UnitGetPosition(gv_marineHero[lv_buyingPlayer]), 1.5, true, true, PlayerGroupActive());
+        TextTagCreate(StringExternal("Param/Value/0C7265D3"), 20, UnitGetPosition(gv_marineHero[lp_player]), 1.5, true, true, PlayerGroupActive());
         TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(79.22, 58.43, 100.00));
-        TextTagAttachToUnit(TextTagLastCreated(), gv_marineHero[lv_buyingPlayer], 2.0);
+        TextTagAttachToUnit(TextTagLastCreated(), gv_marineHero[lp_player], 2.0);
         TextTagSetVelocity(TextTagLastCreated(), 0.25, 90.0);
         Wait(5.0, c_timeGame);
         TextTagDestroy(TextTagLastCreated());
@@ -11508,10 +11506,10 @@ bool auto_gf_ClassCreationMaster_TriggerFunc (bool testConds, bool runActions) {
     gf_AmmoUICreation(lp_player);
     gf_EquipmentDialogCreation(lp_playerIndex);
     if ((gv_playerRandom[lp_playerIndex] == true)) {
-        gv_playerKarma[lp_playerIndex] -= 5;
+        gf_UpdateKarma(lp_playerIndex, -5);
     }
     else {
-        gv_playerKarma[lp_playerIndex] -= 1;
+        gf_UpdateKarma(lp_playerIndex, -1);
     }
     UnitFlashSelection(gv_marineHero[lp_playerIndex], 5.0);
     UnitControlGroupAddUnit(lp_player, 1, gv_marineHero[lp_playerIndex]);
@@ -11540,7 +11538,7 @@ bool auto_gf_ClassCreationMaster_TriggerFunc (bool testConds, bool runActions) {
         if ((PlayerGroupCount(PlayerGroupActive()) > 2)) {
             gv_playerMedicPlayed[lp_playerIndex] += 1;
             if ((RandomInt(0, 3) == 1)) {
-                gv_playerKarma[lp_playerIndex] += 1;
+                gf_UpdateKarma(lp_playerIndex, 1);
             }
 
         }
@@ -15636,7 +15634,7 @@ bool gt_VoteKick_Func (bool testConds, bool runActions) {
             }
             else if ((gv_voteKick[lv_voteKickTarget].lv_danger == 3)) {
                 gv_voteKick[lv_voteKickTarget].lv_kicked = true;
-                gv_playerKarma[lv_voteKickTarget] -= 2;
+                gf_UpdateKarma(lv_voteKickTarget, -2);
                 auto8E7D9B7C_var = gv_indexBaseValue;
                 for ( ; auto8E7D9B7C_var <= auto8E7D9B7C_ae; auto8E7D9B7C_var += 1 ) {
                     gv_voteKick[auto8E7D9B7C_var].lv_nomination = false;
@@ -16725,7 +16723,7 @@ bool gt_KarmaBite_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    gv_playerKarma[gv_griefingPlayer] -= 25;
+    gf_UpdateKarma(gv_griefingPlayer, -25);
     gv_playerXP[gv_griefingPlayer] -= 100;
     PlayerScoreValueSetFromInt(gv_griefingPlayer, "PlayerXP", gv_playerXP[gv_griefingPlayer]);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(gv_griefingPlayer) + StringExternal("Param/Value/548D875C")));
@@ -18264,7 +18262,7 @@ bool gt_NightmareBonus_Func (bool testConds, bool runActions) {
                 gf_UpdateRating(autoE5DE3CDB_var, 3);
             }
             if ((gv_playerXP[autoE5DE3CDB_var] <= 2000)) {
-                gv_playerKarma[autoE5DE3CDB_var] += 2;
+                gf_UpdateKarma(autoE5DE3CDB_var, 2);
             }
 
         }
@@ -18339,7 +18337,7 @@ bool gt_VetPugGameBonus_Func (bool testConds, bool runActions) {
         if ((gv_playerKarma[auto67F73D37_var] >= FixedToInt((IntToFixed(gv_squadRating) * 1.1)))) {
             gv_playerXP[auto67F73D37_var] += 1;
             PlayerScoreValueSetFromInt(auto67F73D37_var, "PlayerXP", gv_playerXP[auto67F73D37_var]);
-            gv_playerKarma[auto67F73D37_var] += 1;
+            gf_UpdateKarma(auto67F73D37_var, 1);
         }
 
     }
@@ -18381,7 +18379,7 @@ bool gt_AFKCheck_Func (bool testConds, bool runActions) {
         lv_index = autoF1F743B0_var;
         if ((libNtve_gf_UnitGetPropertyKills(gv_marineHero[lv_index], c_unitPropCurrent) < 12) && (UnitIsAlive(gv_marineHero[lv_index]) == true) && (gv_storyline != 3) && (gv_wave >= 2)) {
             UnitRemove(gv_marineHero[lv_index]);
-            gv_playerKarma[lv_index] -= 15;
+            gf_UpdateKarma(lv_index, -15);
             UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, (PlayerName(autoF1F743B0_var) + StringExternal("Param/Value/4DD907D3")));
             gf_Save(autoF1F743B0_var, gv_bankSize);
             GameOver(autoF1F743B0_var, c_gameOverDefeat, false, false);
@@ -19522,7 +19520,7 @@ bool gt_OM5RamirezKilled_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    gv_playerKarma[libNtve_gf_KillingPlayer()] -= 1;
+    gf_UpdateKarma(libNtve_gf_KillingPlayer(), -1);
     return true;
 }
 
@@ -37204,7 +37202,7 @@ bool gt_SurvivalW1620_Func (bool testConds, bool runActions) {
 
     autoCDDDE615_var = gv_indexBaseValue;
     for ( ; autoCDDDE615_var <= autoCDDDE615_ae; autoCDDDE615_var += 1 ) {
-        gv_playerKarma[autoCDDDE615_var] += 1;
+        gf_UpdateKarma(autoCDDDE615_var, 1);
     }
     Wait(20.0, c_timeReal);
     gv_survivalMedal20Waves = true;
@@ -38746,7 +38744,7 @@ bool gt_BuyStandardItem_Func (bool testConds, bool runActions) {
 
     if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000)) {
         if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 6)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 23))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofExplosiveWeapons)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofExplosiveWeapons;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofExplosiveWeapons);
             lv_itemBought = true;
             if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 6))) {
                 lv_item = "StingerMK3";
@@ -38756,7 +38754,7 @@ bool gt_BuyStandardItem_Func (bool testConds, bool runActions) {
             }
         }
         else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 22)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 20))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofHeavyWeapons)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofHeavyWeapons;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofHeavyWeapons);
             lv_itemBought = true;
             if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 22))) {
                 lv_item = "Chaingun";
@@ -38766,7 +38764,7 @@ bool gt_BuyStandardItem_Func (bool testConds, bool runActions) {
             }
         }
         else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 0)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 3)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 5))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofMediumWeapons)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofMediumWeapons;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofMediumWeapons);
             lv_itemBought = true;
             if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 0))) {
                 lv_item = "Shotgun";
@@ -38779,17 +38777,17 @@ bool gt_BuyStandardItem_Func (bool testConds, bool runActions) {
             }
         }
         else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 4)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofSMG)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofSMG;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofSMG);
             lv_itemBought = true;
             lv_item = "MP9A2SubMachineGun";
         }
         else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 2)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofFlamethrower)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofFlamethrower;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofFlamethrower);
             lv_itemBought = true;
             lv_item = "Flamethrower";
         }
         else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 18)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 19)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 24)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 21)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 1)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 26))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofHeavyEnhancements)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofHeavyEnhancements;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofHeavyEnhancements);
             lv_itemBought = true;
             if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 18))) {
                 lv_item = "PersonnelArcReactor";
@@ -38811,7 +38809,7 @@ bool gt_BuyStandardItem_Func (bool testConds, bool runActions) {
             }
         }
         else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 8)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 9)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 10)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 11)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 7)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 25))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofLightEnhancements)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofLightEnhancements;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofLightEnhancements);
             lv_itemBought = true;
             if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 8))) {
                 lv_item = "APAmmo";
@@ -38833,17 +38831,17 @@ bool gt_BuyStandardItem_Func (bool testConds, bool runActions) {
             }
         }
         else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 17)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofAmmoBox)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofAmmoBox;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofAmmoBox);
             lv_itemBought = true;
             lv_item = "AmmoBox";
         }
         else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 15)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofMagazine)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofMagazine;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofMagazine);
             lv_itemBought = true;
             lv_item = "Magazine";
         }
         else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 12)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 13))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofHealingItems)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofHealingItems;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofHealingItems);
             lv_itemBought = true;
             if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 12))) {
                 lv_item = "Medpack";
@@ -38853,12 +38851,12 @@ bool gt_BuyStandardItem_Func (bool testConds, bool runActions) {
             }
         }
         else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 14)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofAntiVenom)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofAntiVenom;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofAntiVenom);
             lv_itemBought = true;
             lv_item = "AntiVenom";
         }
         else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 16)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofRoadFlares)) {
-            gv_playerCredits[lv_buyingPlayer] -= gv_costofRoadFlares;
+            gf_UpdateCredits(lv_buyingPlayer, -gv_costofRoadFlares);
             lv_itemBought = true;
             lv_item = "RoadFlare";
         }
