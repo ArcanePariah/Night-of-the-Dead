@@ -7204,6 +7204,17 @@
         </Modification>
         <RemoveValidatorArray value="TargetIsVisible"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="GunshipDesignator">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-tips-challengecounter.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="60"/>
+        <Modification SightMaximum="15">
+            <ModifyFlags index="Detected" value="1"/>
+            <StateFlags index="SuppressCloak" value="1"/>
+        </Modification>
+        <RemoveValidatorArray value="TargetIsVisible"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="Magazine">
         <Cost>
             <Charge CountMax="3" CountStart="3" CountUse="1"/>
