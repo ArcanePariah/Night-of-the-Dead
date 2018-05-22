@@ -406,7 +406,7 @@
         <ValidatorArray value="GunshipTargetingLD"/>
         <EditorCategories value=""/>
         <WhichLocation Value="TargetUnit"/>
-        <ExpireEffect value="LaserDesignatorLevel3ApplyBehavior"/>
+        <ExpireEffect value="GunshipDesignatorApplyBehavior"/>
     </CEffectCreatePersistent>
     <CEffectSet id="AssaultCritEffects">
         <EditorCategories value=""/>
@@ -11070,6 +11070,10 @@
     <CEffectApplyBehavior id="LaserDesignatorLevel3ApplyBehavior">
         <EditorCategories value=""/>
         <Behavior value="LaserDesignatorLevel3"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="GunshipDesignatorApplyBehavior">
+        <EditorCategories value=""/>
+        <Behavior value="GunshipDesignator"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="LaserDesignatorLevel2ApplyBehavior">
         <EditorCategories value=""/>

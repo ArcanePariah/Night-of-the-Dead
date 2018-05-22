@@ -553,4 +553,83 @@
         <Texture val="Assets\Textures\progress-queue.dds"/>
         <Color val="##StandardProgressFill"/>
     </Frame>
+
+    <!-- All Random UI -->
+    <Frame type="Frame" name="ClassSelectionAllRandom">
+        <Height val="730"/>
+        <Width val="575"/>
+        <Frame type="Label" name="Title">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="36"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="145"/>
+            <Color val="255,255,255"/>
+            <Height val="50"/>
+            <Width val="400"/>
+            <Style val="HelpMenuDialogTitle"/>
+        </Frame>
+
+        <Frame type="Image" name="Border">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Texture val="Assets\Textures\ui_battlenet_glue_frame_bucket_long.dds"/>
+            <TextureType val="Normal"/>
+            <BlendMode val="Add"/>
+            <Color val="255,255,255"/>
+            <Height val="730"/>
+            <Width val="575"/>
+        </Frame>
+
+        <!-- Class - Random -->
+        <Frame type="Button" name="Random">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="70"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="65"/>
+            <Height val="450"/>
+            <Width val="450"/>
+        </Frame>
+
+        <Frame type="Label" name="RandomLabel">
+            <Height val="50"/>
+            <Width val="400"/>
+            <Anchor side="Top" relative="$parent/Random" pos="Min" offset="430"/>
+            <Anchor side="Left" relative="$parent/Random" pos="Min" offset="0"/>
+            <Color val="255,255,255"/>
+            <Style val="ModCenterSize24"/>
+        </Frame>
+
+        <!-- Player Rank Related -->
+        <Frame type="Image" name="PlayerRankImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="545"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
+            <TextureType val="Normal"/>
+            <BlendMode val="Normal"/>
+            <Color val="255,255,255"/>
+            <Height val="60"/>
+            <Width val="60"/>
+        </Frame>
+
+        <Frame type="Label" name="PlayerRankLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="560"/>
+            <Anchor side="Left" relative="$parent/PlayerRankImage" pos="Max" offset="0"/>
+            <Height val="40"/>
+            <Width val="415"/>
+            <Style val="ModCenterSize20"/>
+        </Frame>
+
+        <Frame type="Label" name="NextPromotionLabel">
+            <Anchor side="Top" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/PlayerRankImage" pos="Min" offset="0"/>
+            <Height val="40"/>
+            <Width val="210"/>
+            <Text val="Rank"/>
+            <Style val="ModLeftSize20"/>
+        </Frame>
+
+        <Frame type="Label" name="NextPromotion">
+            <Anchor side="Top" relative="$parent/NextPromotionLabel" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/NextPromotionLabel" pos="Max" offset="0"/>
+            <Height val="40"/>
+            <Width val="245"/>
+            <Text val="Admin"/>
+            <Style val="ModLeftSize20"/>
+        </Frame>
+    </Frame>
 </Desc>

@@ -19,16 +19,6 @@
 		<Style val="ModCenterSize16NoHover"/>
 	</Frame>
 	
-	<Frame type="TabControl" name="PlayerDetailsTabController">
-		<Height val="610"/>
-        <Width val="690"/>
-		<!--<TabListItem val="PageButtonsContainer/Button01"/>-->
-		
-		<!--<PanelListItem val="InfoPage1"/>-->
-	
-	</Frame>
-	
-	
     <Frame type="Frame" name="DetailsUI">
         <Height val="610"/>
         <Width val="690"/>

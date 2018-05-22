@@ -3700,6 +3700,14 @@
         <InfoFlags index="Hidden" value="1"/>
         <InitialEffect value="X1GuardianLimit"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="X1Holdfire">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CasterNotHoldfire"/>
+        <Modification>
+            <StateFlags index="SuppressAttack" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="X1BotVeterancy">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <VeterancyLevelArray MinVeterancyXP="300">
@@ -7248,6 +7256,17 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="60"/>
         <Modification SightMaximum="15" LifeArmorBonus="-5">
+            <ModifyFlags index="Detected" value="1"/>
+            <StateFlags index="SuppressCloak" value="1"/>
+        </Modification>
+        <RemoveValidatorArray value="TargetIsVisible"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="GunshipDesignator">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-tips-challengecounter.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="60"/>
+        <Modification SightMaximum="15">
             <ModifyFlags index="Detected" value="1"/>
             <StateFlags index="SuppressCloak" value="1"/>
         </Modification>

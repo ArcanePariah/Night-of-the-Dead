@@ -336,6 +336,14 @@ Attribute002/Value001/Desc=Game will start with Navy Cross, all Medkits/Bandages
 Attribute002/Value001/Name=Navy Cross Enabled
 Attribute002/Value002/Desc=Game will start as normal
 Attribute002/Value002/Name=Navy Cross Disabled
+Attribute003/Desc=Defines how classes are selected in game
+Attribute003/Name=Class Selection
+Attribute003/Value001/Desc=Selecting classes normal.
+Attribute003/Value001/Name=Standard
+Attribute003/Value002/Desc=Random class selection disabled.
+Attribute003/Value002/Name=No Random
+Attribute003/Value003/Desc=Forced random selection.
+Attribute003/Value003/Name=All Random
 Barret/MMRifle Equipped=M45 Marksman Rifle or Barret M112 Equipped
 Behavior/Name/AMRounds=AM Rounds
 Behavior/Name/APAmmo=<c val="80FF80">AP Ammo</c>
@@ -2149,6 +2157,9 @@ DocInfo/PatchNote246=Asgard status bar is now hidden. (ThunderRazor)
 DocInfo/PatchNote247=Laser Designator should now work correctly always. (Niktos)
 DocInfo/PatchNote248=Fixed Level 0 Medal image in final scrore screen (Niktos)
 DocInfo/PatchNote249=FO minis follow FO on abort/end Asgard. (ThunderRazor)
+DocInfo/PatchNote250=- Fixed Execute (Niktos)
+DocInfo/PatchNote251=- Event optimization (Niktos)
+DocInfo/PatchNote252=- Optimized Team UI (ArcanePariah)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
@@ -3939,7 +3950,6 @@ Param/Expression/1B9D6FE5=~A~~B~~C~
 Param/Expression/2FE78331=<s val="InfoPaneHeroRank">(~A~ awarded...)</s>
 Param/Expression/444E0DF8= ~A~ Class Point awarded</s>
 Param/Expression/4D6170D4=<s val="InfoPaneHeroRank"><c val="FBC442">(~A~ awarded...)</s></c>
-Param/Expression/4EEAFF4E=~A~<n/>
 Param/Expression/4FB8FD67=~A~<n/>
 Param/Expression/710E94FC=<s val="InfoPaneHeroRank">(~A~ awarded...)</s>
 Param/Expression/72793672=<s val="InfoPaneHeroRank">(~A~ awarded...)</s>
@@ -4079,6 +4089,7 @@ Param/Value/16FE1446=Roger. A quarantine unit is en route to pick it up.
 Param/Value/170B2CA0=They're lethal and highly trained. But they're still only human.
 Param/Value/17187F2B=Let's get somewhere safe. Motion sensors are still picking things up.
 Param/Value/174CE2FA=XP: 
+Param/Value/17AD8B74=<s val="WaitingForUsersDialogTitle"><c val="00FF40">Z - Zoom</c><n/><c val="00FFFF">X - Team UI Panel</c><n/><c val="FFFF80">C - Switch Camera</c><n/>M - End Gunship Mode</s>
 Param/Value/17CD3B24=Release anti-toxin into ventilation control
 Param/Value/184B235F=Squad XP: 
 Param/Value/185E43B0=Rifleman
@@ -4193,7 +4204,6 @@ Param/Value/2B103DA8=</c>
 Param/Value/2B3C2461=Shutdown HAL from the mainframe
 Param/Value/2B55F506=
 Param/Value/2B56DCCE=+1 XP for Mission Bonus
-Param/Value/2B8E1854=</c>)
 Param/Value/2B9437F2=<s val="BriefingHanText">(Contact with Dr. Bergmann lost...)</s>
 Param/Value/2BAB2E60=Magazines
 Param/Value/2BAC080B=We're in position. Secure the area.
@@ -4359,7 +4369,6 @@ Param/Value/490BB556=<s val="InfoPaneUnitInfo">[Magazines Equipped] -- (Used)
 Param/Value/4928D541=The containers are underneath those cranes. You'll need to spread your team tactically and respond to threats that come.
 Param/Value/49319E6D=We've destroyed all the zombie worms.
 Param/Value/49791ACC=Investigate the Communications Tower
-Param/Value/497C825E=<n/>   Average XP per Game: 
 Param/Value/4990863D=If the colonies revolt, there will be civil war. Millions more will die.
 Param/Value/49C90A50=+3 XP for Mission Bonus. 50 civilians rescued.
 Param/Value/4A4CFC07=Say hello to my little friend.
@@ -4414,7 +4423,6 @@ Param/Value/50673B96=This is Alpha Company. Mission was successful, requesting i
 Param/Value/50700109=</c>)
 Param/Value/507094E5=(The Queen lets out a horrific shriek..)
 Param/Value/50837EF6=We need to find out what the doctor knows.
-Param/Value/50865FA9=+
 Param/Value/50F2D583=Some of us tried to hide in here. But the zombies found us. They always do.
 Param/Value/51092044=Reactor Override
 Param/Value/510E7564=If you die in a dream...do you really die?
@@ -4437,7 +4445,6 @@ Param/Value/53B8381E=I've been putting my head around it. I have a feeling all t
 Param/Value/53C88C67= is now your Gunship buddy.</s>
 Param/Value/541BADD6=+3 XP for Mission Bonus. 40 civilians rescued.
 Param/Value/541F9CD8=</c>) (<c val="49ABF3">
-Param/Value/54228DBB=<n/>   Games Played: 
 Param/Value/543109A7=Secure Security Cams (2/5)
 Param/Value/544D04BA=<s val="InfoPaneHeroRank">No Randoms activated</s><n/>- Random class selection disabled.
 Param/Value/54524404=Doctor, I heard you mention Bergmann. You said you didn't know him.
@@ -4499,7 +4506,6 @@ Param/Value/6015481C=Proceed to Central Square
 Param/Value/6022681D=Chase her! She's almost dead.
 Param/Value/60438EA0=Phantom 1, do you read us? We need a dropship evac now. We have some of the mineral samples from the mine.
 Param/Value/604C0CF6=Roger. There's a walled installation nearby.
-Param/Value/6064B540= (<c val="F4D72B">
 Param/Value/606A90B6=Attack Zeus & Leto from behind. They have thick frontal armor.
 Param/Value/60837DF9=We've restarted the Mining facilities.
 Param/Value/608D552D=Items
@@ -4523,21 +4529,17 @@ Param/Value/643656F9=Survival Mode
 Param/Value/645466D6=Surround the perimeter with flares!
 Param/Value/6458F0E3=<s val="Warning"><c val="FFFF00"> !          !</c></s>
 Param/Value/64870BB9=<s val="BriefingHanText">HAL Shutdown Complete</s>
-Param/Value/648748AC=+
 Param/Value/6497D85A=We'll rendezvous at your location. Be advised we're picking up multiple heat signatures headed your direction.
-Param/Value/64F415B8=<n/>   Credits: 
 Param/Value/64FA8B5C=You're lucky to be alive Doctor. We need to get out of here.
 Param/Value/657E58AC=+1 XP for Performance Bonus
 Param/Value/65ED1170=Kill the boss' eggs with AOE damage or flamers
 Param/Value/6614EBF9=Vote Kick Target is 
-Param/Value/666A04DF=<n/><n/>ID: 
 Param/Value/66776210=There appears to be traces of infected tissues in the Command Tower. Collect them for analysis to help determine the source of the outbreak.
 Param/Value/667F6B4A=You need to save us. We have women and children with us.Take us back to Earth with you!
 Param/Value/66D10A6E=I've had enough space assignments to last me a lifetime.
 Param/Value/66EDD69C=Proceed to EVAC
 Param/Value/670FA8CE=(Zeus summons the rebirth of Leto..!)
 Param/Value/672C2DC4=<n/><n/>Kills: <c val="F4D72B">
-Param/Value/6734436C=<n/>   Karma: 
 Param/Value/67472A7C=: <c val="F4D72B">
 Param/Value/675EE141=<s val="GlueButton">
 Param/Value/6775B4D5=Stat Points Available: 
@@ -4555,7 +4557,6 @@ Param/Value/694F4581=Turn the Power Generators around Apollo back on.
 Param/Value/69580F03=: <c val="F4D72B">
 Param/Value/699F1ACC=Reaching LZ..
 Param/Value/6A1B8E3B=There's the assembly. Starting up.
-Param/Value/6A470478=Class: 
 Param/Value/6A4ECC86=<s val="InfoPaneUnitInfo">
 Param/Value/6A64E79E=We can use it. What about HAL?
 Param/Value/6AB43B51=You survive better when you are with other Marines. This is because they will:<n/>- Cover you while you're reloading<n/>- Help attack Zombies that are too powerful against a single Marine<n/>- Help divert Zombies if needed
@@ -4617,7 +4618,6 @@ Param/Value/75805F30=<n/></c>Damage Taken: <c val="F4D72B">
 Param/Value/758D5CB1=I'm detecting multiple air bogeys. We need to haul ass.
 Param/Value/75B4E619=<c val="0080FF">
 Param/Value/75B54346=You will find items throughout the mission.
-Param/Value/75D0FAFD=Career Stats<n/>   Rating: 
 Param/Value/75E3312B=Take these Ocular Implants. My customers...won't need them anymore.
 Param/Value/7616303C=/5)
 Param/Value/7616B27D=+2 XP for Mission Bonus. 20 civilians rescued.
@@ -4669,7 +4669,6 @@ Param/Value/7DFDE347=<s val="BriefingHanText">Directive: Lockdown Apollo</s>
 Param/Value/7DFE6CBB=</c>.
 Param/Value/7E2DE1DC=Gentlemen, choose your course of action..
 Param/Value/7E413997=<s val="GlueButtonSmall">Security Team: 
-Param/Value/7E5D1603=<n/>   XP: 
 Param/Value/7EBDCF5E=Enter the Colony Airlock
 Param/Value/7ED7EB38=We've got bigger problems on our hands, mate.
 Param/Value/7F3B5C2C=We're bringing you out.
@@ -4706,7 +4705,6 @@ Param/Value/8569CB3E= -- (
 Param/Value/859D24C4=Dr. Bergmann
 Param/Value/85A69CBB=Stop!
 Param/Value/860157CA=Get the hell out of here. Go go!
-Param/Value/86182C3C=</c>)
 Param/Value/862ECA66=Why would they - ... someone wants Apollo to burn. We're on our own here.
 Param/Value/8650EF40=<s val="InfoPaneHeroRank">
 Param/Value/86A2241A=Marine
@@ -4781,7 +4779,7 @@ Param/Value/918A8106=It's in a dormant state now.
 Param/Value/9190998C=Protect Dr. Tanaka until his research is complete
 Param/Value/91A0BD6A=(Cronus prepares for <c val="FF0000">destruction</c>...)
 Param/Value/91F0176F=Collect items scattered throughout the map. These help improve your chances of success in NOTD.<n/><n/>Item Classes:<n/>Weapons: Each weapon shines in different situations.<n/>Armor: Improves your armor<n/>Enhancements: Equip these to improve your stats<n/>Ammo: You require ammo to continue firing your weapons<n/>Supplies: These include medkits which keep you in top shape.<n/><n/>Sharing items with teammates will improve squad survivability.
-Param/Value/92459A55=<img path="Assets\Textures\tutorialmouserightbuttondown.dds"/><n/><s val="WaitingForUsersDialogTitle"><c val="FFDD1C">Right Click - Gauss Cannon</c><n/><c val="1CFFCC">Arrows/Mousewheel - Speed</c><n/><n/><c val="00FF40">Z - Zoom</c><n/><c val="00FFFF">X - Team UI Panel</c><n/><c val="FFFF80">C - Switch Camera</c><n/>M - End Gunship Mode</s>
+Param/Value/92459A55=<img path="Assets\Textures\tutorialmouserightbuttondown.dds"/><n/><s val="WaitingForUsersDialogTitle"><c val="FFDD1C">Right Click - Gauss Cannon</c><n/><c val="1CFFCC">Arrows/Mousewheel - Speed</c></s>
 Param/Value/9263B5DE=+3 XP for Performance Bonus
 Param/Value/9279BE21=We're wasting ammunition. Destroy that Dome.
 Param/Value/92A2458A=Survive the incoming attack
@@ -4810,7 +4808,6 @@ Param/Value/95E7C9F4=Movement. Coming from Apollo.
 Param/Value/95F385B4=Senator
 Param/Value/95F734B9=Boss Approaching
 Param/Value/95FA0B91=<s val="CinematicLabel">  Ivan Plushenko: <c val="F4D72B">This is for everyone you've killed, Bergmann...</c></s>
-Param/Value/9636C697=</c>)
 Param/Value/9637DE0E=<s val="ChatBar">- Releasing anti-toxins -</c></s>
 Param/Value/96BE079C=Your squad has been sent to the Apollo Mining Colony to respond to a distress signal. Follow mission orders and stay alive. Teamwork is key to survival. Once you die, you cannot revive.<n/><n/>Game Basics<n/>Inventory: You will pick up items along the way. These aid your survival.<n/>Ammunition: Your ammo counter is displayed near your Marine portrait. When you run out of ammo, you cannot fire.<n/>Talents: Press B to open your Talent tree. You gain 1 talent point every time your Marine levels up.<n/><n/>Chat Commands<n/>-ammo: Shows everyone's magazine count<n/>-nightmare: Increases game difficulty for good players<n/>-em: Activates Easy Mode. Players also gain shared vision. XP gain rate is reduced<n/><n/>Discuss at www.notdstarcraft.com
 Param/Value/96EBA0B6=Spawn Factor: 
@@ -4909,7 +4906,6 @@ Param/Value/A6E77676=<s val="BriefingHanText">(Gunship leaving combat zone in 15
 Param/Value/A6F1ECEA=I'm connected.
 Param/Value/A72367D5=+3 XP for Performance Bonus
 Param/Value/A779B0BC=This confirms our suspicions the past few days.
-Param/Value/A7EAAC9B= (<c val="F4D72B">
 Param/Value/A8040132=It's too late - kill him!
 Param/Value/A811CC29=With HAL and its security systems down, most of the zombies will be coming at us.
 Param/Value/A83A325D=
@@ -4917,7 +4913,6 @@ Param/Value/A86AA5D2=(Erebos' psionic energy builds up...)
 Param/Value/A86CF95E=We need heavy weapons here.
 Param/Value/A8828B40=It's done. No turning back now.
 Param/Value/A883B797=<s val="InfoPaneHeroRank">SELECTION: B - Reactivate Mining controls to restore Helium-3 processing</s>
-Param/Value/A89F0CC4=</c>)
 Param/Value/A8D3B993=Seal chemical leaks in scrapyard
 Param/Value/A91914B9=I'm unlocking the Bio-Domes. Clear the zombies and you'll cleanse Apollo of the infestation.
 Param/Value/A94A1617=Destroy Cellular Structures when Athena is near one to weaken her.
@@ -4987,7 +4982,6 @@ Param/Value/B54DE278=Kill all Infestors (
 Param/Value/B562184C=We've got work to do, if we want to save this facility.
 Param/Value/B595B3C6=Maintain tight formation around the civies.
 Param/Value/B596B021=We're in the middle of an outbreak. You need to come with us.
-Param/Value/B5DC7FB9=+
 Param/Value/B5E0AFBC=We're airdropping more supplies into your sector.
 Param/Value/B5F23A49=Rising Tide
 Param/Value/B6028924=A Blueberry Production
@@ -5030,7 +5024,6 @@ Param/Value/BBBC11D8=We're too late. All the colonists are dead.
 Param/Value/BC194400=Difficulty: 
 Param/Value/BC806C13=The security cameras you've accessed earlier will now give you short-range surveillance.
 Param/Value/BCA5739D=We read you. Dropship ETA 6 Mikes.
-Param/Value/BCE6D27B= (<c val="F4D72B">
 Param/Value/BCE70FC0=<s val="InfoPaneHeroRank">Colonists Rescued:  
 Param/Value/BD12F8A1=Find Charlie
 Param/Value/BD3E0FCC=Marine: <c val="F4D72B">It's loaded with eggs. Get your flamethrowers ready.</c></s>
@@ -5115,6 +5108,7 @@ Param/Value/CA7A62A2=You're being misled by your superiors. Think this through.
 Param/Value/CB4C0097=There's too many. You need to destroy the Dome itself.
 Param/Value/CB61B932=<s val="GlueButton">
 Param/Value/CB734693=My research is almost complete.
+Param/Value/CBBE284F=Next Promotion:
 Param/Value/CBC10B72=It's at the military base. Let's go.
 Param/Value/CC0DFB19=<s val="GlueButtonSmall">Marksman: 
 Param/Value/CC209D9A=)
@@ -5255,6 +5249,7 @@ Param/Value/E13A28B5=Once we begin, there will be no turning back.
 Param/Value/E14D6B71=Take them out or your position will be overwhelmed.
 Param/Value/E1703520=I don't see any better options. Tell us what to do.
 Param/Value/E19DF915=+2 XP: Transmission Download Complete
+Param/Value/E1A199CA=<s val="InfoPaneHeroRank">Command Failed</s></n>All random requires enabling before selecting story.
 Param/Value/E1B2888D=Secure Security Cams (0/5)
 Param/Value/E25FCAD9=Military EVAC is underway. Stay safe and watch out for danger until rescue arrives.
 Param/Value/E298D78F= (<c val="E10000">
@@ -5264,10 +5259,9 @@ Param/Value/E2D10094=Destroy Compliance Nexuses (
 Param/Value/E32A665D=Deimos
 Param/Value/E3864FB9=Kill the Zombie Queen
 Param/Value/E3A8B054=Maybe. I'd like to question him myself when I get the chance.
-Param/Value/E3AC9800=<n/>   Average XP per Game: 
 Param/Value/E3BD112F=You squad needs to investigate the airlock for clues. If anybody was trying to get out, they'd head to the airlock.
+Param/Value/E3E8800E=<s val="InfoPaneHeroRank">All Randoms mode activated</s><n/>- Good luck.
 Param/Value/E405D451=Your progress will automatically load each game.
-Param/Value/E44F499A=+
 Param/Value/E461E750=Situation under control. We've got this.
 Param/Value/E4DFE6B3=<s val="InfoPaneHeroRank">
 Param/Value/E51F85FC=Tanks have arrived. They will provide heavy support.
@@ -5382,6 +5376,7 @@ Param/Value/F79FB8D1=</s>
 Param/Value/F7A04BFC=+3 XP for Mission Bonus. 50 civilians rescued.
 Param/Value/F7AEF20F=<s val="BriefingHanText">Infestation Level: 89% (Probable)</s>
 Param/Value/F7E4F520=
+Param/Value/F80A3847=Class Selection
 Param/Value/F80D8B6F=I thought we would have died here...or worse...
 Param/Value/F8130A42=Pending
 Param/Value/F866572F=Politics can wait. We have a critical situation here in Apollo.
@@ -5390,7 +5385,6 @@ Param/Value/F8B5DD6A=(A terrifying creature emerges from the depths of Apollo...
 Param/Value/F8D7F114=Huddle close to your team. Covering fire keeps you safe.
 Param/Value/F8F51936=Decrypting Airlock Security
 Param/Value/F96D5DCB=<s val="BriefingHanText">(Gunship online...)</s>
-Param/Value/F96F7B86= (<c val="F4D72B">
 Param/Value/F99A2CE8=Black Ops have many deadly ranged attacks. Stay sharp!
 Param/Value/F9A1B8C3=I'll keep an eye out, Lieutenant. Now I must get back to work.
 Param/Value/F9A7E5EA=<s val="InfoPaneHeroRank">Random class already selected</s>
@@ -5413,7 +5407,6 @@ Param/Value/FD6E91D5=Inventory
 Param/Value/FD7B4E49=<s val="InfoPaneHeroRank">(2 XP awarded for colonist rescue)</s>
 Param/Value/FDC4E24A=The generators are spread out across the colony.
 Param/Value/FDC983B7=<s val="HeaderExtendedTemplate">/</s>
-Param/Value/FDF2EF7E= (
 Param/Value/FE378CE9=We've reached the truck. Let's move. Keep a tight formation.
 Param/Value/FE4BD6DD=I sense a link between them. Bring them down together.
 Param/Value/FE4E7695=You've seen how horrifying this infestation is. We MUST wipe it out..
@@ -5439,10 +5432,23 @@ RequirementNode/Tooltip/LT3507390604SumCountUnitMobileInfantryFlamethrowerComple
 Righteousness Level 2=+1 armor for each unit damaged by Smite. Lasts 16 seconds.<n/><n/>"I shall walk down the road of shadow, the path of the wicked, the trail of damnation but I fear not for I stand as an unfaltering beacon to the lost for all those who have been cast down."
 Saline IV Level 2=Level 2 - Heals 40 HP instantly. Also removes 1 stack of Venom.
 Saline IV Level 3=Level 3 - Heals 60 HP instantly. Remove 1 stack of Venom and Open Wounds. Also heals Cripple when Repulse is active.
+ScoreValue/Name/AverageXPPerGame=Average XP Per Game
+ScoreValue/Name/Credits=Credits
+ScoreValue/Name/CreditsChange=Credits Change
 ScoreValue/Name/DamageTaken=Damage Taken
+ScoreValue/Name/GamesPlayed=Games Played
 ScoreValue/Name/HitsTaken=Hits Taken
+ScoreValue/Name/Karma=Karma
+ScoreValue/Name/KarmaChange=Karma Change
 ScoreValue/Name/MagazineCount=Magazine Count
 ScoreValue/Name/PlayerXP=Player XP
+ScoreValue/Name/PlayerXPChange=Player XP Change
+ScoreValue/Name/Rating=Rating
+ScoreValue/Name/RatingChange=Rating Change
+ScoreValue/Name/StartingCredits=Starting Credits
+ScoreValue/Name/StartingKarma=Starting Karma
+ScoreValue/Name/StartingPlayerXP=Starting Player XP
+ScoreValue/Name/StartingRating=Starting Rating
 SethPolarityNegative= <IMG path = "NOTD Generic Art/NOTD Negative Polarity.dds" height = "64" width = "64"/>
 SethPolarityPositive= <IMG path = "NOTD Generic Art/NOTD Positive Polarity.dds" height = "64" width = "64"/>
 Shoot To Maim Level 2=The Pathfinder uses precise aim in his attacks to cripple enemy targets, but in doing so, he no longer aims to ricochet his shots.<n/><n/>Level 2 - +20% damage, each Maim stack slows by 7.5%, maximum stack of 3
@@ -6135,41 +6141,41 @@ UserData/ShopItems/ShopItem27_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:7
 UserData/ShopItems/ShopItem28_ShopTooltip=Biological - can get hugged<n/>LifeMax:300  LifeRegen:7 RegenDelay: Yes<n/>Movement Speed:3 EnergyMax:50 Shields:20<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem29_ShopTooltip=Mechanical<n/>LifeMax:300  LifeRegen:10 RegenDelay: Yes<n/>Movement Speed:2.5 EnergyMax:55 Shields:10<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem2_ShopTooltip=Changes Marine color to <c val="b4141e">Red</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem30_ShopTooltip=Since the Great Rat Plague of 2028, kittens have been a mainstay in every citizen's home - providing frontline defense against the next plague. Kittens are also cute. Be a responsible neighbour - order now.<n/><n/>Credits: <c val="71B8FF">1000</c>
-UserData/ShopItems/ShopItem31_ShopTooltip=Rank icon of Marine replaced with Black Ops Insignia.<n/><n/>Credits: <c val="71B8FF">10000</c>
+UserData/ShopItems/ShopItem30_ShopTooltip=Since the Great Rat Plague of 2028, kittens have been a mainstay in every citizen's home - providing frontline defense against the next plague. Kittens are also cute. Be a responsible neighbour - order now.<n/><n/>Credits: <c val="71B8FF">1000</c><n/><n/><s val="Swarm_RegularXSmall">"It's too dangerous to go alone. Take this..."</s>
+UserData/ShopItems/ShopItem31_ShopTooltip=Rank icon of Marine replaced with Black Ops Insignia.<n/><n/>Credits: <c val="71B8FF">10000</c><n/><n/><s val="Swarm_RegularXSmall">"I only thought I knew the truth."</s>
 UserData/ShopItems/ShopItem32_ShopTooltip=Allows modification of weapons.<n/><n/>Credits: <c val="71B8FF">10000</c>
-UserData/ShopItems/ShopItem33_ShopTooltip=Heavy Sniper Rifle that is capable of inflicting massive damage. This powerful weapon also weighs down the Marine.<n/><n/>Credits: <c val="71B8FF">250</c>
-UserData/ShopItems/ShopItem34_ShopTooltip=Launches high explosive grenades that detonate on contact with targets.<n/><n/>Credits: <c val="71B8FF">325</c>
-UserData/ShopItems/ShopItem35_ShopTooltip=Rocket Launcher that does significant splash damage. Consumes 10 rounds per attack. Use with extreme caution.<n/><n/>Credits: <c val="71B8FF">325</c>
-UserData/ShopItems/ShopItem36_ShopTooltip=This .50 caliber gun is great at mowing down masses. It's high impact rounds will penetrate armor completely.<n/><n/>Credits: <c val="71B8FF">250</c>
-UserData/ShopItems/ShopItem37_ShopTooltip=Slower firing than the UA General Purpose Rifle but packs a bigger punch. Also penetrates deeper into armor.<n/><n/>Credits: <c val="71B8FF">200</c>
-UserData/ShopItems/ShopItem38_ShopTooltip=Deals damage to multiple units in a close distance. 30% chance to stun non-massive units for 0.1 seconds. Uses 2 rounds per shot. <n/>Deals both primary and splash damage to the initial target.<n/><n/>Credits: <c val="71B8FF">200</c>
-UserData/ShopItems/ShopItem39_ShopTooltip=Excellent close quarter combat weapon when mobility is needed. Makes quick work of lightly armored units. Depletes ammo rapidly.<n/><n/></c>Credits: <c val="71B8FF">100</c>
+UserData/ShopItems/ShopItem33_ShopTooltip=Heavy Sniper Rifle that is capable of inflicting massive damage. This powerful weapon also weighs down the Marine.<n/><n/>Credits: <c val="71B8FF">250</c><n/><n/><s val="Swarm_RegularXSmall">"This goes through armor, and the victim, and the wall, the tree outside....."</s>
+UserData/ShopItems/ShopItem34_ShopTooltip=Launches high explosive grenades that detonate on contact with targets.<n/><n/>Credits: <c val="71B8FF">325</c><n/><n/><s val="Swarm_RegularXSmall">"Demolition is my Mission!" - Nick Nitro</s>
+UserData/ShopItems/ShopItem35_ShopTooltip=Rocket Launcher that does significant splash damage. Consumes 10 rounds per attack. Use with extreme caution.<n/><n/>Credits: <c val="71B8FF">325</c><n/><n/><s val="Swarm_RegularXSmall">"Say hello to my little friend" - Lt. Lee</s>
+UserData/ShopItems/ShopItem36_ShopTooltip=This .50 caliber gun is great at mowing down masses. It's high impact rounds will penetrate armor completely.<n/><n/>Credits: <c val="71B8FF">250</c><n/><n/><s val="Swarm_RegularXSmall">"The old man wanted me to be a rice farmer. Found that lead farming was more of my thing." - Private Ramirez</s>
+UserData/ShopItems/ShopItem37_ShopTooltip=Slower firing than the UA General Purpose Rifle but packs a bigger punch. Also penetrates deeper into armor.<n/><n/>Credits: <c val="71B8FF">200</c><n/><n/><s val="Swarm_RegularXSmall">"This is my UA420 Assault Rifle, there are many like it but this one is mine." - Pvt. Benson</s>
+UserData/ShopItems/ShopItem38_ShopTooltip=Deals damage to multiple units in a close distance. 30% chance to stun non-massive units for 0.1 seconds. Uses 2 rounds per shot. <n/>Deals both primary and splash damage to the initial target.<n/><n/>Credits: <c val="71B8FF">200</c><n/><n/><s val="Swarm_RegularXSmall">"I could aim but with this thing, I don't have to." - Sgt. Arnold</s>
+UserData/ShopItems/ShopItem39_ShopTooltip=Excellent close quarter combat weapon when mobility is needed. Makes quick work of lightly armored units. Depletes ammo rapidly.<n/><n/></c>Credits: <c val="71B8FF">100</c><n/><n/><s val="Swarm_RegularXSmall">"My ancestor used one on Guadalcanal, I can see why."</s>
 UserData/ShopItems/ShopItem3_ShopTooltip=Changes Marine color to <c val="0042ff">Blue</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem40_ShopTooltip=Burns any living creature quickly.<n/><n/>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem40_ShopTooltip=Burns any living creature quickly.<n/><n/>Credits: <c val="71B8FF">50</c><n/><n/><s val="Swarm_RegularXSmall">"Never settle with words what you can accomplish with a flamethrower." - Bruce Feirstein</s>
 UserData/ShopItems/ShopItem41_ShopTooltip=Adds 4 shield armor and increases maximum shield capacity by 50%.<n/><n/>Credits: <c val="71B8FF">250</c>
-UserData/ShopItems/ShopItem42_ShopTooltip=A durable polymer suit that has plate inserts to protect vital areas. While it doesn't offer the impact dampening that heavier armors do, the durable and flexible material that slides over the Marine's combat suit is extremely resistant to tearing and puncturing.<n/><n/>Adds 2 armor and 40% ailment resistance.<n/><n/>Credits: <c val="71B8FF">50</c>
-UserData/ShopItems/ShopItem43_ShopTooltip=A series of interlocking attachable plates that lock on to the combat suit to provide protection from blunt trauma to vital areas, while joints are bolstered by armored pads.<n/><n/>Adds 4 armor and 20% ailment resistance.<n/><n/>Credits: <c val="71B8FF">250</c>
-UserData/ShopItems/ShopItem44_ShopTooltip=Produced by United Arms Heavy Industries, this ammunition can punch through the hardiest of armor.<n/>Attack Modifier: <c val="FFFFFF">-1 armor (Does not stack)</c><n/>Damage Modfier: <c val="FFFFFF">+7%</c><n/>Maximum Stack: <c val="FFFFFF">3</c></n></n>Credits: <c val="71B8FF">50</c>
-UserData/ShopItems/ShopItem45_ShopTooltip=The jacket allows for higher muzzle velocities than bare lead without depositing significant amounts of metal in the bore.<n/>Attack Modifier: <c val="FFFFFF">+15% attack speed. -1 attack range (Stacks 3x)</c></n></n>Credits: <c val="71B8FF">50</c>
-UserData/ShopItems/ShopItem46_ShopTooltip=Produced by UGC Engineering Corps. This ammunition makes use of a high yield head which burns targets on impact.<n/>Damage Modifier: <c val="FFFFFF">+3% damage (Stacks 3x)</c><n/>Attack Modifier: Target takes 50% bonus damage from Fire for 5 seconds</c></n></c></n>Credits: <c val="71B8FF">50</c>
-UserData/ShopItems/ShopItem47_ShopTooltip=Allows your marine to use an additional magazine per reload while equipped.<n/>Maximum Stack: <c val="FFFFFF">1</c><n/></n>Credits: <c val="71B8FF">250</c>
-UserData/ShopItems/ShopItem48_ShopTooltip=Produced by UGC Ballistics this ammunition is designed to cause major damage to targets.<n/>Damage Modifier: <c val="FFFFFF">+12% damage (Stacks 3x)</c><n/><n/>Credits: <c val="71B8FF">50</c>
+UserData/ShopItems/ShopItem42_ShopTooltip=A durable polymer suit that has plate inserts to protect vital areas. While it doesn't offer the impact dampening that heavier armors do, the durable and flexible material that slides over the Marine's combat suit is extremely resistant to tearing and puncturing.<n/><n/>Adds 2 armor and 40% ailment resistance.<n/><n/>Credits: <c val="71B8FF">50</c><n/><n/><s val="Swarm_RegularXSmall">"Manufactured in the Democratic Republic of East China" - Manufacturer's Label</s>
+UserData/ShopItems/ShopItem43_ShopTooltip=A series of interlocking attachable plates that lock on to the combat suit to provide protection from blunt trauma to vital areas, while joints are bolstered by armored pads.<n/><n/>Adds 4 armor and 20% ailment resistance.<n/><n/>Credits: <c val="71B8FF">250</c><n/><n/><s val="Swarm_RegularXSmall">"What do you mean it doesn't explode?" - NFG</s>
+UserData/ShopItems/ShopItem44_ShopTooltip=Produced by United Arms Heavy Industries, this ammunition can punch through the hardiest of armor.<n/>Attack Modifier: <c val="FFFFFF">-1 armor (Does not stack)</c><n/>Damage Modfier: <c val="FFFFFF">+7%</c><n/>Maximum Stack: <c val="FFFFFF">3</c></n></n>Credits: <c val="71B8FF">50</c><n/><n/><s val="Swarm_RegularXSmall">"Know that you are a UGC Marine. And know that means no defense can stop you. Not steel plate or concrete bunker. Your round will always find the enemy's heart."</s>
+UserData/ShopItems/ShopItem45_ShopTooltip=The jacket allows for higher muzzle velocities than bare lead without depositing significant amounts of metal in the bore.<n/>Attack Modifier: <c val="FFFFFF">+15% attack speed. -1 attack range (Stacks 3x)</c></n></n>Credits: <c val="71B8FF">50</c><n/><n/><s val="Swarm_RegularXSmall">"How many shots did you count just now?" - McCain</s>
+UserData/ShopItems/ShopItem46_ShopTooltip=Produced by UGC Engineering Corps. This ammunition makes use of a high yield head which burns targets on impact.<n/>Damage Modifier: <c val="FFFFFF">+3% damage (Stacks 3x)</c><n/>Attack Modifier: Target takes 50% bonus damage from Fire for 5 seconds</c></n></c></n>Credits: <c val="71B8FF">50</c><n/><n/><s val="Swarm_RegularXSmall">"You ain't seen gruesome until you've seen an enemy burn alive from the inside out."</s>
+UserData/ShopItems/ShopItem47_ShopTooltip=Allows your marine to use an additional magazine per reload while equipped.<n/>Maximum Stack: <c val="FFFFFF">1</c><n/></n>Credits: <c val="71B8FF">250</c><n/><n/><s val="Swarm_RegularXSmall">"But wait! There's more!"</s>
+UserData/ShopItems/ShopItem48_ShopTooltip=Produced by UGC Ballistics this ammunition is designed to cause major damage to targets.<n/>Damage Modifier: <c val="FFFFFF">+12% damage (Stacks 3x)</c><n/><n/>Credits: <c val="71B8FF">50</c><n/><n/><s val="Swarm_RegularXSmall">"When facing a human target shoot to maim. Against all else or other shoot to kill" - Lt. Breanne</s>
 UserData/ShopItems/ShopItem49_ShopTooltip=+0.4 HP regeneration per second. Ideal for Marines in the front lines.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">250</c>
 UserData/ShopItems/ShopItem4_ShopTooltip=Changes Marine color to <c val="1ca7ea">Teal</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem50_ShopTooltip=Increases Sight Radius by 3.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">50</c>
-UserData/ShopItems/ShopItem51_ShopTooltip=Increases movespeed by 10%<n/>Maxiumum Stack: <c val="FFFFFF">1<n/><n/></c>Credits: <c val="71B8FF">250</c>
-UserData/ShopItems/ShopItem52_ShopTooltip=Increases Energy & Shield regeneration by 0.33 per sec.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">250</c>
+UserData/ShopItems/ShopItem50_ShopTooltip=Increases Sight Radius by 3.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">50</c><n/><n/><s val="Swarm_RegularXSmall">"All the better to see you with, my dear" - PFC Wulf</s>
+UserData/ShopItems/ShopItem51_ShopTooltip=Increases movespeed by 10%<n/>Maxiumum Stack: <c val="FFFFFF">1<n/><n/></c>Credits: <c val="71B8FF">250</c><n/><n/><s val="Swarm_RegularXSmall">"The Honda Asimo MK IV is the latest in augmentation technology. Now being tested by field units in the UGC Expeditionary Force" - New York Times, 13 April 2102</s>
+UserData/ShopItems/ShopItem52_ShopTooltip=Increases Energy & Shield regeneration by 0.33 per sec.<n/>Maximum Stack: <c val="FFFFFF">2</c><n/></n>Credits: <c val="71B8FF">250</c><n/><n/><s val="Swarm_RegularXSmall">"Manufactured by Stark Industries (2095)"</s>
 UserData/ShopItems/ShopItem53_ShopTooltip=Illuminates a 9 radius area for 60 seconds.<n/><n/>Credits: <c val="71B8FF">15</c>
-UserData/ShopItems/ShopItem54_ShopTooltip=Heals 125 HP over 15 seconds. Can be used on self only.<n/>Maximum Effect Stack: <c val="FFFFFF">3</c><n/><n/>Credits: <c val="71B8FF">15</c>
+UserData/ShopItems/ShopItem54_ShopTooltip=Heals 125 HP over 15 seconds. Can be used on self only.<n/>Maximum Effect Stack: <c val="FFFFFF">3</c><n/><n/>Credits: <c val="71B8FF">15</c><n/><n/><s val="Swarm_RegularXSmall">"Best cure out there for a hard night out." - Lt. Sheng</s>
 UserData/ShopItems/ShopItem55_ShopTooltip=Instantly heals 50 HP. Also heals Open Wounds.<n/><n/>Credits: <c val="71B8FF">15</c>
 UserData/ShopItems/ShopItem56_ShopTooltip=Cures venom and restores 10 HP.<n/><n/>Credits: <c val="71B8FF">10</c>
-UserData/ShopItems/ShopItem57_ShopTooltip=Consume to add 3 magazines to your ammuniton pool.<n/><n/>Credits: <c val="71B8FF">10</c>
+UserData/ShopItems/ShopItem57_ShopTooltip=Consume to add 3 magazines to your ammuniton pool.<n/><n/>Credits: <c val="71B8FF">10</c><n/><n/><s val="Swarm_RegularXSmall">"Third round from the bottom is a tracer. See that light and switch out recruit!" - Drill Instructor Sergeant Jordan</s>
 UserData/ShopItems/ShopItem58_ShopTooltip=Stores magazines that provide rounds for your weapons. Higher magazine capacity frees up your inventory.<n/><n/>Credits: <c val="71B8FF">35</c>
 UserData/ShopItems/ShopItem5_ShopTooltip=Changes Marine color to <c val="331ac8">Purple</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem60_ShopTooltip=Since the Great Rat Plague of 2028, kittens have been a mainstay in every citizen's home - providing frontline defense against the next plague. Kittens are also cute. Be a responsible neighbour - order now.<n/><n/>Credits: <c val="71B8FF">1000</c>
+UserData/ShopItems/ShopItem60_ShopTooltip=Since the Great Rat Plague of 2028, kittens have been a mainstay in every citizen's home - providing frontline defense against the next plague. Kittens are also cute. Be a responsible neighbour - order now.<n/><n/>Credits: <c val="71B8FF">1000</c><n/><n/><s val="Swarm_RegularXSmall">"It's too dangerous to go alone. Take this..."</s>
 UserData/ShopItems/ShopItem6_ShopTooltip=Changes Marine color to <c val="ebe129">Yellow</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
-UserData/ShopItems/ShopItem70_ShopTooltip=Rank icon of Marine replaced with Black Ops Insignia.<n/><n/>Credits: <c val="71B8FF">10000</c>
+UserData/ShopItems/ShopItem70_ShopTooltip=Rank icon of Marine replaced with Black Ops Insignia.<n/><n/>Credits: <c val="71B8FF">10000</c><n/><n/><s val="Swarm_RegularXSmall">"I only thought I knew the truth."</s>
 UserData/ShopItems/ShopItem7_ShopTooltip=Changes Marine color to <c val="fe8a0e">Orange</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem8_ShopTooltip=Changes Marine color to <c val="168000">Green</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>
 UserData/ShopItems/ShopItem9_ShopTooltip=Changes Marine color to <c val="FF80FF">Pink</c> for all games.<n/><n/>Credits: <c val="71B8FF">5000</c>

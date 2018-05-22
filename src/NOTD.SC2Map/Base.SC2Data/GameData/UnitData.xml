@@ -3387,6 +3387,7 @@
         <AbilArray Link="X1UpgradeLevel2"/>
         <BehaviorArray Link="X1BotVeterancy"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1Holdfire"/>
         <BehaviorArray Link="X1GuardianLimit"/>
         <TurretArray value="Diamondback"/>
         <TurretArray value="Diamondback"/>
@@ -4156,7 +4157,7 @@
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="BurrowUp" Type="Undefined" AbilCmd="UnburrowBeastling,Execute" Row="0" Column="4"/>
-            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="7" Face="BurrowUp" AbilCmd="UnburrowBeastling,Execute"/>
             <LayoutButtons index="8" removed="1"/>
             <LayoutButtons index="9" removed="1"/>
             <LayoutButtons index="10" removed="1"/>
@@ -7460,19 +7461,16 @@
         <WeaponArray index="0" Link="DevourerGround"/>
         <WeaponArray index="1" Link="DevourerClaws"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" removed="1"/>
-            <LayoutButtons index="6" removed="1"/>
-            <LayoutButtons index="7" removed="1"/>
-        </CardLayouts>
-        <CardLayouts>
-            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
-            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
-            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
-            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
-            <LayoutButtons Face="RapidRegeneration" Type="Passive" Row="1" Column="0"/>
-            <LayoutButtons Face="BurrowDown" Type="AbilCmd" AbilCmd="BurrowDevourer,Execute" Row="2" Column="4"/>
-            <LayoutButtons Face="CliffWalk" Type="Passive" Row="1" Column="4"/>
+            <LayoutButtons index="5" Face="RapidRegeneration" Type="Passive" Requirements="" Row="1" Column="0"/>
+            <LayoutButtons index="6" Face="CliffWalk" Type="Passive" Requirements="" Row="1" Column="4"/>
+            <LayoutButtons index="7">
+                <Face value="BurrowDown"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="BurrowDevourer,Execute"/>
+                <Requirements value=""/>
+                <Row value="2"/>
+                <Column value="4"/>
+            </LayoutButtons>
         </CardLayouts>
         <Radius value="0.625"/>
         <SeparationRadius value="0.6"/>
@@ -9585,16 +9583,16 @@
     </CUnit>
     <CUnit id="SatchelLevel1">
         <Race value=""/>
-        <FlagArray index="Invulnerable" value="1"/>
         <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
         <EditorCategories value=""/>
         <LifeStart value="15"/>
         <LifeMax value="15"/>
     </CUnit>
     <CUnit id="SatchelLevel2">
         <Race value=""/>
-        <FlagArray index="Invulnerable" value="1"/>
         <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
         <EditorCategories value=""/>
         <LifeStart value="15"/>
         <LifeMax value="15"/>
@@ -9776,6 +9774,7 @@
         <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <BehaviorArray Link="X1BotVeterancy"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1Holdfire"/>
         <BehaviorArray Link="X1GuardianLimit"/>
         <HotkeyCategory value="Hotkey/Minis"/>
     </CUnit>
@@ -9850,6 +9849,7 @@
         <SeparationRadius value="0.3"/>
         <BehaviorArray Link="X1BotVeterancy"/>
         <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1Holdfire"/>
         <BehaviorArray Link="X1GuardianLimit"/>
         <HotkeyAlias value="X1GuardianLevel1"/>
         <HotkeyCategory value="Hotkey/Minis"/>
