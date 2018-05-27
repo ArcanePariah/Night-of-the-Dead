@@ -2808,7 +2808,6 @@ bool auto_gf_SetDifficulty_TriggerFunc (bool testConds, bool runActions) {
         }
     }
     else if (autoB90D3843_val == ge_GameModes_Nightmare) {
-        TriggerEnable(gt_InfestorAI, true);
         gv_nightmare = true;
         gv_difficulty = UserDataGetText("Mode", "Nightmare", "Mode Name", 1);
         libNtve_gf_SetDialogItemImage(lv_missionTimePanel, "Assets\\Textures\\ui_commandcard_redframe_normal.dds", PlayerGroupAll());
@@ -15150,7 +15149,7 @@ bool gt_Environment_Func (bool testConds, bool runActions) {
     }
     TriggerEnable(gt_InfestorKilled, true);
     TriggerEnable(gt_InfestorAmbientSpawns, true);
-    if ((gv_noNewbie == true) && (gv_squadRating >= 1600)) {
+    if (((gv_currentGameMode == ge_GameModes_Nightmare) || ((gv_noNewbie == true) && (gv_squadRating >= 1600)))) {
         TriggerEnable(gt_InfestorAI, true);
     }
 
@@ -16106,7 +16105,6 @@ bool gt_NightmareMode_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    TriggerEnable(gt_InfestorAI, true);
     gv_currentGameMode = ge_GameModes_Nightmare;
     gv_nightmare = true;
     gv_difficulty = UserDataGetText("Mode", "Nightmare", "Mode Name", 1);
