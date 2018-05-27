@@ -15141,7 +15141,7 @@ bool gt_Environment_Func (bool testConds, bool runActions) {
     Wait(80.0, c_timeReal);
     auto83606DB6_var = gv_indexBaseValue;
     for ( ; auto83606DB6_var <= auto83606DB6_ae; auto83606DB6_var += 1 ) {
-        UnitCreate(1, "InfestorBurrowed2", 0, 14, RegionRandomPoint(RegionPlayableMap()), libNtve_gf_RandomAngle());
+        UnitCreate(1, "InfestorBurrowed2", 0, 14, gf_RandomSpawnPointNOTD(RegionEntireMap()), libNtve_gf_RandomAngle());
         gv_infestor[auto83606DB6_var] = UnitLastCreated();
         UnitGroupAdd(gv_infestors, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowInfestor", 0)), c_orderQueueReplace);
