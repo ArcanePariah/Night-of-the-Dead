@@ -344,6 +344,11 @@ Attribute003/Value002/Desc=Random class selection disabled.
 Attribute003/Value002/Name=No Random
 Attribute003/Value003/Desc=Forced random selection.
 Attribute003/Value003/Name=All Random
+Attribute004/Name=Shop Availability
+Attribute004/Value001/Desc=Shop is available in non recruit modes.
+Attribute004/Value001/Name=Standard
+Attribute004/Value002/Desc=Buying of one game items is disabled.
+Attribute004/Value002/Name=Restricted
 Barret/MMRifle Equipped=M45 Marksman Rifle or Barret M112 Equipped
 Behavior/Name/AMRounds=AM Rounds
 Behavior/Name/APAmmo=<c val="80FF80">AP Ammo</c>

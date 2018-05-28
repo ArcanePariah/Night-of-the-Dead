@@ -476,23 +476,6 @@ const int gv_numberofMedals = 10;
 const int gv_infestorsCount = 5;
 const string gv_dialogIntialization = "Initialize Dialogs";
 const int gv_stories = 4;
-const int gv_costofWeaponMod = 10000;
-const int gv_costofBOInsignia = 10000;
-const int gv_costofPet = 5000;
-const int gv_costofColor = 5000;
-const int gv_costofKitten = 1000;
-const int gv_costofExplosiveWeapons = 325;
-const int gv_costofHeavyWeapons = 250;
-const int gv_costofMediumWeapons = 200;
-const int gv_costofSMG = 100;
-const int gv_costofFlamethrower = 50;
-const int gv_costofHeavyEnhancements = 250;
-const int gv_costofLightEnhancements = 50;
-const int gv_costofAmmoBox = 35;
-const int gv_costofMagazine = 10;
-const int gv_costofHealingItems = 15;
-const int gv_costofAntiVenom = 10;
-const int gv_costofRoadFlares = 15;
 const int gv_numberOfShopOptions = 58;
 const fixed gv_gRIDDLG_GRID = 60.0;
 const fixed gv_gRIDDLG_GRIDGAP_X = 10.0;
@@ -932,8 +915,9 @@ int gv_survivalSpawn;
 gs_SurvivalSpawnLocation[6] gv_survivalSpawnPoints;
 bool[9] gv_inventoryOpen;
 bool[9] gv_equipmentOpen;
-text gv_creditsLeft;
 unitgroup[9] gv_boughtItems;
+text gv_creditsLeft;
+bool gv_noShopMode;
 int[gv_numberofPlayers + 1] gv_shop;
 int[gv_numberofPlayers + 1] gv_shopClose;
 int[gv_numberofPlayers + 1][gv_numberOfShopOptions + 1] gv_shopButtons;
@@ -1272,10 +1256,10 @@ void InitGlobals () {
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_inventoryOpen[init_i] = true;
     }
-    gv_creditsLeft = StringExternal("Param/Value/188383D6");
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_boughtItems[init_i] = UnitGroupEmpty();
     }
+    gv_creditsLeft = StringExternal("Param/Value/188383D6");
     for (init_i = 0; init_i <= gv_numberofPlayers; init_i += 1) {
         gv_shop[init_i] = c_invalidDialogId;
     }
@@ -2171,8 +2155,6 @@ trigger gt_DropMagazine;
 trigger gt_MagazineUse;
 trigger gt_StackMagsIntoBox;
 trigger gt_UseBandagewithAbility;
-trigger gt_BuyItem;
-trigger gt_BuyStandardItem;
 trigger gt_ShopDisplay;
 trigger gt_ShopForceClose;
 trigger gt_ShopInteraction;
@@ -10989,7 +10971,7 @@ void gf_ShopBuyTemp (int lp_itemID, int lp_player) {
     lv_itemID = lp_itemID;
 
     // Implementation
-    if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000) && (gv_noNewbie == true)) {
+    if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000) && (gv_noNewbie == true) && (gv_noShopMode == false)) {
         lv_itemCost = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopCost", 1);
         lv_item = UserDataGetGameLink("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopUnit", 1);
         if ((gv_playerCredits[lv_buyingPlayer] >= lv_itemCost)) {
@@ -14967,6 +14949,9 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
     }
     if ((GameAttributeGameValue("3") == "0003")) {
         TriggerExecute(gt_AllRandom, true, false);
+    }
+    if ((GameAttributeGameValue("4") == "0002")) {
+        gv_noShopMode = true;
     }
     return true;
 }
@@ -20054,10 +20039,10 @@ bool gt_ECInitialize_Func (bool testConds, bool runActions) {
     }
     if ((gv_noNewbie == true)) {
         UnitCreate(1, "P45GaussPistol", 0, 10, RegionRandomPoint(RegionFromId(14)), 270.0);
-        UnitSetState(UnitFromId(178), c_unitStateSelectable, true);
-        gf_ECShopXPReq();
     }
 
+    UnitSetState(UnitFromId(178), c_unitStateSelectable, true);
+    gf_ECShopXPReq();
     Wait(9.0, c_timeReal);
     UnitCreate(1, "JohnAnderton", 0, 10, RegionRandomPoint(RegionFromId(180)), libNtve_gf_RandomAngle());
     gv_john = UnitLastCreated();
@@ -38537,376 +38522,6 @@ void gt_UseBandagewithAbility_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Buy Item
-//--------------------------------------------------------------------------------------------------
-bool gt_BuyItem_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    bool lv_boughtItem;
-    int lv_buyingPlayer;
-    int lv_colorCode;
-    int lv_petCode;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_buyingPlayer = EventPlayer();
-    lv_petCode = 8;
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000)) {
-        if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 14)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofWeaponMod) && (gf_WeaponsModPointMax(lv_buyingPlayer) == false)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofWeaponMod);
-            gv_playerWeaponsMod2[lv_buyingPlayer] += 100;
-            gf_ModUpdateUnlockedModPointsText(lv_buyingPlayer);
-            lv_boughtItem = true;
-        }
-        else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 8)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofBOInsignia) && (gf_BOInsigniaBought(lv_buyingPlayer) == false)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofBOInsignia);
-            gv_playerColorCode[lv_buyingPlayer] += 1000;
-            gf_UpgradeBOInsigniaRank(lv_buyingPlayer);
-            lv_boughtItem = true;
-        }
-        else if (((EventUnitAbility() == AbilityCommand("ShopBuy3", 0)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 1)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 2)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 3)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 4)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 5)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 6)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 7)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 8)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 9)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 10)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 11)) || (EventUnitAbility() == AbilityCommand("ShopBuy3", 12))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofPet)) {
-            if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 0))) {
-                lv_petCode = 1;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 1))) {
-                lv_petCode = 2;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 2))) {
-                lv_petCode = 3;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 3))) {
-                lv_petCode = 4;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 4))) {
-                lv_petCode = 5;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 5))) {
-                lv_petCode = 6;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 6))) {
-                lv_petCode = 7;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 7))) {
-                lv_petCode = 8;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 8))) {
-                lv_petCode = 9;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 9))) {
-                lv_petCode = 10;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 10))) {
-                lv_petCode = 11;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 11))) {
-                lv_petCode = 12;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy3", 12))) {
-                lv_petCode = 13;
-            }
-            if ((lv_petCode != ModI(gv_playerPetCode[lv_buyingPlayer], 100))) {
-                if ((lv_petCode != 8)) {
-                    gf_UpdateCredits(lv_buyingPlayer, -gv_costofPet);
-                    lv_boughtItem = true;
-                }
-
-                gv_playerPetCode[lv_buyingPlayer] -= (ModI(gv_playerPetCode[lv_buyingPlayer], 100) - lv_petCode);
-            }
-
-        }
-        else if (((EventUnitAbility() == AbilityCommand("ShopBuy2", 13)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 10)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 11)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 12)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 17)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 16)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 15)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 1)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 2)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 0)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 4)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 6)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 3)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 7)) || (EventUnitAbility() == AbilityCommand("ShopBuy2", 5))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofColor)) {
-            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, IntToText(gv_playerColorCode[lv_buyingPlayer]));
-            if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 13))) {
-                lv_colorCode = 1;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 10))) {
-                lv_colorCode = 2;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 11))) {
-                lv_colorCode = 3;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 12))) {
-                lv_colorCode = 4;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 17))) {
-                lv_colorCode = 7;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 16))) {
-                lv_colorCode = 6;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 15))) {
-                lv_colorCode = 5;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 1))) {
-                lv_colorCode = 9;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 2))) {
-                lv_colorCode = 10;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 0))) {
-                lv_colorCode = 8;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 4))) {
-                lv_colorCode = 12;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 6))) {
-                lv_colorCode = 14;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 3))) {
-                lv_colorCode = 11;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 7))) {
-                lv_colorCode = 15;
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 5))) {
-                lv_colorCode = 13;
-            }
-            if ((lv_colorCode != ModI(gv_playerColorCode[lv_buyingPlayer], 100))) {
-                gf_UpdateCredits(lv_buyingPlayer, -gv_costofColor);
-                gv_playerColorCode[lv_buyingPlayer] = ((gv_playerColorCode[lv_buyingPlayer] - ModI(gv_playerColorCode[lv_buyingPlayer], 100)) + lv_colorCode);
-                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, IntToText(gv_playerColorCode[lv_buyingPlayer]));
-                gf_PlayerColorChange(lv_buyingPlayer);
-                lv_boughtItem = true;
-            }
-
-        }
-        else if ((EventUnitAbility() == AbilityCommand("ShopBuy2", 9)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofKitten) && (gf_KittensBought(lv_buyingPlayer) == false)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofKitten);
-            gv_playerColorCode[lv_buyingPlayer] += 100;
-            gf_CreateKittens(lv_buyingPlayer);
-            lv_boughtItem = true;
-        }
-    }
-
-    if ((lv_boughtItem == true)) {
-        gf_ShowCreditsLeft(lv_buyingPlayer);
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_BuyItem_Init () {
-    gt_BuyItem = TriggerCreate("gt_BuyItem_Func");
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 13), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 10), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 11), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 12), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 17), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 16), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 15), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 1), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 2), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 4), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 6), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 3), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 7), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 5), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 1), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 2), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 3), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 4), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 5), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 6), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 7), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 8), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 9), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 10), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 11), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy3", 12), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 8), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 9), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyItem, null, AbilityCommand("ShopBuy2", 14), c_unitAbilStageComplete, false);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Buy Standard Item
-//--------------------------------------------------------------------------------------------------
-bool gt_BuyStandardItem_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    bool lv_itemBought;
-    int lv_buyingPlayer;
-    string lv_item;
-    unit lv_boughtItem;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_buyingPlayer = EventPlayer();
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000)) {
-        if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 6)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 23))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofExplosiveWeapons)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofExplosiveWeapons);
-            lv_itemBought = true;
-            if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 6))) {
-                lv_item = "StingerMK3";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 23))) {
-                lv_item = "L3GrenadeLauncher";
-            }
-        }
-        else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 22)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 20))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofHeavyWeapons)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofHeavyWeapons);
-            lv_itemBought = true;
-            if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 22))) {
-                lv_item = "Chaingun";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 20))) {
-                lv_item = "BarrettM112";
-            }
-        }
-        else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 0)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 3)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 5))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofMediumWeapons)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofMediumWeapons);
-            lv_itemBought = true;
-            if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 0))) {
-                lv_item = "Shotgun";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 3))) {
-                lv_item = "UA420AssaultRifle";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 5))) {
-                lv_item = "M5PulseRifle";
-            }
-        }
-        else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 4)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofSMG)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofSMG);
-            lv_itemBought = true;
-            lv_item = "MP9A2SubMachineGun";
-        }
-        else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 2)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofFlamethrower)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofFlamethrower);
-            lv_itemBought = true;
-            lv_item = "Flamethrower";
-        }
-        else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 18)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 19)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 24)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 21)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 1)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 26))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofHeavyEnhancements)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofHeavyEnhancements);
-            lv_itemBought = true;
-            if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 18))) {
-                lv_item = "PersonnelArcReactor";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 19))) {
-                lv_item = "CombatMobilityAugment";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 24))) {
-                lv_item = "HighCapacityClip";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 21))) {
-                lv_item = "NanoHealthAugment";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 1))) {
-                lv_item = "XS4Armor";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 26))) {
-                lv_item = "C4Armor";
-            }
-        }
-        else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 8)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 9)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 10)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 11)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 7)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 25))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofLightEnhancements)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofLightEnhancements);
-            lv_itemBought = true;
-            if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 8))) {
-                lv_item = "APAmmo";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 9))) {
-                lv_item = "HEAmmo";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 10))) {
-                lv_item = "HPAmmo";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 11))) {
-                lv_item = "FMJAmmo";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 7))) {
-                lv_item = "OccularImplants";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 25))) {
-                lv_item = "C2Armor";
-            }
-        }
-        else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 17)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofAmmoBox)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofAmmoBox);
-            lv_itemBought = true;
-            lv_item = "AmmoBox";
-        }
-        else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 15)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofMagazine)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofMagazine);
-            lv_itemBought = true;
-            lv_item = "Magazine";
-        }
-        else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 12)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 13))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofHealingItems)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofHealingItems);
-            lv_itemBought = true;
-            if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 12))) {
-                lv_item = "Medpack";
-            }
-            else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 13))) {
-                lv_item = "Bandage";
-            }
-        }
-        else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 14)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofAntiVenom)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofAntiVenom);
-            lv_itemBought = true;
-            lv_item = "AntiVenom";
-        }
-        else if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 16)) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofRoadFlares)) {
-            gf_UpdateCredits(lv_buyingPlayer, -gv_costofRoadFlares);
-            lv_itemBought = true;
-            lv_item = "RoadFlare";
-        }
-    }
-
-    if ((lv_itemBought == true)) {
-        lv_boughtItem = gf_GiveMarineItem(lv_buyingPlayer, lv_item);
-        UnitGroupAdd(gv_boughtItems[lv_buyingPlayer], lv_boughtItem);
-        gf_ShowCreditsLeft(lv_buyingPlayer);
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_BuyStandardItem_Init () {
-    gt_BuyStandardItem = TriggerCreate("gt_BuyStandardItem_Func");
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 6), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 23), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 22), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 20), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 3), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 5), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 4), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 2), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 18), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 19), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 24), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 21), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 1), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 26), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 8), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 9), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 10), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 11), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 7), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 25), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 17), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 15), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 12), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 13), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 14), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitAbility(gt_BuyStandardItem, null, AbilityCommand("ShopBuy1", 16), c_unitAbilStageComplete, false);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Untitled Trigger 002
 //--------------------------------------------------------------------------------------------------
 bool gt_ShopDisplay_Func (bool testConds, bool runActions) {
@@ -38936,6 +38551,8 @@ bool gt_ShopDisplay_Func (bool testConds, bool runActions) {
     else {
         DialogSetVisible(gv_shop[lv_selectingPlayer], PlayerGroupSingle(lv_selectingPlayer), false);
     }
+    UnitClearSelection(lv_selectingPlayer);
+    UnitSelect(gv_marineHero[lv_selectingPlayer], lv_selectingPlayer, true);
     return true;
 }
 
@@ -38945,6 +38562,9 @@ void gt_ShopDisplay_Init () {
     TriggerAddEventUnitSelected(gt_ShopDisplay, UnitRefFromUnit(UnitFromId(178)), c_playerAny, true);
     TriggerAddEventUnitSelected(gt_ShopDisplay, UnitRefFromUnit(UnitFromId(1857)), c_playerAny, true);
     TriggerAddEventUnitSelected(gt_ShopDisplay, UnitRefFromUnit(UnitFromId(2502)), c_playerAny, true);
+    TriggerAddEventUnitSelected(gt_ShopDisplay, UnitRefFromUnit(UnitFromId(2505)), c_playerAny, true);
+    TriggerAddEventUnitSelected(gt_ShopDisplay, UnitRefFromUnit(UnitFromId(2503)), c_playerAny, true);
+    TriggerAddEventUnitSelected(gt_ShopDisplay, UnitRefFromUnit(UnitFromId(2504)), c_playerAny, true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -42499,8 +42119,6 @@ void InitTriggers () {
     gt_MagazineUse_Init();
     gt_StackMagsIntoBox_Init();
     gt_UseBandagewithAbility_Init();
-    gt_BuyItem_Init();
-    gt_BuyStandardItem_Init();
     gt_ShopDisplay_Init();
     gt_ShopForceClose_Init();
     gt_ShopInteraction_Init();
