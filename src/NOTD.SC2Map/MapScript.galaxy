@@ -10928,9 +10928,17 @@ void gf_ShopButton (int lp_panel, int lp_player, int lp_itemNumber, int lp_page)
     lv_tempPanel = DialogControlLastCreated();
     DialogControlHookup(lv_tempPanel, c_triggerControlTypeButton, "Button");
     gv_shopButtons[lp_player][lp_itemNumber] = DialogControlLastCreated();
-    libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), (StringToText(UserDataGetString("ShopItems", "ShopItem"+IntToString(lp_itemNumber), "Name", 1)) + StringExternal("Param/Value/74B64B08") + UserDataGetText("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopTooltip", 1)), PlayerGroupAll());
-    DialogControlHookup(lv_tempPanel, c_triggerControlTypeImage, "ShopImage");
-    libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopImage", 1), PlayerGroupAll());
+    if ((lp_page == 1) && ((gv_noShopMode == true) || (gv_noNewbie == false))) {
+        libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), (StringToText(UserDataGetString("ShopItems", "ShopItem"+IntToString(lp_itemNumber), "Name", 1)) + StringExternal("Param/Value/3CFEA3BD") + UserDataGetText("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopTooltip", 1)), PlayerGroupAll());
+        DialogControlHookup(lv_tempPanel, c_triggerControlTypeImage, "ShopImage");
+        libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopImage", 1), PlayerGroupAll());
+        libNtve_gf_SetDialogItemColor(DialogControlLastCreated(), Color(100.00, 36.86, 36.86), PlayerGroupAll());
+    }
+    else {
+        libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), (StringToText(UserDataGetString("ShopItems", "ShopItem"+IntToString(lp_itemNumber), "Name", 1)) + StringExternal("Param/Value/74B64B08") + UserDataGetText("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopTooltip", 1)), PlayerGroupAll());
+        DialogControlHookup(lv_tempPanel, c_triggerControlTypeImage, "ShopImage");
+        libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), UserDataGetImagePath("ShopItems", "ShopItem" + IntToString(lp_itemNumber), "ShopImage", 1), PlayerGroupAll());
+    }
 }
 
 void gf_ShopDisable () {
@@ -14869,6 +14877,8 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
     int auto49C330C1_var;
     playergroup auto986D890A_g;
     int auto986D890A_var;
+    playergroup autoF42EC5FC_g;
+    int autoF42EC5FC_var;
 
     // Actions
     if (!runActions) {
@@ -14926,17 +14936,26 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
         }
 
     }
+    if ((GameAttributeGameValue("4") == "0002")) {
+        gv_noShopMode = true;
+    }
     auto986D890A_g = gv_marineSquad;
     auto986D890A_var = -1;
     while (true) {
         auto986D890A_var = PlayerGroupNextPlayer(auto986D890A_g, auto986D890A_var);
         if (auto986D890A_var < 0) { break; }
-        gf_ShopCreation(auto986D890A_var);
         if ((gv_playerXP[auto986D890A_var] < 500)) {
             gv_noNewbie = false;
             break;
         }
 
+    }
+    autoF42EC5FC_g = gv_marineSquad;
+    autoF42EC5FC_var = -1;
+    while (true) {
+        autoF42EC5FC_var = PlayerGroupNextPlayer(autoF42EC5FC_g, autoF42EC5FC_var);
+        if (autoF42EC5FC_var < 0) { break; }
+        gf_ShopCreation(autoF42EC5FC_var);
     }
     TriggerExecute(gt_StorylineDialogCreation, true, false);
     if ((gv_noNewbie == true) && (RandomInt(0, 2) == 1)) {
@@ -14949,9 +14968,6 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
     }
     if ((GameAttributeGameValue("3") == "0003")) {
         TriggerExecute(gt_AllRandom, true, false);
-    }
-    if ((GameAttributeGameValue("4") == "0002")) {
-        gv_noShopMode = true;
     }
     return true;
 }

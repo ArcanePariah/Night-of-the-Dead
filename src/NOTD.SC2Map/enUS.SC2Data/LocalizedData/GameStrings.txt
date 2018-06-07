@@ -4325,6 +4325,7 @@ Param/Value/3C6EFD98=Great job. You've cleansed Apollo of the infestation.
 Param/Value/3CA19E89=<c val="0080FF">Saving Biometric ID for </c>
 Param/Value/3CCA7962=
 Param/Value/3CD09D38=When you've found them, bring them straight to Delta-1. Our pilots are dead, but it's safer here than anywhere else in the sector.
+Param/Value/3CFEA3BD=<n/><c val="FF0000">Not Available in this mode</c><n/><n/>
 Param/Value/3D54245E=That's it. Let's get to the others.
 Param/Value/3D74E3DA=<s val="BriefingHanText">     UGC forces contain the infestation and reclaim control over Apollo.</s>
 Param/Value/3D8ACC24=There's a cache of supplies in the scrapyard.
