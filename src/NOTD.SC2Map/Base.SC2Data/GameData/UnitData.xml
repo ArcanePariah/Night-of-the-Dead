@@ -231,81 +231,8 @@
         <FlagArray index="ShowResources" value="0"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="0"/>
         <AbilArray index="0" Link="ShopShare"/>
-        <AbilArray index="1" Link="ShopBuy1"/>
-        <AbilArray index="2" Link="ShopBuy2"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="0" Face="FlamethrowerMK3" Type="AbilCmd" AbilCmd="ShopBuy1,Train3" Row="1" Column="0"/>
-            <LayoutButtons index="1" Face="UA420AssaultRifle" Type="AbilCmd" AbilCmd="ShopBuy1,Train4" Row="0" Column="0"/>
-            <LayoutButtons index="2" Face="APAmmo" Type="AbilCmd" AbilCmd="ShopBuy1,Train9" Row="2" Column="0"/>
-            <LayoutButtons index="3" Face="HEAmmo" Type="AbilCmd" AbilCmd="ShopBuy1,Train10" Row="2" Column="1"/>
-            <LayoutButtons index="4" Face="HPAmmo" Type="AbilCmd" AbilCmd="ShopBuy1,Train11" Row="2" Column="2"/>
-            <LayoutButtons index="5" Face="FMJAmmo" Type="AbilCmd" AbilCmd="ShopBuy1,Train12" Row="2" Column="3"/>
-            <LayoutButtons index="6" Face="MP9A2SubMachineGun" Type="AbilCmd" AbilCmd="ShopBuy1,Train5" Row="0" Column="1"/>
-            <LayoutButtons index="7" Face="M5PulseRifle" Type="AbilCmd" AbilCmd="ShopBuy1,Train6" Row="0" Column="2"/>
-            <LayoutButtons index="8" Face="StingerMK3" Type="AbilCmd" AbilCmd="ShopBuy1,Train7" Row="0" Column="3"/>
-            <LayoutButtons index="9">
-                <Face value="EquipmentsandSupplies"/>
-                <Type value="Submenu"/>
-                <AbilCmd value=""/>
-                <SubmenuCardId value="2"/>
-                <Row value="2"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons index="10">
-                <Face value="LifetimeColorCustomization"/>
-                <Type value="Submenu"/>
-                <AbilCmd value="ShopBuy1,Train1"/>
-                <SubmenuCardId value="3"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons index="11" Face="BarrettM112" Type="AbilCmd" AbilCmd="ShopBuy1,Train21" Row="0" Column="4"/>
-            <LayoutButtons index="12" Face="Chaingun" Type="AbilCmd" AbilCmd="ShopBuy1,Train23" Row="1" Column="1"/>
-            <LayoutButtons index="13" Face="Shotgun" Type="AbilCmd" AbilCmd="ShopBuy1,Train1" Row="1" Column="3"/>
-            <LayoutButtons index="14" Face="L3GrenadeLauncher2" Type="AbilCmd" AbilCmd="ShopBuy1,Train24" Row="1" Column="2"/>
-            <LayoutButtons index="15" removed="1"/>
-        </CardLayouts>
-        <CardLayouts CardId="2">
-            <LayoutButtons Face="OcularImplants2" Type="AbilCmd" AbilCmd="ShopBuy1,Train8" Row="0" Column="0"/>
-            <LayoutButtons Face="Bandage" Type="AbilCmd" AbilCmd="ShopBuy1,Train14" Row="1" Column="0"/>
-            <LayoutButtons Face="AmmoBox" Type="AbilCmd" AbilCmd="ShopBuy1,Train18" Row="2" Column="0"/>
-            <LayoutButtons Face="Magazine" Type="AbilCmd" AbilCmd="ShopBuy1,Train16" Row="2" Column="1"/>
-            <LayoutButtons Face="RoadFlare" Type="AbilCmd" AbilCmd="ShopBuy1,Train17" Row="2" Column="2"/>
-            <LayoutButtons Face="PersonnelArcReactor" Type="AbilCmd" AbilCmd="ShopBuy1,Train19" Row="0" Column="1"/>
-            <LayoutButtons Face="Medkit" Type="AbilCmd" AbilCmd="ShopBuy1,Train13" Row="1" Column="1"/>
-            <LayoutButtons Face="AntiVenom2" Type="AbilCmd" AbilCmd="ShopBuy1,Train15" Row="1" Column="2"/>
-            <LayoutButtons Face="CombatMobilityAugment" Type="AbilCmd" AbilCmd="ShopBuy1,Train20" Row="0" Column="2"/>
-            <LayoutButtons Face="WeaponsandAmmo" Type="Submenu" Row="2" Column="3"/>
-            <LayoutButtons>
-                <Face value="LifetimeColorCustomization"/>
-                <Type value="Submenu"/>
-                <AbilCmd value="ShopBuy1,Train1"/>
-                <SubmenuCardId value="3"/>
-                <Row value="2"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons Face="NanoHealthAugment" Type="AbilCmd" AbilCmd="ShopBuy1,Train22" Row="0" Column="3"/>
-            <LayoutButtons Face="C4Armor" Type="AbilCmd" AbilCmd="ShopBuy1,Train27" Row="1" Column="4"/>
-            <LayoutButtons Face="HighCapacityClip" Type="AbilCmd" AbilCmd="ShopBuy1,Train25" Row="0" Column="4"/>
-            <LayoutButtons Face="XS4Armor" Type="AbilCmd" AbilCmd="ShopBuy1,Train2" Row="1" Column="3"/>
-        </CardLayouts>
-        <CardLayouts CardId="3">
-            <LayoutButtons Face="White" Type="AbilCmd" AbilCmd="ShopBuy2,Train14" Row="0" Column="0"/>
-            <LayoutButtons Face="Green" Type="AbilCmd" AbilCmd="ShopBuy2,Train1" Row="1" Column="4"/>
-            <LayoutButtons Face="Brown" Type="AbilCmd" AbilCmd="ShopBuy2,Train6" Row="2" Column="4"/>
-            <LayoutButtons Face="Red" Type="AbilCmd" AbilCmd="ShopBuy2,Train11" Row="0" Column="1"/>
-            <LayoutButtons Face="Blue" Type="AbilCmd" AbilCmd="ShopBuy2,Train12" Row="0" Column="2"/>
-            <LayoutButtons Face="Teal" Type="AbilCmd" AbilCmd="ShopBuy2,Train13" Row="0" Column="3"/>
-            <LayoutButtons Face="Orange" Type="AbilCmd" AbilCmd="ShopBuy2,Train18" Row="0" Column="4"/>
-            <LayoutButtons Face="Yellow" Type="AbilCmd" AbilCmd="ShopBuy2,Train17" Row="1" Column="0"/>
-            <LayoutButtons Face="Purple" Type="AbilCmd" AbilCmd="ShopBuy2,Train16" Row="1" Column="1"/>
-            <LayoutButtons Face="Pink" Type="AbilCmd" AbilCmd="ShopBuy2,Train2" Row="1" Column="2"/>
-            <LayoutButtons Face="Violet" Type="AbilCmd" AbilCmd="ShopBuy2,Train3" Row="1" Column="3"/>
-            <LayoutButtons Face="DarkGreen" Type="AbilCmd" AbilCmd="ShopBuy2,Train5" Row="2" Column="0"/>
-            <LayoutButtons Face="LightGreen" Type="AbilCmd" AbilCmd="ShopBuy2,Train7" Row="2" Column="1"/>
-            <LayoutButtons Face="LightGrey" Type="AbilCmd" AbilCmd="ShopBuy2,Train4" Row="2" Column="2"/>
-            <LayoutButtons Face="DarkGrey" Type="AbilCmd" AbilCmd="ShopBuy2,Train8" Row="2" Column="3"/>
-        </CardLayouts>
+        <AbilArray index="1" removed="1"/>
+        <AbilArray index="2" removed="1"/>
     </CUnit>
     <CUnit id="BlackDog" parent="AutoTurret">
         <Name value="Unit/Name/BlackDog"/>
@@ -2338,75 +2265,8 @@
         <PushPriority value="11"/>
         <AbilArray index="0" Link="move"/>
         <AbilArray index="1" Link="ShopShare"/>
-        <AbilArray index="2" Link="ShopBuy1"/>
-        <AbilArray index="3" Link="ShopBuy2"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="0" Face="FlamethrowerMK3" Type="AbilCmd" AbilCmd="ShopBuy1,Train3" Row="1" Column="0"/>
-            <LayoutButtons index="1" Face="UA420AssaultRifle" Type="AbilCmd" AbilCmd="ShopBuy1,Train4" Row="0" Column="0"/>
-            <LayoutButtons index="2" Face="APAmmo" Type="AbilCmd" AbilCmd="ShopBuy1,Train9" Row="2" Column="0"/>
-            <LayoutButtons index="3" Face="Chaingun" Type="AbilCmd" AbilCmd="ShopBuy1,Train23" Row="1" Column="1"/>
-            <LayoutButtons index="4" Face="HEAmmo" Type="AbilCmd" AbilCmd="ShopBuy1,Train10" Row="2" Column="1"/>
-            <LayoutButtons index="5" Face="HPAmmo" Type="AbilCmd" AbilCmd="ShopBuy1,Train11" Row="2" Column="2"/>
-            <LayoutButtons Face="FMJAmmo" Type="AbilCmd" AbilCmd="ShopBuy1,Train12" Row="2" Column="3"/>
-            <LayoutButtons Face="MP9A2SubMachineGun" Type="AbilCmd" AbilCmd="ShopBuy1,Train5" Row="0" Column="1"/>
-            <LayoutButtons Face="M5PulseRifle" Type="AbilCmd" AbilCmd="ShopBuy1,Train6" Row="0" Column="2"/>
-            <LayoutButtons Face="StingerMK3" Type="AbilCmd" AbilCmd="ShopBuy1,Train7" Row="0" Column="3"/>
-            <LayoutButtons Face="EquipmentsandSupplies" Type="Submenu" SubmenuCardId="2" Row="2" Column="4"/>
-            <LayoutButtons>
-                <Face value="LifetimeColorCustomization"/>
-                <Type value="Submenu"/>
-                <AbilCmd value="ShopBuy1,Train1"/>
-                <SubmenuCardId value="3"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons Face="BarrettM112" Type="AbilCmd" AbilCmd="ShopBuy1,Train21" Row="0" Column="4"/>
-            <LayoutButtons Face="Shotgun" Type="AbilCmd" AbilCmd="ShopBuy1,Train1" Row="1" Column="3"/>
-            <LayoutButtons Face="L3GrenadeLauncher2" Type="AbilCmd" AbilCmd="ShopBuy1,Train24" Row="1" Column="2"/>
-        </CardLayouts>
-        <CardLayouts CardId="2">
-            <LayoutButtons Face="OcularImplants2" Type="AbilCmd" AbilCmd="ShopBuy1,Train8" Row="0" Column="0"/>
-            <LayoutButtons Row="0" Column="0"/>
-            <LayoutButtons Row="0" Column="0"/>
-            <LayoutButtons Face="Bandage" Type="AbilCmd" AbilCmd="ShopBuy1,Train14" Row="1" Column="0"/>
-            <LayoutButtons Face="AmmoBox" Type="AbilCmd" AbilCmd="ShopBuy1,Train18" Row="2" Column="0"/>
-            <LayoutButtons Face="Magazine" Type="AbilCmd" AbilCmd="ShopBuy1,Train16" Row="2" Column="1"/>
-            <LayoutButtons Face="RoadFlare" Type="AbilCmd" AbilCmd="ShopBuy1,Train17" Row="2" Column="2"/>
-            <LayoutButtons Face="PersonnelArcReactor" Type="AbilCmd" AbilCmd="ShopBuy1,Train19" Row="0" Column="1"/>
-            <LayoutButtons Face="Medkit" Type="AbilCmd" AbilCmd="ShopBuy1,Train13" Row="1" Column="1"/>
-            <LayoutButtons Face="AntiVenom2" Type="AbilCmd" AbilCmd="ShopBuy1,Train15" Row="1" Column="2"/>
-            <LayoutButtons Face="CombatMobilityAugment" Type="AbilCmd" AbilCmd="ShopBuy1,Train20" Row="0" Column="2"/>
-            <LayoutButtons Face="WeaponsandAmmo" Type="Submenu" Row="2" Column="4"/>
-            <LayoutButtons Face="NanoHealthAugment" Type="AbilCmd" AbilCmd="ShopBuy1,Train22" Row="0" Column="3"/>
-            <LayoutButtons>
-                <Face value="LifetimeColorCustomization"/>
-                <Type value="Submenu"/>
-                <AbilCmd value="ShopBuy1,Train1"/>
-                <SubmenuCardId value="3"/>
-                <Row value="2"/>
-                <Column value="3"/>
-            </LayoutButtons>
-            <LayoutButtons Face="C4Armor" Type="AbilCmd" AbilCmd="ShopBuy1,Train27" Row="1" Column="4"/>
-            <LayoutButtons Face="HighCapacityClip" Type="AbilCmd" AbilCmd="ShopBuy1,Train25" Row="0" Column="4"/>
-            <LayoutButtons Face="XS4Armor" Type="AbilCmd" AbilCmd="ShopBuy1,Train2" Row="1" Column="3"/>
-        </CardLayouts>
-        <CardLayouts CardId="3">
-            <LayoutButtons Face="White" Type="AbilCmd" AbilCmd="ShopBuy2,Train14" Row="0" Column="0"/>
-            <LayoutButtons Face="Green" Type="AbilCmd" AbilCmd="ShopBuy2,Train1" Row="1" Column="4"/>
-            <LayoutButtons Face="Brown" Type="AbilCmd" AbilCmd="ShopBuy2,Train6" Row="2" Column="4"/>
-            <LayoutButtons Face="Red" Type="AbilCmd" AbilCmd="ShopBuy2,Train11" Row="0" Column="1"/>
-            <LayoutButtons Face="Blue" Type="AbilCmd" AbilCmd="ShopBuy2,Train12" Row="0" Column="2"/>
-            <LayoutButtons Face="Teal" Type="AbilCmd" AbilCmd="ShopBuy2,Train13" Row="0" Column="3"/>
-            <LayoutButtons Face="Orange" Type="AbilCmd" AbilCmd="ShopBuy2,Train18" Row="0" Column="4"/>
-            <LayoutButtons Face="Yellow" Type="AbilCmd" AbilCmd="ShopBuy2,Train17" Row="1" Column="0"/>
-            <LayoutButtons Face="Purple" Type="AbilCmd" AbilCmd="ShopBuy2,Train16" Row="1" Column="1"/>
-            <LayoutButtons Face="Pink" Type="AbilCmd" AbilCmd="ShopBuy2,Train2" Row="1" Column="2"/>
-            <LayoutButtons Face="Violet" Type="AbilCmd" AbilCmd="ShopBuy2,Train3" Row="1" Column="3"/>
-            <LayoutButtons Face="DarkGreen" Type="AbilCmd" AbilCmd="ShopBuy2,Train5" Row="2" Column="0"/>
-            <LayoutButtons Face="LightGreen" Type="AbilCmd" AbilCmd="ShopBuy2,Train7" Row="2" Column="1"/>
-            <LayoutButtons Face="LightGrey" Type="AbilCmd" AbilCmd="ShopBuy2,Train4" Row="2" Column="2"/>
-            <LayoutButtons Face="DarkGrey" Type="AbilCmd" AbilCmd="ShopBuy2,Train8" Row="2" Column="3"/>
-        </CardLayouts>
+        <AbilArray index="2" removed="1"/>
+        <AbilArray index="3" removed="1"/>
     </CUnit>
     <CUnit id="TrickShotAmmoFirst" parent="MISSILE">
         <Mover value="TrickShotMover"/>
@@ -4803,33 +4663,10 @@
         <CostResource index="Vespene" value="50"/>
         <RepairTime value="75"/>
         <AttackTargetPriority value="11"/>
-        <AbilArray Link="ShopBuy3"/>
         <AbilArray Link="ShopShare"/>
-        <AbilArray Link="ShopBuy2"/>
         <BehaviorArray Link="FireSuppressionSystem"/>
         <BehaviorArray Link="TerranBuildingBurnDown"/>
         <BehaviorArray Link="UnderConstruction"/>
-        <CardLayouts>
-            <LayoutButtons Face="Brutalisk" Type="AbilCmd" AbilCmd="ShopBuy3,Train1" Row="0" Column="0"/>
-            <LayoutButtons Face="HybridProtoss" Type="AbilCmd" AbilCmd="ShopBuy3,Train2" Row="0" Column="1"/>
-            <LayoutButtons Face="HybridZerg" Type="AbilCmd" AbilCmd="ShopBuy3,Train3" Row="0" Column="2"/>
-            <LayoutButtons Face="Hydralisk2" Type="AbilCmd" AbilCmd="ShopBuy3,Train4" Row="0" Column="3"/>
-            <LayoutButtons Face="Kerrigan" Type="AbilCmd" AbilCmd="ShopBuy3,Train5" Row="1" Column="0"/>
-            <LayoutButtons Face="ZerglingPet" Type="AbilCmd" AbilCmd="ShopBuy3,Train6" Row="1" Column="1"/>
-            <LayoutButtons Face="MurlocMarine" Type="AbilCmd" AbilCmd="ShopBuy3,Train7" Row="1" Column="2"/>
-            <LayoutButtons Face="Predator2" Type="AbilCmd" AbilCmd="ShopBuy3,Train8" Row="1" Column="3"/>
-            <LayoutButtons Face="Zeratul" Type="AbilCmd" AbilCmd="ShopBuy3,Train12" Row="2" Column="3"/>
-            <LayoutButtons Face="TerraTron" Type="AbilCmd" AbilCmd="ShopBuy3,Train11" Row="2" Column="2"/>
-            <LayoutButtons Face="Tassadar" Type="AbilCmd" AbilCmd="ShopBuy3,Train9" Row="2" Column="0"/>
-            <LayoutButtons Face="TaurenSpaceMarine" Type="AbilCmd" AbilCmd="ShopBuy3,Train10" Row="2" Column="1"/>
-            <LayoutButtons Face="LifetimeCustomization" Type="Submenu" SubmenuCardId="2" Row="2" Column="4"/>
-            <LayoutButtons Face="ArchonPet" Type="AbilCmd" AbilCmd="ShopBuy3,Train13" Row="0" Column="4"/>
-        </CardLayouts>
-        <CardLayouts CardId="2">
-            <LayoutButtons Face="BlackOpsInsignia" Type="AbilCmd" AbilCmd="ShopBuy2,Train9" Row="0" Column="0"/>
-            <LayoutButtons Face="Kittens" Type="AbilCmd" AbilCmd="ShopBuy2,Train10" Row="0" Column="1"/>
-            <LayoutButtons Face="WeaponsModPoint" Type="AbilCmd" AbilCmd="ShopBuy2,Train15" Row="0" Column="2"/>
-        </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.5"/>
         <Footprint value="Footprint3x3Contour"/>
