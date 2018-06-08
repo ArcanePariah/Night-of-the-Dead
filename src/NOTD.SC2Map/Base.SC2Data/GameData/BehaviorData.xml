@@ -914,6 +914,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="5"/>
         <InitialEffect value="EscapeCloak"/>
+        <RefreshEffect value="EscapeCloak"/>
         <Modification MoveSpeedMultiplier="1.2"/>
         <Tooltip value="Button/Tooltip/Escape"/>
     </CBehaviorBuff>
@@ -923,6 +924,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="10"/>
         <InitialEffect value="EscapeCloak"/>
+        <RefreshEffect value="EscapeCloak"/>
         <Modification MoveSpeedMultiplier="1.2"/>
         <Tooltip value="Button/Tooltip/Escape"/>
     </CBehaviorBuff>
@@ -970,6 +972,7 @@
         <Duration value="15"/>
         <Modification MoveSpeedMultiplier="1.2"/>
         <InitialEffect value="EscapeCloak"/>
+        <RefreshEffect value="EscapeCloak"/>
         <Tooltip value="Button/Tooltip/Escape"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ExecuteMovespeedBonusMassive">
