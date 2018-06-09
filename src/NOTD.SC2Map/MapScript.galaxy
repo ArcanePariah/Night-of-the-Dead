@@ -14587,7 +14587,7 @@ void gf_UpdateTalentAbility (int lp_itemNo, int lp_triggPlayer) {
     lv_triggUnit = gv_marineHero[lp_triggPlayer];
 
     // Implementation
-    while ((libNtve_gf_UnitIsPaused(lv_triggUnit) == true) && (UnitHasBehavior2(lv_triggUnit, "ForcePushHeightLevel1") == true) && (UnitHasBehavior2(lv_triggUnit, "ForcePushHeightLevel2") == true) && (UnitHasBehavior2(lv_triggUnit, "ForcePushHeightLevel3") == true)) {
+    while (((libNtve_gf_UnitIsPaused(lv_triggUnit) == true) || (UnitAbilityCheck(lv_triggUnit, "GenericMarineLearn", false) == true))) {
         Wait(0.1, c_timeGame);
     }
     UnitIssueOrder(lv_triggUnit, Order(AbilityCommand("GenericMarineLearn", (lp_itemNo - 1))), c_orderQueueAddToFront);
