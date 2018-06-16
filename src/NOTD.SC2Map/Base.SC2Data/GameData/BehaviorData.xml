@@ -4715,6 +4715,12 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="5"/>
+        <Modification>
+            <WeaponDisableArray value="VolatileBurst"/>
+            <WeaponDisableArray value="VolatileBurstBeastling"/>
+            <WeaponDisableArray value="BlindlingBurst"/>
+            <WeaponDisableArray value="VolatileBurstBuildingBeastling"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="Penetrate">
         <Alignment value="Negative"/>
