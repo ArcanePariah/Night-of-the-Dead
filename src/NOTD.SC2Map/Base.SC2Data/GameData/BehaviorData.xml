@@ -4584,7 +4584,6 @@
         <PeriodicEffect value="ForcePushDrop"/>
         <FinalEffect value="ForcePushApplySet"/>
         <Modification>
-            <ModifyFlags index="DisableAbils" value="1"/>
             <DeathResponse>
                 <Cost>
                     <Charge Link="Behavior/SonicTrapHeight"/>
@@ -4644,7 +4643,6 @@
         <PeriodicEffect value="ForcePushDrop"/>
         <FinalEffect value="ForcePushApplySet"/>
         <Modification>
-            <ModifyFlags index="DisableAbils" value="1"/>
             <DeathResponse>
                 <Cost>
                     <Charge Link="Behavior/SonicTrapHeight"/>
@@ -5703,9 +5701,6 @@
         <InitialEffect value="ForcePushLift"/>
         <PeriodicEffect value="ForcePushDrop"/>
         <FinalEffect value="ForcePushApplySet"/>
-        <Modification>
-            <ModifyFlags index="DisableAbils" value="1"/>
-        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ForcePushStun">
         <Alignment value="Negative"/>
