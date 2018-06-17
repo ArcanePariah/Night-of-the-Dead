@@ -10992,7 +10992,7 @@ void gf_ShopBuyTemp (int lp_itemID, int lp_player) {
     if ((PlayerGetPropertyInt(lv_buyingPlayer, c_playerPropCustom) >= 5000) && (gv_noNewbie == true)) {
         lv_itemCost = UserDataGetInt("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopCost", 1);
         lv_item = UserDataGetGameLink("ShopItems", "ShopItem"+IntToString(lv_itemID), "ShopUnit", 1);
-        if ((gv_playerCredits[lv_buyingPlayer] >= lv_itemCost)) {
+        if ((gv_playerCredits[lv_buyingPlayer] >= lv_itemCost) && ((gv_navyCrossMode == false) || ((lv_item != "Medpack") && (lv_item != "Bandage")))) {
             gf_UpdateCredits(lv_buyingPlayer, -lv_itemCost);
             lv_itemBought = true;
         }
@@ -38843,7 +38843,7 @@ bool gt_BuyStandardItem_Func (bool testConds, bool runActions) {
             lv_itemBought = true;
             lv_item = "Magazine";
         }
-        else if (((EventUnitAbility() == AbilityCommand("ShopBuy1", 12)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 13))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofHealingItems)) {
+        else if ((gv_navyCrossMode == false) && ((EventUnitAbility() == AbilityCommand("ShopBuy1", 12)) || (EventUnitAbility() == AbilityCommand("ShopBuy1", 13))) && (gv_playerCredits[lv_buyingPlayer] >= gv_costofHealingItems)) {
             gf_UpdateCredits(lv_buyingPlayer, -gv_costofHealingItems);
             lv_itemBought = true;
             if ((EventUnitAbility() == AbilityCommand("ShopBuy1", 12))) {
