@@ -3562,6 +3562,12 @@ void gf_DisplaySquadInformation () {
     if ((gv_outbreakActivated == true)) {
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, ((gv_infoPanelHeroRank + StringExternal("Param/Value/3EC532D7")) + gv_endStyling));
     }
+    if ((gv_navyCrossFailed == true)) {
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/A0E38EFB"));
+    }
+    if ((gv_distinguishedServiceMedalFailed == true)) {
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/E20694FA"));
+    }
 }
 
 fixed gf_CommandoReload (fixed lp_currentReload, unit lp_firingUnit) {
