@@ -118,6 +118,10 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <DisableValidatorArray value="NotMoving"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="TacticalEvaluation">
+        <InfoIcon value="Assets\Textures\btn-ability-nova-domination.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="PetVeterancy2">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <SharedXPMaxCount index="Kills" value="0"/>

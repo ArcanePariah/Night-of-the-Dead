@@ -4455,6 +4455,7 @@ Behavior/EditorSuffix/SurveillanceFlaresDrop1st=NOTD
 Behavior/EditorSuffix/SurveillanceFlaresDrop2nd=NOTD
 Behavior/EditorSuffix/SynergyLevel1=NOTD
 Behavior/EditorSuffix/SynergyLevel2=NOTD
+Behavior/EditorSuffix/TacticalEvaluation=NOTD (Dummy)
 Behavior/EditorSuffix/TargetingArrayBuffLevel1=NOTD
 Behavior/EditorSuffix/TargetingArrayBuffLevel2=NOTD
 Behavior/EditorSuffix/TargetingArrayLevel1=NOTD

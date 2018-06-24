@@ -5921,19 +5921,19 @@ bool auto_gf_ZombieBossAIPathingGOTB_TriggerFunc (bool testConds, bool runAction
     lv_basepathg = PointPathingCost(UnitGetPosition(lp_unit), lp_target);
 
     // Implementation
-    if (((lv_basepathai == -1) || (lv_basepathg == 65536))) {
-        lv_waypoint = gf_FindBestPathToTarget(lp_unit, lp_target, lp_searchRange, 7);
-        UnitIssueOrder(lp_unit, OrderTargetingPoint(lp_abilityCommand, lv_waypoint), c_orderQueueReplace);
-        if ((UnitGroupHasUnit(gv_zombieWave, lp_unit) == true)) {
-            UnitGroupRemove(gv_zombieWave, lp_unit);
+    if ((UnitHasBehavior2(lp_unit, "TacticalEvaluation") == false)) {
+        if (((lv_basepathai == -1) || (lv_basepathg == 65536))) {
+            UnitBehaviorAddPlayer(lp_unit, "TacticalEvaluation", UnitGetOwner(lp_unit), 1);
+            lv_waypoint = gf_FindBestPathToTarget(lp_unit, lp_target, lp_searchRange, 7);
+            UnitIssueOrder(lp_unit, OrderTargetingPoint(lp_abilityCommand, lv_waypoint), c_orderQueueReplace);
             Wait(5.0, c_timeGame);
-            UnitGroupAdd(gv_zombieWave, lp_unit);
+            UnitBehaviorRemove(lp_unit, "TacticalEvaluation", 1);
         }
+        else {
+            UnitIssueOrder(lp_unit, OrderTargetingPoint(lp_abilityCommand, lp_target), c_orderQueueReplace);
+        }
+    }
 
-    }
-    else {
-        UnitIssueOrder(lp_unit, OrderTargetingPoint(lp_abilityCommand, lp_target), c_orderQueueReplace);
-    }
     return true;
 }
 
@@ -5947,6 +5947,7 @@ point gf_FindBestPathToTarget (unit lp_unit, point lp_target, fixed lp_searchRan
     point lv_trialpoint;
     int lv_trialpathai;
     int lv_trialpathg;
+    fixed lv_trialdistance;
     int lv_trialpathcomb;
     int lv_bestpathcomb;
     point lv_bestpoint;
@@ -5971,7 +5972,8 @@ point gf_FindBestPathToTarget (unit lp_unit, point lp_target, fixed lp_searchRan
             lv_trialpoint = PointWithOffsetPolar(lv_baseposition, lp_searchRange, (UnitGetFacing(lp_unit) + lv_trialdirection));
             lv_trialpathai = AIPathingCostUnit(lp_unit, lv_trialpoint, c_ignoreEnemyBuildings);
             lv_trialpathg = PointPathingCost(lv_trialpoint, lp_target);
-            if ((lv_trialpathai != -1) && (lv_trialpathg != 65536)) {
+            lv_trialdistance = DistanceBetweenPoints(lv_trialpoint, lp_target);
+            if ((lv_trialpathai != -1) && (lv_trialpathg != 65536) && (lv_trialdistance > (lp_searchRange * 0.7))) {
                 if ((lv_basedistance <= lp_searchRange)) {
                     lv_trialpathcomb = (lv_trialpathai - lv_trialpathg);
                 }
@@ -5986,8 +5988,8 @@ point gf_FindBestPathToTarget (unit lp_unit, point lp_target, fixed lp_searchRan
             }
 
         }
-        if ((lv_bestpoint == lp_target)) {
-            lv_bestpoint = RegionRandomPoint(RegionCircle(lp_target, lp_searchRange));
+        if ((lv_bestpoint == lp_target) && (lv_basedistance <= (lp_searchRange * 2.0))) {
+            lv_bestpoint = PointWithOffsetPolar(lp_target, lp_searchRange, (AngleBetweenPoints(lv_baseposition, lp_target) + RandomFixed(-90.0, 90.0)));
         }
 
     }

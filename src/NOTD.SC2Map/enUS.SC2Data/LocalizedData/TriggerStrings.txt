@@ -1543,6 +1543,7 @@ Variable/Name/1AF90499=Total Stats
 Variable/Name/1B1D24D2=UnitSpawnPoint
 Variable/Name/1B62BC8C=STWinNormal
 Variable/Name/1B823361=Ogilvy
+Variable/Name/1BA5C64C=trial distance
 Variable/Name/1BD24F4A=SelectingPlayer
 Variable/Name/1C7EE1D6=Player Medal Levels
 Variable/Name/1C8113A6=Item
