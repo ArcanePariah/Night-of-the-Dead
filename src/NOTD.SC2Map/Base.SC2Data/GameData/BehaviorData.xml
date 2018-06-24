@@ -90,7 +90,9 @@
             <DamageDealtMinimum index="Splash" value="3"/>
         </Modification>
         <MaxStackCount value="3"/>
-        <DamageResponse Chance="1" Handled="APAmmoApplyArmorDebuff" Location="Attacker"/>
+        <DamageResponse Chance="1" Handled="APAmmoApplyArmorDebuff" Location="Attacker">
+            <ExcludeEffectArray value="ChargeDummyDamage"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="InsufficientAmmoTimed">
         <InfoFlags index="Hidden" value="1"/>

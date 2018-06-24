@@ -4609,6 +4609,7 @@
     <CEffectDamage id="ChargeDummyDamage">
         <EditorCategories value=""/>
         <SearchFilters value="-;Self,Item,Dead,Invulnerable"/>
+        <Amount value="1"/>
         <Flags index="NoScaledDealtBonus" value="1"/>
         <Flags index="NoFractionDealtBonus" value="1"/>
         <Flags index="NoUnscaledDealtBonus" value="1"/>
