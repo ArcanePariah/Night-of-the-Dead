@@ -1622,6 +1622,8 @@ void gf_RandomBanetrain ();
 void gf_SporelingWave ();
 void gf_RandomNydusPop ();
 point gf_RandomPointatGroundHeight (region lp_region, fixed lp_groundHeight);
+void gf_ZombieBossAIPathingGOTB (unit lp_unit, abilcmd lp_abilityCommand, point lp_target, fixed lp_searchRange);
+point gf_FindBestPathToTarget (unit lp_unit, point lp_target, fixed lp_searchRange, int lp_searchPoints);
 bool gf_CPDecayFactor ();
 void gf_MarineSpeechNOTD (unit lp_speechUnit, text lp_speech);
 void gf_SendTransmissionNOTD (unit lp_transmissionUnit, text lp_transmissionSender, text lp_transmissionContent, fixed lp_transmissionDuration);
@@ -5516,6 +5518,9 @@ bool auto_gf_ZombieAIWorldEvents_TriggerFunc (bool testConds, bool runActions) {
                 if (((UnitGetType(auto8B3226D9_var) == "InfestedAbominationBurrowed") || (UnitGetType(auto8B3226D9_var) == "RoachBurrowed") || (UnitGetType(auto8B3226D9_var) == "Devourer2") || (UnitGetType(auto8B3226D9_var) == "Slasher2") || (UnitGetType(auto8B3226D9_var) == "ZerglingBurrowed") || (UnitGetType(auto8B3226D9_var) == "Hugger2") || (UnitGetType(auto8B3226D9_var) == "Perses"))) {
                     UnitIssueOrder(auto8B3226D9_var, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionCircle(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), 5.0))), c_orderQueueReplace);
                 }
+                else if ((UnitGetType(auto8B3226D9_var) == "GuardianoftheBeta")) {
+                    gf_ZombieBossAIPathingGOTB(auto8B3226D9_var, AbilityCommand("attack", 0), UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), RandomFixed(20.0, 30.0));
+                }
                 else if (true) {
                     UnitIssueOrder(auto8B3226D9_var, OrderTargetingPoint(AbilityCommand("attack", 0), UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive))), c_orderQueueReplace);
                 }
@@ -5876,6 +5881,118 @@ point gf_RandomPointatGroundHeight (region lp_region, fixed lp_groundHeight) {
 
     }
     return lv_randomPoint;
+}
+
+trigger auto_gf_ZombieBossAIPathingGOTB_Trigger = null;
+unit auto_gf_ZombieBossAIPathingGOTB_lp_unit;
+abilcmd auto_gf_ZombieBossAIPathingGOTB_lp_abilityCommand;
+point auto_gf_ZombieBossAIPathingGOTB_lp_target;
+fixed auto_gf_ZombieBossAIPathingGOTB_lp_searchRange;
+
+void gf_ZombieBossAIPathingGOTB (unit lp_unit, abilcmd lp_abilityCommand, point lp_target, fixed lp_searchRange) {
+    auto_gf_ZombieBossAIPathingGOTB_lp_unit = lp_unit;
+    auto_gf_ZombieBossAIPathingGOTB_lp_abilityCommand = lp_abilityCommand;
+    auto_gf_ZombieBossAIPathingGOTB_lp_target = lp_target;
+    auto_gf_ZombieBossAIPathingGOTB_lp_searchRange = lp_searchRange;
+
+    if (auto_gf_ZombieBossAIPathingGOTB_Trigger == null) {
+        auto_gf_ZombieBossAIPathingGOTB_Trigger = TriggerCreate("auto_gf_ZombieBossAIPathingGOTB_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_ZombieBossAIPathingGOTB_Trigger, false, false);
+}
+
+bool auto_gf_ZombieBossAIPathingGOTB_TriggerFunc (bool testConds, bool runActions) {
+    unit lp_unit = auto_gf_ZombieBossAIPathingGOTB_lp_unit;
+    abilcmd lp_abilityCommand = auto_gf_ZombieBossAIPathingGOTB_lp_abilityCommand;
+    point lp_target = auto_gf_ZombieBossAIPathingGOTB_lp_target;
+    fixed lp_searchRange = auto_gf_ZombieBossAIPathingGOTB_lp_searchRange;
+
+    // Variable Declarations
+    point lv_position;
+    int lv_basepathai;
+    int lv_basepathg;
+    point lv_waypoint;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_position = UnitGetPosition(lp_unit);
+    lv_basepathai = AIPathingCostUnit(lp_unit, lp_target, c_includeAllBuildings);
+    lv_basepathg = PointPathingCost(UnitGetPosition(lp_unit), lp_target);
+
+    // Implementation
+    if (((lv_basepathai == -1) || (lv_basepathg == 65536))) {
+        lv_waypoint = gf_FindBestPathToTarget(lp_unit, lp_target, lp_searchRange, 7);
+        UnitIssueOrder(lp_unit, OrderTargetingPoint(lp_abilityCommand, lv_waypoint), c_orderQueueReplace);
+        if ((UnitGroupHasUnit(gv_zombieWave, lp_unit) == true)) {
+            UnitGroupRemove(gv_zombieWave, lp_unit);
+            Wait(5.0, c_timeGame);
+            UnitGroupAdd(gv_zombieWave, lp_unit);
+        }
+
+    }
+    else {
+        UnitIssueOrder(lp_unit, OrderTargetingPoint(lp_abilityCommand, lp_target), c_orderQueueReplace);
+    }
+    return true;
+}
+
+point gf_FindBestPathToTarget (unit lp_unit, point lp_target, fixed lp_searchRange, int lp_searchPoints) {
+    // Variable Declarations
+    point lv_baseposition;
+    int lv_basepathai;
+    int lv_basepathg;
+    fixed lv_basedistance;
+    fixed lv_trialdirection;
+    point lv_trialpoint;
+    int lv_trialpathai;
+    int lv_trialpathg;
+    int lv_trialpathcomb;
+    int lv_bestpathcomb;
+    point lv_bestpoint;
+
+    // Automatic Variable Declarations
+    const fixed auto5282EEBF_ae = 359.999;
+    fixed auto5282EEBF_ai;
+
+    // Variable Initialization
+    lv_baseposition = UnitGetPosition(lp_unit);
+    lv_basepathai = AIPathingCostUnit(lp_unit, lp_target, c_includeAllBuildings);
+    lv_basepathg = PointPathingCost(UnitGetPosition(lp_unit), lp_target);
+    lv_basedistance = DistanceBetweenPoints(UnitGetPosition(lp_unit), lp_target);
+    lv_bestpathcomb = 65535;
+    lv_bestpoint = lp_target;
+
+    // Implementation
+    if ((lv_basedistance <= (lp_searchRange * 3.0)) && ((lv_basepathai == -1) || (lv_basepathg == 65536))) {
+        auto5282EEBF_ai = (360.0 / IntToFixed(lp_searchPoints));
+        lv_trialdirection = 0.0;
+        for ( ; ( (auto5282EEBF_ai >= 0 && lv_trialdirection <= auto5282EEBF_ae) || (auto5282EEBF_ai < 0 && lv_trialdirection >= auto5282EEBF_ae) ) ; lv_trialdirection += auto5282EEBF_ai ) {
+            lv_trialpoint = PointWithOffsetPolar(lv_baseposition, lp_searchRange, (UnitGetFacing(lp_unit) + lv_trialdirection));
+            lv_trialpathai = AIPathingCostUnit(lp_unit, lv_trialpoint, c_ignoreEnemyBuildings);
+            lv_trialpathg = PointPathingCost(lv_trialpoint, lp_target);
+            if ((lv_trialpathai != -1) && (lv_trialpathg != 65536)) {
+                if ((lv_basedistance <= lp_searchRange)) {
+                    lv_trialpathcomb = (lv_trialpathai - lv_trialpathg);
+                }
+                else {
+                    lv_trialpathcomb = (lv_trialpathai + lv_trialpathg);
+                }
+                if ((lv_trialpathcomb < lv_bestpathcomb)) {
+                    lv_bestpathcomb = lv_trialpathcomb;
+                    lv_bestpoint = lv_trialpoint;
+                }
+
+            }
+
+        }
+        if ((lv_bestpoint == lp_target)) {
+            lv_bestpoint = RegionRandomPoint(RegionCircle(lp_target, lp_searchRange));
+        }
+
+    }
+
+    return lv_bestpoint;
 }
 
 bool gf_CPDecayFactor () {
