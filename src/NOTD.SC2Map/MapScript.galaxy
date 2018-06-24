@@ -1820,6 +1820,7 @@ void gf_LevelUpTalentForwardObserver (int lp_itemNo, unit lp_triggUnit, int lp_t
 void gf_LevelUpTalentFlamethrower (int lp_itemNo, unit lp_triggUnit, int lp_triggPlayer);
 void gf_LevelUpTalentPathfinder (int lp_itemNo, unit lp_triggUnit, int lp_triggPlayer);
 void gf_LevelUpTalentChemExpert (int lp_itemNo, unit lp_triggUnit, int lp_triggPlayer);
+bool gf_MarineLearnPossible (unit lp_unit);
 void gf_UpdateTalentText (int lp_itemNo, int lp_triggPlayer, int lp_itemLevel);
 bool gf_TalentSelectionOption (int lp_itemNo, int lp_triggPlayer);
 bool gf_TalentSelectionLeftTree (int lp_itemNo, int lp_triggPlayer, int lp_tier1Total);
@@ -14454,6 +14455,17 @@ void gf_LevelUpTalentChemExpert (int lp_itemNo, unit lp_triggUnit, int lp_triggP
 
 }
 
+bool gf_MarineLearnPossible (unit lp_unit) {
+    // Automatic Variable Declarations
+    // Implementation
+    if (((UnitAbilityCheck(lp_unit, "LearnAssault", false) == true) || (UnitAbilityCheck(lp_unit, "LearnChemExpert", false) == true) || (UnitAbilityCheck(lp_unit, "LearnCommando", false) == true) || (UnitAbilityCheck(lp_unit, "LearnDemolitions", false) == true) || (UnitAbilityCheck(lp_unit, "LearnEngineer", false) == true) || (UnitAbilityCheck(lp_unit, "LearnFlamethrower", false) == true) || (UnitAbilityCheck(lp_unit, "LearnForwardObserver", false) == true) || (UnitAbilityCheck(lp_unit, "LearnMarksman", false) == true) || (UnitAbilityCheck(lp_unit, "LearnMedic", false) == true) || (UnitAbilityCheck(lp_unit, "LearnPathfinder", false) == true) || (UnitAbilityCheck(lp_unit, "LearnPsiOps", false) == true) || (UnitAbilityCheck(lp_unit, "LearnRecon", false) == true) || (UnitAbilityCheck(lp_unit, "LearnRifleman", false) == true) || (UnitAbilityCheck(lp_unit, "LearnTechnician", false) == true))) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 void gf_UpdateTalentText (int lp_itemNo, int lp_triggPlayer, int lp_itemLevel) {
     // Automatic Variable Declarations
     // Implementation
@@ -14587,7 +14599,7 @@ void gf_UpdateTalentAbility (int lp_itemNo, int lp_triggPlayer) {
     lv_triggUnit = gv_marineHero[lp_triggPlayer];
 
     // Implementation
-    while (((libNtve_gf_UnitIsPaused(lv_triggUnit) == true) || (UnitAbilityCheck(lv_triggUnit, "GenericMarineLearn", false) == true))) {
+    while (((libNtve_gf_UnitIsPaused(lv_triggUnit) == true) || gf_MarineLearnPossible(lv_triggUnit))) {
         Wait(0.1, c_timeGame);
     }
     UnitIssueOrder(lv_triggUnit, Order(AbilityCommand("GenericMarineLearn", (lp_itemNo - 1))), c_orderQueueAddToFront);
