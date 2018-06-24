@@ -4606,15 +4606,10 @@
         <SearchFilters value="-;Self,Item,Dead,Invulnerable"/>
         <AttributeFactor index="Massive" value="0.5"/>
     </CEffectDamage>
-    <CEffectDamage id="ChargeDummyDamage">
+    <CEffectModifyUnit id="ChargeDummyDamage">
         <EditorCategories value=""/>
-        <SearchFilters value="-;Self,Item,Dead,Invulnerable"/>
-        <Flags index="NoScaledDealtBonus" value="1"/>
-        <Flags index="NoFractionDealtBonus" value="1"/>
-        <Flags index="NoUnscaledDealtBonus" value="1"/>
-        <Flags index="NoVitalAbsorbLife" value="1"/>
-        <Flags index="NoVitalAbsorbShields" value="1"/>
-    </CEffectDamage>
+        <ImpactUnit Value="Caster"/>
+    </CEffectModifyUnit>
     <CEffectIssueOrder id="ChargeIssueOrder">
         <EditorCategories value=""/>
         <WhichUnit Value="Source"/>
