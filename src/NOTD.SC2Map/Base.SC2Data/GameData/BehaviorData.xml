@@ -6741,8 +6741,8 @@
         <InfoIcon value="Assets\Textures\btn-ability-terran-tosh-consumption.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Duration value="4"/>
-        <Period value="0.5"/>
-        <PeriodCount value="7"/>
+        <Period value="0.25"/>
+        <PeriodCount value="15"/>
         <InitialEffect value="ImYourFatherSearchIssueAttackLevel1"/>
         <PeriodicEffect value="ImYourFatherSearchIssueAttackLevel1"/>
         <FinalEffect value="ImYourFatherSearchIssueStop"/>
@@ -6751,8 +6751,8 @@
         <InfoIcon value="Assets\Textures\btn-ability-terran-tosh-consumption.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Duration value="6"/>
-        <Period value="0.5"/>
-        <PeriodCount value="11"/>
+        <Period value="0.25"/>
+        <PeriodCount value="23"/>
         <InitialEffect value="ImYourFatherSearchIssueAttackLevel2"/>
         <PeriodicEffect value="ImYourFatherSearchIssueAttackLevel2"/>
         <FinalEffect value="ImYourFatherSearchIssueStop"/>
@@ -6761,8 +6761,8 @@
         <InfoIcon value="Assets\Textures\btn-ability-terran-tosh-consumption.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Duration value="8"/>
-        <Period value="0.5"/>
-        <PeriodCount value="15"/>
+        <Period value="0.25"/>
+        <PeriodCount value="31"/>
         <InitialEffect value="ImYourFatherSearchIssueAttackLevel3"/>
         <PeriodicEffect value="ImYourFatherSearchIssueAttackLevel3"/>
         <FinalEffect value="ImYourFatherSearchIssueStop"/>
@@ -7676,13 +7676,13 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="TauntLevel2" parent="TauntTemplate" Level="2">
         <Duration value="6"/>
-        <PeriodCount value="11"/>
-        <Period value="0.5"/>
+        <PeriodCount value="23"/>
+        <Period value="0.25"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="TauntLevel3" parent="TauntTemplate" Level="3">
         <Duration value="7"/>
-        <PeriodCount value="13"/>
-        <Period value="0.5"/>
+        <PeriodCount value="27"/>
+        <Period value="0.25"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Madness">
         <Alignment value="Negative"/>
@@ -7820,8 +7820,8 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="TauntLevel1" parent="TauntTemplate" Level="1">
         <Duration value="5"/>
-        <PeriodCount value="9"/>
-        <Period value="0.5"/>
+        <PeriodCount value="19"/>
+        <Period value="0.25"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZeratulStun">
         <Duration value="7"/>
