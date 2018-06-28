@@ -10651,7 +10651,12 @@ int gf_GetInventorySlots (unit lp_hero) {
     lv_player = UnitGetOwner(lp_hero);
 
     // Implementation
-    return UserDataGetInt("Classes", gv_playerClass[lv_player], "Inventory Slot Count", 1);
+    if ((UnitGetType(lp_hero) == "ReaperMK13")) {
+        return 2;
+    }
+    else {
+        return UserDataGetInt("Classes", gv_playerClass[lv_player], "Inventory Slot Count", 1);
+    }
 }
 
 void gf_EquipmentUpdateMarineWeightPointPerItem (int lp_ownerofEquipment, unit lp_item) {
