@@ -843,7 +843,7 @@
         <TargetFilters value="Biological;Enemy,Air,Missile,Destructible,Dead"/>
         <Range value="1"/>
         <AutoCastAcquireLevel value="Defensive"/>
-        <AutoCastFilters value="Visible;Player,Ally,Enemy"/>
+        <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
         <CastIntroTime value="0"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SlowRoast"/>
         <AutoCastRange value="1"/>
