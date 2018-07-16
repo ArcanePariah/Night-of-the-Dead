@@ -74,6 +74,29 @@
             <Value Id="1"/>
         </Default>
     </Attribute>
+    <Attribute>
+        <Id Value="4"/>
+        <Type Value="Global"/>
+        <Name Value="Attribute004/Name"/>
+        <Availability Value="All"/>
+        <Visibility Value="All"/>
+        <Access Value="Host"/>
+        <PublicLocked/>
+        <Value>
+            <Id Value="1"/>
+            <Name Value="Attribute004/Value001/Name"/>
+            <Description Value="Attribute004/Value001/Desc"/>
+        </Value>
+        <Value>
+            <Id Value="2"/>
+            <Name Value="Attribute004/Value002/Name"/>
+            <Description Value="Attribute004/Value002/Desc"/>
+        </Value>
+        <Default>
+            <Slot Id="Global"/>
+            <Value Id="1"/>
+        </Default>
+    </Attribute>
     <DefaultVariants Value="0"/>
     <Variant>
         <Id Value="1"/>
