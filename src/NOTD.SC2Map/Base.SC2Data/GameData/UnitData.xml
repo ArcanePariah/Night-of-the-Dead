@@ -743,6 +743,7 @@
     <CUnit id="Broodling">
         <WeaponArray index="0" Link="NeedleClaws2"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
+        <BehaviorArray Link="BroodlingTimedLife"/>
     </CUnit>
     <CUnit id="BlaqkQueen" parent="PetTemplate">
         <Name value="Unit/Name/BlaqkQueen"/>

@@ -1065,6 +1065,12 @@
         <Duration value="60"/>
         <ExpireEffect value="Suicide"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="BroodlingTimedLife">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="30"/>
+        <ExpireEffect value="Suicide"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="SonicRevealTimed">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
