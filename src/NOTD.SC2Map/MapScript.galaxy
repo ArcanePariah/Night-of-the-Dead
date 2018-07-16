@@ -1010,6 +1010,8 @@ int[5][9] gv_shellCounter;
 int[4][9] gv_shellDecre;
 int[4][9] gv_shellIncre;
 int[9] gv_shellDialog;
+playergroup[9] gv_shellDialogObservers;
+int[9] gv_shellDialogObserved;
 unitgroup[9] gv_mobileInfantryGroup;
 bool[9] gv_gunshipActive;
 unit[9] gv_gunshipUnit;
@@ -1488,6 +1490,9 @@ void InitGlobals () {
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_shellDialog[init_i] = c_invalidDialogId;
+    }
+    for (init_i = 0; init_i <= 8; init_i += 1) {
+        gv_shellDialogObservers[init_i] = PlayerGroupEmpty();
     }
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_mobileInfantryGroup[init_i] = UnitGroupEmpty();
@@ -10291,6 +10296,11 @@ void gf_ShowInventory (int lp_observer, bool lp_includeSelf) {
 
     // Implementation
     Wait(0.0625, c_timeGame);
+    if ((gv_shellDialogObserved[lp_observer] != 0)) {
+        PlayerGroupRemove(gv_shellDialogObservers[gv_shellDialogObserved[lp_observer]], lp_observer);
+        gv_shellDialogObserved[lp_observer] = 0;
+    }
+
     lv_inventoryUnit = UnitGroupUnit(UnitSubgroupSelected(lp_observer), 1);
     auto253DE7B5_g = gv_marineSquad;
     auto253DE7B5_var = -1;
@@ -10303,6 +10313,11 @@ void gf_ShowInventory (int lp_observer, bool lp_includeSelf) {
     if (((UnitGroupHasUnit(gv_marines, lv_inventoryUnit) == true) || (UnitGetType(lv_inventoryUnit) == "ReaperMK13"))) {
         lv_inventoryOwner = UnitGetOwner(lv_inventoryUnit);
         lv_control = PlayerGetAlliance(lv_inventoryOwner, c_allianceIdControl, lp_observer);
+        if ((gv_shellDialog[lv_inventoryOwner] != c_invalidDialogId)) {
+            gv_shellDialogObserved[lp_observer] = lv_inventoryOwner;
+            PlayerGroupAdd(gv_shellDialogObservers[lv_inventoryOwner], lp_observer);
+        }
+
         DialogControlSetVisible(gv_equipmentButton[lv_inventoryOwner], lv_observers, true);
         gf_ShowHideMarineDialog(true, lv_inventoryOwner, lv_observers);
         if (((lp_includeSelf == true) || (lv_inventoryOwner != lp_observer))) {
@@ -13827,7 +13842,7 @@ void gf_ForwardObserverCreateShellDialog (int lp_forwardObserverOwner) {
         gv_shellCounter[autoF5828222_var][lp_forwardObserverOwner] = DialogControlLastCreated();
     }
     DialogSetVisible(gv_shellDialog[lv_player], PlayerGroupAll(), false);
-    DialogSetVisible(gv_shellDialog[lp_forwardObserverOwner], PlayerGroupSingle(lv_player), true);
+    DialogSetVisible(gv_shellDialog[lp_forwardObserverOwner], gv_shellDialogObservers[lv_player], true);
 }
 
 void gf_ArtilleryCamaraShake (point lp_impactPoint) {
@@ -13857,7 +13872,7 @@ void gf_ArtilleryCamaraShake (point lp_impactPoint) {
 void gf_ArtilleryStart (int lp_artillaryType, color lp_pingColor, point lp_targetPoint, unit lp_forwardObserver, int lp_player) {
     // Automatic Variable Declarations
     // Implementation
-    libNtve_gf_SetDialogItemText(gv_shellCounter[0][lp_player], IntToText(FixedToInt(UnitAbilityChargeInfo(lp_forwardObserver, AbilityCommand("FireMission", 0), c_unitAbilChargeCountLeft))), PlayerGroupSingle(lp_player));
+    libNtve_gf_SetDialogItemText(gv_shellCounter[0][lp_player], IntToText(FixedToInt(UnitAbilityChargeInfo(lp_forwardObserver, AbilityCommand("FireMission", 0), c_unitAbilChargeCountLeft))), gv_shellDialogObservers[lp_player]);
     gf_ForwardObserverLaunchSound(lp_player, lp_targetPoint, lp_artillaryType);
     gf_ForwardObserverShellFlightSound(lp_player, lp_targetPoint, lp_artillaryType);
     libNtve_gf_CreatePingFacingAngle(PlayerGroupAll(), "PingWarning", lp_targetPoint, lp_pingColor, gv_barrageTime[lp_player], 270.0);
@@ -14143,6 +14158,8 @@ void gf_LevelUpTalentForwardObserver (int lp_itemNo, unit lp_triggUnit, int lp_t
     // Implementation
     if ((lp_itemNo == 1)) {
         if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 1)) {
+            gv_shellDialogObserved[lp_triggPlayer] = lp_triggPlayer;
+            PlayerGroupAdd(gv_shellDialogObservers[lp_triggPlayer], lp_triggPlayer);
             gf_ForwardObserverCreateShellDialog(lp_triggPlayer);
             TriggerEnable(gt_ModifyShellLimit, true);
         }
@@ -40832,7 +40849,7 @@ bool gt_ModifyShellLimit_Func (bool testConds, bool runActions) {
         else if (((lv_decre == true) && (lv_currentAbilityCost > 1))) {
             CatalogFieldValueSet(c_gameCatalogAbil, UserDataGetGameLink("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", lv_shellType), "Ability", 1), "Cost[" + IntToString(0) + "].Charge.CountUse", lv_player, IntToString((lv_currentAbilityCost - 1)));
         }
-        libNtve_gf_SetDialogItemText(gv_shellCounter[lv_shellType][lv_forwardObserverOwner], IntToText(CatalogFieldValueGetAsInt(c_gameCatalogAbil, UserDataGetGameLink("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", lv_shellType), "Ability", 1), "Cost[" + IntToString(0) + "].Charge.CountUse", lv_player)), PlayerGroupSingle(lv_player));
+        libNtve_gf_SetDialogItemText(gv_shellCounter[lv_shellType][lv_forwardObserverOwner], IntToText(CatalogFieldValueGetAsInt(c_gameCatalogAbil, UserDataGetGameLink("ForwardObserverShellDialogData", UserDataInstance("ForwardObserverShellDialogData", lv_shellType), "Ability", 1), "Cost[" + IntToString(0) + "].Charge.CountUse", lv_player)), gv_shellDialogObservers[lv_player]);
     }
 
     return true;
