@@ -1044,7 +1044,7 @@
     </CValidatorUnitFilters>
     <CValidatorLocationEnumArea id="EnemiesNearby2">
         <WhichLocation Value="TargetUnit"/>
-        <AreaArray Count="1" Radius="3"/>
+        <AreaArray Compare="GE" Count="1" Radius="3"/>
         <Compare value="GE"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
         <LaunchLocation Value="SourceUnit"/>
