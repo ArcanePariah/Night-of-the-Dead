@@ -642,6 +642,55 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InitialEffect value="CrawlerDroneLimit"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="PlayerLives">
+        <InfoFlags index="Hidden" value="1"/>
+        <DamageResponse>
+            <Chance value="1"/>
+            <ClampMaximum value="0"/>
+            <Handled value="ApplyPlayerLivesEmergencyHeal"/>
+            <ModifyFraction value="0"/>
+            <ModifyMinimumDamage value="1"/>
+            <ExcludeEffectArray value="FaithSelfDamage"/>
+        </DamageResponse>
+        <DisableValidatorArray value="CasterShieldsLT10"/>
+        <DisableValidatorArray value="CasterLifeLT20Percent"/>
+        <DisableValidatorArray value="CasterHasPlayerLivesEmergencyHeal"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PlayerLivesAntiDegen">
+        <InfoFlags index="Hidden" value="1"/>
+        <Period value="0.1"/>
+        <PeriodicEffect value="ApplyPlayerLivesEmergencyHeal"/>
+        <DisableValidatorArray value="CasterHasPlayerLivesEmergencyHeal"/>
+        <DisableValidatorArray value="CasterLifeLT3Percent"/>
+        <DisableValidatorArray value="CasterDegensHP"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PlayerLivesAntiOneShot">
+        <InfoFlags index="Hidden" value="1"/>
+        <DamageResponse>
+            <Chance value="1"/>
+            <ClampMaximum value="0"/>
+            <Fatal value="1"/>
+            <Handled value="ApplyPlayerLivesEmergencyHeal"/>
+            <ModifyFraction value="0"/>
+            <ModifyMinimumDamage value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="PlayerLivesEmergencyHeal">
+        <InfoFlags index="Hidden" value="1"/>
+        <InitialEffect value="PlayerLivesModifyHp"/>
+        <Duration value="5"/>
+        <DamageResponse>
+            <Chance value="1"/>
+            <ClampMaximum value="0"/>
+            <ModifyFraction value="0"/>
+            <ModifyMinimumDamage value="1"/>
+        </DamageResponse>
+        <Modification>
+            <StateFlags index="SuppressCollision" value="1"/>
+            <StateFlags index="SuppressThreat" value="1"/>
+            <VitalRegenArray index="Life" value="8"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="CreepArmor">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

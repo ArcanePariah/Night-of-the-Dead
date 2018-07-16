@@ -3,6 +3,20 @@
     <CValidatorLocationPathable id="BuildPathing">
         <Types index="Building" value="0"/>
     </CValidatorLocationPathable>
+    <CValidatorUnitCompareVital id="CasterDegensHP">
+        <Compare value="GT"/>
+        <WhichUnit Value="Caster"/>
+        <Type value="Delta"/>
+        <Value value="0.1"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareBehaviorCount id="CasterHasPlayerLivesEmergencyHeal">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="PlayerLivesEmergencyHeal"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVital id="CasterLifeLT3Percent" parent="CasterLifePercent">
+        <Compare value="LT"/>
+        <Value value="0.03"/>
+    </CValidatorUnitCompareVital>
     <CValidatorUnitCompareBehaviorCount id="CasterNotBloodlust">
         <WhichUnit Value="Caster"/>
         <Behavior value="Bloodlust"/>

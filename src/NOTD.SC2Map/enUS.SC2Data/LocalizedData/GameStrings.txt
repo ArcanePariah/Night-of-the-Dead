@@ -4061,7 +4061,6 @@ Param/Value/0F14107D=(Erebos begins to form a <c val="00FF00">regenerative shell
 Param/Value/0F90DB7F=Sec Team A: Link Up with Sec Team B
 Param/Value/0FAEAC02=Athena...you are released.
 Param/Value/10880E5C=Phantom 6, Phantom 1 is in sector.
-Param/Value/10CB3A8D= lives remaining.
 Param/Value/1134BED8=HAL Shutdown
 Param/Value/115D3793=The Marines Have Landed
 Param/Value/116239BA=Radar is picking up infantry. IFF returning negative. They're hostile.
@@ -4168,7 +4167,6 @@ Param/Value/244B2E38=The reactors are through the airlock.
 Param/Value/2466CEB3=Huddle close. Provide covering fire.
 Param/Value/2482F8A0=You have 3 magazines in your inventory. Click on them to increase your magazine count. Your gun will not fire without ammo.
 Param/Value/24C39421=<s val="BriefingHanText">(Downloading Sec Cam Feed...)</s>
-Param/Value/24C9D1F7=<c val="FF0000">Badly Injured</c>
 Param/Value/24CA23FD=</s>
 Param/Value/24EDA089=/3)
 Param/Value/251CB8AC=Did anyone find Dr. Bergmann?
@@ -4186,6 +4184,7 @@ Param/Value/271AF673=Is everyone okay? We need to leave this place.
 Param/Value/275382AF=Avoid the deadly beams. Sprint if needed.
 Param/Value/2757CF11=You've got to be kidding me.
 Param/Value/275E16C1=Anti-Toxin Release
+Param/Value/2777278B= lives remaining.
 Param/Value/27B9C85A=Heal up, use your Medkits.
 Param/Value/27BB3E98=Stay with the IVAX unit. We're going to secure the mining facility.
 Param/Value/281EC738=He's heading towards one of the transports.
@@ -4356,7 +4355,6 @@ Param/Value/42D8E5E5=<s val="GlueButton"><c val="F4D72B">They locked me up becau
 Param/Value/42D8E88F=Find a way into the Research Lab
 Param/Value/42DA9A5D=has been killed by 
 Param/Value/42F6F864=</c>
-Param/Value/431FEC2D=<c val="FF0000">Badly Injured!</c><n/>
 Param/Value/43DD0D71=We'll need thermals on - spotting enemies rapidly approaching.
 Param/Value/44C67D19=Survive the outbreak with Apollo Security Team
 Param/Value/4505387E=)
@@ -4501,6 +4499,7 @@ Param/Value/5C5D8CF6=<s val="GlueButton"><c val="F4D72B">Sergeant Lawrence is MI
 Param/Value/5D0A145A=You can enter Apollo via 2 routes:<n/>1. Opening the Scrapyard Gate<n/>2. Activating 5 Power Generators across Apollo. This will disarm all Gates throughout the facility.<n/><n/>Ambient enemy readings remain active. Move in groups to provide cover.
 Param/Value/5D2EDD6C=<c val="FF0000">Nightmare Mode</c><n/>- Enemies gain HP and new behavior.<n/>- Additional Player XP and Rating gain.
 Param/Value/5D3AC51A=<s val="GlueButton"><c val="F4D72B">Plenty of incoming. Stay close and kill 'em all.</c></s>
+Param/Value/5D490B11=You become badly injured when your HP is below 20%. Critical injuries can kill you instantly.
 Param/Value/5D6CA469=Maintain tight formation.
 Param/Value/5D91964B=<s val="InfoPaneHeroRank">(Reactor Core activation requires 2 authorized personnel..)</s>
 Param/Value/5E300354=!
@@ -4653,6 +4652,7 @@ Param/Value/790C3BE0=<s val="InfoPaneHeroRank">(A noxious gas is released...)</s
 Param/Value/7924EE5C=They're all yours. Good luck, Marines.
 Param/Value/795CA19E=You have an Open Wound. Use a bandage or find a Medic.
 Param/Value/796A229D=Find Charlie
+Param/Value/796AFF60=<c val="FF0000">Badly Injured!</c><n/>
 Param/Value/797FC265=+1 XP for Performance Bonus
 Param/Value/79D4897B=Find a way into the Research Lab
 Param/Value/79F7232F=This thing...is where the infestation began.
@@ -4665,6 +4665,7 @@ Param/Value/7B981C01=If you have wounded, our Corpsmen are here to help.
 Param/Value/7BABE330=Apollo Sec needs to re-establish communication lines to notify UGC Space Command on dire situation.
 Param/Value/7BB52C15=Stay out of sight.
 Param/Value/7BCC56D3=You need to destroy Apollo's reactor core.
+Param/Value/7C001D62= life remaining.
 Param/Value/7CDB0760=Different weapons work more effectively against different enemies.
 Param/Value/7CFBC0B6=[<c val="FF0000">Priority Transmission</c>]<n/>Field Marshal Kim: <n/>Fantastic work on the reactor. I've prepped a dropship to extract you and I need you to make a run for it. You're almost home.
 Param/Value/7D0EC0E3=: 
@@ -4752,6 +4753,7 @@ Param/Value/8B5E5F28=Chapter 1
 Param/Value/8BD93954=<s val="BriefingHanText">   Designers<n/>   Daren Yoong (Ability)<n/>   Charles Passen (Kithrixx)</s>
 Param/Value/8BEB60C9=<n/>Games Played: 
 Param/Value/8BFF1855=Rescue Sec Team B from Apollo East
+Param/Value/8C2B2CD8=<c val="FF0000">Badly Injured!</c><n/>
 Param/Value/8C305502=Not good. It looks like she's communicating with... something.
 Param/Value/8C590832=<s val="InfoPaneHeroRank">(The tracking beacon stops broadcasting...)</s>
 Param/Value/8C66BAE3=Doctor?
@@ -5015,7 +5017,6 @@ Param/Value/B8A6D700=/5)
 Param/Value/B8BCD8D6=Cohesion
 Param/Value/B8F873D9=<s val="BriefingHanText">(Radar operational...)</s>
 Param/Value/B9079527=Argh!
-Param/Value/B93CD477= life remaining.
 Param/Value/B97AE44A=You have 30 seconds to position your team and find supplies before Waves begin.
 Param/Value/B9AE8010=Doctor, what's the status of your research? We can't hold on much longer.
 Param/Value/B9C7B047=We have a serious chemical leak in the scrapyard. Usually Apollo's regular maintenance crew would clean it up.
@@ -5265,7 +5266,6 @@ Param/Value/E298D78F= (<c val="E10000">
 Param/Value/E2C16EBA=Rendezvous with Corpsmen at Armory
 Param/Value/E2C4B148=Priyanka
 Param/Value/E2D10094=Destroy Compliance Nexuses (
-Param/Value/E2FE4ACA=You become badly injured when your HP is below 20%. Critical injuries can kill you instantly.
 Param/Value/E32A665D=Deimos
 Param/Value/E3864FB9=Kill the Zombie Queen
 Param/Value/E3A8B054=Maybe. I'd like to question him myself when I get the chance.
@@ -5313,7 +5313,6 @@ Param/Value/EA2FFB10=<s val="BriefingHanText">(Assuming control of Turrets aroun
 Param/Value/EA780536=Not again. Brace yourselves.
 Param/Value/EA8C7D2D=Search for survivors in Apollo
 Param/Value/EACCCFD6=+3 XP for Performance Bonus
-Param/Value/EADB924C=<c val="FF0000">Badly Injured!</c><n/>
 Param/Value/EAE4AD6B=Use AOE abilities to conserve ammo
 Param/Value/EC3FECA5=(You notice a Compliance Implant at Tanaka's neck...)
 Param/Value/EC412052=A Blueberry Production
