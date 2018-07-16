@@ -3839,6 +3839,9 @@
         <InfoArray Alignment="Left">
             <Classes value=""/>
         </InfoArray>
+        <InfoArray Alignment="Left" EmptyFace="EmptySlot">
+            <Classes value="Magazines"/>
+        </InfoArray>
         <AbilSetId value="Inventory"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryCommando" parent="InventoryTemplate" EquipmentBag="EquipmentCommando" SlotCount="4">
