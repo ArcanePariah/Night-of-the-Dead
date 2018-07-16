@@ -4891,6 +4891,7 @@ Param/Value/A0A23961=Head to Epsilon Mining Site. We need to ensure energy suppl
 Param/Value/A0A3E27F=
 Param/Value/A0BB6B2F=Things went wrong a 4 days ago after the Compliance Nexuses got a regular update from Earth.
 Param/Value/A0CC7D6C=We need our Helium-3 facilities back up. Give us more time to gather forces -come back and cleanse the colony later. Apollo is too critical to lose.
+Param/Value/A0E38EFB=<s val="InfoPaneHeroRank">Not eligible for Navy Cross</s>
 Param/Value/A10A204E=Flamethrowers are deadly when they mass together.
 Param/Value/A1177322=Locate Dr. Bergmann
 Param/Value/A14F7CAB=Machines turning against us...I saw this in a movie somewhere.
@@ -5267,6 +5268,7 @@ Param/Value/E1703520=I don't see any better options. Tell us what to do.
 Param/Value/E19DF915=+2 XP: Transmission Download Complete
 Param/Value/E1A199CA=<s val="InfoPaneHeroRank">Command Failed</s></n>All random requires enabling before selecting story.
 Param/Value/E1B2888D=Secure Security Cams (0/5)
+Param/Value/E20694FA=<s val="InfoPaneHeroRank">Not eligible for Distinguished Service Medal</s>
 Param/Value/E25FCAD9=Military EVAC is underway. Stay safe and watch out for danger until rescue arrives.
 Param/Value/E298D78F= (<c val="E10000">
 Param/Value/E2C16EBA=Rendezvous with Corpsmen at Armory
