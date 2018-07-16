@@ -2715,9 +2715,9 @@ void gf_MemoryLoad (int lp_player) {
     }
 
     gv_playerKarma[lp_player] = libNtve_gf_ArithmeticIntClamp(gv_playerKarma[lp_player], 1000, 2000);
-    PlayerScoreValueSetFromInt(lp_player, "Rating", gv_playerRating[lp_player]);
-    gv_playerRating[lp_player] = libNtve_gf_ArithmeticIntClamp(gv_playerRating[lp_player], 1000, 2500);
     PlayerScoreValueSetFromInt(lp_player, "Karma", gv_playerKarma[lp_player]);
+    gv_playerRating[lp_player] = libNtve_gf_ArithmeticIntClamp(gv_playerRating[lp_player], 1000, 2500);
+    PlayerScoreValueSetFromInt(lp_player, "Rating", gv_playerRating[lp_player]);
     while ((lv_search < 17) && (gv_playerXP[lp_player] >= UserDataGetInt("Ranks", UserDataInstance("Ranks", (lv_search + 1)), "XP Required", 1))) {
         lv_search += 1;
     }

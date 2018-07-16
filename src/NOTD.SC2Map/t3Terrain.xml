@@ -79,7 +79,7 @@
             <ramp dir="2" hi="2" lo="1" leftLo="u(-1.000000e+00, 0.000000e+00) r(0.000000e+00, 1.000000e+00) c=(1.560000e+02, 2.510000e+02) w=1.000000e+00 h=2.000000e+00" leftHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(0.000000e+00, 0.000000e+00) w=0.000000e+00 h=0.000000e+00" rightLo="u(-1.000000e+00, 0.000000e+00) r(0.000000e+00, 1.000000e+00) c=(1.560000e+02, 2.530000e+02) w=1.000000e+00 h=2.000000e+00" rightHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(0.000000e+00, 0.000000e+00) w=0.000000e+00 h=0.000000e+00" base="u(-1.000000e+00, 0.000000e+00) r(0.000000e+00, 1.000000e+00) c=(1.550000e+02, 2.520000e+02) w=2.000000e+00 h=1.000000e+00" mid="u(-1.000000e+00, 0.000000e+00) r(0.000000e+00, 1.000000e+00) c=(1.560000e+02, 2.520000e+02) w=0.000000e+00 h=2.000000e+00" cid="0" leftLoVar="0" leftHiVar="4294967295" rightLoVar="0" rightHiVar="4294967295"/>
             <ramp dir="1" hi="2" lo="1" leftLo="u(0.000000e+00, 1.000000e+00) r(1.000000e+00, 0.000000e+00) c=(2.290000e+02, 2.520000e+02) w=1.000000e+00 h=2.000000e+00" leftHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(0.000000e+00, 0.000000e+00) w=0.000000e+00 h=0.000000e+00" rightLo="u(0.000000e+00, 1.000000e+00) r(1.000000e+00, 0.000000e+00) c=(2.310000e+02, 2.520000e+02) w=1.000000e+00 h=2.000000e+00" rightHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(0.000000e+00, 0.000000e+00) w=0.000000e+00 h=0.000000e+00" base="u(0.000000e+00, 1.000000e+00) r(1.000000e+00, 0.000000e+00) c=(2.300000e+02, 2.530000e+02) w=2.000000e+00 h=1.000000e+00" mid="u(0.000000e+00, 1.000000e+00) r(1.000000e+00, 0.000000e+00) c=(2.300000e+02, 2.520000e+02) w=0.000000e+00 h=2.000000e+00" cid="1" leftLoVar="0" leftHiVar="4294967295" rightLoVar="0" rightHiVar="4294967295"/>
         </rampList>
-        <cliffDoodadList num="34">
+        <cliffDoodadList num="33">
             <cliffDoodad name="AvernusGridFloorTO1" pos="233.000000 9.000000 0.000000 " rot="0"/>
             <cliffDoodad name="ValhallaGrid45Floor1" pos="29.000000 27.000000 0.000000 " rot="0"/>
             <cliffDoodad name="AvernusMiningChamberTO1" pos="144.000000 52.000000 0.000000 " rot="0"/>
@@ -104,7 +104,6 @@
             <cliffDoodad name="ValhallaGrid45Floor2" pos="75.000000 173.000000 2.000000 " rot="0"/>
             <cliffDoodad name="TerrainObjectCoolantPipes1_2" pos="169.000000 173.000000 2.000000 " rot="1"/>
             <cliffDoodad name="TerrainObjectCastanarBrutaliskCage1" pos="48.000000 180.000000 0.000000 " rot="0"/>
-            <cliffDoodad name="TerrainObjectBraxisAlphaZergHoleSmall2" pos="70.000000 178.000000 2.000000 " rot="0"/>
             <cliffDoodad name="TerrainObjectHybridHoldingCell2" pos="156.000000 186.000000 2.000000 " rot="0"/>
             <cliffDoodad name="TerrainObjectBraxisAlphaZergHoleLarge2" pos="185.000000 185.000000 2.000000 " rot="0"/>
             <cliffDoodad name="TRaynor02DigSite" pos="20.000000 206.000000 0.000000 " rot="0"/>
@@ -115,7 +114,7 @@
             <cliffDoodad name="TerrainObjectBraxisAlphaZergHoleLarge1" pos="103.000000 221.000000 0.000000 " rot="0"/>
             <cliffDoodad name="TerrainObjectBraxisAlphaZergHoleLarge1" pos="75.000000 227.000000 0.000000 " rot="0"/>
         </cliffDoodadList>
-        <vertData quantizeBias="9.071736e+00" quantizeScale="5.021428e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
+        <vertData quantizeBias="9.071970e+00" quantizeScale="5.021424e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
         <masks name="t3TextureMasks"/>
         <textureSetList num="8">
             <textureSet i="0" name="MeinhoffEx1"/>
@@ -6459,8 +6458,8 @@
             <cc i="11166" f="1" cid="1" cvar="0"/>
             <cc i="11167" f="4" cid="1" cvar="0"/>
             <cc i="11168" f="12" cid="1" cvar="3"/>
-            <cc i="11169" f="12" cid="1" cvar="1"/>
-            <cc i="11170" f="4" cid="1" cvar="3"/>
+            <cc i="11169" f="8" cid="1" cvar="1"/>
+            <cc i="11170" f="0" cid="1" cvar="3"/>
             <cc i="11171" f="4" cid="1" cvar="2"/>
             <cc i="11172" f="12" cid="1" cvar="2"/>
             <cc i="11173" f="12" cid="1" cvar="1"/>
@@ -6531,9 +6530,9 @@
             <cc i="11294" f="0" cid="1" cvar="3"/>
             <cc i="11295" f="4" cid="1" cvar="0"/>
             <cc i="11296" f="4" cid="1" cvar="2"/>
-            <cc i="11297" f="4" cid="1" cvar="3"/>
-            <cc i="11298" f="12" cid="1" cvar="3"/>
-            <cc i="11299" f="12" cid="1" cvar="2"/>
+            <cc i="11297" f="0" cid="1" cvar="3"/>
+            <cc i="11298" f="0" cid="1" cvar="3"/>
+            <cc i="11299" f="4" cid="1" cvar="2"/>
             <cc i="11300" f="4" cid="1" cvar="0"/>
             <cc i="11301" f="4" cid="1" cvar="2"/>
             <cc i="11302" f="4" cid="1" cvar="2"/>
@@ -6592,10 +6591,10 @@
             <cc i="11422" f="2" cid="1" cvar="2"/>
             <cc i="11423" f="0" cid="1" cvar="2"/>
             <cc i="11424" f="0" cid="1" cvar="1"/>
-            <cc i="11425" f="4" cid="1" cvar="1"/>
-            <cc i="11426" f="12" cid="1" cvar="1"/>
-            <cc i="11427" f="12" cid="1" cvar="3"/>
-            <cc i="11428" f="4" cid="1" cvar="2"/>
+            <cc i="11425" f="0" cid="1" cvar="1"/>
+            <cc i="11426" f="0" cid="1" cvar="1"/>
+            <cc i="11427" f="0" cid="1" cvar="3"/>
+            <cc i="11428" f="0" cid="1" cvar="2"/>
             <cc i="11429" f="1" cid="1" cvar="3"/>
             <cc i="11430" f="1" cid="1" cvar="0"/>
             <cc i="11431" f="2" cid="1" cvar="0"/>
@@ -6651,10 +6650,10 @@
             <cc i="11550" f="2" cid="1" cvar="0"/>
             <cc i="11551" f="0" cid="1" cvar="1"/>
             <cc i="11552" f="0" cid="1" cvar="3"/>
-            <cc i="11553" f="4" cid="1" cvar="3"/>
-            <cc i="11554" f="4" cid="1" cvar="2"/>
-            <cc i="11555" f="4" cid="1" cvar="1"/>
-            <cc i="11556" f="4" cid="1" cvar="0"/>
+            <cc i="11553" f="0" cid="1" cvar="3"/>
+            <cc i="11554" f="0" cid="1" cvar="2"/>
+            <cc i="11555" f="0" cid="1" cvar="1"/>
+            <cc i="11556" f="0" cid="1" cvar="0"/>
             <cc i="11557" f="1" cid="1" cvar="1"/>
             <cc i="11558" f="1" cid="1" cvar="0"/>
             <cc i="11559" f="2" cid="1" cvar="2"/>
