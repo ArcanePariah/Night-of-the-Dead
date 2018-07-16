@@ -10635,7 +10635,7 @@ unit gf_GiveMarineItem (int lp_player, string lp_item) {
         lv_returnItem = UnitInventoryLastCreated();
     }
     else {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, lp_item, 0, lp_player, UnitGetPosition(gv_marineHero[lp_player]));
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, lp_item, 0, 10, UnitGetPosition(gv_marineHero[lp_player]));
         lv_returnItem = UnitLastCreated();
     }
     return lv_returnItem;
