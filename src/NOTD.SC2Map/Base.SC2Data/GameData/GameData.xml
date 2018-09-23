@@ -108,5 +108,6 @@
         <VeterancySearchRadius value="500"/>
         <VeterancySearchMaxCount value="10"/>
         <VeterancySearchFilters value="-;Ally,Neutral,Enemy,Missile,Dead,Hidden"/>
+        <DefaultPauseCountPerPlayer value="5"/>
     </CGame>
 </Catalog>
