@@ -13022,7 +13022,7 @@ bool auto_gf_StatsModDamage_TriggerFunc (bool testConds, bool runActions) {
     CatalogFieldValueSet(c_gameCatalogEffect, "InfernalFlameThrower", "Amount", lp_modOwner, FixedToString(lv_damage, 2));
     lv_damage = StringToFixed(CatalogFieldValueGet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", 10));
     if ((UnitGetType(gv_marineHero[lp_modOwner]) == "Pathfinder")) {
-        lv_damage += ((gv_talentLevel[3][lp_modOwner] * 6) + (gv_talentLevel[3][lp_modOwner] * 6));
+        lv_damage += (gv_talentLevel[3][lp_modOwner] * 6);
     }
 
     lv_damage *= gf_CalculateModBonusDamage(lv_effectiveModLevel, lv_damage);
@@ -13122,18 +13122,7 @@ bool auto_gf_StatsModRange_TriggerFunc (bool testConds, bool runActions) {
     lv_range *= (1.0 + ((IntToFixed(lp_modLevel) - 5.0) * lv_rangePercentagePerLevel));
     CatalogFieldValueSet(c_gameCatalogWeapon, "Flamethrower", "Range", lv_player, FixedToString(lv_range, c_fixedPrecisionAny));
     if ((UnitIsAlive(gv_marineHero[lp_modOwner]) == true) && (UnitGetType(gv_marineHero[lp_modOwner]) == "Pathfinder")) {
-        if ((gv_talentLevel[3][lp_modOwner] == 0) && (gv_talentLevel[5][lp_modOwner] == 0)) {
-            lv_range = StringToFixed(CatalogFieldValueGet(c_gameCatalogWeapon, "P38ScytheGuassPistol", "Range", 10));
-        }
-        else if ((((gv_talentLevel[3][lp_modOwner] == 1) && (gv_talentLevel[5][lp_modOwner] == 0)) || ((gv_talentLevel[3][lp_modOwner] == 0) && (gv_talentLevel[5][lp_modOwner] == 1)))) {
-            lv_range = 9.0;
-        }
-        else if ((((gv_talentLevel[3][lp_modOwner] == 2) && (gv_talentLevel[5][lp_modOwner] == 0)) || ((gv_talentLevel[3][lp_modOwner] == 1) && (gv_talentLevel[5][lp_modOwner] == 1)))) {
-            lv_range = 12.0;
-        }
-        else if ((gv_talentLevel[3][lp_modOwner] == 2) && (gv_talentLevel[5][lp_modOwner] == 1)) {
-            lv_range = 15.0;
-        }
+        lv_range = (StringToFixed(CatalogFieldValueGet(c_gameCatalogWeapon, "P38ScytheGuassPistol", "Range", 10)) + (gv_talentLevel[3][lp_modOwner] * 3));
     }
     else {
         lv_range = StringToFixed(CatalogFieldValueGet(c_gameCatalogWeapon, "P38ScytheGuassPistol", "Range", 10));
@@ -14386,30 +14375,6 @@ void gf_LevelUpTalentPathfinder (int lp_itemNo, unit lp_triggUnit, int lp_triggP
 
     if ((lp_itemNo == 3)) {
         TechTreeUpgradeAddLevel(lp_triggPlayer, "HandgunProficiency", 1);
-        if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 1) && (gv_talentLevel[5][lp_triggPlayer] == 0)) {
-            CatalogFieldValueSet(c_gameCatalogWeapon, "P38ScytheGuassPistol", "Range", lp_triggPlayer, FixedToString(9.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", lp_triggPlayer, FixedToString(46.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFirstBounce", "Amount", lp_triggPlayer, FixedToString(23.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolSecondBounce", "Amount", lp_triggPlayer, FixedToString(23.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolThirdBounce", "Amount", lp_triggPlayer, FixedToString(23.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFourthBounce", "Amount", lp_triggPlayer, FixedToString(23.0, c_fixedPrecisionAny));
-        }
-        else if ((((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 2) && (gv_talentLevel[5][lp_triggPlayer] == 0)) || ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 1) && (gv_talentLevel[5][lp_triggPlayer] == 1)))) {
-            CatalogFieldValueSet(c_gameCatalogWeapon, "P38ScytheGuassPistol", "Range", lp_triggPlayer, FixedToString(12.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", lp_triggPlayer, FixedToString(52.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFirstBounce", "Amount", lp_triggPlayer, FixedToString(26.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolSecondBounce", "Amount", lp_triggPlayer, FixedToString(26.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolThirdBounce", "Amount", lp_triggPlayer, FixedToString(26.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFourthBounce", "Amount", lp_triggPlayer, FixedToString(26.0, c_fixedPrecisionAny));
-        }
-        else if ((gv_talentLevel[lp_itemNo][lp_triggPlayer] == 2) && (gv_talentLevel[5][lp_triggPlayer] == 1)) {
-            CatalogFieldValueSet(c_gameCatalogWeapon, "P38ScytheGuassPistol", "Range", lp_triggPlayer, FixedToString(15.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", lp_triggPlayer, FixedToString(58.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFirstBounce", "Amount", lp_triggPlayer, FixedToString(29.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolSecondBounce", "Amount", lp_triggPlayer, FixedToString(29.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolThirdBounce", "Amount", lp_triggPlayer, FixedToString(29.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFourthBounce", "Amount", lp_triggPlayer, FixedToString(29.0, c_fixedPrecisionAny));
-        }
         gf_StatsModDamage(gv_statsModProperties[2][lp_triggPlayer], lp_triggPlayer);
         gf_StatsModRange(gv_statsModProperties[1][lp_triggPlayer], lp_triggPlayer);
     }
@@ -14426,34 +14391,11 @@ void gf_LevelUpTalentPathfinder (int lp_itemNo, unit lp_triggUnit, int lp_triggP
             TechTreeUpgradeAddLevel(lp_triggPlayer, "TrickShotLevel4", 1);
         }
         gv_talentLevel[1][lp_triggPlayer] += 1;
+        gv_talentLevel[3][lp_triggPlayer] += 1;
         UnitIssueOrder(lp_triggUnit, Order(AbilityCommand("LearnPathfinder", 1)), c_orderQueueAddToFront);
         UnitIssueOrder(lp_triggUnit, Order(AbilityCommand("LearnPathfinder", 2)), c_orderQueueAddToFront);
         UnitIssueOrder(lp_triggUnit, Order(AbilityCommand("LearnPathfinder", 3)), c_orderQueueAddToFront);
         TechTreeUpgradeAddLevel(lp_triggPlayer, "HandgunProficiency", 1);
-        if ((gv_talentLevel[3][lp_triggPlayer] == 0)) {
-            CatalogFieldValueSet(c_gameCatalogWeapon, "P38ScytheGuassPistol", "Range", lp_triggPlayer, FixedToString(9.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", lp_triggPlayer, FixedToString(46.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFirstBounce", "Amount", lp_triggPlayer, FixedToString(23.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolSecondBounce", "Amount", lp_triggPlayer, FixedToString(23.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolThirdBounce", "Amount", lp_triggPlayer, FixedToString(23.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFourthBounce", "Amount", lp_triggPlayer, FixedToString(23.0, c_fixedPrecisionAny));
-        }
-        else if ((gv_talentLevel[3][lp_triggPlayer] == 1)) {
-            CatalogFieldValueSet(c_gameCatalogWeapon, "P38ScytheGuassPistol", "Range", lp_triggPlayer, FixedToString(12.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", lp_triggPlayer, FixedToString(52.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFirstBounce", "Amount", lp_triggPlayer, FixedToString(26.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolSecondBounce", "Amount", lp_triggPlayer, FixedToString(26.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolThirdBounce", "Amount", lp_triggPlayer, FixedToString(26.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFourthBounce", "Amount", lp_triggPlayer, FixedToString(26.0, c_fixedPrecisionAny));
-        }
-        else if ((gv_talentLevel[3][lp_triggPlayer] == 2)) {
-            CatalogFieldValueSet(c_gameCatalogWeapon, "P38ScytheGuassPistol", "Range", lp_triggPlayer, FixedToString(15.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P38ScytheGuassPistol", "Amount", lp_triggPlayer, FixedToString(58.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFirstBounce", "Amount", lp_triggPlayer, FixedToString(29.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolSecondBounce", "Amount", lp_triggPlayer, FixedToString(29.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolThirdBounce", "Amount", lp_triggPlayer, FixedToString(29.0, c_fixedPrecisionAny));
-            CatalogFieldValueSet(c_gameCatalogEffect, "P45GaussPistolFourthBounce", "Amount", lp_triggPlayer, FixedToString(29.0, c_fixedPrecisionAny));
-        }
         gf_StatsModDamage(gv_statsModProperties[2][lp_triggPlayer], lp_triggPlayer);
         gf_StatsModRange(gv_statsModProperties[1][lp_triggPlayer], lp_triggPlayer);
     }
