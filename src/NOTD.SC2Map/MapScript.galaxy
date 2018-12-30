@@ -1905,6 +1905,7 @@ trigger gt_OM2aOgilvyFound;
 trigger gt_OM2bIvanFound;
 trigger gt_OM3ArmoryTurrets;
 trigger gt_OM4ScrapyardSalvageInit;
+trigger gt_OM4ScrapyardSalvageStart;
 trigger gt_OM4ScrapyardSalvageCycle;
 trigger gt_OM4ChemicalSealComplete;
 trigger gt_OM5RamirezKilled;
@@ -11714,6 +11715,12 @@ void gf_RegisterMarineWithEvents (unit lp_marine) {
     TriggerAddEventUnitRegion(gt_OM3ArmoryTurrets, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(186), false);
     TriggerAddEventUnitRegion(gt_OM3ArmoryTurrets, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(187), true);
     TriggerAddEventUnitRegion(gt_OM3ArmoryTurrets, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(187), false);
+    TriggerAddEventUnitRegion(gt_OM4ScrapyardSalvageStart, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(188), true);
+    TriggerAddEventUnitRegion(gt_OM4ScrapyardSalvageStart, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(188), false);
+    TriggerAddEventUnitRegion(gt_OM4ScrapyardSalvageStart, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(189), true);
+    TriggerAddEventUnitRegion(gt_OM4ScrapyardSalvageStart, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(189), false);
+    TriggerAddEventUnitRegion(gt_OM4ScrapyardSalvageStart, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(190), true);
+    TriggerAddEventUnitRegion(gt_OM4ScrapyardSalvageStart, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(190), false);
     TriggerAddEventUnitRegion(gt_OM5RamirezsTaunts, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(197), true);
     TriggerAddEventUnitRegion(gt_OM8EnterBridgeTerminal, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(207), true);
     TriggerAddEventUnitRegion(gt_OM11Delta2, UnitRefFromUnit(lib09BE6BA8_gf_ReturnUnit(lp_marine)), RegionFromId(229), true);
@@ -19390,15 +19397,6 @@ void gt_OM3ArmoryTurrets_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_OM4ScrapyardSalvageInit_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
-    const int auto8E5D9675_n = 60;
-    int auto8E5D9675_i;
-    int auto74E16195_n;
-    int auto74E16195_i;
-    int auto38DA8E45_n;
-    int auto38DA8E45_i;
-    int auto5048CD39_n;
-    int auto5048CD39_i;
-
     // Actions
     if (!runActions) {
         return true;
@@ -19426,63 +19424,7 @@ bool gt_OM4ScrapyardSalvageInit_Func (bool testConds, bool runActions) {
         gv_oMChemicalLeakIndicators[3] = libNtve_gf_ActorLastCreated();
     }
 
-    while (!(((libNtve_gf_UnitInRegion(gv_marineHero[1], RegionFromId(189)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[2], RegionFromId(189)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[3], RegionFromId(189)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[4], RegionFromId(189)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[5], RegionFromId(189)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[6], RegionFromId(189)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[7], RegionFromId(189)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[8], RegionFromId(189)) == true)) && ((libNtve_gf_UnitInRegion(gv_marineHero[1], RegionFromId(190)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[2], RegionFromId(190)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[3], RegionFromId(190)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[4], RegionFromId(190)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[5], RegionFromId(190)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[6], RegionFromId(190)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[7], RegionFromId(190)) == true) || (libNtve_gf_UnitInRegion(gv_marineHero[8], RegionFromId(190)) == true)) && (DistanceBetweenPoints(libNtve_gf_CenterOfUnitGroup(gv_marines), RegionGetCenter(RegionFromId(29))) < 10.0) && (gv_alivePlayers > 1) && (gv_gameOver == false))) {
-        Wait(2.0, c_timeReal);
-    }
-    gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/4928D541"));
-    gv_oMCount2 = 0;
-    gv_scrapyardSpawn[1] = RegionFromId(191);
-    gv_scrapyardSpawn[2] = RegionFromId(29);
-    gv_scrapyardSpawn[3] = RegionFromId(64);
-    gv_scrapyardSpawn[4] = RegionFromId(83);
-    gv_scrapyardSpawn[5] = RegionFromId(154);
-    gv_scrapyardSpawn[6] = RegionFromId(77);
-    gv_scrapyardSpawn[7] = RegionFromId(44);
-    libNtve_gf_DisplayBossBar(8, "Assets\\Textures\\btn-tips-lab.dds", StringExternal("Param/Value/AF36E079"), 500, PlayerGroupActive());
-    libNtve_gf_SetBossBarCurrentValue(8, 0, true);
-    libNtve_gf_SetBossBarRace(8, libNtve_ge_BossBarRace_Terran, true);
-    TriggerEnable(gt_OM4ScrapyardSalvageCycle, true);
-    Wait(7.0, c_timeGame);
-    gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/31C1EC9E"));
-    for (auto8E5D9675_i = 1; auto8E5D9675_i <= auto8E5D9675_n; auto8E5D9675_i += 1) {
-        Wait(RandomFixed(1.0, 17.0), c_timeReal);
-        if ((gv_oMScrapyardComplete == false) && (gv_gameOver == false)) {
-            if ((RandomInt(0, 3) == 1)) {
-                auto74E16195_n = gv_spawnFactor;
-                for (auto74E16195_i = 1; auto74E16195_i <= auto74E16195_n; auto74E16195_i += 1) {
-                    UnitCreate(1, "UltraliskBurrowed", 0, 14, RegionRandomPoint(gv_scrapyardSpawn[RandomInt(1, 7)]), libNtve_gf_RandomAngle());
-                    UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowUltraliskUp", 0)), c_orderQueueReplace);
-                    UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-                    if ((gv_noNewbie == true)) {
-                        UnitBehaviorAdd(UnitLastCreated(), "Rampage", UnitLastCreated(), 1);
-                    }
-
-                    Wait(0.1, c_timeGame);
-                }
-            }
-            else if ((RandomInt(0, 3) == 1) && (gv_nightmare == true)) {
-                auto38DA8E45_n = gv_spawnFactor;
-                for (auto38DA8E45_i = 1; auto38DA8E45_i <= auto38DA8E45_n; auto38DA8E45_i += 1) {
-                    UnitCreate(1, "Devourer2", 0, 14, RegionRandomPoint(gv_scrapyardSpawn[RandomInt(1, 7)]), libNtve_gf_RandomAngle());
-                    UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowDevourer", 0)), c_orderQueueReplace);
-                    UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-                    Wait(0.1, c_timeGame);
-                }
-            }
-            else if (true) {
-                auto5048CD39_n = gv_spawnFactor;
-                for (auto5048CD39_i = 1; auto5048CD39_i <= auto5048CD39_n; auto5048CD39_i += 1) {
-                    UnitCreate(1, "RoachBurrowed", 0, 14, RegionRandomPoint(gv_scrapyardSpawn[RandomInt(1, 7)]), libNtve_gf_RandomAngle());
-                    UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowRoachUp", 0)), c_orderQueueReplace);
-                    UnitGroupAdd(gv_zombieWave, UnitLastCreated());
-                    Wait(0.1, c_timeGame);
-                }
-            }
-        }
-        else {
-            break;
-        }
-    }
+    TriggerEnable(gt_OM4ScrapyardSalvageStart, true);
     return true;
 }
 
@@ -19490,6 +19432,105 @@ bool gt_OM4ScrapyardSalvageInit_Func (bool testConds, bool runActions) {
 void gt_OM4ScrapyardSalvageInit_Init () {
     gt_OM4ScrapyardSalvageInit = TriggerCreate("gt_OM4ScrapyardSalvageInit_Func");
     TriggerEnable(gt_OM4ScrapyardSalvageInit, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: OM4ScrapyardSalvageStart
+//--------------------------------------------------------------------------------------------------
+bool gt_OM4ScrapyardSalvageStart_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_hexesHeld;
+
+    // Automatic Variable Declarations
+    const int autoA9BB86BB_n = 60;
+    int autoA9BB86BB_i;
+    int autoC537C152_n;
+    int autoC537C152_i;
+    int autoB96A22D2_n;
+    int autoB96A22D2_i;
+    int auto7BC908AF_n;
+    int auto7BC908AF_i;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((UnitGroupCount(UnitGroupFilterRegion(gv_marines, RegionFromId(188), 0), c_unitCountAlive) >= 1)) {
+        lv_hexesHeld += 1;
+    }
+    if ((UnitGroupCount(UnitGroupFilterRegion(gv_marines, RegionFromId(189), 0), c_unitCountAlive) >= 1)) {
+        lv_hexesHeld += 1;
+    }
+    if ((UnitGroupCount(UnitGroupFilterRegion(gv_marines, RegionFromId(190), 0), c_unitCountAlive) >= 1)) {
+        lv_hexesHeld += 1;
+    }
+    if ((lv_hexesHeld >= 2) && (DistanceBetweenPoints(libNtve_gf_CenterOfUnitGroup(gv_marines), RegionGetCenter(RegionFromId(29))) < 25.0) && (gv_alivePlayers > 1) && (gv_gameOver == false)) {
+        TriggerEnable(TriggerGetCurrent(), false);
+        gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/67A06AF8"));
+        gv_oMCount2 = 0;
+        gv_scrapyardSpawn[1] = RegionFromId(191);
+        gv_scrapyardSpawn[2] = RegionFromId(29);
+        gv_scrapyardSpawn[3] = RegionFromId(64);
+        gv_scrapyardSpawn[4] = RegionFromId(83);
+        gv_scrapyardSpawn[5] = RegionFromId(154);
+        gv_scrapyardSpawn[6] = RegionFromId(77);
+        gv_scrapyardSpawn[7] = RegionFromId(44);
+        libNtve_gf_DisplayBossBar(8, "Assets\\Textures\\btn-tips-lab.dds", StringExternal("Param/Value/7F9D1519"), 500, PlayerGroupActive());
+        libNtve_gf_SetBossBarCurrentValue(8, 0, true);
+        libNtve_gf_SetBossBarRace(8, libNtve_ge_BossBarRace_Terran, true);
+        TriggerEnable(gt_OM4ScrapyardSalvageCycle, true);
+        Wait(7.0, c_timeGame);
+        gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/357DDAB1"));
+        for (autoA9BB86BB_i = 1; autoA9BB86BB_i <= autoA9BB86BB_n; autoA9BB86BB_i += 1) {
+            Wait(RandomFixed(1.0, 17.0), c_timeReal);
+            if ((gv_oMScrapyardComplete == false) && (gv_gameOver == false)) {
+                if ((RandomInt(0, 3) == 1)) {
+                    autoC537C152_n = gv_spawnFactor;
+                    for (autoC537C152_i = 1; autoC537C152_i <= autoC537C152_n; autoC537C152_i += 1) {
+                        UnitCreate(1, "UltraliskBurrowed", 0, 14, RegionRandomPoint(gv_scrapyardSpawn[RandomInt(1, 7)]), libNtve_gf_RandomAngle());
+                        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowUltraliskUp", 0)), c_orderQueueReplace);
+                        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
+                        if ((gv_noNewbie == true)) {
+                            UnitBehaviorAdd(UnitLastCreated(), "Rampage", UnitLastCreated(), 1);
+                        }
+
+                        Wait(0.1, c_timeGame);
+                    }
+                }
+                else if ((RandomInt(0, 3) == 1) && (gv_nightmare == true)) {
+                    autoB96A22D2_n = gv_spawnFactor;
+                    for (autoB96A22D2_i = 1; autoB96A22D2_i <= autoB96A22D2_n; autoB96A22D2_i += 1) {
+                        UnitCreate(1, "Devourer2", 0, 14, RegionRandomPoint(gv_scrapyardSpawn[RandomInt(1, 7)]), libNtve_gf_RandomAngle());
+                        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("UnburrowDevourer", 0)), c_orderQueueReplace);
+                        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
+                        Wait(0.1, c_timeGame);
+                    }
+                }
+                else if (true) {
+                    auto7BC908AF_n = gv_spawnFactor;
+                    for (auto7BC908AF_i = 1; auto7BC908AF_i <= auto7BC908AF_n; auto7BC908AF_i += 1) {
+                        UnitCreate(1, "RoachBurrowed", 0, 14, RegionRandomPoint(gv_scrapyardSpawn[RandomInt(1, 7)]), libNtve_gf_RandomAngle());
+                        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("BurrowRoachUp", 0)), c_orderQueueReplace);
+                        UnitGroupAdd(gv_zombieWave, UnitLastCreated());
+                        Wait(0.1, c_timeGame);
+                    }
+                }
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_OM4ScrapyardSalvageStart_Init () {
+    gt_OM4ScrapyardSalvageStart = TriggerCreate("gt_OM4ScrapyardSalvageStart_Func");
+    TriggerEnable(gt_OM4ScrapyardSalvageStart, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -42017,6 +42058,7 @@ void InitTriggers () {
     gt_OM2bIvanFound_Init();
     gt_OM3ArmoryTurrets_Init();
     gt_OM4ScrapyardSalvageInit_Init();
+    gt_OM4ScrapyardSalvageStart_Init();
     gt_OM4ScrapyardSalvageCycle_Init();
     gt_OM4ChemicalSealComplete_Init();
     gt_OM5RamirezKilled_Init();
