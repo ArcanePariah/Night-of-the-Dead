@@ -2782,6 +2782,7 @@ Variable/Name/E89A0DEF=Data Damage Name - 3
 Variable/Name/E8B43992=Barrage Time Interval
 Variable/Name/E8BFA81D=Scroll Button Stats
 Variable/Name/E938435C=Dr Bergmann Capture Zone
+Variable/Name/E958C72F=fieldNexusAliveTemp
 Variable/Name/E97FEF77=Dying Spot
 Variable/Name/EA44BC0F=localLoop
 Variable/Name/EA73954E=Stats - Player Stat Label
