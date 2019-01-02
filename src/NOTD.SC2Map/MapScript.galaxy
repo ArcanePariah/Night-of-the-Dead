@@ -6977,7 +6977,7 @@ bool auto_gf_MineBossSeth_TriggerFunc (bool testConds, bool runActions) {
     libNtve_gf_PauseUnit(gv_zeus, false);
     libNtve_gf_MakeUnitInvulnerable(gv_zeus, false);
     gv_currentBoss = "Seth";
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_zeus, ge_Ping_Disabled);
+    gf_StartBossFight(gv_zeus, ge_Ping_Disabled);
     TriggerEnable(gt_SethReinforcements, true);
     for (autoFCA5C201_i = 1; autoFCA5C201_i <= autoFCA5C201_n; autoFCA5C201_i += 1) {
         if ((UnitGetPropertyFixed(gv_zeus, c_unitPropLife, c_unitPropCurrent) < 10.0)) {
@@ -6985,7 +6985,7 @@ bool auto_gf_MineBossSeth_TriggerFunc (bool testConds, bool runActions) {
         }
 
         if ((UnitIsAlive(gv_zeus) == false)) {
-            libNtve_gf_ShowHideBossBar(false, 1);
+            gf_EndBossFight();
             TriggerEnable(gt_SethReinforcements, false);
             auto1241AC5B_g = gv_marines;
             auto1241AC5B_u = UnitGroupCount(auto1241AC5B_g, c_unitCountAll);
@@ -23563,7 +23563,7 @@ bool gt_Boss2Spawn_Func (bool testConds, bool runActions) {
     SoundPlay(SoundLink("UI_TerranKlaxonAlert", -1), PlayerGroupActive(), 80.0, 0.0);
     TriggerEnable(gt_Boss2Killed, true);
     TriggerEnable(gt_Boss2AI, true);
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_erebos1, ge_Ping_Enabled);
+    gf_StartBossFight(gv_erebos1, ge_Ping_Enabled);
     gv_performanceTimer = 0;
     SoundtrackStop(PlayerGroupActive(), c_soundtrackCategoryMusic, true);
     SoundtrackPlay(PlayerGroupActive(), c_soundtrackCategoryMusic, "Music_EndCreditsG", c_soundtrackCueAny, c_soundtrackIndexAny, false);
@@ -23989,7 +23989,7 @@ bool gt_Boss2Killed_Func (bool testConds, bool runActions) {
     }
     libNtve_gf_CreateExplosionAtPoint(libNtve_ge_ExplosionSize_Large, libNtve_ge_ExplosionType_Zerg, UnitGetPosition(gv_erebos1));
     gf_UnifiedAwards(3, libNtve_gf_DifficultyValueInt(375, 250, 250, 0), libNtve_gf_DifficultyValueInt(15, 15, 30, 0), 0, 0);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     gf_MarineSpeechNOTD(gv_sgtStallans, StringExternal("Param/Value/D12FB155"));
     UnitSetState(gv_erebos1, c_unitStateInvulnerable, true);
     UnitSetState(gv_erebos1, c_unitStateTargetable, false);
@@ -24098,10 +24098,11 @@ bool gt_Boss3SpawnMenoetes_Func (bool testConds, bool runActions) {
     gv_currentBoss = "Menoetes";
     UnitCreate(1, "Menoetes", 0, 14, RegionRandomPoint(gv_reinforcementSpawn[RandomInt(1, 6)]), libNtve_gf_RandomAngle());
     gv_menoestes = UnitLastCreated();
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_menoestes, ge_Ping_Enabled);
+    PingCreate(PlayerGroupActive(), "PingBoss", UnitGetPosition(gv_menoestes), UserDataGetColor("BossData", gv_currentBoss, "Ping Color", 1), UserDataGetFixed("BossData", gv_currentBoss, "Ping Duration", 1));
+    PingSetUnit(PingLastCreated(), gv_menoestes);
+    gv_prowlerPing = PingLastCreated();
     libNtve_gf_AICast(gv_menoestes, OrderTargetingPoint(AbilityCommand("move", 1), RegionRandomPoint(RegionPlayableMap())));
     gf_MenoEvasion(15);
-    gv_prowlerPing = PingLastCreated();
     gf_StoryMessageNOTD(StringExternal("Param/Value/1BA21C68"));
     auto8309DC0E_var = gv_indexBaseValue;
     for ( ; auto8309DC0E_var <= auto8309DC0E_ae; auto8309DC0E_var += 1 ) {
@@ -24834,7 +24835,7 @@ bool gt_Chapter2ErebosAI_Func (bool testConds, bool runActions) {
     gf_TipNOTD(10000, StringExternal("Param/Value/89D6CBC2"));
     Wait(2.0, c_timeReal);
     SoundPlay(SoundLink("TZeratul02HybridProtoss00056", -1), PlayerGroupActive(), 100.0, 0.0);
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_erebos2, ge_Ping_Enabled);
+    gf_StartBossFight(gv_erebos2, ge_Ping_Enabled);
     Wait(6.0, c_timeReal);
     while ((UnitIsAlive(gv_erebos2) == true) && (gv_gameOver == false)) {
         if ((RandomInt(0, 3) == 1)) {
@@ -24947,7 +24948,7 @@ bool gt_Chapter2ErebosKilled_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     TriggerEnable(gt_Chapter2ErebosHPLifesteal, false);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     gf_UnifiedAwards(2, 350.0, libNtve_gf_DifficultyValueInt(25, 25, 50, 0), 0, 0);
     SoundPlay(SoundLink("TZeratul02HybridProtoss00026", -1), PlayerGroupActive(), 100.0, 0.0);
     return true;
@@ -26541,7 +26542,7 @@ bool gt_Chapter3QueenEngaged_Func (bool testConds, bool runActions) {
     TriggerEnable(TriggerGetCurrent(), false);
     SoundtrackStop(PlayerGroupActive(), c_soundtrackCategoryMusic, false);
     SoundtrackPlay(PlayerGroupActive(), c_soundtrackCategoryMusic, "Music_QueenBattle", c_soundtrackCueAny, c_soundtrackIndexAny, true);
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_finalBoss, ge_Ping_Enabled);
+    gf_StartBossFight(gv_finalBoss, ge_Ping_Enabled);
     TriggerEnable(gt_QueenChaseSequence, true);
     gf_QueenAI();
     TriggerEnable(gt_QueenShriek67HP, true);
@@ -27337,7 +27338,7 @@ bool gt_QueenKilled_Func (bool testConds, bool runActions) {
     gv_gameVictoryTime = TimerGetElapsed(gv_gameTime);
     SoundPlay(SoundLink("Queen_SpawnLarvaLaunch", -1), PlayerGroupAll(), 100.0, 0.0);
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     PingDestroy(gv_queenBossPing);
     while ((lv_localIntA < lv_localSpawnInterations)) {
         Wait(0.2, c_timeGame);
