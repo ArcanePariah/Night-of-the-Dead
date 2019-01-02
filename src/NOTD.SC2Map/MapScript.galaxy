@@ -28497,7 +28497,7 @@ bool gt_ACDemeterSpawn_Func (bool testConds, bool runActions) {
         UnitBehaviorAdd(gv_boss, "Frenzy3", gv_boss, 1);
     }
     UnitSetTeamColorIndex(gv_boss, 7);
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_boss, ge_Ping_Enabled);
+    gf_StartBossFight(gv_boss, ge_Ping_Enabled);
     TriggerEnable(gt_DemeterKilled, true);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/B41BEB9B"));
     gf_TipNOTD(5000, StringExternal("Param/Value/4876E9AF"));
@@ -28572,7 +28572,7 @@ bool gt_DemeterKilled_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     gv_wave = 4;
-    gf_BossAfterAction();
+    gf_EndBossFight();
     gf_UnifiedAwards(3, 275.0, libNtve_gf_DifficultyValueInt(0, 30, 50, 0), 0, 1);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/8859CAF7"));
     Wait(2.0, c_timeReal);
@@ -29152,7 +29152,7 @@ bool gt_ACBoss2SpawnCronus_Func (bool testConds, bool runActions) {
     ObjectiveDestroy(gv_primaryObjective);
     TriggerEnable(gt_ACCronusKilled, true);
     gv_currentBoss = "Cronus";
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_cronus, ge_Ping_Enabled);
+    gf_StartBossFight(gv_cronus, ge_Ping_Enabled);
     Wait(3.9, c_timeReal);
     libNtve_gf_ChangeUnitDamage(gv_cronus, libNtve_ge_UnitDamageTakenDealt_Damage_Take, libNtve_ge_UnitDamageChangeOption_Full);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/586C0FCE"));
@@ -29223,7 +29223,7 @@ bool gt_ACCronusKilled_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     gf_UnifiedAwards(7, 300.0, libNtve_gf_DifficultyValueInt(0, 50, 150, 0), 0, 1);
     UnitIssueOrder(gv_drTanaka, Order(AbilityCommand("Sprint", 0)), c_orderQueueReplace);
     UnitIssueOrder(gv_drTanaka, OrderTargetingPoint(AbilityCommand("move", 0), RegionRandomPoint(RegionFromId(168))), c_orderQueueReplace);
@@ -30093,7 +30093,7 @@ bool gt_ACBoss3SpawnCerberus_Func (bool testConds, bool runActions) {
         UnitSetPropertyFixed(gv_cerberus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_cerberus, c_unitPropLifeMax, c_unitPropCurrent) * 0.4));
     }
     TriggerEnable(gt_ACBoss3Killed, true);
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_cerberus, ge_Ping_Disabled);
+    gf_StartBossFight(gv_cerberus, ge_Ping_Disabled);
     Wait(12.0, c_timeReal);
     SoundPlay(SoundLink("TScene11Marine005", -1), PlayerGroupAll(), 100.0, 0.0);
     Wait(25.0, c_timeGame);
@@ -30145,7 +30145,7 @@ bool gt_ACBoss3Killed_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     gv_wave = 11;
     gf_UnifiedAwards(8, 300.0, libNtve_gf_DifficultyValueInt(0, 50, 100, 0), 0, 2);
     gv_aCSpawnRespite = false;
@@ -31111,7 +31111,7 @@ bool gt_ACIVAXSpawn_Func (bool testConds, bool runActions) {
     gv_bossFight = true;
     Wait(5.0, c_timeReal);
     gf_RadioNOTD(gv_characterIVAX, StringExternal("Param/Value/30A09D44"));
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_iVAX, ge_Ping_Disabled);
+    gf_StartBossFight(gv_iVAX, ge_Ping_Disabled);
     gf_TipNOTD(5000, StringExternal("Param/Value/45AD6BBF"));
     auto50353430_g = UnitGroup("Egg", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     auto50353430_u = UnitGroupCount(auto50353430_g, c_unitCountAll);
@@ -31324,7 +31324,7 @@ bool gt_ACIVAXKilled_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_ACIVAXCloak, false);
     TriggerEnable(gt_ACIVAXCloakedMovement, false);
     TriggerEnable(gt_ACIVAXStunImmunity, false);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     libNtve_gf_SetAlliance(13, 14, libNtve_ge_AllianceSetting_AllyWithSharedVision);
     gv_aCSpawnRespite = false;
     if ((RandomInt(0, 1) == 1)) {
@@ -31578,7 +31578,7 @@ bool gt_ACBoss4SpawnPerses_Func (bool testConds, bool runActions) {
     else if ((gv_alivePlayers < 3)) {
         UnitSetPropertyFixed(gv_perses, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_perses, c_unitPropLifeMax, c_unitPropCurrent) * 0.35));
     }
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_perses, ge_Ping_Disabled);
+    gf_StartBossFight(gv_perses, ge_Ping_Disabled);
     auto322FF8D1_n = (gv_spawnFactor * 5);
     for (auto322FF8D1_i = 1; auto322FF8D1_i <= auto322FF8D1_n; auto322FF8D1_i += 1) {
         Wait(RandomFixed(3.0, 20.0), c_timeGame);
@@ -31732,7 +31732,7 @@ bool gt_ACBoss4Killed_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_ACBoss4AI, false);
     TriggerEnable(gt_ACBoss4PersesAI, false);
     TriggerEnable(gt_ACBoss4AI, false);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     gv_gameVictoryTime = TimerGetElapsed(gv_gameTime);
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
     gf_UnifiedAwards(18, 350.0, libNtve_gf_DifficultyValueInt(0, 100, 200, 0), 0, 1);
