@@ -5401,7 +5401,6 @@ Param/Value/F681A3C4=<s val="GlueButton"><c val="F4D72B">Humans, I am Ekvolbolli
 Param/Value/F6BC82F1=What's happening to me?
 Param/Value/F6D31C38=<s val="InfoPaneHeroRank">
 Param/Value/F70ACB5B=We can take either one of these entrances into the lab.
-Param/Value/F77C7E37=Guardian of the Beta
 Param/Value/F79FB8D1=</s>
 Param/Value/F7A04BFC=+3 XP for Mission Bonus. 50 civilians rescued.
 Param/Value/F7AEF20F=<s val="BriefingHanText">Infestation Level: 89% (Probable)</s>
@@ -5922,6 +5921,7 @@ UserData/BossData/Eos_Name=Eos the Zombie Queen
 UserData/BossData/Erebos 1_Name=Erebos
 UserData/BossData/Erebos 2_Name=Erebos
 UserData/BossData/Erebos_Name=Erebos
+UserData/BossData/Gotb_Name=Guardian of the Beta
 UserData/BossData/Hades Phase 1_Name=Hades
 UserData/BossData/Hades Phase 2_Name=Hades
 UserData/BossData/IVAX_Name=IVAX

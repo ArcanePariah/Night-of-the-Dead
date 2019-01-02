@@ -37985,7 +37985,6 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
     gf_SurvivalCreepDeposit();
     gf_CreateItemNOTD("Magazine", 5);
     gf_MarineSpeechNOTD(UnitGroupRandomUnit(gv_marines, c_unitCountAlive), StringExternal("Param/Value/39018B47"));
-    libNtve_gf_ShowHideBossBar(false, 1);
     Wait(5.0, c_timeReal);
     UnitCreate(1, "GuardianoftheBeta", 0, 13, RegionRandomPoint(gv_reinforcementSpawn[RandomInt(2, 6)]), libNtve_gf_RandomAngle());
     UnitGroupAdd(gv_zombieWave, UnitLastCreated());
@@ -37995,9 +37994,7 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
     }
 
     gv_boss = UnitLastCreated();
-    libNtve_gf_DisplayBossBar(1, "Assets\\Textures\\zealotportrait_static.dds", StringExternal("Param/Value/F77C7E37"), 100, PlayerGroupActive());
-    libNtve_gf_SetBossBarBoss(1, gv_boss, true);
-    libNtve_gf_SetBossBarRace(1, libNtve_ge_BossBarRace_Terran, true);
+    gf_StartBossFight(gv_boss, ge_Ping_Disabled);
     SoundPlay(SoundLink("TZeratul04DarkVoice00020", -1), PlayerGroupAll(), 100.0, 0.0);
     auto8681F8A1_var = gv_indexBaseValue;
     for ( ; auto8681F8A1_var <= auto8681F8A1_ae; auto8681F8A1_var += 1 ) {
@@ -38006,7 +38003,7 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
     while (!((UnitIsAlive(gv_boss) == false))) {
         Wait(2.0, c_timeGame);
     }
-    libNtve_gf_ShowHideBossBar(false, 1);
+    gf_EndBossFight();
     if ((gv_nightmare == true)) {
         gf_UnifiedAwards(120, 0.0, libNtve_gf_DifficultyValueInt(0, 200, 400, 0), 1, 10);
     }

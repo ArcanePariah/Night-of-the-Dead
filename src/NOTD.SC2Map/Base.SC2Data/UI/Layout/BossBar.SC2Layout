@@ -14,7 +14,7 @@
 		</Frame>
 		<Frame type = "Image" name = "BossNameBackgroundImage">
 			<Height val = "44" />
-			<Width val = "232"/>
+			<Width val = "250"/>
 			<Anchor side = "Left" relative = "$parent" pos = "Min" offset = "58"/>
 			<Anchor side = "Top" relative = "$parent" pos = "Min" offset = "0"/>
 			<Texture val = "UI/ui_classselection_nameborder.dds" />
