@@ -1654,8 +1654,6 @@ void gf_MineBossZeusLeto ();
 void gf_StartBossFight (unit lp_bossUnit, int lp_usePing);
 void gf_EndBossFight ();
 void gf_SetBossforBossBar (unit lp_boss);
-void gf_BossBarCreation (int lp_race, unit lp_unit, int lp_usePing);
-void gf_BossAfterAction ();
 void gf_ECEnvironmentalChanges ();
 void gf_ECShopXPReq ();
 void gf_ECC1ItemSpawn ();
@@ -7228,45 +7226,6 @@ void gf_SetBossforBossBar (unit lp_boss) {
     // Implementation
     libNtve_gf_SetDialogItemUnit(gv_bossBar.lv_bossBarStatusFrame, lp_boss, PlayerGroupAll());
     libNtve_gf_SetDialogItemText(gv_bossBar.lv_bossBarNameLabel, UnitGetName(lp_boss), PlayerGroupAll());
-}
-
-void gf_BossBarCreation (int lp_race, unit lp_unit, int lp_usePing) {
-    // Variable Declarations
-    string lv_portrait;
-    text lv_name;
-    string lv_pngModel;
-    color lv_pingColor;
-    fixed lv_pingDuration;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_portrait = UserDataGetImagePath("BossData", gv_currentBoss, "Portrait", 1);
-    lv_name = UserDataGetText("BossData", gv_currentBoss, "Name", 1);
-    lv_pngModel = UserDataGetModel("BossData", gv_currentBoss, "Minimap Ping", 1);
-    lv_pingColor = UserDataGetColor("BossData", gv_currentBoss, "Ping Color", 1);
-    lv_pingDuration = UserDataGetFixed("BossData", gv_currentBoss, "Ping Duration", 1);
-
-    // Implementation
-    if ((UserDataGetImagePath("BossData", gv_currentBoss, "Portrait", 1) != null)) {
-        libNtve_gf_DisplayBossBar(1, lv_portrait, lv_name, 100, PlayerGroupActive());
-        libNtve_gf_SetBossBarBoss(1, lp_unit, true);
-        libNtve_gf_SetBossBarRace(1, lp_race, true);
-    }
-
-    if ((lp_usePing == ge_Ping_Enabled)) {
-        PingCreate(PlayerGroupActive(), "PingBoss", UnitGetPosition(lp_unit), lv_pingColor, lv_pingDuration);
-        PingSetUnit(PingLastCreated(), lp_unit);
-        gv_bossPing = PingLastCreated();
-    }
-
-}
-
-void gf_BossAfterAction () {
-    // Automatic Variable Declarations
-    // Implementation
-    libNtve_gf_ShowHideBossBar(false, 1);
-    PingDestroy(gv_bossPing);
-    gv_bossFight = false;
 }
 
 trigger auto_gf_ECEnvironmentalChanges_Trigger = null;
@@ -18141,8 +18100,6 @@ void gt_GameOverCheck_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_NOTDCreditsRoll_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
-    const int autoFC95E442_ae = 9;
-    int autoFC95E442_var;
     playergroup autoEC0396B3_g;
     int autoEC0396B3_var;
     playergroup autoE67F764E_g;
@@ -18155,10 +18112,7 @@ bool gt_NOTDCreditsRoll_Func (bool testConds, bool runActions) {
 
     UnitPauseAll(true);
     libNtve_gf_HideGameUI(false, PlayerGroupAll());
-    autoFC95E442_var = 1;
-    for ( ; autoFC95E442_var <= autoFC95E442_ae; autoFC95E442_var += 1 ) {
-        libNtve_gf_ShowHideBossBar(false, autoFC95E442_var);
-    }
+    gf_EndBossFight();
     CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, false);
     SoundtrackStop(PlayerGroupActive(), c_soundtrackCategoryMusic, true);
     SoundtrackPlay(PlayerGroupActive(), c_soundtrackCategoryMusic, "NOTDCredits", c_soundtrackCueAny, c_soundtrackIndexAny, true);
