@@ -24829,7 +24829,7 @@ bool gt_Chapter2ErebosAI_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     gv_bossFight = true;
-    gv_currentBoss = "Erebos 1";
+    gv_currentBoss = "Erebos 2";
     gf_RadioNOTD(PlayerName(UnitGetOwner(EventUnitDamageSourceUnit())), StringExternal("Param/Value/4D3249B2"));
     UnitSetTeamColorIndex(gv_erebos2, 0);
     gf_TipNOTD(10000, StringExternal("Param/Value/89D6CBC2"));
