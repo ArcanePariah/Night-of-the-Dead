@@ -32653,7 +32653,7 @@ bool gt_STW2EnterArmoryDeimos_Func (bool testConds, bool runActions) {
     }
     gv_deimos = UnitLastCreated();
     gv_currentBoss = "Deimos";
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_deimos, ge_Ping_Enabled);
+    gf_StartBossFight(gv_deimos, ge_Ping_Enabled);
     gv_queenBossPing = PingLastCreated();
     TriggerEnable(gt_STBoss1DeimosAttackShock, true);
     TriggerEnable(gt_STBoss1DeimosKilled, true);
@@ -33077,7 +33077,7 @@ bool gt_STBoss1DeimosKilled_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     TriggerEnable(gt_STBoss1DeimosAttackShock, false);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
     gv_shengAIShutdown = true;
     Wait(1.0, c_timeGame);
@@ -33443,7 +33443,7 @@ bool gt_STBoss2SpawnNazara_Func (bool testConds, bool runActions) {
     PingSetUnit(PingLastCreated(), gv_nazara);
     gv_currentBoss = "Nazara";
     lv_nazaraPing = PingLastCreated();
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_nazara, ge_Ping_Enabled);
+    gf_StartBossFight(gv_nazara, ge_Ping_Enabled);
     TriggerEnable(gt_STBoss2Killed, true);
     TriggerEnable(gt_STBoss2Clone, true);
     TriggerExecute(gt_STBoss2AI, true, false);
@@ -33641,7 +33641,7 @@ bool gt_STBoss2Killed_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     autoF4D9147D_g = gv_nazaraImages;
     autoF4D9147D_u = UnitGroupCount(autoF4D9147D_g, c_unitCountAll);
     for (;; autoF4D9147D_u -= 1) {
@@ -34551,7 +34551,7 @@ bool gt_STW10BossSpawnApoptosis_Func (bool testConds, bool runActions) {
     else if ((gv_alivePlayers < 3)) {
         UnitSetPropertyFixed(gv_apoptosis, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_apoptosis, c_unitPropLifeMax, c_unitPropCurrent) * 0.35));
     }
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_apoptosis, ge_Ping_Enabled);
+    gf_StartBossFight(gv_apoptosis, ge_Ping_Enabled);
     TriggerEnable(gt_STW10ApoptosisAttacked, true);
     TriggerEnable(gt_STW10ApoptosisKilled, true);
     TriggerEnable(gt_STW10ApotosisBloodWave, true);
@@ -34664,7 +34664,7 @@ bool gt_STW10ApoptosisKilled_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_STW10ApoptosisAttacked, false);
     TriggerEnable(gt_STW10ApotosisBloodWave, false);
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     SoundPlay(SoundLink("Mutalisk_Pissed", -1), PlayerGroupActive(), 100.0, 0.0);
     auto6E0429ED_g = gv_marineSquad;
     auto6E0429ED_var = -1;
@@ -36115,7 +36115,7 @@ bool gt_STW14bBossSpawnAthena_Func (bool testConds, bool runActions) {
     gv_athena = UnitLastCreated();
     UnitGroupAdd(gv_zombieWave, gv_athena);
     gv_currentBoss = "Athena";
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_athena, ge_Ping_Enabled);
+    gf_StartBossFight(gv_athena, ge_Ping_Enabled);
     TriggerEnable(gt_STW14bBossKilled, true);
     auto026AA09C_n = gv_spawnFactor;
     for (auto026AA09C_i = 1; auto026AA09C_i <= auto026AA09C_n; auto026AA09C_i += 1) {
@@ -36145,7 +36145,7 @@ bool gt_STW14bBossKilled_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(TriggerGetCurrent(), false);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     gf_UnifiedAwards(7, 350.0, libNtve_gf_DifficultyValueInt(0, 50, 100, 0), 0, 2);
     TriggerExecute(gt_STW15bBioDomeThreat, true, false);
     return true;
@@ -36558,7 +36558,7 @@ bool gt_STW16bBossFightHades_Func (bool testConds, bool runActions) {
     gf_HadesSporeDrops();
     UnitGroupAdd(gv_zombieWave, gv_finalBoss);
     gv_currentBoss = "Hades Phase 1";
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_finalBoss, ge_Ping_Disabled);
+    gf_StartBossFight(gv_finalBoss, ge_Ping_Disabled);
     ObjectiveCreate(StringExternal("Param/Value/99F117F0"), StringExternal("Param/Value/40865F64"), c_objectiveStateActive, true);
     gv_primaryObjective = ObjectiveLastCreated();
     TimerStart(lv_hadesPhase1Timer, 180.0, false, c_timeGame);
@@ -36786,7 +36786,7 @@ bool gt_STW16bBossPhase1Death_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libNtve_gf_ShowHideBossBar(false, 1);
+    gf_EndBossFight();
     autoAD566BD0_g = UnitGroup("HadesTentacle", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     autoAD566BD0_u = UnitGroupCount(autoAD566BD0_g, c_unitCountAll);
     for (;; autoAD566BD0_u -= 1) {
@@ -36823,7 +36823,7 @@ bool gt_STW16bBossPhase1Death_Func (bool testConds, bool runActions) {
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/3A0BC089"));
     Wait(3.0, c_timeGame);
     gv_currentBoss = "Hades Phase 2";
-    gf_BossBarCreation(libNtve_ge_BossBarRace_Protoss, gv_finalBoss, ge_Ping_Disabled);
+    gf_StartBossFight(gv_finalBoss, ge_Ping_Disabled);
     TriggerEnable(gt_STW16bBossExecuted, true);
     if ((gv_navyCrossMode == false)) {
         gf_CreateItemLocalNOTD("Medpack", 5, RegionFromId(196));
@@ -36909,7 +36909,7 @@ bool gt_STW16bBossExecuted_Func (bool testConds, bool runActions) {
 
     TriggerEnable(TriggerGetCurrent(), false);
     TriggerStop(gt_STW16bBossBlackholePeriodic);
-    gf_BossAfterAction();
+    gf_EndBossFight();
     gv_gameVictoryTime = TimerGetElapsed(gv_gameTime);
     ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
     gf_UnifiedAwards(libNtve_gf_DifficultyValueInt(0, 80, 135, 0), 500.0, libNtve_gf_DifficultyValueInt(0, 250, 650, 0), 0, 5);
