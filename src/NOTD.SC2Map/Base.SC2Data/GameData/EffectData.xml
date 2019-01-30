@@ -5046,12 +5046,14 @@
         <WhichLocation Value="TargetPoint"/>
         <SpawnEffect value="MadSparkLevel1Apply"/>
         <SpawnUnit value="MadSparkGrenade"/>
+        <CreateFlags index="Placement" value="0"/>
     </CEffectCreateUnit>
     <CEffectCreateUnit id="MadSparkCreateUnitLevel2">
         <EditorCategories value=""/>
         <Marker Link="Effect/MadSparkCreateUnitLevel1"/>
         <WhichLocation Value="TargetPoint"/>
         <SpawnUnit value="MadSparkGrenade"/>
+        <CreateFlags index="Placement" value="0"/>
     </CEffectCreateUnit>
     <CEffectIssueOrder id="MadSparkIssueAttack">
         <EditorCategories value=""/>
