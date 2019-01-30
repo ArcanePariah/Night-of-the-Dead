@@ -31532,6 +31532,8 @@ bool gt_ACBoss4PersesAI_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     const int auto6B90193C_n = 4;
     int auto6B90193C_i;
+    const int autoB6C8D3EA_n = 20;
+    int autoB6C8D3EA_i;
     const int auto248D9BBC_ae = 8;
     int auto248D9BBC_var;
     const int autoA66F3827_n = 24;
@@ -31566,9 +31568,11 @@ bool gt_ACBoss4PersesAI_Func (bool testConds, bool runActions) {
     Wait(5.5, c_timeGame);
     gf_RadioNOTD(gv_characterGeneralKoller, StringExternal("Param/Value/C559CDD3"));
     for (auto6B90193C_i = 1; auto6B90193C_i <= auto6B90193C_n; auto6B90193C_i += 1) {
-        lv_energyFieldSpawnPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(gv_perses), 15.0));
-        while ((!((((PointGetX(lv_energyFieldSpawnPoint) >= 15) && (PointGetX(lv_energyFieldSpawnPoint) <= 241)) && ((PointGetY(lv_energyFieldSpawnPoint) >= 15) && (PointGetY(lv_energyFieldSpawnPoint) <= 241)))))) {
+        for (autoB6C8D3EA_i = 1; autoB6C8D3EA_i <= autoB6C8D3EA_n; autoB6C8D3EA_i += 1) {
             lv_energyFieldSpawnPoint = RegionRandomPoint(RegionCircle(UnitGetPosition(gv_perses), 15.0));
+            if ((PointPathingCost(UnitGetPosition(UnitGroupRandomUnit(gv_marines, c_unitCountAlive)), lv_energyFieldSpawnPoint) <= 30) && (RegionContainsPoint(RegionPlayableMap(), lv_energyFieldSpawnPoint) == true)) {
+                break;
+            }
         }
         libNtve_gf_CreateUnitsWithDefaultFacing(1, "EnergyField", 0, 10, lv_energyFieldSpawnPoint);
         UnitGroupAdd(lv_energyFieldGroup, UnitLastCreated());
