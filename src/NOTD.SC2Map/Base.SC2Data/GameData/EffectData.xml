@@ -5954,7 +5954,7 @@
     </CEffectRemoveBehavior>
     <CEffectEnumArea id="AnticipationSearch">
         <EditorCategories value=""/>
-        <SearchFilters value="-;Neutral,Enemy,Robotic,Mechanical,Structure,RawResource,HarvestableResource,Missile,Destructible,Item,UnderConstruction,Dead,Hidden"/>
+        <SearchFilters value="-;Neutral,Enemy,Mechanical,Structure,RawResource,HarvestableResource,Missile,Destructible,Item,UnderConstruction,Dead,Hidden"/>
         <AreaArray Radius="7" Effect="AnticipationApply"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
