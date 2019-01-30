@@ -26984,7 +26984,7 @@ bool gt_QueenShriek67HP_Func (bool testConds, bool runActions) {
     for (;; autoA5B468E7_u -= 1) {
         autoA5B468E7_var = UnitGroupUnitFromEnd(autoA5B468E7_g, autoA5B468E7_u);
         if (autoA5B468E7_var == null) { break; }
-        if (((UnitHasBehavior(autoA5B468E7_var, "NanoShieldLevel1") == true) || (UnitHasBehavior(autoA5B468E7_var, "NanoShieldLevel2") == true) || (UnitHasBehavior(autoA5B468E7_var, "TimetoDie") == true) || (UnitHasBehavior(autoA5B468E7_var, "Protect") == true) || (DistanceBetweenPoints(UnitGetPosition(autoA5B468E7_var), UnitGetPosition(gv_finalBoss)) >= 20.0))) {
+        if (((UnitIsAlive(gv_finalBoss) != true) || (UnitHasBehavior(autoA5B468E7_var, "NanoShieldLevel1") == true) || (UnitHasBehavior(autoA5B468E7_var, "NanoShieldLevel2") == true) || (UnitHasBehavior(autoA5B468E7_var, "TimetoDie") == true) || (UnitHasBehavior(autoA5B468E7_var, "Protect") == true) || (DistanceBetweenPoints(UnitGetPosition(autoA5B468E7_var), UnitGetPosition(gv_finalBoss)) >= 20.0))) {
         }
         else {
             UnitBehaviorAdd(autoA5B468E7_var, "Shriek", gv_finalBoss, 1);
@@ -26997,7 +26997,7 @@ bool gt_QueenShriek67HP_Func (bool testConds, bool runActions) {
     for (;; auto6DB7F64D_u -= 1) {
         auto6DB7F64D_var = UnitGroupUnitFromEnd(auto6DB7F64D_g, auto6DB7F64D_u);
         if (auto6DB7F64D_var == null) { break; }
-        if (((UnitHasBehavior(auto6DB7F64D_var, "NanoShieldLevel1") == true) || (UnitHasBehavior(auto6DB7F64D_var, "NanoShieldLevel2") == true) || (DistanceBetweenPoints(UnitGetPosition(auto6DB7F64D_var), UnitGetPosition(gv_finalBoss)) >= 20.0))) {
+        if (((UnitIsAlive(gv_finalBoss) != true) || (UnitHasBehavior(auto6DB7F64D_var, "NanoShieldLevel1") == true) || (UnitHasBehavior(auto6DB7F64D_var, "NanoShieldLevel2") == true) || (UnitHasBehavior(auto6DB7F64D_var, "Protect") == true) || (DistanceBetweenPoints(UnitGetPosition(auto6DB7F64D_var), UnitGetPosition(gv_finalBoss)) >= 20.0))) {
         }
         else {
             UnitBehaviorAdd(auto6DB7F64D_var, "Shriek", gv_finalBoss, 1);
@@ -27066,7 +27066,7 @@ bool gt_QueenShriek33HP_Func (bool testConds, bool runActions) {
     for (;; autoE77655B1_u -= 1) {
         autoE77655B1_var = UnitGroupUnitFromEnd(autoE77655B1_g, autoE77655B1_u);
         if (autoE77655B1_var == null) { break; }
-        if (((UnitHasBehavior(autoE77655B1_var, "NanoShieldLevel1") == true) || (UnitHasBehavior(autoE77655B1_var, "NanoShieldLevel2") == true) || (UnitHasBehavior(autoE77655B1_var, "TimetoDie") == true) || (UnitHasBehavior(autoE77655B1_var, "Protect") == true) || (DistanceBetweenPoints(UnitGetPosition(autoE77655B1_var), UnitGetPosition(gv_finalBoss)) >= 20.0))) {
+        if (((UnitIsAlive(gv_finalBoss) != true) || (UnitHasBehavior(autoE77655B1_var, "NanoShieldLevel1") == true) || (UnitHasBehavior(autoE77655B1_var, "NanoShieldLevel2") == true) || (UnitHasBehavior(autoE77655B1_var, "TimetoDie") == true) || (UnitHasBehavior(autoE77655B1_var, "Protect") == true) || (DistanceBetweenPoints(UnitGetPosition(autoE77655B1_var), UnitGetPosition(gv_finalBoss)) >= 20.0))) {
         }
         else {
             UnitBehaviorAdd(autoE77655B1_var, "Shriek", gv_finalBoss, 1);
@@ -27078,7 +27078,7 @@ bool gt_QueenShriek33HP_Func (bool testConds, bool runActions) {
     for (;; auto5C10BE6E_u -= 1) {
         auto5C10BE6E_var = UnitGroupUnitFromEnd(auto5C10BE6E_g, auto5C10BE6E_u);
         if (auto5C10BE6E_var == null) { break; }
-        if (((UnitHasBehavior(auto5C10BE6E_var, "NanoShieldLevel1") == true) || (UnitHasBehavior(auto5C10BE6E_var, "NanoShieldLevel2") == true) || (DistanceBetweenPoints(UnitGetPosition(auto5C10BE6E_var), UnitGetPosition(gv_finalBoss)) >= 20.0))) {
+        if (((UnitIsAlive(gv_finalBoss) != true) || (UnitHasBehavior(auto5C10BE6E_var, "NanoShieldLevel1") == true) || (UnitHasBehavior(auto5C10BE6E_var, "NanoShieldLevel2") == true) || (UnitHasBehavior(auto5C10BE6E_var, "Protect") == true) || (DistanceBetweenPoints(UnitGetPosition(auto5C10BE6E_var), UnitGetPosition(gv_finalBoss)) >= 20.0))) {
         }
         else {
             UnitBehaviorAdd(auto5C10BE6E_var, "Shriek", gv_finalBoss, 1);
