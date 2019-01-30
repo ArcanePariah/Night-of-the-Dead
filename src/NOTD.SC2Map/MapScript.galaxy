@@ -738,6 +738,9 @@ unitgroup gv_infestors;
 bool gv_infestorLock;
 bool gv_infestorAggroMode;
 int gv_outbreakCounter;
+int gv_gameResult;
+string gv_gameResultMusic;
+soundlink gv_exitButtonSound;
 int gv_victoryButton1;
 int gv_victoryButton2;
 int gv_endGameDialog1;
@@ -753,6 +756,8 @@ int gv_itemX;
 int gv_playerNameTextY;
 int[3] gv_scrollEndGameUIButtons;
 bool[9] gv_playerExitButton;
+int gv_page1EndUI;
+int gv_page2EndUI;
 int gv_legionOfMeritCivsRescued;
 bool gv_distinguishedServiceMedalFailed;
 bool gv_navyCrossFailed;
@@ -1164,6 +1169,8 @@ void InitGlobals () {
     }
     gv_infestors = UnitGroupEmpty();
     gv_outbreakCounter = 100;
+    gv_gameResult = c_gameOverVictory;
+    gv_exitButtonSound = SoundLink("EditorDefaultSound", -1);
     gv_victoryButton1 = c_invalidDialogControlId;
     gv_victoryButton2 = c_invalidDialogControlId;
     gv_endGameDialog1 = c_invalidDialogId;
@@ -1208,6 +1215,8 @@ void InitGlobals () {
     for (init_i = 0; init_i <= 2; init_i += 1) {
         gv_scrollEndGameUIButtons[init_i] = c_invalidDialogControlId;
     }
+    gv_page1EndUI = c_invalidDialogControlId;
+    gv_page2EndUI = c_invalidDialogControlId;
     for (init_i = 0; init_i <= 4; init_i += 1) {
         for (init_j = 0; init_j <= 8; init_j += 1) {
             gv_medalsAwardedImages[init_i][init_j] = "Assets\\Textures\\black.dds";
@@ -4894,6 +4903,16 @@ bool auto_gf_GameOverInit_TriggerFunc (bool testConds, bool runActions) {
     unit auto4CC7AA1B_var;
 
     // Implementation
+    if ((gv_victory == true)) {
+        gv_gameResultMusic = "VictoryMusic";
+        gv_exitButtonSound = SoundLink("UI_ScoreScreenMissionTime", -1);
+        gv_gameResult = c_gameOverVictory;
+    }
+    else {
+        gv_gameResultMusic = "Music_EndCreditsO";
+        gv_exitButtonSound = SoundLink("UI_ScreenWipe", -1);
+        gv_gameResult = c_gameOverDefeat;
+    }
     auto99D74A07_var = gv_indexBaseValue;
     for ( ; auto99D74A07_var <= auto99D74A07_ae; auto99D74A07_var += 1 ) {
         if ((gv_playerRandom[auto99D74A07_var] == true)) {
@@ -4904,13 +4923,12 @@ bool auto_gf_GameOverInit_TriggerFunc (bool testConds, bool runActions) {
         }
     }
     SoundtrackStop(PlayerGroupActive(), c_soundtrackCategoryMusic, true);
+    SoundtrackPlay(PlayerGroupActive(), c_soundtrackCategoryMusic, gv_gameResultMusic, c_soundtrackCueAny, c_soundtrackIndexAny, false);
     if ((gv_victory == true)) {
-        SoundtrackPlay(PlayerGroupActive(), c_soundtrackCategoryMusic, "VictoryMusic", c_soundtrackCueAny, c_soundtrackIndexAny, false);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/02F14065"));
         TriggerExecute(gt_VictoryBonus, true, true);
     }
     else {
-        SoundtrackPlay(PlayerGroupActive(), c_soundtrackCategoryMusic, "Music_EndCreditsO", c_soundtrackCueAny, c_soundtrackIndexAny, false);
         if ((RandomInt(0, 1) == 1)) {
             UIDisplayMessage(PlayerGroupActive(), c_messageAreaDirective, StringExternal("Param/Value/DEFC0404"));
         }
@@ -5090,19 +5108,22 @@ bool auto_gf_EndGameUINOTD_TriggerFunc (bool testConds, bool runActions) {
     DialogCreate(lv_dialogX, lv_dialogY, c_anchorCenter, 0, lv_dialogPositionY, true);
     DialogSetImageVisible(DialogLastCreated(), false);
     gv_endGameDialog1 = DialogLastCreated();
-    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypeImage, "EndGameUI/EndGameUITemplate/UIBorder");
+    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypePanel, "EndGameUI/EndGameUITemplate");
+    gv_page1EndUI = DialogControlLastCreated();
+    DialogControlHookup(gv_page1EndUI, c_triggerControlTypeImage, "UIBorder");
     libNtve_gf_SetDialogItemColor(DialogControlLastCreated(), lv_redTint, PlayerGroupAll());
-    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypePanel, "EndGameUI/ScorePageFirst");
-    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypeButton, "EndGameUI/EndGameUITemplate/ScrollButton");
+    DialogControlCreateInPanelFromTemplate(gv_page1EndUI, c_triggerControlTypePanel, "EndGameUI/ScorePageFirst");
+    DialogControlHookup(gv_page1EndUI, c_triggerControlTypeButton, "ScrollButton");
     gv_scrollEndGameUIButtons[0] = DialogControlLastCreated();
     DialogSetVisible(DialogLastCreated(), PlayerGroupActive(), true);
     DialogCreate(lv_dialogX, lv_dialogY, c_anchorCenter, 0, lv_dialogPositionY, true);
     DialogSetImageVisible(DialogLastCreated(), false);
     gv_endGameDialog2 = DialogLastCreated();
-    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypeImage, "EndGameUI/EndGameUITemplate/UIBorder");
+    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypePanel, "EndGameUI/EndGameUITemplate");
+    gv_page2EndUI = DialogControlLastCreated();
     libNtve_gf_SetDialogItemColor(DialogControlLastCreated(), lv_redTint, PlayerGroupAll());
-    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypePanel, "EndGameUI/ScorePageSecond");
-    DialogControlCreateFromTemplate(DialogLastCreated(), c_triggerControlTypeButton, "EndGameUI/EndGameUITemplate/ScrollButton");
+    DialogControlCreateInPanelFromTemplate(gv_page2EndUI, c_triggerControlTypePanel, "EndGameUI/ScorePageSecond");
+    DialogControlHookup(gv_page2EndUI, c_triggerControlTypeButton, "ScrollButton");
     gv_scrollEndGameUIButtons[1] = DialogControlLastCreated();
     auto738DBD74_var = gv_indexBaseValue;
     for ( ; auto738DBD74_var <= auto738DBD74_ae; auto738DBD74_var += 1 ) {
@@ -18005,16 +18026,9 @@ bool gt_ReturntoEarth_Func (bool testConds, bool runActions) {
         DialogSetVisible(gv_endGameDialog1, PlayerGroupSingle(EventPlayer()), false);
         DialogSetVisible(gv_endGameDialog2, PlayerGroupSingle(EventPlayer()), false);
         gf_Save(lv_playerNo, gv_bankSize);
-        if ((gv_victory == true)) {
-            SoundPlay(SoundLink("UI_ScoreScreenMissionTime", -1), PlayerGroupSingle(lv_playerNo), 100.0, 0.0);
-            Wait(2.0, c_timeReal);
-            GameOver(EventPlayer(), c_gameOverVictory, false, true);
-        }
-        else {
-            SoundPlay(SoundLink("UI_ScreenWipe", -1), PlayerGroupSingle(lv_playerNo), 100.0, 0.0);
-            Wait(2.0, c_timeReal);
-            GameOver(EventPlayer(), c_gameOverDefeat, false, true);
-        }
+        SoundPlay(gv_exitButtonSound, PlayerGroupSingle(lv_playerNo), 100.0, 0.0);
+        Wait(2.0, c_timeReal);
+        GameOver(EventPlayer(), gv_gameResult, false, true);
     }
     else if ((gv_scrollEndGameUIButtons[0] == EventDialogControl())) {
         DialogSetVisible(gv_endGameDialog1, PlayerGroupSingle(EventPlayer()), false);

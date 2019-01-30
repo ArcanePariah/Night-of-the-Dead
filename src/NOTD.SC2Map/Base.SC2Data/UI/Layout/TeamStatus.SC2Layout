@@ -74,7 +74,7 @@
 
         <Frame type="UnitStatusHealthBar" name="UnitStatusHealth">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Height val="26"/>
             <Width val="172"/>
             <BackgroundShown val="true"/>
@@ -172,13 +172,12 @@
 			
 		</Frame>
         
-		<Frame type="UnitStatusValidatorAnimElement" name="ShowCripple">
+		<Frame type="UnitStatusBehaviorAnim" name="ShowCripple">
             <Anchor relative="$parent"/>
-            <Validator val="HasCripple"/>
-
-            <Animation name="Show">
-				<Event event="NoState" action="Reset"/>
-				<Event event="HasCripple" action="DirectionForward, Play"/>
+            <Behavior val="Cripple"/>
+			<Animation name="Show">
+				<Event event="BehaviorCreate" action="Reset, Play"/>
+				<Event event="BehaviorDestroy" action="Stop"/>
 
                 <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement01">
                     <Key type="Bool" time="0" value="False"/>
@@ -187,13 +186,13 @@
             </Animation>
         </Frame>
 		
-		<Frame type="UnitStatusValidatorAnimElement" name="ShowOpenWound">
+		<Frame type="UnitStatusBehaviorAnim" name="ShowOpenWound">
             <Anchor relative="$parent"/>
-            <Validator val="HasOpenWound"/>
+            <Behavior val="OpenWound"/>
 
             <Animation name="Show">
-				<Event event="NoState" action="Reset"/>
-				<Event event="HasOpenWound" action="DirectionForward, Play"/>
+				<Event event="BehaviorCreate" action="Reset, Play"/>
+				<Event event="BehaviorDestroy" action="Stop"/>
 
                 <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement02">
                     <Key type="Bool" time="0" value="False"/>
@@ -202,13 +201,13 @@
             </Animation>
         </Frame>
 		
-		<Frame type="UnitStatusValidatorAnimElement" name="ShowVenom">
+		<Frame type="UnitStatusBehaviorAnim" name="ShowVenom">
             <Anchor relative="$parent"/>
-            <Validator val="HasVenom"/>
+            <Behavior val="Venom"/>
 
             <Animation name="Show">
-				<Event event="NoState" action="Reset"/>
-				<Event event="HasVenom" action="DirectionForward, Play"/>
+				<Event event="BehaviorCreate" action="Reset, Play"/>
+				<Event event="BehaviorDestroy" action="Stop"/>
 
                 <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement03">
                     <Key type="Bool" time="0" value="False"/>
@@ -217,13 +216,13 @@
             </Animation>
         </Frame>
 		
-		<Frame type="UnitStatusValidatorAnimElement" name="ShowBlind">
+		<Frame type="UnitStatusBehaviorAnim" name="ShowBlind">
             <Anchor relative="$parent"/>
-            <Validator val="HasBlind"/>
+            <Behavior val="Blind"/>
 
             <Animation name="Show">
-				<Event event="NoState" action="Reset"/>
-				<Event event="HasBlind" action="DirectionForward, Play"/>
+				<Event event="BehaviorCreate" action="Reset, Play"/>
+				<Event event="BehaviorDestroy" action="Stop"/>
 
                 <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement04">
                     <Key type="Bool" time="0" value="False"/>
@@ -232,13 +231,13 @@
             </Animation>
         </Frame>
 		
-		<Frame type="UnitStatusValidatorAnimElement" name="ShowShortCircuit">
+		<Frame type="UnitStatusBehaviorAnim" name="ShowShortCircuit">
             <Anchor relative="$parent"/>
-            <Validator val="HasShortCircuit"/>
+            <Behavior val="ShortCircuit"/>
 
             <Animation name="Show">
-				<Event event="NoState" action="Reset"/>
-				<Event event="HasShortCircuit" action="DirectionForward, Play"/>
+				<Event event="BehaviorCreate" action="Reset, Play"/>
+				<Event event="BehaviorDestroy" action="Stop"/>
 
                 <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement05">
                     <Key type="Bool" time="0" value="False"/>
@@ -247,13 +246,13 @@
             </Animation>
         </Frame>
 		
-		<Frame type="UnitStatusValidatorAnimElement" name="ShowMadness">
+		<Frame type="UnitStatusBehaviorAnim" name="ShowMadness">
             <Anchor relative="$parent"/>
-            <Validator val="HasMadness"/>
+            <Behavior val="Madness"/>
 
             <Animation name="Show">
-				<Event event="NoState" action="Reset"/>
-				<Event event="HasMadness" action="DirectionForward, Play"/>
+				<Event event="BehaviorCreate" action="Reset, Play"/>
+				<Event event="BehaviorDestroy" action="Stop"/>
 
                 <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement06">
                     <Key type="Bool" time="0" value="False"/>
@@ -262,13 +261,13 @@
             </Animation>
         </Frame>
 		
-		<Frame type="UnitStatusValidatorAnimElement" name="ShowInfection">
+		<Frame type="UnitStatusBehaviorAnim" name="ShowInfection">
             <Anchor relative="$parent"/>
-            <Validator val="HasInfection"/>
+            <Behavior val="Infection"/>
 
             <Animation name="Show">
-				<Event event="NoState" action="Reset"/>
-				<Event event="HasInfection" action="DirectionForward, Play"/>
+				<Event event="BehaviorCreate" action="Reset, Play"/>
+				<Event event="BehaviorDestroy" action="Stop"/>
 
                 <Controller type="Visibility" end="Pause" frame="$parent/AilmentContainer/Ailement07">
                     <Key type="Bool" time="0" value="False"/>
@@ -786,7 +785,7 @@
 				<Frame type="Label" name="Label">
 					<Anchor relative="$parent"/>
 					<Style val="PlayerXP"/>
-					<Color val = "#FFFFFF"/>
+					<Color val = "FFFFFF"/>
 				</Frame>
 			</Frame>
 		</Frame>

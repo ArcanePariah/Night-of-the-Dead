@@ -7,7 +7,7 @@
 	<Frame type="MathFrame" name="ImageSelection">
 		<Anchor relative="$parent"/>
 		<Operator val="Random"/>
-		<A val="1"/>
+		<A val="10"/>
 		<B val="11"/>
 		<StateGroup name="SplatPickerState">
 			<DefaultState val="1"/>
@@ -51,14 +51,18 @@
 				<When type="Property" ResultInt="10"/>
 				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Commando.jpg"/>
 			</State>
+			<!-- The Pathfinder image is too large and will not show correctly -->
 			<State name="11">
 				<When type="Property" ResultInt="11"/>
 				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Pathfinder.jpg"/>
-			</State>
+			</State> 
 		</StateGroup>
 	</Frame>
 	<Frame type = "Image" name = "LoadScreenImage">
-		<Anchor relative = "$parent"/>
+		<Anchor side="Left" offset = "0" pos = "Min" relative = "$parent"/>
+		<Anchor side="Top" offset = "0" pos = "Min" relative = "$parent"/>
+		<Width val = "2240" />
+		<Height val = "1260" />
 		<Texture val = "" />
 	</Frame>
 
