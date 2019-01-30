@@ -40296,6 +40296,7 @@ bool gt_FieldNexusRevokeSharedVision_Func (bool testConds, bool runActions) {
     unit lv_killedFieldNexus;
     int lv_localInt;
     unit lv_localUnit;
+    bool lv_fieldNexusAliveTemp;
 
     // Automatic Variable Declarations
     playergroup auto18F82507_g;
@@ -40337,9 +40338,15 @@ bool gt_FieldNexusRevokeSharedVision_Func (bool testConds, bool runActions) {
         auto18F82507_var = PlayerGroupNextPlayer(auto18F82507_g, auto18F82507_var);
         if (auto18F82507_var < 0) { break; }
         if ((TechTreeUnitCount(auto18F82507_var, "FieldNexus", c_techCountCompleteOnly) > 0)) {
-            gv_fieldNexusAlive = true;
+            lv_fieldNexusAliveTemp = true;
         }
 
+    }
+    if ((lv_fieldNexusAliveTemp == true)) {
+        gv_fieldNexusAlive = true;
+    }
+    else {
+        gv_fieldNexusAlive = false;
     }
     if ((gv_fieldNexusAlive == false)) {
         auto3238C2B6_var = gv_indexBaseValue;
