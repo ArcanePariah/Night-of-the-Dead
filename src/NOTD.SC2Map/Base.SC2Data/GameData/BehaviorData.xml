@@ -118,6 +118,9 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <DisableValidatorArray value="NotMoving"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SJHyperionIonThrusters">
+        <DamageResponse Evade="1"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="TacticalEvaluation">
         <InfoIcon value="Assets\Textures\btn-ability-nova-domination.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>

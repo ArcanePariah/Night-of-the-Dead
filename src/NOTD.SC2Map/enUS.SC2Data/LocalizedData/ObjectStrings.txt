@@ -15185,6 +15185,7 @@ Validator/Name/UnitisnotwithinEnergyField=Unit is not within Energy Field
 Validator/Name/UnknownValidator=Assault Jump Pathing
 Validator/Name/UnknownValidator2=No Quarter Pathing
 Validator/Name/UnknownValidator3=No Quarter Range
+Validator/Name/UnknownValidator4=Unknown Validator
 Validator/Name/VRLInstantKillList=VRL Instant Kill List
 Validator/Name/VenomStack1=Venom Stack 1
 Validator/Name/VenomStack2=Venom Stack 2

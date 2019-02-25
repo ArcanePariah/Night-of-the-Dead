@@ -1424,6 +1424,7 @@
         <Pathing value="1"/>
         <Value Value="CasterPoint"/>
     </CValidatorLocationCompareRange>
+    <CValidatorEffectCompareEvaded id="UnknownValidator4"/>
     <CValidatorCombine id="VRLInstantKillList">
         <CombineArray value="UnitisAthenasCocoon"/>
         <CombineArray value="UnitisZombieCocoon"/>

@@ -148,9 +148,13 @@
     </CUpgrade>
     <CUpgrade id="HandgunProficiency">
         <EffectArray Operation="Subtract" Reference="Effect,P45GaussPistolFirstBounce,ArmorReduction[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,P45GaussPistolFirstBounce,Amount[0]" Value="3"/>
         <EffectArray Operation="Subtract" Reference="Effect,P45GaussPistolSecondBounce,ArmorReduction[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,P45GaussPistolSecondBounce,Amount[0]" Value="3"/>
         <EffectArray Operation="Subtract" Reference="Effect,P45GaussPistolThirdBounce,ArmorReduction[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,P45GaussPistolThirdBounce,Amount[0]" Value="3"/>
         <EffectArray Operation="Subtract" Reference="Effect,P45GaussPistolFourthBounce,ArmorReduction[0]" Value="0.5"/>
+        <EffectArray Reference="Effect,P45GaussPistolFourthBounce,Amount[0]" Value="3"/>
         <EffectArray Operation="Subtract" Reference="Effect,P38ScytheGuassPistol,ArmorReduction[0]" Value="0.5"/>
         <MaxLevel value="3"/>
     </CUpgrade>

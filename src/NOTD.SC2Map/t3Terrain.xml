@@ -114,7 +114,7 @@
             <cliffDoodad name="TerrainObjectBraxisAlphaZergHoleLarge1" pos="103.000000 221.000000 0.000000 " rot="0"/>
             <cliffDoodad name="TerrainObjectBraxisAlphaZergHoleLarge1" pos="75.000000 227.000000 0.000000 " rot="0"/>
         </cliffDoodadList>
-        <vertData quantizeBias="9.071970e+00" quantizeScale="5.021424e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
+        <vertData quantizeBias="9.072205e+00" quantizeScale="5.021419e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
         <masks name="t3TextureMasks"/>
         <textureSetList num="8">
             <textureSet i="0" name="MeinhoffEx1"/>
@@ -6458,8 +6458,8 @@
             <cc i="11166" f="1" cid="1" cvar="0"/>
             <cc i="11167" f="4" cid="1" cvar="0"/>
             <cc i="11168" f="12" cid="1" cvar="3"/>
-            <cc i="11169" f="8" cid="1" cvar="1"/>
-            <cc i="11170" f="0" cid="1" cvar="3"/>
+            <cc i="11169" f="12" cid="1" cvar="1"/>
+            <cc i="11170" f="4" cid="1" cvar="3"/>
             <cc i="11171" f="4" cid="1" cvar="2"/>
             <cc i="11172" f="12" cid="1" cvar="2"/>
             <cc i="11173" f="12" cid="1" cvar="1"/>
@@ -6530,8 +6530,8 @@
             <cc i="11294" f="0" cid="1" cvar="3"/>
             <cc i="11295" f="4" cid="1" cvar="0"/>
             <cc i="11296" f="4" cid="1" cvar="2"/>
-            <cc i="11297" f="0" cid="1" cvar="3"/>
-            <cc i="11298" f="0" cid="1" cvar="3"/>
+            <cc i="11297" f="4" cid="1" cvar="3"/>
+            <cc i="11298" f="4" cid="1" cvar="3"/>
             <cc i="11299" f="4" cid="1" cvar="2"/>
             <cc i="11300" f="4" cid="1" cvar="0"/>
             <cc i="11301" f="4" cid="1" cvar="2"/>

@@ -4610,15 +4610,10 @@
         <SearchFilters value="-;Self,Item,Dead,Invulnerable"/>
         <AttributeFactor index="Massive" value="0.5"/>
     </CEffectDamage>
-    <CEffectDamage id="ChargeDummyDamage">
+    <CEffectModifyUnit id="ChargeDummyDamage">
         <EditorCategories value=""/>
-        <SearchFilters value="-;Self,Item,Dead,Invulnerable"/>
-        <Flags index="NoScaledDealtBonus" value="1"/>
-        <Flags index="NoFractionDealtBonus" value="1"/>
-        <Flags index="NoUnscaledDealtBonus" value="1"/>
-        <Flags index="NoVitalAbsorbLife" value="1"/>
-        <Flags index="NoVitalAbsorbShields" value="1"/>
-    </CEffectDamage>
+        <ImpactUnit Value="Caster"/>
+    </CEffectModifyUnit>
     <CEffectIssueOrder id="ChargeIssueOrder">
         <EditorCategories value=""/>
         <WhichUnit Value="Source"/>
@@ -5046,12 +5041,14 @@
         <WhichLocation Value="TargetPoint"/>
         <SpawnEffect value="MadSparkLevel1Apply"/>
         <SpawnUnit value="MadSparkGrenade"/>
+        <CreateFlags index="Placement" value="0"/>
     </CEffectCreateUnit>
     <CEffectCreateUnit id="MadSparkCreateUnitLevel2">
         <EditorCategories value=""/>
         <Marker Link="Effect/MadSparkCreateUnitLevel1"/>
         <WhichLocation Value="TargetPoint"/>
         <SpawnUnit value="MadSparkGrenade"/>
+        <CreateFlags index="Placement" value="0"/>
     </CEffectCreateUnit>
     <CEffectIssueOrder id="MadSparkIssueAttack">
         <EditorCategories value=""/>
@@ -5952,7 +5949,7 @@
     </CEffectRemoveBehavior>
     <CEffectEnumArea id="AnticipationSearch">
         <EditorCategories value=""/>
-        <SearchFilters value="-;Neutral,Enemy,Robotic,Mechanical,Structure,RawResource,HarvestableResource,Missile,Destructible,Item,UnderConstruction,Dead,Hidden"/>
+        <SearchFilters value="-;Neutral,Enemy,Mechanical,Structure,RawResource,HarvestableResource,Missile,Destructible,Item,UnderConstruction,Dead,Hidden"/>
         <AreaArray Radius="7" Effect="AnticipationApply"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>

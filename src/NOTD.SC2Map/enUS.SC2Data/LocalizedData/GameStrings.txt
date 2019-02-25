@@ -4269,7 +4269,6 @@ Param/Value/30A09D44=Infestation detected in Apollo perimeter! Lethal force enga
 Param/Value/30F0E2B0=What's happening!?
 Param/Value/31763C9E=
 Param/Value/317B23C0=<s val="BriefingHanText">Immigration & Military Facility</s>
-Param/Value/31C1EC9E=Don't spread ourselves too thin.
 Param/Value/3205EB83=Lab Rats
 Param/Value/324269D7=<s val="GlueButton"><c val="F4D72B">Deimos has released a swarm of Titans from containment!</c></s>
 Param/Value/3258859A=HAL, shut down those orbital lasers. We're on the same side.
@@ -4294,6 +4293,7 @@ Param/Value/34FC3D29=Rescue Civilians in Apollo. Bring them to the Containment F
 Param/Value/3542BD51=<s val="InfoPaneHeroRank">Supplies delivered into battlefield..</s>
 Param/Value/3549F488=(Launching Ion Cannons...)
 Param/Value/354C27AF=You cannot understand what happened here. But no matter...you will not live.
+Param/Value/357DDAB1=Don't spread ourselves too thin.
 Param/Value/358DDE20=Don't think anyone got our distress call. Haul ass to the communications tower and check SatLink.
 Param/Value/35A5B238=Copy. You have air support stacked up every 1000 meters and ready to strike. Stay small.
 Param/Value/35ABB2BE=We've opened the scrapyard gates. Watch out.
@@ -4394,7 +4394,6 @@ Param/Value/4826ECBA=You cannot proceed beyond Wave 20 with less than 2 players 
 Param/Value/4876E9AF=Hide from Demeter when it stares with its eye.
 Param/Value/48BA160F=<c val="0080FF">Saving Biometric ID for </c>
 Param/Value/490BB556=<s val="InfoPaneUnitInfo">[Magazines Equipped] -- (Used)
-Param/Value/4928D541=The containers are underneath those cranes. You'll need to spread your team tactically and respond to threats that come.
 Param/Value/49319E6D=We've destroyed all the zombie worms.
 Param/Value/49791ACC=Investigate the Communications Tower
 Param/Value/4990863D=If the colonies revolt, there will be civil war. Millions more will die.
@@ -4572,6 +4571,7 @@ Param/Value/67472A7C=: <c val="F4D72B">
 Param/Value/675EE141=<s val="GlueButton">
 Param/Value/6775B4D5=Stat Points Available: 
 Param/Value/67897E79=<n/></c>Magazines: <c val="F4D72B">
+Param/Value/67A06AF8=The containers are underneath those cranes. You'll need to spread your team tactically and respond to threats that come.
 Param/Value/67AE4653=We can't kill that thing. Stay away from it.
 Param/Value/67D0624B= selected 
 Param/Value/683F9C4F=We're picking up a weak signal at North West. It's coming from the Communications Tower.
@@ -4701,6 +4701,7 @@ Param/Value/7EBDCF5E=Enter the Colony Airlock
 Param/Value/7ED7EB38=We've got bigger problems on our hands, mate.
 Param/Value/7F3B5C2C=We're bringing you out.
 Param/Value/7F7D63B3=Zeus and Leto must be killed simultaneously to put them down permanently
+Param/Value/7F9D1519=Chemical Leak
 Param/Value/7FD7EB19=Move out of Demeters' vision to avoid his stare!
 Param/Value/7FE24471=<s val="InfoPaneHeroRank">(Seismic disturbance detected in Sector 2...)
 Param/Value/7FE27F29=<s val="InfoPaneHeroRank">SELECTION: A - Destroy Apollo and cleanse the infestation</s>
@@ -4976,7 +4977,6 @@ Param/Value/ADA3F763=<s val="ModCenterSize24">
 Param/Value/ADA92E45=has been decimated by <c val="FF0000">
 Param/Value/ADEF0862=+1 XP for Performance Bonus
 Param/Value/AEC7D830=All options considered. Neutralization logical choice.
-Param/Value/AF36E079=Chemical Leak
 Param/Value/AF9FAF8F=Everyone alright? Let's patch those wounds.
 Param/Value/AFF5BDD4=<s val="BriefingHanText">(Strange noises emanate from the Mine Shaft...)</s>
 Param/Value/B02BD24D=<s val="BriefingHanText">Apollo Power Level: 
