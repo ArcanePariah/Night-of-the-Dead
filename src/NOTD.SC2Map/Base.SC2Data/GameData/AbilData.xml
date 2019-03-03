@@ -2647,6 +2647,7 @@
         <TargetFilters value="Light,Mechanical;Neutral,Enemy"/>
         <Range value="5"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RetrieveMine"/>
+        <CastIntroTime value="0.1"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="Sap">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
