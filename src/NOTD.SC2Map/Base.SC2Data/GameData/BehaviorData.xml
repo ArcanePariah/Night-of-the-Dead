@@ -825,7 +825,7 @@
         <Alignment value="Positive"/>
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-status-detector.dds"/>
-        <Modification Detect="8" DetectArc="0" RadarArc="0"/>
+        <Modification Detect="8" RadarArc="0"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="DisorientAssaultJumpLevel1">
         <Alignment value="Negative"/>
