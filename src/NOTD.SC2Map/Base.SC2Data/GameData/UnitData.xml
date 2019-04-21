@@ -1118,6 +1118,67 @@
         <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <HotkeyCategory value="Hotkey/Minis"/>
     </CUnit>
+    <CUnit id="CrawlerDrone_enemy">
+        <Race value="Terr"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
+        <LifeArmor value="2"/>
+        <LifeRegenRate value="1"/>
+        <ShieldArmor value="1"/>
+        <ShieldRegenRate value="0.1015"/>
+        <Speed value="2"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46.0625"/>
+        <Sight value="10"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="GhostHoldFire"/>
+        <AbilArray Link="GhostWeaponsFree"/>
+        <BehaviorArray Link="Scavenge"/>
+        <BehaviorArray Link="CrawlerDroneBirthStun"/>
+        <WeaponArray Link="KineticCatapultLevel2"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="1"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="2"/>
+            <LayoutButtons Face="GhostHoldFire" Type="AbilCmd" AbilCmd="GhostHoldFire,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="WeaponsFree" Type="AbilCmd" AbilCmd="GhostWeaponsFree,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+        </CardLayouts>
+        <InnerRadius value="0.2"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <Collide index="Ground" value="1"/>
+        <Radius value="0.1875"/>
+        <ShieldsStart value="1"/>
+        <ShieldsMax value="1"/>
+        <AttackTargetPriority value="20"/>
+        <DeathRevealRadius value="3"/>
+        <Mob value="Multiplayer"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Food value="-2"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="20"/>
+        <CargoSize value="2"/>
+        <ScoreMake value="100"/>
+        <ScoreKill value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="5"/>
+        <AIEvalFactor value="2"/>
+        <GlossaryPriority value="35"/>
+        <KillDisplay value="Always"/>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+        <PushPriority value="7"/>
+        <SeparationRadius value="0.2"/>
+        <MinimapRadius value="0.2"/>
+        <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
+    </CUnit>
     <CUnit id="D8ChargeWeapon">
         <FlagArray index="Invulnerable" value="1"/>
     </CUnit>
@@ -3250,6 +3311,85 @@
         <BehaviorArray Link="XPShareSuppression"/>
         <BehaviorArray Link="X1Holdfire"/>
         <BehaviorArray Link="X1GuardianLimit"/>
+        <TurretArray value="Diamondback"/>
+        <TurretArray value="Diamondback"/>
+        <WeaponArray Link="QuadmountLasersLevel2" Turret="Diamondback"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="1"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="2"/>
+            <LayoutButtons Face="Turbo" Type="AbilCmd" AbilCmd="Turbo,On" Row="0" Column="4"/>
+            <LayoutButtons Face="ShellMode" Type="AbilCmd" AbilCmd="ShellMode,On" Row="2" Column="2"/>
+            <LayoutButtons Face="DeShell" Type="AbilCmd" AbilCmd="ShellMode,Off" Row="2" Column="2"/>
+            <LayoutButtons Face="SpectreHoldFire" Type="AbilCmd" AbilCmd="SpectreHoldFire,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="SpectreWeaponsFree" Type="AbilCmd" AbilCmd="SpectreWeaponsFree,Execute" Row="1" Column="4"/>
+            <LayoutButtons Face="TargetingComputer" Type="AbilCmd" AbilCmd="TargetingComputer,On" Row="2" Column="1"/>
+            <LayoutButtons Face="Overdrive" Type="AbilCmd" AbilCmd="Overdrive,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="X1GuardianUpgrade" Type="AbilCmd" AbilCmd="X1UpgradeLevel2,Execute" Row="2" Column="3"/>
+        </CardLayouts>
+        <Radius value="0.3125"/>
+        <SeparationRadius value="0.3"/>
+        <InnerRadius value="0.375"/>
+        <CargoSize value="1"/>
+        <ScoreMake value="375"/>
+        <ScoreKill value="750"/>
+        <SubgroupPriority value="6"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+        <TacticalAI value=""/>
+        <LeaderAlias value=""/>
+        <GlossaryCategory value="Unit/Category/TerranUnits"/>
+        <GlossaryPriority value="120"/>
+        <HotkeyAlias value="X1GuardianLevel1"/>
+        <HotkeyCategory value="Hotkey/Minis"/>
+    </CUnit>
+    <CUnit id="X1Guardian_enemy">
+        <DeathRevealRadius value="3"/>
+        <Race value="Terr"/>
+        <FlagArray index="Unclickable" value="0"/>
+        <FlagArray index="Unhighlightable" value="0"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
+        <EnergyStart value="40"/>
+        <EnergyMax value="75"/>
+        <EnergyRegenRate value="0.254"/>
+        <ShieldsStart value="5"/>
+        <ShieldsMax value="10"/>
+        <ShieldRegenRate value="1"/>
+        <ShieldArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
+        <Speed value="2.3007"/>
+        <Acceleration value="1000"/>
+        <Deceleration value="12"/>
+        <LateralAcceleration value="115.1875"/>
+        <StationaryTurningRate value="349.9804"/>
+        <TurningRate value="349.9804"/>
+        <Sight value="9"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="150"/>
+        <RepairTime value="50"/>
+        <AttackTargetPriority value="20"/>
+        <KillXP value="20"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="Turbo"/>
+        <AbilArray Link="ShellMode"/>
+        <AbilArray Link="SpectreHoldFire"/>
+        <AbilArray Link="SpectreWeaponsFree"/>
+        <AbilArray Link="TargetingComputer"/>
+        <AbilArray Link="Overdrive"/>
+        <AbilArray Link="X1UpgradeLevel2"/>
+        <BehaviorArray Link="X1BotVeterancy"/>
+        <BehaviorArray Link="XPShareSuppression"/>
+        <BehaviorArray Link="X1Holdfire"/>
         <TurretArray value="Diamondback"/>
         <TurretArray value="Diamondback"/>
         <WeaponArray Link="QuadmountLasersLevel2" Turret="Diamondback"/>
@@ -6021,6 +6161,71 @@
         <HotkeyCategory value="Hotkey/Minis"/>
         <Height value="0.2"/>
         <BehaviorArray Link="FieldProbeLimit"/>
+    </CUnit>
+    <CUnit id="FieldProbe_enemy">
+        <DeathRevealRadius value="3"/>
+        <Race value="Terr"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <LifeRegenRate value="0.3007"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
+        <EnergyStart value="75"/>
+        <EnergyMax value="150"/>
+        <EnergyRegenRate value="0.6015"/>
+        <ShieldsStart value="50"/>
+        <ShieldsMax value="50"/>
+        <ShieldRegenDelay value="10"/>
+        <ShieldRegenRate value="2"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
+        <Speed value="2.5"/>
+        <Acceleration value="200"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="8"/>
+        <Food value="-1"/>
+        <CostCategory value="Economy"/>
+        <CostResource index="Minerals" value="50"/>
+        <AttackTargetPriority value="20"/>
+        <AIOverideTargetPriority value="10"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="5"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="Penetrate"/>
+        <AbilArray Link="Shock"/>
+        <WeaponArray Link="ParticleBeam"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Shock" Type="AbilCmd" AbilCmd="Shock,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="Penetration" Type="AbilCmd" AbilCmd="Penetrate,Execute" Row="2" Column="1"/>
+        </CardLayouts>
+        <Radius value="0.1875"/>
+        <SeparationRadius value="0.2"/>
+        <InnerRadius value="0.3125"/>
+        <CargoSize value="1"/>
+        <ScoreMake value="50"/>
+        <ScoreKill value="100"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="5"/>
+        <MinimapRadius value="0.375"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <HotkeyCategory value="Hotkey/Minis"/>
+        <Height value="0.2"/>
     </CUnit>
     <CUnit id="PlasmaDetonator">
         <FlagArray index="Invulnerable" value="1"/>

@@ -37826,11 +37826,11 @@ bool gt_SurvivalW3640_Func (bool testConds, bool runActions) {
     UnitGroupAdd(gv_zombieWave, UnitLastCreated());
     auto9BC4682E_n = (gv_spawnFactor * 6);
     for (auto9BC4682E_i = 1; auto9BC4682E_i <= auto9BC4682E_n; auto9BC4682E_i += 1) {
-        gf_SmartSpawnNOTD("X1GuardianLevel2", 90.0);
+        gf_SmartSpawnNOTD("X1Guardian_enemy", 90.0);
         Wait(0.2, c_timeReal);
-        gf_SmartSpawnWithBehaviorNOTD("CrawlerDroneLevel2", 90.0, "Detector5", "PersonalCloakingFree", null);
+        gf_SmartSpawnWithBehaviorNOTD("CrawlerDrone_enemy", 90.0, "Detector5", "PersonalCloakingFree", null);
         Wait(0.2, c_timeReal);
-        gf_SmartSpawnNOTD("FieldProbe", 90.0);
+        gf_SmartSpawnNOTD("FieldProbe_enemy", 90.0);
         Wait(2.0, c_timeReal);
     }
     Wait(20.0, c_timeReal);
