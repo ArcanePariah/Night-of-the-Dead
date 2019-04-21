@@ -3099,6 +3099,70 @@
         <UnitKillRank MinKills="5" Text="UnitKillRank/CrawlerDrone2"/>
         <UnitKillRank MinKills="10" Text="UnitKillRank/CrawlerDrone3"/>
     </CActorUnit>
+    <CActorUnit id="CrawlerDrone_enemy" parent="GenericUnitBase" unitName="CrawlerDrone_enemy">
+        <On Terms="AbilMorph.*.Finish; MorphTo VikingAssault" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo VikingAssault" Target="FlyerHelperSplat" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom VikingAssault" Send="Destroy"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior {} {} 0 0.600000 AsTimeScale"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior {} {} 0 0.600000 AsTimeScale"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack {} {} 0 0.600000 AsTimeScale"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="UnitPortrait.*.Configure" Target="::PortraitGameSelf" Send="AnimClear Visor 0.000000"/>
+        <On Terms="ActorCreation" Send="SetTintColor {207,215,252 10.000000} 2.000000 OneShot tintBirth"/>
+        <On Terms="ActorCreation" Send="TimerSet 2.000000 timerBirth"/>
+        <On Terms="TimerExpired; TimerName timerBirth" Send="ClearTintColor 2.000000 tintBirth"/>
+        <On Terms="ActorCreation" Send="SetOpacity 0.000000 0.000000 opa"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.100000 timerOpa"/>
+        <On Terms="TimerExpired; TimerName timerOpa" Send="ClearOpacity 3.000000 opa"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
+        <Scale value="0.750000"/>
+        <DeathArray index="Normal" ModelLink="UtilityBotDeath" SoundLink="Terran_ExplosionSmall" VoiceLink="UtilityBotDeathVoice"/>
+        <PortraitModel value="UtilityBotPortrait"/>
+        <WalkAnimMoveSpeed value="2.5468"/>
+        <AbilSoundArray AbilCmd="FighterMode,Execute" Sound="Viking_FighterModeVO"/>
+        <BarOffset value="27"/>
+        <BarWidth value="32"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-critter-utilitybot.dds"/>
+        </GroupIcon>
+        <SoundArray index="Birth" value="UtilityBot_Birth"/>
+        <SoundArray index="Ready" value="UtilityBot_Ready"/>
+        <SoundArray index="Help" value="UtilityBot_Help"/>
+        <SoundArray index="What" value="UtilityBot_What"/>
+        <SoundArray index="Yes" value="UtilityBot_What"/>
+        <SoundArray index="Attack" value="UtilityBot_What"/>
+        <SoundArray index="Pissed" value="UtilityBot_Pissed"/>
+        <SoundArray index="Movement" value="UtilityBot_Movement"/>
+        <SoundArray index="Turning" value="UtilityBot_Turning"/>
+        <SoundArray index="Board" value="UtilityBot_Board"/>
+        <SoundArray index="Click" value="UtilityBot_Click"/>
+        <SoundArray index="ClickError" value="UtilityBot_ClickError"/>
+        <SoundArray index="Highlight" value="UtilityBot_Highlight"/>
+        <UnitIcon value="Assets\Textures\Wireframe-critter-utilitybot.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-critter-utilitybot.dds"/>
+        </Wireframe>
+        <Model value="UtilityBot"/>
+        <BuildModel value="UtilityBot"/>
+        <PlacementModel value="UtilityBot"/>
+        <GroupSoundArray index="What" value="UtilityBot_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="UtilityBot_GroupYes"/>
+        <GroupSoundArray index="Attack" value="UtilityBot_GroupAttack"/>
+        <GroupSoundArray index="Board" value="UtilityBot_GroupBoard"/>
+        <StatusBarGroups index="Owner" value="0"/>
+        <StatusBarGroups index="Allied" value="0"/>
+        <StatusBarGroups index="Enemy" value="0"/>
+        <StatusBarGroups index="All" value="0"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <BarHeight value="6"/>
+        <HeroIcon value="Assets\Textures\Wireframe-critter-utilitybot.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel1.dds"/>
+        <UnitKillRank Text="UnitKillRank/CrawlerDrone1"/>
+        <UnitKillRank MinKills="5" Text="UnitKillRank/CrawlerDrone2"/>
+        <UnitKillRank MinKills="10" Text="UnitKillRank/CrawlerDrone3"/>
+    </CActorUnit>
     <!-- Flare ................................................................................. -->
     <CActorModel id="FlareCursorModel">
         <On index="3" removed="1"/>
@@ -3653,6 +3717,8 @@
         <On Terms="UnitBirth.X1GuardianLevel3" Send="Create"/>
         <On Terms="UnitDeath.X1GuardianLevel2" Send="Destroy"/>
         <On Terms="UnitDeath.X1GuardianLevel3" Send="Destroy"/>
+        <On Terms="UnitBirth.X1Guardian_enemy" Send="Create"/>
+        <On Terms="UnitDeath.X1Guardian_enemy" Send="Destroy"/>
         <HostSiteOps Ops="SOpAttachTurret SOpAdjusX1Turret"/>
         <Model value="X1Turret"/>
         <Scale value="1.050000"/>
@@ -4917,6 +4983,55 @@
             <Image value="Assets\Textures\wireframe-terran-warbot.dds"/>
         </Wireframe>
         <Scale value="0.800000"/>
+        <BarHeight value="6"/>
+    </CActorUnit>
+    <CActorUnit id="X1Guardian_enemy" parent="GenericUnitStandard" unitName="X1Guardian_enemy">
+        <Macros value="UnloadDropAnim"/>
+        <Macros value=""/>
+        <Macros value=""/>
+        <Macros value="Shrinker"/>
+        <On Terms="Abil.attack.ReadyStop" Target="DiamondbackAttackBeam" Send="SetOpacity 0.000000 0.250000"/>
+        <On Terms="ActorCreation" Send="AnimPlay BSD Run PlayForever"/>
+        <On Terms="ActorCreation" Send="SetTeamColor 255,0,0 255,0,0"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
+        <Model value="X1"/>
+        <Scale value="0.700000"/>
+        <BuildModel value="X1"/>
+        <DeathArray index="Normal" ModelLink="DiamondbackDeath" SoundLink="Diamondback_Explode"/>
+        <PlacementModel value="X1"/>
+        <PortraitModel value="ARESPortrait"/>
+        <BarOffset value="42"/>
+        <BarWidth value="32"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-terran-warbot.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="Birth" value="Diamondback_Birth"/>
+        <GroupSoundArray index="Ready" value="Diamondback_Ready"/>
+        <GroupSoundArray index="Help" value="Diamondback_Help"/>
+        <GroupSoundArray index="What" value="Diamondback_What"/>
+        <GroupSoundArray index="Yes" value="Diamondback_Yes"/>
+        <GroupSoundArray index="Attack" value="Diamondback_Attack"/>
+        <GroupSoundArray index="Pissed" value="SpiderMinePissed"/>
+        <GroupSoundArray index="Board" value="X1GuardianLevel3_GroupBoard"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <NameOffset value="40"/>
+        <SoundArray index="Birth" value=""/>
+        <SoundArray index="Ready" value="Raven_Ready"/>
+        <SoundArray index="Help" value="Raven_Help"/>
+        <SoundArray index="What" value="Raven_What"/>
+        <SoundArray index="Yes" value="Raven_Yes"/>
+        <SoundArray index="Attack" value="Raven_Yes"/>
+        <SoundArray index="Pissed" value="Raven_Pissed"/>
+        <SoundArray index="Movement" value="Diamondback_Movement"/>
+        <SoundArray index="Turning" value=""/>
+        <SoundArray index="Board" value=""/>
+        <SoundArray index="Click" value=""/>
+        <SoundArray index="ClickError" value=""/>
+        <SoundArray index="Highlight" value=""/>
+        <UnitIcon value="Assets\Textures\wireframe-terran-warbot.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-terran-warbot.dds"/>
+        </Wireframe>
         <BarHeight value="6"/>
     </CActorUnit>
     <CActorSiteOpLocalOffset id="ZOpAdjustHadesCorpse1">
@@ -6384,7 +6499,6 @@
         <On index="118" removed="1"/>
         <On index="119" removed="1"/>
         <On index="120" removed="1"/>
-        <On index="121" removed="1"/>
         <Scale value="2.000000"/>
         <EventDataFootprint index="0" Model="HadesTentacleFootprint"/>
         <DeathArray index="Normal" ModelLink="HadesTentacle" VoiceLink="HadesTentacleDeathVoice"/>
@@ -9404,6 +9518,55 @@
         <Scale value="0.900000"/>
     </CActorUnit>
     <CActorUnit id="FieldProbe" parent="GenericUnitStandard" unitName="FieldProbe">
+        <Macros index="0" value="Shrinker"/>
+        <Macros value="CarryAnim"/>
+        <Macros value="BuildAnim"/>
+        <Macros value="CarryTerrazineNodeAnim"/>
+        <Macros value="CarryAnimCampaign"/>
+        <On Terms="Abil.ProbeHarvest.Start" Send="AnimPlay Work Work PlayForever"/>
+        <On Terms="Abil.ProbeHarvest.Stop" Send="AnimClear Work"/>
+        <On Terms="Behavior.Hallucination.On" Send="Create HallucinationBirthSoundSmall"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
+        <On Terms="Abil.ProbeHarvest.Start" Send="StatusSet CloakSound 1"/>
+        <On Terms="Behavior.CarryHarvestableVespeneGeyserGasProtoss.Create" Send="StatusSet CloakSound 1"/>
+        <On Terms="Confirmation.Probe.Start" Send="StatusSet CloakSound 0"/>
+        <On Terms="Behavior.CloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.CloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="Upgrade.DarkProtoss.Add" Send="ModelSwap DarkProbe"/>
+        <On Terms="UnitBirth; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkProbe"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit NoDarkProtoss" Send="DeathCustomize DarkProtoss"/>
+        <On Terms="UnitCreation.FieldProbe" Send="SetTintColor 187,174,186"/>
+        <On Terms="UnitBirth.FieldProbe" Send="SetTintColor 187,174,186"/>
+        <On Terms="Behavior.RavagingPhantomControl.Create" Send="SetOpacity 0.500000"/>
+        <Model value="SCVFusionWelder"/>
+        <AnimBlendTime value="0.250000"/>
+        <BuildModel value="SCVFusionWelder"/>
+        <DeathArray index="Normal" ModelLink="SCVDeath" SoundLink="SCV_Explode"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathSmall" Name="Hallucination"/>
+        <DeathCustoms ModelLink="DarkProbeDeath" Name="DarkProtoss"/>
+        <PlacementModel value="SCVFusionWelder"/>
+        <PortraitModel value="FieldProbePortrait"/>
+        <BarOffset value="38"/>
+        <BarWidth value="24"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-terran-scv-fusion.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-scvfusionwelder.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Ready" value="Warbot_Ready"/>
+        <SoundArray index="Help" value="Alert_ProtossEconomyUnderAttack"/>
+        <SoundArray index="What" value="Warbot_What"/>
+        <SoundArray index="Yes" value="Warbot_Yes"/>
+        <SoundArray index="Pissed" value="Warbot_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-scvfusionwelder.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-terran-scv-fusion.dds"/>
+        </Wireframe>
+        <Scale value="0.700000"/>
+        <UnitKillRank MinKills="5000"/>
+        <BarHeight value="6"/>
+    </CActorUnit>
+    <CActorUnit id="FieldProbe_enemy" parent="GenericUnitStandard" unitName="FieldProbe_enemy">
         <Macros index="0" value="Shrinker"/>
         <Macros value="CarryAnim"/>
         <Macros value="BuildAnim"/>
