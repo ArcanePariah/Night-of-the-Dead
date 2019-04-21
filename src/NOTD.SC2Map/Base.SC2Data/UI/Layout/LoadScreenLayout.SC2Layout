@@ -7,8 +7,8 @@
 	<Frame type="MathFrame" name="ImageSelection">
 		<Anchor relative="$parent"/>
 		<Operator val="Random"/>
-		<A val="10"/>
-		<B val="11"/>
+		<A val="1"/>
+		<B val="10"/>
 		<StateGroup name="SplatPickerState">
 			<DefaultState val="1"/>
 			<State name="1">
