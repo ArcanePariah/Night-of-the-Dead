@@ -9461,7 +9461,7 @@
         <On Terms="UnitBirth.*.Normal" Send="$Birth"/>
         <On Terms="ActorCreation" Send="AnimBaselineStop"/>
         <On Terms="AnimDone; AnimName Birth" Send="$Stand 0 -1.000000 -1.000000 3.000000 AsDuration"/>
-        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+        <On Terms="AgeReached.PlasmaDetonator; Age 3.500000" Send="Destroy"/>
         <Model value="D8ClusterBomb"/>
         <BuildModel value="D8ClusterBomb"/>
         <DeathArray index="Normal" AnimProps="Death" ModelLink="D8Charge" SoundLink="Reaper_D8ChargeExplode"/>
