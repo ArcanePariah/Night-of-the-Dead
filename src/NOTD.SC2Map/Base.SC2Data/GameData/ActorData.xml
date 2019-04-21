@@ -1359,7 +1359,7 @@
         <On Terms="ActorCreation" Send="SetTintColor {0,255,38 20.000000}"/>
         <On Terms="Behavior.ChemicalPlatingAuraLevel3.Off" Send="Destroy"/>
         <Model value="NanitesUpgradeSplat"/>
-        <Scale value="1.150000"/>
+        <Scale value="1.800000"/>
     </CActorSplat>
     <CActorSplat id="ChemicalPlatingSplatLevel1" parent="GenericUnitSplat" unitName="ChemicalExpert">
         <On index="2" Terms="Behavior.ChemicalPlatingLevel1.On" Send="Create"/>
