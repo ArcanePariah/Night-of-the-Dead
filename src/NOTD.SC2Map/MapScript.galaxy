@@ -724,6 +724,7 @@ int[9] gv_spectatedLabel;
 bool[9] gv_spectated;
 bool gv_navyCrossMode;
 int gv_noRandoms;
+int gv_maxRandom;
 bool gv_outbreakActivated;
 int[9] gv_marineMags;
 int gv_magazineAdjustment;
@@ -1164,6 +1165,7 @@ void InitGlobals () {
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_spectatedLabel[init_i] = c_invalidDialogControlId;
     }
+    gv_maxRandom = 8;
     for (init_i = 0; init_i <= 8; init_i += 1) {
         gv_marineRounds[init_i] = 30;
     }
@@ -1858,6 +1860,8 @@ trigger gt_AmmoCheck;
 trigger gt_NavyCross;
 trigger gt_NoRandoms;
 trigger gt_AllRandom;
+trigger gt_MaxRandom;
+trigger gt_DisableRandomButton;
 trigger gt_NightmareMode;
 trigger gt_OutbreakCommand;
 trigger gt_SpectatorModeType;
@@ -14990,6 +14994,9 @@ bool gt_NOTDInitialize_Func (bool testConds, bool runActions) {
     if ((GameAttributeGameValue("3") == "0003")) {
         TriggerExecute(gt_AllRandom, true, false);
     }
+    if (((GameAttributeGameValue("3") == "0004") || (GameAttributeGameValue("3") == "0005") || (GameAttributeGameValue("3") == "0006"))) {
+        TriggerExecute(gt_MaxRandom, true, false);
+    }
     return true;
 }
 
@@ -16008,9 +16015,6 @@ void gt_NavyCross_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_NoRandoms_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
-    playergroup auto200DEF1A_g;
-    int auto200DEF1A_var;
-
     // Conditions
     if (testConds) {
         if (!((gv_noNewbie == true))) {
@@ -16027,17 +16031,7 @@ bool gt_NoRandoms_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_AllRandom, false);
     if ((gv_noRandoms == 0)) {
         gv_noRandoms = 1;
-        auto200DEF1A_g = gv_marineSquad;
-        auto200DEF1A_var = -1;
-        while (true) {
-            auto200DEF1A_var = PlayerGroupNextPlayer(auto200DEF1A_g, auto200DEF1A_var);
-            if (auto200DEF1A_var < 0) { break; }
-            if ((gv_classSelectionDialogItem[auto200DEF1A_var][15] != c_invalidDialogControlId)) {
-                DialogControlSetEnabled(gv_classSelectionDialogItem[auto200DEF1A_var][15], PlayerGroupAll(), false);
-                libNtve_gf_SetDialogItemTooltip(gv_classSelectionDialogItem[auto200DEF1A_var][15], StringExternal("Param/Value/2DD8D951"), PlayerGroupAll());
-            }
-
-        }
+        TriggerExecute(gt_DisableRandomButton, false, false);
         UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/544D04BA"));
         SoundPlay(SoundLink("TUISecret", -1), PlayerGroupAll(), 100.0, 0.0);
     }
@@ -16096,6 +16090,84 @@ void gt_AllRandom_Init () {
     TriggerAddEventChatMessage(gt_AllRandom, 1, "-ar", true);
     TriggerAddEventChatMessage(gt_AllRandom, 2, "-allrand", false);
     TriggerAddEventChatMessage(gt_AllRandom, 2, "-ar", true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: MaxRandom
+//--------------------------------------------------------------------------------------------------
+bool gt_MaxRandom_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    string auto743AB7B7_val;
+
+    // Conditions
+    if (testConds) {
+        if (!((gv_noNewbie == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(gt_NoRandoms, false);
+    TriggerEnable(gt_AllRandom, false);
+    auto743AB7B7_val = GameAttributeGameValue("3");
+    if (auto743AB7B7_val == "0004") {
+        gv_maxRandom = 1;
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/0CC677C4"));
+    }
+    else if (auto743AB7B7_val == "0005") {
+        gv_maxRandom = 2;
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/44525CC2"));
+    }
+    else if (auto743AB7B7_val == "0006") {
+        gv_maxRandom = 3;
+        UIDisplayMessage(PlayerGroupActive(), c_messageAreaDebug, StringExternal("Param/Value/F7BFD206"));
+    }
+    else {
+    }
+    SoundPlay(SoundLink("TUISecret", -1), PlayerGroupAll(), 100.0, 0.0);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MaxRandom_Init () {
+    gt_MaxRandom = TriggerCreate("gt_MaxRandom_Func");
+    TriggerEnable(gt_MaxRandom, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: DisableRandomButton
+//--------------------------------------------------------------------------------------------------
+bool gt_DisableRandomButton_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    playergroup auto200DEF1A_g;
+    int auto200DEF1A_var;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto200DEF1A_g = gv_marineSquad;
+    auto200DEF1A_var = -1;
+    while (true) {
+        auto200DEF1A_var = PlayerGroupNextPlayer(auto200DEF1A_g, auto200DEF1A_var);
+        if (auto200DEF1A_var < 0) { break; }
+        if ((gv_classSelectionDialogItem[auto200DEF1A_var][15] != c_invalidDialogControlId)) {
+            DialogControlSetEnabled(gv_classSelectionDialogItem[auto200DEF1A_var][15], PlayerGroupAll(), false);
+            libNtve_gf_SetDialogItemTooltip(gv_classSelectionDialogItem[auto200DEF1A_var][15], StringExternal("Param/Value/2DD8D951"), PlayerGroupAll());
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_DisableRandomButton_Init () {
+    gt_DisableRandomButton = TriggerCreate("gt_DisableRandomButton_Func");
+    TriggerEnable(gt_DisableRandomButton, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -38915,6 +38987,11 @@ bool gt_ClassCreation_Func (bool testConds, bool runActions) {
     else {
         if ((lv_usedDialogItem == gv_classSelectionDialogItem[lv_selectingPlayer][15])) {
             gv_noRandoms = 2;
+            gv_maxRandom -= 1;
+            if ((gv_maxRandom == 0) && (TriggerGetExecCount(TriggerGetCurrent()) < (gv_totalPlayers - 1))) {
+                TriggerExecute(gt_DisableRandomButton, false, false);
+            }
+
             lv_randomRange = gf_GetRandomRange(lv_selectingPlayer);
             auto986BF5E4_val = PlayerHandle(lv_selectingPlayer);
             if (auto986BF5E4_val == "1-S2-1-1143628") {
@@ -41967,6 +42044,8 @@ void InitTriggers () {
     gt_NavyCross_Init();
     gt_NoRandoms_Init();
     gt_AllRandom_Init();
+    gt_MaxRandom_Init();
+    gt_DisableRandomButton_Init();
     gt_NightmareMode_Init();
     gt_OutbreakCommand_Init();
     gt_SpectatorModeType_Init();

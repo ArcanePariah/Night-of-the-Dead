@@ -69,6 +69,21 @@
             <Name Value="Attribute003/Value003/Name"/>
             <Description Value="Attribute003/Value003/Desc"/>
         </Value>
+        <Value>
+            <Id Value="4"/>
+            <Name Value="Attribute003/Value004/Name"/>
+            <Description Value="Attribute003/Value004/Desc"/>
+        </Value>
+        <Value>
+            <Id Value="5"/>
+            <Name Value="Attribute003/Value005/Name"/>
+            <Description Value="Attribute003/Value005/Desc"/>
+        </Value>
+        <Value>
+            <Id Value="6"/>
+            <Name Value="Attribute003/Value006/Name"/>
+            <Description Value="Attribute003/Value006/Desc"/>
+        </Value>
         <Default>
             <Slot Id="Global"/>
             <Value Id="1"/>
