@@ -344,6 +344,12 @@ Attribute003/Value002/Desc=Random class selection disabled.
 Attribute003/Value002/Name=No Random
 Attribute003/Value003/Desc=Forced random selection.
 Attribute003/Value003/Name=All Random
+Attribute003/Value004/Desc=Allow 1 random class.
+Attribute003/Value004/Name=1 Random
+Attribute003/Value005/Desc=Allow 2 random classes.
+Attribute003/Value005/Name=2 Randoms
+Attribute003/Value006/Desc=Allow 3 random classes.
+Attribute003/Value006/Name=3 Randoms
 Attribute004/Name=Shop Availability
 Attribute004/Value001/Desc=Shop is available in non recruit modes.
 Attribute004/Value001/Name=Standard
@@ -4071,6 +4077,7 @@ Param/Value/0C2F5667=We should investigate the airlock when the squad is ready. 
 Param/Value/0C4AF719=Capt. Linh
 Param/Value/0C5D5CC4=<s val="GlueButton">Black Ops
 Param/Value/0C7265D3=Buying failed
+Param/Value/0CC677C4=<s val="InfoPaneHeroRank">Allowed 1 random class selection.</s>
 Param/Value/0CE405E2=Evasive maneuvers! Get away from those spores.
 Param/Value/0D23902A=<s val="InfoPaneHeroRank">Class limit exceeded - XP and Credit gain reduced by 40%!
 Param/Value/0D3A884E=Solid copy.
@@ -4390,6 +4397,7 @@ Param/Value/42D8E88F=Find a way into the Research Lab
 Param/Value/42DA9A5D=has been killed by 
 Param/Value/42F6F864=</c>
 Param/Value/43DD0D71=We'll need thermals on - spotting enemies rapidly approaching.
+Param/Value/44525CC2=<s val="InfoPaneHeroRank">Allowed 2 random class selections.</s>
 Param/Value/44C67D19=Survive the outbreak with Apollo Security Team
 Param/Value/4505387E=)
 Param/Value/45AD6BBF=IVAX's attacks slow you down
@@ -5421,6 +5429,7 @@ Param/Value/F77C7E37=Guardian of the Beta
 Param/Value/F79FB8D1=</s>
 Param/Value/F7A04BFC=+3 XP for Mission Bonus. 50 civilians rescued.
 Param/Value/F7AEF20F=<s val="BriefingHanText">Infestation Level: 89% (Probable)</s>
+Param/Value/F7BFD206=<s val="InfoPaneHeroRank">Allowed 3 random class selections.</s>
 Param/Value/F7E4F520=
 Param/Value/F80A3847=Class Selection
 Param/Value/F80D8B6F=I thought we would have died here...or worse...
