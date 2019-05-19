@@ -15696,4 +15696,8 @@
     <CActorRange id="nukeRange">
         <RangeFlags index="Minimap" value="1"/>
     </CActorRange>
+    <CActorModel id="GhostNukeIndicator">
+        <Model value="nukeCursorSplat"/>
+        <Scale value="9.500000"/>
+    </CActorModel>
 </Catalog>
