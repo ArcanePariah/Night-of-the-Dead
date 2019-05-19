@@ -5516,7 +5516,20 @@
         <Fields Id="Story Subtitle" Type="Text"/>
         <Fields Id="Story Tooltip" Type="Text"/>
         <Fields Id="Default Lighting" Type="GameLink" GameLinkType="Light"/>
-        <Instances Id="[Default]"/>
+        <Instances Id="[Default]">
+            <GameLink GameLink="UnknownLight">
+                <Field Id="Default Lighting"/>
+            </GameLink>
+            <Text Text="UserData/Storyline/[Default]_Story Name">
+                <Field Id="Story Name"/>
+            </Text>
+            <Text Text="UserData/Storyline/[Default]_Story Subtitle">
+                <Field Id="Story Subtitle"/>
+            </Text>
+            <Text Text="UserData/Storyline/[Default]_Story Tooltip">
+                <Field Id="Story Tooltip"/>
+            </Text>
+        </Instances>
         <Instances Id="Easy Company">
             <GameLink GameLink="UnknownLight">
                 <Field Id="Default Lighting"/>

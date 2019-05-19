@@ -4044,7 +4044,6 @@ Param/Value/05BF5D82=Roger. Grab the ammo and we're Oscar Mike.
 Param/Value/05C9C370=Head to Central Square. We should set up an EVAC point for any survivors.
 Param/Value/060BE9EA=Talents Available: 
 Param/Value/062A9941=+2 XP for Mission Bonus
-Param/Value/0688A2B2=</s>
 Param/Value/069FDC3C=The power generators are scattered across Apollo.
 Param/Value/06A43C14=Keep the Sec Team unit alive for more fire power
 Param/Value/06C9BF47=We'll need more Marines to retake Apollo.
@@ -4106,7 +4105,6 @@ Param/Value/115D3793=The Marines Have Landed
 Param/Value/116239BA=Radar is picking up infantry. IFF returning negative. They're hostile.
 Param/Value/11E97FFE=+2 XP for Performance Bonus
 Param/Value/12198CAD=The civies are safe. Looks pretty clear.
-Param/Value/1254B2B9=</s>
 Param/Value/126EB08C=<s val="GlueButton"><c val="F4D72B">Unlocking Bio-Dome A. These are the basic mutation. You'll nail them easily.</c>
 Param/Value/12947B75=All weapons on target.
 Param/Value/12972B90=He gassed us. Regroup!
@@ -4201,7 +4199,6 @@ Param/Value/236A95F9=We've got incoming from the East.
 Param/Value/2399241B=. Removal with 1 more vote.</s>
 Param/Value/23DC8EDE= will meet Bob.</s>
 Param/Value/23E8984F=You need to go down hard on this thing.
-Param/Value/2414A275=<s val="ModCenterSize24">
 Param/Value/241B89C3=Get in position. This one ain't going to be pretty.
 Param/Value/244B2E38=The reactors are through the airlock.
 Param/Value/2466CEB3=Huddle close. Provide covering fire.
@@ -4453,7 +4450,6 @@ Param/Value/4DD907D3='s Marine removed from game for inactivity.
 Param/Value/4DF03C45=(You are currently piloting a Thor...)
 Param/Value/4E6B4398=<s val="GlueButton"><c val="F4D72B">Deimos has destroyed all our Devastators!</c></s>
 Param/Value/4E725D1E=I know all about 'em. Put a bullet in them - they die!
-Param/Value/4ED6B13C=</s>
 Param/Value/4ED7F8FF=(Charlie turns docile...)
 Param/Value/4EE0D498=+15 XP for Victory Bonus
 Param/Value/4F006F2A=(Dr Bergmann equips his crowbar...)
@@ -4821,7 +4817,6 @@ Param/Value/8EA89AFF=(Demeter draws back its thick armor and begins to engage...
 Param/Value/8EC89155=Do you think there are any survivors?
 Param/Value/8F257BCB=That cocoon in the main airlock gates...it's been growing at a rapid rate.
 Param/Value/8F3C1D87=Search the Airlock for clues
-Param/Value/8F6E050F=<s val="ModCenterSize24">
 Param/Value/8F9ED0A1=+
 Param/Value/8FA6A1E3=Pick up supplies. We'll need them.
 Param/Value/90136EEF=You should all be stripped of your ranks. This is slaughter!
@@ -5001,7 +4996,6 @@ Param/Value/ACC6387D=I wonder how many more of those things are out there?
 Param/Value/AD49B184=<s val="GlueButton">
 Param/Value/AD6DE3C6=Our lines have been compromised! Broken arrow.
 Param/Value/AD923496=You're Short Circuited. An Engineer can repair your suit.
-Param/Value/ADA3F763=<s val="ModCenterSize24">
 Param/Value/ADA92E45=has been decimated by <c val="FF0000">
 Param/Value/ADEF0862=+1 XP for Performance Bonus
 Param/Value/AEC7D830=All options considered. Neutralization logical choice.
@@ -5071,7 +5065,6 @@ Param/Value/BABD3C69=I hear gunfire. Move quickly!
 Param/Value/BAF05AC5= XP for Devastator Survival Bonus.
 Param/Value/BB3AB6E9=
 Param/Value/BB3F797E=
-Param/Value/BB45713C=</s>
 Param/Value/BB54D75D=.</s></c>
 Param/Value/BB6ABEBB=Survive (Wave 1/40)
 Param/Value/BB7F61D6=+
@@ -5256,7 +5249,6 @@ Param/Value/DAB8AD38=We're not coming. Return to base.
 Param/Value/DAD3C239=We're Oscar Mike to target location.
 Param/Value/DAEA2E45=Class: 
 Param/Value/DAECF587=<c val="FF0000">Inventory Hidden</c> <c val="FFFFFF">(Numpad 1)</c>
-Param/Value/DB17F0AC=<s val="ModCenterSize24">
 Param/Value/DB2B3493=You're safe. Follow us.
 Param/Value/DB2E4586=<s val="BriefingHanText">(Airlock gates unlocked..)</s>
 Param/Value/DB4A1AB6=Field Marshal Kim
@@ -6277,6 +6269,9 @@ UserData/Storyline/Survival_Story Tooltip=All 14 Classes Unlocked. 40 Waves of E
 UserData/Storyline/Survival_Story_Name=Survival
 UserData/Storyline/Survival_Story_Tooltip=All 14 Classes Unlocked. 40 Waves of Enemies.<n/><n/>Survive As Long As Possible.
 UserData/Storyline/Survival_Story_Unlock_Text=To Unlock: All Players > <n/>1000 XP required
+UserData/Storyline/[Default]_Story Name=Easy Company
+UserData/Storyline/[Default]_Story Subtitle=Assigned to investigate the distress call, Easy lands to find Apollo deserted and communications jammed. Something is terribly wrong...
+UserData/Storyline/[Default]_Story Tooltip=Ready for mission launch...
 UserData/SurvivalWaveNames/Wave 10_Title=Wave 10
 UserData/SurvivalWaveNames/Wave 10_Wave Name=Boss 1 - Tartarus & Eileithyia
 UserData/SurvivalWaveNames/Wave 11_Title=Wave 11
