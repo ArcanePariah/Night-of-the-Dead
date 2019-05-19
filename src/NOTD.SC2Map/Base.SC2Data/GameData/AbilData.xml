@@ -2838,7 +2838,7 @@
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Effect index="0" value="InfernoSet"/>
         <Cost>
-            <Vital index="Energy" value="25"/>
+            <Vital index="Energy" value="35"/>
             <Cooldown TimeUse="9"/>
         </Cost>
         <Range value="12"/>
