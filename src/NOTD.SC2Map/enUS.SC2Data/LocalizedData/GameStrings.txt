@@ -527,6 +527,8 @@ Behavior/Name/InboundSicknessSlowLevel2=Inbound Sickness (Slow - Level 2)
 Behavior/Name/Inception=Inception
 Behavior/Name/Infection=Infection
 Behavior/Name/Inferno=Inferno
+Behavior/Name/InfernoChainNapalm=Inferno (Chain Napalm)
+Behavior/Name/InfernoChainTarget=Inferno (Chain Target)
 Behavior/Name/InfernoTarget=Inferno (Target)
 Behavior/Name/Intimidation=Intimidation
 Behavior/Name/IronHand=Iron Hand
@@ -1621,7 +1623,7 @@ Button/Tooltip/Inception=The universe around you slows down. You are free to act
 Button/Tooltip/IncompleteIvax=Heavy assault mech. Can use 250mm Strike Cannons.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfantrySpecializationLevel1=Allows Mobile Infantry to land Flamethrowers. You can customize your drop team in a sub-menu.
 Button/Tooltip/InfantrySpecializationLevel2=Allows Mobile Infantry to land Snipers. You can customize your drop team in a sub-menu.
-Button/Tooltip/Inferno=Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets will begin burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius.
+Button/Tooltip/Inferno=Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets are slowed by 60% while burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius. Non-heroic armored biological ground units that die to the blast burst into pillars of fire that last 10 seconds. Units caught in the flames have a 40% chance per second of spreading Inferno, potentially causing a chain reaction.<n/><n/><c val="FF0000">Warning: Inferno creates fires that can engulf friendlies. Use with extreme caution!</c><n/><n/>"When the Saracens came to attack him, they threw Greek fire onto the barrier... the Turks did not wait for the fire to burn itself out, but rushed upon the Templars among the scorching flames." - Jean de Joinville
 Button/Tooltip/InfestedAbomination=An abomination that is capable of ranged attacks.
 Button/Tooltip/InfestedCocoon=Zombie cocoon. Destroy it before it can hatch.
 Button/Tooltip/InfestedColonistShip=Colony Ship that has been Infested. Likely used as a massive nest and breeding ground.
@@ -2515,6 +2517,7 @@ Effect/Name/CrawlerDroneLimit=Crawler Drone Limit
 Effect/Name/CrawlerDronePersistentLevel1=Crawler Drone Persistent Level 1
 Effect/Name/CrawlerDronePersistentLevel2=Crawler Drone Persistent Level 2
 Effect/Name/CreateNapalmFire=Create Napalm Fire
+Effect/Name/CreateNapalmFireInfernoChain=Create Napalm Fire (Inferno Chain)
 Effect/Name/CreateUnit=Create Unit
 Effect/Name/CreateUnitSet=Create Unit Set
 Effect/Name/CrippleApplySelf=Cripple Apply Self
@@ -2942,8 +2945,11 @@ Effect/Name/InfernalFlameThrowerLevel22=Infernal Flame Thrower Level 2
 Effect/Name/InfernalFlameThrowerLevel3=Infernal Flame Thrower Level 3
 Effect/Name/InfernalFlameThrowerLevel32=Infernal Flame Thrower Level 3
 Effect/Name/InfernoApply=Inferno (Apply)
+Effect/Name/InfernoApplyChainNapalm=Inferno (Apply Chain)
+Effect/Name/InfernoApplyChainTarget=Inferno (Apply Chain Target)
 Effect/Name/InfernoApplyTarget=Inferno (Apply Target)
 Effect/Name/InfernoDamage=Inferno (Damage)
+Effect/Name/InfernoDamageSet=Inferno (Damage Set)
 Effect/Name/InfernoLaunchMissile=Inferno (Launch Missile)
 Effect/Name/InfernoPersistentSearch1=Inferno (Persistent Search 1)
 Effect/Name/InfernoPersistentSearch2=Inferno (Persistent Search 2)
@@ -2952,6 +2958,8 @@ Effect/Name/InfernoPersistentSearch4=Inferno (Persistent Search 4)
 Effect/Name/InfernoPersistentSearch5=Inferno (Persistent Search 5)
 Effect/Name/InfernoSearchApplyTarget=Inferno (Search Apply Target)
 Effect/Name/InfernoSearchTarget=Inferno (Search Target)
+Effect/Name/InfernoSearchTargetChain=Inferno (Search Target - Chain)
+Effect/Name/InfernoSearchTargetCreateNapalm=Inferno (Search Target - Create Napalm)
 Effect/Name/InfernoSearchTargetPersistent=Inferno (Search Target Persistent)
 Effect/Name/InfernoSet=Inferno (Set)
 Effect/Name/InfestedAbomination2=Erebos
@@ -6390,7 +6398,7 @@ UserData/TalentTrees/Flamethrower_Talent Tootips=<s val="AchievementFrameName">H
 UserData/TalentTrees/Flamethrower_Talent Tootips_001=<s val="AchievementFrameName">Burst Fire</s><n/>Deals damage to units in a forward arc. Deals 40% extra damage to Light units. Must have Flamethrower weapon equipped.<n/>Level 1 - 50 damage<n/>Level 2 - 100 damage<n/>Level 3 - 150 damage<n/><n/>6 range. Affects air units too.
 UserData/TalentTrees/Flamethrower_Talent Tootips_002=<s val="AchievementFrameName">BURN!</s><n/>The Flamethrower channels a continuous stream of fire on a single target, dealing increasing damage over time. Reduces target's armor up to a maximum of -10 when under effects of Burn. Must have Flamethrower equipped.<n/>Level 1 - Deals +25 damage/second <n/>Level 2 - Deals +50 damage/second <n/><n/>Caps out at a maximum of 200 damage/second. <n/><n/><c val="F4D72B">Tier 2 talents require 4 talent points in the tree to unlock</c>
 UserData/TalentTrees/Flamethrower_Talent Tootips_003=<s val="AchievementFrameName">Frenzy<n/>(Passive)</s><n/>Flamethrower gains increased attack/move speed and damage for each unit killed by Burst Fire and Burn. 30% chance to add 1 stack of Frenzy for each kill made by Inferno. Lasts for 30 seconds. Max stack of 30.<n/>Level 1 - +1% attack/move and +2% damage<n/>Level 2 - +2% attack/move and +4% damage<n/><n/><c val="F4D72B">Tier 2 talents require 4 talent points in the tree to unlock</c>
-UserData/TalentTrees/Flamethrower_Talent Tootips_004=<s val="AchievementFrameName">Inferno</s><n/>Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets will begin burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius.<n/><n/><c val="F4D72B">Tier 3 talents require 8 talent points in the tree to unlock</c>
+UserData/TalentTrees/Flamethrower_Talent Tootips_004=<s val="AchievementFrameName">Inferno</s><n/>Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets are slowed by 60% while burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius. Non-heroic armored biological ground units that die to the blast burst into pillars of fire that last 10 seconds. Units caught in the flames have a 40% chance per second of spreading Inferno, potentially causing a chain reaction.<n/><n/><c val="FF0000">Warning: Inferno creates fires that can engulf friendlies. Use with extreme caution!</c><n/><n/>"When the Saracens came to attack him, they threw Greek fire onto the barrier... the Turks did not wait for the fire to burn itself out, but rushed upon the Templars among the scorching flames." - Jean de Joinville<n/><n/><c val="F4D72B">Tier 3 talents require 8 talent points in the tree to unlock</c>
 UserData/TalentTrees/Flamethrower_Talent Tootips_005=<s val="AchievementFrameName">Smite</s><n/>Deals damage based on current HP and movespeed reduction to enemies in 3 radius of target area for 4 seconds. Less effective on Bosses.<n/>Level 1 - 10% of current HP and -18% movespeed<n/>Level 2 - 20% of current HP and -36% movespeed<n/>Level 3 - 30% of current HP and -54% movespeed
 UserData/TalentTrees/Flamethrower_Talent Tootips_006=<s val="AchievementFrameName">Vengeance<n/>(Passive)</s><n/>Chance for attackers to be stunned for 2 seconds. <n/>Level 1 - 15% chance<n/>Level 2 - 30% chance<n/>Level 3 - 45% chance<n/><n/>"And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know I am the LORD when I lay my vengeance upon thee." - Ezekiel 25:17
 UserData/TalentTrees/Flamethrower_Talent Tootips_007=<s val="AchievementFrameName">Righteousness</s><n/>+1 armor for each unit damaged by Smite.<n/>Level 1 - Lasts 8 secs<n/>Level 2 - Lasts 16 secs<n/><n/>"I shall walk down the road of shadow, the path of the wicked, the trail of damnation but I fear not for I stand as an unfaltering beacon to the lost for all those who have been cast down."<n/><n/><c val="F4D72B">Tier 2 talents require 4 talent points in the tree to unlock</c>
