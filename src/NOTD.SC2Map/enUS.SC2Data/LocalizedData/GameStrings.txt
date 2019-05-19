@@ -4418,6 +4418,7 @@ Param/Value/4826ECBA=You cannot proceed beyond Wave 20 with less than 2 players 
 Param/Value/4876E9AF=Hide from Demeter when it stares with its eye.
 Param/Value/48BA160F=<c val="0080FF">Saving Biometric ID for </c>
 Param/Value/490BB556=<s val="InfoPaneUnitInfo">[Magazines Equipped] -- (Used)
+Param/Value/49193959=%</c>
 Param/Value/49319E6D=We've destroyed all the zombie worms.
 Param/Value/49791ACC=Investigate the Communications Tower
 Param/Value/4990863D=If the colonies revolt, there will be civil war. Millions more will die.
@@ -4620,6 +4621,7 @@ Param/Value/6B844545=%
 Param/Value/6B9F59C0=Dr. Omar
 Param/Value/6C371B25=I've found an access point.
 Param/Value/6C5FF689=Destroy Perses
+Param/Value/6C7D2389=
 Param/Value/6C897E06=I recommend looking for him at these areas.
 Param/Value/6CC62F53=<s val="GlueButton"><c val="F4D72B">There's something you should see.</c></s>
 Param/Value/6D589165=Where is he?
@@ -4637,6 +4639,7 @@ Param/Value/6ECF4D5C=Stat Points Available:
 Param/Value/6EE123F8=Engage Deimos and bring it down. Watch out for its minions.
 Param/Value/6EEE6DA0=More reinforcements have arrived.
 Param/Value/6F38C800=Alpha Company is harder than Easy Company storyline. Don't be discouraged!
+Param/Value/6F620108=<c val="FFC914">Perfect!</c>
 Param/Value/6F6A8D06=<s val="InfoPaneUnitInfo">
 Param/Value/6F85F77F=Kill all zombies from Bio-Dome C
 Param/Value/6FFC4D93=+
@@ -4960,6 +4963,7 @@ Param/Value/A6E77676=<s val="BriefingHanText">(Gunship leaving combat zone in 15
 Param/Value/A6F1ECEA=I'm connected.
 Param/Value/A72367D5=+3 XP for Performance Bonus
 Param/Value/A779B0BC=This confirms our suspicions the past few days.
+Param/Value/A7AD8FD6=<c val="FFC914">Perfect!</c>
 Param/Value/A8040132=It's too late - kill him!
 Param/Value/A811CC29=With HAL and its security systems down, most of the zombies will be coming at us.
 Param/Value/A83A325D=
@@ -5241,6 +5245,7 @@ Param/Value/D95CDF30=/12)</c>
 Param/Value/D96BF6CE=Please reconsider your actions.
 Param/Value/D99EB192=<s val="InfoPaneHeroRank">(Airlock Terminals require 2 authorized personnel..)</s>
 Param/Value/D9C4D665=Survive the incoming attack
+Param/Value/D9E6F22E=<c val="FFC914">
 Param/Value/DA7A513D=The source of the infestation has been located. Proceed with caution. There is no turning back.
 Param/Value/DA815637=Our mission brief showed a Dr. Bergmann. Do you think he's related to all this?
 Param/Value/DA82A504=Buying failed

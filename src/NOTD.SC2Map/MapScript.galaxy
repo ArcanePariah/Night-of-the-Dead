@@ -731,6 +731,7 @@ int gv_magazineAdjustment;
 int[9] gv_marineRounds;
 bool[9] gv_reloading;
 int[9] gv_smartReloadCount;
+int[9] gv_totalReloadCount;
 bool[9] gv_victimOfTK;
 int gv_tKedPlayer;
 int gv_griefingPlayer;
@@ -1573,6 +1574,7 @@ void gf_UpdateSpectatorLabel (int lp_spectatedPlayer);
 void gf_FlareAreaRecruit (point lp_flarePoint, fixed lp_flareRadius);
 void gf_DisplaySquadInformation ();
 fixed gf_CommandoReload (fixed lp_currentReload, unit lp_firingUnit);
+void gf_ReloadTextTag (int lp_player);
 void gf_ReloadMagazine (int lp_player, unit lp_reloadingUnit, int lp_reload, string lp_weapon);
 void gf_AmmoUsage (int lp_player, unit lp_attackingUnit, int lp_reload, string lp_weapon);
 void gf_UpdateMagazineCount (int lp_magazineCount, int lp_magazineChange, int lp_player);
@@ -3585,6 +3587,43 @@ fixed gf_CommandoReload (fixed lp_currentReload, unit lp_firingUnit) {
     return lp_currentReload;
 }
 
+trigger auto_gf_ReloadTextTag_Trigger = null;
+int auto_gf_ReloadTextTag_lp_player;
+
+void gf_ReloadTextTag (int lp_player) {
+    auto_gf_ReloadTextTag_lp_player = lp_player;
+
+    if (auto_gf_ReloadTextTag_Trigger == null) {
+        auto_gf_ReloadTextTag_Trigger = TriggerCreate("auto_gf_ReloadTextTag_TriggerFunc");
+    }
+
+    TriggerExecute(auto_gf_ReloadTextTag_Trigger, false, false);
+}
+
+bool auto_gf_ReloadTextTag_TriggerFunc (bool testConds, bool runActions) {
+    int lp_player = auto_gf_ReloadTextTag_lp_player;
+
+    // Variable Declarations
+    int lv_reloadText;
+    fixed lv_reloadTextHeightOffset;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_reloadText = c_textTagNone;
+    lv_reloadTextHeightOffset = 1.5;
+
+    // Implementation
+    TextTagCreate(StringExternal("Param/Value/6F620108"), 20, UnitGetPosition(gv_marineHero[lp_player]), 1.5, true, true, PlayerGroupActive());
+    lv_reloadText = TextTagLastCreated();
+    TextTagAttachToUnit(lv_reloadText, gv_marineHero[lp_player], lv_reloadTextHeightOffset);
+    TextTagSetVelocity(lv_reloadText, 0.5, 90.0);
+    Wait(1.0, c_timeGame);
+    TextTagSetText(lv_reloadText, (StringExternal("Param/Value/D9E6F22E") + FixedToText((IntToFixed((gv_smartReloadCount[lp_player] * 100)) / IntToFixed(gv_totalReloadCount[lp_player])), 0) + StringExternal("Param/Value/49193959")));
+    Wait(2.0, c_timeGame);
+    TextTagDestroy(lv_reloadText);
+    return true;
+}
+
 void gf_ReloadMagazine (int lp_player, unit lp_reloadingUnit, int lp_reload, string lp_weapon) {
     // Variable Declarations
     int lv_assaultAmmo;
@@ -3604,6 +3643,7 @@ void gf_ReloadMagazine (int lp_player, unit lp_reloadingUnit, int lp_reload, str
     gv_reloading[lp_player] = true;
     UnitAbilityEnable(lp_reloadingUnit, "Reload", false);
     gv_marineRounds[lp_player] = 0;
+    gv_totalReloadCount[lp_player] += 1;
     if ((UnitHasBehavior(lp_reloadingUnit, "HighCapacityClip") == true)) {
         lv_hasHighCapacityMagazine = 1;
     }
@@ -16451,6 +16491,7 @@ bool gt_ManualReload_Func (bool testConds, bool runActions) {
 
     if ((((gv_marineRounds[lv_reloadingPlayer] >= 0) && (gv_marineRounds[lv_reloadingPlayer] <= 2)) == true)) {
         gv_smartReloadCount[lv_reloadingPlayer] += 1;
+        gf_ReloadTextTag(lv_reloadingPlayer);
         if ((gv_smartReloadCount[lv_reloadingPlayer] == 15)) {
             gf_UpdateRating(lv_reloadingPlayer, 1);
         }
