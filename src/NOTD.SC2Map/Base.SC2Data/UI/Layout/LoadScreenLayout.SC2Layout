@@ -1,70 +1,71 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-
-
-<Frame type = "Frame" name = "LoadScreen">
-	<Anchor relative = "$parent"/>
-	<Frame type="MathFrame" name="ImageSelection">
-		<Anchor relative="$parent"/>
-		<Operator val="Random"/>
-		<A val="10"/>
-		<B val="11"/>
-		<StateGroup name="SplatPickerState">
-			<DefaultState val="1"/>
-			<State name="1">
-				<When type="Property" ResultInt="1"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Recon.jpg"/>
-			</State>
-			<State name="2">
-				<When type="Property" ResultInt="2"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Medic.jpg"/>
-			</State>
-			<State name="3">
-				<When type="Property" ResultInt="3"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/PsiOps.jpg"/>
-			</State>
-			<State name="4">
-				<When type="Property" ResultInt="4"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Marksman.jpg"/>
-			</State>
-			<State name="5">
-				<When type="Property" ResultInt="5"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Technician.jpg"/>
-			</State>
-			<State name="6">
-				<When type="Property" ResultInt="6"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Flamethrower.jpg"/>
-			</State>
-			<State name="7">
-				<When type="Property" ResultInt="7"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/ChemExpert.jpg"/>
-			</State>
-			<State name="8">
-				<When type="Property" ResultInt="8"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Engineer.jpg"/>
-			</State>
-			<State name="9">
-				<When type="Property" ResultInt="9"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Rifleman.jpg"/>
-			</State>
-			<State name="10">
-				<When type="Property" ResultInt="10"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Commando.jpg"/>
-			</State>
-			<!-- The Pathfinder image is too large and will not show correctly -->
-			<State name="11">
-				<When type="Property" ResultInt="11"/>
-				<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Pathfinder.jpg"/>
-			</State> 
-		</StateGroup>
+	<Frame type = "Frame" name = "LoadScreen">
+		<Anchor relative = "$parent"/>
+		<Frame type="MathFrame" name="ImageSelection">
+			<Anchor relative="$parent"/>
+			<Operator val="Random"/>
+			<A val="1"/>
+			<B val="12"/>
+			<StateGroup name="SplatPickerState">
+				<DefaultState val="1"/>
+				<State name="1">
+					<When type="Property" ResultInt="1"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Recon.jpg"/>		
+				</State>
+				<State name="2">
+					<When type="Property" ResultInt="2"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Medic.jpg"/>
+				</State>
+				<State name="3">
+					<When type="Property" ResultInt="3"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/PsiOps.jpg"/>
+				</State>
+				<State name="4">
+					<When type="Property" ResultInt="4"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Marksman.jpg"/>
+				</State>
+				<State name="5">
+					<When type="Property" ResultInt="5"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Technician.jpg"/>
+				</State>
+				<State name="6">
+					<When type="Property" ResultInt="6"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Flamethrower.jpg"/>
+				</State>
+				<State name="7">
+					<When type="Property" ResultInt="7"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/ChemExpert.jpg"/>
+				</State>
+				<State name="8">
+					<When type="Property" ResultInt="8"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Engineer.jpg"/>
+				</State>
+				<State name="9">
+					<When type="Property" ResultInt="9"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Rifleman.jpg"/>
+				</State>
+				<State name="10">
+					<When type="Property" ResultInt="10"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Commando.jpg"/>
+				</State>
+				<State name="11">
+					<When type="Property" ResultInt="11"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Pathfinder.jpg"/>
+				</State>
+				<!-- Essentially a dummy state, this is needed to for state 11 to work -->
+				<State name="12">
+					<When type="Property" ResultInt="12"/>
+					<Action type="SetProperty" frame="$parent/LoadScreenImage" Texture="Assets/Textures/Recon.jpg"/>
+				</State>  
+			</StateGroup>
+		</Frame>
+		<Frame type = "Image" name = "LoadScreenImage">
+			<Anchor side="Left" offset = "0" pos = "Min" relative = "$parent"/>
+			<Anchor side="Top" offset = "0" pos = "Min" relative = "$parent"/>
+			<Width val = "2240" />
+			<Height val = "1260" />
+			<Texture val = "" />
+		</Frame>
 	</Frame>
-	<Frame type = "Image" name = "LoadScreenImage">
-		<Anchor side="Left" offset = "0" pos = "Min" relative = "$parent"/>
-		<Anchor side="Top" offset = "0" pos = "Min" relative = "$parent"/>
-		<Width val = "2240" />
-		<Height val = "1260" />
-		<Texture val = "" />
-	</Frame>
-
-</Frame>
 </Desc>
