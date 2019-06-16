@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CCommander id="NOTD">
+        <AttributeId value="Arta"/>
+        <Race value="Prot"/>
+        <ConsoleSkin value="Dflt"/>
+    </CCommander>
+</Catalog>

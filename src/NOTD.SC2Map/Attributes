@@ -408,5 +408,47 @@
                 <Value Id="1164014457"/>
             </Default>
         </Attribute>
+        <Attribute Namespace="999" Id="3013">
+            <Default>
+                <Slot Id="0"/>
+                <Value Id="1098019937"/>
+                <Locked/>
+            </Default>
+            <Default>
+                <Slot Id="1"/>
+                <Value Id="1098019937"/>
+                <Locked/>
+            </Default>
+            <Default>
+                <Slot Id="2"/>
+                <Value Id="1098019937"/>
+                <Locked/>
+            </Default>
+            <Default>
+                <Slot Id="3"/>
+                <Value Id="1098019937"/>
+                <Locked/>
+            </Default>
+            <Default>
+                <Slot Id="4"/>
+                <Value Id="1098019937"/>
+                <Locked/>
+            </Default>
+            <Default>
+                <Slot Id="5"/>
+                <Value Id="1098019937"/>
+                <Locked/>
+            </Default>
+            <Default>
+                <Slot Id="6"/>
+                <Value Id="1098019937"/>
+                <Locked/>
+            </Default>
+            <Default>
+                <Slot Id="7"/>
+                <Value Id="1098019937"/>
+                <Locked/>
+            </Default>
+        </Attribute>
     </Variant>
 </Attributes>

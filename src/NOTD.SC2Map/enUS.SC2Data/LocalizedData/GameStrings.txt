@@ -1908,6 +1908,7 @@ Button/Tooltip/ZombieLevel12=An infested civilian who has turned into a zombie.
 Button/Tooltip/ZombieLevel2=A deadlier viral strain of infested civilians.
 Button/Tooltip/ZombieLevel22=A deadlier viral strain of infested civilians.
 Charge Level 2=Charges forward up to 15 distance to target point, knocking back any enemies in path. Deals 100 damage and stuns all affected enemies for 4 seconds. Deals +50% damage to Massive.
+Commander/Name/NOTD=NOTD
 DOCSTR_ArcanePariahMarksman=Hunter of Apollo
 DOCSTR_TestText=<info id="Rifleman" types="A,W"/>
 DocInfo/Author=Blueberry Entertainment
