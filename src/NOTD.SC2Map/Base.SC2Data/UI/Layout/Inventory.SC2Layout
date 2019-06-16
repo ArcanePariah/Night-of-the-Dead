@@ -205,8 +205,18 @@
         </Frame>
 
         <Frame type="Image" name="Cursor">
-            <Width val="0"/>
-            <Height val="0"/>
+            <Width val="36"/>
+            <Height val="36"/>
+            <Handle val="MouseCursor"/>
+            <StateGroup name="CursorImageState">
+                <DefaultState val="Hidden" />
+                <State name="Visible">
+                    <When type="Property" frame="$this" Visible="True" />       
+                    <Action type="SetProperty" frame="$this" Alpha="0" />
+                    <Action type="SetProperty" frame="$CursorAnchor" Visible="True" />         
+                </State>
+                <State name="Hidden" />
+            </StateGroup>
         </Frame>
     </Frame>
 </Desc>
