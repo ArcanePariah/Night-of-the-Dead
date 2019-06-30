@@ -12240,8 +12240,6 @@ bool auto_gf_MissionLogCreation_TriggerFunc (bool testConds, bool runActions) {
     int lv_tempDialogFrame;
 
     // Automatic Variable Declarations
-    int auto51DE914D_val;
-
     // Variable Initialization
     lv_tempDialogFrame = c_invalidDialogControlId;
 
@@ -12258,22 +12256,7 @@ bool auto_gf_MissionLogCreation_TriggerFunc (bool testConds, bool runActions) {
     lv_tempDialogFrame = DialogControlLastCreated();
     DialogControlHookup(lv_tempDialogFrame, c_triggerControlTypeLabel, "ContainerFrame");
     gv_MissionLogContent[lp_player] = DialogControlLastCreated();
-    auto51DE914D_val = gv_storyline;
-    if (auto51DE914D_val == 1) {
-        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/DF48C3E4") + UserDataGetText("Storyline", "Easy Company", "Story Name", 1) + StringExternal("Param/Value/308A4392")), PlayerGroupSingle(lp_player));
-    }
-    else if (auto51DE914D_val == 2) {
-        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/2414A275") + UserDataGetText("Storyline", "Alpha Company", "Story Name", 1) + StringExternal("Param/Value/1254B2B9")), PlayerGroupSingle(lp_player));
-    }
-    else if (auto51DE914D_val == 3) {
-        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/8F6E050F") + UserDataGetText("Storyline", "Apollo Security Team", "Story Name", 1) + StringExternal("Param/Value/BB45713C")), PlayerGroupSingle(lp_player));
-    }
-    else if (auto51DE914D_val == 4) {
-        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/DB17F0AC") + UserDataGetText("Storyline", "Survival", "Story Name", 1) + StringExternal("Param/Value/4ED6B13C")), PlayerGroupSingle(lp_player));
-    }
-    else {
-        libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/ADA3F763") + UserDataGetText("Storyline", "Easy Company", "Story Name", 1) + StringExternal("Param/Value/0688A2B2")), PlayerGroupSingle(lp_player));
-    }
+    libNtve_gf_SetDialogItemText(gv_MissionLogContent[lp_player], (StringExternal("Param/Value/DF48C3E4") + UserDataGetText("Storyline", UserDataInstance("Storyline", gv_storyline), "Story Name", 1) + StringExternal("Param/Value/308A4392")), PlayerGroupSingle(lp_player));
     return true;
 }
 
@@ -15940,13 +15923,6 @@ bool gt_WinsCheck_Func (bool testConds, bool runActions) {
     // Variable Initialization
     lv_winsPlayer = StringToInt(StringSub(EventChatMessage(false), 4, 4));
     lv_playerIndex = lv_winsPlayer;
-
-    // Conditions
-    if (testConds) {
-        if (!(gf_ValidPlayer(lv_winsPlayer))) {
-            return false;
-        }
-    }
 
     // Actions
     if (!runActions) {
