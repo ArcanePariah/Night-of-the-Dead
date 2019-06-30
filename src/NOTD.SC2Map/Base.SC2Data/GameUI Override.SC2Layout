@@ -286,5 +286,20 @@
 				</Frame>
 		</Frame>
 
+		<Frame type="Image" name="CursorAnchor">
+            <Anchor side="Top" relative="$MouseCursor" pos="Min" offset="15" />
+            <Anchor side="Left" relative="$MouseCursor" pos="Min" offset="-600" />
+            <Height val="36"/>
+            <Width val="36"/>
+            <LayerCount val="2"/>
+            <TextureType val="Normal" layer="0" />
+            <TextureType val="Normal" layer="1" />
+            <Texture val="{$MouseCursor/@Texture[0]}" layer="0" />
+            <Texture val="{$MouseCursor/@Texture[1]}" layer="1" />
+            <Visible val="False"/>
+			<AcceptsMouse val="False"/>
+            <Handle val="CursorAnchor"/>
+        </Frame> 
+
 	</Frame>
 </Desc>
