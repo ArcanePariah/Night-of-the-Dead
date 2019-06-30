@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-	<Constant name = "TooltipOffset" val = "-65" />
+    <Constant name="TooltipOffset" val="-65"/>
+
     <Frame type="GameUI" name="GameUI" file="GameUI">
         <ConsoleWorldBottomOffset val="0"/>
     </Frame>
@@ -28,6 +29,11 @@
     </Frame>
 
     <Frame type="Frame" name="GameUI/UIContainer/FullscreenUpperContainer" file="GameUI">
+        <Frame type="Frame" name="BossBar" template="BossBar/BossBarTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="-400"/>
+        </Frame>
+
         <Frame type="AlertPanel" name="AlertPanel" template="AlertPanel/AlertPanelTemplate">
             <Style val="AlertItem"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
