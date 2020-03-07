@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CActorRegion default="1" id="GuideRegionNormal">
         <Host Subject="::QueryCaster"/>
@@ -359,7 +359,7 @@
     <CActorRange id="AssaultJumpRange" parent="RangeAbil" abil="AssaultJump">
         <FogVisibility value="Visible"/>
         <CliffLevelFlags index="Lower" value="0"/>
-        <CliffLevelFlags index="Equal" value="0"/>
+        <CliffLevelFlags index="Higher" value="0"/>
     </CActorRange>
     <CActorAction id="LaserRifleAttack" parent="GenericAttack" effectAttack="LaserRifleDamage">
         <LaunchAttachQuery Methods="AMFilterWeapon"/>
@@ -6384,7 +6384,6 @@
         <On index="118" removed="1"/>
         <On index="119" removed="1"/>
         <On index="120" removed="1"/>
-        <On index="121" removed="1"/>
         <Scale value="2.000000"/>
         <EventDataFootprint index="0" Model="HadesTentacleFootprint"/>
         <DeathArray index="Normal" ModelLink="HadesTentacle" VoiceLink="HadesTentacleDeathVoice"/>
