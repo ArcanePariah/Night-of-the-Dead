@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
+    <Include path="UI/Layout/BossBar.SC2Layout"/>
     <Include path="UI/Layout/TeamStatus.SC2Layout"/>
     <Include path="UI/Layout/PlayerDetails.SC2Layout"/>
     <Include path="CommandPanel Override.SC2Layout"/>
@@ -23,5 +24,6 @@
     <Include path="UI/Layout/StorylineSelection.SC2Layout"/>
     <Include path="UI/Layout/MissionLog.SC2Layout"/>
     <Include path="UI/Layout/Shop.SC2Layout"/>
-    <Include path="UI\Layout\LoadScreenLayout.SC2Layout"/>
+    <!-- Keeps loadscreen seperate from the Desc -->
+    <Include path="UI\Layout\LoadScreenLayout.SC2Layout" requiredtoload="IS_EDITOR"/>
 </Desc>

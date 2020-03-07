@@ -1814,6 +1814,23 @@
                 <Field Id="Boss Unit"/>
             </Unit>
         </Instances>
+        <Instances Id="Gotb">
+            <Color Color="255,255,0,0">
+                <Field Id="Ping Color"/>
+            </Color>
+            <Image Image="Assets\Textures\zealotportrait_static.dds">
+                <Field Id="Portrait"/>
+            </Image>
+            <Model Model="PingBoss">
+                <Field Id="Minimap Ping"/>
+            </Model>
+            <Text Text="UserData/BossData/Gotb_Name">
+                <Field Id="Name"/>
+            </Text>
+            <Unit Unit="GuardianoftheBeta">
+                <Field Id="Boss Unit"/>
+            </Unit>
+        </Instances>
     </CUser>
     <CUser id="CommunicationTowerCompletionMessages">
         <Fields Id="Message" Type="Text" Count="3"/>
@@ -5516,7 +5533,20 @@
         <Fields Id="Story Subtitle" Type="Text"/>
         <Fields Id="Story Tooltip" Type="Text"/>
         <Fields Id="Default Lighting" Type="GameLink" GameLinkType="Light"/>
-        <Instances Id="[Default]"/>
+        <Instances Id="[Default]">
+            <GameLink GameLink="UnknownLight">
+                <Field Id="Default Lighting"/>
+            </GameLink>
+            <Text Text="UserData/Storyline/[Default]_Story Name">
+                <Field Id="Story Name"/>
+            </Text>
+            <Text Text="UserData/Storyline/[Default]_Story Subtitle">
+                <Field Id="Story Subtitle"/>
+            </Text>
+            <Text Text="UserData/Storyline/[Default]_Story Tooltip">
+                <Field Id="Story Tooltip"/>
+            </Text>
+        </Instances>
         <Instances Id="Easy Company">
             <GameLink GameLink="UnknownLight">
                 <Field Id="Default Lighting"/>
