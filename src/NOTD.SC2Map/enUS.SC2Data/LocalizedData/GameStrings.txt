@@ -344,6 +344,12 @@ Attribute003/Value002/Desc=Random class selection disabled.
 Attribute003/Value002/Name=No Random
 Attribute003/Value003/Desc=Forced random selection.
 Attribute003/Value003/Name=All Random
+Attribute003/Value004/Desc=Allow 1 random class.
+Attribute003/Value004/Name=1 Random
+Attribute003/Value005/Desc=Allow 2 random classes.
+Attribute003/Value005/Name=2 Randoms
+Attribute003/Value006/Desc=Allow 3 random classes.
+Attribute003/Value006/Name=3 Randoms
 Attribute004/Name=Shop Availability
 Attribute004/Value001/Desc=Shop is available in non recruit modes.
 Attribute004/Value001/Name=Standard
@@ -527,6 +533,8 @@ Behavior/Name/InboundSicknessSlowLevel2=Inbound Sickness (Slow - Level 2)
 Behavior/Name/Inception=Inception
 Behavior/Name/Infection=Infection
 Behavior/Name/Inferno=Inferno
+Behavior/Name/InfernoChainNapalm=Inferno (Chain Napalm)
+Behavior/Name/InfernoChainTarget=Inferno (Chain Target)
 Behavior/Name/InfernoTarget=Inferno (Target)
 Behavior/Name/Intimidation=Intimidation
 Behavior/Name/IronHand=Iron Hand
@@ -1621,7 +1629,7 @@ Button/Tooltip/Inception=The universe around you slows down. You are free to act
 Button/Tooltip/IncompleteIvax=Heavy assault mech. Can use 250mm Strike Cannons.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfantrySpecializationLevel1=Allows Mobile Infantry to land Flamethrowers. You can customize your drop team in a sub-menu.
 Button/Tooltip/InfantrySpecializationLevel2=Allows Mobile Infantry to land Snipers. You can customize your drop team in a sub-menu.
-Button/Tooltip/Inferno=Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets will begin burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius.
+Button/Tooltip/Inferno=Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets are slowed by 60% while burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius. Non-heroic armored biological ground units that die to the blast burst into pillars of fire that last 10 seconds. Units caught in the flames have a 40% chance per second of spreading Inferno, potentially causing a chain reaction.<n/><n/><c val="FF0000">Warning: Inferno creates fires that can engulf friendlies. Use with extreme caution!</c><n/><n/>"When the Saracens came to attack him, they threw Greek fire onto the barrier... the Turks did not wait for the fire to burn itself out, but rushed upon the Templars among the scorching flames." - Jean de Joinville
 Button/Tooltip/InfestedAbomination=An abomination that is capable of ranged attacks.
 Button/Tooltip/InfestedCocoon=Zombie cocoon. Destroy it before it can hatch.
 Button/Tooltip/InfestedColonistShip=Colony Ship that has been Infested. Likely used as a massive nest and breeding ground.
@@ -1900,6 +1908,7 @@ Button/Tooltip/ZombieLevel12=An infested civilian who has turned into a zombie.
 Button/Tooltip/ZombieLevel2=A deadlier viral strain of infested civilians.
 Button/Tooltip/ZombieLevel22=A deadlier viral strain of infested civilians.
 Charge Level 2=Charges forward up to 15 distance to target point, knocking back any enemies in path. Deals 100 damage and stuns all affected enemies for 4 seconds. Deals +50% damage to Massive.
+Commander/Name/NOTD=NOTD
 DOCSTR_ArcanePariahMarksman=Hunter of Apollo
 DOCSTR_TestText=<info id="Rifleman" types="A,W"/>
 DocInfo/Author=Blueberry Entertainment
@@ -2187,6 +2196,14 @@ DocInfo/PatchNote269=- Disabled buying kits/bandages after Navy Cross mode is en
 DocInfo/PatchNote270=- Added NC and DSM eligibility to squad check (ThunderRazor)
 DocInfo/PatchNote271=- Guardian of the Beta (GOTB) will detect and avoid AI path bugs. (ThunderRazor)
 DocInfo/PatchNote272=- Fixed sonic traps to consistently trigger for any count of enemies being near trap.(Niktos)
+DocInfo/PatchNote273= - Fixed mad spark placement teleportation (stanK)
+DocInfo/PatchNote274= - Increased number of pauses per player to 5 (stanK)
+DocInfo/PatchNote275= - Fixed techician not receiving anticipation (Prizmatik)
+DocInfo/PatchNote276= - Fixed a crash when Perses is killed at ec with bubbles about to spawn. (stanK)
+DocInfo/PatchNote277= - Fixed handgun expertise adding wrong amount of damage to pf shots on lvl 3 (Niktos)
+DocInfo/PatchNote278= - Pathfinder skilltree sometimes getting filled up (11 skills) using only 10 skill points (Niktos)
+DocInfo/PatchNote279= - Fixed Engineer Nexus shared vision not being removed on Nexus death (Niktos)
+DocInfo/PatchNote280= - Fixed Queen shrieking even if dead (Niktos)
 DocInfo/Screenshot01=Employ your wit to fight bosses
 DocInfo/Screenshot02=Complete many unique missions
 DocInfo/Screenshot03=Work together and win as a team
@@ -2507,6 +2524,7 @@ Effect/Name/CrawlerDroneLimit=Crawler Drone Limit
 Effect/Name/CrawlerDronePersistentLevel1=Crawler Drone Persistent Level 1
 Effect/Name/CrawlerDronePersistentLevel2=Crawler Drone Persistent Level 2
 Effect/Name/CreateNapalmFire=Create Napalm Fire
+Effect/Name/CreateNapalmFireInfernoChain=Create Napalm Fire (Inferno Chain)
 Effect/Name/CreateUnit=Create Unit
 Effect/Name/CreateUnitSet=Create Unit Set
 Effect/Name/CrippleApplySelf=Cripple Apply Self
@@ -2934,8 +2952,11 @@ Effect/Name/InfernalFlameThrowerLevel22=Infernal Flame Thrower Level 2
 Effect/Name/InfernalFlameThrowerLevel3=Infernal Flame Thrower Level 3
 Effect/Name/InfernalFlameThrowerLevel32=Infernal Flame Thrower Level 3
 Effect/Name/InfernoApply=Inferno (Apply)
+Effect/Name/InfernoApplyChainNapalm=Inferno (Apply Chain)
+Effect/Name/InfernoApplyChainTarget=Inferno (Apply Chain Target)
 Effect/Name/InfernoApplyTarget=Inferno (Apply Target)
 Effect/Name/InfernoDamage=Inferno (Damage)
+Effect/Name/InfernoDamageSet=Inferno (Damage Set)
 Effect/Name/InfernoLaunchMissile=Inferno (Launch Missile)
 Effect/Name/InfernoPersistentSearch1=Inferno (Persistent Search 1)
 Effect/Name/InfernoPersistentSearch2=Inferno (Persistent Search 2)
@@ -2944,6 +2965,8 @@ Effect/Name/InfernoPersistentSearch4=Inferno (Persistent Search 4)
 Effect/Name/InfernoPersistentSearch5=Inferno (Persistent Search 5)
 Effect/Name/InfernoSearchApplyTarget=Inferno (Search Apply Target)
 Effect/Name/InfernoSearchTarget=Inferno (Search Target)
+Effect/Name/InfernoSearchTargetChain=Inferno (Search Target - Chain)
+Effect/Name/InfernoSearchTargetCreateNapalm=Inferno (Search Target - Create Napalm)
 Effect/Name/InfernoSearchTargetPersistent=Inferno (Search Target Persistent)
 Effect/Name/InfernoSet=Inferno (Set)
 Effect/Name/InfestedAbomination2=Erebos
@@ -4022,7 +4045,6 @@ Param/Value/05BF5D82=Roger. Grab the ammo and we're Oscar Mike.
 Param/Value/05C9C370=Head to Central Square. We should set up an EVAC point for any survivors.
 Param/Value/060BE9EA=Talents Available: 
 Param/Value/062A9941=+2 XP for Mission Bonus
-Param/Value/0688A2B2=</s>
 Param/Value/069FDC3C=The power generators are scattered across Apollo.
 Param/Value/06A43C14=Keep the Sec Team unit alive for more fire power
 Param/Value/06C9BF47=We'll need more Marines to retake Apollo.
@@ -4055,6 +4077,7 @@ Param/Value/0C2F5667=We should investigate the airlock when the squad is ready. 
 Param/Value/0C4AF719=Capt. Linh
 Param/Value/0C5D5CC4=<s val="GlueButton">Black Ops
 Param/Value/0C7265D3=Buying failed
+Param/Value/0CC677C4=<s val="InfoPaneHeroRank">Allowed 1 random class selection.</s>
 Param/Value/0CE405E2=Evasive maneuvers! Get away from those spores.
 Param/Value/0D23902A=<s val="InfoPaneHeroRank">Class limit exceeded - XP and Credit gain reduced by 40%!
 Param/Value/0D3A884E=Solid copy.
@@ -4083,7 +4106,6 @@ Param/Value/115D3793=The Marines Have Landed
 Param/Value/116239BA=Radar is picking up infantry. IFF returning negative. They're hostile.
 Param/Value/11E97FFE=+2 XP for Performance Bonus
 Param/Value/12198CAD=The civies are safe. Looks pretty clear.
-Param/Value/1254B2B9=</s>
 Param/Value/126EB08C=<s val="GlueButton"><c val="F4D72B">Unlocking Bio-Dome A. These are the basic mutation. You'll nail them easily.</c>
 Param/Value/12947B75=All weapons on target.
 Param/Value/12972B90=He gassed us. Regroup!
@@ -4178,7 +4200,6 @@ Param/Value/236A95F9=We've got incoming from the East.
 Param/Value/2399241B=. Removal with 1 more vote.</s>
 Param/Value/23DC8EDE= will meet Bob.</s>
 Param/Value/23E8984F=You need to go down hard on this thing.
-Param/Value/2414A275=<s val="ModCenterSize24">
 Param/Value/241B89C3=Get in position. This one ain't going to be pretty.
 Param/Value/244B2E38=The reactors are through the airlock.
 Param/Value/2466CEB3=Huddle close. Provide covering fire.
@@ -4374,6 +4395,7 @@ Param/Value/42D8E88F=Find a way into the Research Lab
 Param/Value/42DA9A5D=has been killed by 
 Param/Value/42F6F864=</c>
 Param/Value/43DD0D71=We'll need thermals on - spotting enemies rapidly approaching.
+Param/Value/44525CC2=<s val="InfoPaneHeroRank">Allowed 2 random class selections.</s>
 Param/Value/44C67D19=Survive the outbreak with Apollo Security Team
 Param/Value/4505387E=)
 Param/Value/45AD6BBF=IVAX's attacks slow you down
@@ -4394,6 +4416,7 @@ Param/Value/4826ECBA=You cannot proceed beyond Wave 20 with less than 2 players 
 Param/Value/4876E9AF=Hide from Demeter when it stares with its eye.
 Param/Value/48BA160F=<c val="0080FF">Saving Biometric ID for </c>
 Param/Value/490BB556=<s val="InfoPaneUnitInfo">[Magazines Equipped] -- (Used)
+Param/Value/49193959=%</c>
 Param/Value/49319E6D=We've destroyed all the zombie worms.
 Param/Value/49791ACC=Investigate the Communications Tower
 Param/Value/4990863D=If the colonies revolt, there will be civil war. Millions more will die.
@@ -4428,7 +4451,6 @@ Param/Value/4DD907D3='s Marine removed from game for inactivity.
 Param/Value/4DF03C45=(You are currently piloting a Thor...)
 Param/Value/4E6B4398=<s val="GlueButton"><c val="F4D72B">Deimos has destroyed all our Devastators!</c></s>
 Param/Value/4E725D1E=I know all about 'em. Put a bullet in them - they die!
-Param/Value/4ED6B13C=</s>
 Param/Value/4ED7F8FF=(Charlie turns docile...)
 Param/Value/4EE0D498=+15 XP for Victory Bonus
 Param/Value/4F006F2A=(Dr Bergmann equips his crowbar...)
@@ -4596,6 +4618,7 @@ Param/Value/6B844545=%
 Param/Value/6B9F59C0=Dr. Omar
 Param/Value/6C371B25=I've found an access point.
 Param/Value/6C5FF689=Destroy Perses
+Param/Value/6C7D2389=
 Param/Value/6C897E06=I recommend looking for him at these areas.
 Param/Value/6CC62F53=<s val="GlueButton"><c val="F4D72B">There's something you should see.</c></s>
 Param/Value/6D589165=Where is he?
@@ -4613,6 +4636,7 @@ Param/Value/6ECF4D5C=Stat Points Available:
 Param/Value/6EE123F8=Engage Deimos and bring it down. Watch out for its minions.
 Param/Value/6EEE6DA0=More reinforcements have arrived.
 Param/Value/6F38C800=Alpha Company is harder than Easy Company storyline. Don't be discouraged!
+Param/Value/6F620108=<c val="FFC914">Perfect!</c>
 Param/Value/6F6A8D06=<s val="InfoPaneUnitInfo">
 Param/Value/6F85F77F=Kill all zombies from Bio-Dome C
 Param/Value/6FFC4D93=+
@@ -4794,7 +4818,6 @@ Param/Value/8EA89AFF=(Demeter draws back its thick armor and begins to engage...
 Param/Value/8EC89155=Do you think there are any survivors?
 Param/Value/8F257BCB=That cocoon in the main airlock gates...it's been growing at a rapid rate.
 Param/Value/8F3C1D87=Search the Airlock for clues
-Param/Value/8F6E050F=<s val="ModCenterSize24">
 Param/Value/8F9ED0A1=+
 Param/Value/8FA6A1E3=Pick up supplies. We'll need them.
 Param/Value/90136EEF=You should all be stripped of your ranks. This is slaughter!
@@ -4936,6 +4959,7 @@ Param/Value/A6E77676=<s val="BriefingHanText">(Gunship leaving combat zone in 15
 Param/Value/A6F1ECEA=I'm connected.
 Param/Value/A72367D5=+3 XP for Performance Bonus
 Param/Value/A779B0BC=This confirms our suspicions the past few days.
+Param/Value/A7AD8FD6=<c val="FFC914">Perfect!</c>
 Param/Value/A8040132=It's too late - kill him!
 Param/Value/A811CC29=With HAL and its security systems down, most of the zombies will be coming at us.
 Param/Value/A83A325D=
@@ -4973,7 +4997,6 @@ Param/Value/ACC6387D=I wonder how many more of those things are out there?
 Param/Value/AD49B184=<s val="GlueButton">
 Param/Value/AD6DE3C6=Our lines have been compromised! Broken arrow.
 Param/Value/AD923496=You're Short Circuited. An Engineer can repair your suit.
-Param/Value/ADA3F763=<s val="ModCenterSize24">
 Param/Value/ADA92E45=has been decimated by <c val="FF0000">
 Param/Value/ADEF0862=+1 XP for Performance Bonus
 Param/Value/AEC7D830=All options considered. Neutralization logical choice.
@@ -5043,7 +5066,6 @@ Param/Value/BABD3C69=I hear gunfire. Move quickly!
 Param/Value/BAF05AC5= XP for Devastator Survival Bonus.
 Param/Value/BB3AB6E9=
 Param/Value/BB3F797E=
-Param/Value/BB45713C=</s>
 Param/Value/BB54D75D=.</s></c>
 Param/Value/BB6ABEBB=Survive (Wave 1/40)
 Param/Value/BB7F61D6=+
@@ -5217,6 +5239,7 @@ Param/Value/D95CDF30=/12)</c>
 Param/Value/D96BF6CE=Please reconsider your actions.
 Param/Value/D99EB192=<s val="InfoPaneHeroRank">(Airlock Terminals require 2 authorized personnel..)</s>
 Param/Value/D9C4D665=Survive the incoming attack
+Param/Value/D9E6F22E=<c val="FFC914">
 Param/Value/DA7A513D=The source of the infestation has been located. Proceed with caution. There is no turning back.
 Param/Value/DA815637=Our mission brief showed a Dr. Bergmann. Do you think he's related to all this?
 Param/Value/DA82A504=Buying failed
@@ -5227,7 +5250,6 @@ Param/Value/DAB8AD38=We're not coming. Return to base.
 Param/Value/DAD3C239=We're Oscar Mike to target location.
 Param/Value/DAEA2E45=Class: 
 Param/Value/DAECF587=<c val="FF0000">Inventory Hidden</c> <c val="FFFFFF">(Numpad 1)</c>
-Param/Value/DB17F0AC=<s val="ModCenterSize24">
 Param/Value/DB2B3493=You're safe. Follow us.
 Param/Value/DB2E4586=<s val="BriefingHanText">(Airlock gates unlocked..)</s>
 Param/Value/DB4A1AB6=Field Marshal Kim
@@ -5401,10 +5423,10 @@ Param/Value/F681A3C4=<s val="GlueButton"><c val="F4D72B">Humans, I am Ekvolbolli
 Param/Value/F6BC82F1=What's happening to me?
 Param/Value/F6D31C38=<s val="InfoPaneHeroRank">
 Param/Value/F70ACB5B=We can take either one of these entrances into the lab.
-Param/Value/F77C7E37=Guardian of the Beta
 Param/Value/F79FB8D1=</s>
 Param/Value/F7A04BFC=+3 XP for Mission Bonus. 50 civilians rescued.
 Param/Value/F7AEF20F=<s val="BriefingHanText">Infestation Level: 89% (Probable)</s>
+Param/Value/F7BFD206=<s val="InfoPaneHeroRank">Allowed 3 random class selections.</s>
 Param/Value/F7E4F520=
 Param/Value/F80A3847=Class Selection
 Param/Value/F80D8B6F=I thought we would have died here...or worse...
@@ -5691,6 +5713,7 @@ Unit/Name/InfestorKidneyHighlightTooltip=AP Ammo
 Unit/Name/InfestorTerran=Infested Marine
 Unit/Name/InfestorTerran2=Infested Marine
 Unit/Name/IonCannon=Orbital Laser
+Unit/Name/ItemDummy=Item Dummy
 Unit/Name/Ivan=Ogilvy
 Unit/Name/IvanPlushenko=Ivan Plushenko
 Unit/Name/Ivax=IVAX
@@ -5846,6 +5869,8 @@ Unit/Name/ZerglingPet=Zergling
 Unit/Name/Zeus=Zeus
 Unit/Name/ZombieBroodMother=Brood Mother
 Unit/Name/ZombieBroodMother2=Brood Mother
+Unit/Name/ZombieCreep=Zombie Creep
+Unit/Name/ZombieCreepLarge=Zombie Creep (Large)
 Unit/Name/ZombieLevel1=Zombie
 Unit/Name/ZombieLevel12=Zombie
 Unit/Name/ZombieLevel2=Zombie
@@ -5922,6 +5947,7 @@ UserData/BossData/Eos_Name=Eos the Zombie Queen
 UserData/BossData/Erebos 1_Name=Erebos
 UserData/BossData/Erebos 2_Name=Erebos
 UserData/BossData/Erebos_Name=Erebos
+UserData/BossData/Gotb_Name=Guardian of the Beta
 UserData/BossData/Hades Phase 1_Name=Hades
 UserData/BossData/Hades Phase 2_Name=Hades
 UserData/BossData/IVAX_Name=IVAX
@@ -6247,6 +6273,9 @@ UserData/Storyline/Survival_Story Tooltip=All 14 Classes Unlocked. 40 Waves of E
 UserData/Storyline/Survival_Story_Name=Survival
 UserData/Storyline/Survival_Story_Tooltip=All 14 Classes Unlocked. 40 Waves of Enemies.<n/><n/>Survive As Long As Possible.
 UserData/Storyline/Survival_Story_Unlock_Text=To Unlock: All Players > <n/>1000 XP required
+UserData/Storyline/[Default]_Story Name=Easy Company
+UserData/Storyline/[Default]_Story Subtitle=Assigned to investigate the distress call, Easy lands to find Apollo deserted and communications jammed. Something is terribly wrong...
+UserData/Storyline/[Default]_Story Tooltip=Ready for mission launch...
 UserData/SurvivalWaveNames/Wave 10_Title=Wave 10
 UserData/SurvivalWaveNames/Wave 10_Wave Name=Boss 1 - Tartarus & Eileithyia
 UserData/SurvivalWaveNames/Wave 11_Title=Wave 11
@@ -6382,7 +6411,7 @@ UserData/TalentTrees/Flamethrower_Talent Tootips=<s val="AchievementFrameName">H
 UserData/TalentTrees/Flamethrower_Talent Tootips_001=<s val="AchievementFrameName">Burst Fire</s><n/>Deals damage to units in a forward arc. Deals 40% extra damage to Light units. Must have Flamethrower weapon equipped.<n/>Level 1 - 50 damage<n/>Level 2 - 100 damage<n/>Level 3 - 150 damage<n/><n/>6 range. Affects air units too.
 UserData/TalentTrees/Flamethrower_Talent Tootips_002=<s val="AchievementFrameName">BURN!</s><n/>The Flamethrower channels a continuous stream of fire on a single target, dealing increasing damage over time. Reduces target's armor up to a maximum of -10 when under effects of Burn. Must have Flamethrower equipped.<n/>Level 1 - Deals +25 damage/second <n/>Level 2 - Deals +50 damage/second <n/><n/>Caps out at a maximum of 200 damage/second. <n/><n/><c val="F4D72B">Tier 2 talents require 4 talent points in the tree to unlock</c>
 UserData/TalentTrees/Flamethrower_Talent Tootips_003=<s val="AchievementFrameName">Frenzy<n/>(Passive)</s><n/>Flamethrower gains increased attack/move speed and damage for each unit killed by Burst Fire and Burn. 30% chance to add 1 stack of Frenzy for each kill made by Inferno. Lasts for 30 seconds. Max stack of 30.<n/>Level 1 - +1% attack/move and +2% damage<n/>Level 2 - +2% attack/move and +4% damage<n/><n/><c val="F4D72B">Tier 2 talents require 4 talent points in the tree to unlock</c>
-UserData/TalentTrees/Flamethrower_Talent Tootips_004=<s val="AchievementFrameName">Inferno</s><n/>Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets will begin burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius.<n/><n/><c val="F4D72B">Tier 3 talents require 8 talent points in the tree to unlock</c>
+UserData/TalentTrees/Flamethrower_Talent Tootips_004=<s val="AchievementFrameName">Inferno</s><n/>Fires incendiary pallets in a forward arc that burns into the first 6 units it encounters (12 max range). Units with incendiary pallets are slowed by 60% while burning from within and explode after 5 seconds, dealing 200 damage to all ground units in 3 radius. Non-heroic armored biological ground units that die to the blast burst into pillars of fire that last 10 seconds. Units caught in the flames have a 40% chance per second of spreading Inferno, potentially causing a chain reaction.<n/><n/><c val="FF0000">Warning: Inferno creates fires that can engulf friendlies. Use with extreme caution!</c><n/><n/>"When the Saracens came to attack him, they threw Greek fire onto the barrier... the Turks did not wait for the fire to burn itself out, but rushed upon the Templars among the scorching flames." - Jean de Joinville<n/><n/><c val="F4D72B">Tier 3 talents require 8 talent points in the tree to unlock</c>
 UserData/TalentTrees/Flamethrower_Talent Tootips_005=<s val="AchievementFrameName">Smite</s><n/>Deals damage based on current HP and movespeed reduction to enemies in 3 radius of target area for 4 seconds. Less effective on Bosses.<n/>Level 1 - 10% of current HP and -18% movespeed<n/>Level 2 - 20% of current HP and -36% movespeed<n/>Level 3 - 30% of current HP and -54% movespeed
 UserData/TalentTrees/Flamethrower_Talent Tootips_006=<s val="AchievementFrameName">Vengeance<n/>(Passive)</s><n/>Chance for attackers to be stunned for 2 seconds. <n/>Level 1 - 15% chance<n/>Level 2 - 30% chance<n/>Level 3 - 45% chance<n/><n/>"And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know I am the LORD when I lay my vengeance upon thee." - Ezekiel 25:17
 UserData/TalentTrees/Flamethrower_Talent Tootips_007=<s val="AchievementFrameName">Righteousness</s><n/>+1 armor for each unit damaged by Smite.<n/>Level 1 - Lasts 8 secs<n/>Level 2 - Lasts 16 secs<n/><n/>"I shall walk down the road of shadow, the path of the wicked, the trail of damnation but I fear not for I stand as an unfaltering beacon to the lost for all those who have been cast down."<n/><n/><c val="F4D72B">Tier 2 talents require 4 talent points in the tree to unlock</c>

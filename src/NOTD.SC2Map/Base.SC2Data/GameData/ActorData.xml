@@ -1359,7 +1359,7 @@
         <On Terms="ActorCreation" Send="SetTintColor {0,255,38 20.000000}"/>
         <On Terms="Behavior.ChemicalPlatingAuraLevel3.Off" Send="Destroy"/>
         <Model value="NanitesUpgradeSplat"/>
-        <Scale value="1.150000"/>
+        <Scale value="1.800000"/>
     </CActorSplat>
     <CActorSplat id="ChemicalPlatingSplatLevel1" parent="GenericUnitSplat" unitName="ChemicalExpert">
         <On index="2" Terms="Behavior.ChemicalPlatingLevel1.On" Send="Create"/>
@@ -9460,7 +9460,7 @@
         <On Terms="UnitBirth.*.Normal" Send="$Birth"/>
         <On Terms="ActorCreation" Send="AnimBaselineStop"/>
         <On Terms="AnimDone; AnimName Birth" Send="$Stand 0 -1.000000 -1.000000 3.000000 AsDuration"/>
-        <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
+        <On Terms="AgeReached.PlasmaDetonator; Age 3.700000" Send="Destroy"/>
         <Model value="D8ClusterBomb"/>
         <BuildModel value="D8ClusterBomb"/>
         <DeathArray index="Normal" AnimProps="Death" ModelLink="D8Charge" SoundLink="Reaper_D8ChargeExplode"/>
@@ -15695,4 +15695,8 @@
     <CActorRange id="nukeRange">
         <RangeFlags index="Minimap" value="1"/>
     </CActorRange>
+    <CActorModel id="GhostNukeIndicator">
+        <Model value="nukeCursorSplat"/>
+        <Scale value="9.500000"/>
+    </CActorModel>
 </Catalog>

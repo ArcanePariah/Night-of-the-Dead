@@ -2647,6 +2647,7 @@
         <TargetFilters value="Light,Mechanical;Neutral,Enemy"/>
         <Range value="5"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RetrieveMine"/>
+        <CastIntroTime value="0.1"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="Sap">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
@@ -2838,7 +2839,7 @@
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Effect index="0" value="InfernoSet"/>
         <Cost>
-            <Vital index="Energy" value="25"/>
+            <Vital index="Energy" value="35"/>
             <Cooldown TimeUse="9"/>
         </Cost>
         <Range value="12"/>

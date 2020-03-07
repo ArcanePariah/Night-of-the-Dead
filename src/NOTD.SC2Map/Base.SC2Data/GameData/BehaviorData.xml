@@ -92,6 +92,21 @@
         <MaxStackCount value="3"/>
         <DamageResponse Chance="1" Handled="APAmmoApplyArmorDebuff" Location="Attacker"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="InfernoChainNapalm">
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-corvidreactor.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Period value="1"/>
+        <PeriodicEffect value="InfernoSearchTargetChain"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfernoChainTarget">
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-corvidreactor.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="HasInception"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="0.1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="CreateNapalmFireInfernoChain"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InsufficientAmmoTimed">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -825,7 +840,7 @@
         <Alignment value="Positive"/>
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-status-detector.dds"/>
-        <Modification Detect="8" DetectArc="0" RadarArc="0"/>
+        <Modification Detect="8" RadarArc="0"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="DisorientAssaultJumpLevel1">
         <Alignment value="Negative"/>
@@ -4859,6 +4874,7 @@
         <MaxStackCountPerCaster value="1"/>
         <Duration value="10"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-corvidreactor.dds"/>
+        <Modification MoveSpeedMultiplier="0.4"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ItemWeight1">
         <InfoFlags index="Hidden" value="1"/>
@@ -5428,8 +5444,8 @@
         <MaxStackCount value="10"/>
         <MaxStackCountPerCaster value="10"/>
         <PeriodCount value="0"/>
-        <ExpireEffect value="InfernoDamage"/>
-        <FinalEffect value="InfernoDamage"/>
+        <ExpireEffect value="InfernoDamageSet"/>
+        <FinalEffect value="InfernoDamageSet"/>
         <DisableValidatorArray value="HasInception"/>
         <DamageResponse Chance="0.3" Fatal="1" Handled="FrenzyApplyBuffSet"/>
     </CBehaviorBuff>

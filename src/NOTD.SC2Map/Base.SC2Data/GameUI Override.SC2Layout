@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-	<Constant name = "TooltipOffset" val = "-65" />
+    <Constant name="TooltipOffset" val="-65"/>
+
     <Frame type="GameUI" name="GameUI" file="GameUI">
         <ConsoleWorldBottomOffset val="0"/>
     </Frame>
@@ -28,6 +29,11 @@
     </Frame>
 
     <Frame type="Frame" name="GameUI/UIContainer/FullscreenUpperContainer" file="GameUI">
+        <Frame type="Frame" name="BossBar" template="BossBar/BossBarTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="-400"/>
+        </Frame>
+
         <Frame type="AlertPanel" name="AlertPanel" template="AlertPanel/AlertPanelTemplate">
             <Style val="AlertItem"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
@@ -279,6 +285,21 @@
 					<PlayerId val = "8" />
 				</Frame>
 		</Frame>
+
+		<Frame type="Image" name="CursorAnchor">
+            <Anchor side="Top" relative="$MouseCursor" pos="Min" offset="15" />
+            <Anchor side="Left" relative="$MouseCursor" pos="Min" offset="-600" />
+            <Height val="36"/>
+            <Width val="36"/>
+            <LayerCount val="2"/>
+            <TextureType val="Normal" layer="0" />
+            <TextureType val="Normal" layer="1" />
+            <Texture val="{$MouseCursor/@Texture[0]}" layer="0" />
+            <Texture val="{$MouseCursor/@Texture[1]}" layer="1" />
+            <Visible val="False"/>
+			<AcceptsMouse val="False"/>
+            <Handle val="CursorAnchor"/>
+        </Frame> 
 
 	</Frame>
 </Desc>
