@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CAbilInventory default="1" id="InventoryTemplate">
         <?token id="EquipmentBag"?>
@@ -13,8 +13,8 @@
         <CmdButtonArray index="ItemTarget" DefaultButtonFace="InventoryUseTargeted"/>
         <Range value="1.5"/>
         <MaxDropRange value="1"/>
-        <InfoArray Alignment="Left" Container="Bag##SlotCount##Slot" EmptyFace="EmptySlot"/>
-        <InfoArray Alignment="Left" Container="##EquipmentBag##" EmptyFace="EmptySlot"/>
+        <InfoArray Alignment="Left" Container="BagSlot" EmptyFace="EmptySlot"/>
+        <InfoArray Alignment="Left" EmptyFace="EmptySlot"/>
         <InfoArray Alignment="Left" EmptyFace="EmptySlot">
             <Classes value="Magazines"/>
         </InfoArray>
@@ -1002,9 +1002,13 @@
     </CAbilEffectInstant>
     <CAbilInventory id="InventoryChemExpert" parent="InventoryTemplate" EquipmentBag="EquipmentChemExpert" SlotCount="5">
         <Name value="Abil/Name/InventoryChemExpert"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag5Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentChemExpert" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryPathfinder" parent="InventoryTemplate" EquipmentBag="EquipmentPathfinder" SlotCount="5">
         <Name value="Abil/Name/InventoryPathfinder"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag5Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentPathfinder" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilLearn id="LearnChemExpert">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1693,7 +1697,7 @@
         </InfoArray>
     </CAbilMorph>
     <CAbilMorph id="BurrowInfestedAbominationUp">
-        <InfoArray index="0" Unit="Erebos" RandomDelayMax="0.5"/>
+        <InfoArray index="0" Unit="Erebos"/>
         <CmdButtonArray index="Execute">
             <Flags index="ToSelection" value="0"/>
         </CmdButtonArray>
@@ -1895,6 +1899,8 @@
     </CAbilEffectInstant>
     <CAbilInventory id="InventoryTechnician" parent="InventoryTemplate" EquipmentBag="EquipmentTechnician" SlotCount="6">
         <Name value="Abil/Name/InventoryTechnician"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag6Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentTechnician" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilLearn id="LearnTechnician">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -2207,7 +2213,7 @@
         </CmdButtonArray>
     </CAbilMorph>
     <CAbilMorph id="BurrowRoachUp">
-        <InfoArray index="0" Unit="Stalker2" RandomDelayMax="0.1"/>
+        <InfoArray index="0" Unit="Stalker2"/>
         <CmdButtonArray index="Execute">
             <Flags index="ToSelection" value="0"/>
         </CmdButtonArray>
@@ -3254,12 +3260,18 @@
     </CAbilEffectInstant>
     <CAbilInventory id="InventoryFlamethrower" parent="InventoryTemplate" EquipmentBag="EquipmentFlamethrower" SlotCount="6">
         <Name value="Abil/Name/InventoryFlamethrower"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag6Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentFlamethrower" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryPsiOps" parent="InventoryTemplate" EquipmentBag="EquipmentPsiOps" SlotCount="4">
         <Name value="Abil/Name/InventoryPsiOps"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag4Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentPsiOps" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryForwardObserver" parent="InventoryTemplate" EquipmentBag="EquipmentForwardObserver" SlotCount="4">
         <Name value="Abil/Name/InventoryForwardObserver"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag4Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentForwardObserver" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilEffectInstant id="MentalProjection">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -3825,6 +3837,8 @@
     </CAbilBehavior>
     <CAbilInventory id="InventoryEngineer" parent="InventoryTemplate" EquipmentBag="EquipmentEngineer" SlotCount="4">
         <Name value="Abil/Name/InventoryEngineer"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag4Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentEngineer" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryDrone">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -3847,6 +3861,8 @@
     </CAbilInventory>
     <CAbilInventory id="InventoryCommando" parent="InventoryTemplate" EquipmentBag="EquipmentCommando" SlotCount="4">
         <Name value="Abil/Name/InventoryCommando"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag4Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentCommando" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilEffectTarget id="Look">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
@@ -4135,7 +4151,7 @@
         <AutoCastCountMin value="1"/>
     </CAbilMorph>
     <CAbilMorph id="UpgradeToHive">
-        <InfoArray index="0" Score="1" Unit="Hive">
+        <InfoArray index="0">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="1"/>
             </SectionArray>
@@ -4148,7 +4164,7 @@
         </InfoArray>
     </CAbilMorph>
     <CAbilMorph id="UpgradeToLair">
-        <InfoArray index="0" Score="1" Unit="Lair">
+        <InfoArray index="0">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="1"/>
             </SectionArray>
@@ -4267,21 +4283,33 @@
     </CAbilEffectTarget>
     <CAbilInventory id="InventoryRifleman" parent="InventoryTemplate" EquipmentBag="Equipment" SlotCount="6">
         <Name value="Abil/Name/InventoryRifleman"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag6Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="Equipment" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryMedic" parent="InventoryTemplate" EquipmentBag="EquipmentMedic" SlotCount="4">
         <Name value="Abil/Name/InventoryMedic"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag4Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentMedic" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryAssault" parent="InventoryTemplate" EquipmentBag="EquipmentAssault" SlotCount="6">
         <Name value="Abil/Name/InventoryAssault"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag6Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentAssault" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryMarksman" parent="InventoryTemplate" EquipmentBag="EquipmentMarksman" SlotCount="4">
         <Name value="Abil/Name/InventoryMarksman"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag4Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentMarksman" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryRecon" parent="InventoryTemplate" EquipmentBag="EquipmentRecon" SlotCount="7">
         <Name value="Abil/Name/InventoryRecon"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag7Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="EquipmentRecon" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilInventory id="InventoryDemolitions" parent="InventoryTemplate" EquipmentBag="Equipment222" SlotCount="6">
         <Name value="Abil/Name/InventoryDemolitions"/>
+        <InfoArray index="0" Alignment="Left" Container="Bag6Slot" EmptyFace="EmptySlot"/>
+        <InfoArray index="1" Alignment="Left" Container="Equipment222" EmptyFace="EmptySlot"/>
     </CAbilInventory>
     <CAbilLearn id="LearnRifleman">
         <AbilSetId value="ClassLearn"/>
@@ -4922,12 +4950,7 @@
     </CAbilEffectTarget>
     <CAbilEffectTarget id="VultureSpiderMines">
         <Cost index="0">
-            <Charge>
-                <CountMax value="15"/>
-                <CountStart value="8"/>
-                <CountUse value="1"/>
-                <Location value="Unit"/>
-            </Charge>
+            <Charge CountMax="15" CountStart="8"/>
         </Cost>
         <Cost>
             <Charge>

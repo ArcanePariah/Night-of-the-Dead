@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CUnit default="1" id="SecurityGate">
         <FlagArray index="Movable" value="0"/>
@@ -1190,21 +1190,14 @@
         <BehaviorArray Link="CriticalStrikeAttackerKnife"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
-            <LayoutButtons index="4">
-                <Face value="MarineActions"/>
-                <Type value="Submenu"/>
-                <AbilCmd value="Sprint,Execute"/>
-                <SubmenuCardId value="2"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons index="5" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="6" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="7" Face="BuildMines" Type="AbilCmd" AbilCmd="BuildMines,Execute" Row="2" Column="1"/>
+            <LayoutButtons index="0" Face="MoveHoldPosition" AbilCmd="move,HoldPos"/>
+            <LayoutButtons index="1" Face="L3GrenadeLauncher" AbilCmd="L3LaunchGrenade,Execute"/>
+            <LayoutButtons index="2" Face="Reload" AbilCmd="Reload,Execute"/>
+            <LayoutButtons index="3" Face="Sprint" AbilCmd="Sprint,Execute" Column="4"/>
+            <LayoutButtons index="4" Face="MarineActions" Type="Submenu" AbilCmd="Sprint,Execute" SubmenuCardId="2" Row="1"/>
+            <LayoutButtons index="5" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Column="4"/>
+            <LayoutButtons index="6" Face="Attack" AbilCmd="attack,Execute" Row="0" Column="1"/>
+            <LayoutButtons index="7" Face="BuildMines" Type="AbilCmd" AbilCmd="BuildMines,Execute" Column="1"/>
             <LayoutButtons Face="SpiderMine" Type="AbilCmd" AbilCmd="VultureSpiderMines,Execute" Row="2" Column="2"/>
             <LayoutButtons Face="Satchel" Type="AbilCmd" AbilCmd="Satchel,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="FireVulnerability" Type="AbilCmd" AbilCmd="FireVulnerability,Execute" Row="2" Column="3"/>
@@ -1453,7 +1446,7 @@
         <BehaviorArray Link="MaintenanceDroneCutterCount"/>
         <BehaviorArray Link="MaintenanceDroneLimit"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="PlasmaCutterOverchargeLevel2" Type="AbilCmd" AbilCmd="PlasmaCutterOvercharge2,Execute" Row="1" Column="0"/>
+            <LayoutButtons index="6" Face="PlasmaCutterOverchargeLevel2" AbilCmd="PlasmaCutterOvercharge2,Execute" Row="1"/>
             <LayoutButtons index="7" removed="1"/>
             <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
@@ -1508,8 +1501,8 @@
         <BehaviorArray Link="MaintenanceDroneCutterCount"/>
         <BehaviorArray Link="MaintenanceDroneLimit"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="PlasmaCutterOverchargeLevel3" Type="AbilCmd" AbilCmd="PlasmaCutterOvercharge3,Execute" Row="1" Column="0"/>
-            <LayoutButtons index="7" Face="FieldRetrofit" Type="AbilCmd" AbilCmd="FieldRetrofit,Execute" Row="2" Column="1"/>
+            <LayoutButtons index="6" Face="PlasmaCutterOverchargeLevel3" AbilCmd="PlasmaCutterOvercharge3,Execute" Row="1"/>
+            <LayoutButtons index="7" Face="FieldRetrofit" Type="AbilCmd" AbilCmd="FieldRetrofit,Execute" Column="1"/>
             <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
         <Radius value="0.1875"/>
@@ -1559,12 +1552,12 @@
         <BehaviorArray Link="OpenWoundChance"/>
         <WeaponArray index="0" Link="GaussRifleMini"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="3"/>
-            <LayoutButtons index="3" Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="2"/>
-            <LayoutButtons index="4" Face="Stim" Type="AbilCmd" AbilCmd="Stimpack,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="5" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
+            <LayoutButtons index="0" Face="Stop" AbilCmd="stop,Stop"/>
+            <LayoutButtons index="1" Face="MoveHoldPosition" AbilCmd="move,HoldPos"/>
+            <LayoutButtons index="2" Face="Attack" AbilCmd="attack,Execute" Column="3"/>
+            <LayoutButtons index="3" Face="MovePatrol" AbilCmd="move,Patrol" Column="2"/>
+            <LayoutButtons index="4" Face="Stim" AbilCmd="Stimpack,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="5" Face="Sprint" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="1" Column="0"/>
         </CardLayouts>
         <Radius value="0.3125"/>
@@ -1943,8 +1936,8 @@
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="Move" AbilCmd="move,Move" Column="4"/>
             <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="1"/>
-            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons index="2" Face="Stop" AbilCmd="stop,Stop" Column="2"/>
+            <LayoutButtons index="3" Face="MoveHoldPosition" AbilCmd="move,HoldPos" Column="0"/>
             <LayoutButtons index="4" removed="1"/>
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
@@ -2055,34 +2048,20 @@
         <BehaviorArray Link="HeroDetectorRadar2"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="LaserDesignator" Type="AbilCmd" AbilCmd="LaserDesignator,Execute" Row="2" Column="3"/>
-            <LayoutButtons index="4" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
-            <LayoutButtons index="5" Face="Flare" Type="AbilCmd" AbilCmd="Flare,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="6">
-                <Face value="MarineActions"/>
-                <Type value="Submenu"/>
-                <AbilCmd value="Sprint,Execute"/>
-                <SubmenuCardId value="2"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons index="7" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="8" Face="Escape" Type="AbilCmd" AbilCmd="Escape,Execute" Row="1" Column="2"/>
-            <LayoutButtons index="9" Face="Refresher" Type="AbilCmd" AbilCmd="Refresher,Execute" Row="1" Column="1"/>
-            <LayoutButtons index="10">
-                <Face value="ReaperMK13"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="ReaperMK13,Execute"/>
-                <Requirements value=""/>
-                <Row value="1"/>
-                <Column value="0"/>
-            </LayoutButtons>
-            <LayoutButtons index="11" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="12" Face="SupplyStation" Type="AbilCmd" AbilCmd="SupplyStation,Execute" Row="2" Column="1"/>
-            <LayoutButtons index="13" Face="MassDesignate" Type="AbilCmd" AbilCmd="MassDesignate,Execute" Row="1" Column="3"/>
+            <LayoutButtons index="0" Face="MoveHoldPosition" AbilCmd="move,HoldPos"/>
+            <LayoutButtons index="1" Face="L3GrenadeLauncher" AbilCmd="L3LaunchGrenade,Execute"/>
+            <LayoutButtons index="2" Face="Reload" AbilCmd="Reload,Execute"/>
+            <LayoutButtons index="3" Face="LaserDesignator" AbilCmd="LaserDesignator,Execute" Row="2"/>
+            <LayoutButtons index="4" Face="Sprint" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
+            <LayoutButtons index="5" Face="Flare" AbilCmd="Flare,Execute" Column="0"/>
+            <LayoutButtons index="6" Face="MarineActions" Type="Submenu" AbilCmd="Sprint,Execute" SubmenuCardId="2" Row="1"/>
+            <LayoutButtons index="7" Face="Talents" AbilCmd="Talents,Execute"/>
+            <LayoutButtons index="8" Face="Escape" AbilCmd="Escape,Execute"/>
+            <LayoutButtons index="9" Face="Refresher" AbilCmd="Refresher,Execute" Column="1"/>
+            <LayoutButtons index="10" Face="ReaperMK13" Type="AbilCmd" AbilCmd="ReaperMK13,Execute" Requirements="" Column="0"/>
+            <LayoutButtons index="11" Face="Attack" AbilCmd="attack,Execute" Row="0" Column="1"/>
+            <LayoutButtons index="12" Face="SupplyStation" AbilCmd="SupplyStation,Execute" Column="1"/>
+            <LayoutButtons index="13" Face="MassDesignate" AbilCmd="MassDesignate,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="StealthMatrixDeactivate" Type="AbilCmd" AbilCmd="StealthMatrix,Execute" Row="1" Column="2"/>
             <LayoutButtons Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="Execute" Type="AbilCmd" AbilCmd="Execute,Execute" Row="2" Column="2"/>
@@ -2408,7 +2387,8 @@
         <AbilArray Link="CurrentAmmo"/>
         <AbilArray Link="CurrentMagazine"/>
         <AbilArray Link="BlockInventoryTransfer"/>
-        <BehaviorArray index="0" Link="Basic_Hero"/>
+        <BehaviorArray index="0" Link="Placeholder"/>
+        <BehaviorArray Link="Basic_Hero"/>
         <BehaviorArray Link="KittenBeacon"/>
         <BehaviorArray Link="PersonalPropulsionSystem"/>
         <BehaviorArray Link="PersonalShieldGenerator"/>
@@ -2429,7 +2409,7 @@
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons index="0" Face="MoveHoldPosition" AbilCmd="move,HoldPos"/>
             <LayoutButtons index="1">
                 <Face value="MarineActions"/>
                 <Type value="Submenu"/>
@@ -2438,9 +2418,9 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="2" Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="3" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="4" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
+            <LayoutButtons index="2" Face="Talents" AbilCmd="Talents,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="3" Face="L3GrenadeLauncher" AbilCmd="L3LaunchGrenade,Execute" Column="1"/>
+            <LayoutButtons index="4" Face="Attack" AbilCmd="attack,Execute" Column="1"/>
             <LayoutButtons index="5" Face="CombatKnife" Type="AbilCmd" AbilCmd="CombatKnife,Execute" Row="0" Column="3"/>
             <LayoutButtons Face="Sprint2" Type="AbilCmd" AbilCmd="Sprint2,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
@@ -2479,7 +2459,7 @@
         <SeparationRadius value="0.2"/>
         <InnerRadius value="0.1875"/>
         <CargoSize value="0"/>
-        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+        <EditorCategories value="ObjectType:Hero"/>
         <TacticalAI value="Pathfinder"/>
         <LeaderAlias value="Pathfinder"/>
         <HotkeyAlias value="Pathfinder"/>
@@ -2549,8 +2529,8 @@
         <BehaviorArray Link="SurveillanceDroneHeight"/>
         <BehaviorArray Link="MaintenanceDroneLimit"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="" Type="Undefined" AbilCmd="" Row="0" Column="0"/>
-            <LayoutButtons index="7" Face="PlasmaCutterOverchargeLevel1" Type="AbilCmd" AbilCmd="PlasmaCutterOvercharge,Execute" Row="2" Column="3"/>
+            <LayoutButtons index="6" Face="" Type="Undefined" AbilCmd="" Row="0"/>
+            <LayoutButtons index="7" Face="PlasmaCutterOverchargeLevel1" Type="AbilCmd" AbilCmd="PlasmaCutterOvercharge,Execute"/>
             <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
         <Radius value="0.1875"/>
@@ -3004,11 +2984,11 @@
         <BehaviorArray Link="CriticalStrikeAttackerKnife"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="4" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
+            <LayoutButtons index="0" Face="MoveHoldPosition" AbilCmd="move,HoldPos"/>
+            <LayoutButtons index="1" Face="L3GrenadeLauncher" AbilCmd="L3LaunchGrenade,Execute"/>
+            <LayoutButtons index="2" Face="Reload" AbilCmd="Reload,Execute"/>
+            <LayoutButtons index="3" Column="1"/>
+            <LayoutButtons index="4" Face="Sprint" AbilCmd="Sprint,Execute" Column="4"/>
             <LayoutButtons Face="ConcentratedFire" Type="AbilCmd" AbilCmd="ConcentratedFire,Execute" Row="2" Column="0"/>
             <LayoutButtons>
                 <Face value="MarineActions"/>
@@ -3314,7 +3294,7 @@
             <LayoutButtons index="5" Face="" Type="Undefined" AbilCmd="" Row="0" Column="0"/>
             <LayoutButtons index="6" Face="" Type="Undefined" AbilCmd="" Row="0" Column="0"/>
             <LayoutButtons index="7" Face="" Type="Undefined" AbilCmd="" Row="0" Column="0"/>
-            <LayoutButtons index="8" Face="BurrowDown" Type="AbilCmd" AbilCmd="BurrowBroodMother,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="8" Face="BurrowDown" AbilCmd="BurrowBroodMother,Execute" Column="4"/>
             <LayoutButtons Face="Transfusion" Type="AbilCmd" AbilCmd="Transfusion2,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <SpeedBonusCreep value="1.1992"/>
@@ -3494,8 +3474,8 @@
         <BehaviorArray index="0" Link="HugBehaviour"/>
         <BehaviorArray Link="DifficultyScalingHP"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="Detector" Type="Passive" AbilCmd="SpawnChangeling,Execute" Row="1" Column="0"/>
-            <LayoutButtons index="7" Face="Hug" Type="AbilCmd" AbilCmd="Hug,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="6" Face="Detector" Type="Passive" Row="1"/>
+            <LayoutButtons index="7" Face="Hug" Type="AbilCmd" AbilCmd="Hug,Execute" Column="0"/>
             <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
         <Radius value="0.1875"/>
@@ -3541,7 +3521,7 @@
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="Rampage" Type="Undefined" AbilCmd="Rampage,Execute" Row="0" Column="0"/>
+            <LayoutButtons index="6" Face="Rampage" AbilCmd="Rampage,Execute"/>
             <LayoutButtons index="7" Face="BurrowUp" AbilCmd="UnburrowBrainBug,Execute"/>
         </CardLayouts>
         <ScoreResult value=""/>
@@ -4017,7 +3997,7 @@
         <WeaponArray index="0" removed="1"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="BurrowUp" Type="Undefined" AbilCmd="UnburrowBeastling,Execute" Row="0" Column="4"/>
+            <LayoutButtons index="6" Face="BurrowUp" AbilCmd="UnburrowBeastling,Execute" Column="4"/>
             <LayoutButtons index="7" Face="BurrowUp" AbilCmd="UnburrowBeastling,Execute"/>
             <LayoutButtons index="8" removed="1"/>
             <LayoutButtons index="9" removed="1"/>
@@ -4983,8 +4963,8 @@
         <AbilArray index="2" removed="1"/>
         <AbilArray index="3" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="AsgardMove,HoldPos" Row="0" Column="2"/>
-            <LayoutButtons index="1" Face="HyperionYamatoGun" Type="AbilCmd" AbilCmd="HyperionYamatoSpecial,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="0" Face="MoveHoldPosition" AbilCmd="AsgardMove,HoldPos" Column="2"/>
+            <LayoutButtons index="1" Face="HyperionYamatoGun" AbilCmd="HyperionYamatoSpecial,Execute" Row="2" Column="0"/>
             <LayoutButtons index="2" removed="1"/>
             <LayoutButtons index="3" removed="1"/>
             <LayoutButtons index="4" removed="1"/>
@@ -5500,7 +5480,7 @@
             <LayoutButtons index="5" Face="" Type="Undefined" AbilCmd="" Row="0" Column="0"/>
             <LayoutButtons index="6" Face="" Type="Undefined" AbilCmd="" Row="0" Column="0"/>
             <LayoutButtons index="7" Face="" Type="Undefined" AbilCmd="" Row="0" Column="0"/>
-            <LayoutButtons index="8" Face="BurrowUp" Type="AbilCmd" AbilCmd="UnburrowBroodmother,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="8" Face="BurrowUp" AbilCmd="UnburrowBroodmother,Execute" Column="4"/>
         </CardLayouts>
         <TacticalAI value="ZombieBroodMother"/>
         <LeaderAlias value="ZombieBroodMother2"/>
@@ -6050,8 +6030,8 @@
         <AbilArray index="3" Link="NeuralParasite"/>
         <AbilArray index="4" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="Cancel" Type="AbilCmd" AbilCmd="Corruption,Cancel" Row="2" Column="4"/>
-            <LayoutButtons index="6" Face="NeuralParasite" Type="AbilCmd" AbilCmd="NeuralParasite,Execute" Row="2" Column="2"/>
+            <LayoutButtons index="5" Face="Cancel" AbilCmd="Corruption,Cancel" Column="4"/>
+            <LayoutButtons index="6" Face="NeuralParasite" AbilCmd="NeuralParasite,Execute" Column="2"/>
             <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
         <TacticalAI value=""/>
@@ -6177,7 +6157,7 @@
         <AbilArray index="3" Link="ExplodeBeastling"/>
         <AbilArray index="4" Link="BurrowBeastling"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="" Type="Undefined" AbilCmd="ExplodeBeastling,Execute" Row="0" Column="0"/>
+            <LayoutButtons index="6" AbilCmd="ExplodeBeastling,Execute"/>
             <LayoutButtons index="7" AbilCmd="BurrowBeastling,Execute"/>
         </CardLayouts>
         <SubgroupPriority value="1"/>
@@ -6230,7 +6210,7 @@
         <AbilArray index="3" Link="BurrowBlindling"/>
         <AbilArray index="4" Link="BlindlingExplode"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="BlindlingExplode" Type="Undefined" AbilCmd="attack,Execute" Row="0" Column="0"/>
+            <LayoutButtons index="6" Face="BlindlingExplode" AbilCmd="attack,Execute"/>
             <LayoutButtons index="7" AbilCmd="BurrowBlindling,Execute"/>
         </CardLayouts>
         <LifeStart value="35"/>
@@ -6259,7 +6239,7 @@
         <BehaviorArray Link="SharedExperience"/>
         <WeaponArray index="0" Link="HulkClaws"/>
         <CardLayouts index="0">
-            <LayoutButtons index="6" Face="Rampage" Type="Undefined" AbilCmd="Rampage,Execute" Row="0" Column="0"/>
+            <LayoutButtons index="6" Face="Rampage" AbilCmd="Rampage,Execute"/>
             <LayoutButtons index="7" AbilCmd="BurrowBrainBug,Execute"/>
             <LayoutButtons Face="Charge" Type="AbilCmd" AbilCmd="Charge,Execute" Row="2" Column="1"/>
         </CardLayouts>
@@ -6837,15 +6817,8 @@
         <BehaviorArray Link="SuicideBackup"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="AblativeScales"/>
-                <Type value="Passive"/>
-                <AbilCmd value="255,0"/>
-                <Requirements value="UseAblativeScales"/>
-                <Row value="2"/>
-                <Column value="2"/>
-            </LayoutButtons>
-            <LayoutButtons index="6" Face="Stealth2" Type="AbilCmd" AbilCmd="StealthIvax,On" Row="2" Column="0"/>
+            <LayoutButtons index="5" Face="AblativeScales" AbilCmd="255,0" Requirements="UseAblativeScales" Column="2"/>
+            <LayoutButtons index="6" Face="Stealth2" AbilCmd="StealthIvax,On"/>
             <LayoutButtons>
                 <Face value="Bloodlust"/>
                 <Type value="AbilCmd"/>
@@ -7299,8 +7272,8 @@
         <WeaponArray index="0" Link="DevourerGround"/>
         <WeaponArray index="1" Link="DevourerClaws"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="RapidRegeneration" Type="Passive" Requirements="" Row="1" Column="0"/>
-            <LayoutButtons index="6" Face="CliffWalk" Type="Passive" Requirements="" Row="1" Column="4"/>
+            <LayoutButtons index="5" Face="RapidRegeneration" Requirements=""/>
+            <LayoutButtons index="6" Face="CliffWalk" Requirements="" Column="4"/>
             <LayoutButtons index="7">
                 <Face value="BurrowDown"/>
                 <Type value="AbilCmd"/>
@@ -7874,8 +7847,8 @@
         <Speed value="2"/>
         <Sight value="5"/>
         <CardLayouts index="0">
-            <LayoutButtons index="2" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
-            <LayoutButtons index="3" Face="OrbitalLaser" Type="AbilCmd" AbilCmd="IonCannonBeam,Execute" Row="2" Column="2"/>
+            <LayoutButtons index="2" Face="Attack" AbilCmd="attack,Execute" Column="4"/>
+            <LayoutButtons index="3" Face="OrbitalLaser" AbilCmd="IonCannonBeam,Execute" Row="2" Column="2"/>
             <LayoutButtons index="4" removed="1"/>
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
@@ -8388,8 +8361,8 @@
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="Move" AbilCmd="move,Move" Column="4"/>
             <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="1"/>
-            <LayoutButtons index="2" Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
+            <LayoutButtons index="2" Face="Stop" AbilCmd="stop,Stop" Column="2"/>
+            <LayoutButtons index="3" Face="MoveHoldPosition" AbilCmd="move,HoldPos" Column="0"/>
             <LayoutButtons index="4" removed="1"/>
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
@@ -9227,7 +9200,7 @@
         <Attributes index="Psionic" value="1"/>
         <AbilArray index="3" Link="BurrowInfestedMarine"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="BurrowDown" Type="AbilCmd" AbilCmd="BurrowInfestedMarine,Execute" Row="1" Column="4"/>
+            <LayoutButtons index="5" AbilCmd="BurrowInfestedMarine,Execute" Row="1"/>
         </CardLayouts>
         <SpeedMultiplierCreep value="1.1"/>
         <KillXP value="11"/>
@@ -9298,7 +9271,7 @@
         <BehaviorArray Link="DeimosShockRifle"/>
         <WeaponArray index="0" Link="DeimosAssaultRifle"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="BurrowDown" Type="AbilCmd" AbilCmd="BurrowInfestorTerranDown,Execute" Row="1" Column="4"/>
+            <LayoutButtons index="5" AbilCmd="BurrowInfestorTerranDown,Execute" Row="1"/>
         </CardLayouts>
         <Radius value="0.375"/>
         <InnerRadius value="0.375"/>
@@ -9327,7 +9300,7 @@
         <AbilArray index="3" removed="1"/>
         <WeaponArray index="0" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="BurrowUp" Type="AbilCmd" AbilCmd="UnburrowInfestedMarine,Execute" Row="1" Column="4"/>
+            <LayoutButtons index="5" Face="BurrowUp" AbilCmd="UnburrowInfestedMarine,Execute" Row="1"/>
         </CardLayouts>
         <SelectAlias value="InfestorTerran2"/>
         <SubgroupAlias value="InfestorTerran2"/>
@@ -10182,12 +10155,12 @@
         <SubgroupAlias value="MobileInfantryMarksman"/>
         <AIEvaluateAlias value="MobileInfantryMarksman"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="1"/>
-            <LayoutButtons index="1" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="3"/>
-            <LayoutButtons index="2" Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
-            <LayoutButtons index="4" Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
-            <LayoutButtons index="5" Face="RiflemanGear" Type="AbilCmd" AbilCmd="RiflemanGear,Execute" Row="2" Column="3"/>
+            <LayoutButtons index="0" Face="MoveHoldPosition" AbilCmd="move,HoldPos" Column="1"/>
+            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="3"/>
+            <LayoutButtons index="2" Face="MovePatrol" AbilCmd="move,Patrol" Column="2"/>
+            <LayoutButtons index="3" Face="Sprint" AbilCmd="Sprint,Execute" Column="4"/>
+            <LayoutButtons index="4" Face="Move" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons index="5" Face="RiflemanGear" AbilCmd="RiflemanGear,Execute" Row="2" Column="3"/>
             <LayoutButtons index="6" Face="FlamethrowerGear" Type="AbilCmd" AbilCmd="FlamethrowerGear,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="SpectreHoldFire" Type="AbilCmd" AbilCmd="SpectreHoldFire,Execute" Row="1" Column="3"/>
             <LayoutButtons Face="SpectreWeaponsFree" Type="AbilCmd" AbilCmd="SpectreWeaponsFree,Execute" Row="1" Column="4"/>
@@ -10230,12 +10203,12 @@
         <SubgroupAlias value="MobileInfantryRifleman"/>
         <AIEvaluateAlias value="MobileInfantryRifleman"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="1"/>
-            <LayoutButtons index="1" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="3"/>
-            <LayoutButtons index="2" Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="Stim" Type="AbilCmd" AbilCmd="Stimpack,Execute" Row="2" Column="0"/>
-            <LayoutButtons index="4" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
-            <LayoutButtons index="5" Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons index="0" Face="MoveHoldPosition" AbilCmd="move,HoldPos" Column="1"/>
+            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="3"/>
+            <LayoutButtons index="2" Face="MovePatrol" AbilCmd="move,Patrol" Column="2"/>
+            <LayoutButtons index="3" Face="Stim" AbilCmd="Stimpack,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="4" Face="Sprint" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
+            <LayoutButtons index="5" Face="Move" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons index="6" Face="FlamethrowerGear" Type="AbilCmd" AbilCmd="FlamethrowerGear,Execute" Row="2" Column="3"/>
             <LayoutButtons Face="MarksmanGear" Type="AbilCmd" AbilCmd="MarksmanGear,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="SpectreHoldFire" Type="AbilCmd" AbilCmd="SpectreHoldFire,Execute" Row="1" Column="3"/>
@@ -10270,12 +10243,12 @@
         <AbilArray Link="SpectreHoldFire"/>
         <AbilArray Link="SpectreWeaponsFree"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="1"/>
-            <LayoutButtons index="1" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="3"/>
-            <LayoutButtons index="2" Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
-            <LayoutButtons index="4" Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
-            <LayoutButtons index="5" Face="RiflemanGear" Type="AbilCmd" AbilCmd="RiflemanGear,Execute" Row="2" Column="3"/>
+            <LayoutButtons index="0" Face="MoveHoldPosition" AbilCmd="move,HoldPos" Column="1"/>
+            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="3"/>
+            <LayoutButtons index="2" Face="MovePatrol" AbilCmd="move,Patrol" Column="2"/>
+            <LayoutButtons index="3" Face="Sprint" AbilCmd="Sprint,Execute" Column="4"/>
+            <LayoutButtons index="4" Face="Move" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons index="5" Face="RiflemanGear" AbilCmd="RiflemanGear,Execute" Row="2" Column="3"/>
             <LayoutButtons index="6" Face="MarksmanGear" Type="AbilCmd" AbilCmd="MarksmanGear,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="SlowRoast" Type="AbilCmd" AbilCmd="SlowRoast,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="SpectreHoldFire" Type="AbilCmd" AbilCmd="SpectreHoldFire,Execute" Row="1" Column="3"/>
@@ -10446,10 +10419,10 @@
         <AcquireLeashResetRadius value="-1"/>
         <HotkeyCategory value="Hotkey/Heros"/>
         <CardLayouts index="0">
-            <LayoutButtons index="0" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="L3GrenadeLauncher" Type="AbilCmd" AbilCmd="L3LaunchGrenade,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="Reload" Type="AbilCmd" AbilCmd="Reload,Execute" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
+            <LayoutButtons index="0" Face="MoveHoldPosition" AbilCmd="move,HoldPos"/>
+            <LayoutButtons index="1" Face="L3GrenadeLauncher" AbilCmd="L3LaunchGrenade,Execute"/>
+            <LayoutButtons index="2" Face="Reload" AbilCmd="Reload,Execute" Column="2"/>
+            <LayoutButtons index="3" Face="Sprint" AbilCmd="Sprint,Execute" Column="4"/>
             <LayoutButtons index="4">
                 <Face value="MarineActions"/>
                 <Type value="Submenu"/>
@@ -10458,7 +10431,7 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="5" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="1"/>
+            <LayoutButtons index="5" Face="Attack" AbilCmd="attack,Execute" Row="0" Column="1"/>
             <LayoutButtons index="6" Face="NapalmBarrage" Type="AbilCmd" AbilCmd="NapalmBarrage,Execute" Row="1" Column="0"/>
             <LayoutButtons Face="ShockwaveBarrage" Type="AbilCmd" AbilCmd="ShockwaveBarrage,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="Talents" Type="AbilCmd" AbilCmd="Talents,Execute" Row="2" Column="4"/>
@@ -11572,10 +11545,10 @@
         <AbilArray Link="Jump"/>
         <WeaponArray Link="ZombieClawsLevel2"/>
         <CardLayouts index="0">
-            <LayoutButtons index="1" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="3"/>
-            <LayoutButtons index="4" Face="Sprint" Type="AbilCmd" AbilCmd="Sprint,Execute" Row="0" Column="4"/>
+            <LayoutButtons index="1" Face="MoveHoldPosition" AbilCmd="move,HoldPos"/>
+            <LayoutButtons index="2" Face="MovePatrol" AbilCmd="move,Patrol"/>
+            <LayoutButtons index="3" Face="Attack" AbilCmd="attack,Execute"/>
+            <LayoutButtons index="4" Face="Sprint" AbilCmd="Sprint,Execute"/>
             <LayoutButtons Face="Transfusion" Type="AbilCmd" AbilCmd="Transfusion,Execute" Row="2" Column="3"/>
             <LayoutButtons Face="TeamLocation" Type="AbilCmd" AbilCmd="TeamLocation,Execute" Row="2" Column="4"/>
             <LayoutButtons Face="Jump" Type="AbilCmd" AbilCmd="Jump,0" Row="2" Column="0"/>

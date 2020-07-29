@@ -4298,6 +4298,7 @@ Behavior/EditorSuffix/PetVeterancy=NOTD
 Behavior/EditorSuffix/PetVeterancy2=NOTD
 Behavior/EditorSuffix/PhantomSuicide=(10 Seconds) NOTD
 Behavior/EditorSuffix/PistolEquipped=NOTD
+Behavior/EditorSuffix/Placeholder=NOTD
 Behavior/EditorSuffix/PlasmaDischargeExplosion=NOTD
 Behavior/EditorSuffix/PlasmaDischargeLevel1=NOTD
 Behavior/EditorSuffix/PlasmaDischargeLevel2=NOTD
