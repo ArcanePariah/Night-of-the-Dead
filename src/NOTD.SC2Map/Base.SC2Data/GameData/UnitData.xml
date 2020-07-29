@@ -2408,7 +2408,7 @@
         <AbilArray Link="CurrentAmmo"/>
         <AbilArray Link="CurrentMagazine"/>
         <AbilArray Link="BlockInventoryTransfer"/>
-        <BehaviorArray index="0" Link="Basic_Hero"/>
+        <BehaviorArray Link="Basic_Hero"/>
         <BehaviorArray Link="KittenBeacon"/>
         <BehaviorArray Link="PersonalPropulsionSystem"/>
         <BehaviorArray Link="PersonalShieldGenerator"/>
